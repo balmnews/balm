@@ -278,4 +278,4 @@ These features are intended but not yet implemented. Preserve the metadata schem
 - All output goes to `docs/`. Nothing outside `docs/` is modified during a run except `docs/index.html` and `docs/podcast.xml`.
 - The Jinja2 templates in `templates/` are the source of truth for HTML. Do not edit generated files in `docs/` directly.
 - The editorial system prompt in `pipeline.py` must match the version in this CLAUDE.md exactly. If you update one, update both.
-- The Claude model used is `claude-sonnet-4-20250514`. Update this constant in `pipeline.py` when upgrading.
+- The Claude model used is `claude-sonnet-4-6`. Update this constant in `pipeline.py` when upgrading.
