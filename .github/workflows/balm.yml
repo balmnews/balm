@@ -1,0 +1,89 @@
+name: Balm Digest
+
+on:
+  schedule:
+    - cron: '0 12 * * *'   # 4am PT / 7am ET
+    - cron: '0 21 * * *'   # 2pm PT / 5pm ET
+  workflow_dispatch:
+    inputs:
+      run:
+        description: 'Edition to generate'
+        required: false
+        default: 'auto'
+        type: choice
+        options:
+          - auto
+          - am
+          - pm
+      date:
+        description: 'Date override (YYYY-MM-DD, leave blank for today)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Determine run edition
+        id: edition
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.run }}" != "auto" ]; then
+            echo "run=${{ github.event.inputs.run }}" >> $GITHUB_OUTPUT
+          else
+            HOUR=$(date -u +%H)
+            if [ "$HOUR" -lt 14 ]; then
+              echo "run=am" >> $GITHUB_OUTPUT
+            else
+              echo "run=pm" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Run Balm pipeline
+        env:
+          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
+          GUARDIAN_API_KEY: ${{ secrets.GUARDIAN_API_KEY }}
+          NYT_API_KEY: ${{ secrets.NYT_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ELEVEN_LABS_API_KEY: ${{ secrets.ELEVEN_LABS_API_KEY }}
+        run: |
+          ARGS="--run ${{ steps.edition.outputs.run }}"
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            ARGS="$ARGS --date ${{ github.event.inputs.date }}"
+          fi
+          python pipeline.py $ARGS
+
+      - name: Determine date for commit message
+        id: commitdate
+        run: |
+          DATE=$(date -u +"%Y-%m-%d")
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            DATE="${{ github.event.inputs.date }}"
+          fi
+          RUN_UPPER=$(echo "${{ steps.edition.outputs.run }}" | tr '[:lower:]' '[:upper:]')
+          echo "msg=Balm digest $DATE $RUN_UPPER" >> $GITHUB_OUTPUT
+
+      - name: Commit and push digest files
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "${{ steps.commitdate.outputs.msg }}"
+          git push

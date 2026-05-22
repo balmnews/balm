@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balm — The topical anti-inflammatory</title>
+  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <meta name="theme-color" content="#6b82a8">
+  <meta property="og:title" content="Balm — The topical anti-inflammatory">
+  <meta property="og:description" content="The same news, without the agitation.">
+  <meta property="og:type" content="website">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f2ede4;
+      --ink: #2a2520;
+      --secondary: #6a6058;
+      --muted: #9a9288;
+      --rule: #c8c0b4;
+      --accent: #6b82a8;
+      --difficult: #5a4a3a;
+    }
+
+    html { font-size: 18px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Layout */
+    .page-wrapper {
+      display: flex;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      padding: 2rem 1.5rem 2rem 0;
+      border-right: 1px solid var(--rule);
+      min-height: 100vh;
+    }
+
+    .main-content {
+      flex: 1;
+      max-width: 860px;
+      padding: 0 2rem 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .page-wrapper { display: block; padding: 0; }
+      .sidebar { display: none; }
+      .main-content { padding: 0 1.25rem 3rem; }
+
+      /* Mobile archive toggle */
+      .mobile-archive-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.25rem;
+        border-bottom: 1px solid var(--rule);
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        cursor: pointer;
+      }
+
+      .mobile-archive-panel {
+        display: none;
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid var(--rule);
+        background: #ebe5db;
+      }
+
+      .mobile-archive-panel.open { display: block; }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-archive-toggle { display: none; }
+      .mobile-archive-panel { display: none !important; }
+    }
+
+    /* Masthead */
+    .masthead {
+      text-align: center;
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 3px double var(--rule);
+      margin-bottom: 1.5rem;
+    }
+
+    .masthead-logo svg {
+      display: block;
+      margin: 0 auto 0.5rem;
+    }
+
+    .masthead-tagline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--secondary);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .masthead-dateline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    /* Audio player */
+    .audio-bar {
+      background: #ebe5db;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 0.75rem 1rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .audio-bar audio {
+      flex: 1;
+      height: 36px;
+      accent-color: var(--accent);
+    }
+
+    .audio-label {
+      font-size: 0.72rem;
+      color: var(--secondary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* Section headers */
+    .section-header {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-top: 1px solid var(--rule);
+      padding-top: 1.25rem;
+      margin: 2rem 0 1.25rem;
+    }
+
+    /* Article cards */
+    .article {
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .article:last-child { border-bottom: none; }
+
+    .article-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 0.6rem;
+      color: var(--ink);
+    }
+
+    .summary-toggle {
+      display: flex;
+      gap: 0;
+      margin-bottom: 0.75rem;
+      user-select: none;
+    }
+
+    .toggle-btn {
+      cursor: pointer;
+      padding: 0.15rem 0.5rem;
+      border: 1px solid var(--rule);
+      background: none;
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .toggle-btn:first-child { border-radius: 3px 0 0 3px; }
+    .toggle-btn:last-child { border-radius: 0 3px 3px 0; border-left: none; }
+
+    .toggle-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .summary-text {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+
+    .summary-brief { display: block; }
+    .summary-full  { display: none; }
+
+    .summary-text.full-visible .summary-brief { display: none; }
+    .summary-text.full-visible .summary-full  { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
+    .article-source {
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    /* Difficult News */
+    .difficult-section {
+      border-top: 1px solid var(--rule);
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+    }
+
+    .difficult-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .difficult-toggle::-webkit-details-marker { display: none; }
+
+    .difficult-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--difficult);
+    }
+
+    .difficult-caret {
+      font-size: 0.7rem;
+      color: var(--difficult);
+      transition: transform 0.2s;
+    }
+
+    details[open] .difficult-caret { transform: rotate(90deg); }
+
+    .difficult-subtext {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    details[open] .difficult-subtext { display: none; }
+
+    .difficult-content { margin-top: 1.25rem; }
+    .difficult-content .article-headline { color: var(--difficult); }
+
+    /* Sidebar */
+    .sidebar-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      padding-top: 2rem;
+    }
+
+    .sidebar-home-link {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.04em;
+    }
+
+    .archive-month { margin-bottom: 1rem; }
+
+    .archive-month-label {
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .archive-link {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--secondary);
+      padding: 0.1rem 0;
+      line-height: 1.6;
+    }
+
+    .archive-link:hover { color: var(--accent); text-decoration: none; }
+    .archive-link.current { color: var(--accent); font-style: italic; }
+
+    /* Mobile archive */
+    .mobile-archive-title {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 3rem;
+      padding: 2rem 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .footer a { color: var(--muted); text-decoration: underline; }
+    .footer a:hover { color: var(--secondary); }
+
+    .kofi-link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.75rem;
+      color: var(--secondary);
+      border: 1px solid var(--rule);
+      padding: 0.25rem 0.75rem;
+      border-radius: 3px;
+      text-decoration: none;
+    }
+
+    .kofi-link:hover { background: #ebe5db; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<!-- Mobile archive toggle (shown only on mobile) -->
+<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
+  <span>&#9658;</span> Archive
+</div>
+<div class="mobile-archive-panel" id="mobile-archive-panel">
+  <div class="mobile-archive-title">Past Editions</div>
+  {% for month in archive_months %}
+  <div class="archive-month">
+    <div class="archive-month-label">{{ month.month }}</div>
+    {% for entry in month.entries %}
+    <a class="archive-link{% if entry.file == current_digest_file %} current{% endif %}"
+       href="{{ entry.file }}">
+      {{ entry.date[5:] }} {{ entry.run | upper }}
+    </a>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+
+<div class="page-wrapper">
+
+  <!-- Desktop sidebar -->
+  <nav class="sidebar" aria-label="Archive">
+    <div class="sidebar-title">Archive</div>
+    {% for month in archive_months %}
+    <div class="archive-month">
+      <div class="archive-month-label">{{ month.month }}</div>
+      {% for entry in month.entries %}
+      <a class="archive-link{% if entry.file == current_digest_file %} current{% endif %}"
+         href="{{ entry.file }}">
+        {{ entry.date[5:] }} {{ entry.run | upper }}
+      </a>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </nav>
+
+  <!-- Main content -->
+  <div class="main-content">
+
+    <!-- Masthead -->
+    <header class="masthead">
+      <div class="masthead-logo">
+        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="balm-spread" x="-5%" y="-5%" width="110%" height="110%">
+              <feMorphology in="SourceGraphic" operator="dilate" radius="1.5" result="dilated"/>
+              <feGaussianBlur in="dilated" stdDeviation="0.9" result="blurred"/>
+              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
+            </filter>
+          </defs>
+          <text x="90" y="44"
+                font-family="Caveat, cursive"
+                font-size="52"
+                font-weight="700"
+                fill="#6b82a8"
+                text-anchor="middle"
+                letter-spacing="8"
+                filter="url(#balm-spread)">Balm</text>
+        </svg>
+      </div>
+      <p class="masthead-tagline">The topical anti-inflammatory</p>
+      <p class="masthead-dateline">{{ date_display }}{% if run_label %} &middot; {{ run_label }} Edition{% endif %}</p>
+    </header>
+
+    <!-- Audio player -->
+    {% if has_audio %}
+    <div class="audio-bar">
+      <span class="audio-label">Listen</span>
+      <audio controls preload="none">
+        <source src="{{ mp3_file }}" type="audio/mpeg">
+      </audio>
+    </div>
+    {% endif %}
+
+    <!-- Stories -->
+    {% for section in categories %}
+      {% if section.name == 'DIFFICULT NEWS' %}
+        <div class="difficult-section">
+          <details>
+            <summary class="difficult-toggle">
+              <span class="difficult-caret">&#9658;</span>
+              <span class="difficult-label">Difficult News</span>
+            </summary>
+            <p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
+            <div class="difficult-content">
+              {% for article in section.articles %}
+              <div class="article">
+                <h2 class="article-headline">{{ article.headline }}</h2>
+                <div class="summary-toggle">
+                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                </div>
+                <div class="summary-text">
+                  <span class="summary-brief"><span>{{ article.brief_summary }}</span></span>
+                  <span class="summary-full"><span>{{ article.full_summary }}</span></span>
+                </div>
+                <p class="article-source">
+                  <a href="{{ article.url }}" target="_blank" rel="noopener noreferrer">{{ article.source }}</a>
+                </p>
+              </div>
+              {% endfor %}
+            </div>
+          </details>
+        </div>
+      {% else %}
+        <div class="section-header">{{ section.name }}</div>
+        {% for article in section.articles %}
+        <div class="article">
+          <h2 class="article-headline">{{ article.headline }}</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>{{ article.brief_summary }}</span></span>
+            <span class="summary-full"><span>{{ article.full_summary }}</span></span>
+          </div>
+          <p class="article-source">
+            <a href="{{ article.url }}" target="_blank" rel="noopener noreferrer">{{ article.source }}</a>
+          </p>
+        </div>
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+      Perpetrator details are withheld from violent events by editorial policy.</p>
+      <br>
+      <a class="kofi-link" href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm</a>
+      <br><br>
+      <p><a href="https://github.com/brianfunk/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
+    </footer>
+
+  </div><!-- /.main-content -->
+</div><!-- /.page-wrapper -->
+
+<script>
+  function toggleSummary(btn, mode) {
+    const toggleGroup = btn.closest('.summary-toggle');
+    const summaryEl = toggleGroup.nextElementSibling;
+    toggleGroup.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    if (mode === 'full') {
+      summaryEl.classList.add('full-visible');
+    } else {
+      summaryEl.classList.remove('full-visible');
+    }
+  }
+
+  function toggleMobileArchive() {
+    const panel = document.getElementById('mobile-archive-panel');
+    const toggle = document.getElementById('mobile-toggle');
+    const isOpen = panel.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+    toggle.querySelector('span').textContent = isOpen ? '▼' : '▶';
+  }
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
+</script>
+</body>
+</html>
