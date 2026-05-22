@@ -3,15 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — The topical anti-inflammatory</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Friday, May 22, 2026 PM</title>
+  <meta name="description" content="Balm news digest for Friday, May 22, 2026 — the topical anti-inflammatory.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — The topical anti-inflammatory">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
+  <link rel="manifest" href="/balm/manifest.json">
+  <link rel="apple-touch-icon" href="/balm/icons/icon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -68,34 +64,6 @@
       .page-wrapper { display: block; padding: 0; }
       .sidebar { display: none; }
       .main-content { padding: 0 1.25rem 3rem; }
-
-      /* Mobile archive toggle */
-      .mobile-archive-toggle {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.75rem 1.25rem;
-        border-bottom: 1px solid var(--rule);
-        font-size: 0.72rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--muted);
-        cursor: pointer;
-      }
-
-      .mobile-archive-panel {
-        display: none;
-        padding: 1rem 1.25rem;
-        border-bottom: 1px solid var(--rule);
-        background: #ebe5db;
-      }
-
-      .mobile-archive-panel.open { display: block; }
-    }
-
-    @media (min-width: 769px) {
-      .mobile-archive-toggle { display: none; }
-      .mobile-archive-panel { display: none !important; }
     }
 
     /* Masthead */
@@ -176,7 +144,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -191,6 +161,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -229,13 +203,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     .article-source {
@@ -288,10 +262,15 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
 
-    /* Sidebar */
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
+
+    /* Sidebar archive */
     .sidebar-title {
       font-family: 'Playfair Display', serif;
       font-size: 0.65rem;
@@ -302,15 +281,9 @@
       padding-top: 2rem;
     }
 
-    .sidebar-home-link {
-      display: block;
-      font-size: 0.72rem;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-      letter-spacing: 0.04em;
+    .archive-month {
+      margin-bottom: 1rem;
     }
-
-    .archive-month { margin-bottom: 1rem; }
 
     .archive-month-label {
       font-size: 0.68rem;
@@ -331,15 +304,6 @@
 
     .archive-link:hover { color: var(--accent); text-decoration: none; }
     .archive-link.current { color: var(--accent); font-style: italic; }
-
-    /* Mobile archive */
-    .mobile-archive-title {
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
 
     /* Footer */
     .footer {
@@ -366,38 +330,16 @@
       text-decoration: none;
     }
 
-    .kofi-link:hover { background: #ebe5db; text-decoration: none; }
+    .kofi-link:hover {
+      background: #ebe5db;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
-
-<!-- Mobile archive toggle (shown only on mobile) -->
-<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
-  <span>&#9658;</span> Archive
-</div>
-<div class="mobile-archive-panel" id="mobile-archive-panel">
-  <div class="mobile-archive-title">Past Editions</div>
-  
-  <div class="archive-month">
-    <div class="archive-month-label">May 2026</div>
-    
-    <a class="archive-link current"
-       href="2026-05-22-pm.html">
-      05-22 PM
-    </a>
-    
-    <a class="archive-link"
-       href="2026-05-22-am.html">
-      05-22 AM
-    </a>
-    
-  </div>
-  
-</div>
-
 <div class="page-wrapper">
 
-  <!-- Desktop sidebar -->
+  <!-- Sidebar archive nav -->
   <nav class="sidebar" aria-label="Archive">
     <div class="sidebar-title">Archive</div>
     
@@ -748,16 +690,8 @@
     }
   }
 
-  function toggleMobileArchive() {
-    const panel = document.getElementById('mobile-archive-panel');
-    const toggle = document.getElementById('mobile-toggle');
-    const isOpen = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-    toggle.querySelector('span').textContent = isOpen ? '▼' : '▶';
-  }
-
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/balm/service-worker.js');
   }
 </script>
 </body>
