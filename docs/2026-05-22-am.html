@@ -1,17 +1,18 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Friday, May 22, 2026 AM</title>
-  <meta name="description" content="Balm news digest for Friday, May 22, 2026 — the topical anti-inflammatory.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="/balm/manifest.json">
-  <link rel="apple-touch-icon" href="/balm/icons/icon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm — Friday, May 22, 2026 AM</title>
+<meta content="Balm news digest for Friday, May 22, 2026 — the topical anti-inflammatory." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="/balm/manifest.json" rel="manifest"/>
+<link href="/balm/icons/icon-192.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -212,13 +213,6 @@
       to   { opacity: 1; }
     }
 
-    .article-source {
-      margin-top: 0.6rem;
-      font-size: 0.78rem;
-      font-style: italic;
-      color: var(--muted);
-    }
-
     /* Difficult News */
     .difficult-section {
       border-top: 1px solid var(--rule);
@@ -334,395 +328,320 @@
       background: #ebe5db;
       text-decoration: none;
     }
-  </style>
+  
+    /* Sources inline toggle */
+    .sources-toggle { margin-top: 0.5rem; }
+    .sources-toggle-btn {
+      background: none; border: none; padding: 0; cursor: pointer;
+      font-family: 'Source Serif 4', serif; font-size: 0.75rem; color: #9a9288;
+      display: flex; align-items: center; gap: 0.3rem; letter-spacing: 0.04em;
+    }
+    .sources-toggle-btn:hover { color: #6a6058; }
+    .sources-caret { display: inline-block; transition: transform 0.2s ease; }
+    .sources-toggle-btn[aria-expanded="true"] .sources-caret { transform: rotate(90deg); }
+    .sources-list {
+      list-style: none; padding: 0; margin: 0;
+      max-height: 0; overflow: hidden; transition: max-height 0.25s ease;
+    }
+    .sources-toggle-btn[aria-expanded="true"] + .sources-list { max-height: 20rem; }
+    .sources-list li { padding: 0.2rem 0 0.2rem 0.8rem; }
+    .sources-list a {
+      font-size: 0.75rem; color: #9a9288;
+      text-decoration: none; border-bottom: 1px solid #c8c0b4;
+    }
+    .sources-list a:hover { color: #6b82a8; }
+</style>
 </head>
 <body>
 <div class="page-wrapper">
-
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">May 2026</div>
-      
-      <a class="archive-link current"
-         href="2026-05-22-am.html">
+<!-- Sidebar archive nav -->
+<nav aria-label="Archive" class="sidebar">
+<div class="sidebar-title">Archive</div>
+<div class="archive-month">
+<div class="archive-month-label">May 2026</div>
+<a class="archive-link current" href="2026-05-22-am.html">
         05-22 AM
       </a>
-      
-    </div>
-    
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="balm-spread" x="-5%" y="-5%" width="110%" height="110%">
-              <feMorphology in="SourceGraphic" operator="dilate" radius="1.5" result="dilated"/>
-              <feGaussianBlur in="dilated" stdDeviation="0.9" result="blurred"/>
-              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-            </filter>
-          </defs>
-          <text x="90" y="44"
-                font-family="Caveat, cursive"
-                font-size="52"
-                font-weight="700"
-                fill="#6b82a8"
-                text-anchor="middle"
-                letter-spacing="8"
-                filter="url(#balm-spread)">Balm</text>
-        </svg>
-      </div>
-      <p class="masthead-tagline">The topical anti-inflammatory</p>
-      <p class="masthead-dateline">Friday, May 22, 2026 &middot; AM Edition</p>
-    </header>
-
-    <!-- Audio player -->
-    
-
-    <!-- Stories -->
-    
-      
-        <div class="section-header">GEOPOLITICS</div>
-        
-        <div class="article">
-          <h2 class="article-headline">Qatar and Pakistan Send Mediators to Tehran as US-Iran Talks Remain Unresolved</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Qatar and Pakistan have dispatched diplomatic teams to Tehran as negotiations between the United States and Iran over the Strait of Hormuz and Iran's uranium stockpile remain deadlocked. Regional mediators are working to prevent a resumption of armed conflict. Key disagreements include the fate of Iran's highly enriched uranium and proposed shipping tolls on the strait.</span></span>
-            <span class="summary-full"><span>Nearly three months into the conflict, diplomatic efforts to reach a durable agreement between the United States and Iran have not produced a resolution. Qatar and Pakistan have each sent mediator teams to Tehran in an effort to salvage a ceasefire and address the core issues keeping talks from advancing. The two main sticking points are what happens to Iran's stockpile of highly enriched uranium and Iran's proposal to impose tolls on shipping passing through the Strait of Hormuz — a critical waterway for global oil transit.
+</div>
+</nav>
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="110%" id="balm-spread" width="110%" x="-5%" y="-5%">
+<femorphology in="SourceGraphic" operator="dilate" radius="1.5" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.9"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg>
+</div>
+<p class="masthead-tagline">The topical anti-inflammatory</p>
+<p class="masthead-dateline">Friday, May 22, 2026 · AM Edition</p>
+</header>
+<!-- Audio player -->
+<!-- Stories -->
+<div class="section-header">GEOPOLITICS</div>
+<div class="article">
+<h2 class="article-headline">Qatar and Pakistan Send Mediators to Tehran as US-Iran Talks Remain Unresolved</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Qatar and Pakistan have dispatched diplomatic teams to Tehran as negotiations between the United States and Iran over the Strait of Hormuz and Iran's uranium stockpile remain deadlocked. Regional mediators are working to prevent a resumption of armed conflict. Key disagreements include the fate of Iran's highly enriched uranium and proposed shipping tolls on the strait.</span></span>
+<span class="summary-full"><span>Nearly three months into the conflict, diplomatic efforts to reach a durable agreement between the United States and Iran have not produced a resolution. Qatar and Pakistan have each sent mediator teams to Tehran in an effort to salvage a ceasefire and address the core issues keeping talks from advancing. The two main sticking points are what happens to Iran's stockpile of highly enriched uranium and Iran's proposal to impose tolls on shipping passing through the Strait of Hormuz — a critical waterway for global oil transit.
 
 US Secretary of State Marco Rubio has signaled that the upcoming NATO summit will include discussion of American expectations from the alliance, including US requests for assistance in the Strait of Hormuz. Stock and oil markets have responded with modest gains amid the ongoing diplomatic uncertainty. The situation remains fluid, with mediators framing the current moment as a potential turning point in the negotiations.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/22/world/middleeast/iran-ceasefire-us-qatar-pakistan.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">US Expresses Concern Over Russian Activity Near Baltic States Ahead of NATO Summit</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>US Secretary of State Marco Rubio has said the United States is monitoring what it describes as a Russian campaign targeting Baltic nations, expressing concern it could escalate. The comments come ahead of a NATO summit where US frustrations with the alliance are expected to be discussed. The Czech president has also called on NATO to take a firmer stance in response to Russian provocations.</span></span>
-            <span class="summary-full"><span>US Secretary of State Marco Rubio indicated this week that the United States is closely watching Russian activity directed at Baltic states — Estonia, Latvia, and Lithuania — and that American officials are concerned the situation could expand beyond its current scope. His remarks come in advance of a scheduled NATO summit where alliance defense responsibilities and burden-sharing are expected to be central topics. Rubio also acknowledged that President Trump's dissatisfaction with NATO will be on the agenda at the upcoming meeting.
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/22/world/middleeast/iran-ceasefire-us-qatar-pakistan.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">US Expresses Concern Over Russian Activity Near Baltic States Ahead of NATO Summit</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>US Secretary of State Marco Rubio has said the United States is monitoring what it describes as a Russian campaign targeting Baltic nations, expressing concern it could escalate. The comments come ahead of a NATO summit where US frustrations with the alliance are expected to be discussed. The Czech president has also called on NATO to take a firmer stance in response to Russian provocations.</span></span>
+<span class="summary-full"><span>US Secretary of State Marco Rubio indicated this week that the United States is closely watching Russian activity directed at Baltic states — Estonia, Latvia, and Lithuania — and that American officials are concerned the situation could expand beyond its current scope. His remarks come in advance of a scheduled NATO summit where alliance defense responsibilities and burden-sharing are expected to be central topics. Rubio also acknowledged that President Trump's dissatisfaction with NATO will be on the agenda at the upcoming meeting.
 
 Separately, Czech President Petr Pavel, a former military general, publicly urged NATO to adopt a firmer posture in response to what he characterized as ongoing Russian testing of the alliance's eastern flank. Pavel argued that a clear and resolute response is necessary to deter further provocation. The overlapping statements from multiple NATO members reflect a broader internal debate within the alliance about how to respond to Russian actions near its borders.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.theguardian.com/world/live/2026/may/22/nato-mark-rutte-us-donald-trump-troops-poland-summit-russia-baltics-drones-tensions-ukraine-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">European Nations Debate Strategy Before Appointing Envoy for Ukraine Peace Talks</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>European governments are discussing the possibility of appointing a shared envoy to engage in peace negotiations between Ukraine and Russia. Before doing so, multiple European leaders say they need to first agree on what objectives such an envoy would pursue. The internal debate reflects divisions over negotiating positions and red lines.</span></span>
-            <span class="summary-full"><span>European nations are considering appointing a unified diplomatic envoy to participate in potential peace talks between Russia and Ukraine. However, a significant internal debate is underway about what that envoy's mandate should be before any such appointment is made. Multiple European officials have cautioned that agreeing on a negotiating position must come first, warning that sending an envoy without a clear and shared set of objectives could undermine the effort.
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.theguardian.com/world/live/2026/may/22/nato-mark-rutte-us-donald-trump-troops-poland-summit-russia-baltics-drones-tensions-ukraine-latest-news-updates" rel="noopener" target="_blank">The Guardian</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">European Nations Debate Strategy Before Appointing Envoy for Ukraine Peace Talks</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>European governments are discussing the possibility of appointing a shared envoy to engage in peace negotiations between Ukraine and Russia. Before doing so, multiple European leaders say they need to first agree on what objectives such an envoy would pursue. The internal debate reflects divisions over negotiating positions and red lines.</span></span>
+<span class="summary-full"><span>European nations are considering appointing a unified diplomatic envoy to participate in potential peace talks between Russia and Ukraine. However, a significant internal debate is underway about what that envoy's mandate should be before any such appointment is made. Multiple European officials have cautioned that agreeing on a negotiating position must come first, warning that sending an envoy without a clear and shared set of objectives could undermine the effort.
 
 The discussion reflects broader tensions within Europe over how to approach a potential diplomatic resolution to the ongoing conflict — including questions about territorial concessions, security guarantees, and the extent of Western involvement. No envoy has been appointed, and no formal negotiating framework has been established as of this reporting.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/22/world/europe/ukraine-russia-putin-europe-peace-talks.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Ebola Outbreak in Central Africa Raises International Concern; US Imposes Entry Restrictions</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>An Ebola outbreak centered in the Democratic Republic of Congo has spread to border regions, with health officials warning that heavy population movement in the area increases the risk of further spread. The United States has imposed entry restrictions on certain travelers, directing flights to a single designated airport. An American doctor who contracted the virus while working in Congo is being treated in Germany and is reported to be critically ill.</span></span>
-            <span class="summary-full"><span>An Ebola outbreak in the Democratic Republic of Congo has drawn growing international attention as the virus circulated undetected for several weeks before being identified. Health officials note that high levels of population movement in the affected region create conditions that could allow the outbreak to spread more widely. The World Health Organization has stated that the global risk remains low, but has warned that deaths are likely to rise. A flight bound for Detroit was diverted to Canada after a Congolese passenger boarded in error, according to US officials.
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/22/world/europe/ukraine-russia-putin-europe-peace-talks.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">Ebola Outbreak in Central Africa Raises International Concern; US Imposes Entry Restrictions</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>An Ebola outbreak centered in the Democratic Republic of Congo has spread to border regions, with health officials warning that heavy population movement in the area increases the risk of further spread. The United States has imposed entry restrictions on certain travelers, directing flights to a single designated airport. An American doctor who contracted the virus while working in Congo is being treated in Germany and is reported to be critically ill.</span></span>
+<span class="summary-full"><span>An Ebola outbreak in the Democratic Republic of Congo has drawn growing international attention as the virus circulated undetected for several weeks before being identified. Health officials note that high levels of population movement in the affected region create conditions that could allow the outbreak to spread more widely. The World Health Organization has stated that the global risk remains low, but has warned that deaths are likely to rise. A flight bound for Detroit was diverted to Canada after a Congolese passenger boarded in error, according to US officials.
 
 The United States has responded with entry restrictions, directing all flights carrying certain travelers from the affected region to arrive at Dulles International Airport in Virginia for screening. Public health experts have described some of the administration's quarantine measures as more stringent than standard protocols for Ebola containment. An American physician who contracted Ebola while working in Congo has been transported to Germany for treatment and is reported to be in critical condition.
 
 Health responders working in Congo say that reductions in international aid funding have left response infrastructure underprepared, complicating containment efforts despite the country's extensive prior experience managing Ebola outbreaks. Neighboring South Sudan is also being monitored, with humanitarian workers noting that hunger and ongoing conflict in border communities could compound the impact of any further spread.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/interactive/2026/05/22/world/africa/ebola-outbreak-congo-map.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-      
-    
-      
-        <div class="section-header">ECONOMY</div>
-        
-        <div class="article">
-          <h2 class="article-headline">SpaceX Files for IPO, Disclosing Finances and Governance Structure for the First Time</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>SpaceX has filed an initial public offering registration statement, publicly disclosing its financial performance and corporate structure for the first time. The filing reveals details about founder control, subsidiary finances including losses at xAI, and a deal with Anthropic. The offering is expected to be one of the largest in recent history.</span></span>
-            <span class="summary-full"><span>SpaceX has submitted an S-1 registration statement to go public on the US stock market, giving outside investors their first detailed look at the company's finances and governance. The filing discloses that the company's founder retains significant control over the company's direction and decision-making. The document also reveals financial details about related entities, including losses associated with the xAI artificial intelligence venture and a substantial deal involving AI company Anthropic.
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/interactive/2026/05/22/world/africa/ebola-outbreak-congo-map.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="section-header">ECONOMY</div>
+<div class="article">
+<h2 class="article-headline">SpaceX Files for IPO, Disclosing Finances and Governance Structure for the First Time</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>SpaceX has filed an initial public offering registration statement, publicly disclosing its financial performance and corporate structure for the first time. The filing reveals details about founder control, subsidiary finances including losses at xAI, and a deal with Anthropic. The offering is expected to be one of the largest in recent history.</span></span>
+<span class="summary-full"><span>SpaceX has submitted an S-1 registration statement to go public on the US stock market, giving outside investors their first detailed look at the company's finances and governance. The filing discloses that the company's founder retains significant control over the company's direction and decision-making. The document also reveals financial details about related entities, including losses associated with the xAI artificial intelligence venture and a substantial deal involving AI company Anthropic.
 
 The IPO is expected to value SpaceX at approximately 1.75 trillion dollars, which would make it one of the largest public market debuts on record. The filing also includes details about the company's long-term ambitions, including goals related to Mars colonization, as well as disclosures about risks tied to its various business lines. The company has extensive contracts with the US government for rocket launches and satellite services. Investors and analysts are closely reviewing the document ahead of a planned public listing next month.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/20/technology/elon-musk-spacex-ipo.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Private Credit Defaults Reach Record Level as Interest Rates Remain Elevated</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Default rates in the private credit market have reached a record high, driven by sustained high interest rates. Investment funds are working to restructure troubled loans and are marking down the value of affected assets. The development signals growing stress in a lending market that expanded rapidly in recent years.</span></span>
-            <span class="summary-full"><span>The private credit market — a segment of lending that operates outside traditional banks and public bond markets — is experiencing its highest default rate on record, according to financial data reported this week. The primary driver is the sustained high interest rate environment, which has increased borrowing costs for companies that relied on private credit for financing. As loans sour, fund managers are working to restructure debt arrangements to avoid full defaults, and are simultaneously writing down the estimated value of affected holdings.
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/20/technology/elon-musk-spacex-ipo.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">Private Credit Defaults Reach Record Level as Interest Rates Remain Elevated</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Default rates in the private credit market have reached a record high, driven by sustained high interest rates. Investment funds are working to restructure troubled loans and are marking down the value of affected assets. The development signals growing stress in a lending market that expanded rapidly in recent years.</span></span>
+<span class="summary-full"><span>The private credit market — a segment of lending that operates outside traditional banks and public bond markets — is experiencing its highest default rate on record, according to financial data reported this week. The primary driver is the sustained high interest rate environment, which has increased borrowing costs for companies that relied on private credit for financing. As loans sour, fund managers are working to restructure debt arrangements to avoid full defaults, and are simultaneously writing down the estimated value of affected holdings.
 
 Private credit grew substantially over the past decade as institutional investors sought higher returns than those available in conventional fixed-income markets. The current stress in the sector raises questions about the durability of that growth and the extent to which losses may ripple through pension funds, endowments, and other institutional investors that allocated capital to these funds. Analysts are watching closely to see whether the default rate stabilizes or continues to climb if rates remain elevated.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.cnbc.com/2026/05/21/private-credit-defaults-hit-record-high-as-interest-rates-soar.html" target="_blank" rel="noopener noreferrer">CNBC</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Walmart Reports Signs of Consumer Spending Pullback Linked to Higher Fuel Costs</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Walmart has reported that US shoppers are beginning to reduce spending, with higher gasoline prices identified as a contributing factor. The retailer said it expects customers to continue cutting back in the months ahead. The signal from the country's largest retailer is a closely watched indicator of household financial conditions.</span></span>
-            <span class="summary-full"><span>Walmart, the largest retail chain in the United States, has indicated that consumer spending is softening, citing higher fuel prices as a factor reducing the discretionary income available to shoppers. The company said it anticipates that customers will continue to pull back on spending in the coming months. Gasoline prices in the United States have risen above four dollars and fifty cents per gallon in some areas, adding to household budget pressure.
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.cnbc.com/2026/05/21/private-credit-defaults-hit-record-high-as-interest-rates-soar.html" rel="noopener" target="_blank">CNBC</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">Walmart Reports Signs of Consumer Spending Pullback Linked to Higher Fuel Costs</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Walmart has reported that US shoppers are beginning to reduce spending, with higher gasoline prices identified as a contributing factor. The retailer said it expects customers to continue cutting back in the months ahead. The signal from the country's largest retailer is a closely watched indicator of household financial conditions.</span></span>
+<span class="summary-full"><span>Walmart, the largest retail chain in the United States, has indicated that consumer spending is softening, citing higher fuel prices as a factor reducing the discretionary income available to shoppers. The company said it anticipates that customers will continue to pull back on spending in the coming months. Gasoline prices in the United States have risen above four dollars and fifty cents per gallon in some areas, adding to household budget pressure.
 
 Retailer spending data is considered one of the more reliable real-time indicators of consumer financial health, given Walmart's broad customer base across income levels. A pullback in spending at Walmart can reflect wider economic caution among American households. The company's forward-looking commentary adds to a growing body of signals that higher energy costs are beginning to affect everyday purchasing decisions.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.bbc.com/news/articles/cj9prkzwr8vo" target="_blank" rel="noopener noreferrer">BBC News</a>
-          </p>
-        </div>
-        
-      
-    
-      
-        <div class="section-header">DOMESTIC POLICY</div>
-        
-        <div class="article">
-          <h2 class="article-headline">Trump Postpones Signing of Executive Order on AI Model Oversight</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>President Trump has postponed signing an executive order that would have given the federal government authority to evaluate artificial intelligence models before their public release. The president cited unspecified concerns about certain aspects of the order. No revised timeline for signing has been announced.</span></span>
-            <span class="summary-full"><span>An executive order that would have established a federal review process for artificial intelligence systems prior to their release to the public has been postponed by President Trump. The president indicated he had concerns about certain provisions within the order but did not specify which elements prompted the delay. The order had been anticipated as a significant step in federal AI governance policy.
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.bbc.com/news/articles/cj9prkzwr8vo" rel="noopener" target="_blank">BBC News</a></li></ul></div>
+</div>
+<div class="section-header">DOMESTIC POLICY</div>
+<div class="article">
+<h2 class="article-headline">Trump Postpones Signing of Executive Order on AI Model Oversight</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>President Trump has postponed signing an executive order that would have given the federal government authority to evaluate artificial intelligence models before their public release. The president cited unspecified concerns about certain aspects of the order. No revised timeline for signing has been announced.</span></span>
+<span class="summary-full"><span>An executive order that would have established a federal review process for artificial intelligence systems prior to their release to the public has been postponed by President Trump. The president indicated he had concerns about certain provisions within the order but did not specify which elements prompted the delay. The order had been anticipated as a significant step in federal AI governance policy.
 
 The postponement comes as AI regulation remains an active area of policy debate in Washington and across state governments. Just days earlier, California Governor Gavin Newsom signed a separate executive order at the state level directing his administration to explore labor policy changes in response to potential large-scale job displacement from artificial intelligence. Newsom's order also advanced a concept that would allow workers to hold a financial stake in AI-related productivity gains, an idea that has drawn attention from technology industry observers.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/21/technology/trump-ai-executive-order.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Trump Administration Eases Restrictions on Hydrofluorocarbon Phaseout</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Trump administration has delayed a scheduled phaseout of hydrofluorocarbons, a category of chemicals used in air conditioning and refrigeration that are considered potent contributors to atmospheric warming. The delay reverses a timeline established under prior environmental regulations. Environmental policy groups have criticized the move.</span></span>
-            <span class="summary-full"><span>The Environmental Protection Agency, under direction from the Trump administration, has delayed the phaseout of hydrofluorocarbons — a class of chemicals commonly referred to as HFCs — that are widely used in cooling systems including air conditioners and commercial refrigeration equipment. HFCs are considered highly potent greenhouse gases, with warming effects significantly greater than carbon dioxide over equivalent time periods. A phasedown schedule had previously been put in place under earlier federal and international agreements.
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/21/technology/trump-ai-executive-order.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">Trump Administration Eases Restrictions on Hydrofluorocarbon Phaseout</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Trump administration has delayed a scheduled phaseout of hydrofluorocarbons, a category of chemicals used in air conditioning and refrigeration that are considered potent contributors to atmospheric warming. The delay reverses a timeline established under prior environmental regulations. Environmental policy groups have criticized the move.</span></span>
+<span class="summary-full"><span>The Environmental Protection Agency, under direction from the Trump administration, has delayed the phaseout of hydrofluorocarbons — a class of chemicals commonly referred to as HFCs — that are widely used in cooling systems including air conditioners and commercial refrigeration equipment. HFCs are considered highly potent greenhouse gases, with warming effects significantly greater than carbon dioxide over equivalent time periods. A phasedown schedule had previously been put in place under earlier federal and international agreements.
 
 The administration's action pushes back the timeline for transitioning away from these substances, which manufacturers and some industry groups had been adapting their product lines to meet. The move is part of a broader pattern of the current administration rolling back or delaying climate-related regulatory requirements established by prior administrations. Critics of the decision argue it undermines both domestic climate commitments and international agreements on reducing super-pollutant emissions.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/21/climate/trump-super-pollutants-hfc-epa-climate-change.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Two Minnesota Providers Charged in $46 Million Medicaid Fraud Involving Autism Therapy</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Federal prosecutors have charged two Minnesota autism therapy providers in connection with an alleged $46 million Medicaid fraud scheme. Authorities allege the clinics used false diagnoses and financial payments to parents to enroll children in services that were then billed to the government. The case is being prosecuted by the Justice Department.</span></span>
-            <span class="summary-full"><span>The US Justice Department has filed charges against two autism therapy providers in Minnesota, alleging they orchestrated a scheme that fraudulently billed Medicaid for approximately 46 million dollars in services. Prosecutors allege that the clinics used fabricated diagnoses to qualify children for therapy programs and offered payments to parents as inducements to bring children into treatment, a practice that constitutes a kickback under federal health care law.
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/21/climate/trump-super-pollutants-hfc-epa-climate-change.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">Two Minnesota Providers Charged in $46 Million Medicaid Fraud Involving Autism Therapy</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Federal prosecutors have charged two Minnesota autism therapy providers in connection with an alleged $46 million Medicaid fraud scheme. Authorities allege the clinics used false diagnoses and financial payments to parents to enroll children in services that were then billed to the government. The case is being prosecuted by the Justice Department.</span></span>
+<span class="summary-full"><span>The US Justice Department has filed charges against two autism therapy providers in Minnesota, alleging they orchestrated a scheme that fraudulently billed Medicaid for approximately 46 million dollars in services. Prosecutors allege that the clinics used fabricated diagnoses to qualify children for therapy programs and offered payments to parents as inducements to bring children into treatment, a practice that constitutes a kickback under federal health care law.
 
 Medicaid fraud in the behavioral health sector has been a focus of federal enforcement in recent years, as the category has expanded rapidly. The case highlights vulnerabilities in oversight of therapy billing, particularly for services tied to autism diagnoses, where demand has grown substantially. The individuals named in the charges have not been found guilty; the allegations represent the government's claims as the case proceeds through the legal system.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/21/us/politics/medicaid-fraud-minnesota-autism.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SCIENCE & HEALTH</div>
-        
-        <div class="article">
-          <h2 class="article-headline">Eli Lilly Reports Significant Weight Loss Results from Experimental Drug Retatrutide</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Pharmaceutical company Eli Lilly has released trial results for retatrutide, an experimental weight-loss drug administered by injection, showing participants lost an average of 28 percent of their body weight over 80 weeks. The results appear to exceed outcomes reported for other available obesity medications. The drug has not yet received regulatory approval.</span></span>
-            <span class="summary-full"><span>Eli Lilly has announced results from a large clinical trial of retatrutide, an injectable drug being developed for the treatment of obesity. Participants in the trial lost an average of 28 percent of their body weight over the course of 80 weeks, which the company says compares favorably to outcomes seen with other weight-loss medications currently on the market, including existing drugs in the GLP-1 class. The trial was described as sizeable, though full peer-reviewed publication of the results has not yet been detailed in the reports available.
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/21/us/politics/medicaid-fraud-minnesota-autism.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="section-header">SCIENCE &amp; HEALTH</div>
+<div class="article">
+<h2 class="article-headline">Eli Lilly Reports Significant Weight Loss Results from Experimental Drug Retatrutide</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Pharmaceutical company Eli Lilly has released trial results for retatrutide, an experimental weight-loss drug administered by injection, showing participants lost an average of 28 percent of their body weight over 80 weeks. The results appear to exceed outcomes reported for other available obesity medications. The drug has not yet received regulatory approval.</span></span>
+<span class="summary-full"><span>Eli Lilly has announced results from a large clinical trial of retatrutide, an injectable drug being developed for the treatment of obesity. Participants in the trial lost an average of 28 percent of their body weight over the course of 80 weeks, which the company says compares favorably to outcomes seen with other weight-loss medications currently on the market, including existing drugs in the GLP-1 class. The trial was described as sizeable, though full peer-reviewed publication of the results has not yet been detailed in the reports available.
 
 The obesity drug market has grown rapidly in recent years following the commercial success of GLP-1 receptor agonists such as semaglutide. Retatrutide works through a different or expanded mechanism, and if approved, would enter a competitive and commercially significant marketplace. The drug still requires review and approval by the US Food and Drug Administration before it could be prescribed to patients. Analysts and health researchers are watching the category closely given the scale of obesity-related health costs in the United States.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/21/science/retatrutide-weight-loss-drug.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Hantavirus Found More Widely in Pacific Northwest Rodent Populations Than Previously Documented</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A new study has found that hantavirus, which can cause a severe and potentially fatal respiratory illness in humans, is present in rodent populations across parts of the Pacific Northwest at higher rates than prior research had indicated. The findings cover areas in Washington, Idaho, and Oregon. Human infection typically occurs through contact with rodent droppings or nesting materials.</span></span>
-            <span class="summary-full"><span>Researchers studying rodent populations in the Pacific Northwest have found that hantavirus is more prevalent among local rodents than previously understood. The study covered parts of Washington, Idaho, and Oregon, and identified infection rates in mice and rats that exceed earlier estimates. Hantavirus can cause hantavirus pulmonary syndrome in humans — a serious respiratory illness that can be fatal — though human cases remain relatively uncommon and require direct exposure to infected rodent material.
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/21/science/retatrutide-weight-loss-drug.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">Hantavirus Found More Widely in Pacific Northwest Rodent Populations Than Previously Documented</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A new study has found that hantavirus, which can cause a severe and potentially fatal respiratory illness in humans, is present in rodent populations across parts of the Pacific Northwest at higher rates than prior research had indicated. The findings cover areas in Washington, Idaho, and Oregon. Human infection typically occurs through contact with rodent droppings or nesting materials.</span></span>
+<span class="summary-full"><span>Researchers studying rodent populations in the Pacific Northwest have found that hantavirus is more prevalent among local rodents than previously understood. The study covered parts of Washington, Idaho, and Oregon, and identified infection rates in mice and rats that exceed earlier estimates. Hantavirus can cause hantavirus pulmonary syndrome in humans — a serious respiratory illness that can be fatal — though human cases remain relatively uncommon and require direct exposure to infected rodent material.
 
 The findings carry public health relevance for residents in affected regions, particularly those in rural areas or who may come into contact with rodents through outdoor activities, farming, or work in structures where rodents may nest. Health officials generally recommend precautions such as ventilating enclosed spaces before cleaning and avoiding direct contact with rodent droppings. The study does not indicate an active outbreak but suggests the baseline risk from rodent exposure in the region may be higher than previously recognized.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://komonews.com/news/local/study-finds-deadly-hantavirus-more-widespread-in-pacific-northwest-rodents-than-expected-disease-infection-mice-rats-droppings-symptoms-pandemic-andes-virus-covid-cruise-ship-washington-idaho-oregon" target="_blank" rel="noopener noreferrer">KOMO News</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Measles Outbreak in Bangladesh Has Produced Over 8,000 Confirmed Cases in Children</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Bangladesh is responding to a measles outbreak with more than 8,000 confirmed cases and an estimated 60,000 suspected infections, primarily among children. An emergency vaccination campaign has been launched in response. The outbreak is linked to gaps in routine vaccination coverage.</span></span>
-            <span class="summary-full"><span>Health authorities in Bangladesh have confirmed more than 8,000 measles cases in the current outbreak, with an additional 60,000 suspected infections under investigation, the majority affecting children. The scale of the outbreak has prompted an emergency vaccination drive. Measles is a highly contagious viral disease that is preventable through vaccination but can cause severe complications and death, particularly in young children with limited access to medical care.
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://komonews.com/news/local/study-finds-deadly-hantavirus-more-widespread-in-pacific-northwest-rodents-than-expected-disease-infection-mice-rats-droppings-symptoms-pandemic-andes-virus-covid-cruise-ship-washington-idaho-oregon" rel="noopener" target="_blank">KOMO News</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">Measles Outbreak in Bangladesh Has Produced Over 8,000 Confirmed Cases in Children</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Bangladesh is responding to a measles outbreak with more than 8,000 confirmed cases and an estimated 60,000 suspected infections, primarily among children. An emergency vaccination campaign has been launched in response. The outbreak is linked to gaps in routine vaccination coverage.</span></span>
+<span class="summary-full"><span>Health authorities in Bangladesh have confirmed more than 8,000 measles cases in the current outbreak, with an additional 60,000 suspected infections under investigation, the majority affecting children. The scale of the outbreak has prompted an emergency vaccination drive. Measles is a highly contagious viral disease that is preventable through vaccination but can cause severe complications and death, particularly in young children with limited access to medical care.
 
 The outbreak is significant for international public health observers because measles had been considered largely controlled in many parts of the world through vaccination programs. Outbreaks of this scale typically indicate gaps in vaccination coverage, whether due to supply disruptions, access barriers, or reduced uptake. While the outbreak is centered in Bangladesh, large measles outbreaks in densely populated regions are monitored globally given the virus's high transmissibility.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/22/world/asia/bangladesh-measles-outbreak-vaccines.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-      
-    
-      
-        <div class="section-header">TECHNOLOGY</div>
-        
-        <div class="article">
-          <h2 class="article-headline">Spotify and Universal Music Group Reach Licensing Agreement for AI-Generated Covers and Remixes</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Spotify and Universal Music Group have agreed to a licensing deal that will allow users to create artificial intelligence-generated covers and remixes of songs on the streaming platform. The agreement marks the first time such AI-generated content will be formally licensed on Spotify. Terms of the deal were not fully disclosed.</span></span>
-            <span class="summary-full"><span>Spotify and Universal Music Group have announced a licensing agreement that permits the use of AI tools to generate covers and remixes of songs within the streaming platform. The deal represents a formal structure for AI-generated derivative music content — a category that has existed in legal ambiguity as AI audio tools have become more capable. Under the arrangement, Spotify subscribers would be able to use AI to create this type of content, with the licensing framework providing a pathway for rights holders to be compensated.
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/22/world/asia/bangladesh-measles-outbreak-vaccines.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="section-header">TECHNOLOGY</div>
+<div class="article">
+<h2 class="article-headline">Spotify and Universal Music Group Reach Licensing Agreement for AI-Generated Covers and Remixes</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Spotify and Universal Music Group have agreed to a licensing deal that will allow users to create artificial intelligence-generated covers and remixes of songs on the streaming platform. The agreement marks the first time such AI-generated content will be formally licensed on Spotify. Terms of the deal were not fully disclosed.</span></span>
+<span class="summary-full"><span>Spotify and Universal Music Group have announced a licensing agreement that permits the use of AI tools to generate covers and remixes of songs within the streaming platform. The deal represents a formal structure for AI-generated derivative music content — a category that has existed in legal ambiguity as AI audio tools have become more capable. Under the arrangement, Spotify subscribers would be able to use AI to create this type of content, with the licensing framework providing a pathway for rights holders to be compensated.
 
 The agreement is notable because Universal Music Group is one of the world's largest music rights holders, representing a substantial portion of commercially recorded music. How royalties will flow under the arrangement and what limitations will apply to the AI tools have not been fully detailed in available reports. The deal signals a broader industry movement toward establishing formal licensing frameworks for AI-generated music rather than relying solely on takedown enforcement.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="http://www.billboard.com/pro/spotify-and-umg-strike-licensing-deal-for-ai-covers-remixes/" target="_blank" rel="noopener noreferrer">Billboard</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Google Appeals Federal Court Ruling That Found It Violated Antitrust Law in Search</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Google has filed an appeal with a federal appeals court seeking to overturn a ruling that found the company violated antitrust law in the search market. The appeal also challenges a requirement that Google share certain data with competitors. The original ruling was considered a landmark decision in US technology antitrust enforcement.</span></span>
-            <span class="summary-full"><span>Google has formally asked a federal appeals court to reverse a lower court ruling that determined the company had violated antitrust laws through its conduct in the online search market. The original ruling, issued by a federal judge, was considered one of the most significant antitrust decisions involving a major technology company in decades. Among the remedies attached to that ruling was a requirement that Google share some of its data with rival search providers — a condition Google is also contesting in the appeal.
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="http://www.billboard.com/pro/spotify-and-umg-strike-licensing-deal-for-ai-covers-remixes/" rel="noopener" target="_blank">Billboard</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">Google Appeals Federal Court Ruling That Found It Violated Antitrust Law in Search</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Google has filed an appeal with a federal appeals court seeking to overturn a ruling that found the company violated antitrust law in the search market. The appeal also challenges a requirement that Google share certain data with competitors. The original ruling was considered a landmark decision in US technology antitrust enforcement.</span></span>
+<span class="summary-full"><span>Google has formally asked a federal appeals court to reverse a lower court ruling that determined the company had violated antitrust laws through its conduct in the online search market. The original ruling, issued by a federal judge, was considered one of the most significant antitrust decisions involving a major technology company in decades. Among the remedies attached to that ruling was a requirement that Google share some of its data with rival search providers — a condition Google is also contesting in the appeal.
 
 The appeal will be heard by the federal circuit court and could take months or years to resolve. The case has broad implications for how the technology industry is regulated and what legal standards apply to dominant platforms. A ruling against Google at the appeals level could result in structural changes to the company or its business practices; a reversal would significantly limit the government's ability to impose such remedies. The Justice Department, which brought the original case, is expected to defend the lower court ruling.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/22/technology/google-appeals-search-case.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Bluesky Says Russian-Linked Actors Are Compromising User Accounts to Spread Misinformation</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Social media platform Bluesky says it has identified a campaign linked to Russian state actors that is hijacking real user accounts to post false content. The company describes the tactic as distinct from previously documented influence operations. Bluesky says it is actively working to counter the effort.</span></span>
-            <span class="summary-full"><span>Bluesky has publicly disclosed that it is combating what it describes as a Russian-linked effort to take control of legitimate user accounts on the platform and use them to distribute fabricated content. The company characterized the approach — using hijacked real accounts rather than fake or newly created ones — as a tactic that differs from previously documented social media manipulation campaigns. Because compromised real accounts carry existing follower networks and posting history, content they publish may appear more credible to other users.
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/22/technology/google-appeals-search-case.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">Bluesky Says Russian-Linked Actors Are Compromising User Accounts to Spread Misinformation</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Social media platform Bluesky says it has identified a campaign linked to Russian state actors that is hijacking real user accounts to post false content. The company describes the tactic as distinct from previously documented influence operations. Bluesky says it is actively working to counter the effort.</span></span>
+<span class="summary-full"><span>Bluesky has publicly disclosed that it is combating what it describes as a Russian-linked effort to take control of legitimate user accounts on the platform and use them to distribute fabricated content. The company characterized the approach — using hijacked real accounts rather than fake or newly created ones — as a tactic that differs from previously documented social media manipulation campaigns. Because compromised real accounts carry existing follower networks and posting history, content they publish may appear more credible to other users.
 
 Bluesky, which has grown as an alternative to other major social platforms, did not disclose the number of accounts affected or the specific content being spread. The company said it is actively identifying and addressing compromised accounts. The disclosure adds to a broader pattern of foreign influence operations targeting US and Western social media infrastructure, though Bluesky's smaller scale relative to other platforms makes the targeting somewhat notable.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/21/business/bluesky-russia-hacking-accounts.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SPORTS</div>
-        
-        <div class="article">
-          <h2 class="article-headline">NASCAR Driver Kyle Busch Hospitalized with Severe Illness, Will Miss Charlotte Race</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Two-time NASCAR Cup Series champion Kyle Busch has been hospitalized due to a severe illness and will not compete at Charlotte Motor Speedway this weekend. His family issued a statement confirming he is receiving treatment. No additional details about his condition were provided.</span></span>
-            <span class="summary-full"><span>Kyle Busch, a two-time NASCAR Cup Series champion, has been hospitalized and will be absent from the race weekend at Charlotte Motor Speedway. His family released a statement confirming that he is currently undergoing treatment for a severe illness and asked for privacy and understanding during this time. No specific information about the nature of his illness was shared.
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/21/business/bluesky-russia-hacking-accounts.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="section-header">SPORTS</div>
+<div class="article">
+<h2 class="article-headline">NASCAR Driver Kyle Busch Hospitalized with Severe Illness, Will Miss Charlotte Race</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Two-time NASCAR Cup Series champion Kyle Busch has been hospitalized due to a severe illness and will not compete at Charlotte Motor Speedway this weekend. His family issued a statement confirming he is receiving treatment. No additional details about his condition were provided.</span></span>
+<span class="summary-full"><span>Kyle Busch, a two-time NASCAR Cup Series champion, has been hospitalized and will be absent from the race weekend at Charlotte Motor Speedway. His family released a statement confirming that he is currently undergoing treatment for a severe illness and asked for privacy and understanding during this time. No specific information about the nature of his illness was shared.
 
 Busch is one of the most decorated active drivers in NASCAR. His absence from Charlotte represents a significant development in the current racing season, and the sport's community has expressed support following the announcement. Updates on his condition are expected as more information becomes available from his family.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://apnews.com/article/nascar-kyle-busch-hospitalized-ce84367f25bd5bd04234f60292fde64f" target="_blank" rel="noopener noreferrer">Associated Press</a>
-          </p>
-        </div>
-        
-      
-    
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://apnews.com/article/nascar-kyle-busch-hospitalized-ce84367f25bd5bd04234f60292fde64f" rel="noopener" target="_blank">Associated Press</a></li></ul></div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
-      <br>
-      <a class="kofi-link" href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm</a>
-      <br><br>
-      <p><a href="https://github.com/brianfunk/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<br/>
+<a class="kofi-link" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm</a>
+<br/><br/>
+<p><a href="https://github.com/brianfunk/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-
 <script>
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
@@ -739,6 +658,14 @@ Busch is one of the most decorated active drivers in NASCAR. His absence from Ch
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/balm/service-worker.js');
   }
+
+  // Sources toggle — delegated listener
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.sources-toggle-btn');
+    if (!btn) return;
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+  });
 </script>
 </body>
 </html>

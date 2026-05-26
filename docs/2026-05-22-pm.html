@@ -1,17 +1,18 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Friday, May 22, 2026 PM</title>
-  <meta name="description" content="Balm news digest for Friday, May 22, 2026 — the topical anti-inflammatory.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="/balm/manifest.json">
-  <link rel="apple-touch-icon" href="/balm/icons/icon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm — Friday, May 22, 2026 PM</title>
+<meta content="Balm news digest for Friday, May 22, 2026 — the topical anti-inflammatory." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="/balm/manifest.json" rel="manifest"/>
+<link href="/balm/icons/icon-192.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -212,13 +213,6 @@
       to   { opacity: 1; }
     }
 
-    .article-source {
-      margin-top: 0.6rem;
-      font-size: 0.78rem;
-      font-style: italic;
-      color: var(--muted);
-    }
-
     /* Difficult News */
     .difficult-section {
       border-top: 1px solid var(--rule);
@@ -334,349 +328,275 @@
       background: #ebe5db;
       text-decoration: none;
     }
-  </style>
+  
+    /* Sources inline toggle */
+    .sources-toggle { margin-top: 0.5rem; }
+    .sources-toggle-btn {
+      background: none; border: none; padding: 0; cursor: pointer;
+      font-family: 'Source Serif 4', serif; font-size: 0.75rem; color: #9a9288;
+      display: flex; align-items: center; gap: 0.3rem; letter-spacing: 0.04em;
+    }
+    .sources-toggle-btn:hover { color: #6a6058; }
+    .sources-caret { display: inline-block; transition: transform 0.2s ease; }
+    .sources-toggle-btn[aria-expanded="true"] .sources-caret { transform: rotate(90deg); }
+    .sources-list {
+      list-style: none; padding: 0; margin: 0;
+      max-height: 0; overflow: hidden; transition: max-height 0.25s ease;
+    }
+    .sources-toggle-btn[aria-expanded="true"] + .sources-list { max-height: 20rem; }
+    .sources-list li { padding: 0.2rem 0 0.2rem 0.8rem; }
+    .sources-list a {
+      font-size: 0.75rem; color: #9a9288;
+      text-decoration: none; border-bottom: 1px solid #c8c0b4;
+    }
+    .sources-list a:hover { color: #6b82a8; }
+</style>
 </head>
 <body>
 <div class="page-wrapper">
-
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">May 2026</div>
-      
-      <a class="archive-link current"
-         href="2026-05-22-pm.html">
+<!-- Sidebar archive nav -->
+<nav aria-label="Archive" class="sidebar">
+<div class="sidebar-title">Archive</div>
+<div class="archive-month">
+<div class="archive-month-label">May 2026</div>
+<a class="archive-link current" href="2026-05-22-pm.html">
         05-22 PM
       </a>
-      
-      <a class="archive-link"
-         href="2026-05-22-am.html">
+<a class="archive-link" href="2026-05-22-am.html">
         05-22 AM
       </a>
-      
-    </div>
-    
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="balm-spread" x="-5%" y="-5%" width="110%" height="110%">
-              <feMorphology in="SourceGraphic" operator="dilate" radius="1.5" result="dilated"/>
-              <feGaussianBlur in="dilated" stdDeviation="0.9" result="blurred"/>
-              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-            </filter>
-          </defs>
-          <text x="90" y="44"
-                font-family="Caveat, cursive"
-                font-size="52"
-                font-weight="700"
-                fill="#6b82a8"
-                text-anchor="middle"
-                letter-spacing="8"
-                filter="url(#balm-spread)">Balm</text>
-        </svg>
-      </div>
-      <p class="masthead-tagline">The topical anti-inflammatory</p>
-      <p class="masthead-dateline">Friday, May 22, 2026 &middot; PM Edition</p>
-    </header>
-
-    <!-- Audio player -->
-    
-
-    <!-- Stories -->
-    
-      
-        <div class="section-header">GEOPOLITICS</div>
-        
-        <div class="article">
-          <h2 class="article-headline">Qatar and Pakistan Send Mediators to Iran as US-Iran Negotiations Continue</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Qatar and Pakistan have dispatched diplomatic teams to Iran as negotiations aimed at resolving the conflict and reopening the Strait of Hormuz remain unresolved. Key sticking points include the fate of Iran's enriched uranium stockpile and proposed shipping tolls on the waterway. A resumed military confrontation remains possible if talks do not produce an agreement.</span></span>
-            <span class="summary-full"><span>Qatar and Pakistan have sent mediating teams to Iran as diplomatic efforts to end the ongoing US-Iran conflict enter a critical phase. The talks have stretched for weeks without producing a final agreement, and both sides face continued pressure to reach a resolution. The Strait of Hormuz, one of the world's most important shipping lanes for oil and goods, remains at the center of the dispute. Iran has threatened to impose tolls on vessels transiting the strait, while the United States has pressed for Iran to surrender its stockpile of highly enriched uranium — a demand that may be deferred as part of any interim deal. Secretary of State Marco Rubio has indicated that US concerns about the situation will be a topic at an upcoming NATO summit, where American expectations of allied support in the strait are expected to be raised. US stock markets posted gains for an eighth consecutive week, with oil prices easing on prospects of a near-term agreement. The impasse remains unresolved, and the possibility of a full resumption of hostilities has not been ruled out.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/22/world/middleeast/iran-ceasefire-us-qatar-pakistan.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">US Expresses Concern Over Russian Activity Near Baltic States Ahead of NATO Summit</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Secretary of State Marco Rubio has said the US is monitoring a Russian campaign that he described as potentially capable of escalating into a larger conflict near the Baltic states. Rubio also indicated that US dissatisfaction with NATO burden-sharing will be a central topic at the alliance's upcoming summit. The remarks come as NATO members debate their collective response to continued Russian provocations along the alliance's eastern flank.</span></span>
-            <span class="summary-full"><span>Secretary of State Marco Rubio stated that the United States is closely monitoring Russian actions targeting Baltic states, expressing concern that the campaign could escalate into a broader conflict. His comments came ahead of a scheduled NATO summit, where Rubio said the US intends to raise longstanding frustrations about allied contributions to collective defense. The Czech president, a former general, separately called on NATO to take a firmer posture in response to what he described as deliberate Russian testing of the alliance's eastern boundaries. European nations are also in early discussions about appointing a dedicated envoy to engage in Ukraine peace negotiations with Russia, though officials have cautioned that the alliance first needs to agree on what objectives such talks should pursue. The convergence of these diplomatic signals reflects ongoing uncertainty about the direction and cohesion of Western policy toward Russia.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.theguardian.com/world/live/2026/may/22/nato-mark-rutte-us-donald-trump-troops-poland-summit-russia-baltics-drones-tensions-ukraine-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Ebola Outbreak in Central Africa Prompts US Entry Restrictions and International Concern</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>An Ebola outbreak centered in the Democratic Republic of Congo has prompted the US to impose entry restrictions, directing certain affected travelers to arrive at a single designated airport. An American doctor who contracted the virus in Congo is being treated in Germany in critical condition. A flight bound for Detroit was diverted to Canada after a Congolese passenger boarded without proper clearance, according to US officials.</span></span>
-            <span class="summary-full"><span>An Ebola outbreak in the Democratic Republic of Congo has drawn international attention and prompted a series of public health and border management responses. The World Health Organization has warned that the death toll is expected to rise, while also noting that global risk remains relatively low. The United States Department of Homeland Security directed that all flights carrying certain travelers from affected areas land at Dulles International Airport in Virginia, consolidating health screening at a single location. Separately, a flight originally bound for Detroit was diverted to Canada after a Congolese passenger reportedly boarded the aircraft without proper authorization, according to US officials. An American doctor who contracted Ebola while working in Congo is currently receiving treatment at a facility in Germany and is described as critically ill. Public health experts have raised questions about some of the administration's quarantine measures, characterizing certain orders as exceeding what is typically considered necessary to prevent domestic spread. The outbreak has also renewed public questions about the effectiveness of travel restrictions as a disease control tool. The virus had reportedly circulated undetected for several weeks, and heavy population movement in the affected region could complicate containment efforts.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.yahoo.com/news/world/live/ebola-outbreak-who-warns-deaths-will-rise-after-american-tests-positive--but-global-risk-remains-low-112950969.html" target="_blank" rel="noopener noreferrer">Yahoo</a>
-          </p>
-        </div>
-        
-      
-    
-      
-        <div class="section-header">ECONOMY</div>
-        
-        <div class="article">
-          <h2 class="article-headline">US Stocks Rise for Eighth Consecutive Week as Iran Negotiations Continue</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>US equity markets ended the week higher for the eighth week in a row, with oil prices falling amid hopes for progress in US-Iran talks over the Strait of Hormuz. Nvidia earnings and Walmart results were also in focus for investors. The S&P 500 and Nasdaq both gained, while the Dow Jones Industrial Average was on pace for a record close.</span></span>
-            <span class="summary-full"><span>US stock markets posted gains for an eighth straight week, with the S&P 500 and Nasdaq both finishing higher and the Dow Jones Industrial Average approaching a record level. Oil prices declined during the session, as investors responded to signs that diplomatic efforts between the United States and Iran may be nearing a resolution that could reopen the Strait of Hormuz to normal shipping traffic. The strait is a critical passage for global oil flows, and its status has been a key source of market uncertainty since the conflict began nearly three months ago. Investors also evaluated quarterly earnings from Nvidia, whose results were closely watched given the company's central role in supplying chips for artificial intelligence applications. Walmart's financial results were also under review, offering a signal about the health of consumer spending. Disagreements between the US and Iran over the fate of Iran's enriched uranium and proposed shipping tolls on the strait have prolonged negotiations, though the involvement of Qatari and Pakistani mediators has raised expectations of progress.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/22/business/oil-stocks-bonds-gas.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">SpaceX Files for Stock Market Listing at Valuation of $1.75 Trillion</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>SpaceX has filed prospectus documents for a public stock market listing that would value the company at approximately $1.75 trillion, which would place it among the most valuable publicly traded companies in the world. The filing outlines the company's finances, its extensive contracts with the US government, and its stated ambition to establish a human settlement on Mars. Founder Elon Musk's stake in the company would increase substantially at that valuation.</span></span>
-            <span class="summary-full"><span>SpaceX has published a prospectus for a public stock offering that projects a company valuation of approximately $1.75 trillion. If that figure holds on the first day of trading, the company would surpass the market capitalization of Berkshire Hathaway and rank among the largest publicly traded companies globally. The filing details SpaceX's financial position and its significant portfolio of contracts with the United States government, including for satellite communications and launch services. The prospectus also describes the company's long-term goal of colonizing Mars, and includes disclosures related to potential risks from the company's other technology ventures. Musk is structured to retain a controlling interest in the company following the listing. Separately, prediction market participants have placed similar expectations on OpenAI and Anthropic, anticipating that those companies would also clear the $1.4 trillion valuation threshold if they were to go public. The SpaceX IPO is expected to take place the following month.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.theguardian.com/science/2026/may/20/spacex-finances-stock-market-debut" target="_blank" rel="noopener noreferrer">The Guardian</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Medicaid Fraud Case Targets Two Minnesota Autism Therapy Providers for $46 Million</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The US Justice Department has charged two Minnesota-based autism therapy providers with defrauding Medicaid of approximately $46 million. Prosecutors allege the clinics used fabricated diagnoses and paid kickbacks to parents to enroll children in treatment programs. The case is among the larger Medicaid fraud prosecutions in recent years.</span></span>
-            <span class="summary-full"><span>Federal prosecutors have charged two autism therapy providers based in Minnesota with Medicaid fraud totaling an alleged $46 million. The Justice Department claims the providers submitted bills for services based on fraudulent diagnoses and used financial incentives paid to parents to bring children into treatment. The charges reflect ongoing federal efforts to identify and prosecute large-scale fraud within Medicaid, the government health insurance program that serves low-income and disabled Americans. Medicaid fraud cases of this scale can have implications for program funding and oversight policy. The individuals charged have not been convicted and are presumed innocent.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/21/us/politics/medicaid-fraud-minnesota-autism.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-      
-    
-      
-        <div class="section-header">DOMESTIC POLICY</div>
-        
-        <div class="article">
-          <h2 class="article-headline">Trump Cancels Planned AI Executive Order Citing Unresolved Concerns</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>President Trump canceled a planned executive order that would have given the federal government authority to review artificial intelligence models before their public release. The president cited unspecified concerns about aspects of the order as the reason for the postponement. No revised timeline for the order was announced.</span></span>
-            <span class="summary-full"><span>President Trump has called off the signing of an executive order that would have established a government role in evaluating artificial intelligence models prior to their release to the public. The order had been expected to give federal agencies oversight authority over AI systems before they reached commercial or public deployment. The president stated that he postponed the order due to concerns about certain aspects of it, without providing specific details. The cancellation leaves the federal regulatory posture on AI development largely unchanged for now. The decision comes as both federal and state governments are actively debating how to govern the rapidly expanding AI industry. California Governor Gavin Newsom signed a separate executive order around the same time, directing the state to explore labor policy reforms in response to the potential for AI-driven job displacement.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/21/technology/trump-ai-executive-order.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Trump Administration Eases Timeline on Phaseout of Potent Greenhouse Gases</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Trump administration has delayed a scheduled phaseout of hydrofluorocarbons, a category of chemicals used in air conditioning and refrigeration that are considered among the most potent contributors to climate change by volume. The delay affects an EPA-administered program that was originally negotiated as part of an international climate agreement. No revised completion date has been announced.</span></span>
-            <span class="summary-full"><span>The Trump administration has postponed the scheduled reduction of hydrofluorocarbons, commonly referred to as HFCs, which are chemicals widely used in cooling systems including air conditioners and commercial refrigerators. HFCs are classified as high-potency greenhouse gases, meaning that each unit released has a significantly larger warming effect than carbon dioxide over the same period. The phaseout had been established through EPA regulation and was linked to commitments made under the Kigali Amendment, an international climate agreement. The administration's decision to delay the phaseout is part of a broader pattern of rolling back or pausing environmental regulations put in place by previous administrations. Climate scientists and environmental advocates have previously described HFC reduction as one of the more cost-effective near-term actions available to slow the rate of atmospheric warming.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/21/climate/trump-super-pollutants-hfc-epa-climate-change.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">California Governor Issues Executive Order to Study AI's Impact on Workers</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>California Governor Gavin Newsom signed an executive order directing state agencies to examine how to update labor policies in response to potential large-scale job displacement driven by artificial intelligence. The order also includes a proposal to explore giving workers a financial stake in AI-generated productivity gains. The initiative has drawn attention from labor advocates and technology industry observers.</span></span>
-            <span class="summary-full"><span>California Governor Gavin Newsom signed an executive order instructing state agencies to evaluate existing labor policies and consider how they may need to change if artificial intelligence displaces significant numbers of workers. The order directs a review of protections, benefits, and transition support that workers might need as automation becomes more widespread across industries. Newsom also floated the idea of a policy framework sometimes described as universal basic capital, which would allow workers to hold an ownership stake in AI systems or the economic value they generate. The concept has received attention in technology and policy circles as a potential mechanism for distributing the financial benefits of automation more broadly. The order does not create new law but signals the direction the administration intends to pursue through legislation and regulation. It comes as federal action on AI governance remains uncertain following the cancellation of a planned White House executive order on the subject.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/21/technology/newsom-ai-executive-order-california.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SCIENCE & HEALTH</div>
-        
-        <div class="article">
-          <h2 class="article-headline">Trial Data Shows Experimental Weight-Loss Drug Retatrutide Outperforms Existing Medications</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Eli Lilly has released trial results showing that participants who received injections of retatrutide lost an average of 28 percent of their body weight over 80 weeks, a figure that exceeds outcomes reported for currently available obesity medications. The drug is still in the experimental stage and has not yet received regulatory approval. The results were described as from a substantial clinical trial.</span></span>
-            <span class="summary-full"><span>Pharmaceutical company Eli Lilly has published data from a clinical trial of retatrutide, an experimental injectable drug for obesity, showing average weight loss of 28 percent of body weight over an 80-week period. That figure is notably higher than outcomes associated with existing approved medications in the same class, including those that have already reshaped treatment of obesity and type 2 diabetes. The drug works through a mechanism that targets multiple hormonal pathways involved in appetite and metabolism. The trial was described as sizeable, lending more weight to the results than smaller early-stage studies. Retatrutide has not yet been approved by the US Food and Drug Administration and would require additional regulatory review before becoming available to patients. The results add to a rapidly evolving landscape in obesity treatment that has drawn significant investment and scientific attention over the past several years.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/21/science/retatrutide-weight-loss-drug.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Measles Outbreak in Bangladesh Sickens More Than 8,000 Children, Prompts Emergency Vaccination</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A measles outbreak in Bangladesh has resulted in more than 8,000 confirmed cases among children, with an additional 60,000 suspected infections, prompting an emergency vaccination campaign. The outbreak has raised concerns about gaps in routine immunization coverage. Measles is a vaccine-preventable disease that can cause severe complications in young children.</span></span>
-            <span class="summary-full"><span>Bangladesh is responding to a measles outbreak that has produced more than 8,000 confirmed cases in children, alongside an estimated 60,000 additional suspected infections. Health authorities have launched an emergency vaccination drive in response. Measles, which spreads through the air and is highly contagious, had been significantly reduced globally through routine immunization programs, but outbreaks have recurred in regions where vaccination coverage has declined or been interrupted. The Bangladesh situation reflects a pattern seen in several countries where disruptions to immunization infrastructure have left populations, particularly children, vulnerable. Measles can cause serious complications including pneumonia, brain damage, and death, particularly in young children with limited access to medical care. The outbreak has implications for global health monitoring, as such surges can cross borders when travelers carry the virus internationally.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/22/world/asia/bangladesh-measles-outbreak-vaccines.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Acting Head of NIH's Infectious Disease Institute Steps Down</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Jeffrey Taubenberger, the acting director of the National Institute of Allergy and Infectious Diseases, has reportedly stepped down from the position. The departure comes during an active Ebola outbreak that has triggered US entry restrictions and quarantine measures. No reason for the departure was given in available reports.</span></span>
-            <span class="summary-full"><span>Jeffrey Taubenberger, who was serving as the acting head of the National Institute of Allergy and Infectious Diseases — the division of the National Institutes of Health responsible for research on infectious and immune-mediated diseases — has reportedly resigned from the role. The departure comes at a moment of heightened public health activity, with an ongoing Ebola outbreak in Central Africa prompting the US to impose entry restrictions and quarantine protocols. NIAID has historically played a central role in the federal government's response to infectious disease threats, including developing vaccines and coordinating research during outbreaks. The circumstances surrounding the departure were not detailed in available reporting. Leadership transitions at major public health institutions during active outbreak periods are typically watched closely by the scientific and public health communities.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.statnews.com/2026/05/21/nih-niaid-jeffrey-taubenberger-exit/" target="_blank" rel="noopener noreferrer">STAT</a>
-          </p>
-        </div>
-        
-      
-    
-      
-        <div class="section-header">TECHNOLOGY</div>
-        
-        <div class="article">
-          <h2 class="article-headline">Waymo Suspends Autonomous Taxi Service in Six Cities After Vehicles Entered Flooded Roads</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Waymo temporarily suspended its autonomous ride-hailing service in six cities after videos showed two of its vehicles stopped on flooded streets in Atlanta. The company paused operations while reviewing the incidents. No injuries were reported in connection with the flooded-road events.</span></span>
-            <span class="summary-full"><span>Waymo, the autonomous vehicle company, has suspended taxi service in six cities following an incident in Atlanta in which two of its driverless cars were recorded stopped on roads inundated with floodwater. Videos of the incident circulated widely, prompting the company to pause operations across multiple markets while it reviewed what occurred. Waymo's service uses fully autonomous vehicles with no human driver present, meaning the cars must navigate unexpected road conditions without human intervention. The ability of autonomous systems to recognize and respond appropriately to hazardous conditions such as flooding is a subject of ongoing evaluation as self-driving services expand. The temporary shutdowns affect riders in those cities but are described as precautionary. The company did not announce a timeline for restoring full service.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/22/us/waymo-taxi-suspended-atlanta.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Bluesky Says Russian Operators Are Hijacking User Accounts to Spread Disinformation</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Social media platform Bluesky has reported that Russian state-linked actors are compromising real users' accounts on its platform to post fabricated content and spread propaganda. The company described the tactic as a novel approach that differs from the creation of fake accounts used in previous influence operations. Bluesky said it is actively working to counter the activity.</span></span>
-            <span class="summary-full"><span>Bluesky, the decentralized social media platform, has stated that it has identified Russian efforts to infiltrate existing user accounts on its platform and use those accounts to distribute false information. Unlike previous influence operations that relied on networks of newly created fake profiles, this approach involves taking over accounts belonging to real users, which may make the activity harder to detect and more credible in appearance. Bluesky characterized the tactic as apparently novel within its platform environment. The company said it is working to identify and address the compromised accounts. The disclosure adds Bluesky to a list of platforms that have reported Russian disinformation activity, a practice that US intelligence agencies and social media companies have documented across multiple platforms for nearly a decade. The timing comes during an active geopolitical period involving Russian military and diplomatic activity in Europe.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.nytimes.com/2026/05/21/business/bluesky-russia-hacking-accounts.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-          </p>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Meta Reaches Settlement with Kentucky School District in Social Media Addiction Lawsuit</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Meta has agreed to a settlement with a Kentucky school district that had sued the company over allegations that its platforms contribute to social media addiction among minors. The Kentucky case is one of approximately 1,200 similar lawsuits filed by school districts across the United States against Meta, TikTok, Snap, and YouTube. Financial terms of the settlement were not disclosed.</span></span>
-            <span class="summary-full"><span>Meta has reached a settlement with a Kentucky school district in a case alleging that the company's social media platforms contribute to addictive behavior in children and adolescents. The lawsuit is part of a broad legal campaign by roughly 1,200 school districts across the United States, each of which has filed similar claims against Meta and other major social media companies including TikTok, Snap, and YouTube. The cases generally argue that these platforms were designed in ways that exploit psychological vulnerabilities in young users, contributing to mental health problems and disrupting educational environments. The terms of Meta's settlement with the Kentucky district, including any financial payment, were not publicly disclosed. The wave of school district lawsuits represents one of the most significant organized legal challenges the social media industry has faced over the effects of its platforms on minors, and settlements or rulings in individual cases may influence the trajectory of the broader litigation.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.theguardian.com/technology/2026/may/21/meta-social-media-addiction-kentucky-schools" target="_blank" rel="noopener noreferrer">The Guardian</a>
-          </p>
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SPORTS</div>
-        
-        <div class="article">
-          <h2 class="article-headline">Aston Villa Holds Victory Parade After Winning First Major European Trophy in Decades</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Aston Villa held a victory parade in Birmingham, England, after winning its first major European trophy in several decades. Large crowds gathered in the city center to celebrate the achievement. The club lifted the trophy in front of supporters during the event.</span></span>
-            <span class="summary-full"><span>Aston Villa, the English football club based in Birmingham, held a public victory parade through the city center following its first major European trophy in decades. Large numbers of supporters lined the streets to celebrate the team's achievement. The occasion marked a significant moment in the club's history, as European trophies at this level have been rare for Villa over a long period. The parade drew crowds described as a sea of the club's traditional claret and blue colors. No further details about the competition or final match were available in the source material.</span></span>
-          </div>
-          <p class="article-source">
-            <a href="https://www.bbc.com/news/live/cx210gv5ln0t" target="_blank" rel="noopener noreferrer">BBC News</a>
-          </p>
-        </div>
-        
-      
-    
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+</div>
+</nav>
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="110%" id="balm-spread" width="110%" x="-5%" y="-5%">
+<femorphology in="SourceGraphic" operator="dilate" radius="1.5" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.9"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg>
+</div>
+<p class="masthead-tagline">The topical anti-inflammatory</p>
+<p class="masthead-dateline">Friday, May 22, 2026 · PM Edition</p>
+</header>
+<!-- Audio player -->
+<!-- Stories -->
+<div class="section-header">GEOPOLITICS</div>
+<div class="article">
+<h2 class="article-headline">Qatar and Pakistan Send Mediators to Iran as US-Iran Negotiations Continue</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Qatar and Pakistan have dispatched diplomatic teams to Iran as negotiations aimed at resolving the conflict and reopening the Strait of Hormuz remain unresolved. Key sticking points include the fate of Iran's enriched uranium stockpile and proposed shipping tolls on the waterway. A resumed military confrontation remains possible if talks do not produce an agreement.</span></span>
+<span class="summary-full"><span>Qatar and Pakistan have sent mediating teams to Iran as diplomatic efforts to end the ongoing US-Iran conflict enter a critical phase. The talks have stretched for weeks without producing a final agreement, and both sides face continued pressure to reach a resolution. The Strait of Hormuz, one of the world's most important shipping lanes for oil and goods, remains at the center of the dispute. Iran has threatened to impose tolls on vessels transiting the strait, while the United States has pressed for Iran to surrender its stockpile of highly enriched uranium — a demand that may be deferred as part of any interim deal. Secretary of State Marco Rubio has indicated that US concerns about the situation will be a topic at an upcoming NATO summit, where American expectations of allied support in the strait are expected to be raised. US stock markets posted gains for an eighth consecutive week, with oil prices easing on prospects of a near-term agreement. The impasse remains unresolved, and the possibility of a full resumption of hostilities has not been ruled out.</span></span>
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/22/world/middleeast/iran-ceasefire-us-qatar-pakistan.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">US Expresses Concern Over Russian Activity Near Baltic States Ahead of NATO Summit</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Secretary of State Marco Rubio has said the US is monitoring a Russian campaign that he described as potentially capable of escalating into a larger conflict near the Baltic states. Rubio also indicated that US dissatisfaction with NATO burden-sharing will be a central topic at the alliance's upcoming summit. The remarks come as NATO members debate their collective response to continued Russian provocations along the alliance's eastern flank.</span></span>
+<span class="summary-full"><span>Secretary of State Marco Rubio stated that the United States is closely monitoring Russian actions targeting Baltic states, expressing concern that the campaign could escalate into a broader conflict. His comments came ahead of a scheduled NATO summit, where Rubio said the US intends to raise longstanding frustrations about allied contributions to collective defense. The Czech president, a former general, separately called on NATO to take a firmer posture in response to what he described as deliberate Russian testing of the alliance's eastern boundaries. European nations are also in early discussions about appointing a dedicated envoy to engage in Ukraine peace negotiations with Russia, though officials have cautioned that the alliance first needs to agree on what objectives such talks should pursue. The convergence of these diplomatic signals reflects ongoing uncertainty about the direction and cohesion of Western policy toward Russia.</span></span>
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.theguardian.com/world/live/2026/may/22/nato-mark-rutte-us-donald-trump-troops-poland-summit-russia-baltics-drones-tensions-ukraine-latest-news-updates" rel="noopener" target="_blank">The Guardian</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">Ebola Outbreak in Central Africa Prompts US Entry Restrictions and International Concern</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>An Ebola outbreak centered in the Democratic Republic of Congo has prompted the US to impose entry restrictions, directing certain affected travelers to arrive at a single designated airport. An American doctor who contracted the virus in Congo is being treated in Germany in critical condition. A flight bound for Detroit was diverted to Canada after a Congolese passenger boarded without proper clearance, according to US officials.</span></span>
+<span class="summary-full"><span>An Ebola outbreak in the Democratic Republic of Congo has drawn international attention and prompted a series of public health and border management responses. The World Health Organization has warned that the death toll is expected to rise, while also noting that global risk remains relatively low. The United States Department of Homeland Security directed that all flights carrying certain travelers from affected areas land at Dulles International Airport in Virginia, consolidating health screening at a single location. Separately, a flight originally bound for Detroit was diverted to Canada after a Congolese passenger reportedly boarded the aircraft without proper authorization, according to US officials. An American doctor who contracted Ebola while working in Congo is currently receiving treatment at a facility in Germany and is described as critically ill. Public health experts have raised questions about some of the administration's quarantine measures, characterizing certain orders as exceeding what is typically considered necessary to prevent domestic spread. The outbreak has also renewed public questions about the effectiveness of travel restrictions as a disease control tool. The virus had reportedly circulated undetected for several weeks, and heavy population movement in the affected region could complicate containment efforts.</span></span>
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.yahoo.com/news/world/live/ebola-outbreak-who-warns-deaths-will-rise-after-american-tests-positive--but-global-risk-remains-low-112950969.html" rel="noopener" target="_blank">Yahoo</a></li></ul></div>
+</div>
+<div class="section-header">ECONOMY</div>
+<div class="article">
+<h2 class="article-headline">US Stocks Rise for Eighth Consecutive Week as Iran Negotiations Continue</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>US equity markets ended the week higher for the eighth week in a row, with oil prices falling amid hopes for progress in US-Iran talks over the Strait of Hormuz. Nvidia earnings and Walmart results were also in focus for investors. The S&amp;P 500 and Nasdaq both gained, while the Dow Jones Industrial Average was on pace for a record close.</span></span>
+<span class="summary-full"><span>US stock markets posted gains for an eighth straight week, with the S&amp;P 500 and Nasdaq both finishing higher and the Dow Jones Industrial Average approaching a record level. Oil prices declined during the session, as investors responded to signs that diplomatic efforts between the United States and Iran may be nearing a resolution that could reopen the Strait of Hormuz to normal shipping traffic. The strait is a critical passage for global oil flows, and its status has been a key source of market uncertainty since the conflict began nearly three months ago. Investors also evaluated quarterly earnings from Nvidia, whose results were closely watched given the company's central role in supplying chips for artificial intelligence applications. Walmart's financial results were also under review, offering a signal about the health of consumer spending. Disagreements between the US and Iran over the fate of Iran's enriched uranium and proposed shipping tolls on the strait have prolonged negotiations, though the involvement of Qatari and Pakistani mediators has raised expectations of progress.</span></span>
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/22/business/oil-stocks-bonds-gas.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">SpaceX Files for Stock Market Listing at Valuation of $1.75 Trillion</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>SpaceX has filed prospectus documents for a public stock market listing that would value the company at approximately $1.75 trillion, which would place it among the most valuable publicly traded companies in the world. The filing outlines the company's finances, its extensive contracts with the US government, and its stated ambition to establish a human settlement on Mars. Founder Elon Musk's stake in the company would increase substantially at that valuation.</span></span>
+<span class="summary-full"><span>SpaceX has published a prospectus for a public stock offering that projects a company valuation of approximately $1.75 trillion. If that figure holds on the first day of trading, the company would surpass the market capitalization of Berkshire Hathaway and rank among the largest publicly traded companies globally. The filing details SpaceX's financial position and its significant portfolio of contracts with the United States government, including for satellite communications and launch services. The prospectus also describes the company's long-term goal of colonizing Mars, and includes disclosures related to potential risks from the company's other technology ventures. Musk is structured to retain a controlling interest in the company following the listing. Separately, prediction market participants have placed similar expectations on OpenAI and Anthropic, anticipating that those companies would also clear the $1.4 trillion valuation threshold if they were to go public. The SpaceX IPO is expected to take place the following month.</span></span>
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.theguardian.com/science/2026/may/20/spacex-finances-stock-market-debut" rel="noopener" target="_blank">The Guardian</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">Medicaid Fraud Case Targets Two Minnesota Autism Therapy Providers for $46 Million</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The US Justice Department has charged two Minnesota-based autism therapy providers with defrauding Medicaid of approximately $46 million. Prosecutors allege the clinics used fabricated diagnoses and paid kickbacks to parents to enroll children in treatment programs. The case is among the larger Medicaid fraud prosecutions in recent years.</span></span>
+<span class="summary-full"><span>Federal prosecutors have charged two autism therapy providers based in Minnesota with Medicaid fraud totaling an alleged $46 million. The Justice Department claims the providers submitted bills for services based on fraudulent diagnoses and used financial incentives paid to parents to bring children into treatment. The charges reflect ongoing federal efforts to identify and prosecute large-scale fraud within Medicaid, the government health insurance program that serves low-income and disabled Americans. Medicaid fraud cases of this scale can have implications for program funding and oversight policy. The individuals charged have not been convicted and are presumed innocent.</span></span>
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/21/us/politics/medicaid-fraud-minnesota-autism.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="section-header">DOMESTIC POLICY</div>
+<div class="article">
+<h2 class="article-headline">Trump Cancels Planned AI Executive Order Citing Unresolved Concerns</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>President Trump canceled a planned executive order that would have given the federal government authority to review artificial intelligence models before their public release. The president cited unspecified concerns about aspects of the order as the reason for the postponement. No revised timeline for the order was announced.</span></span>
+<span class="summary-full"><span>President Trump has called off the signing of an executive order that would have established a government role in evaluating artificial intelligence models prior to their release to the public. The order had been expected to give federal agencies oversight authority over AI systems before they reached commercial or public deployment. The president stated that he postponed the order due to concerns about certain aspects of it, without providing specific details. The cancellation leaves the federal regulatory posture on AI development largely unchanged for now. The decision comes as both federal and state governments are actively debating how to govern the rapidly expanding AI industry. California Governor Gavin Newsom signed a separate executive order around the same time, directing the state to explore labor policy reforms in response to the potential for AI-driven job displacement.</span></span>
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/21/technology/trump-ai-executive-order.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">Trump Administration Eases Timeline on Phaseout of Potent Greenhouse Gases</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Trump administration has delayed a scheduled phaseout of hydrofluorocarbons, a category of chemicals used in air conditioning and refrigeration that are considered among the most potent contributors to climate change by volume. The delay affects an EPA-administered program that was originally negotiated as part of an international climate agreement. No revised completion date has been announced.</span></span>
+<span class="summary-full"><span>The Trump administration has postponed the scheduled reduction of hydrofluorocarbons, commonly referred to as HFCs, which are chemicals widely used in cooling systems including air conditioners and commercial refrigerators. HFCs are classified as high-potency greenhouse gases, meaning that each unit released has a significantly larger warming effect than carbon dioxide over the same period. The phaseout had been established through EPA regulation and was linked to commitments made under the Kigali Amendment, an international climate agreement. The administration's decision to delay the phaseout is part of a broader pattern of rolling back or pausing environmental regulations put in place by previous administrations. Climate scientists and environmental advocates have previously described HFC reduction as one of the more cost-effective near-term actions available to slow the rate of atmospheric warming.</span></span>
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/21/climate/trump-super-pollutants-hfc-epa-climate-change.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">California Governor Issues Executive Order to Study AI's Impact on Workers</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>California Governor Gavin Newsom signed an executive order directing state agencies to examine how to update labor policies in response to potential large-scale job displacement driven by artificial intelligence. The order also includes a proposal to explore giving workers a financial stake in AI-generated productivity gains. The initiative has drawn attention from labor advocates and technology industry observers.</span></span>
+<span class="summary-full"><span>California Governor Gavin Newsom signed an executive order instructing state agencies to evaluate existing labor policies and consider how they may need to change if artificial intelligence displaces significant numbers of workers. The order directs a review of protections, benefits, and transition support that workers might need as automation becomes more widespread across industries. Newsom also floated the idea of a policy framework sometimes described as universal basic capital, which would allow workers to hold an ownership stake in AI systems or the economic value they generate. The concept has received attention in technology and policy circles as a potential mechanism for distributing the financial benefits of automation more broadly. The order does not create new law but signals the direction the administration intends to pursue through legislation and regulation. It comes as federal action on AI governance remains uncertain following the cancellation of a planned White House executive order on the subject.</span></span>
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/21/technology/newsom-ai-executive-order-california.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="section-header">SCIENCE &amp; HEALTH</div>
+<div class="article">
+<h2 class="article-headline">Trial Data Shows Experimental Weight-Loss Drug Retatrutide Outperforms Existing Medications</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Eli Lilly has released trial results showing that participants who received injections of retatrutide lost an average of 28 percent of their body weight over 80 weeks, a figure that exceeds outcomes reported for currently available obesity medications. The drug is still in the experimental stage and has not yet received regulatory approval. The results were described as from a substantial clinical trial.</span></span>
+<span class="summary-full"><span>Pharmaceutical company Eli Lilly has published data from a clinical trial of retatrutide, an experimental injectable drug for obesity, showing average weight loss of 28 percent of body weight over an 80-week period. That figure is notably higher than outcomes associated with existing approved medications in the same class, including those that have already reshaped treatment of obesity and type 2 diabetes. The drug works through a mechanism that targets multiple hormonal pathways involved in appetite and metabolism. The trial was described as sizeable, lending more weight to the results than smaller early-stage studies. Retatrutide has not yet been approved by the US Food and Drug Administration and would require additional regulatory review before becoming available to patients. The results add to a rapidly evolving landscape in obesity treatment that has drawn significant investment and scientific attention over the past several years.</span></span>
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/21/science/retatrutide-weight-loss-drug.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">Measles Outbreak in Bangladesh Sickens More Than 8,000 Children, Prompts Emergency Vaccination</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A measles outbreak in Bangladesh has resulted in more than 8,000 confirmed cases among children, with an additional 60,000 suspected infections, prompting an emergency vaccination campaign. The outbreak has raised concerns about gaps in routine immunization coverage. Measles is a vaccine-preventable disease that can cause severe complications in young children.</span></span>
+<span class="summary-full"><span>Bangladesh is responding to a measles outbreak that has produced more than 8,000 confirmed cases in children, alongside an estimated 60,000 additional suspected infections. Health authorities have launched an emergency vaccination drive in response. Measles, which spreads through the air and is highly contagious, had been significantly reduced globally through routine immunization programs, but outbreaks have recurred in regions where vaccination coverage has declined or been interrupted. The Bangladesh situation reflects a pattern seen in several countries where disruptions to immunization infrastructure have left populations, particularly children, vulnerable. Measles can cause serious complications including pneumonia, brain damage, and death, particularly in young children with limited access to medical care. The outbreak has implications for global health monitoring, as such surges can cross borders when travelers carry the virus internationally.</span></span>
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/22/world/asia/bangladesh-measles-outbreak-vaccines.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">Acting Head of NIH's Infectious Disease Institute Steps Down</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Jeffrey Taubenberger, the acting director of the National Institute of Allergy and Infectious Diseases, has reportedly stepped down from the position. The departure comes during an active Ebola outbreak that has triggered US entry restrictions and quarantine measures. No reason for the departure was given in available reports.</span></span>
+<span class="summary-full"><span>Jeffrey Taubenberger, who was serving as the acting head of the National Institute of Allergy and Infectious Diseases — the division of the National Institutes of Health responsible for research on infectious and immune-mediated diseases — has reportedly resigned from the role. The departure comes at a moment of heightened public health activity, with an ongoing Ebola outbreak in Central Africa prompting the US to impose entry restrictions and quarantine protocols. NIAID has historically played a central role in the federal government's response to infectious disease threats, including developing vaccines and coordinating research during outbreaks. The circumstances surrounding the departure were not detailed in available reporting. Leadership transitions at major public health institutions during active outbreak periods are typically watched closely by the scientific and public health communities.</span></span>
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.statnews.com/2026/05/21/nih-niaid-jeffrey-taubenberger-exit/" rel="noopener" target="_blank">STAT</a></li></ul></div>
+</div>
+<div class="section-header">TECHNOLOGY</div>
+<div class="article">
+<h2 class="article-headline">Waymo Suspends Autonomous Taxi Service in Six Cities After Vehicles Entered Flooded Roads</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Waymo temporarily suspended its autonomous ride-hailing service in six cities after videos showed two of its vehicles stopped on flooded streets in Atlanta. The company paused operations while reviewing the incidents. No injuries were reported in connection with the flooded-road events.</span></span>
+<span class="summary-full"><span>Waymo, the autonomous vehicle company, has suspended taxi service in six cities following an incident in Atlanta in which two of its driverless cars were recorded stopped on roads inundated with floodwater. Videos of the incident circulated widely, prompting the company to pause operations across multiple markets while it reviewed what occurred. Waymo's service uses fully autonomous vehicles with no human driver present, meaning the cars must navigate unexpected road conditions without human intervention. The ability of autonomous systems to recognize and respond appropriately to hazardous conditions such as flooding is a subject of ongoing evaluation as self-driving services expand. The temporary shutdowns affect riders in those cities but are described as precautionary. The company did not announce a timeline for restoring full service.</span></span>
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/22/us/waymo-taxi-suspended-atlanta.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">Bluesky Says Russian Operators Are Hijacking User Accounts to Spread Disinformation</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Social media platform Bluesky has reported that Russian state-linked actors are compromising real users' accounts on its platform to post fabricated content and spread propaganda. The company described the tactic as a novel approach that differs from the creation of fake accounts used in previous influence operations. Bluesky said it is actively working to counter the activity.</span></span>
+<span class="summary-full"><span>Bluesky, the decentralized social media platform, has stated that it has identified Russian efforts to infiltrate existing user accounts on its platform and use those accounts to distribute false information. Unlike previous influence operations that relied on networks of newly created fake profiles, this approach involves taking over accounts belonging to real users, which may make the activity harder to detect and more credible in appearance. Bluesky characterized the tactic as apparently novel within its platform environment. The company said it is working to identify and address the compromised accounts. The disclosure adds Bluesky to a list of platforms that have reported Russian disinformation activity, a practice that US intelligence agencies and social media companies have documented across multiple platforms for nearly a decade. The timing comes during an active geopolitical period involving Russian military and diplomatic activity in Europe.</span></span>
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.nytimes.com/2026/05/21/business/bluesky-russia-hacking-accounts.html" rel="noopener" target="_blank">The New York Times</a></li></ul></div>
+</div>
+<div class="article">
+<h2 class="article-headline">Meta Reaches Settlement with Kentucky School District in Social Media Addiction Lawsuit</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Meta has agreed to a settlement with a Kentucky school district that had sued the company over allegations that its platforms contribute to social media addiction among minors. The Kentucky case is one of approximately 1,200 similar lawsuits filed by school districts across the United States against Meta, TikTok, Snap, and YouTube. Financial terms of the settlement were not disclosed.</span></span>
+<span class="summary-full"><span>Meta has reached a settlement with a Kentucky school district in a case alleging that the company's social media platforms contribute to addictive behavior in children and adolescents. The lawsuit is part of a broad legal campaign by roughly 1,200 school districts across the United States, each of which has filed similar claims against Meta and other major social media companies including TikTok, Snap, and YouTube. The cases generally argue that these platforms were designed in ways that exploit psychological vulnerabilities in young users, contributing to mental health problems and disrupting educational environments. The terms of Meta's settlement with the Kentucky district, including any financial payment, were not publicly disclosed. The wave of school district lawsuits represents one of the most significant organized legal challenges the social media industry has faced over the effects of its platforms on minors, and settlements or rulings in individual cases may influence the trajectory of the broader litigation.</span></span>
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.theguardian.com/technology/2026/may/21/meta-social-media-addiction-kentucky-schools" rel="noopener" target="_blank">The Guardian</a></li></ul></div>
+</div>
+<div class="section-header">SPORTS</div>
+<div class="article">
+<h2 class="article-headline">Aston Villa Holds Victory Parade After Winning First Major European Trophy in Decades</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Aston Villa held a victory parade in Birmingham, England, after winning its first major European trophy in several decades. Large crowds gathered in the city center to celebrate the achievement. The club lifted the trophy in front of supporters during the event.</span></span>
+<span class="summary-full"><span>Aston Villa, the English football club based in Birmingham, held a public victory parade through the city center following its first major European trophy in decades. Large numbers of supporters lined the streets to celebrate the team's achievement. The occasion marked a significant moment in the club's history, as European trophies at this level have been rare for Villa over a long period. The parade drew crowds described as a sea of the club's traditional claret and blue colors. No further details about the competition or final match were available in the source material.</span></span>
+</div>
+<div class="sources-toggle"><button aria-expanded="false" class="sources-toggle-btn"><span class="sources-caret">›</span> Sources</button><ul class="sources-list"><li><a href="https://www.bbc.com/news/live/cx210gv5ln0t" rel="noopener" target="_blank">BBC News</a></li></ul></div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
-      <br>
-      <a class="kofi-link" href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm</a>
-      <br><br>
-      <p><a href="https://github.com/brianfunk/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<br/>
+<a class="kofi-link" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm</a>
+<br/><br/>
+<p><a href="https://github.com/brianfunk/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-
 <script>
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
@@ -693,6 +613,14 @@
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/balm/service-worker.js');
   }
+
+  // Sources toggle — delegated listener
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.sources-toggle-btn');
+    if (!btn) return;
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+  });
 </script>
 </body>
 </html>
