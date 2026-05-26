@@ -36,7 +36,7 @@ self.addEventListener('fetch', event => {
   // Only handle same-origin requests
   if (url.origin !== self.location.origin) return;
 
-  const isHtml = url.pathname.endsWith('.html') || url.pathname === '/' || url.pathname === '';
+  const isHtml = url.pathname.endsWith('.html') || url.pathname === '/' || url.pathname === '' || url.pathname.endsWith('/archive.json');
   const isAudio = url.pathname.endsWith('.mp3');
 
   if (isAudio) {

@@ -214,7 +214,7 @@
 
     /* Sources inline toggle */
     .sources-toggle {
-      margin-top: 0.65rem;
+      margin-top: 0.5rem;
     }
 
     .sources-toggle-btn {
@@ -224,21 +224,21 @@
       cursor: pointer;
       font-family: 'Source Serif 4', serif;
       font-size: 0.75rem;
-      font-weight: 300;
-      color: var(--muted);
-      display: inline-flex;
+      color: #9a9288;
+      display: flex;
       align-items: center;
-      gap: 0.2rem;
-      letter-spacing: 0.02em;
+      gap: 0.3rem;
+      letter-spacing: 0.04em;
     }
 
-    .sources-toggle-btn:hover { color: var(--secondary); }
+    .sources-toggle-btn:hover {
+      color: #6a6058;
+    }
 
     .sources-caret {
       display: inline-block;
-      font-size: 0.85rem;
-      line-height: 1;
       transition: transform 0.2s ease;
+      font-style: normal;
     }
 
     .sources-toggle-btn[aria-expanded="true"] .sources-caret {
@@ -246,28 +246,33 @@
     }
 
     .sources-list {
-      overflow: hidden;
+      list-style: none;
+      padding: 0;
+      margin: 0;
       max-height: 0;
+      overflow: hidden;
       transition: max-height 0.25s ease;
-      padding-left: 0.6rem;
     }
 
-    .sources-list.expanded {
+    .sources-toggle-btn[aria-expanded="true"] + .sources-list {
       max-height: 20rem;
-      margin-top: 0.35rem;
+    }
+
+    .sources-list li {
+      padding: 0.2rem 0 0.2rem 0.8rem;
     }
 
     .sources-list a {
-      display: block;
-      font-family: 'Source Serif 4', serif;
       font-size: 0.75rem;
-      font-weight: 300;
-      color: var(--muted);
-      text-decoration: underline;
-      line-height: 1.75;
+      color: #9a9288;
+      text-decoration: none;
+      border-bottom: 1px solid #c8c0b4;
+      transition: color 0.15s;
     }
 
-    .sources-list a:hover { color: var(--secondary); }
+    .sources-list a:hover {
+      color: #6b82a8;
+    }
 
     /* Difficult News */
     .difficult-section {
@@ -465,14 +470,22 @@
                   <span class="summary-brief"><span>{{ article.brief_summary }}</span></span>
                   <span class="summary-full"><span>{{ article.full_summary }}</span></span>
                 </div>
+                {% if article.sources %}
                 <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false"><span class="sources-caret">›</span> Sources</button>
-                  <div class="sources-list">
+                  <button class="sources-toggle-btn" aria-expanded="false">
+                    <span class="sources-caret">›</span> Sources
+                  </button>
+                  <ul class="sources-list">
                     {% for src in article.sources %}
-                    <a href="{{ src.url }}" target="_blank" rel="noopener noreferrer">{{ src.source }}</a>
+                    <li>
+                      <a href="{{ src.url }}" target="_blank" rel="noopener">
+                        {{ src.source }}
+                      </a>
+                    </li>
                     {% endfor %}
-                  </div>
+                  </ul>
                 </div>
+                {% endif %}
               </div>
               {% endfor %}
             </div>
@@ -491,14 +504,22 @@
             <span class="summary-brief"><span>{{ article.brief_summary }}</span></span>
             <span class="summary-full"><span>{{ article.full_summary }}</span></span>
           </div>
+          {% if article.sources %}
           <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false"><span class="sources-caret">›</span> Sources</button>
-            <div class="sources-list">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
               {% for src in article.sources %}
-              <a href="{{ src.url }}" target="_blank" rel="noopener noreferrer">{{ src.source }}</a>
+              <li>
+                <a href="{{ src.url }}" target="_blank" rel="noopener">
+                  {{ src.source }}
+                </a>
+              </li>
               {% endfor %}
-            </div>
+            </ul>
           </div>
+          {% endif %}
         </div>
         {% endfor %}
       {% endif %}
@@ -532,8 +553,26 @@
     if (!btn) return;
     const expanded = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', String(!expanded));
-    btn.nextElementSibling.classList.toggle('expanded', !expanded);
   });
+
+  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
+  (function() {
+    var current = '{{ date_str }}-{{ run }}.html';
+    fetch('archive.json')
+      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function(data) {
+        var html = data.months.map(function(m) {
+          var links = m.entries.map(function(e) {
+            var cls = 'archive-link' + (e.file === current ? ' current' : '');
+            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
+          }).join('');
+          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
+        }).join('');
+        var nav = document.querySelector('nav.sidebar');
+        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
+      })
+      .catch(function() {});
+  })();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/balm/service-worker.js');

@@ -171,25 +171,12 @@
 
     /* Article cards */
     .article {
-      position: relative;
       padding-bottom: 1.5rem;
       margin-bottom: 1.5rem;
       border-bottom: 1px solid var(--rule);
     }
 
     .article:last-child { border-bottom: none; }
-
-    .article-ref {
-      position: absolute;
-      top: 0.1rem;
-      right: 0;
-      font-family: 'Source Serif 4', serif;
-      font-size: 0.62rem;
-      font-weight: 300;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-      user-select: none;
-    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -251,11 +238,66 @@
       animation: fadeIn 0.25s ease;
     }
 
-    .article-source {
-      margin-top: 0.6rem;
-      font-size: 0.78rem;
-      font-style: italic;
-      color: var(--muted);
+    /* Sources inline toggle */
+    .sources-toggle {
+      margin-top: 0.5rem;
+    }
+
+    .sources-toggle-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.75rem;
+      color: #9a9288;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      letter-spacing: 0.04em;
+    }
+
+    .sources-toggle-btn:hover {
+      color: #6a6058;
+    }
+
+    .sources-caret {
+      display: inline-block;
+      transition: transform 0.2s ease;
+      font-style: normal;
+    }
+
+    .sources-toggle-btn[aria-expanded="true"] .sources-caret {
+      transform: rotate(90deg);
+    }
+
+    .sources-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+    }
+
+    .sources-toggle-btn[aria-expanded="true"] + .sources-list {
+      max-height: 20rem;
+    }
+
+    .sources-list li {
+      padding: 0.2rem 0 0.2rem 0.8rem;
+    }
+
+    .sources-list a {
+      font-size: 0.75rem;
+      color: #9a9288;
+      text-decoration: none;
+      border-bottom: 1px solid #c8c0b4;
+      transition: color 0.15s;
+    }
+
+    .sources-list a:hover {
+      color: #6b82a8;
     }
 
     /* Difficult News */
@@ -472,7 +514,6 @@
             <div class="difficult-content">
               {% for article in section.articles %}
               <div class="article">
-                <span class="article-ref">{{ article.ref }}</span>
                 <h2 class="article-headline">{{ article.headline }}</h2>
                 <div class="summary-toggle">
                   <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
@@ -482,11 +523,22 @@
                   <span class="summary-brief"><span>{{ article.brief_summary }}</span></span>
                   <span class="summary-full"><span>{{ article.full_summary }}</span></span>
                 </div>
-                <p class="article-source">
-                  {% for src in article.sources %}
-                  <a href="{{ src.url }}" target="_blank" rel="noopener noreferrer">{{ src.source }}</a>{% if not loop.last %}, {% endif %}
-                  {% endfor %}
-                </p>
+                {% if article.sources %}
+                <div class="sources-toggle">
+                  <button class="sources-toggle-btn" aria-expanded="false">
+                    <span class="sources-caret">›</span> Sources
+                  </button>
+                  <ul class="sources-list">
+                    {% for src in article.sources %}
+                    <li>
+                      <a href="{{ src.url }}" target="_blank" rel="noopener">
+                        {{ src.source }}
+                      </a>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+                {% endif %}
               </div>
               {% endfor %}
             </div>
@@ -496,7 +548,6 @@
         <div class="section-header">{{ section.name }}</div>
         {% for article in section.articles %}
         <div class="article">
-          <span class="article-ref">{{ article.ref }}</span>
           <h2 class="article-headline">{{ article.headline }}</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
@@ -506,11 +557,22 @@
             <span class="summary-brief"><span>{{ article.brief_summary }}</span></span>
             <span class="summary-full"><span>{{ article.full_summary }}</span></span>
           </div>
-          <p class="article-source">
-            {% for src in article.sources %}
-            <a href="{{ src.url }}" target="_blank" rel="noopener noreferrer">{{ src.source }}</a>{% if not loop.last %}, {% endif %}
-            {% endfor %}
-          </p>
+          {% if article.sources %}
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
+              {% for src in article.sources %}
+              <li>
+                <a href="{{ src.url }}" target="_blank" rel="noopener">
+                  {{ src.source }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
         </div>
         {% endfor %}
       {% endif %}
@@ -534,12 +596,16 @@
     const summaryEl = toggleGroup.nextElementSibling;
     toggleGroup.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    if (mode === 'full') {
-      summaryEl.classList.add('full-visible');
-    } else {
-      summaryEl.classList.remove('full-visible');
-    }
+    summaryEl.classList.toggle('full-visible', mode === 'full');
   }
+
+  // Sources toggle — single delegated listener for all cards
+  document.addEventListener('click', function(e) {
+    const btn = e.target.closest('.sources-toggle-btn');
+    if (!btn) return;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+  });
 
   function toggleMobileArchive() {
     const panel = document.getElementById('mobile-archive-panel');
@@ -548,6 +614,27 @@
     toggle.setAttribute('aria-expanded', isOpen);
     toggle.querySelector('span').textContent = isOpen ? '▼' : '▶';
   }
+
+  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
+  (function() {
+    var current = '{{ current_digest_file }}';
+    fetch('archive.json')
+      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function(data) {
+        var html = data.months.map(function(m) {
+          var links = m.entries.map(function(e) {
+            var cls = 'archive-link' + (e.file === current ? ' current' : '');
+            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
+          }).join('');
+          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
+        }).join('');
+        var nav = document.querySelector('nav.sidebar');
+        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
+        var mob = document.getElementById('mobile-archive-panel');
+        if (mob) mob.innerHTML = '<div class="mobile-archive-title">Past Editions</div>' + html;
+      })
+      .catch(function() {});
+  })();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js');

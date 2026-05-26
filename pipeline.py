@@ -569,6 +569,14 @@ def group_archive_by_month(entries: list[dict]) -> list[dict]:
     return result
 
 
+def write_archive_json(archive: list[dict], docs_dir: Path) -> None:
+    """Write docs/archive.json so all pages can load an always-current archive sidebar."""
+    data = {"months": group_archive_by_month(archive)}
+    out_path = docs_dir / "archive.json"
+    out_path.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+    print(f"[OK] archive.json updated ({len(archive)} entries)")
+
+
 def _group_by_category(articles: list[dict]) -> list[dict]:
     grouped: dict[str, list] = {}
     for article in articles:
@@ -920,6 +928,7 @@ def main():
     # ── Step 8: Collect archive ───────────────────────────────────────────
     print("\n[8/10] Building archive index...")
     archive = collect_archive(DOCS_DIR)
+    write_archive_json(archive, DOCS_DIR)
 
     # ── Step 9: Render output files ───────────────────────────────────────
     print("\n[9/10] Rendering output files...")
