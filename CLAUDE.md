@@ -26,10 +26,28 @@ Balm is a **fully static site**. There is no backend, no server, and no database
 
 A Python script (`pipeline.py`) runs twice daily via GitHub Actions:
 
-- **AM run**: 4am PT / 7am ET → outputs `YYYY-MM-DD-am.html`, `YYYY-MM-DD-am.json`, `YYYY-MM-DD-am.mp3`
-- **PM run**: 2pm PT / 5pm ET → outputs `YYYY-MM-DD-pm.html`, `YYYY-MM-DD-pm.json`, `YYYY-MM-DD-pm.mp3`
+- **AM run**: 4am PT / 7am ET → outputs `YYYY-MM-DD-am.html`, `YYYY-MM-DD-am-sources.html`, `YYYY-MM-DD-am.json`, `YYYY-MM-DD-am.mp3`
+- **PM run**: 2pm PT / 5pm ET → outputs `YYYY-MM-DD-pm.html`, `YYYY-MM-DD-pm-sources.html`, `YYYY-MM-DD-pm.json`, `YYYY-MM-DD-pm.mp3`
 
 After each run, `index.html` is regenerated to point to the latest digest and refresh the archive navigation.
+
+### Pipeline steps (V2)
+
+1. **Fetch** — NewsAPI, The Guardian, NYT (via API keys) + Fox News, BBC, WSJ (public RSS via feedparser)
+2. **Deduplicate** — Jaccard similarity on normalized title tokens, threshold ≥ 0.5
+3. **Cluster** — TF-IDF cosine similarity on headline + description, Union-Find grouping, threshold ≥ 0.35; multi-source stories are clustered together and sent to Claude as a single unit
+4. **Synthesize** — Claude processes each cluster, synthesizes multi-source stories into a single neutral account, returns 10–16 articles with `cluster_id` for source attribution
+5. **Attach sources** — pipeline maps `cluster_id` back to input articles; each output article gains a `sources` array with outlet name, URL, and original headline
+6. **Number** — sequential `ref` numbers assigned (1, 2, 3…) in category display order
+7. **S&P 500** — non-blocking fetch from Yahoo Finance
+8. **Metadata** — JSON saved alongside digest
+9. **Audio** — ElevenLabs TTS from concatenated `full_summary` fields
+10. **Render** — digest HTML, sources page HTML, index.html all written from Jinja2 templates
+11. **Podcast RSS** — `podcast.xml` updated
+
+### Sources page
+
+Each digest has a companion sources page (`YYYY-MM-DD-am-sources.html`). It lists every story by reference number with the Balm headline, contributing outlets, and original article headlines linked to source URLs. The digest footer links to it; the sources page footer links back. The sources page uses the same visual template (masthead, typography, parchment) as the digest.
 
 ### File layout
 
@@ -38,7 +56,8 @@ After each run, `index.html` is regenerated to point to the latest digest and re
 ├── pipeline.py              # Main pipeline script
 ├── templates/
 │   ├── digest.html          # Jinja2 template for individual digest pages
-│   └── index.html           # Jinja2 template for the landing page
+│   ├── index.html           # Jinja2 template for the landing page
+│   └── sources.html         # Jinja2 template for the companion sources page
 ├── docs/                    # All output goes here (GitHub Pages root)
 │   ├── index.html           # Regenerated each run — always shows latest digest
 │   ├── manifest.json        # PWA manifest
@@ -46,6 +65,8 @@ After each run, `index.html` is regenerated to point to the latest digest and re
 │   ├── podcast.xml          # Podcast RSS feed
 │   ├── YYYY-MM-DD-am.html   # Individual digest files
 │   ├── YYYY-MM-DD-pm.html
+│   ├── YYYY-MM-DD-am-sources.html  # Companion sources pages
+│   ├── YYYY-MM-DD-pm-sources.html
 │   ├── YYYY-MM-DD-am.json   # Metadata for each digest
 │   ├── YYYY-MM-DD-pm.json
 │   ├── YYYY-MM-DD-am.mp3    # Audio digest
@@ -79,8 +100,18 @@ REWRITING RULES:
 - Rewrite headlines to be factual and descriptive — no clickbait, no fear language, no superlatives
 - Use plain declarative sentences. Calm, authoritative tone.
 - Never use: "shocking", "bombshell", "explosive", "crisis", "chaos", "slams", "blasts", "rips", "warns of disaster", "you won't believe", or any equivalent
-- Write as Balm's own neutral voice — never attribute claims to a specific outlet in the text (e.g. never write "according to the New York Times"). All claims are attributed to original sources via the article link only, not in the text itself.
+- Write as Balm's own neutral voice — never attribute claims to a specific outlet in the text. All claims are attributed to original sources via the article link only, not in the text itself.
 - Perpetrator details — names, photos, methods, manifestos — must be omitted from all violent events
+
+MULTI-SOURCE SYNTHESIS:
+When multiple sources cover the same story, you will receive all versions together as a cluster.
+- Identify facts that appear consistently across all sources — these are high-confidence facts
+- Identify where sources diverge in framing, emphasis, or detail — note this as genuine uncertainty
+- Write a synthesis that reflects consensus facts
+- Where sources diverge on matters of fact (not just framing), reflect that uncertainty: "accounts differ on..." or "figures vary by source"
+- Where sources diverge only in framing or emphasis, strip the framing and report the neutral fact
+- Never present a contested fact as settled
+- The goal is a synthesis no single outlet would write — more complete and more neutral than any individual source
 
 STORY LENGTH:
 Each story requires TWO versions:
@@ -122,19 +153,19 @@ OUTPUT FORMAT — return ONLY valid JSON, no markdown, no preamble, no trailing 
 {
   "articles": [
     {
+      "cluster_id": 1,
       "category": "CATEGORY",
       "headline": "Rewritten factual headline",
       "brief_summary": "2-3 sentence factual summary.",
       "full_summary": "2-3 paragraph full summary written for audio consumption.",
-      "source": "Original source name",
-      "url": "original article url",
       "isDifficult": false
     }
   ]
 }
 
+cluster_id must match the [CLUSTER N] number from the input. One output article per cluster.
 Set isDifficult: true for DIFFICULT NEWS items only.
-Return null in the array position for excluded stories.
+Return null in the array position for excluded clusters.
 Return between 10 and 16 articles total.
 Category display order: GEOPOLITICS, ECONOMY, DOMESTIC POLICY, SCIENCE & HEALTH, TECHNOLOGY, NATURAL EVENTS, SPORTS — then DIFFICULT NEWS last and collapsed.
 ```
@@ -157,13 +188,29 @@ All secrets are stored as GitHub repository Secrets and injected into the Action
 
 ## News Sources and Deduplication
 
-Three sources are fetched per run:
+Five source groups are fetched per run:
 
+**API sources (require keys):**
 1. **NewsAPI** — categories: world, business, technology, health, science, sports — 5 articles each (30 total)
 2. **The Guardian** — sections: world, business, technology, science, sport — 5 articles each (25 total)
 3. **New York Times** — sections: world, business, technology, health, science, sports — 5 articles each (30 total)
 
-Articles are deduplicated by normalized title similarity before being sent to Claude. The deduplication uses token overlap (Jaccard similarity ≥ 0.5 triggers deduplication, keeping the first occurrence). Target: 35–45 unique articles entering the Claude prompt.
+**RSS feeds (no API key required, parsed via feedparser):**
+4. **Fox News** — `feeds.foxnews.com/foxnews/latest` and `/world` — up to 8 each
+5. **BBC News** — `feeds.bbci.co.uk/news/rss.xml` and `/world/rss.xml` — up to 8 each
+6. **WSJ Markets** — `feeds.content.dowjones.io/public/rss/mw_realtimeheadlines` — up to 8
+
+Articles are deduplicated by normalized title similarity (Jaccard ≥ 0.5 triggers deduplication, keeping the first occurrence). After deduplication, articles are clustered by story: TF-IDF cosine similarity ≥ 0.35 groups articles covering the same event into a single cluster. Clusters — not individual articles — are sent to Claude for synthesis. Target: 35–55 unique articles → 25–40 clusters entering the Claude prompt.
+
+### Multi-source synthesis
+
+When a cluster contains articles from multiple outlets, Claude synthesizes them:
+- Facts present in all sources are treated as high-confidence
+- Facts present in only some sources are noted as uncertain ("accounts differ on…")
+- Framing differences are stripped; only neutral factual content is retained
+- The goal: a synthesis more complete and more neutral than any individual source
+
+Each output article carries a `sources` array listing every contributing outlet, its URL, and the original headline. The sources page surfaces this attribution for readers who want to verify or dig deeper.
 
 ---
 

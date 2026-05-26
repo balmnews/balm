@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — The topical anti-inflammatory</title>
+  <title>Balm — Topical, anti-inflammatory news</title>
   <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — The topical anti-inflammatory">
+  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
   <meta property="og:description" content="The same news, without the agitation.">
   <meta property="og:type" content="website">
   <link rel="manifest" href="manifest.json">
@@ -171,12 +171,25 @@
 
     /* Article cards */
     .article {
+      position: relative;
       padding-bottom: 1.5rem;
       margin-bottom: 1.5rem;
       border-bottom: 1px solid var(--rule);
     }
 
     .article:last-child { border-bottom: none; }
+
+    .article-ref {
+      position: absolute;
+      top: 0.1rem;
+      right: 0;
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.62rem;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      user-select: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -416,9 +429,9 @@
       <div class="masthead-logo">
         <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <filter id="balm-spread" x="-5%" y="-5%" width="110%" height="110%">
-              <feMorphology in="SourceGraphic" operator="dilate" radius="1.5" result="dilated"/>
-              <feGaussianBlur in="dilated" stdDeviation="0.9" result="blurred"/>
+            <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
+              <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
+              <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
               <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
             </filter>
           </defs>
@@ -432,7 +445,7 @@
                 filter="url(#balm-spread)">Balm</text>
         </svg>
       </div>
-      <p class="masthead-tagline">The topical anti-inflammatory</p>
+      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
       <p class="masthead-dateline">{{ date_display }}{% if run_label %} &middot; {{ run_label }} Edition{% endif %}</p>
     </header>
 
@@ -459,6 +472,7 @@
             <div class="difficult-content">
               {% for article in section.articles %}
               <div class="article">
+                <span class="article-ref">{{ article.ref }}</span>
                 <h2 class="article-headline">{{ article.headline }}</h2>
                 <div class="summary-toggle">
                   <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
@@ -469,7 +483,9 @@
                   <span class="summary-full"><span>{{ article.full_summary }}</span></span>
                 </div>
                 <p class="article-source">
-                  <a href="{{ article.url }}" target="_blank" rel="noopener noreferrer">{{ article.source }}</a>
+                  {% for src in article.sources %}
+                  <a href="{{ src.url }}" target="_blank" rel="noopener noreferrer">{{ src.source }}</a>{% if not loop.last %}, {% endif %}
+                  {% endfor %}
                 </p>
               </div>
               {% endfor %}
@@ -480,6 +496,7 @@
         <div class="section-header">{{ section.name }}</div>
         {% for article in section.articles %}
         <div class="article">
+          <span class="article-ref">{{ article.ref }}</span>
           <h2 class="article-headline">{{ article.headline }}</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
@@ -490,7 +507,9 @@
             <span class="summary-full"><span>{{ article.full_summary }}</span></span>
           </div>
           <p class="article-source">
-            <a href="{{ article.url }}" target="_blank" rel="noopener noreferrer">{{ article.source }}</a>
+            {% for src in article.sources %}
+            <a href="{{ src.url }}" target="_blank" rel="noopener noreferrer">{{ src.source }}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
           </p>
         </div>
         {% endfor %}
@@ -501,10 +520,9 @@
     <footer class="footer">
       <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
-      <br>
-      <a class="kofi-link" href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm</a>
-      <br><br>
-      <p><a href="https://github.com/brianfunk/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
+      <p style="margin-top:0.75rem;"><a href="{{ sources_file }}">Sources for this digest →</a></p>
+      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
+      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
     </footer>
 
   </div><!-- /.main-content -->

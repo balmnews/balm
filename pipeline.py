@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
-"""Balm pipeline — fetches news, rewrites via Claude, generates digest HTML + audio."""
+"""Balm pipeline — fetches news, clusters, synthesizes via Claude, generates digest HTML + audio."""
 
 import argparse
 import json
+import math
 import os
 import re
 import sys
 import time
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
+import feedparser
 import requests
 from anthropic import Anthropic
 from dateutil import tz
@@ -29,6 +32,8 @@ CLAUDE_MAX_TOKENS = 8000
 
 ELEVENLABS_VOICE_ID = "21m00Tcm4TlvDq8ikWAM"  # Rachel
 
+CLUSTER_SIMILARITY_THRESHOLD = 0.35
+
 CATEGORY_ORDER = [
     "GEOPOLITICS",
     "ECONOMY",
@@ -38,6 +43,14 @@ CATEGORY_ORDER = [
     "NATURAL EVENTS",
     "SPORTS",
     "DIFFICULT NEWS",
+]
+
+RSS_FEEDS = [
+    ("Fox News", "https://feeds.foxnews.com/foxnews/latest"),
+    ("Fox News World", "https://feeds.foxnews.com/foxnews/world"),
+    ("WSJ Markets", "https://feeds.content.dowjones.io/public/rss/mw_realtimeheadlines"),
+    ("BBC News", "http://feeds.bbci.co.uk/news/rss.xml"),
+    ("BBC World", "http://feeds.bbci.co.uk/news/world/rss.xml"),
 ]
 
 EDITORIAL_SYSTEM_PROMPT = """You are the editorial engine for Balm, a news digest with one guiding principle: inform without agitating.
@@ -50,8 +63,18 @@ REWRITING RULES:
 - Rewrite headlines to be factual and descriptive — no clickbait, no fear language, no superlatives
 - Use plain declarative sentences. Calm, authoritative tone.
 - Never use: "shocking", "bombshell", "explosive", "crisis", "chaos", "slams", "blasts", "rips", "warns of disaster", "you won't believe", or any equivalent
-- Write as Balm's own neutral voice — never attribute claims to a specific outlet in the text (e.g. never write "according to the New York Times"). All claims are attributed to original sources via the article link only, not in the text itself.
+- Write as Balm's own neutral voice — never attribute claims to a specific outlet in the text. All claims are attributed to original sources via the article link only, not in the text itself.
 - Perpetrator details — names, photos, methods, manifestos — must be omitted from all violent events
+
+MULTI-SOURCE SYNTHESIS:
+When multiple sources cover the same story, you will receive all versions together as a cluster.
+- Identify facts that appear consistently across all sources — these are high-confidence facts
+- Identify where sources diverge in framing, emphasis, or detail — note this as genuine uncertainty
+- Write a synthesis that reflects consensus facts
+- Where sources diverge on matters of fact (not just framing), reflect that uncertainty: "accounts differ on..." or "figures vary by source"
+- Where sources diverge only in framing or emphasis, strip the framing and report the neutral fact
+- Never present a contested fact as settled
+- The goal is a synthesis no single outlet would write — more complete and more neutral than any individual source
 
 STORY LENGTH:
 Each story requires TWO versions:
@@ -93,25 +116,25 @@ OUTPUT FORMAT — return ONLY valid JSON, no markdown, no preamble, no trailing 
 {
   "articles": [
     {
+      "cluster_id": 1,
       "category": "CATEGORY",
       "headline": "Rewritten factual headline",
       "brief_summary": "2-3 sentence factual summary.",
       "full_summary": "2-3 paragraph full summary written for audio consumption.",
-      "source": "Original source name",
-      "url": "original article url",
       "isDifficult": false
     }
   ]
 }
 
+cluster_id must match the [CLUSTER N] number from the input. One output article per cluster.
 Set isDifficult: true for DIFFICULT NEWS items only.
-Return null in the array position for excluded stories.
+Return null in the array position for excluded clusters.
 Return between 10 and 16 articles total.
 Category display order: GEOPOLITICS, ECONOMY, DOMESTIC POLICY, SCIENCE & HEALTH, TECHNOLOGY, NATURAL EVENTS, SPORTS — then DIFFICULT NEWS last and collapsed."""
 
 
 # ---------------------------------------------------------------------------
-# Article fetching
+# Article fetching — API sources
 # ---------------------------------------------------------------------------
 
 def fetch_newsapi(api_key: str) -> list[dict]:
@@ -192,8 +215,47 @@ def fetch_nyt(api_key: str) -> list[dict]:
     return articles
 
 
+# ---------------------------------------------------------------------------
+# Article fetching — RSS feeds
+# ---------------------------------------------------------------------------
+
+def fetch_rss_feeds() -> list[dict]:
+    """Fetch articles from public RSS feeds. No API key required."""
+    articles = []
+    for source_name, feed_url in RSS_FEEDS:
+        try:
+            feed = feedparser.parse(feed_url)
+            count = 0
+            for entry in feed.entries:
+                if count >= 8:
+                    break
+                title = (entry.get("title") or "").strip()
+                link = (entry.get("link") or "").strip()
+                summary = (entry.get("summary") or entry.get("description") or "").strip()
+                if not title or not link:
+                    continue
+                # Strip HTML tags from summary
+                summary = re.sub(r"<[^>]+>", " ", summary)
+                summary = re.sub(r"\s+", " ", summary).strip()
+                articles.append({
+                    "title": title,
+                    "description": summary[:400],
+                    "url": link,
+                    "source": source_name,
+                })
+                count += 1
+            print(f"  RSS {source_name}: {count} articles")
+        except Exception as e:
+            print(f"[WARN] RSS {source_name}: {e}", file=sys.stderr)
+    return articles
+
+
+# ---------------------------------------------------------------------------
+# Deduplication
+# ---------------------------------------------------------------------------
+
 def normalize_title(title: str) -> set[str]:
-    """Return lowercase token set for similarity comparison."""
+    """Return lowercase meaningful token set for similarity comparison."""
     tokens = re.findall(r"[a-z0-9]+", title.lower())
     stopwords = {"a", "an", "the", "and", "or", "but", "in", "on", "at", "to", "for",
                  "of", "with", "is", "are", "was", "were", "be", "been", "by", "as"}
@@ -222,24 +284,132 @@ def deduplicate(articles: list[dict]) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
+# Story clustering (TF-IDF cosine similarity, stdlib only)
+# ---------------------------------------------------------------------------
+
+_CLUSTER_STOPWORDS = {
+    "a", "an", "the", "and", "or", "but", "in", "on", "at", "to", "for",
+    "of", "with", "is", "are", "was", "were", "be", "been", "by", "as",
+    "this", "that", "it", "its", "from", "has", "have", "had", "not",
+    "after", "over", "more", "about", "up", "will", "said", "say", "says",
+    "would", "could", "should", "also", "than", "when", "where", "who",
+    "which", "what", "how", "can", "new", "one", "two", "three",
+}
+
+
+def _tokenize(text: str) -> list[str]:
+    return [t for t in re.findall(r"[a-z0-9]+", text.lower())
+            if t not in _CLUSTER_STOPWORDS and len(t) > 2]
+
+
+def _tfidf_vectors(texts: list[str]) -> list[dict[str, float]]:
+    tokenized = [_tokenize(t) for t in texts]
+    N = len(texts)
+    # Build IDF over corpus
+    vocab: set[str] = set()
+    for tokens in tokenized:
+        vocab.update(tokens)
+    idf: dict[str, float] = {}
+    for term in vocab:
+        df = sum(1 for tokens in tokenized if term in set(tokens))
+        idf[term] = math.log((N + 1) / (df + 1))  # smoothed IDF
+    # Build TF-IDF vector per document
+    vectors: list[dict[str, float]] = []
+    for tokens in tokenized:
+        if not tokens:
+            vectors.append({})
+            continue
+        tf = Counter(tokens)
+        total = len(tokens)
+        vec = {t: (c / total) * idf.get(t, 0.0) for t, c in tf.items()}
+        vectors.append(vec)
+    return vectors
+
+
+def _cosine(v1: dict[str, float], v2: dict[str, float]) -> float:
+    if not v1 or not v2:
+        return 0.0
+    dot = sum(v1[t] * v2[t] for t in v1 if t in v2)
+    mag1 = math.sqrt(sum(x * x for x in v1.values()))
+    mag2 = math.sqrt(sum(x * x for x in v2.values()))
+    if mag1 == 0.0 or mag2 == 0.0:
+        return 0.0
+    return dot / (mag1 * mag2)
+
+
+def cluster_articles(articles: list[dict], threshold: float = CLUSTER_SIMILARITY_THRESHOLD) -> list[list[dict]]:
+    """Group articles covering the same news event using TF-IDF cosine similarity.
+
+    Returns a list of clusters, each cluster being a list of articles. Single-article
+    stories produce a cluster of size 1. Uses Union-Find so clustering is transitive.
+    """
+    if not articles:
+        return []
+
+    texts = [
+        (a["title"] + " " + (a.get("description") or "")[:200])
+        for a in articles
+    ]
+    vectors = _tfidf_vectors(texts)
+    n = len(articles)
+
+    # Union-Find
+    parent = list(range(n))
+
+    def find(x: int) -> int:
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]  # path compression
+            x = parent[x]
+        return x
+
+    def union(x: int, y: int) -> None:
+        parent[find(x)] = find(y)
+
+    for i in range(n):
+        for j in range(i + 1, n):
+            if _cosine(vectors[i], vectors[j]) >= threshold:
+                union(i, j)
+
+    clusters_map: dict[int, list[int]] = {}
+    for i in range(n):
+        clusters_map.setdefault(find(i), []).append(i)
+
+    return [[articles[i] for i in idxs] for idxs in clusters_map.values()]
+
+
+# ---------------------------------------------------------------------------
 # Claude editorial processing
 # ---------------------------------------------------------------------------
 
-def build_user_prompt(articles: list[dict]) -> str:
-    lines = ["Here are the articles to process:\n"]
-    for i, a in enumerate(articles, 1):
-        lines.append(f"[{i}] Title: {a['title']}")
-        lines.append(f"    Source: {a['source']}")
-        lines.append(f"    URL: {a['url']}")
-        if a.get("description"):
-            lines.append(f"    Description: {a['description']}")
+def build_cluster_prompt(clusters: list[list[dict]]) -> str:
+    lines = [
+        f"Process the following {len(clusters)} story clusters. "
+        "Each cluster contains one or more news sources covering the same underlying event.\n"
+    ]
+    for ci, cluster in enumerate(clusters, 1):
+        if len(cluster) == 1:
+            a = cluster[0]
+            lines.append(f"[CLUSTER {ci}] — 1 source")
+            lines.append(f"  Source: {a['source']}")
+            lines.append(f"  Title: {a['title']}")
+            lines.append(f"  URL: {a['url']}")
+            if a.get("description"):
+                lines.append(f"  Description: {a['description'][:300]}")
+        else:
+            lines.append(f"[CLUSTER {ci}] — {len(cluster)} sources covering the same story")
+            for si, a in enumerate(cluster, 1):
+                lines.append(f"  — Source {si}: {a['source']}")
+                lines.append(f"    Title: {a['title']}")
+                lines.append(f"    URL: {a['url']}")
+                if a.get("description"):
+                    lines.append(f"    Description: {a['description'][:300]}")
         lines.append("")
     return "\n".join(lines)
 
 
-def call_claude(articles: list[dict], anthropic_key: str) -> list[dict]:
+def call_claude(clusters: list[list[dict]], anthropic_key: str) -> list[dict]:
     client = Anthropic(api_key=anthropic_key)
-    user_prompt = build_user_prompt(articles)
+    user_prompt = build_cluster_prompt(clusters)
 
     for attempt in range(3):
         try:
@@ -270,10 +440,41 @@ def call_claude(articles: list[dict], anthropic_key: str) -> list[dict]:
     return []
 
 
+def attach_sources(articles: list[dict], clusters: list[list[dict]]) -> None:
+    """Attach source attribution to each Claude-processed article using cluster_id.
+
+    Modifies articles in place. Each article gains a 'sources' field:
+      [{"source": "Outlet Name", "url": "...", "original_headline": "..."}]
+    """
+    cluster_map = {i + 1: cluster for i, cluster in enumerate(clusters)}
+    for article in articles:
+        cid = article.get("cluster_id")
+        cluster = cluster_map.get(cid, [])
+        article["sources"] = [
+            {
+                "source": a["source"],
+                "url": a["url"],
+                "original_headline": a["title"],
+            }
+            for a in cluster
+        ]
+        # Convenience field for audio/RSS (primary source)
+        if article["sources"]:
+            article["primary_source"] = article["sources"][0]["source"]
+        else:
+            article["primary_source"] = "Unknown"
+
+
 def sort_articles(articles: list[dict]) -> list[dict]:
     """Sort articles by canonical category order."""
     order = {cat: i for i, cat in enumerate(CATEGORY_ORDER)}
     return sorted(articles, key=lambda a: order.get(a.get("category", ""), 99))
+
+
+def number_articles(articles: list[dict]) -> None:
+    """Add sequential 'ref' field to articles in place (1-indexed)."""
+    for i, article in enumerate(articles, 1):
+        article["ref"] = i
 
 
 # ---------------------------------------------------------------------------
@@ -325,7 +526,7 @@ def group_archive_by_month(entries: list[dict]) -> list[dict]:
     """Group archive entries by YYYY-MM for the sidebar."""
     months: dict[str, list] = {}
     for e in entries:
-        key = e["date"][:7]  # YYYY-MM
+        key = e["date"][:7]
         months.setdefault(key, []).append(e)
     result = []
     for key in sorted(months.keys(), reverse=True):
@@ -335,48 +536,73 @@ def group_archive_by_month(entries: list[dict]) -> list[dict]:
     return result
 
 
+def _group_by_category(articles: list[dict]) -> list[dict]:
+    grouped: dict[str, list] = {}
+    for article in articles:
+        cat = article.get("category", "UNCATEGORIZED")
+        grouped.setdefault(cat, []).append(article)
+    return [
+        {"name": cat, "articles": grouped[cat]}
+        for cat in CATEGORY_ORDER
+        if cat in grouped
+    ]
+
+
 def render_digest(articles: list[dict], date_str: str, run: str, metadata: dict,
                   archive: list[dict], docs_dir: Path) -> Path:
     env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)))
     template = env.get_template("digest.html")
 
-    pt_tz = tz.gettz("America/Los_Angeles")
-    now_pt = datetime.now(pt_tz)
     date_obj = datetime.strptime(date_str, "%Y-%m-%d")
     date_display = date_obj.strftime("%A, %B %-d, %Y")
 
-    # Group articles by category
-    grouped: dict[str, list] = {}
-    for article in articles:
-        cat = article.get("category", "UNCATEGORIZED")
-        grouped.setdefault(cat, []).append(article)
-
-    categories_ordered = []
-    for cat in CATEGORY_ORDER:
-        if cat in grouped:
-            categories_ordered.append({"name": cat, "articles": grouped[cat]})
-
     mp3_file = f"{date_str}-{run}.mp3"
-    mp3_path = docs_dir / mp3_file
-    has_audio = mp3_path.exists()
+    has_audio = (docs_dir / mp3_file).exists()
+    sources_file = f"{date_str}-{run}-sources.html"
 
     html = template.render(
         date_display=date_display,
         date_str=date_str,
         run=run,
         run_label="AM" if run == "am" else "PM",
-        categories=categories_ordered,
+        categories=_group_by_category(articles),
         archive_months=group_archive_by_month(archive),
         metadata=metadata,
         has_audio=has_audio,
         mp3_file=mp3_file if has_audio else None,
         sp500=metadata.get("sp500_close"),
         base_url=BASE_URL,
+        sources_file=sources_file,
     )
 
     out_path = docs_dir / f"{date_str}-{run}.html"
     out_path.write_text(html, encoding="utf-8")
     print(f"[OK] Digest HTML: {out_path}")
+    return out_path
+
+
+def render_sources(articles: list[dict], date_str: str, run: str,
+                   archive: list[dict], docs_dir: Path) -> Path:
+    env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)))
+    template = env.get_template("sources.html")
+
+    date_obj = datetime.strptime(date_str, "%Y-%m-%d")
+    date_display = date_obj.strftime("%A, %B %-d, %Y")
+    digest_file = f"{date_str}-{run}.html"
+
+    html = template.render(
+        date_display=date_display,
+        date_str=date_str,
+        run=run,
+        run_label="AM" if run == "am" else "PM",
+        articles=articles,
+        archive_months=group_archive_by_month(archive),
+        digest_file=digest_file,
+    )
+
+    out_path = docs_dir / f"{date_str}-{run}-sources.html"
+    out_path.write_text(html, encoding="utf-8")
+    print(f"[OK] Sources page: {out_path}")
     return out_path
 
 
@@ -388,26 +614,16 @@ def render_index(articles: list[dict], date_str: str, run: str, metadata: dict,
     date_obj = datetime.strptime(date_str, "%Y-%m-%d")
     date_display = date_obj.strftime("%A, %B %-d, %Y")
 
-    grouped: dict[str, list] = {}
-    for article in articles:
-        cat = article.get("category", "UNCATEGORIZED")
-        grouped.setdefault(cat, []).append(article)
-
-    categories_ordered = []
-    for cat in CATEGORY_ORDER:
-        if cat in grouped:
-            categories_ordered.append({"name": cat, "articles": grouped[cat]})
-
     mp3_file = f"{date_str}-{run}.mp3"
-    mp3_path = docs_dir / mp3_file
-    has_audio = mp3_path.exists()
+    has_audio = (docs_dir / mp3_file).exists()
+    sources_file = f"{date_str}-{run}-sources.html"
 
     html = template.render(
         date_display=date_display,
         date_str=date_str,
         run=run,
         run_label="AM" if run == "am" else "PM",
-        categories=categories_ordered,
+        categories=_group_by_category(articles),
         archive_months=group_archive_by_month(archive),
         metadata=metadata,
         has_audio=has_audio,
@@ -415,6 +631,7 @@ def render_index(articles: list[dict], date_str: str, run: str, metadata: dict,
         sp500=metadata.get("sp500_close"),
         base_url=BASE_URL,
         current_digest_file=f"{date_str}-{run}.html",
+        sources_file=sources_file,
     )
 
     out_path = docs_dir / "index.html"
@@ -494,7 +711,7 @@ def update_podcast_feed(docs_dir: Path) -> None:
     fg.link(href=f"{BASE_URL}/podcast.xml", rel="self")
     fg.language("en-us")
     fg.description(
-        "The topical anti-inflammatory — a daily news digest stripped of inflammatory "
+        "Topical, anti-inflammatory news — a daily digest stripped of inflammatory "
         "language and emotional manipulation."
     )
     fg.podcast.itunes_category("News")
@@ -506,7 +723,7 @@ def update_podcast_feed(docs_dir: Path) -> None:
     )
 
     mp3_files = sorted(docs_dir.glob("????-??-??-??.mp3"), reverse=True)
-    for mp3 in mp3_files[:50]:  # cap at 50 episodes
+    for mp3 in mp3_files[:50]:
         stem = mp3.stem
         parts = stem.split("-")
         if len(parts) < 4:
@@ -529,7 +746,7 @@ def update_podcast_feed(docs_dir: Path) -> None:
         fe.enclosure(f"{BASE_URL}/{mp3.name}", str(size), "audio/mpeg")
         pub_dt = datetime.combine(date_obj, datetime.min.time()).replace(tzinfo=timezone.utc)
         fe.published(pub_dt)
-        fe.podcast.itunes_duration("00:00")  # ElevenLabs doesn't return duration easily
+        fe.podcast.itunes_duration("00:00")
 
     feed_path = docs_dir / "podcast.xml"
     fg.rss_str(pretty=True)
@@ -578,30 +795,21 @@ def main():
     # Resolve run and date
     pt_tz = tz.gettz("America/Los_Angeles")
     now_pt = datetime.now(pt_tz)
-    if args.date:
-        date_str = args.date
-    else:
-        date_str = now_pt.strftime("%Y-%m-%d")
-
-    if args.run:
-        run = args.run
-    else:
-        run = "am" if now_pt.hour < 13 else "pm"
+    date_str = args.date or now_pt.strftime("%Y-%m-%d")
+    run = args.run or ("am" if now_pt.hour < 13 else "pm")
 
     print(f"[START] Balm pipeline — {date_str} {run.upper()}")
-
-    # Ensure output directory exists
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
 
     # Read API keys
-    news_api_key = os.environ.get("NEWS_API_KEY", "")
+    news_api_key    = os.environ.get("NEWS_API_KEY", "")
     guardian_api_key = os.environ.get("GUARDIAN_API_KEY", "")
-    nyt_api_key = os.environ.get("NYT_API_KEY", "")
-    anthropic_key = os.environ.get("ANTHROPIC_API_KEY", "")
-    elevenlabs_key = os.environ.get("ELEVEN_LABS_API_KEY", "")
+    nyt_api_key     = os.environ.get("NYT_API_KEY", "")
+    anthropic_key   = os.environ.get("ANTHROPIC_API_KEY", "")
+    elevenlabs_key  = os.environ.get("ELEVEN_LABS_API_KEY", "")
 
-    # --- Step 1: Fetch ---
-    print("[1/9] Fetching articles...")
+    # ── Step 1: Fetch articles ────────────────────────────────────────────
+    print("\n[1/10] Fetching articles from all sources...")
     raw_articles: list[dict] = []
 
     if news_api_key:
@@ -609,24 +817,29 @@ def main():
         print(f"  NewsAPI: {len(fetched)} articles")
         raw_articles.extend(fetched)
     else:
-        print("[WARN] NEWS_API_KEY not set — skipping NewsAPI")
+        print("  [WARN] NEWS_API_KEY not set — skipping NewsAPI")
 
     if guardian_api_key:
         fetched = fetch_guardian(guardian_api_key)
         print(f"  Guardian: {len(fetched)} articles")
         raw_articles.extend(fetched)
     else:
-        print("[WARN] GUARDIAN_API_KEY not set — skipping Guardian")
+        print("  [WARN] GUARDIAN_API_KEY not set — skipping Guardian")
 
     if nyt_api_key:
         fetched = fetch_nyt(nyt_api_key)
         print(f"  NYT: {len(fetched)} articles")
         raw_articles.extend(fetched)
     else:
-        print("[WARN] NYT_API_KEY not set — skipping NYT")
+        print("  [WARN] NYT_API_KEY not set — skipping NYT")
 
-    # --- Step 2: Deduplicate ---
-    print("[2/9] Deduplicating...")
+    rss_fetched = fetch_rss_feeds()
+    raw_articles.extend(rss_fetched)
+    print(f"  RSS feeds total: {len(rss_fetched)} articles")
+    print(f"  Total raw: {len(raw_articles)}")
+
+    # ── Step 2: Deduplicate ───────────────────────────────────────────────
+    print("\n[2/10] Deduplicating...")
     unique_articles = deduplicate(raw_articles)
     print(f"  {len(raw_articles)} raw → {len(unique_articles)} unique")
 
@@ -634,57 +847,65 @@ def main():
         print("[ERROR] No articles fetched. Check API keys.", file=sys.stderr)
         sys.exit(1)
 
-    # --- Step 3: Claude editorial processing ---
-    print("[3/9] Sending to Claude for editorial processing...")
+    # ── Step 3: Cluster ───────────────────────────────────────────────────
+    print("\n[3/10] Clustering articles by story...")
+    clusters = cluster_articles(unique_articles)
+    multi = sum(1 for c in clusters if len(c) > 1)
+    print(f"  {len(unique_articles)} articles → {len(clusters)} clusters "
+          f"({multi} multi-source, {len(clusters) - multi} single-source)")
+
     if not anthropic_key:
         print("[ERROR] ANTHROPIC_API_KEY not set.", file=sys.stderr)
         sys.exit(1)
 
-    processed_articles = call_claude(unique_articles, anthropic_key)
+    # ── Step 4: Claude editorial processing ──────────────────────────────
+    print("\n[4/10] Sending clusters to Claude for synthesis and editorial processing...")
+    processed_articles = call_claude(clusters, anthropic_key)
+    attach_sources(processed_articles, clusters)
     processed_articles = sort_articles(processed_articles)
+    number_articles(processed_articles)
     print(f"  Claude returned {len(processed_articles)} articles after filtering")
 
-    # --- Step 4: S&P 500 ---
-    print("[4/9] Fetching S&P 500 close...")
+    # ── Step 5: S&P 500 ──────────────────────────────────────────────────
+    print("\n[5/10] Fetching S&P 500 close...")
     sp500 = fetch_sp500()
-    if sp500:
-        print(f"  S&P 500: {sp500}")
-    else:
-        print("  S&P 500: unavailable (non-blocking)")
+    print(f"  S&P 500: {sp500 if sp500 else 'unavailable (non-blocking)'}")
 
-    # --- Step 5: Save metadata ---
-    print("[5/9] Saving metadata...")
+    # ── Step 6: Save metadata ─────────────────────────────────────────────
+    print("\n[6/10] Saving metadata...")
     metadata = save_metadata(date_str, run, processed_articles, len(unique_articles), sp500, DOCS_DIR)
 
-    # --- Step 6: Generate audio ---
-    print("[6/9] Generating audio...")
+    # ── Step 7: Generate audio ────────────────────────────────────────────
+    print("\n[7/10] Generating audio...")
     mp3_path = None
     if elevenlabs_key:
         script = build_audio_script(processed_articles, date_str, run)
         mp3_path = generate_audio(script, date_str, run, elevenlabs_key, DOCS_DIR)
     else:
-        print("[WARN] ELEVEN_LABS_API_KEY not set — skipping audio")
+        print("  [WARN] ELEVEN_LABS_API_KEY not set — skipping audio")
 
-    # --- Step 7: Collect archive ---
-    print("[7/9] Building archive index...")
+    # ── Step 8: Collect archive ───────────────────────────────────────────
+    print("\n[8/10] Building archive index...")
     archive = collect_archive(DOCS_DIR)
 
-    # --- Step 8: Render HTML ---
-    print("[8/9] Rendering HTML...")
+    # ── Step 9: Render output files ───────────────────────────────────────
+    print("\n[9/10] Rendering output files...")
     render_digest(processed_articles, date_str, run, metadata, archive, DOCS_DIR)
+    render_sources(processed_articles, date_str, run, archive, DOCS_DIR)
     render_index(processed_articles, date_str, run, metadata, archive, DOCS_DIR)
 
-    # --- Step 9: Update podcast feed ---
-    print("[9/9] Updating podcast RSS feed...")
+    # ── Step 10: Podcast RSS ──────────────────────────────────────────────
+    print("\n[10/10] Updating podcast RSS feed...")
     try:
         update_podcast_feed(DOCS_DIR)
     except Exception as e:
-        print(f"[WARN] Podcast feed update failed: {e}", file=sys.stderr)
+        print(f"  [WARN] Podcast feed update failed: {e}", file=sys.stderr)
 
     print(f"\n[DONE] Balm {date_str} {run.upper()} complete.")
-    print(f"  Stories published: {len(processed_articles)}")
-    print(f"  Audio: {'yes' if mp3_path else 'no'}")
-    print(f"  S&P 500: {sp500 if sp500 else 'unavailable'}")
+    print(f"  Stories published : {len(processed_articles)}")
+    print(f"  Clusters processed: {len(clusters)} ({multi} multi-source)")
+    print(f"  Audio             : {'yes' if mp3_path else 'no'}")
+    print(f"  S&P 500           : {sp500 if sp500 else 'unavailable'}")
 
 
 if __name__ == "__main__":
