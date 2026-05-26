@@ -3,15 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Tuesday, May 26, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Tuesday, May 26, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
+  <link rel="manifest" href="/balm/manifest.json">
+  <link rel="apple-touch-icon" href="/balm/icons/icon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -68,34 +64,6 @@
       .page-wrapper { display: block; padding: 0; }
       .sidebar { display: none; }
       .main-content { padding: 0 1.25rem 3rem; }
-
-      /* Mobile archive toggle */
-      .mobile-archive-toggle {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.75rem 1.25rem;
-        border-bottom: 1px solid var(--rule);
-        font-size: 0.72rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--muted);
-        cursor: pointer;
-      }
-
-      .mobile-archive-panel {
-        display: none;
-        padding: 1rem 1.25rem;
-        border-bottom: 1px solid var(--rule);
-        background: #ebe5db;
-      }
-
-      .mobile-archive-panel.open { display: block; }
-    }
-
-    @media (min-width: 769px) {
-      .mobile-archive-toggle { display: none; }
-      .mobile-archive-panel { display: none !important; }
     }
 
     /* Masthead */
@@ -177,7 +145,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-ref {
       position: absolute;
@@ -204,6 +174,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -242,13 +216,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     .article-source {
@@ -301,10 +275,15 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
 
-    /* Sidebar */
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
+
+    /* Sidebar archive */
     .sidebar-title {
       font-family: 'Playfair Display', serif;
       font-size: 0.65rem;
@@ -315,15 +294,9 @@
       padding-top: 2rem;
     }
 
-    .sidebar-home-link {
-      display: block;
-      font-size: 0.72rem;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-      letter-spacing: 0.04em;
+    .archive-month {
+      margin-bottom: 1rem;
     }
-
-    .archive-month { margin-bottom: 1rem; }
 
     .archive-month-label {
       font-size: 0.68rem;
@@ -344,15 +317,6 @@
 
     .archive-link:hover { color: var(--accent); text-decoration: none; }
     .archive-link.current { color: var(--accent); font-style: italic; }
-
-    /* Mobile archive */
-    .mobile-archive-title {
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
 
     /* Footer */
     .footer {
@@ -379,73 +343,16 @@
       text-decoration: none;
     }
 
-    .kofi-link:hover { background: #ebe5db; text-decoration: none; }
+    .kofi-link:hover {
+      background: #ebe5db;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
-
-<!-- Mobile archive toggle (shown only on mobile) -->
-<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
-  <span>&#9658;</span> Archive
-</div>
-<div class="mobile-archive-panel" id="mobile-archive-panel">
-  <div class="mobile-archive-title">Past Editions</div>
-  
-  <div class="archive-month">
-    <div class="archive-month-label">May 2026</div>
-    
-    <a class="archive-link"
-       href="2026-05-26-pm.html">
-      05-26 PM
-    </a>
-    
-    <a class="archive-link current"
-       href="2026-05-26-am.html">
-      05-26 AM
-    </a>
-    
-    <a class="archive-link"
-       href="2026-05-25-pm.html">
-      05-25 PM
-    </a>
-    
-    <a class="archive-link"
-       href="2026-05-24-pm.html">
-      05-24 PM
-    </a>
-    
-    <a class="archive-link"
-       href="2026-05-24-am.html">
-      05-24 AM
-    </a>
-    
-    <a class="archive-link"
-       href="2026-05-23-pm.html">
-      05-23 PM
-    </a>
-    
-    <a class="archive-link"
-       href="2026-05-23-am.html">
-      05-23 AM
-    </a>
-    
-    <a class="archive-link"
-       href="2026-05-22-pm.html">
-      05-22 PM
-    </a>
-    
-    <a class="archive-link"
-       href="2026-05-22-am.html">
-      05-22 AM
-    </a>
-    
-  </div>
-  
-</div>
-
 <div class="page-wrapper">
 
-  <!-- Desktop sidebar -->
+  <!-- Sidebar archive nav -->
   <nav class="sidebar" aria-label="Archive">
     <div class="sidebar-title">Archive</div>
     
@@ -832,10 +739,10 @@
                 <span class="article-ref">15</span>
                 <h2 class="article-headline">Gas Explosion at Coal Mine in China Kills at Least 82</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>A gas explosion at a coal mine in China's Shanxi province killed at least 82 people and hospitalized 120 others. The cause of the explosion is under investigation. China's coal mining sector has a long record of fatal accidents.</span></span>
                   <span class="summary-full"><span>A gas explosion occurred at a coal mine in Shanxi province, China, resulting in at least 82 deaths and approximately 120 people being hospitalized. The scale of the incident makes it one of the deadliest mining accidents in China in recent years. Shanxi is one of China's primary coal-producing regions, and mining accidents in the country, while subject to ongoing regulatory attention, have remained a persistent safety concern. The specific cause of the explosion is under investigation. China's coal industry provides a significant share of the country's energy supply, and safety conditions in the sector have been a point of international scrutiny. No Americans were reported among the casualties.</span></span>
                 </div>
@@ -850,10 +757,10 @@
                 <span class="article-ref">16</span>
                 <h2 class="article-headline">Suicide Bombing Near Passenger Train in Pakistan Kills at Least 23</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>At least 23 people were killed and approximately 70 wounded in a suicide bombing near a passenger train in Quetta, Pakistan. An explosives-laden vehicle was detonated alongside the incoming train. No group immediately claimed responsibility in initial reporting.</span></span>
                   <span class="summary-full"><span>A suicide bombing occurred alongside a passenger train route in Quetta, Pakistan, killing at least 23 people and wounding approximately 70 others. An explosives-laden vehicle was detonated near the train. Quetta, the capital of Balochistan province, has experienced repeated attacks by militant groups over many years, and the area has been the site of significant political and ethnic violence. Pakistan's security forces have been engaged in ongoing counterterrorism operations in the region. The attack on civilian transportation infrastructure reflects a pattern of targeting public-facing targets in the province. No specific group claimed responsibility in early reporting. Pakistan is a country with which the United States maintains significant security and diplomatic ties, including cooperation on counterterrorism.</span></span>
                 </div>
@@ -895,16 +802,8 @@
     }
   }
 
-  function toggleMobileArchive() {
-    const panel = document.getElementById('mobile-archive-panel');
-    const toggle = document.getElementById('mobile-toggle');
-    const isOpen = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-    toggle.querySelector('span').textContent = isOpen ? '▼' : '▶';
-  }
-
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/balm/service-worker.js');
   }
 </script>
 </body>
