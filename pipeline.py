@@ -32,7 +32,7 @@ CLAUDE_MAX_TOKENS = 8000
 
 ELEVENLABS_VOICE_ID = "21m00Tcm4TlvDq8ikWAM"  # Rachel
 
-CLUSTER_SIMILARITY_THRESHOLD = 0.35
+CLUSTER_SIMILARITY_THRESHOLD = 0.22
 
 CATEGORY_ORDER = [
     "GEOPOLITICS",
@@ -337,21 +337,44 @@ def _cosine(v1: dict[str, float], v2: dict[str, float]) -> float:
     return dot / (mag1 * mag2)
 
 
-def cluster_articles(articles: list[dict], threshold: float = CLUSTER_SIMILARITY_THRESHOLD) -> list[list[dict]]:
-    """Group articles covering the same news event using TF-IDF cosine similarity.
+def _extract_named_entities(title: str) -> set[str]:
+    """Extract likely proper nouns: capitalised words that are not the first word.
 
-    Returns a list of clusters, each cluster being a list of articles. Single-article
-    stories produce a cluster of size 1. Uses Union-Find so clustering is transitive.
+    Simple heuristic — no NLP library required. Catches entity names like
+    country names, people, organisations that anchor same-story matching.
+    """
+    words = title.split()
+    entities: set[str] = set()
+    for word in words[1:]:                       # skip the first word (always capitalised)
+        clean = re.sub(r"[^a-zA-Z'-]", "", word)  # strip punctuation
+        if clean and clean[0].isupper() and len(clean) > 1:
+            entities.add(clean.lower())
+    return entities
+
+
+def cluster_articles(articles: list[dict], threshold: float = CLUSTER_SIMILARITY_THRESHOLD) -> list[list[dict]]:
+    """Group articles covering the same news event using three complementary signals.
+
+    An article pair is merged when ANY of the following holds:
+    1. **Named-entity boost** — headlines share ≥ 2 capitalised non-initial words
+       (catches "Iran strikes Israel" ↔ "US warns Iran" despite low lexical overlap).
+    2. **Headline TF-IDF similarity** ≥ threshold (default 0.22).
+    3. **Description TF-IDF similarity** ≥ threshold (fallback for differently
+       worded headlines that share a detailed description of the same event).
+
+    Uses Union-Find so clustering is transitive: if A~B and B~C, all three merge.
     """
     if not articles:
         return []
 
-    texts = [
-        (a["title"] + " " + (a.get("description") or "")[:200])
-        for a in articles
-    ]
-    vectors = _tfidf_vectors(texts)
     n = len(articles)
+
+    # Named entities per article
+    named_entities = [_extract_named_entities(a["title"]) for a in articles]
+
+    # Separate TF-IDF vectors for headlines and descriptions
+    head_vectors = _tfidf_vectors([a["title"] for a in articles])
+    desc_vectors = _tfidf_vectors([(a.get("description") or "")[:300] for a in articles])
 
     # Union-Find
     parent = list(range(n))
@@ -367,8 +390,18 @@ def cluster_articles(articles: list[dict], threshold: float = CLUSTER_SIMILARITY
 
     for i in range(n):
         for j in range(i + 1, n):
-            if _cosine(vectors[i], vectors[j]) >= threshold:
+            # 1. Named-entity boost
+            if len(named_entities[i] & named_entities[j]) >= 2:
                 union(i, j)
+                continue
+            # 2. Headline similarity
+            if _cosine(head_vectors[i], head_vectors[j]) >= threshold:
+                union(i, j)
+                continue
+            # 3. Description fallback
+            if desc_vectors[i] and desc_vectors[j]:
+                if _cosine(desc_vectors[i], desc_vectors[j]) >= threshold:
+                    union(i, j)
 
     clusters_map: dict[int, list[int]] = {}
     for i in range(n):

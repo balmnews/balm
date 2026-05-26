@@ -35,7 +35,7 @@ After each run, `index.html` is regenerated to point to the latest digest and re
 
 1. **Fetch** — NewsAPI, The Guardian, NYT (via API keys) + Fox News, BBC, WSJ (public RSS via feedparser)
 2. **Deduplicate** — Jaccard similarity on normalized title tokens, threshold ≥ 0.5
-3. **Cluster** — TF-IDF cosine similarity on headline + description, Union-Find grouping, threshold ≥ 0.35; multi-source stories are clustered together and sent to Claude as a single unit
+3. **Cluster** — Three-signal Union-Find grouping, threshold ≥ 0.22 (see below); multi-source stories are clustered together and sent to Claude as a single unit
 4. **Synthesize** — Claude processes each cluster, synthesizes multi-source stories into a single neutral account, returns 10–16 articles with `cluster_id` for source attribution
 5. **Attach sources** — pipeline maps `cluster_id` back to input articles; each output article gains a `sources` array with outlet name, URL, and original headline
 6. **Number** — sequential `ref` numbers assigned (1, 2, 3…) in category display order
@@ -200,7 +200,13 @@ Five source groups are fetched per run:
 5. **BBC News** — `feeds.bbci.co.uk/news/rss.xml` and `/world/rss.xml` — up to 8 each
 6. **WSJ Markets** — `feeds.content.dowjones.io/public/rss/mw_realtimeheadlines` — up to 8
 
-Articles are deduplicated by normalized title similarity (Jaccard ≥ 0.5 triggers deduplication, keeping the first occurrence). After deduplication, articles are clustered by story: TF-IDF cosine similarity ≥ 0.35 groups articles covering the same event into a single cluster. Clusters — not individual articles — are sent to Claude for synthesis. Target: 35–55 unique articles → 25–40 clusters entering the Claude prompt.
+Articles are deduplicated by normalized title similarity (Jaccard ≥ 0.5 triggers deduplication, keeping the first occurrence). After deduplication, articles are clustered by story using three complementary signals — any one is sufficient to merge two articles:
+
+1. **Named-entity boost** — headlines share ≥ 2 capitalised non-initial words (proper nouns, country names, people). Catches cases like "Iran strikes Israel" ↔ "US warns Iran" that share key entities but have low lexical overlap.
+2. **Headline TF-IDF similarity** ≥ 0.22 (computed separately on headline tokens only).
+3. **Description TF-IDF similarity** ≥ 0.22 (fallback: if headlines differ but descriptions of the same event overlap, still cluster).
+
+Clustering uses Union-Find so grouping is transitive. The threshold of 0.22 (lowered from an earlier 0.35) catches more same-story matches across differently worded outlets. Clusters — not individual articles — are sent to Claude for synthesis. Target: 35–55 unique articles → 25–40 clusters entering the Claude prompt.
 
 ### Multi-source synthesis
 
