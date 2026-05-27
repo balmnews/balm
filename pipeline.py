@@ -13,7 +13,6 @@ from pathlib import Path
 
 import feedparser
 import requests
-import voyageai
 from anthropic import Anthropic
 from dateutil import tz
 from feedgen.feed import FeedGenerator
@@ -33,21 +32,6 @@ CLAUDE_MAX_TOKENS = 8000
 ELEVENLABS_VOICE_ID = "21m00Tcm4TlvDq8ikWAM"  # Rachel
 AUDIO_ENABLED = False  # Set to True when ElevenLabs API key is refreshed and audio pipeline is ready for production
 
-VOYAGE_MODEL = "voyage-3-lite"
-# 0.72 is the calibrated threshold for news article semantic similarity.
-# Voyage voyage-3-lite embeddings for news typically score:
-#   >0.90 — near-identical articles (same outlet, same story)
-#   0.82-0.90 — same event, different outlets/framings
-#   0.72-0.82 — same event, cross-outlet coverage (target merge range)
-#   0.60-0.72 — related topic but different events (should NOT cluster)
-#   <0.60 — unrelated stories
-# Adjust upward if unrelated stories are clustering together.
-# Adjust downward if same-event cross-outlet articles are not clustering.
-EMBEDDING_SIMILARITY_THRESHOLD = 0.72
-VOYAGE_BATCH_SIZE = 128
-# When True, logs the top 20 pairs that scored between 0.60 and the threshold
-# but did NOT cluster together. Set to False after a diagnostic run.
-CLUSTER_DIAGNOSTIC = True
 
 CATEGORY_ORDER = [
     "GEOPOLITICS",
@@ -430,120 +414,128 @@ def _extract_geo_entities(text: str) -> set[str]:
 # Voyage AI embedding-based clustering
 # ---------------------------------------------------------------------------
 
-def get_embeddings(texts: list[str], voyage_key: str) -> list[list[float]]:
-    """Fetch embeddings from Voyage AI in batches.
+CLUSTER_PROMPT = """You are an editorial clustering engine for a news digest.
 
-    Returns a list of embedding vectors in the same order as input texts.
-    """
-    client = voyageai.Client(api_key=voyage_key)
-    all_embeddings: list[list[float]] = []
-    for i in range(0, len(texts), VOYAGE_BATCH_SIZE):
-        batch = texts[i:i + VOYAGE_BATCH_SIZE]
-        result = client.embed(batch, model=VOYAGE_MODEL, input_type="document")
-        all_embeddings.extend(result.embeddings)
-    return all_embeddings
+You will receive a numbered list of article headlines and brief descriptions.
+Your job is to group them by underlying news event — articles that are reporting
+on the same real-world event should be in the same cluster.
+
+CLUSTERING RULES:
+- Same event = same real-world occurrence, regardless of framing or vocabulary
+- "US strikes near Hormuz" and "Iran condemns American military action in Gulf"
+  are the same event — cluster them together
+- "Fox News: violent protesters clash with ICE" and "CNN: agents use force on
+  demonstrators" are the same event — cluster them together
+- Different aspects of a continuing story (Iran strikes + oil price response)
+  CAN be clustered together if they are directly causally connected
+- Different events that share a topic (two separate shootings, two separate
+  elections) must be in separate clusters even if they share vocabulary
+- When uncertain, keep articles in separate clusters — do not over-merge
+- Every article must appear in exactly one cluster
+- Single-article clusters are fine and expected for unique stories
+
+Return ONLY valid JSON, no preamble, no markdown, no explanation:
+{
+  "clusters": [
+    [0, 4, 7, 12],
+    [1, 9],
+    [2],
+    [3, 6, 11]
+  ]
+}
+
+Each inner array is a cluster containing the index numbers of articles
+that belong together. Every index from 0 to N-1 must appear exactly once."""
 
 
-def cosine_similarity(v1: list[float], v2: list[float]) -> float:
-    """Compute cosine similarity between two embedding vectors."""
-    dot = sum(a * b for a, b in zip(v1, v2))
-    mag1 = sum(a * a for a in v1) ** 0.5
-    mag2 = sum(b * b for b in v2) ** 0.5
-    if mag1 == 0.0 or mag2 == 0.0:
-        return 0.0
-    return dot / (mag1 * mag2)
+def cluster_articles(articles: list[dict], anthropic_key: str) -> list[list[dict]]:
+    """Cluster articles by story identity using Claude's semantic understanding.
 
-
-def cluster_articles(articles: list[dict], voyage_key: str) -> list[list[dict]]:
-    """Cluster articles by semantic similarity using Voyage AI embeddings.
-
-    Each article's title + first 200 chars of description are embedded.
-    Pairs whose cosine similarity exceeds EMBEDDING_SIMILARITY_THRESHOLD are
-    merged using Union-Find (transitive: A~B and B~C → all three in one cluster).
-
-    The geographic coherence gate runs as a hard block before similarity is
-    checked: two articles with conflicting geographic signals (e.g. China and
-    Pakistan) are never merged regardless of embedding score.
-
-    After all pairwise merges, _split_incoherent_clusters() runs as a backstop
-    to catch any false-positive transitivity merges.
+    Claude reads all headlines and groups articles about the same event together.
+    Falls back to single-article clusters if the API call fails.
     """
     if not articles:
         return []
 
-    # Build embedding input: headline + first 200 chars of description
-    texts = [
-        f"{a['title']}. {(a.get('description') or '')[:200]}"
-        for a in articles
-    ]
+    if len(articles) == 1:
+        return [articles]
 
-    print(f"  Fetching embeddings for {len(texts)} articles...")
-    embeddings = get_embeddings(texts, voyage_key)
+    # Build compact article list for Claude — headline + first 120 chars of description
+    article_list = []
+    for i, a in enumerate(articles):
+        desc = (a.get("description") or "").strip()
+        desc_short = desc[:120]
+        if desc_short:
+            article_list.append(f"[{i}] {a['title']} | {desc_short}")
+        else:
+            article_list.append(f"[{i}] {a['title']}")
 
-    # Pre-compute geographic entities for the coherence gate
-    geo_entities = [
-        _extract_geo_entities(a["title"] + " " + (a.get("description") or ""))
-        for a in articles
-    ]
+    prompt = (
+        f"Group these {len(articles)} articles into clusters by news event:\n\n"
+        + "\n".join(article_list)
+    )
 
-    # Union-Find
-    parent = list(range(len(articles)))
+    client = Anthropic(api_key=anthropic_key)
+    raw_clusters = None
 
-    def find(x: int) -> int:
-        while parent[x] != x:
-            parent[x] = parent[parent[x]]
-            x = parent[x]
-        return x
+    for attempt in range(3):
+        try:
+            response = client.messages.create(
+                model=CLAUDE_MODEL,
+                max_tokens=4000,
+                system=CLUSTER_PROMPT,
+                messages=[{"role": "user", "content": prompt}],
+            )
+            text = response.content[0].text.strip()
+            text = re.sub(r"^```(?:json)?\s*", "", text)
+            text = re.sub(r"\s*```$", "", text).strip()
+            data = json.loads(text)
+            raw_clusters = data.get("clusters", [])
 
-    def union(x: int, y: int) -> None:
-        parent[find(x)] = find(y)
+            # Validate — every index 0..N-1 must appear exactly once
+            seen: set[int] = set()
+            for cluster in raw_clusters:
+                for idx in cluster:
+                    if idx in seen or idx >= len(articles):
+                        raise ValueError(f"Invalid index {idx} in clusters")
+                    seen.add(idx)
+            missing = set(range(len(articles))) - seen
+            if missing:
+                # Add missing articles as singletons rather than failing
+                for idx in sorted(missing):
+                    raw_clusters.append([idx])
+                print(f"  [WARN] Clustering: {len(missing)} article(s) added as singletons",
+                      file=sys.stderr)
+            break
 
-    # Pairwise similarity check
-    merge_count = 0
-    near_misses: list[tuple[float, int, int]] = []  # (sim, i, j) — populated when CLUSTER_DIAGNOSTIC
-    for i in range(len(articles)):
-        for j in range(i + 1, len(articles)):
-            # Geographic coherence gate — hard block on conflicting geo signals
-            if (geo_entities[i] and geo_entities[j]
-                    and not (geo_entities[i] & geo_entities[j])):
-                continue
+        except Exception as e:
+            print(f"  [WARN] Claude clustering error (attempt {attempt + 1}): {e}",
+                  file=sys.stderr)
+            if attempt == 2:
+                print("  [WARN] Claude clustering failed — falling back to single-article clusters",
+                      file=sys.stderr)
+                return [[a] for a in articles]
 
-            sim = cosine_similarity(embeddings[i], embeddings[j])
-            if sim >= EMBEDDING_SIMILARITY_THRESHOLD:
-                if find(i) != find(j):
-                    union(i, j)
-                    merge_count += 1
-            elif CLUSTER_DIAGNOSTIC and sim >= 0.60:
-                near_misses.append((sim, i, j))
+    # Convert index clusters to article clusters
+    clusters = [[articles[i] for i in cluster] for cluster in raw_clusters]
 
-    if CLUSTER_DIAGNOSTIC and near_misses:
-        near_misses.sort(key=lambda x: x[0], reverse=True)
-        print(f"  [DIAGNOSTIC] Top {min(20, len(near_misses))} near-miss pairs "
-              f"(0.60 ≤ sim < {EMBEDDING_SIMILARITY_THRESHOLD}):", file=sys.stderr)
-        for sim, i, j in near_misses[:20]:
-            a, b = articles[i], articles[j]
-            print(f"    {sim:.4f}  [{a['source']}] {a['title']}", file=sys.stderr)
-            print(f"           [{b['source']}] {b['title']}", file=sys.stderr)
-
-    # Group by Union-Find root
-    clusters_map: dict[int, list[dict]] = {}
-    for i, article in enumerate(articles):
-        clusters_map.setdefault(find(i), []).append(article)
-
-    result = list(clusters_map.values())
-
-    # Post-clustering coherence backstop
-    result = _split_incoherent_clusters(result)
+    # Named-entity coherence backstop
+    clusters = _split_incoherent_clusters(clusters)
 
     # Log cluster distribution
-    multi = [c for c in result if len(c) > 1]
-    print(f"  {len(articles)} articles → {len(result)} clusters "
-          f"({len(multi)} multi-source, {merge_count} merges)")
+    multi = [c for c in clusters if len(c) > 1]
+    single = [c for c in clusters if len(c) == 1]
+    total_merges = len(articles) - len(clusters)
+    print(f"  Clustering: {len(articles)} articles → {len(clusters)} clusters "
+          f"({len(multi)} multi-source, {len(single)} single-source, "
+          f"{total_merges} merges)")
     for c in sorted(multi, key=len, reverse=True):
         outlets = " · ".join(dict.fromkeys(a["source"] for a in c))
-        print(f"    Cluster [{len(c)} sources]: {outlets}")
+        headlines = " | ".join(a["title"][:50] for a in c[:3])
+        print(f"    [{len(c)} sources] {outlets}")
+        print(f"      {headlines}")
 
-    return result
+    return clusters
 
 
 def _split_incoherent_clusters(clusters: list[list[dict]]) -> list[list[dict]]:
@@ -1220,14 +1212,10 @@ def main():
     nyt_api_key     = os.environ.get("NYT_API_KEY", "")
     anthropic_key   = os.environ.get("ANTHROPIC_API_KEY", "")
     elevenlabs_key  = os.environ.get("ELEVEN_LABS_API_KEY", "")
-    voyage_api_key  = os.environ.get("VOYAGE_API_KEY", "")
 
     # Fail fast on required keys
     if not anthropic_key:
         print("[ERROR] ANTHROPIC_API_KEY not set.", file=sys.stderr)
-        sys.exit(1)
-    if not voyage_api_key:
-        print("[ERROR] VOYAGE_API_KEY not set.", file=sys.stderr)
         sys.exit(1)
 
     # ── Step 1: Fetch articles ────────────────────────────────────────────
@@ -1272,12 +1260,9 @@ def main():
         sys.exit(1)
 
     # ── Step 3: Cluster ───────────────────────────────────────────────────
-    print("\n[3/11] Clustering articles by story (Voyage AI embeddings)...")
-    clusters = cluster_articles(deduped_articles, voyage_api_key)
+    print("\n[3/11] Clustering articles by story (Claude semantic clustering)...")
+    clusters = cluster_articles(deduped_articles, anthropic_key)
     multi = [c for c in clusters if len(c) > 1]
-    single = len(clusters) - len(multi)
-    print(f"  {len(deduped_articles)} articles → {len(clusters)} clusters "
-          f"({len(multi)} multi-source, {single} single-source)")
 
     # ── Step 4: Editorial review ──────────────────────────────────────────
     print("\n[4/11] Claude editorial review of cluster structure...")

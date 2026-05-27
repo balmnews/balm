@@ -183,7 +183,6 @@ All secrets are stored as GitHub repository Secrets and injected into the Action
 | `NYT_API_KEY` | New York Times Developer API | developer.nytimes.com → Apps → + New App |
 | `ANTHROPIC_API_KEY` | Claude API for editorial processing | console.anthropic.com → API Keys |
 | `ELEVEN_LABS_API_KEY` | ElevenLabs text-to-speech for audio digest | elevenlabs.io → Profile → API Key |
-| `VOYAGE_API_KEY` | Voyage AI embeddings for semantic clustering (required) | voyageai.com → API Keys |
 
 ---
 
@@ -219,43 +218,36 @@ Sources are fetched per run from three API sources and twelve RSS feeds. Target 
 
 ### Clustering algorithm
 
-After exact-duplicate removal, `cluster_articles()` groups articles by story using Voyage AI embeddings and Union-Find. Grouping is transitive: if A merges with B and B merges with C, all three form one cluster.
+After exact-duplicate removal, `cluster_articles()` groups articles by story using a single Claude API call. Claude reads every headline and brief description and returns an index-based assignment of articles to clusters.
 
-**Embedding model:** `voyage-3-lite` via the `voyageai` Python package. Each article's title + first 200 characters of its description are embedded as a single text. Embeddings are fetched in batches of 128 (`VOYAGE_BATCH_SIZE`). Requires `VOYAGE_API_KEY`.
+**How it works:**
+1. Each article is formatted as `[N] Headline | first 120 chars of description` and the full list is sent to Claude with `CLUSTER_PROMPT`.
+2. Claude returns a JSON array of clusters: `{"clusters": [[0, 4, 7], [1, 9], [2], ...]}` where each inner array contains the 0-based indices of articles that belong to the same story.
+3. The pipeline validates that every index from `0` to `N-1` appears exactly once. Any index missing from the response is appended as a singleton with a `[WARN]` log.
+4. Index clusters are converted back to article lists.
 
-**Similarity threshold:** `EMBEDDING_SIMILARITY_THRESHOLD = 0.82`. Cosine similarity between two article embeddings at or above this value triggers a merge. Threshold guidance:
-- `>0.90` — near-identical articles (same outlet, same story)
-- `0.82–0.90` — same event, different outlets or framings (target merge range)
-- `0.70–0.82` — related topic, different events (should not cluster)
-- `<0.70` — unrelated stories
+**`CLUSTER_PROMPT` design philosophy:**
+- Same event = same real-world occurrence, regardless of framing or vocabulary. "US strikes near Hormuz" and "Iran condemns American military action in Gulf" are the same event.
+- Directly causally connected developments (an airstrike + the immediate oil price response) may be clustered together.
+- Different events that share a topic — two separate shootings, two separate elections — must stay in separate clusters even if they share vocabulary.
+- When uncertain, keep articles separate. The prompt instructs Claude to favour splitting over merging.
+- Single-article clusters are fine and expected for unique stories.
 
-Adjust upward if unrelated stories are clustering together. Adjust downward if same-event stories are not clustering.
+**Fallback:** if all three API attempts fail, `cluster_articles()` returns every article as its own singleton cluster. The pipeline continues — synthesis still runs, it just gets no cross-outlet clusters for that run.
 
-**Geographic coherence gate** (safety layer): before similarity is checked, a hard block runs on pairs where both articles have detectable geographic entities and those entities are entirely disjoint. This prevents cross-country merges (e.g. China + Pakistan) that embeddings alone might not reject. `_extract_geo_entities(text)` searches the combined title + description text (lowercased) for:
-- **Single-word geographic names** via set intersection with `_GEO_SINGLE` — a `frozenset` of ~200 country names, all 50 US states, and ~100 major world cities.
-- **Multi-word geographic phrases** via substring match against `_GEO_PHRASES` — a `frozenset` of ~35 phrases including "united states", "south korea", "hong kong", "saudi arabia", "new york", and all two-word US state names.
-
-If either article has no detectable geographic signal, the gate is bypassed and the embedding comparison runs normally. This preserves correct clustering for geography-free stories (technology, economics) that contain no country or city name.
+**Cost note:** clustering adds one additional Claude API call per pipeline run. At ~150 articles × ~100 tokens each the input is roughly 15,000 tokens; output is a compact JSON array of integers. Total cost is modest compared to the synthesis call.
 
 ### Post-clustering coherence backstop
 
-After `cluster_articles()` returns, `_split_incoherent_clusters()` inspects every multi-article cluster as a backstop against false positives. The named-entity coherence test runs: `_extract_named_entities(title)` for every article in the cluster collects capitalised non-initial words (a proxy for proper nouns). If at least one article has named entities and no entity is shared by two or more articles, the cluster is split into singletons and logged to stderr as `[SPLIT]`.
+After `cluster_articles()` returns, `_split_incoherent_clusters()` inspects every multi-article cluster as a lightweight sanity check. `_extract_named_entities(title)` collects capitalised non-initial words (a proxy for proper nouns) from each headline. If at least one article has named entities and no entity is shared by two or more articles, the cluster is split into singletons and logged to stderr as `[SPLIT]`.
 
-Clusters where all entity sets are empty are exempt — we cannot determine incoherence from entities alone.
+Clusters where all entity sets are empty are exempt — we cannot determine incoherence from entities alone. This backstop is a safety net for clear errors; Claude's own clustering judgment is the primary mechanism.
 
 ### Claude editorial review
 
-After `_split_incoherent_clusters()`, a lightweight Claude call (`editorial_review()`) reviews all cluster titles. Claude can approve clusters (no action), split a cluster into singletons, or request that two clusters be merged. The prompt instructs Claude to approve the vast majority of clusters and only act on clear errors. This is a final sanity check on cluster structure — it catches edge cases the embedding + backstop pipeline missed.
+After `_split_incoherent_clusters()`, a second lightweight Claude call (`editorial_review()`) reviews all cluster titles. Claude can approve clusters (no action), split a cluster into singletons, or request that two clusters be merged. The prompt instructs Claude to approve the vast majority of clusters and only act on clear errors.
 
-`editorial_review()` is non-blocking: if the Claude call fails or returns invalid JSON, the original clusters are returned unchanged.
-
-### Protection layers summary
-
-Three layers protect against false-positive merges:
-
-1. **Geographic coherence gate** (during pairwise merge): hard block on pairs with conflicting geographic signals.
-2. **Named-entity coherence backstop** (post-clustering): splits clusters where no entity is shared by two or more articles.
-3. **Claude editorial review** (post-backstop): lightweight structural review that can split or merge clusters based on title-level comprehension.
+`editorial_review()` is non-blocking: if the call fails or returns invalid JSON, a partial-JSON recovery attempt runs (`_extract_partial_reviews()`), and if that also fails the original clusters are returned unchanged.
 
 ### Multi-source synthesis
 
@@ -280,27 +272,27 @@ In the digest HTML, this array is rendered as a collapsible sources toggle benea
 
 ### Known limitations and future improvements
 
-- **The geographic entity list is finite.** `_GEO_SINGLE` and `_GEO_PHRASES` cover the most newsworthy countries, states, and cities but will miss obscure place names, districts, regions, and newly prominent locations. A miss causes the geographic gate to be bypassed — falling back to embedding similarity — which is the correct graceful degradation. It does not cause an incorrect split.
-- **Cluster size is unbounded.** A very large cluster (8+ articles) may indicate over-merging via Union-Find transitivity: A merges with B, B merges with C, producing a three-way cluster where A and C are unrelated. The named-entity backstop and Claude review catch some of these cases, but a size threshold may be warranted if large clusters become common.
-- **Embedding API dependency.** `cluster_articles()` requires `VOYAGE_API_KEY`. If the API is unavailable, the pipeline will exit with an error at clustering time. There is no TF-IDF fallback — the fail-fast check at pipeline start (`if not voyage_api_key: sys.exit(1)`) surfaces this before any fetch work is done.
+- **Claude context window.** At ~150 articles the clustering prompt is well within Claude's context. If the article pool grows substantially (300+), the prompt may need to be chunked into two passes with a merge step.
+- **Cluster size is unbounded.** A very large cluster (8+ articles) may indicate over-merging. The named-entity backstop and editorial review catch some cases, but the synthesis prompt itself also handles large clusters — Claude is instructed to identify high-confidence vs. uncertain facts across all sources.
 
 ### Logging
 
 Steps 3 and 4 of the pipeline log report cluster structure:
 
 ```
-[3/11] Clustering articles by story (Voyage AI embeddings)...
-  Fetching embeddings for 134 articles...
+[3/11] Clustering articles by story (Claude semantic clustering)...
   [SPLIT] No shared entity → 2 singletons: China mine explosion kills 20 | Pakist...
-  134 articles → 58 clusters (14 multi-source, 31 merges)
-    Cluster [4 sources]: The New York Times · Fox News · BBC News · The Guardian
-    Cluster [2 sources]: The Guardian · WSJ Markets
+  Clustering: 134 articles → 58 clusters (14 multi-source, 44 single-source, 76 merges)
+    [4 sources] The New York Times · Fox News · BBC News · The Guardian
+      Ukraine ceasefire talks stall | Russia dismisses Western | Kyiv rejects terms
+    [2 sources] The Guardian · WSJ Markets
+      Oil prices rise on supply concerns | OPEC output cut extends
 
 [4/11] Claude editorial review of cluster structure...
   Editorial review: 1 merge(s), 0 split(s) applied → 57 clusters
 ```
 
-`[SPLIT]` lines are written to stderr so they appear in the GitHub Actions error stream, making false-positive merges easy to spot without noise in the normal stdout output. Multi-source cluster lines show contributing outlets (deduplicated) in order of appearance so synthesis inputs can be verified at a glance.
+`[SPLIT]` lines are written to stderr so they appear in the GitHub Actions error stream. Multi-source cluster lines show the contributing outlets and the first three headlines (truncated to 50 chars each) so synthesis inputs can be verified at a glance.
 
 ---
 
@@ -365,7 +357,6 @@ export GUARDIAN_API_KEY=...
 export NYT_API_KEY=...
 export ANTHROPIC_API_KEY=...
 export ELEVEN_LABS_API_KEY=...
-export VOYAGE_API_KEY=...
 python pipeline.py --run am   # or --run pm
 ```
 

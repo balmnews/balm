@@ -27,7 +27,7 @@ Your site will be live at `https://[your-username].github.io/balm`.
 
 ### 4. Obtain API keys
 
-You need six API keys. All have free tiers sufficient to run Balm.
+You need five API keys. All have free tiers sufficient to run Balm.
 
 **NewsAPI** — [newsapi.org](https://newsapi.org)
 - Register for a free account
@@ -54,11 +54,6 @@ You need six API keys. All have free tiers sufficient to run Balm.
 - Go to your **Profile** → **API Key**
 - Free tier (10,000 characters/month) covers roughly 2–3 digests; upgrade for daily use
 
-**Voyage AI** — [voyageai.com](https://www.voyageai.com)
-- Create a free account
-- Go to **API Keys** → **Create new secret key**
-- Free tier (50M tokens/month) is more than sufficient for daily use
-
 ### 5. Add secrets to GitHub
 
 1. Go to your repository → **Settings** → **Secrets and variables** → **Actions**
@@ -71,7 +66,6 @@ You need six API keys. All have free tiers sufficient to run Balm.
 | `NYT_API_KEY` | Your NYT key |
 | `ANTHROPIC_API_KEY` | Your Anthropic key |
 | `ELEVEN_LABS_API_KEY` | Your ElevenLabs key |
-| `VOYAGE_API_KEY` | Your Voyage AI key (required for clustering) |
 
 ### 6. Set up Ko-fi (optional)
 
@@ -116,7 +110,6 @@ export GUARDIAN_API_KEY=...
 export NYT_API_KEY=...
 export ANTHROPIC_API_KEY=...
 export ELEVEN_LABS_API_KEY=...
-export VOYAGE_API_KEY=...
 
 python pipeline.py --run am
 # Open docs/index.html in your browser

@@ -63,7 +63,6 @@ jobs:
           GUARDIAN_API_KEY: ${{ secrets.GUARDIAN_API_KEY }}
           NYT_API_KEY: ${{ secrets.NYT_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          VOYAGE_API_KEY: ${{ secrets.VOYAGE_API_KEY }}
         run: |
           ARGS="--run ${{ steps.edition.outputs.run }}"
           if [ -n "${{ github.event.inputs.date }}" ]; then
