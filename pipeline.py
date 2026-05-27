@@ -33,6 +33,11 @@ CLAUDE_MAX_TOKENS = 8000
 ELEVENLABS_VOICE_ID = "21m00Tcm4TlvDq8ikWAM"  # Rachel
 
 CLUSTER_SIMILARITY_THRESHOLD = 0.22
+# Raised threshold applied when both articles are domestic US political stories.
+# Political vocabulary (senate, congress, bill, vote, administration) is shared
+# across many unrelated domestic stories, so a much higher bar is required before
+# treating two domestic political articles as the same event.
+DOMESTIC_POLITICAL_THRESHOLD = 0.45
 
 CATEGORY_ORDER = [
     "GEOPOLITICS",
@@ -381,6 +386,95 @@ _GEO_PHRASES: frozenset[str] = frozenset({
     "north carolina", "north dakota", "south carolina", "south dakota",
 })
 
+# ---------------------------------------------------------------------------
+# Domestic political detection — used to apply stricter clustering threshold
+# ---------------------------------------------------------------------------
+
+# US states only.  Used to identify domestic political articles.
+_GEO_US_STATES: frozenset[str] = frozenset({
+    "alabama", "alaska", "arizona", "arkansas", "california", "colorado",
+    "connecticut", "delaware", "florida", "hawaii", "idaho", "illinois",
+    "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine",
+    "maryland", "massachusetts", "michigan", "minnesota", "mississippi",
+    "missouri", "montana", "nebraska", "nevada", "ohio", "oklahoma",
+    "oregon", "pennsylvania", "tennessee", "texas", "utah", "vermont",
+    "virginia", "wisconsin", "wyoming",
+})
+
+# Foreign countries that are unambiguously NOT US states.
+# "georgia" is intentionally excluded — it is both a US state and a country;
+# the ambiguity means we cannot use it as a foreign-country signal.
+_GEO_FOREIGN_COUNTRIES: frozenset[str] = frozenset({
+    "afghanistan", "albania", "algeria", "angola", "argentina", "armenia",
+    "australia", "austria", "azerbaijan", "bahrain", "bangladesh", "belarus",
+    "belgium", "belize", "benin", "bhutan", "bolivia", "botswana", "brazil",
+    "brunei", "bulgaria", "burkina", "burundi", "cambodia", "cameroon",
+    "canada", "chile", "china", "colombia", "comoros", "congo", "croatia",
+    "cuba", "cyprus", "czechia", "denmark", "djibouti", "ecuador", "egypt",
+    "eritrea", "ethiopia", "fiji", "finland", "france", "gabon", "gambia",
+    "germany", "ghana", "greece", "grenada", "guatemala", "guinea",
+    "guyana", "haiti", "honduras", "hungary", "india", "indonesia", "iran",
+    "iraq", "ireland", "israel", "italy", "jamaica", "japan", "jordan",
+    "kazakhstan", "kenya", "kiribati", "kosovo", "kuwait", "kyrgyzstan",
+    "laos", "latvia", "lebanon", "lesotho", "liberia", "libya", "lithuania",
+    "luxembourg", "madagascar", "malawi", "malaysia", "maldives", "mali",
+    "malta", "mauritania", "mauritius", "mexico", "moldova", "monaco",
+    "mongolia", "montenegro", "morocco", "mozambique", "myanmar", "namibia",
+    "nauru", "nepal", "netherlands", "nicaragua", "niger", "nigeria",
+    "norway", "oman", "pakistan", "palau", "palestine", "panama", "paraguay",
+    "peru", "philippines", "poland", "portugal", "qatar", "romania", "russia",
+    "rwanda", "samoa", "senegal", "serbia", "seychelles", "singapore",
+    "slovakia", "slovenia", "somalia", "spain", "sudan", "suriname", "sweden",
+    "switzerland", "syria", "taiwan", "tajikistan", "tanzania", "thailand",
+    "togo", "tonga", "tunisia", "turkey", "turkmenistan", "tuvalu", "uganda",
+    "ukraine", "uruguay", "uzbekistan", "vanuatu", "venezuela", "vietnam",
+    "yemen", "zambia", "zimbabwe",
+})
+
+# Multi-word phrases that unambiguously identify foreign stories.
+# US state phrases ("new york", "new jersey", etc.) are intentionally excluded.
+_GEO_FOREIGN_PHRASES: frozenset[str] = frozenset({
+    "united kingdom", "united arab emirates", "saudi arabia", "south africa",
+    "south korea", "north korea", "costa rica", "new zealand", "el salvador",
+    "sri lanka", "ivory coast", "burkina faso", "czech republic",
+    "dominican republic", "central african republic", "papua new guinea",
+    "equatorial guinea", "hong kong", "new delhi", "addis ababa",
+    "dar es salaam", "cape town", "buenos aires", "rio de janeiro",
+    "sao paulo", "mexico city", "kuala lumpur", "phnom penh", "ho chi minh",
+})
+
+# ---------------------------------------------------------------------------
+# Event-type classification — used to block merges between articles covering
+# structurally different kinds of political events
+# ---------------------------------------------------------------------------
+
+# Each value is a tuple of lowercased substrings.  Multi-word phrases match
+# naturally via substring search.  Keywords were chosen to be type-specific;
+# ambiguous terms (senate, congress, vote, signed) are intentionally absent.
+# Classification requires ≥ 2 keyword matches to be considered high-confidence.
+_EVENT_TYPE_KEYWORDS: dict[str, tuple[str, ...]] = {
+    "election": (
+        "election", "primary", "runoff", "ballot", "candidate",
+        "senate race", "voters", "voting rights", "campaign trail",
+        "early voting", "runoff election", "general election",
+    ),
+    "legal": (
+        "doj", "indictment", "january 6", "charges filed", "lawsuit",
+        "trial", "verdict", "subpoena", "prosecution", "plea deal",
+        "department of justice", "attorney general", "grand jury",
+    ),
+    "legislative": (
+        "bill", "legislation", "amendment", "committee hearing",
+        "filibuster", "reconciliation", "appropriations",
+        "passed the senate", "passed the house", "signed into law",
+    ),
+    "executive": (
+        "executive order", "white house", "president signed",
+        "cabinet", "appointed", "administration announced", "oval office",
+        "secretary of", "acting director",
+    ),
+}
+
 
 def _tokenize(text: str) -> list[str]:
     return [t for t in re.findall(r"[a-z0-9]+", text.lower())
@@ -459,36 +553,96 @@ def _extract_geo_entities(text: str) -> set[str]:
     return found
 
 
+def _is_domestic_political(text: str) -> bool:
+    """Return True if this article is clearly a domestic US political story.
+
+    Heuristic: text contains at least one US state name or a Washington DC
+    indicator ("washington"), AND contains no unambiguous foreign country name.
+    When True, pairwise clustering applies DOMESTIC_POLITICAL_THRESHOLD (0.45)
+    instead of the default (0.22), because political vocabulary is shared across
+    many unrelated domestic stories and the standard threshold is too permissive.
+    """
+    text_lower = text.lower()
+    words = set(re.findall(r"\b[a-z]+\b", text_lower))
+    # Reject if any unambiguous foreign country name is present
+    if words & _GEO_FOREIGN_COUNTRIES:
+        return False
+    for phrase in _GEO_FOREIGN_PHRASES:
+        if phrase in text_lower:
+            return False
+    # Must have at least one US geographic anchor
+    return bool(words & _GEO_US_STATES) or "washington" in words
+
+
+def _classify_event_type(text: str) -> tuple[str, int]:
+    """Classify article text into a broad political event type via keyword matching.
+
+    Searches for substrings from _EVENT_TYPE_KEYWORDS in lowercased text and
+    counts matches per type.  Returns (event_type, confidence) where confidence
+    is the number of keyword matches for the winning type.
+
+    Returns ("ambiguous", 0) when:
+    - no type scores ≥ 2 (too few signals for high confidence), or
+    - the top two types are tied (genuinely ambiguous article).
+
+    Callers should treat "ambiguous" as "no classification" and fall back to
+    existing TF-IDF logic rather than blocking a merge.
+    """
+    text_lower = text.lower()
+    scores: dict[str, int] = {}
+    for etype, keywords in _EVENT_TYPE_KEYWORDS.items():
+        score = sum(1 for kw in keywords if kw in text_lower)
+        if score > 0:
+            scores[etype] = score
+
+    if not scores:
+        return ("ambiguous", 0)
+
+    ranked = sorted(scores.items(), key=lambda x: -x[1])
+    top_type, top_score = ranked[0]
+
+    # Require ≥ 2 matches and a clear lead over the second type
+    if top_score < 2:
+        return ("ambiguous", 0)
+    if len(ranked) >= 2 and ranked[1][1] >= top_score:
+        return ("ambiguous", 0)
+
+    return (top_type, top_score)
+
+
 def cluster_articles(articles: list[dict], threshold: float = CLUSTER_SIMILARITY_THRESHOLD) -> list[list[dict]]:
-    """Group articles covering the same news event using three complementary signals.
+    """Group articles covering the same news event using layered merge guards.
 
-    Before any merge is attempted, a geographic coherence gate checks whether
-    the two articles have conflicting geographic signals — if both have detectable
-    place names and share none, they are about different events and cannot merge
-    regardless of textual similarity.
+    Guards fire in order; a block at any layer skips the merge entirely:
 
-    When the geographic gate does not block, merging proceeds on ANY of:
-    1. **Named-entity boost** — headlines share ≥ 2 capitalised non-initial words
-       (catches "Iran strikes Israel" ↔ "US warns Iran" despite low lexical overlap).
-    2. **Headline TF-IDF similarity** ≥ threshold (default 0.22).
-    3. **Description TF-IDF similarity** ≥ threshold (fallback for differently
-       worded headlines that share a detailed description of the same event).
+    0a. **Geographic coherence gate** — if both articles have detectable place
+        names and share none, they are about different places: block.
+    0b. **Event-type conflict check** — if both articles classify with high
+        confidence (≥ 2 keyword matches) into different event types (election vs
+        legal vs legislative vs executive), block regardless of text similarity.
 
-    Uses Union-Find so clustering is transitive: if A~B and B~C, all three merge.
+    When neither guard blocks, the effective similarity threshold is determined:
+    - Both articles are domestic US political → DOMESTIC_POLITICAL_THRESHOLD (0.45)
+    - Otherwise → threshold (default 0.22)
+
+    A merge then fires on ANY of:
+    1. **Named-entity boost** — headlines share ≥ 2 capitalised non-initial words.
+    2. **Headline TF-IDF similarity** ≥ effective threshold.
+    3. **Description TF-IDF similarity** ≥ effective threshold (fallback).
+
+    Uses Union-Find so grouping is transitive: if A~B and B~C, all three merge.
     """
     if not articles:
         return []
 
     n = len(articles)
+    text = [a["title"] + " " + (a.get("description") or "") for a in articles]
 
-    # Named entities per article (title only — capitalised non-initial words)
+    # Per-article signals (pre-computed for performance)
     named_entities = [_extract_named_entities(a["title"]) for a in articles]
-
-    # Geographic entities per article (title + description for maximum recall)
-    geo_entities = [
-        _extract_geo_entities(a["title"] + " " + (a.get("description") or ""))
-        for a in articles
-    ]
+    geo_entities   = [_extract_geo_entities(t) for t in text]
+    is_domestic    = [_is_domestic_political(t) for t in text]
+    event_types    = [_classify_event_type(t) for t in text]
 
     # Separate TF-IDF vectors for headlines and descriptions
     head_vectors = _tfidf_vectors([a["title"] for a in articles])
@@ -508,24 +662,37 @@ def cluster_articles(articles: list[dict], threshold: float = CLUSTER_SIMILARITY
 
     for i in range(n):
         for j in range(i + 1, n):
-            # 0. Geographic coherence gate — if both articles carry geographic
-            #    signals and those signals are entirely disjoint, they describe
-            #    events in different places and must not be merged.  When either
-            #    article has no detected geography, fall through to the standard
-            #    signals so geography-free stories still cluster normally.
+            # 0a. Geographic coherence gate
             if geo_entities[i] and geo_entities[j] and not (geo_entities[i] & geo_entities[j]):
                 continue
-            # 1. Named-entity boost
+
+            # 0b. Event-type conflict check — block when both articles have a
+            #     high-confidence classification and those classifications differ.
+            #     "ambiguous" is treated as "no classification" and does not block.
+            type_i, conf_i = event_types[i]
+            type_j, conf_j = event_types[j]
+            if (type_i != "ambiguous" and type_j != "ambiguous"
+                    and conf_i >= 2 and conf_j >= 2
+                    and type_i != type_j):
+                continue
+
+            # Effective threshold: stricter for domestic-political pairs because
+            # political vocabulary is shared across many unrelated stories.
+            eff_threshold = (DOMESTIC_POLITICAL_THRESHOLD
+                             if is_domestic[i] and is_domestic[j]
+                             else threshold)
+
+            # 1. Named-entity boost (threshold-independent)
             if len(named_entities[i] & named_entities[j]) >= 2:
                 union(i, j)
                 continue
             # 2. Headline similarity
-            if _cosine(head_vectors[i], head_vectors[j]) >= threshold:
+            if _cosine(head_vectors[i], head_vectors[j]) >= eff_threshold:
                 union(i, j)
                 continue
             # 3. Description fallback
             if desc_vectors[i] and desc_vectors[j]:
-                if _cosine(desc_vectors[i], desc_vectors[j]) >= threshold:
+                if _cosine(desc_vectors[i], desc_vectors[j]) >= eff_threshold:
                     union(i, j)
 
     clusters_map: dict[int, list[int]] = {}
@@ -536,51 +703,65 @@ def cluster_articles(articles: list[dict], threshold: float = CLUSTER_SIMILARITY
 
 
 def _split_incoherent_clusters(clusters: list[list[dict]]) -> tuple[list[list[dict]], int]:
-    """Post-clustering coherence check: split clusters where no named entity
-    is shared by more than one article.
+    """Post-clustering coherence check: split clusters that fail either of two tests.
 
-    TF-IDF can still merge stylistically similar articles about unrelated events
-    when both articles lack detectable geography (e.g., two different domestic
-    incidents described in similar language). This backstop requires that at least
-    one named entity (capitalised non-initial word from the headline) appear in
-    two or more articles. If no such shared entity exists the cluster is split
-    back into individual single-article clusters.
+    **Test 1 — Named-entity coherence** (existing):
+    At least one named entity (capitalised non-initial word from the headline)
+    must appear in ≥ 2 articles. Clusters where all entity sets are empty are
+    exempt — we cannot determine incoherence from entities alone.
 
-    Clusters where ALL articles have empty named-entity sets are left intact — we
-    cannot determine incoherence from entities alone, and the geographic gate
-    should already have blocked geography-conflicting merges.
+    **Test 2 — Event-type diversity** (new):
+    Articles in the cluster must not span more than 2 distinct high-confidence
+    event types. A cluster covering election + legal + legislative articles (3
+    types) is a false-positive transitivity merge and is split into singletons.
+    "ambiguous" classifications are excluded from the count.
 
-    Returns (cleaned_clusters, n_splits).
+    Failing either test causes the entire cluster to be split into singletons
+    and logged to stderr as [SPLIT]. Returns (cleaned_clusters, n_splits).
     """
     result = []
     splits = 0
+
     for cluster in clusters:
         if len(cluster) <= 1:
             result.append(cluster)
             continue
 
+        # --- Test 1: Named-entity coherence ---
         entity_sets = [_extract_named_entities(a["title"]) for a in cluster]
+        if not all(not s for s in entity_sets):
+            # At least one article has named entities — validate.
+            entity_counts: Counter = Counter()
+            for s in entity_sets:
+                entity_counts.update(s)
+            if not any(count >= 2 for count in entity_counts.values()):
+                splits += 1
+                headlines = " | ".join(a["title"][:45] for a in cluster)
+                print(f"  [SPLIT] No shared entity → {len(cluster)} singletons: {headlines}",
+                      file=sys.stderr)
+                result.extend([[a] for a in cluster])
+                continue
 
-        # All empty — cannot validate; keep the cluster.
-        if all(not s for s in entity_sets):
-            result.append(cluster)
-            continue
-
-        # Count how many articles each entity appears in.
-        entity_counts: Counter = Counter()
-        for s in entity_sets:
-            entity_counts.update(s)
-
-        # Coherent: at least one entity bridges ≥ 2 articles.
-        if any(count >= 2 for count in entity_counts.values()):
-            result.append(cluster)
-        else:
-            # No bridging entity — split into singletons.
+        # --- Test 2: Event-type diversity ---
+        type_labels: set[str] = set()
+        for a in cluster:
+            etype, _ = _classify_event_type(
+                a["title"] + " " + (a.get("description") or "")
+            )
+            if etype != "ambiguous":
+                type_labels.add(etype)
+        if len(type_labels) > 2:
             splits += 1
             headlines = " | ".join(a["title"][:45] for a in cluster)
-            print(f"  [SPLIT] No shared entity → {len(cluster)} singletons: {headlines}",
-                  file=sys.stderr)
+            print(
+                f"  [SPLIT] Event-type span ({', '.join(sorted(type_labels))}) → "
+                f"{len(cluster)} singletons: {headlines}",
+                file=sys.stderr,
+            )
             result.extend([[a] for a in cluster])
+            continue
+
+        result.append(cluster)
 
     return result, splits
 
