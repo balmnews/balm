@@ -188,17 +188,29 @@ All secrets are stored as GitHub repository Secrets and injected into the Action
 
 ## News Sources and Clustering Architecture
 
-Five source groups are fetched per run:
+Sources are fetched per run from three API sources and twelve RSS feeds. Target input before clustering: ~120–160 raw articles.
 
 **API sources (require keys):**
-1. **NewsAPI** — categories: world, business, technology, health, science, sports — 5 articles each (30 total)
-2. **The Guardian** — sections: world, business, technology, science, sport — 5 articles each (25 total)
-3. **New York Times** — sections: world, business, technology, health, science, sports — 5 articles each (30 total)
+1. **NewsAPI** — categories: world, business, technology, health, science, sports, politics, national — 5 articles each (40 total). *politics* and *national* added to close the domestic-coverage gap present in the world/business-only set.
+2. **The Guardian** — sections: world, business, technology, science, sport — 5 articles each (25 total).
+3. **New York Times** — sections: world, business, technology, health, science, sports, politics, climate — 5 articles each (40 total). *politics* adds authoritative domestic political coverage; *climate* provides dedicated environmental reporting that rarely surfaces from the general sections.
 
-**RSS feeds (no API key required, parsed via feedparser):**
-4. **Fox News** — `feeds.foxnews.com/foxnews/latest` and `/world` — up to 8 each
-5. **BBC News** — `feeds.bbci.co.uk/news/rss.xml` and `/world/rss.xml` — up to 8 each
-6. **WSJ Markets** — `feeds.content.dowjones.io/public/rss/mw_realtimeheadlines` — up to 8
+**RSS feeds (no API key required, parsed via feedparser, up to 8 articles each):**
+
+| Feed | URL | Rationale |
+|---|---|---|
+| Fox News | `feeds.foxnews.com/foxnews/latest` | Right-leaning general coverage; ensures multi-outlet synthesis spans perspectives |
+| Fox News World | `feeds.foxnews.com/foxnews/world` | International stories from a right-leaning source |
+| Fox News Politics | `feeds.foxnews.com/foxnews/politics` | Political balance — right-leaning domestic politics |
+| WSJ Markets | `feeds.content.dowjones.io/public/rss/mw_realtimeheadlines` | Financial and markets coverage |
+| BBC News | `feeds.bbci.co.uk/news/rss.xml` | International perspective; widely considered editorially neutral |
+| BBC World | `feeds.bbci.co.uk/news/world/rss.xml` | International stories from BBC |
+| Reuters Politics | `feeds.reuters.com/reuters/politicsNews` | Wire-service political coverage; highly authoritative, low framing |
+| Reuters Domestic | `feeds.reuters.com/reuters/domesticNews` | Wire-service domestic US coverage; fills the gap left by API sources |
+| NPR News | `feeds.npr.org/1001/rss.xml` | Public media; domestic coverage with different editorial priorities than commercial outlets |
+| PBS NewsHour | `www.pbs.org/newshour/feeds/rss/headlines` | Public media; adds domestic depth and often covers stories commercial outlets skip |
+| Guardian Environment | `www.theguardian.com/environment/rss` | Dedicated climate and environment feed; improves NATURAL EVENTS and SCIENCE & HEALTH coverage |
+| SCOTUSblog | `www.scotusblog.com/feed/` | Supreme Court and federal judiciary; sole specialist legal source, covers DOMESTIC POLICY stories general feeds miss |
 
 ### Exact duplicate removal
 

@@ -46,11 +46,24 @@ CATEGORY_ORDER = [
 ]
 
 RSS_FEEDS = [
+    # Existing feeds
     ("Fox News", "https://feeds.foxnews.com/foxnews/latest"),
     ("Fox News World", "https://feeds.foxnews.com/foxnews/world"),
     ("WSJ Markets", "https://feeds.content.dowjones.io/public/rss/mw_realtimeheadlines"),
     ("BBC News", "http://feeds.bbci.co.uk/news/rss.xml"),
     ("BBC World", "http://feeds.bbci.co.uk/news/world/rss.xml"),
+    # Political balance — right-leaning domestic politics perspective
+    ("Fox News Politics", "https://feeds.foxnews.com/foxnews/politics"),
+    # Wire service — authoritative domestic and political coverage
+    ("Reuters Politics", "https://feeds.reuters.com/reuters/politicsNews"),
+    ("Reuters Domestic", "https://feeds.reuters.com/reuters/domesticNews"),
+    # Public media — domestic coverage with different editorial priorities
+    ("NPR News", "https://feeds.npr.org/1001/rss.xml"),
+    ("PBS NewsHour", "https://www.pbs.org/newshour/feeds/rss/headlines"),
+    # Climate and environment — dedicated coverage for NATURAL EVENTS / SCIENCE & HEALTH
+    ("Guardian Environment", "https://www.theguardian.com/environment/rss"),
+    # Legal and justice — Supreme Court and federal judiciary coverage
+    ("SCOTUSblog", "https://www.scotusblog.com/feed/"),
 ]
 
 EDITORIAL_SYSTEM_PROMPT = """You are the editorial engine for Balm, a news digest with one guiding principle: inform without agitating.
@@ -138,7 +151,8 @@ Category display order: GEOPOLITICS, ECONOMY, DOMESTIC POLICY, SCIENCE & HEALTH,
 # ---------------------------------------------------------------------------
 
 def fetch_newsapi(api_key: str) -> list[dict]:
-    categories = ["world", "business", "technology", "health", "science", "sports"]
+    categories = ["world", "business", "technology", "health", "science", "sports",
+                  "politics", "national"]
     articles = []
     for category in categories:
         try:
@@ -192,7 +206,8 @@ def fetch_guardian(api_key: str) -> list[dict]:
 
 
 def fetch_nyt(api_key: str) -> list[dict]:
-    sections = ["world", "business", "technology", "health", "science", "sports"]
+    sections = ["world", "business", "technology", "health", "science", "sports",
+                "politics", "climate"]
     articles = []
     for section in sections:
         try:
