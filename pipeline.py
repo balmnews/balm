@@ -251,34 +251,28 @@ def fetch_rss_feeds() -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
-# Deduplication
+# Exact-duplicate removal
 # ---------------------------------------------------------------------------
 
-def normalize_title(title: str) -> set[str]:
-    """Return lowercase meaningful token set for similarity comparison."""
-    tokens = re.findall(r"[a-z0-9]+", title.lower())
-    stopwords = {"a", "an", "the", "and", "or", "but", "in", "on", "at", "to", "for",
-                 "of", "with", "is", "are", "was", "were", "be", "been", "by", "as"}
-    return {t for t in tokens if t not in stopwords and len(t) > 2}
+def remove_exact_duplicates(articles: list[dict]) -> list[dict]:
+    """Remove only true exact duplicates: same title AND same source AND same URL.
 
-
-def deduplicate(articles: list[dict]) -> list[dict]:
-    """Remove near-duplicate articles by title Jaccard similarity >= 0.5."""
-    seen: list[set] = []
+    Near-duplicates — the same story covered by different outlets — are
+    intentionally kept so the clustering step can group them together and
+    Claude can synthesize a multi-source account. Discarding cross-outlet
+    near-duplicates here would strip the synthesis inputs before clustering
+    ever runs.
+    """
+    seen: set[tuple] = set()
     unique = []
     for article in articles:
-        tokens = normalize_title(article["title"])
-        if not tokens:
-            continue
-        duplicate = False
-        for seen_tokens in seen:
-            intersection = tokens & seen_tokens
-            union = tokens | seen_tokens
-            if union and len(intersection) / len(union) >= 0.5:
-                duplicate = True
-                break
-        if not duplicate:
-            seen.append(tokens)
+        key = (
+            (article.get("title") or "").strip(),
+            (article.get("source") or "").strip(),
+            (article.get("url") or "").strip(),
+        )
+        if key not in seen:
+            seen.add(key)
             unique.append(article)
     return unique
 
@@ -879,21 +873,29 @@ def main():
     print(f"  RSS feeds total: {len(rss_fetched)} articles")
     print(f"  Total raw: {len(raw_articles)}")
 
-    # ── Step 2: Deduplicate ───────────────────────────────────────────────
-    print("\n[2/10] Deduplicating...")
-    unique_articles = deduplicate(raw_articles)
-    print(f"  {len(raw_articles)} raw → {len(unique_articles)} unique")
+    # ── Step 2: Remove exact duplicates ──────────────────────────────────
+    print("\n[2/10] Removing exact duplicates (same title + source + URL)...")
+    deduped_articles = remove_exact_duplicates(raw_articles)
+    removed = len(raw_articles) - len(deduped_articles)
+    print(f"  {len(raw_articles)} raw → {len(deduped_articles)} articles "
+          f"({removed} exact duplicates removed)")
 
-    if not unique_articles:
+    if not deduped_articles:
         print("[ERROR] No articles fetched. Check API keys.", file=sys.stderr)
         sys.exit(1)
 
     # ── Step 3: Cluster ───────────────────────────────────────────────────
     print("\n[3/10] Clustering articles by story...")
-    clusters = cluster_articles(unique_articles)
+    clusters = cluster_articles(deduped_articles)
     multi = sum(1 for c in clusters if len(c) > 1)
-    print(f"  {len(unique_articles)} articles → {len(clusters)} clusters "
-          f"({multi} multi-source, {len(clusters) - multi} single-source)")
+    single = len(clusters) - multi
+    print(f"  {len(deduped_articles)} articles → {len(clusters)} clusters "
+          f"({multi} multi-source, {single} single-source)")
+    # Log each multi-source cluster so it's easy to verify synthesis inputs
+    for i, cluster in enumerate(clusters, 1):
+        if len(cluster) > 1:
+            outlets = " · ".join(a["source"] for a in cluster)
+            print(f"    Cluster {i:2d} [{len(cluster)} sources]: {outlets}")
 
     if not anthropic_key:
         print("[ERROR] ANTHROPIC_API_KEY not set.", file=sys.stderr)
@@ -914,7 +916,7 @@ def main():
 
     # ── Step 6: Save metadata ─────────────────────────────────────────────
     print("\n[6/10] Saving metadata...")
-    metadata = save_metadata(date_str, run, processed_articles, len(unique_articles), sp500, DOCS_DIR)
+    metadata = save_metadata(date_str, run, processed_articles, len(deduped_articles), sp500, DOCS_DIR)
 
     # ── Step 7: Generate audio ────────────────────────────────────────────
     print("\n[7/10] Generating audio...")
