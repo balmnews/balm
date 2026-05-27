@@ -31,6 +31,7 @@ CLAUDE_MODEL = "claude-sonnet-4-6"
 CLAUDE_MAX_TOKENS = 8000
 
 ELEVENLABS_VOICE_ID = "21m00Tcm4TlvDq8ikWAM"  # Rachel
+AUDIO_ENABLED = False  # Set to True when ElevenLabs API key is refreshed and audio pipeline is ready for production
 
 VOYAGE_MODEL = "voyage-3-lite"
 # 0.72 is the calibrated threshold for news article semantic similarity.
@@ -1288,11 +1289,14 @@ def main():
     # ── Step 8: Generate audio ────────────────────────────────────────────
     print("\n[8/11] Generating audio...")
     mp3_path = None
-    if elevenlabs_key:
-        script = build_audio_script(processed_articles, date_str, run)
-        mp3_path = generate_audio(script, date_str, run, elevenlabs_key, DOCS_DIR)
+    if AUDIO_ENABLED:
+        if elevenlabs_key:
+            script = build_audio_script(processed_articles, date_str, run)
+            mp3_path = generate_audio(script, date_str, run, elevenlabs_key, DOCS_DIR)
+        else:
+            print("  [WARN] ELEVEN_LABS_API_KEY not set — skipping audio")
     else:
-        print("  [WARN] ELEVEN_LABS_API_KEY not set — skipping audio")
+        print("  Audio disabled (AUDIO_ENABLED = False)")
 
     # ── Step 9: Collect archive ───────────────────────────────────────────
     print("\n[9/11] Building archive index...")
@@ -1307,15 +1311,18 @@ def main():
 
     # ── Step 11: Podcast RSS ──────────────────────────────────────────────
     print("\n[11/11] Updating podcast RSS feed...")
-    try:
-        update_podcast_feed(DOCS_DIR)
-    except Exception as e:
-        print(f"  [WARN] Podcast feed update failed: {e}", file=sys.stderr)
+    if AUDIO_ENABLED:
+        try:
+            update_podcast_feed(DOCS_DIR)
+        except Exception as e:
+            print(f"  [WARN] Podcast feed update failed: {e}", file=sys.stderr)
+    else:
+        print("  Podcast RSS update skipped (AUDIO_ENABLED = False)")
 
     print(f"\n[DONE] Balm {date_str} {run.upper()} complete.")
     print(f"  Stories published : {len(processed_articles)}")
     print(f"  Clusters processed: {len(clusters)} ({len(multi)} multi-source)")
-    print(f"  Audio             : {'yes' if mp3_path else 'no'}")
+    print(f"  Audio             : {'yes' if mp3_path else 'disabled' if not AUDIO_ENABLED else 'no'}")
     print(f"  S&P 500           : {sp500 if sp500 else 'unavailable'}")
 
 
