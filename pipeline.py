@@ -33,15 +33,16 @@ CLAUDE_MAX_TOKENS = 8000
 ELEVENLABS_VOICE_ID = "21m00Tcm4TlvDq8ikWAM"  # Rachel
 
 VOYAGE_MODEL = "voyage-3-lite"
-# 0.82 is a conservative threshold for news article semantic similarity.
+# 0.72 is the calibrated threshold for news article semantic similarity.
 # Voyage voyage-3-lite embeddings for news typically score:
 #   >0.90 — near-identical articles (same outlet, same story)
-#   0.82-0.90 — same event, different outlets/framings (target range)
-#   0.70-0.82 — related topic but different events (should NOT cluster)
-#   <0.70 — unrelated stories
+#   0.82-0.90 — same event, different outlets/framings
+#   0.72-0.82 — same event, cross-outlet coverage (target merge range)
+#   0.60-0.72 — related topic but different events (should NOT cluster)
+#   <0.60 — unrelated stories
 # Adjust upward if unrelated stories are clustering together.
-# Adjust downward if same-event stories are not clustering.
-EMBEDDING_SIMILARITY_THRESHOLD = 0.82
+# Adjust downward if same-event cross-outlet articles are not clustering.
+EMBEDDING_SIMILARITY_THRESHOLD = 0.72
 VOYAGE_BATCH_SIZE = 128
 
 CATEGORY_ORDER = [
@@ -237,9 +238,10 @@ def fetch_nyt(api_key: str) -> list[dict]:
                 })
         except Exception as e:
             print(f"[WARN] NYT {section}: {e}", file=sys.stderr)
-        # NYT free tier: 10 requests/minute. A small delay between sections
-        # prevents rate-limit errors when both pipelines run simultaneously.
-        time.sleep(0.5)
+        # NYT free tier: 10 requests/minute. 1.5s between sections keeps the
+        # combined request rate safely under the limit even when both pipelines
+        # run simultaneously (8 sections × 1.5s = 12s added to each run).
+        time.sleep(1.5)
     return articles
 
 
@@ -562,6 +564,55 @@ def _split_incoherent_clusters(clusters: list[list[dict]]) -> list[list[dict]]:
     return result
 
 
+def _extract_partial_reviews(raw: str) -> list[dict]:
+    """Extract complete review objects from a potentially truncated JSON response.
+
+    Walks the raw string character by character, tracking brace depth to identify
+    complete top-level JSON objects inside the "reviews" array. Returns every
+    object that parses cleanly and contains a "cluster_id" field.
+    """
+    raw = re.sub(r"^```(?:json)?\s*", "", raw.strip())
+    raw = re.sub(r"\s*```$", "", raw).strip()
+    m = re.search(r'"reviews"\s*:\s*\[', raw)
+    if not m:
+        return []
+    pos = m.end()
+    complete: list[dict] = []
+    depth = 0
+    obj_start: int | None = None
+    in_string = False
+    i = pos
+    while i < len(raw):
+        ch = raw[i]
+        if in_string:
+            if ch == "\\":
+                i += 2
+                continue
+            elif ch == '"':
+                in_string = False
+        else:
+            if ch == '"':
+                in_string = True
+            elif ch == "{":
+                if depth == 0:
+                    obj_start = i
+                depth += 1
+            elif ch == "}":
+                depth -= 1
+                if depth == 0 and obj_start is not None:
+                    try:
+                        obj = json.loads(raw[obj_start: i + 1])
+                        if isinstance(obj, dict) and "cluster_id" in obj:
+                            complete.append(obj)
+                    except json.JSONDecodeError:
+                        pass
+                    obj_start = None
+            elif ch == "]" and depth == 0:
+                break
+        i += 1
+    return complete
+
+
 EDITORIAL_REVIEW_PROMPT = """You are reviewing story clusters assembled for the Balm news digest.
 Each cluster contains one or more news articles that the system believes cover the same story.
 
@@ -618,7 +669,7 @@ def editorial_review(
     try:
         response = client.messages.create(
             model=CLAUDE_MODEL,
-            max_tokens=2000,
+            max_tokens=4000,
             system=EDITORIAL_REVIEW_PROMPT,
             messages=[{"role": "user", "content": prompt}],
         )
@@ -626,8 +677,19 @@ def editorial_review(
         # Strip markdown fences if present
         raw = re.sub(r"^```(?:json)?\s*", "", raw)
         raw = re.sub(r"\s*```$", "", raw).strip()
-        data = json.loads(raw)
-        reviews = data.get("reviews", [])
+        try:
+            data = json.loads(raw)
+            reviews = data.get("reviews", [])
+        except json.JSONDecodeError:
+            # Response may be truncated — extract complete review objects character by character
+            reviews = _extract_partial_reviews(raw)
+            if reviews:
+                print(f"  [FALLBACK] Extracted {len(reviews)} complete review objects "
+                      f"from truncated editorial response", file=sys.stderr)
+            else:
+                print(f"  [WARN] Editorial review JSON unparseable; using original clusters.",
+                      file=sys.stderr)
+                return clusters
     except Exception as e:
         print(f"  [WARN] Editorial review failed ({e}); using original clusters.", file=sys.stderr)
         return clusters
@@ -985,6 +1047,28 @@ def build_audio_script(articles: list[dict], date_str: str, run: str) -> str:
 
 
 def generate_audio(script: str, date_str: str, run: str, api_key: str, docs_dir: Path) -> Path | None:
+    # Validate the API key and account status before attempting TTS generation.
+    # A 401 from /v1/user means the key is invalid; a 200 with character_count
+    # near the limit means the account has insufficient credits.
+    try:
+        check = requests.get(
+            "https://api.elevenlabs.io/v1/user",
+            headers={"xi-api-key": api_key},
+            timeout=10,
+        )
+        if check.status_code == 401:
+            print(
+                "  [WARN] ElevenLabs API key invalid or insufficient credits"
+                " — skipping audio generation",
+                file=sys.stderr,
+            )
+            return None
+        check.raise_for_status()
+    except requests.exceptions.RequestException as e:
+        print(f"  [WARN] ElevenLabs key validation failed ({e}) — skipping audio generation",
+              file=sys.stderr)
+        return None
+
     out_path = docs_dir / f"{date_str}-{run}.mp3"
     try:
         resp = requests.post(
@@ -1005,7 +1089,7 @@ def generate_audio(script: str, date_str: str, run: str, api_key: str, docs_dir:
         print(f"[OK] Audio: {out_path}")
         return out_path
     except Exception as e:
-        print(f"[WARN] ElevenLabs audio generation failed: {e}", file=sys.stderr)
+        print(f"  [WARN] ElevenLabs audio generation failed: {e}", file=sys.stderr)
         return None
 
 
