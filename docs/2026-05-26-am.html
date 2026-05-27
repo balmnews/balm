@@ -214,7 +214,7 @@
 
     /* Sources inline toggle */
     .sources-toggle {
-      margin-top: 0.65rem;
+      margin-top: 0.5rem;
     }
 
     .sources-toggle-btn {
@@ -224,21 +224,21 @@
       cursor: pointer;
       font-family: 'Source Serif 4', serif;
       font-size: 0.75rem;
-      font-weight: 300;
-      color: var(--muted);
-      display: inline-flex;
+      color: #9a9288;
+      display: flex;
       align-items: center;
-      gap: 0.2rem;
-      letter-spacing: 0.02em;
+      gap: 0.3rem;
+      letter-spacing: 0.04em;
     }
 
-    .sources-toggle-btn:hover { color: var(--secondary); }
+    .sources-toggle-btn:hover {
+      color: #6a6058;
+    }
 
     .sources-caret {
       display: inline-block;
-      font-size: 0.85rem;
-      line-height: 1;
       transition: transform 0.2s ease;
+      font-style: normal;
     }
 
     .sources-toggle-btn[aria-expanded="true"] .sources-caret {
@@ -246,28 +246,33 @@
     }
 
     .sources-list {
-      overflow: hidden;
+      list-style: none;
+      padding: 0;
+      margin: 0;
       max-height: 0;
+      overflow: hidden;
       transition: max-height 0.25s ease;
-      padding-left: 0.6rem;
     }
 
-    .sources-list.expanded {
+    .sources-toggle-btn[aria-expanded="true"] + .sources-list {
       max-height: 20rem;
-      margin-top: 0.35rem;
+    }
+
+    .sources-list li {
+      padding: 0.2rem 0 0.2rem 0.8rem;
     }
 
     .sources-list a {
-      display: block;
-      font-family: 'Source Serif 4', serif;
       font-size: 0.75rem;
-      font-weight: 300;
-      color: var(--muted);
-      text-decoration: underline;
-      line-height: 1.75;
+      color: #9a9288;
+      text-decoration: none;
+      border-bottom: 1px solid #c8c0b4;
+      transition: color 0.15s;
     }
 
-    .sources-list a:hover { color: var(--secondary); }
+    .sources-list a:hover {
+      color: #6b82a8;
+    }
 
     /* Difficult News */
     .difficult-section {
@@ -482,129 +487,191 @@
         <div class="section-header">GEOPOLITICS</div>
         
         <div class="article">
-          <h2 class="article-headline">US Conducts Strikes Near Strait of Hormuz During Iran Peace Talks; Iran Condemns Action</h2>
+          <h2 class="article-headline">US Conducts Strikes Near Strait of Hormuz During Iran Peace Talks; Oil Tops $100 a Barrel</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
             <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
           </div>
           <div class="summary-text">
-            <span class="summary-brief"><span>US military forces carried out strikes on targets near the Strait of Hormuz, including boats allegedly attempting to lay mines and missile launch sites, while peace negotiations between the US and Iran were ongoing in Doha. Iran condemned the strikes as a violation of an existing ceasefire but announced no specific reprisals and said it remains in the talks. The situation leaves the status of ongoing negotiations uncertain.</span></span>
-            <span class="summary-full"><span>US military forces conducted strikes on targets near the Strait of Hormuz while peace negotiations between American and Iranian representatives were underway in Doha, Qatar. US officials said the strikes targeted threats including boats allegedly attempting to lay mines and missile launch sites, characterizing the action as defensive. The timing — during active diplomacy — drew immediate condemnation from Tehran. Iran's foreign ministry called the strikes a definitive violation of an existing ceasefire. Despite the strong language, Iranian officials announced no specific military reprisals and confirmed that Iran remains engaged in the peace talks, which sources describe as having reached a decisive stage. The Doha negotiations involve Iranian and Qatari representatives, and accounts of their current trajectory differ across sources. Some analysts describe the talks as stuck in an ongoing cycle without resolution, while others note that their continuation despite the strikes signals both sides retain interest in a diplomatic outcome. The episode highlights the fragile nature of the ceasefire and the complexity of conducting negotiations while military operations continue. The broader implications for regional stability and global energy markets remain closely watched, as the Strait of Hormuz is a critical passage for a significant share of global oil exports.</span></span>
+            <span class="summary-brief"><span>US military forces carried out strikes on targets near the Strait of Hormuz, including boats attempting to lay mines and missile launch sites, while Iranian and Qatari negotiators were meeting in Doha. Iran's foreign ministry said the strikes violated a ceasefire, while US officials said they acted in response to perceived threats. Oil prices rose above $100 a barrel on uncertainty over the status of negotiations.</span></span>
+            <span class="summary-full"><span>US military forces conducted strikes on targets near the Strait of Hormuz, including vessels reportedly attempting to lay mines and missile launch sites, while Iranian and Qatari officials were simultaneously engaged in peace talks in Doha. Iran's foreign ministry characterized the strikes as a serious violation of a ceasefire agreement. US officials, for their part, said the strikes were carried out in response to identified threats and were defensive in nature. The status and future of the negotiations remain unclear, with accounts differing on whether the talks have effectively collapsed or remain ongoing. President Trump stated that negotiations were proceeding, while also indicating that military action could resume if discussions broke down.
+
+The military activity sent oil prices above $100 a barrel, a level analysts described as potentially past a point of difficult reversal for energy markets. Experts quoted across multiple sources described the diplomatic situation as caught in a repeating cycle, with neither a clear resolution nor a clean break from talks. US arms sales to Taiwan were separately reported to be under review, though analysts said that development was unlikely to be directly connected to the Iran conflict, since actual delivery of any approved sales is years away.
+
+For American consumers and businesses, sustained oil prices above $100 a barrel have direct implications for fuel costs, transportation, and a wide range of goods. The situation around the Strait of Hormuz is significant because roughly a fifth of the world's traded oil passes through that waterway. The combination of active military operations and unresolved diplomacy introduces ongoing uncertainty into global energy markets.</span></span>
           </div>
+          
           <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false"><span class="sources-caret">›</span> Sources</button>
-            <div class="sources-list">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
               
-              <a href="https://www.theguardian.com/world/2026/may/26/iran-peace-deal-talks-us-bombing-ceasefire-strait-hormuz" target="_blank" rel="noopener noreferrer">The Guardian</a>
+              <li>
+                <a href="https://www.cnbc.com/2026/05/25/stock-futures-today-live-updates.html" target="_blank" rel="noopener">
+                  CNBC
+                </a>
+              </li>
               
-              <a href="https://www.theguardian.com/world/live/2026/may/26/iran-war-live-updates-us-attacks-iran-missile-sites-self-defence-during-peace-talks" target="_blank" rel="noopener noreferrer">The Guardian</a>
+              <li>
+                <a href="https://www.cnbc.com/2026/05/26/oil-prices-today-brent-wti-iran-trump-hormuz.html" target="_blank" rel="noopener">
+                  CNBC
+                </a>
+              </li>
               
-              <a href="https://www.nytimes.com/live/2026/05/26/world/iran-war-trump-deal" target="_blank" rel="noopener noreferrer">The New York Times</a>
+              <li>
+                <a href="https://www.theguardian.com/world/2026/may/27/us-arms-sales-to-taiwan-pause-unlikely-due-to-iran-war-experts" target="_blank" rel="noopener">
+                  The Guardian
+                </a>
+              </li>
               
-              <a href="https://www.bbc.com/news/articles/c4g44yl7q70o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+              <li>
+                <a href="https://www.theguardian.com/world/live/2026/may/26/iran-war-live-updates-us-attacks-iran-missile-sites-self-defence-during-peace-talks" target="_blank" rel="noopener">
+                  The Guardian
+                </a>
+              </li>
               
-            </div>
+              <li>
+                <a href="https://www.nytimes.com/live/2026/05/26/world/iran-war-trump-deal" target="_blank" rel="noopener">
+                  The New York Times
+                </a>
+              </li>
+              
+              <li>
+                <a href="https://www.bbc.com/news/articles/c4g44yl7q70o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+                  BBC World
+                </a>
+              </li>
+              
+            </ul>
           </div>
+          
         </div>
         
         <div class="article">
-          <h2 class="article-headline">Oil Price Returns Above $100 Per Barrel as US-Iran Tensions Weigh on Peace Talks</h2>
+          <h2 class="article-headline">Israel Strikes Hezbollah Sites in Lebanon, Dozens Reported Killed</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
             <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
           </div>
           <div class="summary-text">
-            <span class="summary-brief"><span>Crude oil prices rose back above $100 per barrel following US military strikes near the Strait of Hormuz, which dampened expectations of a near-term resolution to the US-Iran conflict. Analysts described the peace negotiations as appearing to be in a prolonged stalemate with no clear path to resolution. Energy market observers noted the price level may represent a sustained shift rather than a temporary spike.</span></span>
-            <span class="summary-full"><span>Crude oil prices climbed back above $100 per barrel following the latest US military strikes near the Strait of Hormuz, as markets assessed the diminished prospects for a rapid end to the US-Iran conflict. The strikes occurred during ongoing peace negotiations in Doha, and analysts said the episode has deepened uncertainty about whether a deal is achievable in the near term. Some energy market observers described the talks as caught in a recurring cycle, with no substantive progress toward resolution. The Strait of Hormuz is one of the world's most strategically important waterways for oil transport, and sustained instability in the region carries direct consequences for global energy prices. Higher oil prices have downstream effects on transportation, manufacturing, and consumer goods costs in the United States and globally. UK petrol prices also reached new highs in connection with the conflict, according to market reporting. Analysts are divided on whether current price levels reflect a temporary premium tied to diplomatic uncertainty or a more durable shift in the market's baseline assumptions about Middle East supply risk.</span></span>
+            <span class="summary-brief"><span>Israel conducted strikes on what it described as approximately 100 Hezbollah infrastructure sites and personnel in Lebanon. Dozens of people were reported killed. Israeli Prime Minister Benjamin Netanyahu stated Israel's intention to continue military pressure on the Iran-backed group.</span></span>
+            <span class="summary-full"><span>Israel carried out a series of strikes in Lebanon targeting what it described as Hezbollah infrastructure and fighters, with Israeli officials citing approximately 100 sites struck in the operation. Dozens of people were reported killed, according to available accounts. Israeli Prime Minister Benjamin Netanyahu indicated that operations would continue, framing the campaign as an effort to diminish Hezbollah's military capacity.
+
+Hezbollah is an Iran-backed armed group and political organization based primarily in Lebanon. The strikes represent a continuation of Israeli military operations in Lebanon that have been underway in the context of the broader regional conflict tied to events in Gaza and the US-Iran situation. The Lebanese government and civilian population have faced significant disruption from the ongoing military activity. For American readers, the Lebanon front is directly relevant given US military presence in the region, the involvement of Iran — with which the US is simultaneously conducting its own military operations and diplomatic negotiations — and the potential for further regional escalation.</span></span>
           </div>
+          
           <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false"><span class="sources-caret">›</span> Sources</button>
-            <div class="sources-list">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
               
-              <a href="https://www.theguardian.com/business/2026/may/26/oil-price-energy-market-us-iran-peace-talks" target="_blank" rel="noopener noreferrer">The Guardian</a>
+              <li>
+                <a href="https://www.bbc.com/news/articles/cx211rgngp0o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+                  BBC World
+                </a>
+              </li>
               
-            </div>
+            </ul>
           </div>
+          
         </div>
         
         <div class="article">
-          <h2 class="article-headline">Russia Issues New Threats Against Kyiv, Tells Foreign Nationals to Leave Ukrainian Capital</h2>
+          <h2 class="article-headline">Russia Threatens Further Strikes on Kyiv and Advises Foreign Nationals to Leave</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
             <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
           </div>
           <div class="summary-text">
-            <span class="summary-brief"><span>Russia has threatened additional strikes on Kyiv and called on foreign nationals to leave the Ukrainian capital, following what Ukrainian officials described as one of the largest aerial assaults on the city during the war. European Union officials separately warned that Russia is pursuing a strategy aimed at destabilizing Europe, as multiple EU countries summoned Russian ambassadors.</span></span>
-            <span class="summary-full"><span>Russia issued new threats of strikes against Kyiv and called on foreign nationals to depart the Ukrainian capital, following an overnight aerial assault that Ukrainian officials described as among the most significant of the war. The warnings prompted diplomatic responses across Europe, with several countries summoning Russian ambassadors. European Union Commission President Ursula von der Leyen, visiting Lithuania, said Russia is pursuing a deliberate strategy to destabilize Europe more broadly. Lithuania and other EU member states have expressed heightened concern about drone incursions into their airspace and broader Russian pressure on the region. The Russian requests for foreign envoys to leave Kyiv represent an escalation in rhetoric that European governments have characterized as part of a wider destabilization effort. The situation in Ukraine continues to intersect with diplomatic tensions involving Hungary, which has taken a different position from most EU members on the conflict. Peace negotiations between Russia and Ukraine remain stalled, and no substantive diplomatic contact between the parties has been reported in recent weeks.</span></span>
+            <span class="summary-brief"><span>Russia issued threats of additional strikes on Ukraine's capital following what was described as one of the largest aerial assaults on Kyiv since the war began. Russian authorities separately advised foreign nationals in Kyiv to depart. Ukraine has not publicly indicated any change to its posture in the capital.</span></span>
+            <span class="summary-full"><span>Russia announced threats of further missile and drone strikes against Kyiv, following an overnight attack described as among the most extensive aerial assaults the Ukrainian capital has experienced since the start of the war. Russian authorities also issued a public advisory for foreign nationals to leave Kyiv, a step that typically signals an intent to escalate military operations in a given area. Ukraine has not publicly indicated plans to evacuate the capital or alter its civilian posture in response.
+
+The warning comes at a moment when the broader diplomatic landscape around the war remains uncertain. The European Union has been seeking potential mediators following a US withdrawal from trilateral talks with Russia and Ukraine. No replacement mediator has been identified. The conflict continues to affect US policy, defense spending debates, and allied commitments within NATO, making developments on the Ukrainian front directly relevant to American readers.</span></span>
           </div>
+          
           <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false"><span class="sources-caret">›</span> Sources</button>
-            <div class="sources-list">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
               
-              <a href="https://www.bbc.com/news/articles/c1e22n55zn4o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+              <li>
+                <a href="https://www.bbc.com/news/articles/c1e22n55zn4o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+                  BBC World
+                </a>
+              </li>
               
-            </div>
+            </ul>
           </div>
+          
         </div>
         
         <div class="article">
-          <h2 class="article-headline">Israel Strikes Lebanon, Killing at Least 11 in Village; Officials Say 100 Hezbollah Sites Targeted</h2>
+          <h2 class="article-headline">EU Seeks New Mediator for Ukraine War After US Steps Back from Talks</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
             <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
           </div>
           <div class="summary-text">
-            <span class="summary-brief"><span>Israeli strikes killed at least 11 people in a Lebanese village, with Israeli officials saying the military targeted approximately 100 Hezbollah infrastructure sites and personnel. Israeli Prime Minister Benjamin Netanyahu stated the government's intention to continue military pressure on Hezbollah. The strikes represent an intensification of ongoing Israeli military operations in Lebanon.</span></span>
-            <span class="summary-full"><span>Israeli military strikes killed at least 11 people in a Lebanese village as Israel intensified its operations against Hezbollah in Lebanon. Israeli officials said the military targeted approximately 100 sites associated with Hezbollah, including infrastructure and personnel. Israeli Prime Minister Benjamin Netanyahu stated publicly that Israel intends to continue and expand pressure on Hezbollah. The strikes mark an escalation in the scope of Israeli military action in Lebanon, which has been ongoing alongside the broader conflict in Gaza. Lebanese officials and Hezbollah have not publicly detailed any immediate planned response, though the situation remains volatile. The toll on Lebanese civilians from the broader campaign has drawn international attention, with humanitarian organizations calling for restraint. The military operations in Lebanon are closely connected to the wider regional tensions involving Iran, which has longstanding ties to Hezbollah. US policy toward the Lebanon dimension of the conflict remains a subject of ongoing diplomatic discussion.</span></span>
+            <span class="summary-brief"><span>The European Union is looking for a potential mediator to facilitate peace negotiations between Russia and Ukraine after the United States withdrew from trilateral talks. No replacement candidate has been publicly identified. The search reflects a broader shift in the diplomatic architecture surrounding the conflict.</span></span>
+            <span class="summary-full"><span>Following the United States' withdrawal from trilateral negotiations involving Russia and Ukraine, the European Union has begun exploring whether an alternative mediator could step into that role. No specific candidate has been publicly announced, and the search is described as ongoing. The departure of the US from that format leaves a significant gap, as American involvement had provided both political weight and logistical support to the talks.
+
+The situation is directly relevant to American readers because the US role in any eventual resolution of the Ukraine conflict remains a central question in Washington's foreign policy debate. A shift toward EU-led mediation would represent a substantial change in how the war's end might be negotiated, affecting US obligations, aid flows to Ukraine, and the broader transatlantic relationship. Russia has separately issued threats of further strikes on Kyiv and advised foreign nationals to leave the city, which has complicated the diplomatic environment further.</span></span>
           </div>
+          
           <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false"><span class="sources-caret">›</span> Sources</button>
-            <div class="sources-list">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
               
-              <a href="https://www.bbc.com/news/articles/cx211rgngp0o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+              <li>
+                <a href="https://www.bbc.com/news/articles/cqxpp73wqero?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+                  BBC News
+                </a>
+              </li>
               
-            </div>
+              <li>
+                <a href="https://www.bbc.com/news/articles/cqxpp73wqero?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+                  BBC World
+                </a>
+              </li>
+              
+            </ul>
           </div>
+          
         </div>
         
         <div class="article">
-          <h2 class="article-headline">Iceland Weighing European Union Membership Application Amid Concerns Over US Policy</h2>
+          <h2 class="article-headline">Iceland Weighs EU Membership as Trump Administration's Stance on Greenland Shifts Calculus</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
             <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
           </div>
           <div class="summary-text">
-            <span class="summary-brief"><span>Iceland, which has long maintained independence from the European Union, is reconsidering the possibility of applying for EU membership following concerns raised by US President Donald Trump's statements regarding Greenland. The debate reflects a broader reassessment in Nordic and Arctic countries of their strategic alignment in light of shifting US foreign policy signals. No formal application has been made.</span></span>
-            <span class="summary-full"><span>Iceland is engaging in a national debate about whether to apply for European Union membership, a significant departure from its longstanding position outside the bloc. The reconsideration has been prompted in part by US President Donald Trump's public statements about Greenland, which shares close historical and cultural ties with Iceland and other Nordic nations, and which raised concerns in the region about US intentions toward Arctic territories. Iceland has been a member of NATO and the European Economic Area but has remained outside the EU itself, a distinction that has suited successive Icelandic governments and electorates. The Trump administration's posture toward Greenland appears to have shifted the political calculus for some Icelanders who previously saw EU membership as unnecessary. Proponents of membership argue that formal EU integration would provide stronger collective security and diplomatic backing in a period of geopolitical uncertainty. Opponents argue Iceland's existing arrangements are sufficient and that full EU membership would entail economic and regulatory trade-offs. No formal application has been submitted, and the debate is at an early stage, but the shift in public and political discussion is notable given how stable Iceland's position had been for decades.</span></span>
+            <span class="summary-brief"><span>Iceland is reconsidering its long-standing position outside the European Union, with President Trump's stated interest in Greenland cited as a factor prompting the reassessment. Iceland's foreign minister has warned that opponents of EU accession may be spreading misinformation ahead of a potential referendum. A vote on the question has not yet been scheduled.</span></span>
+            <span class="summary-full"><span>Iceland, which has remained outside the European Union throughout the bloc's history, is now engaged in a serious public debate about whether to pursue membership. Officials and analysts point to the Trump administration's publicly stated interest in Greenland — a Danish autonomous territory — as a catalyst for Icelandic concern about the security and sovereignty of small Nordic nations. Iceland's foreign minister has described the debate as consequential and expressed concern that misinformation and AI-generated content could distort the public discussion ahead of any referendum.
+
+The foreign minister also cautioned against what she described as a potential outcome similar to the Brexit vote — a close and polarizing result driven in part by misleading claims rather than substantive policy disagreement. Iceland is currently a member of NATO and the European Economic Area, giving it access to the EU's single market without full membership. A decision to pursue full EU membership would represent a significant shift in Iceland's political identity and its relationship with both Europe and the United States. For American readers, the story reflects broader European reassessment of security arrangements in an era of uncertainty about US commitments to allied nations.</span></span>
           </div>
+          
           <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false"><span class="sources-caret">›</span> Sources</button>
-            <div class="sources-list">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
               
-              <a href="https://www.nytimes.com/2026/05/26/world/europe/iceland-eu-membership-trump.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+              <li>
+                <a href="https://www.nytimes.com/2026/05/26/world/europe/iceland-eu-membership-trump.html" target="_blank" rel="noopener">
+                  The New York Times
+                </a>
+              </li>
               
-            </div>
+            </ul>
           </div>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Internet Access Partially Restored in Iran After Months-Long Blackout Tied to Wartime Restrictions</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Internet access has begun returning to Iran after a months-long blackout that began when the country entered a state of war in late February. The restoration is described as partial and ongoing. The blackout had significantly restricted communications for tens of millions of Iranians.</span></span>
-            <span class="summary-full"><span>Internet access has started to return to Iran after a months-long blackout that authorities imposed following the outbreak of war in late February. The outage, which cut off ordinary Iranians from large portions of the global internet, is among the most extensive communications restrictions associated with the conflict. The restoration appears to be partial, with access returning gradually rather than all at once. Internet shutdowns during conflict are an increasingly common tool used by governments to control information flow and limit coordination, and Iran's extended blackout drew criticism from international human rights and press freedom organizations throughout its duration. For Americans and others with family members or business connections in Iran, the blackout created significant difficulties in communication. The resumption of access may also affect the flow of information about conditions inside Iran to the outside world, though the extent and permanence of the restoration remain unclear.</span></span>
-          </div>
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false"><span class="sources-caret">›</span> Sources</button>
-            <div class="sources-list">
-              
-              <a href="https://www.bbc.com/news/articles/c1w22y1n74do?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-              
-            </div>
-          </div>
+          
         </div>
         
       
@@ -613,23 +680,93 @@
         <div class="section-header">ECONOMY</div>
         
         <div class="article">
-          <h2 class="article-headline">Eli Lilly to Acquire Three Vaccine Development Companies for Up to $4 Billion</h2>
+          <h2 class="article-headline">Eli Lilly to Acquire Three Vaccine Developers in Deals Worth Up to $4 Billion</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
             <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
           </div>
           <div class="summary-text">
-            <span class="summary-brief"><span>Pharmaceutical company Eli Lilly has announced plans to acquire three small companies working on vaccines for shingles, Epstein-Barr virus, and other pathogens, with a total deal value of up to $4 billion. The move represents a significant expansion of Eli Lilly's vaccine portfolio beyond its established focus on other drug categories. The acquisitions are subject to standard regulatory review.</span></span>
-            <span class="summary-full"><span>Eli Lilly, one of the largest pharmaceutical companies in the United States, has announced the acquisition of three small vaccine development companies in a transaction valued at up to $4 billion. The companies being acquired are working on vaccines targeting shingles, Epstein-Barr virus, and other pathogens. Shingles, caused by the reactivation of the chickenpox virus, affects a significant portion of older Americans and can cause serious complications including prolonged nerve pain. Epstein-Barr virus, which causes mononucleosis and is associated with certain cancers and other conditions including multiple sclerosis, has long been a target of vaccine research without a licensed product reaching the market. Eli Lilly is best known in recent years for its diabetes and weight-loss medications, and the acquisitions signal a strategic expansion into infectious disease prevention. The move comes as the vaccine development sector faces a mixed environment, with strong scientific momentum on some targets but political and public confidence headwinds in others. The total value of up to $4 billion reflects milestone-based payments that depend on the acquired companies' programs reaching certain development or regulatory thresholds. The transactions are subject to regulatory review.</span></span>
+            <span class="summary-brief"><span>Pharmaceutical company Eli Lilly announced plans to acquire three small companies working on vaccines for shingles, Epstein-Barr virus, and other pathogens. The total value of the acquisitions is up to $4 billion. The move represents a significant expansion of Eli Lilly's vaccine portfolio.</span></span>
+            <span class="summary-full"><span>Eli Lilly announced it would acquire three small vaccine development companies in deals totaling up to $4 billion. The companies being acquired are focused on developing vaccines for shingles, Epstein-Barr virus, and additional pathogens. Eli Lilly is best known in recent years for its diabetes and weight-loss drugs, and this expansion into vaccines represents a strategic diversification for the company.
+
+The acquisitions come at a time when the vaccine development sector is receiving heightened attention following the COVID-19 pandemic and renewed interest in preventing infectious diseases. Shingles affects roughly one in three Americans during their lifetime, and an Epstein-Barr vaccine has been a target of research interest due to the virus's links to certain cancers and multiple sclerosis. For American patients and the broader healthcare system, successful vaccine development in these areas could have significant public health and economic implications.</span></span>
           </div>
+          
           <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false"><span class="sources-caret">›</span> Sources</button>
-            <div class="sources-list">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
               
-              <a href="https://www.nytimes.com/2026/05/26/business/eli-lilly-vaccines-shingles-epstein-barr.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+              <li>
+                <a href="https://www.nytimes.com/2026/05/26/business/eli-lilly-vaccines-shingles-epstein-barr.html" target="_blank" rel="noopener">
+                  The New York Times
+                </a>
+              </li>
               
-            </div>
+            </ul>
           </div>
+          
+        </div>
+        
+        <div class="article">
+          <h2 class="article-headline">Federal Reserve Chair Powell Indicates Interest Rate Cut Possible as Soon as September</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>Federal Reserve Chair Jerome Powell stated that an interest rate cut could be considered as soon as September, while also noting that the labor market does not currently appear to be a significant source of inflation pressure. The comments represent a shift in tone from earlier in the year, when rate cuts were seen as unlikely in the near term. Markets responded to the statement.</span></span>
+            <span class="summary-full"><span>Federal Reserve Chair Jerome Powell said in public remarks that an interest rate cut is on the table as soon as September, representing a more open posture toward easing monetary policy than the Fed had signaled in recent months. Powell also noted that the current labor market is not generating significant inflation pressure, which is one of the conditions the Fed monitors when considering rate adjustments. The statement is significant for American borrowers, because the federal funds rate influences the cost of mortgages, auto loans, credit cards, and business financing.
+
+The Fed has maintained elevated interest rates for an extended period as part of its effort to bring inflation down from the highs reached in 2022 and 2023. A rate cut in September would be among the first reductions in that cycle and would affect a wide range of financial decisions for American households and businesses. Markets typically react quickly to signals from the Fed chair, as the central bank's decisions have broad effects across the economy. No specific action has been taken yet, and Powell's comments reflected the possibility rather than a commitment.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li>
+                <a href="https://www.marketwatch.com/story/feds-powell-says-rate-cut-on-the-table-as-soon-as-september-f3f7c8f2?mod=mw_rss_realtimeheadlines" target="_blank" rel="noopener">
+                  WSJ Markets
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="article">
+          <h2 class="article-headline">Oil Price Rises Above $100 a Barrel Amid US-Iran Military and Diplomatic Uncertainty</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>Crude oil prices rose above $100 a barrel following US military strikes near the Strait of Hormuz, which dampened expectations for a swift resolution to the conflict with Iran. Energy analysts described the market as potentially past a point of easy reversal. The price level has direct implications for American consumers through fuel costs.</span></span>
+            <span class="summary-full"><span>Oil prices moved above $100 a barrel after US military strikes near the Strait of Hormuz introduced new uncertainty into already fragile diplomatic negotiations with Iran. Energy market analysts quoted in reporting described the situation as potentially having crossed a threshold from which a return to lower prices would require a clear and durable peace agreement — a prospect that appears uncertain given the current state of talks. The Strait of Hormuz is a critical chokepoint through which a significant share of the world's traded oil passes.
+
+For American consumers, oil prices above $100 a barrel translate into higher costs at the gas pump and increased prices for goods that depend on transportation and petrochemical inputs. Heating oil and natural gas prices can also be affected, depending on how long elevated levels persist. The UK energy regulator separately projected that household energy bills would rise by approximately £200 annually as a result of the Iran war's effect on global energy markets — an indication that the impact on energy costs is being felt across allied nations as well.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li>
+                <a href="https://www.theguardian.com/business/2026/may/26/oil-price-energy-market-us-iran-peace-talks" target="_blank" rel="noopener">
+                  The Guardian
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
         </div>
         
       
@@ -638,43 +775,33 @@
         <div class="section-header">DOMESTIC POLICY</div>
         
         <div class="article">
-          <h2 class="article-headline">US Infectious Disease Researchers Barred from WHO Virus Response Discussions, Documents Show</h2>
+          <h2 class="article-headline">Texas Attorney General Ken Paxton Defeats Senator John Cornyn in Republican Senate Primary</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
             <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
           </div>
           <div class="summary-text">
-            <span class="summary-brief"><span>Officials responsible for US infectious disease research have been prohibited from direct communication with the World Health Organization, effectively removing American expertise from global outbreak response coordination, according to documents and multiple sources. The restriction applies during active global discussions on virus threats. The development raises questions about the US role in international pandemic preparedness.</span></span>
-            <span class="summary-full"><span>US government officials who lead research on infectious disease threats have been barred from speaking directly with the World Health Organization, cutting them off from international forums where countries coordinate responses to emerging virus outbreaks, according to documents and multiple sources described in CNN reporting. The restrictions are described as effective and ongoing, not as a temporary procedural gap. The WHO serves as the primary international coordination body for detecting, tracking, and responding to outbreaks of diseases with pandemic potential. Excluding US research officials from those conversations reduces both the information the US receives about emerging threats and the scientific expertise the US contributes to global response efforts. The United States has historically been among the most significant contributors of scientific and financial resources to global health security. The Trump administration has taken several steps to reduce US engagement with international health bodies, including an earlier withdrawal from the WHO. This latest restriction, applied to researchers rather than political officials, adds a technical dimension to that broader policy direction. Public health experts have previously warned that reduced US engagement in global disease surveillance creates gaps that could slow the detection of outbreaks before they spread internationally.</span></span>
+            <span class="summary-brief"><span>Texas Attorney General Ken Paxton won the Republican primary for the US Senate seat held by John Cornyn, a senior incumbent. The outcome sets up a general election contest in Texas that analysts say could influence which party controls the Senate. Separately, Texas also held Democratic primary runoffs for House seats.</span></span>
+            <span class="summary-full"><span>Texas Attorney General Ken Paxton defeated incumbent US Senator John Cornyn in the Republican primary, ending Cornyn's Senate tenure barring a reversal of the result. Cornyn had served multiple terms in the Senate and held a senior leadership position in the Republican caucus. Paxton, who has faced legal controversies during his tenure as attorney general, ran to Cornyn's right and prevailed in the primary contest.
+
+The result carries national implications because control of the US Senate will be determined in part by competitive races in large states. Texas has been reliably Republican in statewide elections for decades, but analysts note that demographic and political shifts have made the state somewhat more competitive over time. Separately, Texas held Democratic primary runoffs for several House seats, including one in which a candidate endorsed by Representative Jasmine Crockett and a former NFL linebacker who previously served in Congress advanced. A Trump-backed Republican candidate also won a GOP runoff in a newly redrawn congressional district stretching from Austin to San Antonio.</span></span>
           </div>
+          
           <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false"><span class="sources-caret">›</span> Sources</button>
-            <div class="sources-list">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
               
-              <a href="https://www.cnn.com/2026/05/25/politics/global-virus-response-trump-administration" target="_blank" rel="noopener noreferrer">CNN</a>
+              <li>
+                <a href="https://www.bbc.com/news/articles/clypprglrlyo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+                  BBC World
+                </a>
+              </li>
               
-            </div>
+            </ul>
           </div>
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">US Government Proposes Transferring Weapons-Grade Plutonium to Private Nuclear Fuel Companies</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The US government is exploring a plan to transfer weapons-grade plutonium, a Cold War-era material, to startup companies that would use it as nuclear reactor fuel. Proponents describe it as a practical solution to both disposing of excess plutonium and addressing a shortage of nuclear fuel. Nonproliferation experts have raised concerns about the security implications of transferring weapons-grade material to private entities.</span></span>
-            <span class="summary-full"><span>The US government is pursuing a plan to make weapons-grade plutonium available to private startup companies for use as nuclear reactor fuel, according to reporting from the New York Times. The material in question dates to the Cold War era and has been stored by the federal government, which faces long-standing challenges regarding its safe disposal. Proponents of the plan, including some in the nuclear energy industry, argue that converting the plutonium into reactor fuel serves two purposes simultaneously: it reduces the stockpile of weapons-usable material and addresses an existing shortage of nuclear fuel that has constrained the expansion of nuclear power generation. However, nonproliferation experts have objected to the proposal, arguing that transferring weapons-grade material to commercial and startup entities introduces security risks and could complicate the United States' international commitments regarding nuclear materials. The tension between advancing domestic nuclear energy capacity and maintaining strict controls over weapons-grade material is at the center of the debate. Nuclear energy has received renewed policy attention as a low-carbon power source, and several startups are developing new reactor designs that require fuel types not currently produced at commercial scale in the United States.</span></span>
-          </div>
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false"><span class="sources-caret">›</span> Sources</button>
-            <div class="sources-list">
-              
-              <a href="https://www.nytimes.com/2026/05/26/climate/plutonium-nuclear-weapons-fuel.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-              
-            </div>
-          </div>
+          
         </div>
         
       
@@ -683,63 +810,129 @@
         <div class="section-header">SCIENCE & HEALTH</div>
         
         <div class="article">
-          <h2 class="article-headline">Long-Acting HIV Prevention Drug Arrives in Zambia as US Aid Cuts Strain Health System</h2>
+          <h2 class="article-headline">Ebola Continues to Spread in Congo as Response Efforts Begin to Scale Up</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
             <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
           </div>
           <div class="summary-text">
-            <span class="summary-brief"><span>Lenacapavir, an HIV prevention drug administered twice yearly by injection, has begun arriving in Zambia, offering significant potential for expanding HIV prevention in a country with high rates of infection. However, deep cuts to US foreign aid have weakened the Zambian health infrastructure needed to distribute the drug effectively. The situation illustrates the tension between new medical advances and reduced global health funding.</span></span>
-            <span class="summary-full"><span>Lenacapavir, a long-acting injectable drug that protects against HIV infection with only two doses per year, has begun arriving in Zambia, marking a significant step toward broader access to one of the most effective HIV prevention tools developed in recent years. The drug's twice-yearly dosing schedule is seen as a major advantage over daily oral prevention medications, particularly in settings where consistent adherence to daily regimens is difficult. However, health officials and observers note that Zambia's ability to deploy the drug at scale has been significantly compromised by cuts to US foreign aid that have reduced staffing, supply chains, and operational capacity across the country's health system. The United States has historically been the largest single funder of HIV prevention and treatment programs in sub-Saharan Africa through programs such as PEPFAR. Reductions in that funding have left gaps in service delivery that lenacapavir's arrival alone cannot fill. The situation in Zambia is being watched as a test case for how effectively newer medical technologies can reach populations in need when the health systems required to deliver them are under financial pressure. HIV remains a leading cause of death in Zambia, and the country has one of the higher prevalence rates globally.</span></span>
+            <span class="summary-brief"><span>The Ebola virus has been spreading in the Democratic Republic of Congo for several months, with a coordinated response described as still taking shape. Health officials and reporters on the ground describe the outbreak as having moved ahead of containment efforts. The situation has direct implications given the global health infrastructure involved and prior US investment in outbreak response.</span></span>
+            <span class="summary-full"><span>An Ebola outbreak in the Democratic Republic of Congo has been ongoing for several months, with health workers and officials describing the virus as having spread faster than the response has been able to contain it. The organized international response is described as only now beginning to take meaningful form, leaving a period in which the virus moved largely unchecked in affected areas. Congo has experienced multiple Ebola outbreaks over the past several decades, with some reaching international significance.
+
+The current situation is occurring against a backdrop of reduced US foreign aid, which has historically supported global health infrastructure and outbreak response capacity. Health workers and local officials cited the erosion of that support as a factor complicating the current response. Ebola is a severe hemorrhagic fever with high fatality rates when untreated, and uncontained outbreaks in densely populated areas carry the potential for wider spread. While the current outbreak has not spread beyond Congo, the pace of spread and the delayed response are factors that public health authorities typically treat as early warning indicators requiring immediate international attention.</span></span>
           </div>
+          
           <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false"><span class="sources-caret">›</span> Sources</button>
-            <div class="sources-list">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
               
-              <a href="https://www.nytimes.com/2026/05/26/health/lenacapavir-hiv-zambia.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+              <li>
+                <a href="https://www.nytimes.com/2026/05/24/world/africa/ebola-virus-congo-response.html" target="_blank" rel="noopener">
+                  The New York Times
+                </a>
+              </li>
               
-            </div>
+            </ul>
           </div>
+          
         </div>
         
         <div class="article">
-          <h2 class="article-headline">Ebola Continues to Spread in Democratic Republic of Congo as Response Efforts Take Shape</h2>
+          <h2 class="article-headline">Measles Cases Surge in Bangladesh, Hundreds of Children Reported Dead</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
             <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
           </div>
           <div class="summary-text">
-            <span class="summary-brief"><span>An Ebola outbreak in the Democratic Republic of Congo has spread significantly over several months, with a coordinated response only now beginning to take meaningful shape. The governor of the affected Ituri province has warned that further delays risk catastrophic outcomes. The situation has drawn international concern given Ebola's high fatality rate and the challenges of containing it in conflict-affected regions.</span></span>
-            <span class="summary-full"><span>Ebola has been spreading in the Democratic Republic of Congo for several months, and health officials both locally and internationally have raised concern that the response has lagged behind the outbreak's pace. The governor of Ituri province, one of the most affected areas, publicly warned that continued delays in mounting an effective response bring the region closer to a humanitarian catastrophe. Only now, sources indicate, is a coordinated response beginning to take meaningful form. Ebola is a hemorrhagic fever with a high fatality rate, and past outbreaks in the DRC and neighboring countries have demonstrated how quickly the virus can spread in areas with limited health infrastructure, ongoing conflict, and community distrust of outside health workers. The DRC has experienced multiple Ebola outbreaks over the past decade, and each has required sustained international support to bring under control. The current outbreak's trajectory and scale relative to prior episodes were not fully detailed in available source material, but the language used by local officials suggests the situation is severe. For the United States, Ebola outbreaks in Central Africa carry public health relevance given historical cases of international spread and the ongoing reduction of US global health engagement.</span></span>
+            <span class="summary-brief"><span>Bangladesh has recorded more than 60,000 suspected measles cases in just over two months, with hundreds of children reported to have died. The rapid rise in cases points to a breakdown in vaccination coverage. The outbreak is among the largest reported in the country in recent years.</span></span>
+            <span class="summary-full"><span>Bangladesh has experienced a sharp increase in measles infections, with more than 60,000 suspected cases recorded in approximately two months and hundreds of child deaths reported in the same period. Measles is a vaccine-preventable disease, and outbreaks of this scale typically indicate significant gaps in vaccination coverage, either due to supply disruptions, access failures, or declining immunization rates. Health authorities are responding, though the scale of the outbreak presents logistical challenges.
+
+For American readers, the Bangladesh outbreak is relevant in the context of broader global measles trends. Vaccination rates have declined in parts of the world over the past several years, and international health organizations have warned that measles — once on a trajectory toward elimination — is resurging in multiple regions. The US provides support to global vaccination programs through agencies including USAID, and recent reductions in foreign health aid have been cited by international health officials as a factor affecting immunization infrastructure in lower-income countries.</span></span>
           </div>
+          
           <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false"><span class="sources-caret">›</span> Sources</button>
-            <div class="sources-list">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
               
-              <a href="https://www.nytimes.com/2026/05/24/world/africa/ebola-virus-congo-response.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+              <li>
+                <a href="https://www.bbc.com/news/articles/cwy2d5d7wn5o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+                  BBC World
+                </a>
+              </li>
               
-            </div>
+            </ul>
           </div>
+          
         </div>
         
         <div class="article">
-          <h2 class="article-headline">Experimental Gene-Editing Drug Shows Long-Term LDL Reduction in Early Trial</h2>
+          <h2 class="article-headline">Experimental Gene-Editing Treatment Shows Long-Term Reduction in LDL Cholesterol in Small Trial</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
             <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
           </div>
           <div class="summary-text">
-            <span class="summary-brief"><span>A small clinical trial of an experimental gene-editing drug produced sustained reductions in LDL cholesterol — commonly associated with cardiovascular disease risk — after a single infusion. Researchers described the results as potentially pointing toward a one-time treatment approach for cholesterol-related heart disease risk. The trial was small and further research is needed before broader conclusions can be drawn.</span></span>
-            <span class="summary-full"><span>An early-stage clinical trial of an experimental gene-editing drug demonstrated long-term reductions in LDL cholesterol following a single infusion, according to results reported by the New York Times. LDL cholesterol is a well-established risk factor for heart disease, the leading cause of death in the United States. The trial was small in scale, which limits the strength of conclusions that can be drawn from it, but at least one expert cited in the reporting described the results as potentially pointing toward something curative — a significant characterization in a field where most cholesterol treatments require ongoing daily medication. Gene editing as a medical approach involves altering genetic sequences to change how the body produces or processes specific proteins or substances. If larger trials confirm the initial findings, the approach could represent a meaningful shift in how cardiovascular disease prevention is managed. Heart disease affects tens of millions of Americans, and reducing the need for lifelong medication could have significant implications for both patient outcomes and healthcare costs. The research is at an early stage and years of additional trials would be required before any such treatment could be approved for widespread use.</span></span>
+            <span class="summary-brief"><span>A small clinical trial of an experimental gene-editing drug found that a single infusion produced a sustained reduction in LDL cholesterol, the type most associated with cardiovascular disease risk. Researchers described the results as potentially pointing toward a one-time preventive treatment for heart disease. The trial involved a limited number of participants and further study is needed.</span></span>
+            <span class="summary-full"><span>Researchers reported results from a small clinical trial of an experimental gene-editing therapy designed to lower LDL cholesterol — the form most closely linked to heart disease risk. The trial found that a single infusion of the drug produced a substantial and apparently long-lasting reduction in LDL levels among participants. One expert cited in reporting on the study described the potential as something that could be considered curative in nature, though researchers caution that the trial was small and that larger studies are necessary before any conclusions can be drawn about long-term safety and effectiveness.
+
+Heart disease remains the leading cause of death in the United States, and LDL cholesterol is one of the most significant modifiable risk factors. Current treatments, including statins, require daily medication for life. A one-time intervention that could produce lasting LDL reduction would represent a substantial shift in how cardiovascular disease is managed, if the approach proves safe and effective in larger trials. Gene-editing technologies have advanced rapidly in recent years, and the cholesterol application is among a growing number of conditions being explored through this approach.</span></span>
           </div>
+          
           <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false"><span class="sources-caret">›</span> Sources</button>
-            <div class="sources-list">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
               
-              <a href="https://www.nytimes.com/2026/05/25/health/cholesterol-ldl-gene-therapy.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+              <li>
+                <a href="https://www.nytimes.com/2026/05/25/health/cholesterol-ldl-gene-therapy.html" target="_blank" rel="noopener">
+                  The New York Times
+                </a>
+              </li>
               
-            </div>
+            </ul>
           </div>
+          
+        </div>
+        
+        <div class="article">
+          <h2 class="article-headline">NASA Awards Contracts for Lunar Rovers and Drones as Part of Moon Base Planning</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>NASA announced contracts for rovers capable of transporting astronauts on the lunar surface and for hopping drone vehicles, as part of the agency's broader effort to establish a permanent moon base. Blue Origin, the aerospace company founded by Jeff Bezos, was selected for one of the initial uncrewed lunar landing missions. The planned moon base carries a projected cost of approximately $20 billion.</span></span>
+            <span class="summary-full"><span>NASA announced a series of contracts intended to advance the agency's goal of establishing a permanent human presence on the Moon. The contracts include agreements for crewed rovers — vehicles that astronauts would drive on the lunar surface — and for smaller hopping drone vehicles designed to explore terrain that wheeled rovers cannot easily reach. Blue Origin, the aerospace company founded by Jeff Bezos, was selected to carry out one of three planned uncrewed lunar landing missions scheduled for this year, with the landings intended to prepare the groundwork for base construction.
+
+The moon base program carries a projected cost of approximately $20 billion and is part of the broader Artemis program, through which NASA aims to return humans to the lunar surface and eventually establish a sustained presence there. The program involves both government contracts and commercial partnerships, with multiple aerospace companies competing for various mission components. For American readers, the lunar base effort represents one of the largest ongoing science and exploration investments in the federal budget, and the selection of private contractors continues to shape the commercial space industry.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li>
+                <a href="https://www.nytimes.com/2026/05/26/science/space/nasa-rovers-moon-base-contracts.html" target="_blank" rel="noopener">
+                  The New York Times
+                </a>
+              </li>
+              
+              <li>
+                <a href="https://www.bbc.com/news/articles/c39228nxyr4o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+                  BBC News
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
         </div>
         
       
@@ -748,54 +941,92 @@
         <div class="section-header">TECHNOLOGY</div>
         
         <div class="article">
-          <h2 class="article-headline">Pope Leo XIV Issues Encyclical on Artificial Intelligence, Urging Ethical Limits on Technology</h2>
+          <h2 class="article-headline">Pope Leo XIV Issues Document Warning of AI's Potential for Harm, Calling for Moral Governance</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
             <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
           </div>
           <div class="summary-text">
-            <span class="summary-brief"><span>Pope Leo XIV has published a formal papal encyclical titled 'Magnifica Humanitas' addressing artificial intelligence, warning that the technology risks becoming a tool of domination and social exclusion if not subject to moral and governmental constraints. The document calls on governments to establish ethical limits on AI development. Responses from technology industry figures have ranged from dismissive to engaged.</span></span>
-            <span class="summary-full"><span>Pope Leo XIV has issued a papal encyclical — one of the most formal and authoritative documents in Catholic teaching — focused on artificial intelligence and its implications for humanity. The document, titled 'Magnifica Humanitas,' warns that artificial intelligence risks becoming an instrument of domination, exclusion, and harm if it develops without moral guidance or governmental oversight. The encyclical calls on governments and institutions to establish ethical boundaries around the development and deployment of AI systems. As the first American pope, Leo XIV's engagement with technology policy carries particular resonance given that the United States is home to the world's leading AI companies. Reporting from multiple outlets indicates that responses within the technology industry, particularly in Silicon Valley, have been largely dismissive, with many in the AI development community holding their own views about technology's role in human progress that diverge significantly from the Church's framework. The encyclical arrives at a moment of rapid acceleration in AI capabilities and deployment, and as regulatory frameworks in the US and globally remain unsettled. The document does not carry legal force, but papal encyclicals have historically shaped public debate and policy conversations on moral dimensions of social change. The degree to which it influences AI governance discussions in Washington or in international forums remains to be seen.</span></span>
+            <span class="summary-brief"><span>Pope Leo XIV released a formal document, known as an encyclical, warning that artificial intelligence risks becoming a tool of domination and exclusion if not governed by moral principles. The document calls on governments to establish ethical limits on AI development. The encyclical was released as AI investment and development activity in the United States continues to accelerate.</span></span>
+            <span class="summary-full"><span>Pope Leo XIV released an encyclical titled Magnifica Humanitas, a formal teaching document addressing artificial intelligence. In it, the pope warned that AI systems could become instruments of domination, exclusion, and harm if developed and deployed without ethical constraints. The document calls on governments and institutions to establish moral frameworks to guide AI development, and emphasizes the dignity of human beings as a foundation for any responsible approach to the technology.
+
+The encyclical arrives at a moment when AI development is accelerating rapidly, particularly in the United States, where major technology companies are investing heavily in AI systems and regulatory frameworks remain limited. Reporting on the document noted a contrast between the pope's cautionary message and the perspective of many technology industry figures in Silicon Valley, who tend to frame AI as primarily beneficial or even spiritually significant in its own right. Pope Leo XIV, who is American-born, has made technology ethics one of his early priorities as pontiff. The document does not have legal force but carries significant moral weight for the world's approximately 1.4 billion Catholics and may influence policy discussions in countries with large Catholic populations.</span></span>
           </div>
+          
           <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false"><span class="sources-caret">›</span> Sources</button>
-            <div class="sources-list">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
               
-              <a href="https://www.nytimes.com/2026/05/26/business/dealbook/vatican-ai-silicon-valley.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+              <li>
+                <a href="https://www.nytimes.com/2026/05/26/technology/pope-leo-ai-religion.html" target="_blank" rel="noopener">
+                  The New York Times
+                </a>
+              </li>
               
-              <a href="https://www.nytimes.com/2026/05/26/technology/pope-leo-ai-religion.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+              <li>
+                <a href="https://www.nytimes.com/2026/05/25/technology/pope-ai-silicon-valley.html" target="_blank" rel="noopener">
+                  The New York Times
+                </a>
+              </li>
               
-              <a href="https://www.nytimes.com/2026/05/25/technology/pope-ai-silicon-valley.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+              <li>
+                <a href="https://www.foxnews.com/world/pope-leo-warns-ai-risks-becoming-tool-domination-exclusion-death-new-encyclical" target="_blank" rel="noopener">
+                  Fox News World
+                </a>
+              </li>
               
-              <a href="https://www.foxnews.com/world/pope-leo-warns-ai-risks-becoming-tool-domination-exclusion-death-new-encyclical" target="_blank" rel="noopener noreferrer">Fox News World</a>
-              
-            </div>
+            </ul>
           </div>
+          
         </div>
         
       
     
       
-        <div class="section-header">NATURAL EVENTS</div>
+        <div class="section-header">SPORTS</div>
         
         <div class="article">
-          <h2 class="article-headline">Western Europe's Record-Breaking Heat Explained by Combination of Heat Dome and Climate Change</h2>
+          <h2 class="article-headline">New York Knicks Sweep Cleveland Cavaliers, Advance to NBA Finals for First Time Since 1999</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
             <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
           </div>
           <div class="summary-text">
-            <span class="summary-brief"><span>Meteorologists and climate scientists attribute the extreme and record-setting temperatures affecting western Europe — including the UK, Ireland, and France — to the combined effect of a heat dome weather pattern and the underlying warming trend from climate change. The heat has caused at least seven deaths in France and broken long-standing temperature records across multiple countries. Scientists say such events are becoming more frequent and more intense.</span></span>
-            <span class="summary-full"><span>Western Europe is experiencing an unusual and record-setting period of heat in late May, with meteorologists explaining the extreme temperatures as the result of a heat dome — a weather pattern that traps warm air over a region — intensified by climate change. In the United Kingdom, the hottest May temperature on record was broken on consecutive days, with provisional figures showing temperatures reaching 35.1 degrees Celsius at Kew Gardens in southwest London. France recorded at least seven deaths linked to the heat, and record temperatures for the month of May were set in several countries including Ireland. Climate scientists note that while heat domes are a natural weather phenomenon, the background warming of the atmosphere caused by greenhouse gas emissions raises the baseline temperature over which such events occur, making their peaks higher and their impacts more severe. The heat has placed strain on water supplies in parts of England, with residents in Kent and Sussex asked to use water only for essential purposes following a surge in demand. Early-season heat events of this magnitude are consistent with patterns that climate researchers have projected as likely to become more common in coming decades. The human health implications are particularly acute for older populations and those without access to cooling.</span></span>
+            <span class="summary-brief"><span>The New York Knicks defeated the Cleveland Cavaliers in four games to win the Eastern Conference Finals, earning a trip to the NBA Finals for the first time since 1999. Jalen Brunson was named the Eastern Conference Finals MVP. The Knicks will face the winner of the Western Conference Finals.</span></span>
+            <span class="summary-full"><span>The New York Knicks completed a four-game sweep of the Cleveland Cavaliers in the Eastern Conference Finals, winning Game 4 by a score of 130 to 93. The victory sends the Knicks to the NBA Finals for the first time in 27 years. Jalen Brunson was named the Eastern Conference Finals Most Valuable Player in recognition of his consistent performance and leadership throughout the series.
+
+In the Western Conference, the Oklahoma City Thunder moved within one win of the Finals by defeating the San Antonio Spurs 127 to 114 in Game 5, with Victor Wembanyama held to a series-low 20 points. The Thunder, who reached the Finals last season as well, would face the Knicks if they advance. The Knicks' appearance in the Finals is a notable moment for one of the NBA's most historically prominent franchises, which last played for the championship in the 1999 season.</span></span>
           </div>
+          
           <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false"><span class="sources-caret">›</span> Sources</button>
-            <div class="sources-list">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
               
-              <a href="https://www.bbc.com/news/articles/c62rrj66p3eo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+              <li>
+                <a href="https://www.nba.com/news/live-updates-2026-nba-playoffs-eastern-conference-finals-knicks-seek-first-finals-berth-since-1999" target="_blank" rel="noopener">
+                  Heat.com
+                </a>
+              </li>
               
-            </div>
+              <li>
+                <a href="https://www.nba.com/news/jalen-brunson-named-2026-eastern-conference-finals-mvp" target="_blank" rel="noopener">
+                  Heat.com
+                </a>
+              </li>
+              
+              <li>
+                <a href="https://www.cleveland.com/cavs/2026/05/cavs-embarrassed-in-game-4-of-eastern-conference-finals-130-93-swept-out-of-playoffs-by-knicks.html" target="_blank" rel="noopener">
+                  cleveland.com
+                </a>
+              </li>
+              
+            </ul>
           </div>
+          
         </div>
         
       
@@ -811,25 +1042,33 @@
             <div class="difficult-content">
               
               <div class="article">
-                <h2 class="article-headline">At Least 82 Killed in China Coal Mine Explosion; Suicide Bombing Near Pakistan Train Kills at Least 23</h2>
+                <h2 class="article-headline">Gas Explosion at Coal Mine in China Kills at Least 82</h2>
                 <div class="summary-toggle">
                   <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
                   <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
                 <div class="summary-text" id="summary-1-diff">
-                  <span class="summary-brief"><span>A gas explosion at a coal mine in China's Shanxi province killed at least 82 people and hospitalized approximately 120 others, according to reports citing the Associated Press. Separately, a suicide bombing near a passenger train route in Quetta, Pakistan killed at least 23 people and wounded around 70 others. Both events represent significant mass casualty incidents in major countries with ongoing safety and security challenges.</span></span>
-                  <span class="summary-full"><span>Two separate mass casualty events occurred in Asia over the same period. In China's Shanxi province, a gas explosion at a coal mine killed at least 82 people and sent approximately 120 others to hospitals, according to reporting that cited the Associated Press. Coal mine explosions have been a recurring safety concern in China, which operates the world's largest coal mining sector; gas accumulation in underground mines remains one of the primary causes of such disasters. Chinese authorities have undertaken safety reform efforts over many years, though large-scale incidents continue to occur with some regularity. In a separate incident in Pakistan, a suicide bombing targeting a passenger train route in Quetta, the capital of Balochistan province, killed at least 23 people and wounded approximately 70 others. Balochistan has experienced significant militant activity over many years, and attacks on transportation infrastructure and civilian targets have occurred periodically. No claim of responsibility was immediately attributed in the available source material. Both events highlight ongoing challenges around industrial safety and security in their respective contexts.</span></span>
+                  <span class="summary-brief"><span>A gas explosion at a coal mine in China's Shanxi province killed at least 82 people and hospitalized approximately 120 others. Emergency and rescue operations were underway following the blast. China's coal mining sector has a history of fatal accidents, though the scale of this event is significant.</span></span>
+                  <span class="summary-full"><span>A gas explosion occurred at a coal mine in Shanxi province, China, resulting in the deaths of at least 82 people and the hospitalization of approximately 120 others, according to reports citing the Associated Press. The cause is attributed to a gas ignition within the mine. Rescue and emergency operations were launched in the aftermath of the blast.
+
+China is the world's largest coal producer and consumer, and its mining sector has faced recurring safety incidents over many decades, though large-scale fatalities of this magnitude are less common than they were in earlier periods of rapid industrial expansion. The event is relevant to American readers in part because China's energy production and industrial safety standards affect global energy markets and supply chains. The scale of the incident — among the deadliest mine disasters reported in recent years — gives it significance beyond a localized tragedy.</span></span>
                 </div>
+                
                 <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false"><span class="sources-caret">›</span> Sources</button>
-                  <div class="sources-list">
+                  <button class="sources-toggle-btn" aria-expanded="false">
+                    <span class="sources-caret">›</span> Sources
+                  </button>
+                  <ul class="sources-list">
                     
-                    <a href="https://www.foxnews.com/world/least-82-killed-massive-gas-explosion-rips-coal-mine-china" target="_blank" rel="noopener noreferrer">Fox News World</a>
+                    <li>
+                      <a href="https://www.foxnews.com/world/least-82-killed-massive-gas-explosion-rips-coal-mine-china" target="_blank" rel="noopener">
+                        Fox News World
+                      </a>
+                    </li>
                     
-                    <a href="https://www.foxnews.com/world/deadly-suicide-blast-rips-pakistan-train-route-killing-least-23" target="_blank" rel="noopener noreferrer">Fox News World</a>
-                    
-                  </div>
+                  </ul>
                 </div>
+                
               </div>
               
             </div>
@@ -866,8 +1105,26 @@
     if (!btn) return;
     const expanded = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', String(!expanded));
-    btn.nextElementSibling.classList.toggle('expanded', !expanded);
   });
+
+  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
+  (function() {
+    var current = '2026-05-26-am.html';
+    fetch('archive.json')
+      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function(data) {
+        var html = data.months.map(function(m) {
+          var links = m.entries.map(function(e) {
+            var cls = 'archive-link' + (e.file === current ? ' current' : '');
+            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
+          }).join('');
+          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
+        }).join('');
+        var nav = document.querySelector('nav.sidebar');
+        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
+      })
+      .catch(function() {});
+  })();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/balm/service-worker.js');
