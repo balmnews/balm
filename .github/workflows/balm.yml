@@ -67,6 +67,7 @@ jobs:
           NYT_API_KEY: ${{ secrets.NYT_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ELEVEN_LABS_API_KEY: ${{ secrets.ELEVEN_LABS_API_KEY }}
+          VOYAGE_API_KEY: ${{ secrets.VOYAGE_API_KEY }}
         run: |
           ARGS="--run ${{ steps.edition.outputs.run }}"
           if [ -n "${{ github.event.inputs.date }}" ]; then

@@ -183,6 +183,7 @@ All secrets are stored as GitHub repository Secrets and injected into the Action
 | `NYT_API_KEY` | New York Times Developer API | developer.nytimes.com → Apps → + New App |
 | `ANTHROPIC_API_KEY` | Claude API for editorial processing | console.anthropic.com → API Keys |
 | `ELEVEN_LABS_API_KEY` | ElevenLabs text-to-speech for audio digest | elevenlabs.io → Profile → API Key |
+| `VOYAGE_API_KEY` | Voyage AI embeddings for semantic clustering (required) | voyageai.com → API Keys |
 
 ---
 
@@ -218,87 +219,43 @@ Sources are fetched per run from three API sources and twelve RSS feeds. Target 
 
 ### Clustering algorithm
 
-After exact-duplicate removal, `cluster_articles()` groups articles by story using Union-Find. Grouping is transitive: if A merges with B and B merges with C, all three form one cluster. Before any pairwise merge is attempted, two blocking guards run in sequence (see below). If neither guard blocks, the effective similarity threshold is determined, and any one of three signals is sufficient to trigger a merge:
+After exact-duplicate removal, `cluster_articles()` groups articles by story using Voyage AI embeddings and Union-Find. Grouping is transitive: if A merges with B and B merges with C, all three form one cluster.
 
-**Signal 1 — Named-entity boost** (evaluated first)
-If two headlines share ≥ 2 capitalised non-initial words — the heuristic for proper nouns such as people, countries, and organisations — the articles auto-merge regardless of TF-IDF score. `_extract_named_entities(title)` extracts these by skipping the first word (always capitalised in a headline) and collecting every subsequent capitalised word. This catches pairs like "Iran strikes Israel in overnight attack" ↔ "US warns Iran over Israeli strikes" — low lexical overlap but clearly the same event.
+**Embedding model:** `voyage-3-lite` via the `voyageai` Python package. Each article's title + first 200 characters of its description are embedded as a single text. Embeddings are fetched in batches of 128 (`VOYAGE_BATCH_SIZE`). Requires `VOYAGE_API_KEY`.
 
-**Signal 2 — Headline TF-IDF similarity** (threshold 0.22 or 0.45)
-`_tfidf_vectors()` builds a smoothed IDF over the full corpus of article headlines, then computes per-article TF-IDF vectors. `_cosine()` measures cosine similarity between pairs. If the score ≥ effective threshold the articles merge. High-frequency terms are removed by `_CLUSTER_STOPWORDS` before vectorisation.
+**Similarity threshold:** `EMBEDDING_SIMILARITY_THRESHOLD = 0.82`. Cosine similarity between two article embeddings at or above this value triggers a merge. Threshold guidance:
+- `>0.90` — near-identical articles (same outlet, same story)
+- `0.82–0.90` — same event, different outlets or framings (target merge range)
+- `0.70–0.82` — related topic, different events (should not cluster)
+- `<0.70` — unrelated stories
 
-**Signal 3 — Description TF-IDF similarity** (same effective threshold, fallback only)
-If both signals above fail but both articles have non-empty description fields, the same TF-IDF + cosine method is applied to the first 300 characters of each description. This catches cases where headlines are phrased very differently but descriptions of the same event share substantive vocabulary.
+Adjust upward if unrelated stories are clustering together. Adjust downward if same-event stories are not clustering.
 
-### Geographic coherence gate
-
-Before any merge signal is evaluated, a geographic coherence check runs as a hard block. If both articles have detectable geographic entities and those entities are entirely disjoint, the articles describe events in different places and the merge is blocked unconditionally — TF-IDF and named-entity scores are not consulted.
-
-`_extract_geo_entities(text)` searches the combined title + description text (lowercased) for:
-- **Single-word geographic names** via set intersection with `_GEO_SINGLE` — a `frozenset` of ~200 country names, all 50 US states, and ~100 major world cities. Only unambiguous proper nouns are included to prevent false matches on common words.
+**Geographic coherence gate** (safety layer): before similarity is checked, a hard block runs on pairs where both articles have detectable geographic entities and those entities are entirely disjoint. This prevents cross-country merges (e.g. China + Pakistan) that embeddings alone might not reject. `_extract_geo_entities(text)` searches the combined title + description text (lowercased) for:
+- **Single-word geographic names** via set intersection with `_GEO_SINGLE` — a `frozenset` of ~200 country names, all 50 US states, and ~100 major world cities.
 - **Multi-word geographic phrases** via substring match against `_GEO_PHRASES` — a `frozenset` of ~35 phrases including "united states", "south korea", "hong kong", "saudi arabia", "new york", and all two-word US state names.
 
-**Fallback behaviour:** if either article returns an empty set from `_extract_geo_entities` — no geographic signal detected — the gate is bypassed and the three merge signals run as normal. This preserves correct clustering for geography-free stories (technology, economics, domestic policy) that contain no country or city name.
+If either article has no detectable geographic signal, the gate is bypassed and the embedding comparison runs normally. This preserves correct clustering for geography-free stories (technology, economics) that contain no country or city name.
 
-**Example:** "China coal mine explosion kills 20 workers" → `{"china"}`. "Pakistan suicide bombing kills 15" → `{"pakistan"}`. Both articles have geographic signals; the signals are disjoint; merge is blocked before TF-IDF is consulted.
+### Post-clustering coherence backstop
 
-### Domestic political threshold
+After `cluster_articles()` returns, `_split_incoherent_clusters()` inspects every multi-article cluster as a backstop against false positives. The named-entity coherence test runs: `_extract_named_entities(title)` for every article in the cluster collects capitalised non-initial words (a proxy for proper nouns). If at least one article has named entities and no entity is shared by two or more articles, the cluster is split into singletons and logged to stderr as `[SPLIT]`.
 
-Domestic US political news poses a specific clustering problem: words like "senate", "congress", "administration", "bill", and "vote" appear in virtually every political story regardless of whether those stories are related. At the default threshold of 0.22, TF-IDF similarity alone can merge a Texas primary runoff result with a DOJ document-deletion story simply because both use standard political vocabulary. The geographic gate does not help because both articles are domestic — they share geographic entities rather than conflicting on them.
+Clusters where all entity sets are empty are exempt — we cannot determine incoherence from entities alone.
 
-`_is_domestic_political(text)` identifies domestic political articles using two conditions:
-1. Text contains at least one US state name (from `_GEO_US_STATES`) or the word "washington" (covers Washington DC).
-2. Text contains no unambiguous foreign country name (from `_GEO_FOREIGN_COUNTRIES` or `_GEO_FOREIGN_PHRASES`). "Georgia" is intentionally excluded from the foreign-country set because it is also a US state; its presence cannot determine whether an article is domestic or foreign.
+### Claude editorial review
 
-When both articles in a pair are classified as domestic political, the effective threshold for Signals 2 and 3 is raised from **0.22 to 0.45** (`DOMESTIC_POLITICAL_THRESHOLD`). Signal 1 (named-entity boost) is unaffected — if two domestic political articles share two named entities they are almost certainly about the same event and should merge. The elevated threshold blocks merges driven by shared generic political vocabulary while preserving merges grounded in shared specific names.
+After `_split_incoherent_clusters()`, a lightweight Claude call (`editorial_review()`) reviews all cluster titles. Claude can approve clusters (no action), split a cluster into singletons, or request that two clusters be merged. The prompt instructs Claude to approve the vast majority of clusters and only act on clear errors. This is a final sanity check on cluster structure — it catches edge cases the embedding + backstop pipeline missed.
 
-### Event-type coherence check
+`editorial_review()` is non-blocking: if the Claude call fails or returns invalid JSON, the original clusters are returned unchanged.
 
-Even with the elevated domestic-political threshold, different event types within domestic politics share enough specific vocabulary to false-cluster. "DOJ January 6 records deletion" contains legal vocabulary; "Texas Senate primary runoff" contains election vocabulary. These are structurally different events that would never be synthesised into a coherent single story.
+### Protection layers summary
 
-`_classify_event_type(text)` searches article text for substrings from `_EVENT_TYPE_KEYWORDS`, a dict of four event types:
+Three layers protect against false-positive merges:
 
-| Type | Representative keywords |
-|---|---|
-| `election` | election, primary, runoff, ballot, candidate, senate race, voters, early voting |
-| `legal` | doj, indictment, january 6, charges filed, grand jury, department of justice, attorney general |
-| `legislative` | bill, legislation, amendment, passed the senate, passed the house, signed into law |
-| `executive` | executive order, white house, president signed, cabinet, oval office |
-
-The function returns `(event_type, confidence)` where confidence is the count of keyword matches for the winning type. Classification requires **≥ 2 keyword matches** and a **clear lead over the second type** to be considered high-confidence. If neither condition holds, the function returns `("ambiguous", 0)`.
-
-In `cluster_articles()`, a merge is blocked before any similarity signal runs when **both** articles have a non-ambiguous, high-confidence classification **and those classifications differ**. An ambiguous classification on either article falls through to the standard TF-IDF logic, so articles that use mixed vocabulary are not penalised.
-
-### Post-clustering coherence validation
-
-After `cluster_articles()` returns, `_split_incoherent_clusters()` inspects every multi-article cluster as a backstop against false positives. It applies two independent tests; failing either causes the cluster to be split into singletons.
-
-**Test 1 — Named-entity coherence** (existing):
-1. Run `_extract_named_entities(title)` for every article in the cluster.
-2. If all entity sets are empty, skip this test — we cannot determine incoherence from entities alone.
-3. Otherwise, count how many articles each entity appears in.
-4. If at least one entity appears in ≥ 2 articles, the cluster passes Test 1.
-5. If no entity is shared by any two articles → split and log: `[SPLIT] No shared entity → N singletons: <title excerpts>`.
-
-**Test 2 — Event-type diversity** (new):
-1. Run `_classify_event_type()` on title + description for every article in the cluster.
-2. Collect all non-ambiguous event-type labels assigned.
-3. If ≤ 2 distinct types are present, the cluster passes Test 2.
-4. If > 2 distinct types are present (e.g., election + legal + legislative in one cluster), the cluster is a false-positive transitivity merge → split and log: `[SPLIT] Event-type span (election, legal, legislative) → N singletons: <title excerpts>`.
-
-### Interaction between layers
-
-Four guards protect against false-positive merges, operating at two stages:
-
-**During pairwise merge decisions (prevention):**
-- The **geographic gate** blocks merges where both articles have conflicting geographic signals. Catches cross-country clustering (China mine + Pakistan bombing) but is blind to same-country stories.
-- The **event-type conflict check** blocks merges where both articles have high-confidence classifications into different event types. Catches cross-type domestic political clustering (Texas primary + DOJ records) but only fires when both sides have ≥ 2 keyword matches.
-- The **domestic political threshold** raises the TF-IDF bar from 0.22 to 0.45 for domestic-political pairs, filtering merges driven by shared generic political vocabulary rather than shared specific content.
-
-**After all clusters are formed (post-hoc backstop):**
-- The **named-entity coherence check** splits clusters where no named entity is shared by two or more articles. Catches cases where prevention guards missed a bad merge.
-- The **event-type diversity check** splits clusters spanning more than two distinct event types — a pattern that indicates false transitivity merges (A~B and B~C where A and C are unrelated).
-
-No single guard is sufficient. Each addresses a failure mode the others do not cover.
+1. **Geographic coherence gate** (during pairwise merge): hard block on pairs with conflicting geographic signals.
+2. **Named-entity coherence backstop** (post-clustering): splits clusters where no entity is shared by two or more articles.
+3. **Claude editorial review** (post-backstop): lightweight structural review that can split or merge clusters based on title-level comprehension.
 
 ### Multi-source synthesis
 
@@ -323,24 +280,27 @@ In the digest HTML, this array is rendered as a collapsible sources toggle benea
 
 ### Known limitations and future improvements
 
-- **Clustering is lexical, not semantic.** TF-IDF operates on exact token overlap. Two articles covering the same event using synonyms or entirely different vocabulary may fail to cluster even though they describe the same story. A future improvement would replace or supplement TF-IDF with embedding-based similarity (e.g., sentence-transformers or the Anthropic embeddings API) for semantic matching that is robust to paraphrase.
-- **The geographic entity list is finite.** `_GEO_SINGLE` and `_GEO_PHRASES` cover the most newsworthy countries, states, and cities but will miss obscure place names, districts, regions, and newly prominent locations. A miss causes the geographic gate to be bypassed — falling back to TF-IDF — which is the correct graceful degradation. It does not cause an incorrect split.
-- **Cluster size is unbounded.** A very large cluster (8+ articles) may indicate over-merging via Union-Find transitivity: A merges with B, B merges with C, producing a three-way cluster where A and C are unrelated. The coherence validation catches some of these cases, but a size threshold or additional validation may be warranted if large clusters become common.
+- **The geographic entity list is finite.** `_GEO_SINGLE` and `_GEO_PHRASES` cover the most newsworthy countries, states, and cities but will miss obscure place names, districts, regions, and newly prominent locations. A miss causes the geographic gate to be bypassed — falling back to embedding similarity — which is the correct graceful degradation. It does not cause an incorrect split.
+- **Cluster size is unbounded.** A very large cluster (8+ articles) may indicate over-merging via Union-Find transitivity: A merges with B, B merges with C, producing a three-way cluster where A and C are unrelated. The named-entity backstop and Claude review catch some of these cases, but a size threshold may be warranted if large clusters become common.
+- **Embedding API dependency.** `cluster_articles()` requires `VOYAGE_API_KEY`. If the API is unavailable, the pipeline will exit with an error at clustering time. There is no TF-IDF fallback — the fail-fast check at pipeline start (`if not voyage_api_key: sys.exit(1)`) surfaces this before any fetch work is done.
 
 ### Logging
 
-Step 3 of the pipeline log reports cluster distribution after both clustering and coherence validation complete:
+Steps 3 and 4 of the pipeline log report cluster structure:
 
 ```
-[3/10] Clustering articles by story...
+[3/11] Clustering articles by story (Voyage AI embeddings)...
+  Fetching embeddings for 134 articles...
   [SPLIT] No shared entity → 2 singletons: China mine explosion kills 20 | Pakist...
-  [SPLIT] Event-type span (election, legal) → 2 singletons: Texas runoff results | DOJ...
-  87 articles → 54 clusters (12 multi-source, 42 single-source, 2 incoherent clusters split)
-    Cluster  3 [4 sources]: The New York Times · Fox News · BBC News · The Guardian
-    Cluster  7 [2 sources]: The Guardian · WSJ Markets
+  134 articles → 58 clusters (14 multi-source, 31 merges)
+    Cluster [4 sources]: The New York Times · Fox News · BBC News · The Guardian
+    Cluster [2 sources]: The Guardian · WSJ Markets
+
+[4/11] Claude editorial review of cluster structure...
+  Editorial review: 1 merge(s), 0 split(s) applied → 57 clusters
 ```
 
-`[SPLIT]` lines are written to stderr so they appear in the GitHub Actions error stream, making false-positive merges easy to spot without noise in the normal stdout output. Each split line includes the reason (no shared entity, or the specific event-type labels that caused the span failure), the number of singletons produced, and the first 45 characters of each article title in the dissolved cluster. Multi-source cluster lines (printed to stdout) show contributing outlets in order of appearance so synthesis inputs can be verified at a glance.
+`[SPLIT]` lines are written to stderr so they appear in the GitHub Actions error stream, making false-positive merges easy to spot without noise in the normal stdout output. Multi-source cluster lines show contributing outlets (deduplicated) in order of appearance so synthesis inputs can be verified at a glance.
 
 ---
 
@@ -405,6 +365,7 @@ export GUARDIAN_API_KEY=...
 export NYT_API_KEY=...
 export ANTHROPIC_API_KEY=...
 export ELEVEN_LABS_API_KEY=...
+export VOYAGE_API_KEY=...
 python pipeline.py --run am   # or --run pm
 ```
 

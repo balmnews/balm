@@ -76,6 +76,11 @@ HYBRID_DOCS_DIR = Path(__file__).parent / "docs" / "hybrid"
 BASE_URL = "https://balmnews.github.io/balm"
 CLAUDE_MODEL = "claude-sonnet-4-6"
 
+# NOTE: The hybrid pipeline uses keyword-based article scoring (see pass2_synthesize_story)
+# rather than the embedding-based clustering in pipeline.py. A future upgrade could replace
+# the keyword scorer with cluster_articles() from pipeline.py for semantic source retrieval.
+# That would require VOYAGE_API_KEY and the voyageai package (already in requirements.txt).
+
 # Pass 1: story identification — needs enough room for 10-16 detailed story objects
 PASS1_MAX_TOKENS = 4000
 

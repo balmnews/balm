@@ -3,7 +3,6 @@
 
 import argparse
 import json
-import math
 import os
 import re
 import sys
@@ -14,6 +13,7 @@ from pathlib import Path
 
 import feedparser
 import requests
+import voyageai
 from anthropic import Anthropic
 from dateutil import tz
 from feedgen.feed import FeedGenerator
@@ -32,12 +32,17 @@ CLAUDE_MAX_TOKENS = 8000
 
 ELEVENLABS_VOICE_ID = "21m00Tcm4TlvDq8ikWAM"  # Rachel
 
-CLUSTER_SIMILARITY_THRESHOLD = 0.22
-# Raised threshold applied when both articles are domestic US political stories.
-# Political vocabulary (senate, congress, bill, vote, administration) is shared
-# across many unrelated domestic stories, so a much higher bar is required before
-# treating two domestic political articles as the same event.
-DOMESTIC_POLITICAL_THRESHOLD = 0.45
+VOYAGE_MODEL = "voyage-3-lite"
+# 0.82 is a conservative threshold for news article semantic similarity.
+# Voyage voyage-3-lite embeddings for news typically score:
+#   >0.90 — near-identical articles (same outlet, same story)
+#   0.82-0.90 — same event, different outlets/framings (target range)
+#   0.70-0.82 — related topic but different events (should NOT cluster)
+#   <0.70 — unrelated stories
+# Adjust upward if unrelated stories are clustering together.
+# Adjust downward if same-event stories are not clustering.
+EMBEDDING_SIMILARITY_THRESHOLD = 0.82
+VOYAGE_BATCH_SIZE = 128
 
 CATEGORY_ORDER = [
     "GEOPOLITICS",
@@ -301,20 +306,7 @@ def remove_exact_duplicates(articles: list[dict]) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
-# Story clustering (TF-IDF cosine similarity, stdlib only)
-# ---------------------------------------------------------------------------
-
-_CLUSTER_STOPWORDS = {
-    "a", "an", "the", "and", "or", "but", "in", "on", "at", "to", "for",
-    "of", "with", "is", "are", "was", "were", "be", "been", "by", "as",
-    "this", "that", "it", "its", "from", "has", "have", "had", "not",
-    "after", "over", "more", "about", "up", "will", "said", "say", "says",
-    "would", "could", "should", "also", "than", "when", "where", "who",
-    "which", "what", "how", "can", "new", "one", "two", "three",
-}
-
-# ---------------------------------------------------------------------------
-# Geographic entity reference lists — used for clustering coherence gate
+# Geographic entity reference lists — used for geographic coherence gate
 # ---------------------------------------------------------------------------
 
 # Unambiguous single-word geographic names: countries, US states, major cities.
@@ -389,134 +381,6 @@ _GEO_PHRASES: frozenset[str] = frozenset({
     "north carolina", "north dakota", "south carolina", "south dakota",
 })
 
-# ---------------------------------------------------------------------------
-# Domestic political detection — used to apply stricter clustering threshold
-# ---------------------------------------------------------------------------
-
-# US states only.  Used to identify domestic political articles.
-_GEO_US_STATES: frozenset[str] = frozenset({
-    "alabama", "alaska", "arizona", "arkansas", "california", "colorado",
-    "connecticut", "delaware", "florida", "hawaii", "idaho", "illinois",
-    "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine",
-    "maryland", "massachusetts", "michigan", "minnesota", "mississippi",
-    "missouri", "montana", "nebraska", "nevada", "ohio", "oklahoma",
-    "oregon", "pennsylvania", "tennessee", "texas", "utah", "vermont",
-    "virginia", "wisconsin", "wyoming",
-})
-
-# Foreign countries that are unambiguously NOT US states.
-# "georgia" is intentionally excluded — it is both a US state and a country;
-# the ambiguity means we cannot use it as a foreign-country signal.
-_GEO_FOREIGN_COUNTRIES: frozenset[str] = frozenset({
-    "afghanistan", "albania", "algeria", "angola", "argentina", "armenia",
-    "australia", "austria", "azerbaijan", "bahrain", "bangladesh", "belarus",
-    "belgium", "belize", "benin", "bhutan", "bolivia", "botswana", "brazil",
-    "brunei", "bulgaria", "burkina", "burundi", "cambodia", "cameroon",
-    "canada", "chile", "china", "colombia", "comoros", "congo", "croatia",
-    "cuba", "cyprus", "czechia", "denmark", "djibouti", "ecuador", "egypt",
-    "eritrea", "ethiopia", "fiji", "finland", "france", "gabon", "gambia",
-    "germany", "ghana", "greece", "grenada", "guatemala", "guinea",
-    "guyana", "haiti", "honduras", "hungary", "india", "indonesia", "iran",
-    "iraq", "ireland", "israel", "italy", "jamaica", "japan", "jordan",
-    "kazakhstan", "kenya", "kiribati", "kosovo", "kuwait", "kyrgyzstan",
-    "laos", "latvia", "lebanon", "lesotho", "liberia", "libya", "lithuania",
-    "luxembourg", "madagascar", "malawi", "malaysia", "maldives", "mali",
-    "malta", "mauritania", "mauritius", "mexico", "moldova", "monaco",
-    "mongolia", "montenegro", "morocco", "mozambique", "myanmar", "namibia",
-    "nauru", "nepal", "netherlands", "nicaragua", "niger", "nigeria",
-    "norway", "oman", "pakistan", "palau", "palestine", "panama", "paraguay",
-    "peru", "philippines", "poland", "portugal", "qatar", "romania", "russia",
-    "rwanda", "samoa", "senegal", "serbia", "seychelles", "singapore",
-    "slovakia", "slovenia", "somalia", "spain", "sudan", "suriname", "sweden",
-    "switzerland", "syria", "taiwan", "tajikistan", "tanzania", "thailand",
-    "togo", "tonga", "tunisia", "turkey", "turkmenistan", "tuvalu", "uganda",
-    "ukraine", "uruguay", "uzbekistan", "vanuatu", "venezuela", "vietnam",
-    "yemen", "zambia", "zimbabwe",
-})
-
-# Multi-word phrases that unambiguously identify foreign stories.
-# US state phrases ("new york", "new jersey", etc.) are intentionally excluded.
-_GEO_FOREIGN_PHRASES: frozenset[str] = frozenset({
-    "united kingdom", "united arab emirates", "saudi arabia", "south africa",
-    "south korea", "north korea", "costa rica", "new zealand", "el salvador",
-    "sri lanka", "ivory coast", "burkina faso", "czech republic",
-    "dominican republic", "central african republic", "papua new guinea",
-    "equatorial guinea", "hong kong", "new delhi", "addis ababa",
-    "dar es salaam", "cape town", "buenos aires", "rio de janeiro",
-    "sao paulo", "mexico city", "kuala lumpur", "phnom penh", "ho chi minh",
-})
-
-# ---------------------------------------------------------------------------
-# Event-type classification — used to block merges between articles covering
-# structurally different kinds of political events
-# ---------------------------------------------------------------------------
-
-# Each value is a tuple of lowercased substrings.  Multi-word phrases match
-# naturally via substring search.  Keywords were chosen to be type-specific;
-# ambiguous terms (senate, congress, vote, signed) are intentionally absent.
-# Classification requires ≥ 2 keyword matches to be considered high-confidence.
-_EVENT_TYPE_KEYWORDS: dict[str, tuple[str, ...]] = {
-    "election": (
-        "election", "primary", "runoff", "ballot", "candidate",
-        "senate race", "voters", "voting rights", "campaign trail",
-        "early voting", "runoff election", "general election",
-    ),
-    "legal": (
-        "doj", "indictment", "january 6", "charges filed", "lawsuit",
-        "trial", "verdict", "subpoena", "prosecution", "plea deal",
-        "department of justice", "attorney general", "grand jury",
-    ),
-    "legislative": (
-        "bill", "legislation", "amendment", "committee hearing",
-        "filibuster", "reconciliation", "appropriations",
-        "passed the senate", "passed the house", "signed into law",
-    ),
-    "executive": (
-        "executive order", "white house", "president signed",
-        "cabinet", "appointed", "administration announced", "oval office",
-        "secretary of", "acting director",
-    ),
-}
-
-
-def _tokenize(text: str) -> list[str]:
-    return [t for t in re.findall(r"[a-z0-9]+", text.lower())
-            if t not in _CLUSTER_STOPWORDS and len(t) > 2]
-
-
-def _tfidf_vectors(texts: list[str]) -> list[dict[str, float]]:
-    tokenized = [_tokenize(t) for t in texts]
-    N = len(texts)
-    # Build IDF over corpus
-    vocab: set[str] = set()
-    for tokens in tokenized:
-        vocab.update(tokens)
-    idf: dict[str, float] = {}
-    for term in vocab:
-        df = sum(1 for tokens in tokenized if term in set(tokens))
-        idf[term] = math.log((N + 1) / (df + 1))  # smoothed IDF
-    # Build TF-IDF vector per document
-    vectors: list[dict[str, float]] = []
-    for tokens in tokenized:
-        if not tokens:
-            vectors.append({})
-            continue
-        tf = Counter(tokens)
-        total = len(tokens)
-        vec = {t: (c / total) * idf.get(t, 0.0) for t, c in tf.items()}
-        vectors.append(vec)
-    return vectors
-
-
-def _cosine(v1: dict[str, float], v2: dict[str, float]) -> float:
-    if not v1 or not v2:
-        return 0.0
-    dot = sum(v1[t] * v2[t] for t in v1 if t in v2)
-    mag1 = math.sqrt(sum(x * x for x in v1.values()))
-    mag2 = math.sqrt(sum(x * x for x in v2.values()))
-    if mag1 == 0.0 or mag2 == 0.0:
-        return 0.0
-    return dot / (mag1 * mag2)
 
 
 def _extract_named_entities(title: str) -> set[str]:
@@ -542,8 +406,7 @@ def _extract_geo_entities(text: str) -> set[str]:
     match against _GEO_PHRASES). Case-insensitive.
 
     Returns an empty set when no geographic signal is detected — callers treat
-    an empty set as "unknown geography" and fall back to TF-IDF logic rather
-    than blocking a merge.
+    an empty set as "unknown geography" and allow the merge to proceed.
     """
     text_lower = text.lower()
     # Single-word pass: tokenise and intersect with reference set
@@ -556,217 +419,267 @@ def _extract_geo_entities(text: str) -> set[str]:
     return found
 
 
-def _is_domestic_political(text: str) -> bool:
-    """Return True if this article is clearly a domestic US political story.
 
-    Heuristic: text contains at least one US state name or a Washington DC
-    indicator ("washington"), AND contains no unambiguous foreign country name.
-    When True, pairwise clustering applies DOMESTIC_POLITICAL_THRESHOLD (0.45)
-    instead of the default (0.22), because political vocabulary is shared across
-    many unrelated domestic stories and the standard threshold is too permissive.
+# ---------------------------------------------------------------------------
+# Voyage AI embedding-based clustering
+# ---------------------------------------------------------------------------
+
+def get_embeddings(texts: list[str], voyage_key: str) -> list[list[float]]:
+    """Fetch embeddings from Voyage AI in batches.
+
+    Returns a list of embedding vectors in the same order as input texts.
     """
-    text_lower = text.lower()
-    words = set(re.findall(r"\b[a-z]+\b", text_lower))
-    # Reject if any unambiguous foreign country name is present
-    if words & _GEO_FOREIGN_COUNTRIES:
-        return False
-    for phrase in _GEO_FOREIGN_PHRASES:
-        if phrase in text_lower:
-            return False
-    # Must have at least one US geographic anchor
-    return bool(words & _GEO_US_STATES) or "washington" in words
+    client = voyageai.Client(api_key=voyage_key)
+    all_embeddings: list[list[float]] = []
+    for i in range(0, len(texts), VOYAGE_BATCH_SIZE):
+        batch = texts[i:i + VOYAGE_BATCH_SIZE]
+        result = client.embed(batch, model=VOYAGE_MODEL, input_type="document")
+        all_embeddings.extend(result.embeddings)
+    return all_embeddings
 
 
-def _classify_event_type(text: str) -> tuple[str, int]:
-    """Classify article text into a broad political event type via keyword matching.
-
-    Searches for substrings from _EVENT_TYPE_KEYWORDS in lowercased text and
-    counts matches per type.  Returns (event_type, confidence) where confidence
-    is the number of keyword matches for the winning type.
-
-    Returns ("ambiguous", 0) when:
-    - no type scores ≥ 2 (too few signals for high confidence), or
-    - the top two types are tied (genuinely ambiguous article).
-
-    Callers should treat "ambiguous" as "no classification" and fall back to
-    existing TF-IDF logic rather than blocking a merge.
-    """
-    text_lower = text.lower()
-    scores: dict[str, int] = {}
-    for etype, keywords in _EVENT_TYPE_KEYWORDS.items():
-        score = sum(1 for kw in keywords if kw in text_lower)
-        if score > 0:
-            scores[etype] = score
-
-    if not scores:
-        return ("ambiguous", 0)
-
-    ranked = sorted(scores.items(), key=lambda x: -x[1])
-    top_type, top_score = ranked[0]
-
-    # Require ≥ 2 matches and a clear lead over the second type
-    if top_score < 2:
-        return ("ambiguous", 0)
-    if len(ranked) >= 2 and ranked[1][1] >= top_score:
-        return ("ambiguous", 0)
-
-    return (top_type, top_score)
+def cosine_similarity(v1: list[float], v2: list[float]) -> float:
+    """Compute cosine similarity between two embedding vectors."""
+    dot = sum(a * b for a, b in zip(v1, v2))
+    mag1 = sum(a * a for a in v1) ** 0.5
+    mag2 = sum(b * b for b in v2) ** 0.5
+    if mag1 == 0.0 or mag2 == 0.0:
+        return 0.0
+    return dot / (mag1 * mag2)
 
 
-def cluster_articles(articles: list[dict], threshold: float = CLUSTER_SIMILARITY_THRESHOLD) -> list[list[dict]]:
-    """Group articles covering the same news event using layered merge guards.
+def cluster_articles(articles: list[dict], voyage_key: str) -> list[list[dict]]:
+    """Cluster articles by semantic similarity using Voyage AI embeddings.
 
-    Guards fire in order; a block at any layer skips the merge entirely:
+    Each article's title + first 200 chars of description are embedded.
+    Pairs whose cosine similarity exceeds EMBEDDING_SIMILARITY_THRESHOLD are
+    merged using Union-Find (transitive: A~B and B~C → all three in one cluster).
 
-    0a. **Geographic coherence gate** — if both articles have detectable place
-        names and share none, they are about different places: block.
-    0b. **Event-type conflict check** — if both articles classify with high
-        confidence (≥ 2 keyword matches) into different event types (election vs
-        legal vs legislative vs executive), block regardless of text similarity.
+    The geographic coherence gate runs as a hard block before similarity is
+    checked: two articles with conflicting geographic signals (e.g. China and
+    Pakistan) are never merged regardless of embedding score.
 
-    When neither guard blocks, the effective similarity threshold is determined:
-    - Both articles are domestic US political → DOMESTIC_POLITICAL_THRESHOLD (0.45)
-    - Otherwise → threshold (default 0.22)
-
-    A merge then fires on ANY of:
-    1. **Named-entity boost** — headlines share ≥ 2 capitalised non-initial words.
-    2. **Headline TF-IDF similarity** ≥ effective threshold.
-    3. **Description TF-IDF similarity** ≥ effective threshold (fallback).
-
-    Uses Union-Find so grouping is transitive: if A~B and B~C, all three merge.
+    After all pairwise merges, _split_incoherent_clusters() runs as a backstop
+    to catch any false-positive transitivity merges.
     """
     if not articles:
         return []
 
-    n = len(articles)
-    text = [a["title"] + " " + (a.get("description") or "") for a in articles]
+    # Build embedding input: headline + first 200 chars of description
+    texts = [
+        f"{a['title']}. {(a.get('description') or '')[:200]}"
+        for a in articles
+    ]
 
-    # Per-article signals (pre-computed for performance)
-    named_entities = [_extract_named_entities(a["title"]) for a in articles]
-    geo_entities   = [_extract_geo_entities(t) for t in text]
-    is_domestic    = [_is_domestic_political(t) for t in text]
-    event_types    = [_classify_event_type(t) for t in text]
+    print(f"  Fetching embeddings for {len(texts)} articles...")
+    embeddings = get_embeddings(texts, voyage_key)
 
-    # Separate TF-IDF vectors for headlines and descriptions
-    head_vectors = _tfidf_vectors([a["title"] for a in articles])
-    desc_vectors = _tfidf_vectors([(a.get("description") or "")[:300] for a in articles])
+    # Pre-compute geographic entities for the coherence gate
+    geo_entities = [
+        _extract_geo_entities(a["title"] + " " + (a.get("description") or ""))
+        for a in articles
+    ]
 
     # Union-Find
-    parent = list(range(n))
+    parent = list(range(len(articles)))
 
     def find(x: int) -> int:
         while parent[x] != x:
-            parent[x] = parent[parent[x]]  # path compression
+            parent[x] = parent[parent[x]]
             x = parent[x]
         return x
 
     def union(x: int, y: int) -> None:
         parent[find(x)] = find(y)
 
-    for i in range(n):
-        for j in range(i + 1, n):
-            # 0a. Geographic coherence gate
-            if geo_entities[i] and geo_entities[j] and not (geo_entities[i] & geo_entities[j]):
+    # Pairwise similarity check
+    merge_count = 0
+    for i in range(len(articles)):
+        for j in range(i + 1, len(articles)):
+            # Geographic coherence gate — hard block on conflicting geo signals
+            if (geo_entities[i] and geo_entities[j]
+                    and not (geo_entities[i] & geo_entities[j])):
                 continue
 
-            # 0b. Event-type conflict check — block when both articles have a
-            #     high-confidence classification and those classifications differ.
-            #     "ambiguous" is treated as "no classification" and does not block.
-            type_i, conf_i = event_types[i]
-            type_j, conf_j = event_types[j]
-            if (type_i != "ambiguous" and type_j != "ambiguous"
-                    and conf_i >= 2 and conf_j >= 2
-                    and type_i != type_j):
-                continue
-
-            # Effective threshold: stricter for domestic-political pairs because
-            # political vocabulary is shared across many unrelated stories.
-            eff_threshold = (DOMESTIC_POLITICAL_THRESHOLD
-                             if is_domestic[i] and is_domestic[j]
-                             else threshold)
-
-            # 1. Named-entity boost (threshold-independent)
-            if len(named_entities[i] & named_entities[j]) >= 2:
-                union(i, j)
-                continue
-            # 2. Headline similarity
-            if _cosine(head_vectors[i], head_vectors[j]) >= eff_threshold:
-                union(i, j)
-                continue
-            # 3. Description fallback
-            if desc_vectors[i] and desc_vectors[j]:
-                if _cosine(desc_vectors[i], desc_vectors[j]) >= eff_threshold:
+            sim = cosine_similarity(embeddings[i], embeddings[j])
+            if sim >= EMBEDDING_SIMILARITY_THRESHOLD:
+                if find(i) != find(j):
                     union(i, j)
+                    merge_count += 1
 
-    clusters_map: dict[int, list[int]] = {}
-    for i in range(n):
-        clusters_map.setdefault(find(i), []).append(i)
+    # Group by Union-Find root
+    clusters_map: dict[int, list[dict]] = {}
+    for i, article in enumerate(articles):
+        clusters_map.setdefault(find(i), []).append(article)
 
-    return [[articles[i] for i in idxs] for idxs in clusters_map.values()]
+    result = list(clusters_map.values())
+
+    # Post-clustering coherence backstop
+    result = _split_incoherent_clusters(result)
+
+    # Log cluster distribution
+    multi = [c for c in result if len(c) > 1]
+    print(f"  {len(articles)} articles → {len(result)} clusters "
+          f"({len(multi)} multi-source, {merge_count} merges)")
+    for c in sorted(multi, key=len, reverse=True):
+        outlets = " · ".join(dict.fromkeys(a["source"] for a in c))
+        print(f"    Cluster [{len(c)} sources]: {outlets}")
+
+    return result
 
 
-def _split_incoherent_clusters(clusters: list[list[dict]]) -> tuple[list[list[dict]], int]:
-    """Post-clustering coherence check: split clusters that fail either of two tests.
+def _split_incoherent_clusters(clusters: list[list[dict]]) -> list[list[dict]]:
+    """Post-clustering coherence backstop: split clusters that fail named-entity coherence.
 
-    **Test 1 — Named-entity coherence** (existing):
     At least one named entity (capitalised non-initial word from the headline)
     must appear in ≥ 2 articles. Clusters where all entity sets are empty are
     exempt — we cannot determine incoherence from entities alone.
 
-    **Test 2 — Event-type diversity** (new):
-    Articles in the cluster must not span more than 2 distinct high-confidence
-    event types. A cluster covering election + legal + legislative articles (3
-    types) is a false-positive transitivity merge and is split into singletons.
-    "ambiguous" classifications are excluded from the count.
-
-    Failing either test causes the entire cluster to be split into singletons
-    and logged to stderr as [SPLIT]. Returns (cleaned_clusters, n_splits).
+    Failures are split into singletons and logged to stderr as [SPLIT].
     """
     result = []
-    splits = 0
 
     for cluster in clusters:
         if len(cluster) <= 1:
             result.append(cluster)
             continue
 
-        # --- Test 1: Named-entity coherence ---
         entity_sets = [_extract_named_entities(a["title"]) for a in cluster]
         if not all(not s for s in entity_sets):
-            # At least one article has named entities — validate.
+            # At least one article has named entities — validate coherence.
             entity_counts: Counter = Counter()
             for s in entity_sets:
                 entity_counts.update(s)
             if not any(count >= 2 for count in entity_counts.values()):
-                splits += 1
                 headlines = " | ".join(a["title"][:45] for a in cluster)
                 print(f"  [SPLIT] No shared entity → {len(cluster)} singletons: {headlines}",
                       file=sys.stderr)
                 result.extend([[a] for a in cluster])
                 continue
 
-        # --- Test 2: Event-type diversity ---
-        type_labels: set[str] = set()
-        for a in cluster:
-            etype, _ = _classify_event_type(
-                a["title"] + " " + (a.get("description") or "")
-            )
-            if etype != "ambiguous":
-                type_labels.add(etype)
-        if len(type_labels) > 2:
-            splits += 1
-            headlines = " | ".join(a["title"][:45] for a in cluster)
-            print(
-                f"  [SPLIT] Event-type span ({', '.join(sorted(type_labels))}) → "
-                f"{len(cluster)} singletons: {headlines}",
-                file=sys.stderr,
-            )
-            result.extend([[a] for a in cluster])
-            continue
-
         result.append(cluster)
 
-    return result, splits
+    return result
+
+
+EDITORIAL_REVIEW_PROMPT = """You are reviewing story clusters assembled for the Balm news digest.
+Each cluster contains one or more news articles that the system believes cover the same story.
+
+Your task: review each cluster and decide whether it is correctly grouped.
+
+For each cluster, respond with one of:
+  "approve" — the cluster is coherent; articles cover the same underlying story
+  "split"   — the cluster contains articles about different stories; split into singletons
+  "merge: X,Y" — clusters X and Y (by cluster number) should be merged into one
+
+Rules:
+- Approve the vast majority of clusters. Only split or merge when the error is clear.
+- Split only when articles in the cluster are clearly about different events.
+- Merge only when two separate clusters are obviously about the same story.
+- Do not merge clusters that cover related-but-distinct events.
+- You may approve, split, or merge — but do not invent new clusters.
+
+Output ONLY valid JSON, no markdown, no preamble:
+{
+  "reviews": [
+    {"cluster_id": 1, "action": "approve"},
+    {"cluster_id": 2, "action": "split"},
+    {"cluster_id": 3, "action": "merge: 3,7"}
+  ]
+}
+"""
+
+
+def editorial_review(
+    clusters: list[list[dict]],
+    anthropic_key: str,
+) -> list[list[dict]]:
+    """Ask Claude to review cluster structure and apply approved splits/merges.
+
+    This is a lightweight single call (low token budget) that acts as a
+    final sanity check on the cluster groupings before synthesis. It catches
+    edge cases the embedding + backstop pipeline missed.
+
+    Failures are non-blocking: if the call fails or returns invalid JSON,
+    the original clusters are returned unchanged.
+    """
+    if not clusters:
+        return clusters
+
+    # Build a compact summary of each cluster for review
+    lines = [f"Review these {len(clusters)} story clusters:\n"]
+    for ci, cluster in enumerate(clusters, 1):
+        titles = "; ".join(a["title"] for a in cluster)
+        lines.append(f"[CLUSTER {ci}] ({len(cluster)} article{'s' if len(cluster) != 1 else ''}): {titles}")
+
+    prompt = "\n".join(lines)
+
+    client = Anthropic(api_key=anthropic_key)
+    try:
+        response = client.messages.create(
+            model=CLAUDE_MODEL,
+            max_tokens=2000,
+            system=EDITORIAL_REVIEW_PROMPT,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        raw = response.content[0].text.strip()
+        # Strip markdown fences if present
+        raw = re.sub(r"^```(?:json)?\s*", "", raw)
+        raw = re.sub(r"\s*```$", "", raw).strip()
+        data = json.loads(raw)
+        reviews = data.get("reviews", [])
+    except Exception as e:
+        print(f"  [WARN] Editorial review failed ({e}); using original clusters.", file=sys.stderr)
+        return clusters
+
+    # Index clusters for mutation (1-based cluster_id → 0-based index)
+    result: list[list[dict] | None] = [list(c) for c in clusters]
+    merges_applied = 0
+    splits_applied = 0
+
+    # First pass: merges
+    for review in reviews:
+        action = review.get("action", "approve")
+        if not action.startswith("merge:"):
+            continue
+        try:
+            ids_str = action.split(":", 1)[1]
+            ids = [int(x.strip()) - 1 for x in ids_str.split(",")]
+            # Validate all ids
+            if not all(0 <= i < len(result) for i in ids):
+                continue
+            # Merge all into the first
+            primary = ids[0]
+            for other in ids[1:]:
+                if result[other] is not None and result[primary] is not None:
+                    result[primary].extend(result[other])
+                    result[other] = None
+            merges_applied += 1
+        except (ValueError, IndexError):
+            continue
+
+    # Second pass: splits
+    for review in reviews:
+        action = review.get("action", "approve")
+        if action != "split":
+            continue
+        cid = review.get("cluster_id", 0) - 1
+        if 0 <= cid < len(result) and result[cid] is not None and len(result[cid]) > 1:
+            articles = result[cid]
+            result[cid] = None
+            for a in articles:
+                result.append([a])
+            splits_applied += 1
+
+    final = [c for c in result if c is not None]
+
+    if merges_applied or splits_applied:
+        print(f"  Editorial review: {merges_applied} merge(s), {splits_applied} split(s) applied"
+              f" → {len(final)} clusters")
+    else:
+        print(f"  Editorial review: all {len(clusters)} clusters approved")
+
+    return final
 
 
 # ---------------------------------------------------------------------------
@@ -1207,9 +1120,18 @@ def main():
     nyt_api_key     = os.environ.get("NYT_API_KEY", "")
     anthropic_key   = os.environ.get("ANTHROPIC_API_KEY", "")
     elevenlabs_key  = os.environ.get("ELEVEN_LABS_API_KEY", "")
+    voyage_api_key  = os.environ.get("VOYAGE_API_KEY", "")
+
+    # Fail fast on required keys
+    if not anthropic_key:
+        print("[ERROR] ANTHROPIC_API_KEY not set.", file=sys.stderr)
+        sys.exit(1)
+    if not voyage_api_key:
+        print("[ERROR] VOYAGE_API_KEY not set.", file=sys.stderr)
+        sys.exit(1)
 
     # ── Step 1: Fetch articles ────────────────────────────────────────────
-    print("\n[1/10] Fetching articles from all sources...")
+    print("\n[1/11] Fetching articles from all sources...")
     raw_articles: list[dict] = []
 
     if news_api_key:
@@ -1239,7 +1161,7 @@ def main():
     print(f"  Total raw: {len(raw_articles)}")
 
     # ── Step 2: Remove exact duplicates ──────────────────────────────────
-    print("\n[2/10] Removing exact duplicates (same title + source + URL)...")
+    print("\n[2/11] Removing exact duplicates (same title + source + URL)...")
     deduped_articles = remove_exact_duplicates(raw_articles)
     removed = len(raw_articles) - len(deduped_articles)
     print(f"  {len(raw_articles)} raw → {len(deduped_articles)} articles "
@@ -1250,44 +1172,37 @@ def main():
         sys.exit(1)
 
     # ── Step 3: Cluster ───────────────────────────────────────────────────
-    print("\n[3/10] Clustering articles by story...")
-    clusters = cluster_articles(deduped_articles)
-    clusters, n_splits = _split_incoherent_clusters(clusters)
-    multi = sum(1 for c in clusters if len(c) > 1)
-    single = len(clusters) - multi
+    print("\n[3/11] Clustering articles by story (Voyage AI embeddings)...")
+    clusters = cluster_articles(deduped_articles, voyage_api_key)
+    multi = [c for c in clusters if len(c) > 1]
+    single = len(clusters) - len(multi)
     print(f"  {len(deduped_articles)} articles → {len(clusters)} clusters "
-          f"({multi} multi-source, {single} single-source"
-          + (f", {n_splits} incoherent cluster{'s' if n_splits != 1 else ''} split" if n_splits else "")
-          + ")")
-    # Log each multi-source cluster so it's easy to verify synthesis inputs
-    for i, cluster in enumerate(clusters, 1):
-        if len(cluster) > 1:
-            outlets = " · ".join(a["source"] for a in cluster)
-            print(f"    Cluster {i:2d} [{len(cluster)} sources]: {outlets}")
+          f"({len(multi)} multi-source, {single} single-source)")
 
-    if not anthropic_key:
-        print("[ERROR] ANTHROPIC_API_KEY not set.", file=sys.stderr)
-        sys.exit(1)
+    # ── Step 4: Editorial review ──────────────────────────────────────────
+    print("\n[4/11] Claude editorial review of cluster structure...")
+    clusters = editorial_review(clusters, anthropic_key)
+    multi = [c for c in clusters if len(c) > 1]
 
-    # ── Step 4: Claude editorial processing ──────────────────────────────
-    print("\n[4/10] Sending clusters to Claude for synthesis and editorial processing...")
+    # ── Step 5: Claude editorial processing ──────────────────────────────
+    print("\n[5/11] Sending clusters to Claude for synthesis and editorial processing...")
     processed_articles = call_claude(clusters, anthropic_key)
     attach_sources(processed_articles, clusters)
     processed_articles = sort_articles(processed_articles)
     number_articles(processed_articles)
     print(f"  Claude returned {len(processed_articles)} articles after filtering")
 
-    # ── Step 5: S&P 500 ──────────────────────────────────────────────────
-    print("\n[5/10] Fetching S&P 500 close...")
+    # ── Step 6: S&P 500 ──────────────────────────────────────────────────
+    print("\n[6/11] Fetching S&P 500 close...")
     sp500 = fetch_sp500()
     print(f"  S&P 500: {sp500 if sp500 else 'unavailable (non-blocking)'}")
 
-    # ── Step 6: Save metadata ─────────────────────────────────────────────
-    print("\n[6/10] Saving metadata...")
+    # ── Step 7: Save metadata ─────────────────────────────────────────────
+    print("\n[7/11] Saving metadata...")
     metadata = save_metadata(date_str, run, processed_articles, len(deduped_articles), sp500, DOCS_DIR)
 
-    # ── Step 7: Generate audio ────────────────────────────────────────────
-    print("\n[7/10] Generating audio...")
+    # ── Step 8: Generate audio ────────────────────────────────────────────
+    print("\n[8/11] Generating audio...")
     mp3_path = None
     if elevenlabs_key:
         script = build_audio_script(processed_articles, date_str, run)
@@ -1295,19 +1210,19 @@ def main():
     else:
         print("  [WARN] ELEVEN_LABS_API_KEY not set — skipping audio")
 
-    # ── Step 8: Collect archive ───────────────────────────────────────────
-    print("\n[8/10] Building archive index...")
+    # ── Step 9: Collect archive ───────────────────────────────────────────
+    print("\n[9/11] Building archive index...")
     archive = collect_archive(DOCS_DIR)
     write_archive_json(archive, DOCS_DIR)
 
-    # ── Step 9: Render output files ───────────────────────────────────────
-    print("\n[9/10] Rendering output files...")
+    # ── Step 10: Render output files ──────────────────────────────────────
+    print("\n[10/11] Rendering output files...")
     render_digest(processed_articles, date_str, run, metadata, archive, DOCS_DIR)
     render_sources(processed_articles, date_str, run, archive, DOCS_DIR)
     render_index(processed_articles, date_str, run, metadata, archive, DOCS_DIR)
 
-    # ── Step 10: Podcast RSS ──────────────────────────────────────────────
-    print("\n[10/10] Updating podcast RSS feed...")
+    # ── Step 11: Podcast RSS ──────────────────────────────────────────────
+    print("\n[11/11] Updating podcast RSS feed...")
     try:
         update_podcast_feed(DOCS_DIR)
     except Exception as e:
@@ -1315,7 +1230,7 @@ def main():
 
     print(f"\n[DONE] Balm {date_str} {run.upper()} complete.")
     print(f"  Stories published : {len(processed_articles)}")
-    print(f"  Clusters processed: {len(clusters)} ({multi} multi-source)")
+    print(f"  Clusters processed: {len(clusters)} ({len(multi)} multi-source)")
     print(f"  Audio             : {'yes' if mp3_path else 'no'}")
     print(f"  S&P 500           : {sp500 if sp500 else 'unavailable'}")
 
