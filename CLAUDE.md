@@ -31,11 +31,11 @@ A Python script (`pipeline.py`) runs twice daily via GitHub Actions:
 
 After each run, `index.html` is regenerated to point to the latest digest and refresh the archive navigation.
 
-### Pipeline steps (V2)
+### Pipeline steps
 
 1. **Fetch** — NewsAPI, The Guardian, NYT (via API keys) + Fox News, BBC, WSJ (public RSS via feedparser)
-2. **Deduplicate** — Jaccard similarity on normalized title tokens, threshold ≥ 0.5
-3. **Cluster** — Three-signal Union-Find grouping, threshold ≥ 0.22 (see below); multi-source stories are clustered together and sent to Claude as a single unit
+2. **Remove exact duplicates** — `remove_exact_duplicates()` discards only articles where title, source name, AND URL are all identical; cross-outlet near-duplicates are intentionally kept (see clustering architecture below)
+3. **Cluster** — Geographic gate + three-signal Union-Find grouping + post-clustering coherence validation (see clustering architecture below); multi-source stories are clustered together and sent to Claude as a single unit
 4. **Synthesize** — Claude processes each cluster, synthesizes multi-source stories into a single neutral account, returns 10–16 articles with `cluster_id` for source attribution
 5. **Attach sources** — pipeline maps `cluster_id` back to input articles; each output article gains a `sources` array with outlet name, URL, and original headline
 6. **Number** — sequential `ref` numbers assigned (1, 2, 3…) in category display order
@@ -186,7 +186,7 @@ All secrets are stored as GitHub repository Secrets and injected into the Action
 
 ---
 
-## News Sources and Deduplication
+## News Sources and Clustering Architecture
 
 Five source groups are fetched per run:
 
@@ -200,23 +200,95 @@ Five source groups are fetched per run:
 5. **BBC News** — `feeds.bbci.co.uk/news/rss.xml` and `/world/rss.xml` — up to 8 each
 6. **WSJ Markets** — `feeds.content.dowjones.io/public/rss/mw_realtimeheadlines` — up to 8
 
-Articles are deduplicated by normalized title similarity (Jaccard ≥ 0.5 triggers deduplication, keeping the first occurrence). After deduplication, articles are clustered by story using three complementary signals — any one is sufficient to merge two articles:
+### Exact duplicate removal
 
-1. **Named-entity boost** — headlines share ≥ 2 capitalised non-initial words (proper nouns, country names, people). Catches cases like "Iran strikes Israel" ↔ "US warns Iran" that share key entities but have low lexical overlap.
-2. **Headline TF-IDF similarity** ≥ 0.22 (computed separately on headline tokens only).
-3. **Description TF-IDF similarity** ≥ 0.22 (fallback: if headlines differ but descriptions of the same event overlap, still cluster).
+`remove_exact_duplicates()` discards articles where **all three** of title, source name, and URL are identical — true duplicates such as the same article fetched twice from the same feed. It deliberately preserves cross-outlet near-duplicates (e.g., the NYT and Fox News articles about the same event). Discarding those before clustering would strip the synthesis inputs; they must flow through so Claude receives all perspectives on the same story.
 
-Clustering uses Union-Find so grouping is transitive. The threshold of 0.22 (lowered from an earlier 0.35) catches more same-story matches across differently worded outlets. Clusters — not individual articles — are sent to Claude for synthesis. Target: 35–55 unique articles → 25–40 clusters entering the Claude prompt.
+### Clustering algorithm
+
+After exact-duplicate removal, `cluster_articles()` groups articles by story using Union-Find. Grouping is transitive: if A merges with B and B merges with C, all three form one cluster. Before any pairwise merge is attempted, a geographic coherence gate runs (see below). If the gate does not block, any one of three signals is sufficient to trigger a merge:
+
+**Signal 1 — Named-entity boost** (evaluated first)
+If two headlines share ≥ 2 capitalised non-initial words — the heuristic for proper nouns such as people, countries, and organisations — the articles auto-merge regardless of TF-IDF score. `_extract_named_entities(title)` extracts these by skipping the first word (always capitalised in a headline) and collecting every subsequent capitalised word. This catches pairs like "Iran strikes Israel in overnight attack" ↔ "US warns Iran over Israeli strikes" — low lexical overlap but clearly the same event.
+
+**Signal 2 — Headline TF-IDF similarity** (threshold 0.22)
+`_tfidf_vectors()` builds a smoothed IDF over the full corpus of article headlines, then computes per-article TF-IDF vectors. `_cosine()` measures cosine similarity between pairs. If the score ≥ 0.22 the articles merge. High-frequency terms are removed by `_CLUSTER_STOPWORDS` before vectorisation.
+
+**Signal 3 — Description TF-IDF similarity** (threshold 0.22, fallback only)
+If both signals above fail but both articles have non-empty description fields, the same TF-IDF + cosine method is applied to the first 300 characters of each description. This catches cases where headlines are phrased very differently but descriptions of the same event share substantive vocabulary.
+
+### Geographic coherence gate
+
+Before any merge signal is evaluated, a geographic coherence check runs as a hard block. If both articles have detectable geographic entities and those entities are entirely disjoint, the articles describe events in different places and the merge is blocked unconditionally — TF-IDF and named-entity scores are not consulted.
+
+`_extract_geo_entities(text)` searches the combined title + description text (lowercased) for:
+- **Single-word geographic names** via set intersection with `_GEO_SINGLE` — a `frozenset` of ~200 country names, all 50 US states, and ~100 major world cities. Only unambiguous proper nouns are included to prevent false matches on common words.
+- **Multi-word geographic phrases** via substring match against `_GEO_PHRASES` — a `frozenset` of ~35 phrases including "united states", "south korea", "hong kong", "saudi arabia", "new york", and all two-word US state names.
+
+**Fallback behaviour:** if either article returns an empty set from `_extract_geo_entities` — no geographic signal detected — the gate is bypassed and the three merge signals run as normal. This preserves correct clustering for geography-free stories (technology, economics, domestic policy) that contain no country or city name.
+
+**Example:** "China coal mine explosion kills 20 workers" → `{"china"}`. "Pakistan suicide bombing kills 15" → `{"pakistan"}`. Both articles have geographic signals; the signals are disjoint; merge is blocked before TF-IDF is consulted.
+
+### Post-clustering coherence validation
+
+After `cluster_articles()` returns, `_split_incoherent_clusters()` inspects every multi-article cluster as a backstop against false positives that slip past the geographic gate — for example, two unrelated domestic incidents described in similar language where neither article mentions a country name.
+
+For each cluster with more than one article:
+1. Run `_extract_named_entities(title)` for every article in the cluster.
+2. If all entity sets are empty, skip validation and keep the cluster (the geographic gate is the operative guard for geography-free articles; we cannot determine incoherence from entities alone).
+3. Otherwise, count how many articles each entity appears in.
+4. If at least one entity appears in ≥ 2 articles, the cluster is **coherent** — keep it.
+5. If no entity is shared by any two articles, the cluster is **incoherent** — split it into individual single-article clusters and log to stderr: `[SPLIT] No shared entity → 2 singletons: <title excerpts>`.
+
+### Interaction between layers
+
+The geographic gate and coherence validation guard against the same class of error — false-positive merges of unrelated events — from two different angles:
+
+- The **geographic gate** is a *prevention mechanism*: it fires during pairwise merge decisions, before the Union-Find operation runs. It requires both articles to have detectable geography.
+- The **coherence validation** is a *post-hoc backstop*: it fires after all clusters are formed. It catches cases the geographic gate missed — either because geography was not detectable, or because a bad merge was indirect (A merged with B, B merged with C, producing a three-way cluster where A and C share no entities).
+
+Neither guard alone is sufficient. Together they form a layered defence.
 
 ### Multi-source synthesis
 
-When a cluster contains articles from multiple outlets, Claude synthesizes them:
-- Facts present in all sources are treated as high-confidence
-- Facts present in only some sources are noted as uncertain ("accounts differ on…")
-- Framing differences are stripped; only neutral factual content is retained
-- The goal: a synthesis more complete and more neutral than any individual source
+When a cluster reaches Claude with multiple articles, the editorial system prompt instructs it to synthesise them as follows:
 
-Each output article carries a `sources` array listing every contributing outlet, its URL, and the original headline. The sources page surfaces this attribution for readers who want to verify or dig deeper.
+- **High-confidence facts**: claims that appear consistently across all sources are reported as settled facts.
+- **Uncertain facts**: where sources diverge on a matter of fact (not just framing), the synthesis must reflect that uncertainty — "accounts differ on…" or "figures vary by source". A contested fact must never be presented as settled.
+- **Framing divergence**: where sources disagree only in tone, emphasis, or loaded language, the framing is stripped and the neutral underlying fact is reported. Framing differences are invisible to the reader.
+- **Goal**: produce a synthesis no single outlet would write — more complete because it draws on all sources, more neutral because the synthetic process eliminates outlet-specific framing.
+
+Claude assigns each output article a `cluster_id` matching the `[CLUSTER N]` number in its input, which the pipeline uses for source attribution after the response is parsed.
+
+### Source tracking
+
+`attach_sources()` maps each Claude output article's `cluster_id` back to the original raw articles in the corresponding cluster. Each output article gains a `sources` array:
+
+```python
+[{"source": "Outlet Name", "url": "...", "original_headline": "..."}]
+```
+
+In the digest HTML, this array is rendered as a collapsible sources toggle beneath each article — a `<button aria-expanded="false">` that reveals a `<ul>` of outlet links on click, controlled by a CSS adjacent-sibling selector (`[aria-expanded="true"] + .sources-list`). The companion sources page (`YYYY-MM-DD-am-sources.html`) presents the full attribution list for every article in the digest, with outlet names linked to original articles and original headlines quoted.
+
+### Known limitations and future improvements
+
+- **Clustering is lexical, not semantic.** TF-IDF operates on exact token overlap. Two articles covering the same event using synonyms or entirely different vocabulary may fail to cluster even though they describe the same story. A future improvement would replace or supplement TF-IDF with embedding-based similarity (e.g., sentence-transformers or the Anthropic embeddings API) for semantic matching that is robust to paraphrase.
+- **The geographic entity list is finite.** `_GEO_SINGLE` and `_GEO_PHRASES` cover the most newsworthy countries, states, and cities but will miss obscure place names, districts, regions, and newly prominent locations. A miss causes the geographic gate to be bypassed — falling back to TF-IDF — which is the correct graceful degradation. It does not cause an incorrect split.
+- **Cluster size is unbounded.** A very large cluster (8+ articles) may indicate over-merging via Union-Find transitivity: A merges with B, B merges with C, producing a three-way cluster where A and C are unrelated. The coherence validation catches some of these cases, but a size threshold or additional validation may be warranted if large clusters become common.
+
+### Logging
+
+Step 3 of the pipeline log reports cluster distribution after both clustering and coherence validation complete:
+
+```
+[3/10] Clustering articles by story...
+  [SPLIT] No shared entity → 2 singletons: China mine explosion kills 20 | Pakist...
+  87 articles → 54 clusters (12 multi-source, 42 single-source, 1 incoherent cluster split)
+    Cluster  3 [4 sources]: The New York Times · Fox News · BBC News · The Guardian
+    Cluster  7 [2 sources]: The Guardian · WSJ Markets
+```
+
+`[SPLIT]` lines are written to stderr so they appear in the GitHub Actions error stream, making false-positive merges easy to spot without noise in the normal stdout output. Each split line includes the first 45 characters of each article title in the dissolved cluster. Multi-source cluster lines (printed to stdout) show contributing outlets in order of appearance so synthesis inputs can be verified at a glance.
 
 ---
 
