@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balm Hybrid — Wednesday, May 27, 2026 AM</title>
+  <meta name="description" content="Balm hybrid digest for Wednesday, May 27, 2026 — topical, anti-inflammatory news.">
+  <meta name="theme-color" content="#6b82a8">
+  <link rel="manifest" href="/balm/manifest.json">
+  <link rel="apple-touch-icon" href="/balm/icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#f2ede4;--ink:#2a2520;--secondary:#6a6058;--muted:#9a9288;--rule:#c8c0b4;--accent:#6b82a8;--difficult:#5a4a3a}
+    html{font-size:18px;scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;font-weight:300;line-height:1.7;min-height:100vh}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .page-wrapper{display:flex;max-width:1100px;margin:0 auto;padding:0 1rem}
+    .sidebar{width:220px;flex-shrink:0;padding:2rem 1.5rem 2rem 0;border-right:1px solid var(--rule);min-height:100vh}
+    .main-content{flex:1;max-width:860px;padding:0 2rem 4rem}
+    @media(max-width:768px){.page-wrapper{display:block;padding:0}.sidebar{display:none}.main-content{padding:0 1.25rem 3rem}}
+    .masthead{text-align:center;padding:2.5rem 0 1.5rem;border-bottom:3px double var(--rule);margin-bottom:1.5rem}
+    .masthead-logo svg{display:block;margin:0 auto .5rem}
+    .masthead-tagline{font-family:'Source Serif 4',serif;font-weight:300;font-style:italic;font-size:.85rem;color:var(--secondary);letter-spacing:.08em;margin-bottom:.4rem}
+    .masthead-dateline{font-family:'Source Serif 4',serif;font-weight:300;font-size:.7rem;color:var(--muted);letter-spacing:.18em;text-transform:uppercase}
+    .hybrid-badge{display:inline-block;background:var(--accent);color:#fff;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:.1rem .4rem;border-radius:2px;margin-left:.4rem;vertical-align:middle}
+    .section-header{font-family:'Playfair Display',serif;font-size:.7rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);border-top:1px solid var(--rule);padding-top:1.25rem;margin:2rem 0 1.25rem}
+    .article{padding-bottom:1.5rem;margin-bottom:1.5rem;border-bottom:1px solid var(--rule)}
+    .article:last-child{border-bottom:none}
+    .article-headline{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;line-height:1.3;margin-bottom:.6rem;color:var(--ink)}
+    .summary-toggle{display:flex;gap:0;margin-bottom:.75rem;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);user-select:none}
+    .toggle-btn{cursor:pointer;padding:.15rem .5rem;border:1px solid var(--rule);background:none;font-family:'Source Serif 4',serif;font-size:.68rem;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:background .15s,color .15s}
+    .toggle-btn:first-child{border-radius:3px 0 0 3px}
+    .toggle-btn:last-child{border-radius:0 3px 3px 0;border-left:none}
+    .toggle-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .summary-text{font-size:1rem;line-height:1.75;color:var(--ink)}
+    .summary-brief{display:block}
+    .summary-full{display:none}
+    .summary-text.full-visible .summary-brief{display:none}
+    .summary-text.full-visible .summary-full{display:block}
+    .sources-toggle{margin-top:.5rem}
+    .sources-toggle-btn{background:none;border:none;padding:0;cursor:pointer;font-family:'Source Serif 4',serif;font-size:.75rem;color:#9a9288;display:flex;align-items:center;gap:.3rem;letter-spacing:.04em}
+    .sources-toggle-btn:hover{color:#6a6058}
+    .sources-caret{display:inline-block;transition:transform .2s ease;font-style:normal}
+    .sources-toggle-btn[aria-expanded="true"] .sources-caret{transform:rotate(90deg)}
+    .sources-list{list-style:none;padding:0;margin:0;max-height:0;overflow:hidden;transition:max-height .25s ease}
+    .sources-toggle-btn[aria-expanded="true"]+.sources-list{max-height:20rem}
+    .sources-list li{padding:.2rem 0 .2rem .8rem}
+    .sources-list a{font-size:.75rem;color:#9a9288;text-decoration:none;border-bottom:1px solid #c8c0b4;transition:color .15s}
+    .sources-list a:hover{color:#6b82a8}
+    .difficult-section{border-top:1px solid var(--rule);margin-top:2rem;padding-top:1.25rem}
+    .difficult-toggle{display:flex;align-items:center;gap:.5rem;cursor:pointer;list-style:none}
+    .difficult-toggle::-webkit-details-marker{display:none}
+    .difficult-label{font-family:'Playfair Display',serif;font-size:.7rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--difficult)}
+    .difficult-caret{font-size:.7rem;color:var(--difficult);transition:transform .2s}
+    details[open] .difficult-caret{transform:rotate(90deg)}
+    .difficult-subtext{font-size:.8rem;font-style:italic;color:var(--muted);margin-top:.3rem}
+    details[open] .difficult-subtext{display:none}
+    .difficult-content{margin-top:1.25rem}
+    .difficult-content .article-headline{color:var(--difficult)}
+    .sidebar-title{font-family:'Playfair Display',serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;padding-top:2rem}
+    .archive-month{margin-bottom:1rem}
+    .archive-month-label{font-size:.68rem;font-weight:300;letter-spacing:.08em;color:var(--secondary);text-transform:uppercase;margin-bottom:.3rem}
+    .archive-link{display:block;font-size:.75rem;color:var(--secondary);padding:.1rem 0;line-height:1.6}
+    .archive-link:hover{color:var(--accent);text-decoration:none}
+    .footer{border-top:1px solid var(--rule);margin-top:3rem;padding:2rem 0;font-size:.78rem;color:var(--muted);line-height:1.7;text-align:center}
+    .footer a{color:var(--muted);text-decoration:underline}
+    .footer a:hover{color:var(--secondary)}
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+  <nav class="sidebar" aria-label="Archive">
+    <div class="sidebar-title">Archive</div>
+    
+    <div class="archive-month">
+      <div class="archive-month-label">May 2026</div>
+      
+      <a class="archive-link" href="../2026-05-27-am.html">05-27 AM</a>
+      
+      <a class="archive-link" href="../2026-05-26-pm.html">05-26 PM</a>
+      
+      <a class="archive-link" href="../2026-05-26-am.html">05-26 AM</a>
+      
+      <a class="archive-link" href="../2026-05-25-pm.html">05-25 PM</a>
+      
+      <a class="archive-link" href="../2026-05-24-pm.html">05-24 PM</a>
+      
+      <a class="archive-link" href="../2026-05-24-am.html">05-24 AM</a>
+      
+      <a class="archive-link" href="../2026-05-23-pm.html">05-23 PM</a>
+      
+      <a class="archive-link" href="../2026-05-23-am.html">05-23 AM</a>
+      
+      <a class="archive-link" href="../2026-05-22-pm.html">05-22 PM</a>
+      
+      <a class="archive-link" href="../2026-05-22-am.html">05-22 AM</a>
+      
+    </div>
+    
+  </nav>
+  <div class="main-content">
+    <header class="masthead">
+      <div class="masthead-logo">
+        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
+              <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
+              <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
+              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
+            </filter>
+          </defs>
+          <text x="90" y="44" font-family="Caveat, cursive" font-size="52" font-weight="700"
+                fill="#6b82a8" text-anchor="middle" letter-spacing="8" filter="url(#balm-spread)">Balm</text>
+        </svg>
+      </div>
+      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
+      <p class="masthead-dateline">
+        Wednesday, May 27, 2026 &middot; AM Edition
+        <span class="hybrid-badge">Hybrid</span>
+      </p>
+    </header>
+
+    
+      
+        <div class="section-header">GEOPOLITICS</div>
+        
+        <div class="article">
+          <h2 class="article-headline">US-Iran Negotiations Continue Amid Ceasefire Dispute and Ongoing Strait of Hormuz Closure</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this,'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this,'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>President Trump stated at a Cabinet meeting that Iran's military capabilities have been significantly degraded and that negotiations toward a deal are ongoing, while Iran accused the US of a ceasefire violation. Secretary of State Rubio described some progress in talks, though the two offered differing assessments of how close a deal is.</span></span>
+            <span class="summary-full"><span>President Trump addressed reporters during a Cabinet meeting, saying Iran's navy and air force have been largely destroyed and that the country is negotiating from a position of weakness. He indicated he would not be influenced by domestic political considerations, including the upcoming midterm elections, in determining his approach to the conflict. Trump also stated that Iran would not be permitted to control the Strait of Hormuz, and suggested that if a satisfactory agreement is not reached, additional military action remains an option.
+
+Secretary of State Rubio described the talks as showing some progress, though his characterization of where negotiations stand differed from Trump's more assertive framing. Iran, meanwhile, accused the United States of committing a serious violation of an existing ceasefire arrangement. Rubio said a deal remains possible despite the dispute. Accounts differ across sources on the current state of the ceasefire and how close the two sides are to a formal agreement. Iranian supreme leader Ali Khamenei's son Mojtaba Khamenei is reported to be participating in negotiations through intermediaries while remaining out of public view, an arrangement described as unusual by analysts cited in reporting.
+
+The Strait of Hormuz has now been closed to commercial shipping for approximately three months, a situation with significant consequences for global energy and goods supply chains. Reporting indicates that developing countries are bearing a disproportionate share of the resulting shortages, and that the economic effects are broadening. The strait is a critical passage for a substantial share of the world's oil exports, and its continued closure is contributing to supply constraints and economic pressure in multiple regions, including effects on energy prices with direct implications for American consumers.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">&rsaquo;</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li><a href="https://www.pbs.org/newshour/politics/watch-live-trump-holds-cabinet-meeting-during-negotiations-to-end-the-iran-war" target="_blank" rel="noopener">PBS NewsHour</a></li>
+              
+              <li><a href="https://www.foxnews.com/world/designated-target-mojtaba-khamenei-sign-trump-deal-unprecedented-courier-setup-" target="_blank" rel="noopener">Fox News World</a></li>
+              
+              <li><a href="https://www.nytimes.com/live/2026/05/27/world/iran-war-trump-deal" target="_blank" rel="noopener">The New York Times</a></li>
+              
+              <li><a href="https://www.nytimes.com/2026/05/27/business/hormuz-global-shortages-gas.html" target="_blank" rel="noopener">The New York Times</a></li>
+              
+              <li><a href="https://www.theguardian.com/world/live/2026/may/27/iran-war-us-update-live-israel-lebanon-strikes-latest-news-ceasefire-peace-talks-middle-east-live-updates" target="_blank" rel="noopener">The Guardian</a></li>
+              
+              <li><a href="https://www.cbsnews.com/live-updates/iran-war-trump-us-strikes-peace-talks-ceasefire/" target="_blank" rel="noopener">CBS News</a></li>
+              
+              <li><a href="https://www.foxnews.com/politics/trump-says-iran-negotiating-fumes-believes-regime-thought-could-outwait-" target="_blank" rel="noopener">Fox News</a></li>
+              
+              <li><a href="https://www.foxnews.com/politics/trump-says-iran-negotiating-fumes-believes-regime-thought-could-outwait-" target="_blank" rel="noopener">Fox News Politics</a></li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="article">
+          <h2 class="article-headline">Iran-US Negotiations Continue as Strait of Hormuz Closure Extends Into Third Month</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this,'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this,'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>Negotiations between the United States and Iran are ongoing, with President Trump stating that domestic political considerations will not influence his approach to the conflict. The Strait of Hormuz remains closed after three months, causing supply shortages that are affecting global energy and food markets. Iranian state media has released details of a draft peace agreement, and oil prices declined in response.</span></span>
+            <span class="summary-full"><span>Negotiations between the United States and Iran are continuing, with President Trump expressing confidence during a Cabinet meeting that a deal is within reach. Trump stated that midterm election considerations would not shape his strategy, and asserted that Iran would not retain control over the Strait of Hormuz. He described Iran as negotiating from a position of weakness. Accounts across sources differ on how close an agreement actually is, though Iranian state media released details of a draft peace proposal, and oil prices fell following that disclosure.
+
+The Strait of Hormuz has now been closed for approximately three months. The disruption to energy shipments is rippling through global markets, with developing countries reported to be bearing a disproportionate share of supply shortfalls. Inside Iran, a partial restoration of internet access has allowed the Iranian public to express frustration over significant food price increases and shortages. The combination of reduced export revenue and import disruptions appears to be placing substantial pressure on the Iranian economy and population.
+
+On the diplomatic side, the Czech Republic's foreign minister publicly expressed support for the US position and stated that his country is prepared to contribute to efforts to restore freedom of navigation through the strait. The minister also characterized Iran's nuclear program as a broader global concern. The situation continues to have direct implications for American consumers and the US economy through elevated energy prices, as well as for US military personnel involved in the conflict.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">&rsaquo;</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li><a href="https://www.nytimes.com/2026/05/27/business/hormuz-global-shortages-gas.html" target="_blank" rel="noopener">The New York Times</a></li>
+              
+              <li><a href="https://www.nytimes.com/live/2026/05/27/world/iran-war-trump-deal" target="_blank" rel="noopener">The New York Times</a></li>
+              
+              <li><a href="https://www.pbs.org/newshour/politics/watch-live-trump-holds-cabinet-meeting-during-negotiations-to-end-the-iran-war" target="_blank" rel="noopener">PBS NewsHour</a></li>
+              
+              <li><a href="https://www.foxnews.com/world/us-ally-pledges-support-trumps-push-break-irans-grip-hormuz-we-ready-contribute" target="_blank" rel="noopener">Fox News</a></li>
+              
+              <li><a href="https://www.foxnews.com/world/us-ally-pledges-support-trumps-push-break-irans-grip-hormuz-we-ready-contribute" target="_blank" rel="noopener">Fox News World</a></li>
+              
+              <li><a href="https://www.theguardian.com/world/2026/may/27/partial-lifting-of-internet-restrictions-reveal-iranians-anger-over-food-inflation" target="_blank" rel="noopener">The Guardian</a></li>
+              
+              <li><a href="https://www.theguardian.com/business/live/2026/may/27/energy-bills-increase-ofgem-price-cap-business-live-news" target="_blank" rel="noopener">The Guardian</a></li>
+              
+              <li><a href="https://www.nytimes.com/2026/05/24/world/africa/ebola-virus-congo-response.html" target="_blank" rel="noopener">The New York Times</a></li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="article">
+          <h2 class="article-headline">UK Intelligence Chief Estimates Nearly 500,000 Russian Military Casualties in Ukraine</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this,'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this,'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>The director of GCHQ, the UK's signals intelligence agency, has estimated that Russian forces have suffered close to 500,000 killed in the war in Ukraine. She also assessed that Russian forces have been losing ground on the battlefield for the first time since late 2022. The remarks came during her first major public speech in the role.</span></span>
+            <span class="summary-full"><span>The director of GCHQ, the United Kingdom's signals intelligence agency, said in a public address that Russian military casualties — those killed in the conflict — now number close to half a million. The assessment represents one of the most detailed public estimates to come from a Western intelligence official since the war began in February 2022. She also stated that Russian forces have been moving backward on the battlefield, a development she described as the first sustained reversal since late 2022.
+
+The remarks came alongside separate reporting that Russia has continued large-scale aerial attacks on Kyiv in recent weeks. Analysts note these strikes coincide with a period in which Russia has faced pressure both on the front lines and in negotiations, though accounts of the battlefield situation vary across sources and independent verification remains limited. Western officials have increasingly offered public assessments of the war's trajectory as diplomatic efforts remain unresolved.
+
+For American readers, the war's progression carries direct relevance: the United States has been among Ukraine's largest military and financial supporters, Congress has debated the scale and duration of that support, and the conflict continues to shape broader US-Europe security arrangements and global energy markets. The GCHQ director's speech did not address US policy directly, but her assessment of Russian losses adds to the public record used to inform those deliberations.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">&rsaquo;</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li><a href="https://www.theguardian.com/world/2026/may/27/nearly-half-a-million-russians-killed-in-ukraine-war-uk-spy-chief-says" target="_blank" rel="noopener">The Guardian</a></li>
+              
+              <li><a href="https://www.bbc.com/news/articles/c4g44gprnnvo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">BBC News</a></li>
+              
+              <li><a href="https://www.bbc.com/news/articles/cvgzdq23xpgo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">BBC News</a></li>
+              
+              <li><a href="https://www.theguardian.com/sport/2026/may/27/fran-jones-out-of-french-open-after-fightback-against-marie-bouzkova-falls-short" target="_blank" rel="noopener">The Guardian</a></li>
+              
+              <li><a href="https://www.nytimes.com/2026/05/27/world/europe/russia-ukraine-kyiv-attacks.html" target="_blank" rel="noopener">The New York Times</a></li>
+              
+              <li><a href="https://www.foxnews.com/sports/trump-says-he-thinks-hell-attend-nba-finals-game-knicks-close-long-awaited-championship" target="_blank" rel="noopener">Fox News</a></li>
+              
+              <li><a href="https://www.foxnews.com/world/israel-eliminates-head-hamas-military-wing-gaza-strike" target="_blank" rel="noopener">Fox News World</a></li>
+              
+              <li><a href="https://www.foxnews.com/world/funerals-beauty-queens-bombs-ukrainian-city-wont-let-putin-win" target="_blank" rel="noopener">Fox News World</a></li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="article">
+          <h2 class="article-headline">Israel Kills Hamas Military Wing Leader in Gaza Strike</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this,'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this,'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>Israeli forces killed Mohammed Odeh, the recently appointed head of Hamas's military wing, in an airstrike in northern Gaza. Hamas confirmed Odeh's death and said his wife and two children were also killed in the strike on a residential building.</span></span>
+            <span class="summary-full"><span>The Israel Defense Forces carried out an airstrike in northern Gaza that killed Mohammed Odeh, who had recently taken over as the head of Hamas's military wing. Hamas confirmed the death and said Odeh's wife and two children also died in the strike, which hit a residential building. Israel has not publicly addressed the civilian casualties. Odeh's killing represents one of the more significant command-level losses for Hamas's military structure in the current conflict, though accounts differ across sources on the broader operational impact. Separately, Israeli military operations have expanded beyond Gaza. Israel issued evacuation orders to residents across a stretch of southern Lebanon, telling them to move north and warning it would take significant action against Hezbollah in the area. Israeli strikes hit the Lebanese city of Tyre following those evacuation notices, with the military stating it targeted Hezbollah infrastructure. This expansion of Israeli military activity into Lebanon marks a continued broadening of the conflict's geographic scope, with potential implications for regional stability and for U.S. policy in the Middle East, where American officials have been engaged in ongoing diplomatic efforts.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">&rsaquo;</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li><a href="https://www.foxnews.com/world/israel-eliminates-head-hamas-military-wing-gaza-strike" target="_blank" rel="noopener">Fox News World</a></li>
+              
+              <li><a href="https://www.bbc.com/news/articles/cjwppj1yn7go?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">BBC World</a></li>
+              
+              <li><a href="https://www.bbc.com/news/articles/cj3pgrpmlklo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">BBC World</a></li>
+              
+              <li><a href="https://www.theguardian.com/world/2026/may/27/israel-fires-airstrikes-lebanon-escalating-offensive" target="_blank" rel="noopener">The Guardian</a></li>
+              
+              <li><a href="https://www.theguardian.com/world/2026/may/27/nearly-half-a-million-russians-killed-in-ukraine-war-uk-spy-chief-says" target="_blank" rel="noopener">The Guardian</a></li>
+              
+              <li><a href="https://www.theguardian.com/us-news/2026/may/24/chemical-tank-california-epa-lee-zeldin" target="_blank" rel="noopener">Guardian Environment</a></li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="article">
+          <h2 class="article-headline">US-Iran Ceasefire Under Strain as Talks Continue</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this,'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this,'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>Iran has accused the United States of a serious ceasefire violation, while Secretary of State Marco Rubio stated that some progress has been made toward a deal. President Trump offered conflicting signals, suggesting both openness to an agreement and the possibility of further action.</span></span>
+            <span class="summary-full"><span>Iran has formally accused the United States of committing a significant violation of the ceasefire currently in effect between the two countries. The accusation comes as diplomatic negotiations over a broader agreement remain ongoing. Secretary of State Marco Rubio said some progress has been achieved in the talks, and described a deal as still possible despite the latest dispute. President Trump, speaking separately, indicated he would accept either a good deal or no deal at all, while also suggesting that more forceful options had not been ruled out. The two statements represent differing public postures from within the same administration on the status and direction of negotiations.
+
+The situation remains fluid, with no resolution announced as of the latest reports. The ceasefire, described as fragile, has now become a point of contention rather than a stable foundation for further diplomacy. The outcome of these negotiations carries significant implications for regional stability in the Middle East and for US foreign policy commitments in the area. American readers should note that the status of any agreement remains unresolved, and accounts of what constitutes a violation differ between the US and Iranian governments.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">&rsaquo;</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li><a href="https://www.npr.org/2026/05/27/g-s1-124451/up-first-newsletter-texas-elections-south-carolina-voting-maps-ice-iris-jan-6" target="_blank" rel="noopener">NPR News</a></li>
+              
+              <li><a href="https://www.foxnews.com/politics/nasa-chief-pulls-back-curtain-trump-ufo-files-after-bizarre-finds-surface-buried-fed-records" target="_blank" rel="noopener">Fox News Politics</a></li>
+              
+              <li><a href="https://www.theguardian.com/us-news/2026/may/26/us-immigration-flights-emissions" target="_blank" rel="noopener">Guardian Environment</a></li>
+              
+              <li><a href="https://www.politico.com/news/2026/05/26/trump-administration-nda-leaks-00935965" target="_blank" rel="noopener">Politico</a></li>
+              
+              <li><a href="https://www.cbsnews.com/live-updates/iran-war-trump-us-strikes-peace-talks-ceasefire/" target="_blank" rel="noopener">CBS News</a></li>
+              
+              <li><a href="https://www.theguardian.com/world/live/2026/may/27/iran-war-us-update-live-israel-lebanon-strikes-latest-news-ceasefire-peace-talks-middle-east-live-updates" target="_blank" rel="noopener">The Guardian</a></li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+      
+    
+      
+        <div class="section-header">DOMESTIC POLICY</div>
+        
+        <div class="article">
+          <h2 class="article-headline">Mid-Decade Redistricting Efforts Reshape Congressional Maps Across Multiple States</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this,'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this,'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>Several states are redrawing congressional district boundaries outside the standard post-census cycle, placing millions of voters in new districts. The efforts have produced mixed results, with one state's effort stalling in its own legislature and another seeking Supreme Court intervention over a map previously found to have racial bias.</span></span>
+            <span class="summary-full"><span>A number of states are engaged in mid-decade congressional redistricting — the redrawing of district boundaries outside the standard ten-year cycle that follows the national census. These efforts have placed millions of Americans in new voting districts, in some cases combining or eliminating existing seats held by current members of Congress. In Texas, a primary runoff between two Democratic incumbents whose districts were merged under the new Republican-drawn map resulted in one congressman defeating the other, illustrating the direct electoral consequences redistricting can produce.
+
+Not all state-level efforts have succeeded. In South Carolina, the Republican-controlled state Senate voted against advancing a new congressional map, ending that state's redistricting push for the time being. The vote represented internal Republican disagreement over the proposed changes rather than opposition from Democrats. Meanwhile, Alabama has filed an emergency appeal with the U.S. Supreme Court, asking the justices to allow the state to use a congressional map that a three-judge federal court declined to reinstate. That map, which places a majority Black population in just one of Alabama's seven congressional districts, had previously been the subject of a ruling finding racial bias in its construction.
+
+The legal dimensions of these redistricting efforts extend beyond individual states. A case called Callais, currently drawing attention from legal analysts, raises questions about how courts apply the Voting Rights Act alongside the Constitution's equal protection clause in evaluating district maps. Taken together, the various state efforts and ongoing litigation reflect a broader contest over how congressional representation is structured heading into the 2026 election cycle, with the closely divided House majority potentially affected by the outcome in multiple states.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">&rsaquo;</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li><a href="https://www.pbs.org/newshour/politics/midterm-redistricting-has-placed-millions-in-new-voting-districts-heres-where-6-state-efforts-stand" target="_blank" rel="noopener">PBS NewsHour</a></li>
+              
+              <li><a href="https://www.pbs.org/newshour/politics/rep-christian-menefee-defeats-rep-al-green-in-primary-runoff-fueled-by-redistricting" target="_blank" rel="noopener">PBS NewsHour</a></li>
+              
+              <li><a href="https://www.scotusblog.com/2026/05/how-callais-broke-the-voting-rights-act-and-weaponized-the-equal-protection-clause-part-1/" target="_blank" rel="noopener">SCOTUSblog</a></li>
+              
+              <li><a href="https://www.nbcnews.com/politics/2026-election/south-carolinas-redistricting-effort-fails-state-senate-gop-opposition-rcna346962" target="_blank" rel="noopener">NBC News</a></li>
+              
+              <li><a href="https://www.pbs.org/newshour/politics/alabama-asks-supreme-court-to-allow-use-of-congressional-map-helping-gop-despite-racial-bias-ruling" target="_blank" rel="noopener">PBS NewsHour</a></li>
+              
+              <li><a href="https://www.foxnews.com/outkick-sports/nhl-betting-outlook-focuses-two-teams-familiar-game-4-ready-scoring" target="_blank" rel="noopener">Fox News</a></li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="article">
+          <h2 class="article-headline">Texas Runoffs Set November Matchups for Senate and House Seats</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this,'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this,'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>Texas primary runoffs have concluded, setting the general election matchups for November. Ken Paxton, the state's former attorney general, won the Republican Senate nomination and will face Democrat James Talarico. In a separate House race, Rep. Christian Menefee defeated incumbent Rep. Al Green in a contest shaped by recent redistricting.</span></span>
+            <span class="summary-full"><span>Texas has completed its primary runoff elections, establishing the major November general election contests. In the Republican U.S. Senate primary, Ken Paxton — who previously served as Texas attorney general — defeated incumbent Senator John Cornyn. Paxton received a late endorsement from former President Donald Trump, though some Paxton supporters indicated they had backed him before that endorsement, citing his record on state and federal policy disputes. Paxton will face Democrat James Talarico in November. Trump has indicated he plans to campaign for Paxton ahead of the general election.
+
+The Texas Senate race is drawing attention from both parties as a potential competitive contest in a state that has been reliably Republican in statewide elections in recent years. Democrats view the November matchup as an opportunity, though the state's overall political landscape remains tilted toward Republicans. The outcome of the Cornyn-Paxton primary is being read by analysts as a signal about the influence of Trump-aligned candidates within the Texas Republican Party going into the 2026 midterm cycle.
+
+In a separate race, Representative Christian Menefee defeated longtime incumbent Representative Al Green in a Democratic House primary runoff. That contest was directly shaped by a redrawing of Texas congressional district maps by the state's Republican-controlled legislature, which had placed the two incumbents into the same district. Under the previous maps, Green and Menefee had represented neighboring but distinct districts. The new maps, drawn with the stated goal of creating more Republican-leaning seats, consolidated several Democratic incumbents and forced intra-party competition.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">&rsaquo;</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li><a href="https://www.foxnews.com/politics/trump-flexes-his-political-muscle-over-gop-democrats-see-midterm-opening-key-red-state" target="_blank" rel="noopener">Fox News Politics</a></li>
+              
+              <li><a href="https://www.foxnews.com/politics/trump-compares-dem-senate-candidate-freckle-faced-cartoon-character-promises-campaign-paxton-" target="_blank" rel="noopener">Fox News Politics</a></li>
+              
+              <li><a href="https://www.foxnews.com/politics/ken-paxton-didnt-need-trumps-endorsement-beat-cornyn-texas-voters-say" target="_blank" rel="noopener">Fox News Politics</a></li>
+              
+              <li><a href="https://www.npr.org/2026/05/27/g-s1-124451/up-first-newsletter-texas-elections-south-carolina-voting-maps-ice-iris-jan-6" target="_blank" rel="noopener">NPR News</a></li>
+              
+              <li><a href="https://www.npr.org/2026/05/27/nx-s1-5835292/texas-senate-runoff-takeaways" target="_blank" rel="noopener">NPR News</a></li>
+              
+              <li><a href="https://www.pbs.org/newshour/politics/rep-christian-menefee-defeats-rep-al-green-in-primary-runoff-fueled-by-redistricting" target="_blank" rel="noopener">PBS NewsHour</a></li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="article">
+          <h2 class="article-headline">Vermont Becomes First US State to Ban Paraquat Herbicide Amid Parkinson's Disease Concerns</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this,'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this,'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>Vermont has passed legislation banning paraquat, a widely used agricultural herbicide, making it the first US state to do so. Lawmakers cited research indicating the chemical substantially increases the risk of Parkinson's disease. The move adds to existing pressure for a broader federal ban.</span></span>
+            <span class="summary-full"><span>Vermont has become the first state in the United States to ban paraquat, a herbicide commonly used in commercial agriculture. State lawmakers cited research linking paraquat exposure to a substantially elevated risk of Parkinson's disease, a progressive and incurable neurological condition, as the primary basis for the legislation. The ban represents a significant step in a growing effort to restrict the chemical at the state level.
+
+Paraquat has been banned or restricted in several other countries but remains in use across much of the United States, where it is regulated by the Environmental Protection Agency. Vermont's action is expected to increase pressure on federal regulators and other states to revisit current paraquat policies. The chemical has been the subject of ongoing litigation and scientific debate over its health effects, particularly for agricultural workers and rural communities with higher rates of occupational exposure.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">&rsaquo;</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li><a href="https://www.theguardian.com/environment/2026/may/26/vermont-paraquat-weedkiller-ban" target="_blank" rel="noopener">Guardian Environment</a></li>
+              
+              <li><a href="https://www.theguardian.com/sport/blog/2026/may/27/james-tedescos-thrilling-last-minute-try-delivers-another-monument-to-state-of-origin" target="_blank" rel="noopener">The Guardian</a></li>
+              
+              <li><a href="https://www.bbc.com/news/articles/cvgzdq23xpgo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">BBC News</a></li>
+              
+              <li><a href="https://www.macrumors.com/2026/05/26/apple-releases-ios-26-beta-1/" target="_blank" rel="noopener">MacRumors</a></li>
+              
+              <li><a href="https://spacedaily.com/sd-tardigrades-can-survive-being-boiled-frozen-to-near-absolute-zero-blasted-with-radiation-and-exposed-to-the-vacuum-of-space-and-they-do-it-by-drying-themselves-into-a-glass-like-state-where-every-c/" target="_blank" rel="noopener">Space Daily</a></li>
+              
+              <li><a href="https://www.nbcnews.com/politics/2026-election/south-carolinas-redistricting-effort-fails-state-senate-gop-opposition-rcna346962" target="_blank" rel="noopener">NBC News</a></li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+      
+    
+      
+        <div class="section-header">SCIENCE & HEALTH</div>
+        
+        <div class="article">
+          <h2 class="article-headline">Ebola Outbreak in DR Congo Grows; US Changes Policy on Evacuating Exposed Citizens</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this,'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this,'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>The Ebola outbreak in the Democratic Republic of Congo has killed more than 220 people, with health officials warning that ongoing armed conflict is limiting containment efforts. The current outbreak is at risk of becoming the deadliest on record. The US government has changed its longstanding practice of returning Americans exposed to Ebola to domestic treatment facilities, instead routing them to locations outside the United States.</span></span>
+            <span class="summary-full"><span>The Ebola outbreak in the Democratic Republic of Congo has now killed more than 220 people, and health officials say there is no sign that the spread is slowing. The World Health Organization has described the situation as a collision of disease and active armed conflict, with fighting in parts of the country directly limiting the ability of health workers to reach affected communities and conduct contact tracing. At least one humanitarian organization has warned the outbreak is at risk of becoming the deadliest Ebola outbreak on record.
+
+The United States government has altered a longstanding policy governing how Americans exposed to Ebola are handled. In previous outbreaks, exposed US citizens were typically returned to the United States and treated at specialized high-containment medical facilities. Under the current administration, some US citizens have already been flown to Europe for treatment, and new plans call for sending Americans exposed to the virus to Kenya rather than to domestic facilities. The administration has not publicly detailed the reasoning behind the change in protocol.
+
+The convergence of an active conflict zone with a major Ebola outbreak presents compounding challenges for international health responders. Ebola spreads through direct contact with bodily fluids of infected individuals and has a high fatality rate when not treated promptly. The DR Congo has experienced multiple Ebola outbreaks over the past decade, but public health officials say the current combination of case numbers, geographic spread, and restricted access makes this outbreak particularly difficult to control.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">&rsaquo;</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li><a href="https://www.bbc.com/news/articles/cdxpdex062yo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">BBC World</a></li>
+              
+              <li><a href="https://www.nytimes.com/2026/05/26/us/politics/trump-ebola-kenya.html" target="_blank" rel="noopener">The New York Times</a></li>
+              
+              <li><a href="https://www.forbes.com/sites/maryroeloffs/2026/05/26/ebola-outbreak-at-risk-of-becoming-deadliest-on-record-humanitarian-group-warns-live-updates/" target="_blank" rel="noopener">Forbes</a></li>
+              
+              <li><a href="https://www.bbc.com/news/articles/cp8plymvm47o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">BBC News</a></li>
+              
+              <li><a href="https://www.pbs.org/newshour/world/south-african-government-afrikaners-reject-trump-administration-claim-of-a-humanitarian-emergency" target="_blank" rel="noopener">PBS NewsHour</a></li>
+              
+              <li><a href="https://www.theguardian.com/environment/2026/may/27/balcony-solar-panels-rising-utility-costs" target="_blank" rel="noopener">Guardian Environment</a></li>
+              
+              <li><a href="https://www.theguardian.com/us-news/2026/may/26/trump-administration-pfas-drinking-water-regulation" target="_blank" rel="noopener">Guardian Environment</a></li>
+              
+              <li><a href="https://www.theguardian.com/us-news/2026/may/26/us-immigration-flights-emissions" target="_blank" rel="noopener">Guardian Environment</a></li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="article">
+          <h2 class="article-headline">Single-Infusion Gene Editing Treatment Shows Long-Term LDL Reduction in Early Trial</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this,'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this,'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>Researchers have published early trial results suggesting a single infusion of an experimental gene-editing therapy can produce sustained reductions in LDL cholesterol. The small-scale trial has prompted some scientists to describe the approach as potentially curative. Larger studies will be needed to confirm the findings.</span></span>
+            <span class="summary-full"><span>An experimental gene-editing drug delivered as a one-time infusion has shown the ability to reduce LDL cholesterol over the long term, according to results from a small clinical trial. LDL cholesterol is a well-established risk factor for heart disease, and current treatments typically require patients to take medication daily or on an ongoing basis. The new approach works by editing genes involved in cholesterol regulation, with the goal of producing a lasting change from a single treatment.
+
+The trial was small, and researchers emphasize that the results are preliminary. Because the study involved a limited number of participants, the findings cannot yet be generalized broadly. Standard drug development requires the results to be replicated in larger trials before any treatment could be approved for wide use.
+
+Despite those caveats, the results have drawn significant attention from scientists in the field. At least one expert quoted in the source material used the word curative to describe what the approach might ultimately represent — a notable characterization for a category of disease that has historically required lifelong disease management. If larger trials confirm the early findings, this line of research could represent a meaningful shift in how heart disease prevention is approached.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">&rsaquo;</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li><a href="https://www.nytimes.com/2026/05/25/health/cholesterol-ldl-gene-therapy.html" target="_blank" rel="noopener">The New York Times</a></li>
+              
+              <li><a href="https://www.theguardian.com/us-news/2026/may/25/michigan-climate-crisis" target="_blank" rel="noopener">Guardian Environment</a></li>
+              
+              <li><a href="https://nintendoeverything.com/update-from-the-dragon-quest-team-live-stream-announced/" target="_blank" rel="noopener">Nintendoeverything.com</a></li>
+              
+              <li><a href="https://www.prevention.com/health/a71368175/dermatologists-explain-causes-of-itchy-skin/" target="_blank" rel="noopener">Prevention.com</a></li>
+              
+              <li><a href="https://www.theguardian.com/world/2026/may/27/nearly-half-a-million-russians-killed-in-ukraine-war-uk-spy-chief-says" target="_blank" rel="noopener">The Guardian</a></li>
+              
+              <li><a href="https://www.theguardian.com/business/grogonomics/2026/may/28/australia-budget-reactions-ndis-changes-disabilities-biggest-cuts-dental-ignored" target="_blank" rel="noopener">The Guardian</a></li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+      
+    
+
+    <footer class="footer">
+      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+      Perpetrator details are withheld from violent events by editorial policy.</p>
+      <p style="margin-top:.75rem"><a href="2026-05-27-am-sources.html">Sources for this digest &rarr;</a></p>
+      <p style="margin-top:.75rem">
+        <a href="../index.html">&larr; Main Balm digest</a>
+        &nbsp;&middot;&nbsp;
+        <a href="index.html">Hybrid archive</a>
+      </p>
+    </footer>
+  </div>
+</div>
+<script>
+  function toggleSummary(btn, mode) {
+    const g = btn.closest('.summary-toggle');
+    const s = g.nextElementSibling;
+    g.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    s.classList.toggle('full-visible', mode === 'full');
+  }
+  document.addEventListener('click', function(e) {
+    const btn = e.target.closest('.sources-toggle-btn');
+    if (!btn) return;
+    btn.setAttribute('aria-expanded', String(btn.getAttribute('aria-expanded') !== 'true'));
+  });
+  // Dynamic archive — loads main pipeline archive for sidebar navigation
+  (function() {
+    fetch('../archive.json')
+      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function(data) {
+        var html = data.months.map(function(m) {
+          var links = m.entries.map(function(e) {
+            return '<a class="archive-link" href="../' + e.file + '">'
+              + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
+          }).join('');
+          return '<div class="archive-month"><div class="archive-month-label">'
+            + m.month + '</div>' + links + '</div>';
+        }).join('');
+        var nav = document.querySelector('nav.sidebar');
+        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
+      })
+      .catch(function() {});
+  })();
+</script>
+</body>
+</html>
