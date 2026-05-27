@@ -45,6 +45,9 @@ VOYAGE_MODEL = "voyage-3-lite"
 # Adjust downward if same-event cross-outlet articles are not clustering.
 EMBEDDING_SIMILARITY_THRESHOLD = 0.72
 VOYAGE_BATCH_SIZE = 128
+# When True, logs the top 20 pairs that scored between 0.60 and the threshold
+# but did NOT cluster together. Set to False after a diagnostic run.
+CLUSTER_DIAGNOSTIC = True
 
 CATEGORY_ORDER = [
     "GEOPOLITICS",
@@ -497,6 +500,7 @@ def cluster_articles(articles: list[dict], voyage_key: str) -> list[list[dict]]:
 
     # Pairwise similarity check
     merge_count = 0
+    near_misses: list[tuple[float, int, int]] = []  # (sim, i, j) — populated when CLUSTER_DIAGNOSTIC
     for i in range(len(articles)):
         for j in range(i + 1, len(articles)):
             # Geographic coherence gate — hard block on conflicting geo signals
@@ -509,6 +513,17 @@ def cluster_articles(articles: list[dict], voyage_key: str) -> list[list[dict]]:
                 if find(i) != find(j):
                     union(i, j)
                     merge_count += 1
+            elif CLUSTER_DIAGNOSTIC and sim >= 0.60:
+                near_misses.append((sim, i, j))
+
+    if CLUSTER_DIAGNOSTIC and near_misses:
+        near_misses.sort(key=lambda x: x[0], reverse=True)
+        print(f"  [DIAGNOSTIC] Top {min(20, len(near_misses))} near-miss pairs "
+              f"(0.60 ≤ sim < {EMBEDDING_SIMILARITY_THRESHOLD}):", file=sys.stderr)
+        for sim, i, j in near_misses[:20]:
+            a, b = articles[i], articles[j]
+            print(f"    {sim:.4f}  [{a['source']}] {a['title']}", file=sys.stderr)
+            print(f"           [{b['source']}] {b['title']}", file=sys.stderr)
 
     # Group by Union-Find root
     clusters_map: dict[int, list[dict]] = {}
