@@ -1,0 +1,90 @@
+name: Balm Hybrid Digest
+
+# Manually triggered only — this is an experimental pipeline for comparison
+# with the main pipeline.py output. It is never scheduled.
+on:
+  workflow_dispatch:
+    inputs:
+      run:
+        description: 'Edition to generate'
+        required: false
+        default: 'auto'
+        type: choice
+        options:
+          - auto
+          - am
+          - pm
+      date:
+        description: 'Date override (YYYY-MM-DD, leave blank for today)'
+        required: false
+        default: ''
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+permissions:
+  contents: write
+
+jobs:
+  generate-hybrid:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Determine run edition
+        id: edition
+        run: |
+          if [ "${{ github.event.inputs.run }}" != "auto" ]; then
+            echo "run=${{ github.event.inputs.run }}" >> $GITHUB_OUTPUT
+          else
+            HOUR=$(date -u +%H)
+            if [ "$HOUR" -lt 14 ]; then
+              echo "run=am" >> $GITHUB_OUTPUT
+            else
+              echo "run=pm" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Run Balm hybrid pipeline
+        env:
+          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
+          GUARDIAN_API_KEY: ${{ secrets.GUARDIAN_API_KEY }}
+          NYT_API_KEY: ${{ secrets.NYT_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          ARGS="--run ${{ steps.edition.outputs.run }}"
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            ARGS="$ARGS --date ${{ github.event.inputs.date }}"
+          fi
+          python pipeline_hybrid.py $ARGS
+
+      - name: Determine date for commit message
+        id: commitdate
+        run: |
+          DATE=$(date -u +"%Y-%m-%d")
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            DATE="${{ github.event.inputs.date }}"
+          fi
+          RUN_UPPER=$(echo "${{ steps.edition.outputs.run }}" | tr '[:lower:]' '[:upper:]')
+          echo "msg=Balm hybrid digest $DATE $RUN_UPPER" >> $GITHUB_OUTPUT
+
+      - name: Commit and push hybrid digest files
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/hybrid/
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "${{ steps.commitdate.outputs.msg }}"
+          git push

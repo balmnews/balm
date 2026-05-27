@@ -412,6 +412,94 @@ Output files are written to `docs/`. Open `docs/index.html` in a browser to prev
 
 ---
 
+## Hybrid Pipeline
+
+`pipeline_hybrid.py` is an experimental two-pass editorial architecture that runs **alongside** the main pipeline without modifying any of its outputs. It exists as a comparison tool — a way to evaluate a top-down story-selection approach against the bottom-up clustering approach in `pipeline.py`.
+
+### Architecture
+
+The hybrid pipeline replaces clustering with two sequential Claude calls:
+
+**Pass 1 — Story identification** (single lightweight call)
+All article titles and descriptions are sent to Claude with a compact prompt (`PASS1_SYSTEM_PROMPT`). Claude surveys the full article pool and returns a JSON list of 10–16 newsworthy stories, each with:
+- `headline` — brief factual label for the story
+- `description` — one sentence on what happened and why it matters
+- `key_terms` — 5–8 proper nouns and specific phrases that anchor the story
+- `relevance_score` — 1–10 importance rating
+
+Max tokens for Pass 1: **1 500**. This pass answers "what matters today?" — it does not write editorial copy.
+
+**Pass 2 — Per-story synthesis** (one Claude call per story)
+For each story identified in Pass 1, every raw article is scored against the story's `key_terms` and headline tokens. Scoring: key-term substring match = 2.0 points; headline token overlap = 0.3 × overlap count. Articles with score > 0 are eligible; articles with score == 0 (no keyword overlap) are excluded. The top N highest-scoring articles are sent to Claude with the standard `EDITORIAL_SYSTEM_PROMPT` for full neutral synthesis:
+- Top 4 stories (by relevance_score rank): up to 8 source articles
+- Remaining stories: up to 6 source articles
+
+Each story is one independent Claude call. A failure or editorial exclusion on any story is non-blocking — the pipeline continues. Max tokens per story: **2 000**.
+
+**Source attribution** is tracked per story: the scored articles sent to Claude in Pass 2 become the `sources` array on the synthesised article.
+
+### Comparison with main pipeline
+
+| Dimension | Main pipeline | Hybrid pipeline |
+|---|---|---|
+| Story selection | Bottom-up: TF-IDF clustering groups articles, Claude picks 10–16 | Top-down: Claude surveys all articles, picks stories first |
+| Synthesis inputs | Articles that clustered together | Articles scored by keyword relevance to the identified story |
+| Claude calls | 1 (all clusters at once) | 1 (Pass 1) + N (one per story, typically 10–16) |
+| Audio | Yes (ElevenLabs) | No |
+| Podcast RSS | Yes | No |
+| Metadata JSON | Yes | No |
+| Archive update | Yes (`archive.json`) | No |
+| Output location | `docs/` | `docs/hybrid/` |
+
+### Outputs
+
+All output goes to `docs/hybrid/`. Nothing outside `docs/hybrid/` is modified.
+
+```
+docs/hybrid/
+├── YYYY-MM-DD-am.html           # Digest page (same visual design as main)
+├── YYYY-MM-DD-am-sources.html   # Source attribution page
+└── index.html                   # Listing of all hybrid digests
+```
+
+The hybrid digest and sources pages use the same visual design as the main pipeline (same CSS, masthead, typography). Differences:
+- A small "Hybrid" badge appears in the masthead dateline
+- No audio player
+- The archive sidebar dynamically loads `../archive.json` (main pipeline's archive) for navigation context
+- The footer links to both the main site and the hybrid archive index
+
+### Triggering
+
+The hybrid pipeline **never runs on a schedule**. It is triggered only via `workflow_dispatch` in GitHub Actions:
+
+```
+Actions → Balm Hybrid Digest → Run workflow
+```
+
+The workflow (`balm_hybrid.yml`) accepts the same `run` (auto/am/pm) and `date` inputs as the main workflow. It does not require `ELEVEN_LABS_API_KEY`.
+
+For local development:
+```bash
+export ANTHROPIC_API_KEY=...
+export NEWS_API_KEY=...   # optional but recommended
+export GUARDIAN_API_KEY=...
+export NYT_API_KEY=...
+python pipeline_hybrid.py --run am --date 2025-01-15
+```
+
+Output appears in `docs/hybrid/`. It does not affect the main site.
+
+### Evaluating output
+
+The hybrid pipeline is useful for comparing:
+- **Story selection**: does top-down identification catch stories that bottom-up clustering misses, or vice versa?
+- **Source diversity**: does keyword scoring bring in more relevant cross-outlet coverage than TF-IDF clustering?
+- **Editorial quality**: does per-story synthesis (knowing the story before reading sources) produce better or worse briefs than cluster-first synthesis?
+
+Neither approach is definitively better. The hybrid exists to make differences visible.
+
+---
+
 ## Visual Design System
 
 ### Color palette
@@ -452,7 +540,8 @@ These features are intended but not yet implemented. Preserve the metadata schem
 ## Code Conventions
 
 - Pipeline failures are non-fatal for individual steps. A failed audio generation should not prevent the HTML digest from publishing.
-- All output goes to `docs/`. Nothing outside `docs/` is modified during a run except `docs/index.html` and `docs/podcast.xml`.
-- The Jinja2 templates in `templates/` are the source of truth for HTML. Do not edit generated files in `docs/` directly.
-- The editorial system prompt in `pipeline.py` must match the version in this CLAUDE.md exactly. If you update one, update both.
-- The Claude model used is `claude-sonnet-4-6`. Update this constant in `pipeline.py` when upgrading.
+- All main pipeline output goes to `docs/`. Nothing outside `docs/` is modified during a main pipeline run except `docs/index.html` and `docs/podcast.xml`.
+- The Jinja2 templates in `templates/` are the source of truth for main pipeline HTML. Do not edit generated files in `docs/` directly.
+- The hybrid pipeline writes only to `docs/hybrid/`. Its HTML templates are inline Jinja2 strings inside `pipeline_hybrid.py` — not in `templates/`.
+- The editorial system prompt in `pipeline.py` must match the version in this CLAUDE.md exactly. If you update one, update both. `pipeline_hybrid.py` imports `EDITORIAL_SYSTEM_PROMPT` directly from `pipeline.py` and therefore always uses the same prompt.
+- The Claude model used is `claude-sonnet-4-6`. Update this constant in `pipeline.py` when upgrading; `pipeline_hybrid.py` has its own `CLAUDE_MODEL` constant that must also be updated.
