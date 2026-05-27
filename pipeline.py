@@ -290,6 +290,82 @@ _CLUSTER_STOPWORDS = {
     "which", "what", "how", "can", "new", "one", "two", "three",
 }
 
+# ---------------------------------------------------------------------------
+# Geographic entity reference lists — used for clustering coherence gate
+# ---------------------------------------------------------------------------
+
+# Unambiguous single-word geographic names: countries, US states, major cities.
+# Kept to clearly distinct proper nouns so common words are never false-matched.
+_GEO_SINGLE: frozenset[str] = frozenset({
+    # Countries
+    "afghanistan", "albania", "algeria", "angola", "argentina", "armenia",
+    "australia", "austria", "azerbaijan", "bahrain", "bangladesh", "belarus",
+    "belgium", "belize", "benin", "bhutan", "bolivia", "botswana", "brazil",
+    "brunei", "bulgaria", "burkina", "burundi", "cambodia", "cameroon",
+    "canada", "chile", "china", "colombia", "comoros", "congo", "croatia",
+    "cuba", "cyprus", "czechia", "denmark", "djibouti", "ecuador", "egypt",
+    "eritrea", "ethiopia", "fiji", "finland", "france", "gabon", "gambia",
+    "georgia", "germany", "ghana", "greece", "grenada", "guatemala", "guinea",
+    "guyana", "haiti", "honduras", "hungary", "india", "indonesia", "iran",
+    "iraq", "ireland", "israel", "italy", "jamaica", "japan", "jordan",
+    "kazakhstan", "kenya", "kiribati", "kosovo", "kuwait", "kyrgyzstan",
+    "laos", "latvia", "lebanon", "lesotho", "liberia", "libya", "lithuania",
+    "luxembourg", "madagascar", "malawi", "malaysia", "maldives", "mali",
+    "malta", "mauritania", "mauritius", "mexico", "moldova", "monaco",
+    "mongolia", "montenegro", "morocco", "mozambique", "myanmar", "namibia",
+    "nauru", "nepal", "netherlands", "nicaragua", "niger", "nigeria",
+    "norway", "oman", "pakistan", "palau", "palestine", "panama", "paraguay",
+    "peru", "philippines", "poland", "portugal", "qatar", "romania", "russia",
+    "rwanda", "samoa", "senegal", "serbia", "seychelles", "singapore",
+    "slovakia", "slovenia", "somalia", "spain", "sudan", "suriname", "sweden",
+    "switzerland", "syria", "taiwan", "tajikistan", "tanzania", "thailand",
+    "togo", "tonga", "tunisia", "turkey", "turkmenistan", "tuvalu", "uganda",
+    "ukraine", "uruguay", "uzbekistan", "vanuatu", "venezuela", "vietnam",
+    "yemen", "zambia", "zimbabwe",
+    # US states
+    "alabama", "alaska", "arizona", "arkansas", "california", "colorado",
+    "connecticut", "delaware", "florida", "hawaii", "idaho", "illinois",
+    "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine",
+    "maryland", "massachusetts", "michigan", "minnesota", "mississippi",
+    "missouri", "montana", "nebraska", "nevada", "ohio", "oklahoma",
+    "oregon", "pennsylvania", "tennessee", "texas", "utah", "vermont",
+    "virginia", "wisconsin", "wyoming",
+    # Major world cities (unambiguous single-word names only)
+    "kabul", "tirana", "algiers", "luanda", "yerevan", "canberra", "vienna",
+    "baku", "manama", "dhaka", "minsk", "brussels", "brasilia", "sofia",
+    "zagreb", "nicosia", "prague", "copenhagen", "cairo", "tallinn",
+    "helsinki", "paris", "tbilisi", "berlin", "accra", "athens", "london",
+    "moscow", "washington", "beijing", "shanghai", "mumbai", "delhi",
+    "tokyo", "istanbul", "dubai", "singapore", "seoul", "toronto", "sydney",
+    "madrid", "rome", "amsterdam", "stockholm", "oslo", "zurich", "warsaw",
+    "budapest", "lisbon", "tehran", "baghdad", "riyadh", "jerusalem",
+    "karachi", "lahore", "islamabad", "colombo", "bangkok", "jakarta",
+    "manila", "yangon", "nairobi", "johannesburg", "lagos", "casablanca",
+    "montreal", "melbourne", "geneva", "kyiv", "vilnius", "riga", "chisinau",
+    "sarajevo", "pristina", "skopje", "belgrade", "bucharest", "ankara",
+    "damascus", "amman", "beirut", "doha", "muscat", "sanaa", "mogadishu",
+    "kampala", "lusaka", "harare", "khartoum", "freetown", "monrovia",
+    "abuja", "dakar", "bamako", "niamey", "ndjamena", "bangui", "yaounde",
+    "brazzaville", "maputo", "windhoek", "gaborone", "pretoria", "chicago",
+    "houston", "phoenix", "philadelphia", "dallas", "miami", "atlanta",
+    "seattle", "denver", "boston", "detroit", "minneapolis", "portland",
+    "ottawa", "santiago", "bogota", "kinshasa", "havana",
+})
+
+# Multi-word geographic phrases — matched as substrings in lowercased text.
+_GEO_PHRASES: frozenset[str] = frozenset({
+    "united states", "united kingdom", "united arab emirates", "saudi arabia",
+    "south africa", "south korea", "north korea", "costa rica", "new zealand",
+    "el salvador", "sri lanka", "ivory coast", "burkina faso", "czech republic",
+    "dominican republic", "central african republic", "papua new guinea",
+    "equatorial guinea", "hong kong", "new york", "los angeles", "san francisco",
+    "las vegas", "new delhi", "addis ababa", "dar es salaam", "cape town",
+    "buenos aires", "rio de janeiro", "sao paulo", "mexico city",
+    "kuala lumpur", "phnom penh", "ho chi minh", "rhode island",
+    "west virginia", "new hampshire", "new jersey", "new mexico",
+    "north carolina", "north dakota", "south carolina", "south dakota",
+})
+
 
 def _tokenize(text: str) -> list[str]:
     return [t for t in re.findall(r"[a-z0-9]+", text.lower())
@@ -346,10 +422,37 @@ def _extract_named_entities(title: str) -> set[str]:
     return entities
 
 
+def _extract_geo_entities(text: str) -> set[str]:
+    """Extract recognised country, state, and major city names from article text.
+
+    Searches title + description text for single-word names (via token-set
+    intersection with _GEO_SINGLE) and multi-word phrases (via substring
+    match against _GEO_PHRASES). Case-insensitive.
+
+    Returns an empty set when no geographic signal is detected — callers treat
+    an empty set as "unknown geography" and fall back to TF-IDF logic rather
+    than blocking a merge.
+    """
+    text_lower = text.lower()
+    # Single-word pass: tokenise and intersect with reference set
+    words = set(re.findall(r"\b[a-z]+\b", text_lower))
+    found = words & _GEO_SINGLE
+    # Multi-word pass: substring match
+    for phrase in _GEO_PHRASES:
+        if phrase in text_lower:
+            found.add(phrase)
+    return found
+
+
 def cluster_articles(articles: list[dict], threshold: float = CLUSTER_SIMILARITY_THRESHOLD) -> list[list[dict]]:
     """Group articles covering the same news event using three complementary signals.
 
-    An article pair is merged when ANY of the following holds:
+    Before any merge is attempted, a geographic coherence gate checks whether
+    the two articles have conflicting geographic signals — if both have detectable
+    place names and share none, they are about different events and cannot merge
+    regardless of textual similarity.
+
+    When the geographic gate does not block, merging proceeds on ANY of:
     1. **Named-entity boost** — headlines share ≥ 2 capitalised non-initial words
        (catches "Iran strikes Israel" ↔ "US warns Iran" despite low lexical overlap).
     2. **Headline TF-IDF similarity** ≥ threshold (default 0.22).
@@ -363,8 +466,14 @@ def cluster_articles(articles: list[dict], threshold: float = CLUSTER_SIMILARITY
 
     n = len(articles)
 
-    # Named entities per article
+    # Named entities per article (title only — capitalised non-initial words)
     named_entities = [_extract_named_entities(a["title"]) for a in articles]
+
+    # Geographic entities per article (title + description for maximum recall)
+    geo_entities = [
+        _extract_geo_entities(a["title"] + " " + (a.get("description") or ""))
+        for a in articles
+    ]
 
     # Separate TF-IDF vectors for headlines and descriptions
     head_vectors = _tfidf_vectors([a["title"] for a in articles])
@@ -384,6 +493,13 @@ def cluster_articles(articles: list[dict], threshold: float = CLUSTER_SIMILARITY
 
     for i in range(n):
         for j in range(i + 1, n):
+            # 0. Geographic coherence gate — if both articles carry geographic
+            #    signals and those signals are entirely disjoint, they describe
+            #    events in different places and must not be merged.  When either
+            #    article has no detected geography, fall through to the standard
+            #    signals so geography-free stories still cluster normally.
+            if geo_entities[i] and geo_entities[j] and not (geo_entities[i] & geo_entities[j]):
+                continue
             # 1. Named-entity boost
             if len(named_entities[i] & named_entities[j]) >= 2:
                 union(i, j)
@@ -402,6 +518,56 @@ def cluster_articles(articles: list[dict], threshold: float = CLUSTER_SIMILARITY
         clusters_map.setdefault(find(i), []).append(i)
 
     return [[articles[i] for i in idxs] for idxs in clusters_map.values()]
+
+
+def _split_incoherent_clusters(clusters: list[list[dict]]) -> tuple[list[list[dict]], int]:
+    """Post-clustering coherence check: split clusters where no named entity
+    is shared by more than one article.
+
+    TF-IDF can still merge stylistically similar articles about unrelated events
+    when both articles lack detectable geography (e.g., two different domestic
+    incidents described in similar language). This backstop requires that at least
+    one named entity (capitalised non-initial word from the headline) appear in
+    two or more articles. If no such shared entity exists the cluster is split
+    back into individual single-article clusters.
+
+    Clusters where ALL articles have empty named-entity sets are left intact — we
+    cannot determine incoherence from entities alone, and the geographic gate
+    should already have blocked geography-conflicting merges.
+
+    Returns (cleaned_clusters, n_splits).
+    """
+    result = []
+    splits = 0
+    for cluster in clusters:
+        if len(cluster) <= 1:
+            result.append(cluster)
+            continue
+
+        entity_sets = [_extract_named_entities(a["title"]) for a in cluster]
+
+        # All empty — cannot validate; keep the cluster.
+        if all(not s for s in entity_sets):
+            result.append(cluster)
+            continue
+
+        # Count how many articles each entity appears in.
+        entity_counts: Counter = Counter()
+        for s in entity_sets:
+            entity_counts.update(s)
+
+        # Coherent: at least one entity bridges ≥ 2 articles.
+        if any(count >= 2 for count in entity_counts.values()):
+            result.append(cluster)
+        else:
+            # No bridging entity — split into singletons.
+            splits += 1
+            headlines = " | ".join(a["title"][:45] for a in cluster)
+            print(f"  [SPLIT] No shared entity → {len(cluster)} singletons: {headlines}",
+                  file=sys.stderr)
+            result.extend([[a] for a in cluster])
+
+    return result, splits
 
 
 # ---------------------------------------------------------------------------
@@ -887,10 +1053,13 @@ def main():
     # ── Step 3: Cluster ───────────────────────────────────────────────────
     print("\n[3/10] Clustering articles by story...")
     clusters = cluster_articles(deduped_articles)
+    clusters, n_splits = _split_incoherent_clusters(clusters)
     multi = sum(1 for c in clusters if len(c) > 1)
     single = len(clusters) - multi
     print(f"  {len(deduped_articles)} articles → {len(clusters)} clusters "
-          f"({multi} multi-source, {single} single-source)")
+          f"({multi} multi-source, {single} single-source"
+          + (f", {n_splits} incoherent cluster{'s' if n_splits != 1 else ''} split" if n_splits else "")
+          + ")")
     # Log each multi-source cluster so it's easy to verify synthesis inputs
     for i, cluster in enumerate(clusters, 1):
         if len(cluster) > 1:
