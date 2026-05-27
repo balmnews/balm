@@ -76,8 +76,8 @@ HYBRID_DOCS_DIR = Path(__file__).parent / "docs" / "hybrid"
 BASE_URL = "https://balmnews.github.io/balm"
 CLAUDE_MODEL = "claude-sonnet-4-6"
 
-# Pass 1: lightweight story identification — small token budget by design
-PASS1_MAX_TOKENS = 1500
+# Pass 1: story identification — needs enough room for 10-16 detailed story objects
+PASS1_MAX_TOKENS = 4000
 
 # Pass 2: one story per call; full_summary needs adequate room
 PASS2_MAX_TOKENS = 2000
@@ -191,6 +191,74 @@ def select_articles_for_story(
 
 
 # ---------------------------------------------------------------------------
+# Pass 1 — Partial JSON extraction fallback
+# ---------------------------------------------------------------------------
+
+def _extract_partial_stories(raw: str) -> list[dict]:
+    """Extract any complete story objects from a truncated JSON response.
+
+    When Claude's response is cut off mid-object (token budget exceeded), the
+    outer JSON is unparseable but earlier story objects are intact.  This
+    function walks the raw text character-by-character, tracking brace/bracket
+    depth to find every complete story object and returns them.
+
+    Handles nested arrays (e.g. key_terms) and escaped characters in strings.
+    Returns an empty list when no complete story object is found.
+    """
+    # Strip markdown fences in case the caller passed the original response
+    raw = re.sub(r"^```(?:json)?\s*", "", raw.strip())
+    raw = re.sub(r"\s*```$", "", raw).strip()
+
+    m = re.search(r'"stories"\s*:\s*\[', raw)
+    if not m:
+        return []
+
+    pos = m.end()          # character index just after the '[' of the stories array
+    complete: list[dict] = []
+    depth = 0              # 0 = between story objects in the array; 1+ = inside an object
+    obj_start: int | None = None
+    in_string = False
+    i = pos
+
+    while i < len(raw):
+        ch = raw[i]
+
+        if in_string:
+            if ch == '\\':
+                i += 2     # skip the escaped character entirely
+                continue
+            elif ch == '"':
+                in_string = False
+        else:
+            if ch == '"':
+                in_string = True
+            elif ch == '{':
+                if depth == 0:
+                    obj_start = i
+                depth += 1
+            elif ch == '[':
+                depth += 1     # nested array (e.g. key_terms) inside a story object
+            elif ch == '}':
+                depth -= 1
+                if depth == 0 and obj_start is not None:
+                    try:
+                        obj = json.loads(raw[obj_start: i + 1])
+                        if isinstance(obj, dict) and "story_id" in obj:
+                            complete.append(obj)
+                    except json.JSONDecodeError:
+                        pass
+                    obj_start = None
+            elif ch == ']':
+                if depth == 0:
+                    break      # reached the closing bracket of the stories array
+                depth -= 1
+
+        i += 1
+
+    return complete
+
+
+# ---------------------------------------------------------------------------
 # Pass 1 — Identify stories
 # ---------------------------------------------------------------------------
 
@@ -236,6 +304,17 @@ def pass1_identify_stories(articles: list[dict], anthropic_key: str) -> list[dic
         except json.JSONDecodeError as e:
             print(f"[WARN] Pass 1 JSON error (attempt {attempt + 1}): {e}", file=sys.stderr)
             if attempt == 2:
+                # Final fallback: extract whatever complete story objects exist
+                # before the truncation point rather than discarding the run.
+                partial = _extract_partial_stories(raw)
+                if partial:
+                    print(f"  [FALLBACK] Extracted {len(partial)} complete stories "
+                          f"from truncated response", file=sys.stderr)
+                    for s in partial:
+                        score = s.get("relevance_score", "?")
+                        score_str = f"{score:>2}" if isinstance(score, int) else f" {score}"
+                        print(f"    [{score_str}] {s.get('headline', '?')}")
+                    return partial
                 return []
             time.sleep(5)
         except Exception as e:

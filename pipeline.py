@@ -232,6 +232,9 @@ def fetch_nyt(api_key: str) -> list[dict]:
                 })
         except Exception as e:
             print(f"[WARN] NYT {section}: {e}", file=sys.stderr)
+        # NYT free tier: 10 requests/minute. A small delay between sections
+        # prevents rate-limit errors when both pipelines run simultaneously.
+        time.sleep(0.5)
     return articles
 
 
