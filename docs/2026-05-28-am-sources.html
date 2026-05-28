@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balm Sources — Thursday, May 28, 2026 AM</title>
+  <meta name="description" content="Source attribution for the Balm digest of Thursday, May 28, 2026.">
+  <meta name="theme-color" content="#6b82a8">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f2ede4;
+      --ink: #2a2520;
+      --secondary: #6a6058;
+      --muted: #9a9288;
+      --rule: #c8c0b4;
+      --accent: #6b82a8;
+      --difficult: #5a4a3a;
+    }
+
+    html { font-size: 18px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Layout */
+    .page-wrapper {
+      display: flex;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      padding: 2rem 1.5rem 2rem 0;
+      border-right: 1px solid var(--rule);
+      min-height: 100vh;
+    }
+
+    .main-content {
+      flex: 1;
+      max-width: 860px;
+      padding: 0 2rem 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .page-wrapper { display: block; padding: 0; }
+      .sidebar { display: none; }
+      .main-content { padding: 0 1.25rem 3rem; }
+    }
+
+    /* Masthead */
+    .masthead {
+      text-align: center;
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 3px double var(--rule);
+      margin-bottom: 1.5rem;
+    }
+
+    .masthead-logo svg {
+      display: block;
+      margin: 0 auto 0.5rem;
+    }
+
+    .masthead-tagline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--secondary);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .masthead-dateline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    /* Section header */
+    .section-header {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-top: 1px solid var(--rule);
+      padding-top: 1.25rem;
+      margin: 2rem 0 1.5rem;
+    }
+
+    /* Source entries */
+    .source-entry {
+      display: flex;
+      gap: 1.25rem;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .source-entry:last-child {
+      border-bottom: none;
+    }
+
+    .source-num {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--muted);
+      min-width: 1.5rem;
+      padding-top: 0.2rem;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .source-body {
+      flex: 1;
+    }
+
+    .source-balm-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .source-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .source-list li {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--secondary);
+      padding: 0.15rem 0;
+    }
+
+    .source-list li::before {
+      content: "· ";
+      color: var(--muted);
+    }
+
+    .source-outlet {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .source-original-headline {
+      font-style: italic;
+      color: var(--secondary);
+    }
+
+    /* Sidebar */
+    .sidebar-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      padding-top: 2rem;
+    }
+
+    .archive-month { margin-bottom: 1rem; }
+
+    .archive-month-label {
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .archive-link {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--secondary);
+      padding: 0.1rem 0;
+      line-height: 1.6;
+    }
+
+    .archive-link:hover { color: var(--accent); text-decoration: none; }
+    .archive-link.current { color: var(--accent); font-style: italic; }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 3rem;
+      padding: 2rem 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .footer a { color: var(--muted); text-decoration: underline; }
+    .footer a:hover { color: var(--secondary); }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- Sidebar archive nav -->
+  <nav class="sidebar" aria-label="Archive">
+    <div class="sidebar-title">Archive</div>
+    
+    <div class="archive-month">
+      <div class="archive-month-label">May 2026</div>
+      
+      <a class="archive-link current"
+         href="2026-05-28-am.html">
+        05-28 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-27-pm.html">
+        05-27 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-27-am.html">
+        05-27 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-26-pm.html">
+        05-26 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-26-am.html">
+        05-26 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-25-pm.html">
+        05-25 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-24-pm.html">
+        05-24 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-24-am.html">
+        05-24 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-23-pm.html">
+        05-23 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-23-am.html">
+        05-23 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-22-pm.html">
+        05-22 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-22-am.html">
+        05-22 AM
+      </a>
+      
+    </div>
+    
+  </nav>
+
+  <!-- Main content -->
+  <div class="main-content">
+
+    <!-- Masthead -->
+    <header class="masthead">
+      <div class="masthead-logo">
+        <a href="2026-05-28-am.html" style="text-decoration:none;">
+          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
+                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
+                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
+                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
+              </filter>
+            </defs>
+            <text x="90" y="44"
+                  font-family="Caveat, cursive"
+                  font-size="52"
+                  font-weight="700"
+                  fill="#6b82a8"
+                  text-anchor="middle"
+                  letter-spacing="8"
+                  filter="url(#balm-spread)">Balm</text>
+          </svg>
+        </a>
+      </div>
+      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
+      <p class="masthead-dateline">Thursday, May 28, 2026 &middot; AM Edition &middot; Sources</p>
+    </header>
+
+    <!-- Sources list -->
+    <div class="section-header">Sources for this digest</div>
+
+    
+    <div class="source-entry">
+      <div class="source-num">1</div>
+      <div class="source-body">
+        <div class="source-balm-headline">U.S. and Iran Exchange Military Strikes as Ceasefire and Negotiations Remain Fragile</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/may/28/middle-east-crisis-trump-us-iran-war-lebanon-israel-strikes-latest-news-live" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Middle East crisis live: Iran says Trump’s threats to ‘blow up’ Oman ‘dangerous and bullying’&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/live/2026/05/28/world/iran-war-us-trump-deal" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Iran War Live Updates: U.S. and Iran Trade Strikes, Further Threatening Negotiations&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/05/28/business/inflation-pce-gauge.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Iran War Lifts Fed’s Preferred Inflation Gauge to Highest Level Since May 2023&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/05/27/world/middleeast/military-strikes-southern-iran.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;U.S. Strikes Military Sites in Iran for Second Time in 3 Days&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/us/iran-issues-blunt-nuclear-ultimatum-tensions-spike-trump-more-top-headlines" target="_blank" rel="noopener noreferrer">Fox News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Iran issues blunt nuclear ultimatum as tensions spike with Trump and more top headlines&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/world/us-ally-pledges-support-trumps-push-break-irans-grip-hormuz-we-ready-contribute" target="_blank" rel="noopener noreferrer">Fox News World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;US ally pledges support for Trump's push to break Iran's grip on Hormuz: 'We are ready to contribute'&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/world/iran-houthi-terror-proxy-facing-red-sea-threat-from-pro-us-african-nation" target="_blank" rel="noopener noreferrer">Fox News World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Iran and Houthi terror proxy facing Red Sea threat from pro-US African nation&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/world/designated-target-mojtaba-khamenei-sign-trump-deal-unprecedented-courier-setup-" target="_blank" rel="noopener noreferrer">Fox News World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;‘Designated target’ Mojtaba Khamenei to sign Trump deal in ‘unprecedented’ courier setup&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/c98r2qy5809o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Iran says it targeted American base after fresh US strikes&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/c98r2qy5809o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Iran says it targeted American base after fresh US strikes&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/05/28/g-s1-124621/up-first-newsletter-iran-lebanon-israel-us-war-ebola-congo-food-insecurity-google-polymarket" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;U.S. strikes Iran again. And, DOJ charges Google staffer over Polymarket trades&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">2</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Israel Issues Large-Scale Evacuation Orders for Southern Lebanon, Strikes Beirut</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/cj3pgrpmlklo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Israel strikes Beirut and southern Lebanon after large-scale evacuation orders&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/world/israeli-military-tells-residents-across-southern-lebanon-to-leave-as-it-fights-hezbollah" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Israeli military tells residents across southern Lebanon to leave as it fights Hezbollah&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">3</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Israel Kills Hamas Military Wing Leader in Gaza Airstrike</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/world/israel-eliminates-head-hamas-military-wing-gaza-strike" target="_blank" rel="noopener noreferrer">Fox News World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Israel eliminates head of Hamas' military wing in Gaza strike&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/world/hamas-confirms-that-israeli-strikes-killed-its-new-military-leader-in-gaza-city" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Hamas confirms that Israeli strikes killed its new military leader in Gaza City&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">4</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Trump Calls for Expanding Abraham Accords as Part of Iran Deal Framework; Analysts Express Skepticism</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/05/28/world/middleeast/trump-abraham-accords.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;The Mideast Is Baffled by Trump’s Call to Expand Abraham Accords&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">5</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Guatemala and U.S. Agree to Joint Military Operations Against Drug Organizations</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/05/28/world/americas/guatemala-us-joint-strikes.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Guatemala Agrees to Joint Strikes With U.S. Against Drug Gangs&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">6</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Pentagon Plans to Reduce U.S. Military Contributions to NATO by Up to Half</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/pentagon-slashes-nato-combat-commitments-trump-pushes-europe-defend-itself" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Pentagon slashes NATO combat commitments as Trump pushes Europe to defend itself&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">7</div>
+      <div class="source-body">
+        <div class="source-balm-headline">European Union Fines Chinese E-Commerce Platform Temu €200 Million Over Sale of Unsafe Products</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/may/28/eu-fines-temu-sale-illegal-dangerous-products" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;EU fines Temu for failing to stop sale of illegal and dangerous products &rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/05/28/business/temu-fine-european-union.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Temu Hit With Fine in E.U. Over Sales of Unsafe Goods&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/c1k2ydn1rz8o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;EU fines Temu €200m for allowing sale of illegal products&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/c1k2ydn1rz8o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;EU fines Temu €200m for allowing sale of illegal products&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">8</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Federal Reserve Chair Says Interest Rate Cut Possible as Early as September</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.marketwatch.com/story/powell-says-labor-market-not-a-source-of-significant-inflation-pressure-cc3b1297?mod=mw_rss_realtimeheadlines" target="_blank" rel="noopener noreferrer">WSJ Markets</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Powell says labor market not a source of significant inflation pressure&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.marketwatch.com/story/feds-powell-says-rate-cut-on-the-table-as-soon-as-september-f3f7c8f2?mod=mw_rss_realtimeheadlines" target="_blank" rel="noopener noreferrer">WSJ Markets</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Fed’s Powell says rate cut ‘on the table’ as soon as September&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">9</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Report Finds Nearly Half of U.S. Households Did Not Earn Enough to Cover Basic Needs in 2024</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/05/28/nx-s1-5836525/affordability-report-brookings-inflation-wages" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;A new report shows how close American households are to the financial edge&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">10</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Alabama Asks Supreme Court to Allow Use of Congressional Map Found Racially Discriminatory by Lower Court</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.scotusblog.com/2026/05/alabama-urges-supreme-court-to-allow-for-use-of-congressional-map-struck-by-lower-court-as-racia/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Alabama urges Supreme Court to allow for use of congressional map struck by lower court as racially discriminatory&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.scotusblog.com/2026/05/how-callais-broke-the-voting-rights-act-and-weaponized-the-equal-protection-clause-part-1/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;How Callais broke the Voting Rights Act and weaponized the equal protection clause: part 1&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">11</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Ebola Outbreak Spreads in Congo Amid Misinformation; Rare Strain Raises Scientific and Public Health Concerns</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.washingtonpost.com/world/2026/05/26/ebola-conspiracies-are-rampant-outbreak-widens/" target="_blank" rel="noopener noreferrer">The Washington Post</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Contagion of conspiracy theories makes Ebola epidemic harder to contain - The Washington Post&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.cnn.com/2026/05/27/health/world-cup-public-health" target="_blank" rel="noopener noreferrer">CNN</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;‘Complicated’ circumstances test public health playbook for World Cup preparations - CNN&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/05/27/science/ebola-hantavirus-species-strains.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Why the Ebola and Hantavirus Outbreaks Have Confounded Scientists&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/05/26/us/politics/trump-ebola-kenya.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump Administration to Send Americans Exposed to Ebola to Kenya&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/health/uganda-closes-its-border-with-congo-where-suspected-cases-of-rare-ebola-type-are-surging" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Uganda closes its border with Congo, where suspected cases of rare Ebola type are surging&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">12</div>
+      <div class="source-body">
+        <div class="source-balm-headline">New Drug Shows Potential to Cure Chronic Hepatitis B in a Subset of Patients</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/05/28/health/hepatitis-b-chronic-bepirovirsen.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Scientists Find a Potential Cure for Chronic Hepatitis B&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">13</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Single-Dose Gene-Editing Treatment Shows Sustained Reduction in LDL Cholesterol in Small Trial</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/05/25/health/cholesterol-ldl-gene-therapy.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;One-and-Done Heart Disease Prevention? Scientists Show It May Be Possible.&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">14</div>
+      <div class="source-body">
+        <div class="source-balm-headline">NASA Awards Contracts for Lunar Landing Missions in First Phase of Moon Base Plan</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/05/27/nx-s1-5836209/nasa-moon-base-plans" target="_blank" rel="noopener noreferrer">NPR</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;NASA lays out moon base plans with landers, buggies and drones at the top of the list - NPR&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/science/2026/may/26/nasa-jeff-bezos-blue-origin" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Nasa selects Jeff Bezos’s Blue Origin for first of three uncrewed lunar missions&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">15</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Overdose Deaths Declining Nationally, but Rising in Parts of the Western U.S.</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/05/27/nx-s1-5836300/u-s-street-drug-deaths-keep-dropping-but-some-western-states-see-deadly-overdose-surge" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;U.S. street drug deaths keep dropping, but some Western states see deadly overdose surge&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">16</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Eleven People Presumed Dead After Tank Implosion at Washington State Paper Mill</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/show/news-wrap-11-presumed-dead-after-washington-paper-mill-tank-implosion" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;News Wrap: 11 presumed dead after Washington paper mill tank implosion&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p><a href="2026-05-28-am.html">← Return to digest</a></p>
+      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
+      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
+    </footer>
+
+  </div><!-- /.main-content -->
+</div><!-- /.page-wrapper -->
+<script>
+  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
+  (function() {
+    var current = '2026-05-28-am.html';
+    fetch('archive.json')
+      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function(data) {
+        var html = data.months.map(function(m) {
+          var links = m.entries.map(function(e) {
+            var cls = 'archive-link' + (e.file === current ? ' current' : '');
+            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
+          }).join('');
+          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
+        }).join('');
+        var nav = document.querySelector('nav.sidebar');
+        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
+      })
+      .catch(function() {});
+  })();
+</script>
+</body>
+</html>
