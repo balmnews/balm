@@ -309,8 +309,11 @@ def fetch_guardian(api_key: str) -> list[dict]:
 
 
 def fetch_nyt(api_key: str) -> list[dict]:
-    sections = ["world", "business", "technology", "health", "science", "sports",
-                "politics", "climate"]
+    # Five core sections only. Sports, politics, and climate were dropped:
+    # they hit 429 errors consistently across every run (rate limit), and
+    # the same coverage arrives via RSS feeds (Fox News Politics, Reuters
+    # Politics, Guardian Environment) that don't require API quotas.
+    sections = ["world", "business", "technology", "health", "science"]
     articles = []
     for section in sections:
         try:
@@ -331,8 +334,7 @@ def fetch_nyt(api_key: str) -> list[dict]:
         except Exception as e:
             print(f"[WARN] NYT {section}: {e}", file=sys.stderr)
         # NYT free tier: 10 requests/minute. 6.0s between sections keeps the
-        # combined request rate safely under the limit even when both pipelines
-        # run simultaneously (8 sections × 6.0s = 48s added to each run).
+        # combined request rate safely under the limit (5 sections × 6.0s = 30s).
         time.sleep(6.0)
     return articles
 
@@ -439,38 +441,74 @@ Return ONLY valid JSON, no preamble, no markdown, no explanation:
 Each inner array is a cluster containing the index numbers of articles
 that belong together. Every index from 0 to N-1 must appear exactly once."""
 
+# Maximum articles per single clustering call. Lists larger than this are
+# split into two batches to keep index counts manageable for the model.
+CLUSTER_BATCH_SIZE = 80
 
-def cluster_articles(articles: list[dict], anthropic_key: str) -> list[list[dict]]:
-    """Cluster articles by story identity using Claude's semantic understanding.
+CROSS_BATCH_MERGE_PROMPT = """You are reviewing story clusters assembled for a news digest.
+Two batches of articles were clustered independently. You will see one representative headline
+per cluster from each batch (labeled A0, A1, A2... and B0, B1, B2...).
 
-    Claude reads all headlines and groups articles about the same event together.
-    Falls back to single-article clusters if the API call fails.
+Your task: identify cross-batch pairs that clearly cover the same underlying real-world event
+and should be merged into a single cluster.
+
+Rules:
+- Only merge when two clusters are obviously the same event, not just the same topic
+- When uncertain, do not merge — keep clusters separate
+- Each cluster index may appear in at most one merge pair
+
+Return ONLY valid JSON, no preamble, no markdown:
+{
+  "merges": [[0, 2], [3, 0]]
+}
+
+Each inner pair is [A_cluster_index, B_cluster_index]. If no merges are needed: {"merges": []}"""
+
+
+def _cluster_single_batch(articles: list[dict], anthropic_key: str,
+                           label: str = "") -> list[list[dict]]:
+    """Cluster one batch of articles (must be <= CLUSTER_BATCH_SIZE).
+
+    Returns a list of clusters (each cluster is a list of article dicts).
+    Falls back to singletons on API failure.
     """
     if not articles:
         return []
-
     if len(articles) == 1:
         return [articles]
 
-    # Build compact article list for Claude — headline + first 120 chars of description
-    article_list = []
-    for i, a in enumerate(articles):
-        desc = (a.get("description") or "").strip()
-        desc_short = desc[:120]
-        if desc_short:
-            article_list.append(f"[{i}] {a['title']} | {desc_short}")
-        else:
-            article_list.append(f"[{i}] {a['title']}")
+    tag = f"[{label}] " if label else ""
+    client = Anthropic(api_key=anthropic_key)
 
-    prompt = (
+    # Build compact article list: headline + first 120 chars of description
+    article_lines = []
+    for i, a in enumerate(articles):
+        desc = (a.get("description") or "").strip()[:120]
+        if desc:
+            article_lines.append(f"[{i}] {a['title']} | {desc}")
+        else:
+            article_lines.append(f"[{i}] {a['title']}")
+
+    base_body = (
         f"Group these {len(articles)} articles into clusters by news event:\n\n"
-        + "\n".join(article_list)
+        + "\n".join(article_lines)
     )
 
-    client = Anthropic(api_key=anthropic_key)
-    raw_clusters = None
+    raw_clusters: list[list[int]] | None = None
 
     for attempt in range(3):
+        # On retries, prepend an explicit index-range reminder to the prompt.
+        # This directly addresses the 'Invalid index' failure mode where Claude
+        # generates out-of-range indices on large lists.
+        if attempt > 0:
+            range_note = (
+                f"IMPORTANT: Article indices are 0 through {len(articles) - 1}. "
+                f"Every index in your response must be within this range.\n\n"
+            )
+            prompt = range_note + base_body
+        else:
+            prompt = base_body
+
         try:
             response = client.messages.create(
                 model=CLAUDE_MODEL,
@@ -488,36 +526,153 @@ def cluster_articles(articles: list[dict], anthropic_key: str) -> list[list[dict
             seen: set[int] = set()
             for cluster in raw_clusters:
                 for idx in cluster:
-                    if idx in seen or idx >= len(articles):
-                        raise ValueError(f"Invalid index {idx} in clusters")
+                    if idx in seen or not (0 <= idx < len(articles)):
+                        raise ValueError(
+                            f"Invalid index {idx} "
+                            f"(valid range: 0–{len(articles) - 1})"
+                        )
                     seen.add(idx)
+
             missing = set(range(len(articles))) - seen
             if missing:
-                # Add missing articles as singletons rather than failing
                 for idx in sorted(missing):
                     raw_clusters.append([idx])
-                print(f"  [WARN] Clustering: {len(missing)} article(s) added as singletons",
-                      file=sys.stderr)
+                print(
+                    f"  [WARN] {tag}Clustering: {len(missing)} article(s) appended as singletons",
+                    file=sys.stderr,
+                )
             break
 
         except Exception as e:
-            print(f"  [WARN] Claude clustering error (attempt {attempt + 1}): {e}",
-                  file=sys.stderr)
+            print(
+                f"  [WARN] {tag}Claude clustering error (attempt {attempt + 1}): {e}",
+                file=sys.stderr,
+            )
             if attempt == 2:
-                print("  [WARN] Claude clustering failed — falling back to single-article clusters",
-                      file=sys.stderr)
+                print(
+                    f"  [WARN] {tag}Claude clustering failed — falling back to singletons",
+                    file=sys.stderr,
+                )
                 return [[a] for a in articles]
 
-    # Convert index clusters to article clusters
-    clusters = [[articles[i] for i in cluster] for cluster in raw_clusters]
+    return [[articles[i] for i in cluster] for cluster in raw_clusters]  # type: ignore[index]
+
+
+def _cross_batch_merge(
+    clusters_a: list[list[dict]],
+    clusters_b: list[list[dict]],
+    anthropic_key: str,
+) -> list[list[dict]]:
+    """Ask Claude if any A-batch cluster should merge with a B-batch cluster.
+
+    Uses one representative headline per cluster. Non-blocking — on failure,
+    returns clusters_a + clusters_b with no merges applied.
+    """
+    if not clusters_a or not clusters_b:
+        return clusters_a + clusters_b
+
+    lines = ["Batch A clusters:"]
+    for i, c in enumerate(clusters_a):
+        lines.append(f"  [A{i}] {c[0]['title']}")
+    lines.append("\nBatch B clusters:")
+    for i, c in enumerate(clusters_b):
+        lines.append(f"  [B{i}] {c[0]['title']}")
+
+    client = Anthropic(api_key=anthropic_key)
+    try:
+        response = client.messages.create(
+            model=CLAUDE_MODEL,
+            max_tokens=1000,
+            system=CROSS_BATCH_MERGE_PROMPT,
+            messages=[{"role": "user", "content": "\n".join(lines)}],
+        )
+        raw = response.content[0].text.strip()
+        raw = re.sub(r"^```(?:json)?\s*", "", raw)
+        raw = re.sub(r"\s*```$", "", raw).strip()
+        merges: list[list[int]] = json.loads(raw).get("merges", [])
+    except Exception as e:
+        print(
+            f"  [WARN] Cross-batch merge check failed ({e}) — skipping",
+            file=sys.stderr,
+        )
+        return clusters_a + clusters_b
+
+    if not merges:
+        print("  Cross-batch merge: no cross-batch merges identified")
+        return clusters_a + clusters_b
+
+    # Apply merges — each cluster index may only appear once
+    consumed_a: set[int] = set()
+    consumed_b: set[int] = set()
+    combined: list[list[dict]] = []
+    merge_count = 0
+
+    for pair in merges:
+        if len(pair) != 2:
+            continue
+        ai, bi = int(pair[0]), int(pair[1])
+        if (
+            not (0 <= ai < len(clusters_a))
+            or not (0 <= bi < len(clusters_b))
+            or ai in consumed_a
+            or bi in consumed_b
+        ):
+            continue
+        combined.append(clusters_a[ai] + clusters_b[bi])
+        consumed_a.add(ai)
+        consumed_b.add(bi)
+        merge_count += 1
+
+    # Append remaining unmerged clusters from each batch
+    for i, c in enumerate(clusters_a):
+        if i not in consumed_a:
+            combined.append(c)
+    for i, c in enumerate(clusters_b):
+        if i not in consumed_b:
+            combined.append(c)
+
+    print(f"  Cross-batch merge: {merge_count} cross-batch merge(s) applied")
+    return combined
+
+
+def cluster_articles(articles: list[dict], anthropic_key: str) -> list[list[dict]]:
+    """Cluster articles by story identity using Claude's semantic understanding.
+
+    For article pools larger than CLUSTER_BATCH_SIZE, splits into two roughly
+    equal batches, clusters each independently, then runs a cross-batch merge
+    check. This keeps each Claude call under the threshold where index tracking
+    is reliable.
+
+    Falls back to single-article clusters if all API calls fail.
+    """
+    if not articles:
+        return []
+    if len(articles) == 1:
+        return [articles]
+
+    if len(articles) <= CLUSTER_BATCH_SIZE:
+        clusters = _cluster_single_batch(articles, anthropic_key)
+    else:
+        mid = len(articles) // 2
+        batch_a = articles[:mid]
+        batch_b = articles[mid:]
+        print(
+            f"  Large article pool ({len(articles)} articles): "
+            f"splitting into two batches ({len(batch_a)} + {len(batch_b)})"
+        )
+        clusters_a = _cluster_single_batch(batch_a, anthropic_key, label="Batch A")
+        clusters_b = _cluster_single_batch(batch_b, anthropic_key, label="Batch B")
+        clusters = _cross_batch_merge(clusters_a, clusters_b, anthropic_key)
 
     # Log cluster distribution
     multi = [c for c in clusters if len(c) > 1]
     single = [c for c in clusters if len(c) == 1]
     total_merges = len(articles) - len(clusters)
-    print(f"  Clustering: {len(articles)} articles → {len(clusters)} clusters "
-          f"({len(multi)} multi-source, {len(single)} single-source, "
-          f"{total_merges} merges)")
+    print(
+        f"  Clustering: {len(articles)} articles → {len(clusters)} clusters "
+        f"({len(multi)} multi-source, {len(single)} single-source, "
+        f"{total_merges} merges)"
+    )
     for c in sorted(multi, key=len, reverse=True):
         outlets = " · ".join(dict.fromkeys(a["source"] for a in c))
         headlines = " | ".join(a["title"][:50] for a in c[:3])
