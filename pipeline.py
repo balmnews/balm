@@ -7,7 +7,6 @@ import os
 import re
 import sys
 import time
-from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -54,8 +53,11 @@ RSS_FEEDS = [
     # Political balance — right-leaning domestic politics perspective
     ("Fox News Politics", "https://feeds.foxnews.com/foxnews/politics"),
     # Wire service — authoritative domestic and political coverage
-    ("Reuters Politics", "https://feeds.reuters.com/reuters/politicsNews"),
-    ("Reuters Domestic", "https://feeds.reuters.com/reuters/domesticNews"),
+    # NOTE: Reuters has been known to restrict or move RSS endpoints; if these
+    # return 0 articles, Reuters may have discontinued free RSS access.
+    ("Reuters Top News", "https://feeds.reuters.com/reuters/topNews"),
+    ("Reuters Domestic", "https://feeds.reuters.com/Reuters/domesticNews"),
+    ("Reuters Politics", "https://feeds.reuters.com/Reuters/politicsNews"),
     # Public media — domestic coverage with different editorial priorities
     ("NPR News", "https://feeds.npr.org/1001/rss.xml"),
     ("PBS NewsHour", "https://www.pbs.org/newshour/feeds/rss/headlines"),
@@ -226,10 +228,10 @@ def fetch_nyt(api_key: str) -> list[dict]:
                 })
         except Exception as e:
             print(f"[WARN] NYT {section}: {e}", file=sys.stderr)
-        # NYT free tier: 10 requests/minute. 1.5s between sections keeps the
+        # NYT free tier: 10 requests/minute. 6.0s between sections keeps the
         # combined request rate safely under the limit even when both pipelines
-        # run simultaneously (8 sections × 1.5s = 12s added to each run).
-        time.sleep(1.5)
+        # run simultaneously (8 sections × 6.0s = 48s added to each run).
+        time.sleep(6.0)
     return articles
 
 
@@ -295,118 +297,6 @@ def remove_exact_duplicates(articles: list[dict]) -> list[dict]:
     return unique
 
 
-# ---------------------------------------------------------------------------
-# Geographic entity reference lists — used for geographic coherence gate
-# ---------------------------------------------------------------------------
-
-# Unambiguous single-word geographic names: countries, US states, major cities.
-# Kept to clearly distinct proper nouns so common words are never false-matched.
-_GEO_SINGLE: frozenset[str] = frozenset({
-    # Countries
-    "afghanistan", "albania", "algeria", "angola", "argentina", "armenia",
-    "australia", "austria", "azerbaijan", "bahrain", "bangladesh", "belarus",
-    "belgium", "belize", "benin", "bhutan", "bolivia", "botswana", "brazil",
-    "brunei", "bulgaria", "burkina", "burundi", "cambodia", "cameroon",
-    "canada", "chile", "china", "colombia", "comoros", "congo", "croatia",
-    "cuba", "cyprus", "czechia", "denmark", "djibouti", "ecuador", "egypt",
-    "eritrea", "ethiopia", "fiji", "finland", "france", "gabon", "gambia",
-    "georgia", "germany", "ghana", "greece", "grenada", "guatemala", "guinea",
-    "guyana", "haiti", "honduras", "hungary", "india", "indonesia", "iran",
-    "iraq", "ireland", "israel", "italy", "jamaica", "japan", "jordan",
-    "kazakhstan", "kenya", "kiribati", "kosovo", "kuwait", "kyrgyzstan",
-    "laos", "latvia", "lebanon", "lesotho", "liberia", "libya", "lithuania",
-    "luxembourg", "madagascar", "malawi", "malaysia", "maldives", "mali",
-    "malta", "mauritania", "mauritius", "mexico", "moldova", "monaco",
-    "mongolia", "montenegro", "morocco", "mozambique", "myanmar", "namibia",
-    "nauru", "nepal", "netherlands", "nicaragua", "niger", "nigeria",
-    "norway", "oman", "pakistan", "palau", "palestine", "panama", "paraguay",
-    "peru", "philippines", "poland", "portugal", "qatar", "romania", "russia",
-    "rwanda", "samoa", "senegal", "serbia", "seychelles", "singapore",
-    "slovakia", "slovenia", "somalia", "spain", "sudan", "suriname", "sweden",
-    "switzerland", "syria", "taiwan", "tajikistan", "tanzania", "thailand",
-    "togo", "tonga", "tunisia", "turkey", "turkmenistan", "tuvalu", "uganda",
-    "ukraine", "uruguay", "uzbekistan", "vanuatu", "venezuela", "vietnam",
-    "yemen", "zambia", "zimbabwe",
-    # US states
-    "alabama", "alaska", "arizona", "arkansas", "california", "colorado",
-    "connecticut", "delaware", "florida", "hawaii", "idaho", "illinois",
-    "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine",
-    "maryland", "massachusetts", "michigan", "minnesota", "mississippi",
-    "missouri", "montana", "nebraska", "nevada", "ohio", "oklahoma",
-    "oregon", "pennsylvania", "tennessee", "texas", "utah", "vermont",
-    "virginia", "wisconsin", "wyoming",
-    # Major world cities (unambiguous single-word names only)
-    "kabul", "tirana", "algiers", "luanda", "yerevan", "canberra", "vienna",
-    "baku", "manama", "dhaka", "minsk", "brussels", "brasilia", "sofia",
-    "zagreb", "nicosia", "prague", "copenhagen", "cairo", "tallinn",
-    "helsinki", "paris", "tbilisi", "berlin", "accra", "athens", "london",
-    "moscow", "washington", "beijing", "shanghai", "mumbai", "delhi",
-    "tokyo", "istanbul", "dubai", "singapore", "seoul", "toronto", "sydney",
-    "madrid", "rome", "amsterdam", "stockholm", "oslo", "zurich", "warsaw",
-    "budapest", "lisbon", "tehran", "baghdad", "riyadh", "jerusalem",
-    "karachi", "lahore", "islamabad", "colombo", "bangkok", "jakarta",
-    "manila", "yangon", "nairobi", "johannesburg", "lagos", "casablanca",
-    "montreal", "melbourne", "geneva", "kyiv", "vilnius", "riga", "chisinau",
-    "sarajevo", "pristina", "skopje", "belgrade", "bucharest", "ankara",
-    "damascus", "amman", "beirut", "doha", "muscat", "sanaa", "mogadishu",
-    "kampala", "lusaka", "harare", "khartoum", "freetown", "monrovia",
-    "abuja", "dakar", "bamako", "niamey", "ndjamena", "bangui", "yaounde",
-    "brazzaville", "maputo", "windhoek", "gaborone", "pretoria", "chicago",
-    "houston", "phoenix", "philadelphia", "dallas", "miami", "atlanta",
-    "seattle", "denver", "boston", "detroit", "minneapolis", "portland",
-    "ottawa", "santiago", "bogota", "kinshasa", "havana",
-})
-
-# Multi-word geographic phrases — matched as substrings in lowercased text.
-_GEO_PHRASES: frozenset[str] = frozenset({
-    "united states", "united kingdom", "united arab emirates", "saudi arabia",
-    "south africa", "south korea", "north korea", "costa rica", "new zealand",
-    "el salvador", "sri lanka", "ivory coast", "burkina faso", "czech republic",
-    "dominican republic", "central african republic", "papua new guinea",
-    "equatorial guinea", "hong kong", "new york", "los angeles", "san francisco",
-    "las vegas", "new delhi", "addis ababa", "dar es salaam", "cape town",
-    "buenos aires", "rio de janeiro", "sao paulo", "mexico city",
-    "kuala lumpur", "phnom penh", "ho chi minh", "rhode island",
-    "west virginia", "new hampshire", "new jersey", "new mexico",
-    "north carolina", "north dakota", "south carolina", "south dakota",
-})
-
-
-
-def _extract_named_entities(title: str) -> set[str]:
-    """Extract likely proper nouns: capitalised words that are not the first word.
-
-    Simple heuristic — no NLP library required. Catches entity names like
-    country names, people, organisations that anchor same-story matching.
-    """
-    words = title.split()
-    entities: set[str] = set()
-    for word in words[1:]:                       # skip the first word (always capitalised)
-        clean = re.sub(r"[^a-zA-Z'-]", "", word)  # strip punctuation
-        if clean and clean[0].isupper() and len(clean) > 1:
-            entities.add(clean.lower())
-    return entities
-
-
-def _extract_geo_entities(text: str) -> set[str]:
-    """Extract recognised country, state, and major city names from article text.
-
-    Searches title + description text for single-word names (via token-set
-    intersection with _GEO_SINGLE) and multi-word phrases (via substring
-    match against _GEO_PHRASES). Case-insensitive.
-
-    Returns an empty set when no geographic signal is detected — callers treat
-    an empty set as "unknown geography" and allow the merge to proceed.
-    """
-    text_lower = text.lower()
-    # Single-word pass: tokenise and intersect with reference set
-    words = set(re.findall(r"\b[a-z]+\b", text_lower))
-    found = words & _GEO_SINGLE
-    # Multi-word pass: substring match
-    for phrase in _GEO_PHRASES:
-        if phrase in text_lower:
-            found.add(phrase)
-    return found
 
 
 
@@ -519,9 +409,6 @@ def cluster_articles(articles: list[dict], anthropic_key: str) -> list[list[dict
     # Convert index clusters to article clusters
     clusters = [[articles[i] for i in cluster] for cluster in raw_clusters]
 
-    # Named-entity coherence backstop
-    clusters = _split_incoherent_clusters(clusters)
-
     # Log cluster distribution
     multi = [c for c in clusters if len(c) > 1]
     single = [c for c in clusters if len(c) == 1]
@@ -537,39 +424,6 @@ def cluster_articles(articles: list[dict], anthropic_key: str) -> list[list[dict
 
     return clusters
 
-
-def _split_incoherent_clusters(clusters: list[list[dict]]) -> list[list[dict]]:
-    """Post-clustering coherence backstop: split clusters that fail named-entity coherence.
-
-    At least one named entity (capitalised non-initial word from the headline)
-    must appear in ≥ 2 articles. Clusters where all entity sets are empty are
-    exempt — we cannot determine incoherence from entities alone.
-
-    Failures are split into singletons and logged to stderr as [SPLIT].
-    """
-    result = []
-
-    for cluster in clusters:
-        if len(cluster) <= 1:
-            result.append(cluster)
-            continue
-
-        entity_sets = [_extract_named_entities(a["title"]) for a in cluster]
-        if not all(not s for s in entity_sets):
-            # At least one article has named entities — validate coherence.
-            entity_counts: Counter = Counter()
-            for s in entity_sets:
-                entity_counts.update(s)
-            if not any(count >= 2 for count in entity_counts.values()):
-                headlines = " | ".join(a["title"][:45] for a in cluster)
-                print(f"  [SPLIT] No shared entity → {len(cluster)} singletons: {headlines}",
-                      file=sys.stderr)
-                result.extend([[a] for a in cluster])
-                continue
-
-        result.append(cluster)
-
-    return result
 
 
 def _extract_partial_reviews(raw: str) -> list[dict]:

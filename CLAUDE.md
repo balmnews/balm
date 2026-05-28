@@ -205,8 +205,9 @@ Sources are fetched per run from three API sources and twelve RSS feeds. Target 
 | WSJ Markets | `feeds.content.dowjones.io/public/rss/mw_realtimeheadlines` | Financial and markets coverage |
 | BBC News | `feeds.bbci.co.uk/news/rss.xml` | International perspective; widely considered editorially neutral |
 | BBC World | `feeds.bbci.co.uk/news/world/rss.xml` | International stories from BBC |
-| Reuters Politics | `feeds.reuters.com/reuters/politicsNews` | Wire-service political coverage; highly authoritative, low framing |
-| Reuters Domestic | `feeds.reuters.com/reuters/domesticNews` | Wire-service domestic US coverage; fills the gap left by API sources |
+| Reuters Top News | `feeds.reuters.com/reuters/topNews` | Wire-service general coverage; highly authoritative, low framing |
+| Reuters Domestic | `feeds.reuters.com/Reuters/domesticNews` | Wire-service domestic US coverage; fills the gap left by API sources |
+| Reuters Politics | `feeds.reuters.com/Reuters/politicsNews` | Wire-service political coverage |
 | NPR News | `feeds.npr.org/1001/rss.xml` | Public media; domestic coverage with different editorial priorities than commercial outlets |
 | PBS NewsHour | `www.pbs.org/newshour/feeds/rss/headlines` | Public media; adds domestic depth and often covers stories commercial outlets skip |
 | Guardian Environment | `www.theguardian.com/environment/rss` | Dedicated climate and environment feed; improves NATURAL EVENTS and SCIENCE & HEALTH coverage |
@@ -237,15 +238,9 @@ After exact-duplicate removal, `cluster_articles()` groups articles by story usi
 
 **Cost note:** clustering adds one additional Claude API call per pipeline run. At ~150 articles × ~100 tokens each the input is roughly 15,000 tokens; output is a compact JSON array of integers. Total cost is modest compared to the synthesis call.
 
-### Post-clustering coherence backstop
-
-After `cluster_articles()` returns, `_split_incoherent_clusters()` inspects every multi-article cluster as a lightweight sanity check. `_extract_named_entities(title)` collects capitalised non-initial words (a proxy for proper nouns) from each headline. If at least one article has named entities and no entity is shared by two or more articles, the cluster is split into singletons and logged to stderr as `[SPLIT]`.
-
-Clusters where all entity sets are empty are exempt — we cannot determine incoherence from entities alone. This backstop is a safety net for clear errors; Claude's own clustering judgment is the primary mechanism.
-
 ### Claude editorial review
 
-After `_split_incoherent_clusters()`, a second lightweight Claude call (`editorial_review()`) reviews all cluster titles. Claude can approve clusters (no action), split a cluster into singletons, or request that two clusters be merged. The prompt instructs Claude to approve the vast majority of clusters and only act on clear errors.
+A second lightweight Claude call (`editorial_review()`) reviews all cluster titles after `cluster_articles()` returns. Claude can approve clusters (no action), split a cluster into singletons, or request that two clusters be merged. The prompt instructs Claude to approve the vast majority of clusters and only act on clear errors.
 
 `editorial_review()` is non-blocking: if the call fails or returns invalid JSON, a partial-JSON recovery attempt runs (`_extract_partial_reviews()`), and if that also fails the original clusters are returned unchanged.
 
@@ -273,7 +268,8 @@ In the digest HTML, this array is rendered as a collapsible sources toggle benea
 ### Known limitations and future improvements
 
 - **Claude context window.** At ~150 articles the clustering prompt is well within Claude's context. If the article pool grows substantially (300+), the prompt may need to be chunked into two passes with a merge step.
-- **Cluster size is unbounded.** A very large cluster (8+ articles) may indicate over-merging. The named-entity backstop and editorial review catch some cases, but the synthesis prompt itself also handles large clusters — Claude is instructed to identify high-confidence vs. uncertain facts across all sources.
+- **Cluster size is unbounded.** A very large cluster (8+ articles) may indicate over-merging. The editorial review step catches some cases, and the synthesis prompt instructs Claude to identify high-confidence vs. uncertain facts across all sources.
+- **Reuters RSS availability.** Reuters has restricted or moved RSS endpoints multiple times. If the three Reuters feeds return 0 articles, Reuters may have discontinued free RSS access entirely and would need to be replaced with a paid API source.
 
 ### Logging
 
@@ -281,7 +277,6 @@ Steps 3 and 4 of the pipeline log report cluster structure:
 
 ```
 [3/11] Clustering articles by story (Claude semantic clustering)...
-  [SPLIT] No shared entity → 2 singletons: China mine explosion kills 20 | Pakist...
   Clustering: 134 articles → 58 clusters (14 multi-source, 44 single-source, 76 merges)
     [4 sources] The New York Times · Fox News · BBC News · The Guardian
       Ukraine ceasefire talks stall | Russia dismisses Western | Kyiv rejects terms
