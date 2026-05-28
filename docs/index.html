@@ -422,6 +422,60 @@
     }
 
     .kofi-link:hover { background: #ebe5db; text-decoration: none; }
+
+    /* Dynamic story length variants */
+    .article-long .article-headline { font-size: 1.35rem; }
+    .article-short .article-headline { font-size: 1.05rem; }
+
+    /* Top stories navigation panel */
+    .top-stories {
+      background: #ebe5db;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .top-stories-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .top-story-item {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.6rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .top-story-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .top-story-link {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      color: var(--ink);
+      text-decoration: none;
+      line-height: 1.3;
+    }
+
+    .top-story-link:hover { color: var(--accent); text-decoration: none; }
+
+    .top-story-reason {
+      font-size: 0.78rem;
+      color: var(--secondary);
+      font-style: italic;
+      margin-top: 0.15rem;
+    }
   </style>
 </head>
 <body>
@@ -604,20 +658,60 @@
     <!-- Audio player -->
     
 
+    <!-- Top stories navigation -->
+    
+    <div class="top-stories">
+      <div class="top-stories-heading">Today's top stories</div>
+      
+      
+      
+      <div class="top-story-item">
+        <a class="top-story-link" href="#story_0">U.S. and Iran Exchange Strikes as Negotiations Continue</a>
+        <span class="top-story-reason">Active military exchanges between the U.S. and Iran represent a major escalation with broad geopolitical and economic consequences.</span>
+      </div>
+      
+      
+      
+      
+      <div class="top-story-item">
+        <a class="top-story-link" href="#story_4">Pentagon Plans to Reduce U.S. Military Contributions to NATO by Up to Half</a>
+        <span class="top-story-reason">A potential halving of U.S. contributions to NATO would fundamentally reshape the Western alliance and global security arrangements.</span>
+      </div>
+      
+      
+      
+      
+      <div class="top-story-item">
+        <a class="top-story-link" href="#story_7">U.S. Inflation Rising at Fastest Pace in Years, Federal Reserve Weighs Response</a>
+        <span class="top-story-reason">Accelerating U.S. inflation directly affects household finances and Federal Reserve policy decisions that ripple across the economy.</span>
+      </div>
+      
+      
+      
+      
+      <div class="top-story-item">
+        <a class="top-story-link" href="#story_15">Ebola Outbreak in Congo Surpasses 1,000 Cases; Uganda Closes Border</a>
+        <span class="top-story-reason">An Ebola outbreak exceeding 1,000 cases with border closures signals a serious regional public health emergency with potential for wider spread.</span>
+      </div>
+      
+      
+    </div>
+    
+
     <!-- Stories -->
     
       
         <div class="section-header">GEOPOLITICS</div>
         
-        <div class="article">
-          <h2 class="article-headline">U.S. and Iran Exchange Military Strikes as Ceasefire and Negotiations Remain Fragile</h2>
+        <div class="article article-long" id="story_0">
+          <h2 class="article-headline">U.S. and Iran Exchange Strikes as Negotiations Continue</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
             <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
           </div>
           <div class="summary-text">
-            <span class="summary-brief"><span>The United States conducted a second round of strikes on military sites in Iran within three days, and Iran's Revolutionary Guards said they responded by targeting an unspecified U.S. base. The exchanges are occurring during a fragile ceasefire and ongoing negotiations aimed at ending a conflict now in its third month.</span></span>
-            <span class="summary-full"><span>The United States carried out strikes on military sites in southern Iran for the second time in three days, with U.S. officials describing the action as self-defense, including against four one-way attack drones launched by Iran. Iran's Revolutionary Guards subsequently said they had targeted an unspecified American base, and the U.S. military reported that Iran had launched a ballistic missile in the direction of Kuwait. Both rounds of strikes are unfolding during what has been described as a fragile ceasefire, alongside ongoing diplomatic negotiations to end a conflict that began roughly three months ago. The simultaneous military exchanges and peace talks have created significant uncertainty about the trajectory of the situation. On the economic front, the conflict has contributed to rising inflation in the United States. The Federal Reserve's preferred inflation measure, the Personal Consumption Expenditures price index, rose 3.8 percent in April compared with the same period a year earlier — the highest level since May 2023 — with the Iran conflict cited as a contributing factor. Separately, diplomatic signals remain mixed. President Trump has suggested that countries should be required to recognize Israel as part of any broader deal, a proposal analysts described as having little prospect of broad acceptance. There are also reports that nuclear-related negotiations involve unusual back-channel communications. The situation continues to evolve, and accounts of specific military targets and casualties differ across reporting.</span></span>
+            <span class="summary-brief"><span>The U.S. military conducted strikes on Iranian targets for the second time in three days, and Iran subsequently launched a ballistic missile toward Kuwait, which it described as retaliation against a U.S. base. The exchanges occur during a fragile ceasefire and ongoing negotiations to end the conflict.</span></span>
+            <span class="summary-full"><span>The United States conducted a second round of strikes on military targets in Iran within a three-day period, with U.S. officials describing the action as self-defense. Among the stated targets were four one-way attack drones launched by Iran. In response, Iran's Revolutionary Guards said they had targeted an unspecified U.S. base, and the U.S. military reported that Iran had launched a ballistic missile toward Kuwait. The exchanges are taking place against the backdrop of a fragile ceasefire and ongoing diplomatic negotiations aimed at ending a conflict that has now stretched three months. The continued military activity raises questions about the durability of any negotiated settlement, with analysts noting the difficulty of sustaining talks while both sides are conducting strikes.</span></span>
           </div>
           
           <div class="sources-toggle">
@@ -627,52 +721,32 @@
             <ul class="sources-list">
               
               <li>
-                <a href="https://www.theguardian.com/world/live/2026/may/28/middle-east-crisis-trump-us-iran-war-lebanon-israel-strikes-latest-news-live" target="_blank" rel="noopener">
-                  The Guardian
-                </a>
-              </li>
-              
-              <li>
                 <a href="https://www.nytimes.com/live/2026/05/28/world/iran-war-us-trump-deal" target="_blank" rel="noopener">
                   The New York Times
                 </a>
               </li>
               
-              <li>
-                <a href="https://www.nytimes.com/2026/05/28/business/inflation-pce-gauge.html" target="_blank" rel="noopener">
-                  The New York Times
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/05/27/world/middleeast/military-strikes-southern-iran.html" target="_blank" rel="noopener">
-                  The New York Times
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/us/iran-issues-blunt-nuclear-ultimatum-tensions-spike-trump-more-top-headlines" target="_blank" rel="noopener">
-                  Fox News
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/us-ally-pledges-support-trumps-push-break-irans-grip-hormuz-we-ready-contribute" target="_blank" rel="noopener">
-                  Fox News World
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/iran-houthi-terror-proxy-facing-red-sea-threat-from-pro-us-african-nation" target="_blank" rel="noopener">
-                  Fox News World
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/designated-target-mojtaba-khamenei-sign-trump-deal-unprecedented-courier-setup-" target="_blank" rel="noopener">
-                  Fox News World
-                </a>
-              </li>
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="article article-medium" id="story_1">
+          <h2 class="article-headline">Iran Claims Strike on U.S. Base Following Fresh American Military Action</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>Iran said it targeted an American military base after the U.S. conducted new strikes on Iranian territory, the latest exchange in a conflict that has continued despite an active ceasefire and peace negotiations.</span></span>
+            <span class="summary-full"><span>Iran announced it had struck an American military base in retaliation after the United States carried out additional military strikes on Iran. The exchange represents one of several rounds of reciprocal military action occurring even as a ceasefire agreement nominally remains in place and both sides participate in negotiations toward a broader resolution. The ongoing hostilities have raised concern among regional allies and international observers about whether talks can succeed while active strikes continue. The situation remains fluid, and the full scope of damage or casualties from the exchanges has not been confirmed.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
               
               <li>
                 <a href="https://www.bbc.com/news/articles/c98r2qy5809o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
@@ -686,26 +760,20 @@
                 </a>
               </li>
               
-              <li>
-                <a href="https://www.npr.org/2026/05/28/g-s1-124621/up-first-newsletter-iran-lebanon-israel-us-war-ebola-congo-food-insecurity-google-polymarket" target="_blank" rel="noopener">
-                  NPR News
-                </a>
-              </li>
-              
             </ul>
           </div>
           
         </div>
         
-        <div class="article">
-          <h2 class="article-headline">Israel Issues Large-Scale Evacuation Orders for Southern Lebanon, Strikes Beirut</h2>
+        <div class="article article-long" id="story_2">
+          <h2 class="article-headline">Israel Conducts Strike on Beirut; Tells Southern Lebanon Residents to Evacuate</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
             <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
           </div>
           <div class="summary-text">
-            <span class="summary-brief"><span>The Israeli military has ordered residents to evacuate approximately 17 percent of Lebanon's territory in the south and carried out strikes on Beirut and southern Lebanon. The warnings mark the first such orders since a ceasefire between Israel and Hezbollah took effect on April 17.</span></span>
-            <span class="summary-full"><span>The Israeli military issued evacuation orders covering a substantial portion of southern Lebanon, telling residents to leave roughly 17 percent of the country's territory. Strikes followed on Beirut and areas in the south. The orders represent the first directive for Lebanese residents to relocate from that region since a ceasefire between Israel and Hezbollah went into effect on April 17, and they signal a significant escalation in the Israel-Hezbollah conflict. The situation has direct implications for regional stability and for U.S. policy in the Middle East, as American diplomatic efforts in the broader region remain active. The Israeli military said it is actively fighting Hezbollah in the south, and the scope of the evacuation orders underscores the scale of that campaign.</span></span>
+            <span class="summary-brief"><span>Israel carried out what it described as a targeted strike on the Lebanese capital, Beirut, which had largely been spared from direct strikes during the current conflict. Separately, the Israeli military issued its first order since a ceasefire in April for residents across southern Lebanon to relocate, citing renewed fighting with Hezbollah.</span></span>
+            <span class="summary-full"><span>Israel conducted a strike on Beirut, which officials described as targeted, marking a significant escalation as the Lebanese capital had until now largely avoided direct attacks during the conflict. Both Israel and Hezbollah have accused each other of violating a ceasefire that went into effect in April. In a separate development on the same day, the Israeli military issued warnings telling residents across southern Lebanon to leave their areas, the first such order since the April ceasefire. The warnings signal a broadening of Israeli ground and air operations against Hezbollah positions in the south. The ceasefire, which had been in place for several weeks, appears increasingly strained.</span></span>
           </div>
           
           <div class="sources-toggle">
@@ -715,14 +783,14 @@
             <ul class="sources-list">
               
               <li>
-                <a href="https://www.bbc.com/news/articles/cj3pgrpmlklo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
-                  BBC World
+                <a href="https://www.bbc.com/news/articles/cgqpjwdv7xeo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+                  BBC News
                 </a>
               </li>
               
               <li>
-                <a href="https://www.pbs.org/newshour/world/israeli-military-tells-residents-across-southern-lebanon-to-leave-as-it-fights-hezbollah" target="_blank" rel="noopener">
-                  PBS NewsHour
+                <a href="https://www.bbc.com/news/articles/cgqpjwdv7xeo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+                  BBC World
                 </a>
               </li>
               
@@ -731,15 +799,15 @@
           
         </div>
         
-        <div class="article">
-          <h2 class="article-headline">Israel Kills Hamas Military Wing Leader in Gaza Airstrike</h2>
+        <div class="article article-medium" id="story_3">
+          <h2 class="article-headline">Hamas Confirms Israeli Strike Killed Its New Military Leader in Gaza</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
             <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
           </div>
           <div class="summary-text">
-            <span class="summary-brief"><span>Israeli forces killed the leader of Hamas's military wing in an airstrike in northern Gaza, a death Hamas itself confirmed. The strike also killed at least seven other people in Gaza City.</span></span>
-            <span class="summary-full"><span>The Israel Defense Forces conducted an airstrike in northern Gaza that killed the newly appointed head of Hamas's military wing, a development Hamas confirmed publicly. At least seven people were killed in Gaza City in the same round of strikes. The death comes less than two weeks after the previous leader of Hamas's military wing was also killed in an Israeli strike, reflecting an intensified Israeli targeting campaign against Hamas leadership. The ongoing military operations in Gaza continue to draw international attention and remain central to broader diplomatic efforts in the region, including ceasefire negotiations in which the United States has been involved.</span></span>
+            <span class="summary-brief"><span>Hamas confirmed that Israeli airstrikes killed the leader of its military wing in Gaza City, less than two weeks after his predecessor was also killed in a strike. At least seven people died in the strikes.</span></span>
+            <span class="summary-full"><span>Hamas confirmed that Israeli airstrikes killed Mohammed Odeh, who had recently become the head of the organization's military wing in Gaza. His death came less than two weeks after the previous military leader was also killed in an Israeli strike. According to available accounts, at least seven people died in the strikes on Gaza City. The Israel Defense Forces confirmed the operation. The back-to-back killings of Hamas's top military commanders represent a significant development in Israel's ongoing campaign in Gaza, though analysts note that both leaders were appointed as replacements relatively recently, suggesting the organization has continued to function despite sustained losses in senior leadership.</span></span>
           </div>
           
           <div class="sources-toggle">
@@ -765,71 +833,15 @@
           
         </div>
         
-        <div class="article">
-          <h2 class="article-headline">Trump Calls for Expanding Abraham Accords as Part of Iran Deal Framework; Analysts Express Skepticism</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>President Trump has proposed that additional countries be required to recognize Israel as part of a broader agreement to end the conflict with Iran. Analysts described the likelihood of that outcome as very low.</span></span>
-            <span class="summary-full"><span>President Trump has called for expanding the Abraham Accords — the agreements under which several Arab states normalized relations with Israel — as a condition tied to resolving the current conflict with Iran. According to analysts and regional observers, the chances of that framework gaining acceptance in the current environment are considered very small. Several governments in the region have expressed confusion or skepticism about the proposal, given the ongoing military situation and the broader diplomatic complexity of the moment. The call adds another variable to already complicated negotiations, which simultaneously involve questions of nuclear activity, military strikes, and ceasefire terms.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
-            </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/05/28/world/middleeast/trump-abraham-accords.html" target="_blank" rel="noopener">
-                  The New York Times
-                </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Guatemala and U.S. Agree to Joint Military Operations Against Drug Organizations</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Guatemala has agreed to allow joint strikes with the United States against drug organizations operating within its territory. The arrangement is part of a broader Trump administration effort to secure similar agreements with Latin American governments.</span></span>
-            <span class="summary-full"><span>The United States and Guatemala have reached an agreement permitting joint military operations inside Guatemalan borders targeting drug organizations. The deal is one of several the Trump administration has been pursuing with Latin American governments as part of a regional counternarcotics strategy. The agreements involve U.S. military participation in operations that would take place on foreign soil, a significant shift in the scope of American involvement in the region. Details about specific operational parameters were not fully disclosed in available reporting.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
-            </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/05/28/world/americas/guatemala-us-joint-strikes.html" target="_blank" rel="noopener">
-                  The New York Times
-                </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article">
+        <div class="article article-medium" id="story_4">
           <h2 class="article-headline">Pentagon Plans to Reduce U.S. Military Contributions to NATO by Up to Half</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
             <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
           </div>
           <div class="summary-text">
-            <span class="summary-brief"><span>The Pentagon has informed NATO allies that it plans to cut American military commitments to the alliance by between one-third and one-half. The move is part of the Trump administration's push for European member states to take on greater responsibility for their own defense.</span></span>
-            <span class="summary-full"><span>The U.S. Department of Defense has communicated to NATO allies that it intends to reduce American military contributions to the alliance significantly — by an estimated one-third to one-half, according to available reporting. The announcement is consistent with the Trump administration's broader position that European nations should bear more of the cost and operational burden of their own collective defense. The reduction in U.S. commitments would represent a substantial structural change in how NATO has operated for decades, with implications for the alliance's readiness and for the individual defense planning of member states. The timing comes as European governments have already been accelerating defense spending in response to the war in Ukraine and shifting U.S. policy signals.</span></span>
+            <span class="summary-brief"><span>The Pentagon has informed NATO allies that it intends to cut U.S. combat commitments to the alliance by between one-third and one-half, as the Trump administration presses European member states to take on greater responsibility for their own defense.</span></span>
+            <span class="summary-full"><span>The Pentagon has communicated to NATO allies that it plans to substantially reduce the U.S. military's contributions to the alliance's collective defense commitments, with reductions ranging from one-third to one-half of current levels. The move is part of a broader Trump administration push for European nations to increase their own defense spending and capabilities rather than relying on American forces. The announcement follows years of U.S. pressure on NATO members to meet defense spending targets. The scale of the proposed reduction, if implemented, would represent a significant restructuring of the trans-Atlantic security arrangement that has been in place since the alliance's founding.</span></span>
           </div>
           
           <div class="sources-toggle">
@@ -849,20 +861,424 @@
           
         </div>
         
-      
-    
-      
-        <div class="section-header">ECONOMY</div>
-        
-        <div class="article">
-          <h2 class="article-headline">European Union Fines Chinese E-Commerce Platform Temu €200 Million Over Sale of Unsafe Products</h2>
+        <div class="article article-medium" id="story_5">
+          <h2 class="article-headline">Guatemala Agrees to Allow Joint U.S.-Guatemalan Military Operations Against Drug Gangs</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
             <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
           </div>
           <div class="summary-text">
-            <span class="summary-brief"><span>The European Commission has fined the Chinese-owned online retailer Temu approximately 200 million euros — over 230 million U.S. dollars — for failing to prevent the sale of illegal and dangerous products on its platform. Investigators found that shoppers were very likely to encounter unsafe items, including baby toys and defective chargers.</span></span>
-            <span class="summary-full"><span>The European Commission issued a penalty of 200 million euros, equivalent to more than 230 million U.S. dollars, against Temu, the Chinese-owned e-commerce platform widely used by American and European consumers. The fine follows a finding that Temu failed to adequately address risks posed by products listed on its platform, including baby toys and faulty chargers that regulators determined could harm consumers. The Commission described the platform's failure to account for the safety risks of items sold through its marketplace as a violation of European digital commerce rules. The action is part of a broader European regulatory effort to hold large online platforms accountable for the safety of third-party goods sold through their services. Temu has become one of the highest-traffic shopping platforms globally in recent years, and the fine represents one of the largest penalties issued under the EU's digital marketplace framework.</span></span>
+            <span class="summary-brief"><span>Guatemala has agreed to permit joint military strikes with the United States against drug trafficking organizations operating inside Guatemalan territory, as part of a broader Trump administration effort to secure similar agreements across Latin America.</span></span>
+            <span class="summary-full"><span>Guatemala has reached an agreement with the United States to allow joint military operations against drug gangs within its borders. The arrangement is part of a wider campaign by the Trump administration to persuade Latin American governments to formally authorize U.S. forces to participate in counter-narcotics operations on their soil. Such agreements raise questions about national sovereignty and the legal frameworks governing foreign military presence, though Guatemalan officials have agreed to the terms. The deal reflects an escalation in the administration's approach to drug trafficking from Central America, which has been linked to migration flows into the United States.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li>
+                <a href="https://www.nytimes.com/2026/05/28/world/americas/guatemala-us-joint-strikes.html" target="_blank" rel="noopener">
+                  The New York Times
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+      
+    
+      
+        <div class="section-header">DOMESTIC POLICY</div>
+        
+        <div class="article article-medium" id="story_9">
+          <h2 class="article-headline">Justice Department Opens Investigation into E. Jean Carroll Over Lawsuit Funding</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>The U.S. Justice Department has opened a criminal investigation into E. Jean Carroll, the writer who won civil judgments against President Trump for sexual abuse and defamation. The investigation reportedly focuses on whether Carroll made false statements about the funding she received for her civil lawsuit.</span></span>
+            <span class="summary-full"><span>The U.S. Justice Department has launched a criminal investigation into E. Jean Carroll, according to multiple reports. Carroll previously won civil lawsuits against President Trump on claims of sexual abuse and defamation. The current investigation centers on allegations that Carroll may have provided inaccurate information about the sources of funding for her civil legal actions against the president. The inquiry is the latest in a series of federal investigations opened by the current Justice Department into individuals who have been involved in legal or political disputes with President Trump. Carroll has not been charged, and investigations do not necessarily result in charges. The pattern of investigations into perceived adversaries has drawn scrutiny from legal analysts and members of Congress.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li>
+                <a href="https://www.bbc.com/news/articles/clyp77jd407o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+                  BBC World
+                </a>
+              </li>
+              
+              <li>
+                <a href="https://www.pbs.org/newshour/politics/ap-report-justice-department-opens-investigation-into-e-jean-carroll-who-successfully-sued-trump-for-sexual-abuse-and-defamation" target="_blank" rel="noopener">
+                  PBS NewsHour
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="article article-medium" id="story_10">
+          <h2 class="article-headline">Federal Judge Declines to Block Trump Executive Order on Mail-In Voting</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>A federal judge in Washington, D.C., has declined to issue a temporary block on President Trump's executive order calling for restrictions on mail-in voting. The ruling allows the order to remain in effect while legal challenges proceed, and at least one other judge may issue a separate ruling.</span></span>
+            <span class="summary-full"><span>A federal district court judge in Washington, D.C., declined to temporarily block a Trump administration executive order that calls for restricting mail-in voting. The decision allows the order to remain operative while broader legal challenges to it continue through the courts. Multiple lawsuits have been filed challenging the order, and at least one additional judge is expected to rule on a related request in the near term. Mail-in voting has been the subject of recurring political and legal conflict, with supporters arguing it expands access to the ballot and opponents contending it creates risks of fraud. The executive order's specific requirements and how they would interact with state-level voting laws remain subject to ongoing litigation.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li>
+                <a href="https://www.npr.org/2026/05/28/nx-s1-5797889/trump-mail-in-voting-order" target="_blank" rel="noopener">
+                  NPR News
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="article article-medium" id="story_11">
+          <h2 class="article-headline">Alabama Congressional Map Dispute Returns to the Supreme Court</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>A congressional redistricting dispute involving Alabama's legislative map has returned to the Supreme Court. Alabama is asking the court to allow the use of a map that a lower court struck down as racially discriminatory, while Justice Clarence Thomas has ordered voting rights groups to respond to Alabama's emergency request.</span></span>
+            <span class="summary-full"><span>The long-running Alabama congressional redistricting case has returned to the Supreme Court, with Alabama urging the justices to permit the use of a congressional map that a lower court found to be racially discriminatory under the Voting Rights Act. Justice Clarence Thomas issued an order requiring voting rights organizations that have opposed the map to file a response, setting a deadline for the next phase of the emergency proceeding. The case centers on whether Alabama's map adequately represents Black voters in the state, an issue the Supreme Court has addressed in prior terms. The outcome could affect the composition of Alabama's congressional delegation and has broader implications for how the Voting Rights Act is applied to redistricting disputes nationwide.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li>
+                <a href="https://www.scotusblog.com/2026/05/alabama-redistricting-dispute-returns-to-the-supreme-court/" target="_blank" rel="noopener">
+                  SCOTUSblog
+                </a>
+              </li>
+              
+              <li>
+                <a href="https://www.scotusblog.com/2026/05/alabama-urges-supreme-court-to-allow-for-use-of-congressional-map-struck-by-lower-court-as-racia/" target="_blank" rel="noopener">
+                  SCOTUSblog
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="article article-medium" id="story_12">
+          <h2 class="article-headline">Texas Senate Race Takes Shape as Paxton Defeats Cornyn in Primary</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>Ken Paxton secured the Republican nomination for a Texas U.S. Senate seat by defeating incumbent Senator John Cornyn in the primary, setting up a fall general election against Democratic nominee James Talarico. The contest is expected to be one of the most closely watched Senate races of the cycle.</span></span>
+            <span class="summary-full"><span>Ken Paxton won the Republican primary for the Texas U.S. Senate seat, defeating incumbent Senator John Cornyn in what was described as a landslide, with the race viewed as a demonstration of President Trump's continued influence in the state. Paxton, the former Texas attorney general, will face Democratic nominee James Talarico in the November general election. Talarico held a campaign rally in Houston and has characterized Texas's election laws as constituting voter suppression, while pledging to out-organize his Republican opponent. Sources diverge on framing: one source describes Talarico's campaign posture in more critical terms, while another presents it as a standard electoral strategy argument. The Texas Senate race is widely considered one of the higher-stakes contests of the 2026 cycle, given the state's shifting demographics and the national attention both campaigns are drawing.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li>
+                <a href="https://www.nytimes.com/2026/05/28/us/politics/ken-paxton-james-talarico-texas-senate-race.html" target="_blank" rel="noopener">
+                  The New York Times
+                </a>
+              </li>
+              
+              <li>
+                <a href="https://www.foxnews.com/politics/talarico-makes-stunning-claim-about-why-he-thinks-texas-elections-arent-free-fair" target="_blank" rel="noopener">
+                  Fox News Politics
+                </a>
+              </li>
+              
+              <li>
+                <a href="https://www.pbs.org/newshour/show/paxtons-win-over-cornyn-sets-up-high-stakes-texas-clash-with-talarico" target="_blank" rel="noopener">
+                  PBS NewsHour
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="article article-medium" id="story_13">
+          <h2 class="article-headline">Clashes Occur Outside Newark ICE Detention Facility; Democratic Lawmakers Raise Conditions Concerns</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>Physical confrontations occurred outside Delaney Hall, an ICE detention facility in Newark, New Jersey, with federal agents and protesters involved in exchanges that included thrown objects and the use of crowd control measures. Democratic lawmakers have separately raised concerns about conditions inside the facility.</span></span>
+            <span class="summary-full"><span>Clashes broke out outside the Delaney Hall immigration detention center in Newark, New Jersey, with demonstrators and federal agents in direct confrontation. Accounts indicate that objects were thrown at federal officers, who responded with pepper balls and batons. Democratic lawmakers who visited the facility alleged overcrowding and inadequate conditions for detainees inside. President Trump characterized the protesters as paid participants, a claim the sources do not independently verify. The incident is one of several recent confrontations at immigration detention facilities as the administration's enforcement operations have intensified. The conditions inside the facility as described by lawmakers and the administration differ significantly, and neither characterization has been independently confirmed in the available source material.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li>
+                <a href="https://www.foxnews.com/us/anti-ice-agitators-throw-wooden-pallets-mattresses-federal-agents-chaotic-nj-detention-center-clash" target="_blank" rel="noopener">
+                  Fox News
+                </a>
+              </li>
+              
+              <li>
+                <a href="https://www.foxnews.com/politics/trump-says-delaney-hall-protesters-paid-clashes-escalate-outside-nj-ice-facility" target="_blank" rel="noopener">
+                  Fox News Politics
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="article article-medium" id="story_14">
+          <h2 class="article-headline">Trump's Proposed Gas Tax Holiday Would Save Drivers Money but Strain Road Funding</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>A proposed federal gasoline tax holiday under consideration by the Trump administration would reduce pump prices by up to 18.4 cents per gallon but would deprive the Highway Trust Fund of revenue it uses to pay for road construction and repairs — a fund that analysts say is already financially strained.</span></span>
+            <span class="summary-full"><span>President Trump has proposed suspending the federal gasoline tax, which currently adds up to 18.4 cents per gallon to the price drivers pay at the pump. While the suspension would provide immediate savings to consumers at a time of elevated fuel costs, it would also divert revenue away from the federal Highway Trust Fund, which finances road construction and maintenance across the country. Transportation analysts note that the fund is already facing a structural shortfall, with projected spending exceeding revenues in the coming years. A temporary tax holiday would accelerate that gap. The proposal would require congressional action to implement and has not yet advanced through the legislative process.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li>
+                <a href="https://www.npr.org/2026/05/28/nx-s1-5835634/gasoline-tax-holiday-trump-potholes" target="_blank" rel="noopener">
+                  NPR News
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+      
+    
+      
+        <div class="section-header">SCIENCE & HEALTH</div>
+        
+        <div class="article article-long" id="story_15">
+          <h2 class="article-headline">Ebola Outbreak in Congo Surpasses 1,000 Cases; Uganda Closes Border</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>The Ebola outbreak in the Democratic Republic of Congo has exceeded 1,000 confirmed and suspected cases, with more than 220 deaths reported and no sign of the spread slowing. Uganda has closed its border with Congo in response, a step that goes against World Health Organization guidance.</span></span>
+            <span class="summary-full"><span>The Ebola outbreak in the Democratic Republic of Congo has grown to more than 1,000 cases and has killed over 220 people, with transmission continuing to accelerate. The outbreak involves the Bundibugyo strain of Ebola, a rare type for which there are no approved vaccines or treatments, complicating the response. Uganda announced the closure of its border with Congo, a measure the World Health Organization has advised against, citing concerns that border closures can impede aid workers and drive infection chains underground rather than containing them. The Trump administration has indicated that Americans who have been exposed to the virus will be sent to Kenya for monitoring rather than repatriated to the United States, departing from protocols used in previous outbreaks. Health officials continue to watch for signs of spread to neighboring countries.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li>
+                <a href="https://www.forbes.com/sites/maryroeloffs/2026/05/27/uganda-closes-border-with-congo-as-ebola-outbreak-rages-live-updates/" target="_blank" rel="noopener">
+                  Forbes
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="article article-medium" id="story_16">
+          <h2 class="article-headline">Hantavirus Cases Linked to Cruise Ship Outbreak Rise to 13</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>The World Health Organization reports that the number of hantavirus cases connected to a cruise ship outbreak has risen to 13, following a newly confirmed case in Spain among passengers under quarantine.</span></span>
+            <span class="summary-full"><span>The head of the World Health Organization announced that the total number of hantavirus cases linked to a cruise ship outbreak has increased to 13 after Spain reported a new case among passengers in quarantine. The outbreak has drawn international attention in part because hantavirus is not typically associated with person-to-person transmission or cruise ship settings, raising questions about how the cases are connected. Authorities are continuing to monitor affected passengers. Hantavirus can cause severe respiratory illness, and there is no specific approved treatment. The geographic spread of cases across multiple countries reflects the international nature of cruise ship passenger populations.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li>
+                <a href="https://www.nbcnews.com/news/us-news/hantavirus-cases-cruise-outbreak-rise-13-new-case-spain-says-rcna347074" target="_blank" rel="noopener">
+                  NBC News
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="article article-medium" id="story_17">
+          <h2 class="article-headline">Experimental Drug Shows Potential to Cure Chronic Hepatitis B in Some Patients</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>A new drug called bepirovirsen has shown the ability to functionally cure chronic hepatitis B in approximately one in five patients in clinical trial results, offering a potential new path for a condition that currently has no cure.</span></span>
+            <span class="summary-full"><span>Researchers have reported results suggesting that an experimental drug, bepirovirsen, may offer a functional cure for chronic hepatitis B in roughly one in five patients who receive it. Most people who contract hepatitis B clear the infection naturally, but those who develop chronic infection face elevated risks of liver disease and liver cancer. Current treatments suppress the virus but generally do not eliminate it. The trial results, described by at least one researcher as potentially pointing toward something curative, represent a meaningful advance for a condition that affects hundreds of millions of people worldwide, including a significant number in the United States. Larger trials will be needed to confirm the findings and assess long-term outcomes.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li>
+                <a href="https://www.nytimes.com/2026/05/28/health/hepatitis-b-chronic-bepirovirsen.html" target="_blank" rel="noopener">
+                  The New York Times
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="article article-medium" id="story_18">
+          <h2 class="article-headline">Blood Tests Now Included in U.S. Colorectal Cancer Screening Recommendations</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>The American Cancer Society has updated its colorectal cancer screening guidelines to include blood tests as an option for the first time, expanding the range of methods available to patients.</span></span>
+            <span class="summary-full"><span>The American Cancer Society has revised its guidelines for colorectal cancer screening to include blood-based tests as an approved option, marking the first time such tests have been added to the society's recommendations. Colorectal cancer is among the most common and preventable cancers in the United States, and screening rates have historically fallen short of public health targets, in part because many people find existing options — such as colonoscopies or stool-based tests — inconvenient or uncomfortable. Adding a blood test option may lower barriers to screening. The guidelines continue to recommend other established methods and note that colonoscopy remains the most comprehensive option, but the inclusion of blood tests gives patients and physicians more flexibility in choosing an approach.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li>
+                <a href="https://www.cnn.com/2026/05/27/health/blood-test-colorectal-cancer-screening-wellness" target="_blank" rel="noopener">
+                  CNN
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="article article-medium" id="story_19">
+          <h2 class="article-headline">Overall U.S. Drug Overdose Deaths Declining, but Western States Face Rising Toll</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>National data shows drug overdose deaths in the United States continuing to fall, but researchers have identified a troubling increase in fatal overdoses in several western states, even as broader access to overdose-reversing medication is credited with helping reduce the national toll.</span></span>
+            <span class="summary-full"><span>U.S. drug overdose deaths have continued to decline overall, according to new data, with researchers pointing to wider access to overdose-reversing medications and some structural improvements in addiction treatment as contributing factors. However, the national trend masks a significant divergence: several western states are experiencing a surge in overdose deaths, running counter to the broader improvement. Researchers have not yet fully characterized what is driving the regional spike, though shifts in the drug supply — including variations in the availability and composition of illicit substances — are believed to be factors. Public health officials say the regional increases underscore that the overdose crisis, while improving nationally, has not been resolved.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li>
+                <a href="https://www.npr.org/2026/05/27/nx-s1-5836300/u-s-street-drug-deaths-keep-dropping-but-some-western-states-see-deadly-overdose-surge" target="_blank" rel="noopener">
+                  NPR News
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="article article-medium" id="story_20">
+          <h2 class="article-headline">NASA Awards Contracts for First Phase of Lunar Base Construction</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>NASA has awarded hundreds of millions of dollars in contracts to four U.S. companies as part of the first phase of its planned moon base, with landers, buggies, and drones among the initial priorities.</span></span>
+            <span class="summary-full"><span>NASA has outlined the first phase of its long-term lunar base program, awarding contracts valued in the hundreds of millions of dollars to four American companies. The initial phase focuses on equipment that would enable sustained human presence on the moon's surface, including landers, surface vehicles, and drones. Separately, the agency has selected Blue Origin, the aerospace company founded by Jeff Bezos, to carry out the first of three planned uncrewed lunar missions this year, part of a broader preparation effort for a moon base projected to cost approximately twenty billion dollars over time. The contracts represent a significant acceleration of NASA's Artemis-era lunar ambitions, with multiple commercial partners involved in what the agency describes as a competitive and distributed approach to building permanent infrastructure on the moon.</span></span>
+          </div>
+          
+          <div class="sources-toggle">
+            <button class="sources-toggle-btn" aria-expanded="false">
+              <span class="sources-caret">›</span> Sources
+            </button>
+            <ul class="sources-list">
+              
+              <li>
+                <a href="https://www.npr.org/2026/05/27/nx-s1-5836209/nasa-moon-base-plans" target="_blank" rel="noopener">
+                  NPR
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        
+      
+    
+      
+        <div class="section-header">ECONOMY</div>
+        
+        <div class="article article-medium" id="story_6">
+          <h2 class="article-headline">European Union Fines Temu €200 Million Over Sales of Unsafe Products</h2>
+          <div class="summary-toggle">
+            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+          </div>
+          <div class="summary-text">
+            <span class="summary-brief"><span>The European Commission has imposed a penalty of approximately €200 million — equivalent to more than $230 million — on the Chinese e-commerce platform Temu, finding that it failed to prevent the sale of unsafe and illegal products, including dangerous baby toys and faulty chargers.</span></span>
+            <span class="summary-full"><span>The European Commission announced a fine of €200 million against Temu, the Chinese-owned online retail platform, after determining that the company had failed to adequately address risks posed by products sold on its site. Regulators found that shoppers were very likely to encounter unsafe items, with baby toys and faulty electrical chargers cited as specific examples of products that could harm consumers. The penalty is consistent with the European Union's Digital Services Act, which places responsibility on large online platforms to monitor and remove illegal or dangerous goods. Temu has faced regulatory scrutiny in multiple jurisdictions over product safety concerns. The fine is among the larger penalties imposed on an e-commerce platform under EU consumer safety rules.</span></span>
           </div>
           
           <div class="sources-toggle">
@@ -900,15 +1316,15 @@
           
         </div>
         
-        <div class="article">
-          <h2 class="article-headline">Federal Reserve Chair Says Interest Rate Cut Possible as Early as September</h2>
+        <div class="article article-medium" id="story_7">
+          <h2 class="article-headline">U.S. Inflation Rising at Fastest Pace in Years, Federal Reserve Weighs Response</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
             <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
           </div>
           <div class="summary-text">
-            <span class="summary-brief"><span>Federal Reserve Chair Jerome Powell said that a rate cut is possible as early as September, while also noting that the labor market is not currently a significant source of inflation pressure. The comments offer some of the most concrete guidance the Fed has provided on the timing of potential easing.</span></span>
-            <span class="summary-full"><span>Federal Reserve Chair Jerome Powell indicated that an interest rate cut could come as early as September, while characterizing the current labor market as not being a primary driver of inflation. The remarks represent a notable signal from the Fed at a time when inflation remains elevated — the central bank's preferred inflation measure, the Personal Consumption Expenditures index, rose 3.8 percent in April compared with a year earlier, its highest reading since May 2023. The combination of persistent inflation and the prospect of rate cuts reflects the Fed's ongoing effort to balance price stability with economic conditions. Markets and analysts are likely to watch subsequent Fed communications closely for further guidance on the pace and timing of any policy change.</span></span>
+            <span class="summary-brief"><span>Consumer prices in the United States are rising at their fastest rate in several years, according to new data. Federal Reserve officials have indicated they are open to higher interest rates to address the acceleration in price pressures.</span></span>
+            <span class="summary-full"><span>New data shows that U.S. consumer prices are increasing at the fastest pace seen in years, adding pressure on the Federal Reserve to respond. Officials at the central bank have indicated that higher interest rates remain a possibility as they seek to bring inflation under control. The data reflects ongoing pressures from several factors, including trade policy and supply chain dynamics. Separately, Federal Reserve Chair Jerome Powell stated publicly that the labor market is not currently a significant source of inflation pressure, and that a rate cut could be considered as early as September if conditions warrant — signaling that the Fed is attempting to balance anti-inflation measures against the risk of slowing economic growth.</span></span>
           </div>
           
           <div class="sources-toggle">
@@ -918,14 +1334,8 @@
             <ul class="sources-list">
               
               <li>
-                <a href="https://www.marketwatch.com/story/powell-says-labor-market-not-a-source-of-significant-inflation-pressure-cc3b1297?mod=mw_rss_realtimeheadlines" target="_blank" rel="noopener">
-                  WSJ Markets
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.marketwatch.com/story/feds-powell-says-rate-cut-on-the-table-as-soon-as-september-f3f7c8f2?mod=mw_rss_realtimeheadlines" target="_blank" rel="noopener">
-                  WSJ Markets
+                <a href="https://www.nytimes.com/2026/05/28/business/inflation-pce-gauge.html" target="_blank" rel="noopener">
+                  The New York Times
                 </a>
               </li>
               
@@ -934,15 +1344,15 @@
           
         </div>
         
-        <div class="article">
-          <h2 class="article-headline">Report Finds Nearly Half of U.S. Households Did Not Earn Enough to Cover Basic Needs in 2024</h2>
+        <div class="article article-medium" id="story_8">
+          <h2 class="article-headline">Report: Nearly Half of U.S. Households Could Not Cover Basic Necessities in 2024</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
             <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
           </div>
           <div class="summary-text">
-            <span class="summary-brief"><span>A report found that in 2024, close to half of all U.S. households earned less than what was required to cover essential expenses. The findings highlight the extent to which cost-of-living pressures have strained household finances.</span></span>
-            <span class="summary-full"><span>A new affordability report found that in 2024, nearly half of American households did not earn enough income to meet the cost of basic necessities. The analysis draws attention to the gap between wages and the rising cost of essentials, a gap that has widened as inflation has elevated prices for housing, food, energy, and other core expenses over the past several years. The findings come as policymakers and economists debate the pace of inflation relief and the adequacy of wages for lower- and middle-income families. The report's framing of household financial fragility adds context to broader economic data showing ongoing affordability stress for a large share of the American public.</span></span>
+            <span class="summary-brief"><span>A new report finds that in 2024, close to half of all American households did not earn enough income to pay for basic necessities such as housing, food, and transportation.</span></span>
+            <span class="summary-full"><span>A report released by the Brookings Institution found that in 2024, approximately half of U.S. households lacked sufficient income to cover the cost of basic necessities. The finding highlights the gap between wage levels and the cost of essentials, which has widened significantly in recent years as inflation pushed up prices for housing, food, and utilities. The report adds to a growing body of data showing financial fragility among a substantial share of the American population, even as headline unemployment figures have remained relatively low. Analysts note that the measure of necessity coverage is distinct from poverty rates, capturing a broader segment of households that are employed but struggling to meet core expenses.</span></span>
           </div>
           
           <div class="sources-toggle">
@@ -965,220 +1375,6 @@
       
     
       
-        <div class="section-header">DOMESTIC POLICY</div>
-        
-        <div class="article">
-          <h2 class="article-headline">Alabama Asks Supreme Court to Allow Use of Congressional Map Found Racially Discriminatory by Lower Court</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Alabama has asked the Supreme Court to permit the use of a congressional district map that a lower court struck down on the grounds that it was racially discriminatory. The case raises questions about the application of the Voting Rights Act and equal protection law.</span></span>
-            <span class="summary-full"><span>Alabama has filed an emergency request with the U.S. Supreme Court asking it to allow the state to use a congressional district map that a lower federal court found violated the Voting Rights Act by being racially discriminatory. The case has drawn significant legal attention, with analysts examining how recent Supreme Court decisions may have altered the legal framework for challenging district maps under the Voting Rights Act. Legal commentary has noted that the case touches on the intersection of equal protection doctrine and voting rights protections, with implications that could extend beyond Alabama to redistricting disputes in other states. The Supreme Court's response will be closely watched given the broader implications for minority voting representation in federal elections.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
-            </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.scotusblog.com/2026/05/alabama-urges-supreme-court-to-allow-for-use-of-congressional-map-struck-by-lower-court-as-racia/" target="_blank" rel="noopener">
-                  SCOTUSblog
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.scotusblog.com/2026/05/how-callais-broke-the-voting-rights-act-and-weaponized-the-equal-protection-clause-part-1/" target="_blank" rel="noopener">
-                  SCOTUSblog
-                </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SCIENCE & HEALTH</div>
-        
-        <div class="article">
-          <h2 class="article-headline">Ebola Outbreak Spreads in Congo Amid Misinformation; Rare Strain Raises Scientific and Public Health Concerns</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>An Ebola outbreak in the Democratic Republic of Congo, caused by a rare strain called Bundibugyo for which no approved medicines or vaccines exist, is expanding while misinformation complicates containment efforts. Uganda has closed its border with Congo, and World Cup public health planners are monitoring the situation.</span></span>
-            <span class="summary-full"><span>An Ebola outbreak in the Democratic Republic of Congo is growing, driven by the Bundibugyo strain — a rare type of the virus for which there are currently no approved treatments or vaccines. Scientists note that the strains of both Ebola and hantavirus causing concern this season differ significantly from the species identified and studied decades ago, complicating the public health response. Efforts to contain the outbreak have been hampered by widespread misinformation, including false claims that the disease itself is a fabrication, which have fueled distrust of health workers and, in some areas, violence. Uganda has closed its border with Congo in response to the spread, a move that goes against World Health Organization guidance but reflects the fears of neighboring governments about cross-border contagion. The Trump administration has altered prior U.S. policy regarding Americans exposed to Ebola. In previous outbreaks, exposed U.S. citizens were returned home for treatment in specialized facilities; current policy instead involves sending some individuals to other countries, including Kenya and European nations. With the 2026 FIFA World Cup approaching and expected to draw large international crowds, public health officials are incorporating the Ebola situation into their planning, though they note that most preparations have focused on more familiar infectious disease concerns scaled to the size of the event.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
-            </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.washingtonpost.com/world/2026/05/26/ebola-conspiracies-are-rampant-outbreak-widens/" target="_blank" rel="noopener">
-                  The Washington Post
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.cnn.com/2026/05/27/health/world-cup-public-health" target="_blank" rel="noopener">
-                  CNN
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/05/27/science/ebola-hantavirus-species-strains.html" target="_blank" rel="noopener">
-                  The New York Times
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/05/26/us/politics/trump-ebola-kenya.html" target="_blank" rel="noopener">
-                  The New York Times
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/health/uganda-closes-its-border-with-congo-where-suspected-cases-of-rare-ebola-type-are-surging" target="_blank" rel="noopener">
-                  PBS NewsHour
-                </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">New Drug Shows Potential to Cure Chronic Hepatitis B in a Subset of Patients</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A new drug has shown the potential to cure chronic hepatitis B in approximately one in five patients in clinical research. Most people recover from the initial hepatitis B infection naturally, but those who develop the chronic form face serious long-term health risks.</span></span>
-            <span class="summary-full"><span>Scientists have identified a drug called bepirovirsen that may offer a functional cure for chronic hepatitis B, a condition that poses significant risks for the fraction of infected individuals whose immune systems cannot clear the virus on their own. Clinical research suggests the drug could cure roughly one in five patients with chronic hepatitis B, a meaningful advance given that existing treatments manage but generally do not eliminate the infection. Chronic hepatitis B affects hundreds of millions of people worldwide and is a leading cause of liver disease and liver cancer. Researchers described the results as pointing toward something potentially curative, though the study involved a limited number of participants and further research will be needed to confirm the findings and understand which patients are most likely to benefit.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
-            </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/05/28/health/hepatitis-b-chronic-bepirovirsen.html" target="_blank" rel="noopener">
-                  The New York Times
-                </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Single-Dose Gene-Editing Treatment Shows Sustained Reduction in LDL Cholesterol in Small Trial</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>An experimental gene-editing drug delivered as a single infusion appeared to produce lasting reductions in LDL cholesterol in a small clinical trial. Researchers said the results may indicate a path toward a one-time treatment for heart disease risk.</span></span>
-            <span class="summary-full"><span>A small clinical trial of an experimental gene-editing therapy found that a single infusion significantly reduced levels of LDL cholesterol — the type most associated with cardiovascular disease — and that the reduction appeared to be sustained over time. Researchers and experts commenting on the results described the potential implications as pointing toward a treatment that could be curative in nature, addressing a major risk factor for heart disease with a single intervention rather than ongoing medication. The trial was small, and larger studies will be required before the approach could be considered for broader use. Heart disease remains the leading cause of death in the United States, and a durable single-dose option, if confirmed, would represent a significant development in preventive medicine.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
-            </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/05/25/health/cholesterol-ldl-gene-therapy.html" target="_blank" rel="noopener">
-                  The New York Times
-                </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">NASA Awards Contracts for Lunar Landing Missions in First Phase of Moon Base Plan</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>NASA has outlined the first phase of its moon base program, awarding contracts worth hundreds of millions of dollars to four U.S. companies. Blue Origin, the space company founded by Jeff Bezos, was selected for the first of three planned uncrewed lunar missions this year.</span></span>
-            <span class="summary-full"><span>NASA has taken initial steps toward establishing a permanent lunar presence, awarding contracts totaling hundreds of millions of dollars to four American companies as part of the first phase of a moon base plan. Blue Origin, founded by Jeff Bezos, was among the companies selected and will carry out the first of three uncrewed lunar landing missions planned for this year. These missions are intended to lay the groundwork for constructing a lunar base estimated to cost approximately 20 billion dollars. The contracts represent a significant commitment of federal resources to the broader goal of returning humans to the Moon and establishing a sustained presence there. The initiative involves multiple private-sector partners and reflects the continued use of commercial partnerships as a central element of NASA's exploration strategy.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
-            </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.npr.org/2026/05/27/nx-s1-5836209/nasa-moon-base-plans" target="_blank" rel="noopener">
-                  NPR
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/science/2026/may/26/nasa-jeff-bezos-blue-origin" target="_blank" rel="noopener">
-                  The Guardian
-                </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article">
-          <h2 class="article-headline">Overdose Deaths Declining Nationally, but Rising in Parts of the Western U.S.</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Drug overdose deaths in the United States have continued to decline overall, but some western states are experiencing an increase. Researchers attribute part of the national improvement to expanded access to overdose-reversing medications and structural changes in addiction treatment.</span></span>
-            <span class="summary-full"><span>National data on drug overdose deaths show a continuing downward trend in the United States, a development researchers connect to broader access to medications that reverse overdoses and to changes in how addiction treatment is structured and delivered. However, the national improvement is not uniform: several western states are seeing a rise in overdose deaths, a trend that diverges from the broader pattern and points to regional differences in drug supply, access to treatment, and other factors. The overall decline follows years of record overdose death tolls, particularly during the fentanyl crisis, and researchers say the current improvements reflect real but still fragile progress. Continued attention to the states where deaths are rising will be important to understanding whether the national trend can be sustained.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
-            </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.npr.org/2026/05/27/nx-s1-5836300/u-s-street-drug-deaths-keep-dropping-but-some-western-states-see-deadly-overdose-surge" target="_blank" rel="noopener">
-                  NPR News
-                </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
         <div class="difficult-section">
           <details>
             <summary class="difficult-toggle">
@@ -1188,15 +1384,15 @@
             <p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
             <div class="difficult-content">
               
-              <div class="article">
-                <h2 class="article-headline">Eleven People Presumed Dead After Tank Implosion at Washington State Paper Mill</h2>
+              <div class="article article-short" id="story_21">
+                <h2 class="article-headline">Eleven Presumed Dead After Tank Implosion at Washington State Paper Mill</h2>
                 <div class="summary-toggle">
                   <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
                   <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
                 <div class="summary-text">
-                  <span class="summary-brief"><span>Authorities have presumed eleven people dead following an implosion at a paper mill in Washington state. The incident is among the deadliest industrial accidents at a U.S. manufacturing facility in recent years.</span></span>
-                  <span class="summary-full"><span>Authorities reported a presumed death toll of eleven people after a tank implosion occurred at a paper mill in Washington state. The cause of the implosion was under investigation at the time of reporting. Industrial accidents of this scale at U.S. manufacturing facilities are uncommon, and the incident is likely to prompt scrutiny of safety protocols at similar facilities. Details about the specific mill, the circumstances leading to the implosion, and the status of any survivors were limited in available reporting.</span></span>
+                  <span class="summary-brief"><span>Authorities have reported eleven presumed fatalities following an implosion at a paper mill in Washington state. The cause of the implosion is under investigation.</span></span>
+                  <span class="summary-full"><span>Authorities have stated that eleven people are presumed dead following an implosion at a paper mill in Washington state. The incident occurred at the facility and resulted in what officials described as a catastrophic structural failure. The cause of the implosion is under investigation. Industrial accidents of this scale are relatively rare, and the event has prompted questions about facility safety standards and inspection protocols. No additional details about the circumstances or the victims have been confirmed in the available source material.</span></span>
                 </div>
                 
                 <div class="sources-toggle">
@@ -1208,6 +1404,46 @@
                     <li>
                       <a href="https://www.pbs.org/newshour/show/news-wrap-11-presumed-dead-after-washington-paper-mill-tank-implosion" target="_blank" rel="noopener">
                         PBS NewsHour
+                      </a>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+              </div>
+              
+              <div class="article article-short" id="story_22">
+                <h2 class="article-headline">Three People Injured in Stabbing at Swiss Train Station; Suspect Arrested</h2>
+                <div class="summary-toggle">
+                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                </div>
+                <div class="summary-text">
+                  <span class="summary-brief"><span>Three people were wounded in a stabbing at a train station in Switzerland. A 31-year-old Swiss national was arrested at the scene.</span></span>
+                  <span class="summary-full"><span>Three people sustained injuries in a stabbing attack at a train station in Switzerland. Police arrested a 31-year-old Swiss national in connection with the incident and cordoned off areas around the station. Swiss authorities are investigating the circumstances and motive. No further details about the victims or the status of the investigation have been confirmed in the available source material.</span></span>
+                </div>
+                
+                <div class="sources-toggle">
+                  <button class="sources-toggle-btn" aria-expanded="false">
+                    <span class="sources-caret">›</span> Sources
+                  </button>
+                  <ul class="sources-list">
+                    
+                    <li>
+                      <a href="https://www.foxnews.com/world/three-wounded-swiss-train-station-bladed-weapon-attack-phrase-allahu-akbar-allegedly-shouted" target="_blank" rel="noopener">
+                        Fox News
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="https://www.foxnews.com/world/three-wounded-swiss-train-station-bladed-weapon-attack-phrase-allahu-akbar-allegedly-shouted" target="_blank" rel="noopener">
+                        Fox News World
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="https://www.bbc.com/news/articles/cddpllqv49qo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+                        BBC World
                       </a>
                     </li>
                     
