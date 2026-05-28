@@ -33,17 +33,20 @@ After each run, `index.html` is regenerated to point to the latest digest and re
 
 ### Pipeline steps
 
-1. **Fetch** — NewsAPI, The Guardian, NYT (via API keys) + Fox News, BBC, WSJ (public RSS via feedparser)
+1. **Fetch** — NewsAPI, The Guardian, NYT (via API keys) + Fox News, BBC, WSJ, Reuters, NPR, PBS, Guardian Environment, SCOTUSblog (public RSS via feedparser)
 2. **Remove exact duplicates** — `remove_exact_duplicates()` discards only articles where title, source name, AND URL are all identical; cross-outlet near-duplicates are intentionally kept (see clustering architecture below)
-3. **Cluster** — Geographic gate + three-signal Union-Find grouping + post-clustering coherence validation (see clustering architecture below); multi-source stories are clustered together and sent to Claude as a single unit
-4. **Synthesize** — Claude processes each cluster, synthesizes multi-source stories into a single neutral account, returns 10–16 articles with `cluster_id` for source attribution
-5. **Attach sources** — pipeline maps `cluster_id` back to input articles; each output article gains a `sources` array with outlet name, URL, and original headline
-6. **Number** — sequential `ref` numbers assigned (1, 2, 3…) in category display order
-7. **S&P 500** — non-blocking fetch from Yahoo Finance
-8. **Metadata** — JSON saved alongside digest
-9. **Audio** — ElevenLabs TTS from concatenated `full_summary` fields
-10. **Render** — digest HTML, sources page HTML, index.html all written from Jinja2 templates
-11. **Podcast RSS** — `podcast.xml` updated
+3. **Cluster** — Single Claude API call groups all articles by story identity; each inner array of indices becomes a cluster (see clustering architecture below)
+4. **Editorial review** — Second lightweight Claude call reviews cluster structure; can approve, split into singletons, or merge pairs; non-blocking
+5. **Classify difficult news** — `classify_difficult_news()` pre-identifies mass-casualty and violent-crime clusters; returns a parallel bool list; flags are injected as annotations in the synthesis prompt so Claude applies DIFFICULT NEWS editorial rules; non-blocking
+6. **Synthesize** — `call_claude()` sends all clusters to Claude with difficult-news annotations; Claude synthesizes multi-source stories, assigns categories, dynamic lengths, and `isDifficult` flags; returns 10–16 articles with `cluster_id` for source attribution
+7. **PM deduplication** (PM edition only) — `filter_pm_duplicates()` reads the AM metadata JSON headlines and asks Claude which PM articles are genuine new developments vs. AM repeats; non-blocking
+8. **S&P 500** — non-blocking fetch from Yahoo Finance
+9. **Metadata** — JSON saved alongside digest; includes `headlines` list for PM deduplication
+10. **Select top stories** — `select_top_stories()` asks Claude to choose 2–4 broadly significant stories from different categories; each includes a `story_id` anchor and one-sentence reason; non-blocking
+11. **Category order** — `order_categories()` asks Claude to suggest editorial section order based on today's significance; DIFFICULT NEWS always last; non-blocking
+12. **Audio** — ElevenLabs TTS from concatenated `full_summary` fields (currently disabled: `AUDIO_ENABLED = False`)
+13. **Archive and render** — `collect_archive()` + `write_archive_json()`, then digest HTML, sources page HTML, and index.html written from Jinja2 templates; top stories and category order passed to templates
+14. **Podcast RSS** — `podcast.xml` updated (skipped when `AUDIO_ENABLED = False`)
 
 ### Sources page
 
@@ -113,10 +116,36 @@ When multiple sources cover the same story, you will receive all versions togeth
 - Never present a contested fact as settled
 - The goal is a synthesis no single outlet would write — more complete and more neutral than any individual source
 
-STORY LENGTH:
-Each story requires TWO versions:
-- brief_summary: 2-3 sentences. Factual kernel only.
-- full_summary: 2-3 paragraphs, 10-30 sentences depending on story complexity. Enough context for a reader who wants full understanding. Written for audio — the listener cannot re-read, so provide sufficient context per sentence. This is also the podcast script.
+STORY LENGTH — DYNAMIC:
+Assign each story a length based on its significance and complexity:
+
+SHORT (1-2 sentences brief, 1 paragraph full):
+- Routine updates with limited new information
+- Minor policy announcements
+- Sports results without broader significance
+- Economic indicators that confirm existing trends
+
+MEDIUM (2-3 sentences brief, 2 paragraphs full):
+- Standard news stories with clear facts and moderate significance
+- Policy decisions with defined scope
+- Scientific findings with clear implications
+- Most stories fall in this range
+
+LONG (3-4 sentences brief, 3-4 paragraphs full):
+- Major geopolitical developments with broad implications
+- Significant economic shifts affecting many people
+- Landmark legal decisions
+- Major public health developments
+- Stories that require substantial context to understand
+
+CONTEXT-DEPENDENT (match length to complexity):
+- Ongoing situations: provide enough background for a reader who missed previous coverage
+- Breaking developments: longer if situation is still evolving, shorter if outcome is clear
+
+Include a "length" field in your JSON response for each article:
+"length": "short" | "medium" | "long"
+
+This field is used by the template to apply appropriate typographic treatment. The full_summary is also the podcast script — the listener cannot re-read, so provide sufficient context per sentence.
 
 CATEGORIZATION:
 Assign each story exactly one of these categories:
@@ -156,8 +185,9 @@ OUTPUT FORMAT — return ONLY valid JSON, no markdown, no preamble, no trailing 
       "cluster_id": 1,
       "category": "CATEGORY",
       "headline": "Rewritten factual headline",
-      "brief_summary": "2-3 sentence factual summary.",
-      "full_summary": "2-3 paragraph full summary written for audio consumption.",
+      "brief_summary": "Dynamic length brief summary.",
+      "full_summary": "Dynamic length full summary written for audio consumption.",
+      "length": "medium",
       "isDifficult": false
     }
   ]
@@ -165,6 +195,7 @@ OUTPUT FORMAT — return ONLY valid JSON, no markdown, no preamble, no trailing 
 
 cluster_id must match the [CLUSTER N] number from the input. One output article per cluster.
 Set isDifficult: true for DIFFICULT NEWS items only.
+Set length to "short", "medium", or "long" per the STORY LENGTH rules above.
 Return null in the array position for excluded clusters.
 Return between 10 and 16 articles total.
 Category display order: GEOPOLITICS, ECONOMY, DOMESTIC POLICY, SCIENCE & HEALTH, TECHNOLOGY, NATURAL EVENTS, SPORTS — then DIFFICULT NEWS last and collapsed.
@@ -265,6 +296,20 @@ Claude assigns each output article a `cluster_id` matching the `[CLUSTER N]` num
 
 In the digest HTML, this array is rendered as a collapsible sources toggle beneath each article — a `<button aria-expanded="false">` that reveals a `<ul>` of outlet links on click, controlled by a CSS adjacent-sibling selector (`[aria-expanded="true"] + .sources-list`). The companion sources page (`YYYY-MM-DD-am-sources.html`) presents the full attribution list for every article in the digest, with outlet names linked to original articles and original headlines quoted.
 
+### Additional pipeline steps (post-clustering)
+
+**Difficult news pre-classification (`classify_difficult_news()`):**
+After editorial review, a compact Claude call reads all cluster headlines and returns a parallel list of booleans — one per cluster — marking which clusters contain mass-casualty, violent-crime, or large-scale tragedy content. These flags are injected as `[PRE-CLASSIFIED: DIFFICULT NEWS]` annotations into the synthesis prompt (`build_cluster_prompt()`), so Claude can apply the appropriate editorial handling (pattern/systemic framing, no perpetrator details) without needing to detect DIFFICULT NEWS from scratch. Non-blocking: failure returns all-False and synthesis proceeds normally.
+
+**PM deduplication (`filter_pm_duplicates()`):**
+PM edition only. Reads the AM metadata JSON (e.g., `2025-06-01-am.json`) and extracts the `headlines` list saved there. Sends both AM headlines and PM candidate articles to Claude with `PM_DEDUP_PROMPT`, which returns a `keep` boolean array. PM articles flagged as AM duplicates (no new substance) are removed. Articles are re-numbered after deduplication. Non-blocking: if AM metadata is missing or the call fails, all PM articles are kept.
+
+**Top stories selection (`select_top_stories()`):**
+After synthesis and deduplication, a lightweight Claude call (`TOP_STORIES_PROMPT`) selects 2–4 stories of broad significance from different categories. Each selection includes the `story_id` (e.g., `story_0`) and a one-sentence reason. The result is passed to both `render_digest()` and `render_index()` and displayed as a navigational panel above the main story feed, with anchor links to the full articles. Non-blocking: failure returns empty list and no panel is rendered.
+
+**Category ordering (`order_categories()`):**
+A compact Claude call reads today's categories and story headlines, then suggests the editorial order for category sections. DIFFICULT NEWS is always enforced last regardless of the returned order. The `_group_by_category()` function accepts an optional `order` parameter; both render functions pass the Claude-suggested order. Non-blocking: failure returns `CATEGORY_ORDER` (the default static order).
+
 ### Known limitations and future improvements
 
 - **Claude context window.** At ~150 articles the clustering prompt is well within Claude's context. If the article pool grows substantially (300+), the prompt may need to be chunked into two passes with a merge step.
@@ -273,21 +318,24 @@ In the digest HTML, this array is rendered as a collapsible sources toggle benea
 
 ### Logging
 
-Steps 3 and 4 of the pipeline log report cluster structure:
+Steps 3–5 of the pipeline log report cluster structure:
 
 ```
-[3/11] Clustering articles by story (Claude semantic clustering)...
+[3/14] Clustering articles by story (Claude semantic clustering)...
   Clustering: 134 articles → 58 clusters (14 multi-source, 44 single-source, 76 merges)
     [4 sources] The New York Times · Fox News · BBC News · The Guardian
       Ukraine ceasefire talks stall | Russia dismisses Western | Kyiv rejects terms
     [2 sources] The Guardian · WSJ Markets
       Oil prices rise on supply concerns | OPEC output cut extends
 
-[4/11] Claude editorial review of cluster structure...
+[4/14] Claude editorial review of cluster structure...
   Editorial review: 1 merge(s), 0 split(s) applied → 57 clusters
+
+[5/14] Pre-classifying difficult news clusters...
+  Difficult news classification: 2 cluster(s) flagged
 ```
 
-`[SPLIT]` lines are written to stderr so they appear in the GitHub Actions error stream. Multi-source cluster lines show the contributing outlets and the first three headlines (truncated to 50 chars each) so synthesis inputs can be verified at a glance.
+Multi-source cluster lines show the contributing outlets and the first three headlines (truncated to 50 chars each) so synthesis inputs can be verified at a glance.
 
 ---
 
@@ -317,11 +365,14 @@ Each run saves a `YYYY-MM-DD-am.json` / `YYYY-MM-DD-pm.json` alongside the HTML 
   "excluded_count": 0,
   "categories": [],
   "difficult_count": 0,
-  "sp500_close": null
+  "sp500_close": null,
+  "headlines": []
 }
 ```
 
 `sp500_close` is fetched from Yahoo Finance (unofficial endpoint) or Alpha Vantage free tier. Failure is non-blocking — the field stays null. This field exists to support a planned future feature: a timeline data overlay showing S&P 500 performance alongside editorial categories over time.
+
+`headlines` is a list of all published article headlines in display order. It is read by the PM edition's `filter_pm_duplicates()` step to identify which PM stories are genuine new developments vs. AM repeats. Preserving the `headlines` field is required for PM deduplication to function.
 
 ---
 

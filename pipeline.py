@@ -90,10 +90,36 @@ When multiple sources cover the same story, you will receive all versions togeth
 - Never present a contested fact as settled
 - The goal is a synthesis no single outlet would write — more complete and more neutral than any individual source
 
-STORY LENGTH:
-Each story requires TWO versions:
-- brief_summary: 2-3 sentences. Factual kernel only.
-- full_summary: 2-3 paragraphs, 10-30 sentences depending on story complexity. Enough context for a reader who wants full understanding. Written for audio — the listener cannot re-read, so provide sufficient context per sentence. This is also the podcast script.
+STORY LENGTH — DYNAMIC:
+Assign each story a length based on its significance and complexity:
+
+SHORT (1-2 sentences brief, 1 paragraph full):
+- Routine updates with limited new information
+- Minor policy announcements
+- Sports results without broader significance
+- Economic indicators that confirm existing trends
+
+MEDIUM (2-3 sentences brief, 2 paragraphs full):
+- Standard news stories with clear facts and moderate significance
+- Policy decisions with defined scope
+- Scientific findings with clear implications
+- Most stories fall in this range
+
+LONG (3-4 sentences brief, 3-4 paragraphs full):
+- Major geopolitical developments with broad implications
+- Significant economic shifts affecting many people
+- Landmark legal decisions
+- Major public health developments
+- Stories that require substantial context to understand
+
+CONTEXT-DEPENDENT (match length to complexity):
+- Ongoing situations: provide enough background for a reader who missed previous coverage
+- Breaking developments: longer if situation is still evolving, shorter if outcome is clear
+
+Include a "length" field in your JSON response for each article:
+"length": "short" | "medium" | "long"
+
+This field is used by the template to apply appropriate typographic treatment. The full_summary is also the podcast script — the listener cannot re-read, so provide sufficient context per sentence.
 
 CATEGORIZATION:
 Assign each story exactly one of these categories:
@@ -133,8 +159,9 @@ OUTPUT FORMAT — return ONLY valid JSON, no markdown, no preamble, no trailing 
       "cluster_id": 1,
       "category": "CATEGORY",
       "headline": "Rewritten factual headline",
-      "brief_summary": "2-3 sentence factual summary.",
-      "full_summary": "2-3 paragraph full summary written for audio consumption.",
+      "brief_summary": "Dynamic length brief summary.",
+      "full_summary": "Dynamic length full summary written for audio consumption.",
+      "length": "medium",
       "isDifficult": false
     }
   ]
@@ -142,9 +169,84 @@ OUTPUT FORMAT — return ONLY valid JSON, no markdown, no preamble, no trailing 
 
 cluster_id must match the [CLUSTER N] number from the input. One output article per cluster.
 Set isDifficult: true for DIFFICULT NEWS items only.
+Set length to "short", "medium", or "long" per the STORY LENGTH rules above.
 Return null in the array position for excluded clusters.
 Return between 10 and 16 articles total.
 Category display order: GEOPOLITICS, ECONOMY, DOMESTIC POLICY, SCIENCE & HEALTH, TECHNOLOGY, NATURAL EVENTS, SPORTS — then DIFFICULT NEWS last and collapsed."""
+
+
+DIFFICULT_NEWS_PROMPT = """You are a pre-classifier for a news digest. Your sole task is to identify
+which story clusters contain tragic, violent, or mass-casualty content that requires special editorial
+handling (the DIFFICULT NEWS category).
+
+DIFFICULT NEWS includes:
+- Mass casualty events (shootings, bombings, natural disasters with significant death tolls)
+- Violent crimes with broad relevance (not isolated incidents — events with policy, pattern, or scale significance)
+- Large-scale tragedies affecting communities
+
+NOT difficult news:
+- Standard geopolitical conflicts reported factually (war updates, diplomatic disputes)
+- Economic hardship stories
+- Health crises covered as policy or science
+- Stories about violence that are primarily about policy or legal outcomes
+
+For each cluster, output true if it is DIFFICULT NEWS, false otherwise.
+
+Return ONLY valid JSON — an array of booleans, one per cluster, in the same order:
+{"difficult": [false, true, false, false, true]}"""
+
+
+TOP_STORIES_PROMPT = """You are the editorial director for Balm, a calm news digest. Your task is to
+identify 2-4 stories from today's digest that are the most broadly significant — stories that a
+well-informed adult would most want to know about first.
+
+Selection criteria:
+- Broad significance: affects many people or has major implications
+- Timeliness: genuinely new development, not a continuation of weeks-old news
+- Variety: select from different categories when possible — avoid clustering top stories in one area
+- Calm importance: not sensational or alarming, but genuinely consequential
+
+Return ONLY valid JSON:
+{
+  "top_stories": [
+    {"story_id": "story_0", "reason": "One brief sentence on why this story is broadly significant."},
+    {"story_id": "story_2", "reason": "One brief sentence on why this story is broadly significant."}
+  ]
+}
+
+story_id must exactly match a story_id from the input list. Select 2-4 stories."""
+
+
+PM_DEDUP_PROMPT = """You are an editorial assistant for Balm, a twice-daily news digest. The AM edition
+has already been published. You are reviewing the PM edition's candidate stories.
+
+Your task: for each PM story, determine whether it is a genuine new development since the AM edition,
+or whether it is essentially the same story already covered in the AM edition with no substantial new information.
+
+Rules:
+- If the PM story has significant new facts, developments, or a materially different angle → KEEP
+- If the PM story covers the same event as an AM story with only minor updates or rewording → EXCLUDE
+- Breaking news that emerged after the AM edition → always KEEP
+- Routine follow-ups with no new substance → EXCLUDE
+
+Return ONLY valid JSON — an array of booleans, one per PM story, in the same order as input.
+true = keep this story, false = exclude as AM duplicate:
+{"keep": [true, false, true, true, false]}"""
+
+
+CATEGORY_ORDER_PROMPT = """You are the layout editor for Balm, a calm news digest. Based on today's
+stories, suggest the order in which categories should appear in the digest.
+
+RULES:
+- DIFFICULT NEWS must always be last (it appears as a collapsed section)
+- GEOPOLITICS, ECONOMY, and DOMESTIC POLICY should generally appear early when significant
+- Categories with no stories in today's digest will be omitted automatically — order only present categories
+- The order should reflect today's editorial weight: the category with the most significant stories first
+
+Return ONLY valid JSON:
+{"order": ["GEOPOLITICS", "ECONOMY", "DOMESTIC POLICY", "SCIENCE & HEALTH", "TECHNOLOGY", "NATURAL EVENTS", "SPORTS", "DIFFICULT NEWS"]}
+
+Adjust the order (except DIFFICULT NEWS must be last) to reflect today's editorial significance."""
 
 
 # ---------------------------------------------------------------------------
@@ -610,22 +712,25 @@ def editorial_review(
 # Claude editorial processing
 # ---------------------------------------------------------------------------
 
-def build_cluster_prompt(clusters: list[list[dict]]) -> str:
+def build_cluster_prompt(clusters: list[list[dict]],
+                         difficult_flags: list[bool] | None = None) -> str:
     lines = [
         f"Process the following {len(clusters)} story clusters. "
         "Each cluster contains one or more news sources covering the same underlying event.\n"
     ]
     for ci, cluster in enumerate(clusters, 1):
+        is_difficult = difficult_flags[ci - 1] if difficult_flags else False
+        difficult_tag = " [PRE-CLASSIFIED: DIFFICULT NEWS]" if is_difficult else ""
         if len(cluster) == 1:
             a = cluster[0]
-            lines.append(f"[CLUSTER {ci}] — 1 source")
+            lines.append(f"[CLUSTER {ci}] — 1 source{difficult_tag}")
             lines.append(f"  Source: {a['source']}")
             lines.append(f"  Title: {a['title']}")
             lines.append(f"  URL: {a['url']}")
             if a.get("description"):
                 lines.append(f"  Description: {a['description'][:300]}")
         else:
-            lines.append(f"[CLUSTER {ci}] — {len(cluster)} sources covering the same story")
+            lines.append(f"[CLUSTER {ci}] — {len(cluster)} sources covering the same story{difficult_tag}")
             for si, a in enumerate(cluster, 1):
                 lines.append(f"  — Source {si}: {a['source']}")
                 lines.append(f"    Title: {a['title']}")
@@ -636,9 +741,10 @@ def build_cluster_prompt(clusters: list[list[dict]]) -> str:
     return "\n".join(lines)
 
 
-def call_claude(clusters: list[list[dict]], anthropic_key: str) -> list[dict]:
+def call_claude(clusters: list[list[dict]], anthropic_key: str,
+                difficult_flags: list[bool] | None = None) -> list[dict]:
     client = Anthropic(api_key=anthropic_key)
-    user_prompt = build_cluster_prompt(clusters)
+    user_prompt = build_cluster_prompt(clusters, difficult_flags)
 
     for attempt in range(3):
         try:
@@ -701,9 +807,10 @@ def sort_articles(articles: list[dict]) -> list[dict]:
 
 
 def number_articles(articles: list[dict]) -> None:
-    """Add sequential 'ref' field to articles in place (1-indexed)."""
+    """Add sequential 'ref' and stable 'story_id' fields to articles in place."""
     for i, article in enumerate(articles, 1):
         article["ref"] = i
+        article["story_id"] = f"story_{i - 1}"  # 0-indexed anchor target
 
 
 # ---------------------------------------------------------------------------
@@ -773,20 +880,28 @@ def write_archive_json(archive: list[dict], docs_dir: Path) -> None:
     print(f"[OK] archive.json updated ({len(archive)} entries)")
 
 
-def _group_by_category(articles: list[dict]) -> list[dict]:
+def _group_by_category(articles: list[dict],
+                        order: list[str] | None = None) -> list[dict]:
+    """Group articles by category, using dynamic order if provided."""
     grouped: dict[str, list] = {}
     for article in articles:
         cat = article.get("category", "UNCATEGORIZED")
         grouped.setdefault(cat, []).append(article)
+    effective_order = order if order else CATEGORY_ORDER
+    # Always ensure DIFFICULT NEWS is last if present
+    if "DIFFICULT NEWS" in effective_order:
+        effective_order = [c for c in effective_order if c != "DIFFICULT NEWS"] + ["DIFFICULT NEWS"]
     return [
         {"name": cat, "articles": grouped[cat]}
-        for cat in CATEGORY_ORDER
+        for cat in effective_order
         if cat in grouped
     ]
 
 
 def render_digest(articles: list[dict], date_str: str, run: str, metadata: dict,
-                  archive: list[dict], docs_dir: Path) -> Path:
+                  archive: list[dict], docs_dir: Path,
+                  top_stories: list[dict] | None = None,
+                  category_order: list[str] | None = None) -> Path:
     env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)))
     template = env.get_template("digest.html")
 
@@ -797,12 +912,15 @@ def render_digest(articles: list[dict], date_str: str, run: str, metadata: dict,
     has_audio = (docs_dir / mp3_file).exists()
     sources_file = f"{date_str}-{run}-sources.html"
 
+    # Build a lookup so templates can retrieve article objects by story_id
+    article_by_id = {a["story_id"]: a for a in articles if "story_id" in a}
+
     html = template.render(
         date_display=date_display,
         date_str=date_str,
         run=run,
         run_label="AM" if run == "am" else "PM",
-        categories=_group_by_category(articles),
+        categories=_group_by_category(articles, category_order),
         archive_months=group_archive_by_month(archive),
         metadata=metadata,
         has_audio=has_audio,
@@ -810,6 +928,8 @@ def render_digest(articles: list[dict], date_str: str, run: str, metadata: dict,
         sp500=metadata.get("sp500_close"),
         base_url=BASE_URL,
         sources_file=sources_file,
+        top_stories=top_stories or [],
+        article_by_id=article_by_id,
     )
 
     out_path = docs_dir / f"{date_str}-{run}.html"
@@ -844,7 +964,9 @@ def render_sources(articles: list[dict], date_str: str, run: str,
 
 
 def render_index(articles: list[dict], date_str: str, run: str, metadata: dict,
-                 archive: list[dict], docs_dir: Path) -> None:
+                 archive: list[dict], docs_dir: Path,
+                 top_stories: list[dict] | None = None,
+                 category_order: list[str] | None = None) -> None:
     env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)))
     template = env.get_template("index.html")
 
@@ -855,12 +977,15 @@ def render_index(articles: list[dict], date_str: str, run: str, metadata: dict,
     has_audio = (docs_dir / mp3_file).exists()
     sources_file = f"{date_str}-{run}-sources.html"
 
+    # Build a lookup so templates can retrieve article objects by story_id
+    article_by_id = {a["story_id"]: a for a in articles if "story_id" in a}
+
     html = template.render(
         date_display=date_display,
         date_str=date_str,
         run=run,
         run_label="AM" if run == "am" else "PM",
-        categories=_group_by_category(articles),
+        categories=_group_by_category(articles, category_order),
         archive_months=group_archive_by_month(archive),
         metadata=metadata,
         has_audio=has_audio,
@@ -869,6 +994,8 @@ def render_index(articles: list[dict], date_str: str, run: str, metadata: dict,
         base_url=BASE_URL,
         current_digest_file=f"{date_str}-{run}.html",
         sources_file=sources_file,
+        top_stories=top_stories or [],
+        article_by_id=article_by_id,
     )
 
     out_path = docs_dir / "index.html"
@@ -1014,6 +1141,207 @@ def update_podcast_feed(docs_dir: Path) -> None:
 
 
 # ---------------------------------------------------------------------------
+# New editorial pipeline steps
+# ---------------------------------------------------------------------------
+
+def classify_difficult_news(clusters: list[list[dict]], anthropic_key: str) -> list[bool]:
+    """Pre-classify clusters as DIFFICULT NEWS before synthesis.
+
+    Returns a parallel bool list: True means the cluster should be treated as
+    DIFFICULT NEWS. Synthesis receives this flag as an annotation on the cluster
+    so Claude can apply appropriate editorial handling.
+
+    Non-blocking: on failure returns all-False (no pre-classification).
+    """
+    if not clusters:
+        return []
+
+    lines = [f"Classify these {len(clusters)} story clusters:\n"]
+    for ci, cluster in enumerate(clusters, 1):
+        titles = " | ".join(a["title"][:80] for a in cluster[:3])
+        lines.append(f"[{ci}] {titles}")
+
+    client = Anthropic(api_key=anthropic_key)
+    try:
+        response = client.messages.create(
+            model=CLAUDE_MODEL,
+            max_tokens=1000,
+            system=DIFFICULT_NEWS_PROMPT,
+            messages=[{"role": "user", "content": "\n".join(lines)}],
+        )
+        raw = response.content[0].text.strip()
+        raw = re.sub(r"^```(?:json)?\s*", "", raw)
+        raw = re.sub(r"\s*```$", "", raw).strip()
+        data = json.loads(raw)
+        flags = data.get("difficult", [])
+        if len(flags) != len(clusters):
+            print(f"  [WARN] Difficult news classification: got {len(flags)} flags "
+                  f"for {len(clusters)} clusters — padding with False", file=sys.stderr)
+            flags = flags[:len(clusters)] + [False] * (len(clusters) - len(flags))
+        difficult_count = sum(1 for f in flags if f)
+        print(f"  Difficult news classification: {difficult_count} cluster(s) flagged")
+        return [bool(f) for f in flags]
+    except Exception as e:
+        print(f"  [WARN] Difficult news classification failed ({e}) — skipping pre-classification",
+              file=sys.stderr)
+        return [False] * len(clusters)
+
+
+def select_top_stories(articles: list[dict], anthropic_key: str) -> list[dict]:
+    """Ask Claude to select 2-4 broadly significant stories as top stories.
+
+    Each top story includes a story_id (matching an article's story_id field)
+    and a one-sentence reason. Non-blocking: returns empty list on failure.
+    """
+    if not articles:
+        return []
+
+    lines = [f"Select 2-4 top stories from this digest of {len(articles)} articles:\n"]
+    for a in articles:
+        if a.get("isDifficult"):
+            continue  # Difficult news is never a top story
+        sid = a.get("story_id", "")
+        cat = a.get("category", "")
+        headline = a.get("headline", "")
+        lines.append(f"{sid} [{cat}] {headline}")
+
+    client = Anthropic(api_key=anthropic_key)
+    try:
+        response = client.messages.create(
+            model=CLAUDE_MODEL,
+            max_tokens=600,
+            system=TOP_STORIES_PROMPT,
+            messages=[{"role": "user", "content": "\n".join(lines)}],
+        )
+        raw = response.content[0].text.strip()
+        raw = re.sub(r"^```(?:json)?\s*", "", raw)
+        raw = re.sub(r"\s*```$", "", raw).strip()
+        data = json.loads(raw)
+        top = data.get("top_stories", [])
+        # Validate story_ids
+        valid_ids = {a.get("story_id") for a in articles}
+        top = [t for t in top if t.get("story_id") in valid_ids]
+        top = top[:4]  # Hard cap
+        print(f"  Top stories selected: {len(top)}")
+        return top
+    except Exception as e:
+        print(f"  [WARN] Top stories selection failed ({e}) — skipping", file=sys.stderr)
+        return []
+
+
+def filter_pm_duplicates(articles: list[dict], anthropic_key: str,
+                         am_metadata_path: Path) -> list[dict]:
+    """Filter PM articles that are duplicates of AM edition stories.
+
+    Reads AM edition headlines from the metadata JSON, then asks Claude to
+    determine which PM articles are genuine new developments vs. repeats.
+    Non-blocking: if AM metadata is missing or the call fails, returns all articles.
+    """
+    if not am_metadata_path.exists():
+        print("  No AM metadata found — skipping PM deduplication")
+        return articles
+
+    try:
+        am_meta = json.loads(am_metadata_path.read_text())
+        am_headlines = am_meta.get("headlines", [])
+    except Exception as e:
+        print(f"  [WARN] Could not read AM metadata ({e}) — skipping PM deduplication",
+              file=sys.stderr)
+        return articles
+
+    if not am_headlines:
+        print("  AM metadata has no headlines — skipping PM deduplication")
+        return articles
+
+    lines = ["AM EDITION HEADLINES:"]
+    for h in am_headlines:
+        lines.append(f"  - {h}")
+    lines.append(f"\nPM CANDIDATE STORIES ({len(articles)} total):")
+    for i, a in enumerate(articles):
+        lines.append(f"[{i}] {a.get('headline', '')} [{a.get('category', '')}]")
+
+    client = Anthropic(api_key=anthropic_key)
+    try:
+        response = client.messages.create(
+            model=CLAUDE_MODEL,
+            max_tokens=500,
+            system=PM_DEDUP_PROMPT,
+            messages=[{"role": "user", "content": "\n".join(lines)}],
+        )
+        raw = response.content[0].text.strip()
+        raw = re.sub(r"^```(?:json)?\s*", "", raw)
+        raw = re.sub(r"\s*```$", "", raw).strip()
+        data = json.loads(raw)
+        keep_flags = data.get("keep", [])
+        if len(keep_flags) != len(articles):
+            print(f"  [WARN] PM dedup: got {len(keep_flags)} flags for {len(articles)} articles "
+                  f"— keeping all", file=sys.stderr)
+            return articles
+        kept = [a for a, k in zip(articles, keep_flags) if k]
+        excluded = len(articles) - len(kept)
+        if excluded:
+            print(f"  PM deduplication: {excluded} article(s) removed as AM duplicates")
+        else:
+            print(f"  PM deduplication: all {len(articles)} articles are new developments")
+        return kept
+    except Exception as e:
+        print(f"  [WARN] PM deduplication failed ({e}) — keeping all articles", file=sys.stderr)
+        return articles
+
+
+def order_categories(articles: list[dict], anthropic_key: str) -> list[str]:
+    """Ask Claude to suggest today's editorial category order.
+
+    Returns the ordered list of category names. DIFFICULT NEWS is always last.
+    Non-blocking: returns CATEGORY_ORDER on failure.
+    """
+    if not articles:
+        return CATEGORY_ORDER
+
+    present_cats = list(dict.fromkeys(
+        a.get("category", "") for a in articles if a.get("category")
+    ))
+
+    lines = [f"Today's digest has {len(articles)} stories across these categories:"]
+    for cat in present_cats:
+        cat_articles = [a for a in articles if a.get("category") == cat]
+        headlines = "; ".join(a.get("headline", "")[:60] for a in cat_articles[:2])
+        lines.append(f"  {cat} ({len(cat_articles)} stories): {headlines}")
+
+    client = Anthropic(api_key=anthropic_key)
+    try:
+        response = client.messages.create(
+            model=CLAUDE_MODEL,
+            max_tokens=200,
+            system=CATEGORY_ORDER_PROMPT,
+            messages=[{"role": "user", "content": "\n".join(lines)}],
+        )
+        raw = response.content[0].text.strip()
+        raw = re.sub(r"^```(?:json)?\s*", "", raw)
+        raw = re.sub(r"\s*```$", "", raw).strip()
+        data = json.loads(raw)
+        order = data.get("order", [])
+        # Validate: must contain all present categories
+        valid_cats = set(CATEGORY_ORDER)
+        order = [c for c in order if c in valid_cats]
+        # Ensure DIFFICULT NEWS is last
+        if "DIFFICULT NEWS" in order:
+            order = [c for c in order if c != "DIFFICULT NEWS"] + ["DIFFICULT NEWS"]
+        # Add any present category not returned by Claude (safety net)
+        for cat in CATEGORY_ORDER:
+            if cat not in order and cat in present_cats:
+                if cat == "DIFFICULT NEWS":
+                    order.append(cat)
+                else:
+                    order.insert(-1 if "DIFFICULT NEWS" in order else len(order), cat)
+        print(f"  Category order: {' → '.join(order)}")
+        return order
+    except Exception as e:
+        print(f"  [WARN] Category ordering failed ({e}) — using default order", file=sys.stderr)
+        return CATEGORY_ORDER
+
+
+# ---------------------------------------------------------------------------
 # Metadata
 # ---------------------------------------------------------------------------
 
@@ -1031,6 +1359,7 @@ def save_metadata(date_str: str, run: str, articles: list[dict], raw_count: int,
         "categories": categories_present,
         "difficult_count": len(difficult),
         "sp500_close": sp500,
+        "headlines": [a.get("headline", "") for a in articles],
     }
 
     out_path = docs_dir / f"{date_str}-{run}.json"
@@ -1073,7 +1402,7 @@ def main():
         sys.exit(1)
 
     # ── Step 1: Fetch articles ────────────────────────────────────────────
-    print("\n[1/11] Fetching articles from all sources...")
+    print("\n[1/14] Fetching articles from all sources...")
     raw_articles: list[dict] = []
 
     if news_api_key:
@@ -1103,7 +1432,7 @@ def main():
     print(f"  Total raw: {len(raw_articles)}")
 
     # ── Step 2: Remove exact duplicates ──────────────────────────────────
-    print("\n[2/11] Removing exact duplicates (same title + source + URL)...")
+    print("\n[2/14] Removing exact duplicates (same title + source + URL)...")
     deduped_articles = remove_exact_duplicates(raw_articles)
     removed = len(raw_articles) - len(deduped_articles)
     print(f"  {len(raw_articles)} raw → {len(deduped_articles)} articles "
@@ -1114,34 +1443,56 @@ def main():
         sys.exit(1)
 
     # ── Step 3: Cluster ───────────────────────────────────────────────────
-    print("\n[3/11] Clustering articles by story (Claude semantic clustering)...")
+    print("\n[3/14] Clustering articles by story (Claude semantic clustering)...")
     clusters = cluster_articles(deduped_articles, anthropic_key)
     multi = [c for c in clusters if len(c) > 1]
 
     # ── Step 4: Editorial review ──────────────────────────────────────────
-    print("\n[4/11] Claude editorial review of cluster structure...")
+    print("\n[4/14] Claude editorial review of cluster structure...")
     clusters = editorial_review(clusters, anthropic_key)
     multi = [c for c in clusters if len(c) > 1]
 
-    # ── Step 5: Claude editorial processing ──────────────────────────────
-    print("\n[5/11] Sending clusters to Claude for synthesis and editorial processing...")
-    processed_articles = call_claude(clusters, anthropic_key)
+    # ── Step 5: Classify difficult news ──────────────────────────────────
+    print("\n[5/14] Pre-classifying difficult news clusters...")
+    difficult_flags = classify_difficult_news(clusters, anthropic_key)
+
+    # ── Step 6: Claude editorial processing ──────────────────────────────
+    print("\n[6/14] Sending clusters to Claude for synthesis and editorial processing...")
+    processed_articles = call_claude(clusters, anthropic_key, difficult_flags)
     attach_sources(processed_articles, clusters)
     processed_articles = sort_articles(processed_articles)
     number_articles(processed_articles)
     print(f"  Claude returned {len(processed_articles)} articles after filtering")
 
-    # ── Step 6: S&P 500 ──────────────────────────────────────────────────
-    print("\n[6/11] Fetching S&P 500 close...")
+    # ── Step 7: PM deduplication (PM edition only) ────────────────────────
+    print("\n[7/14] PM deduplication check...")
+    if run == "pm":
+        am_metadata_path = DOCS_DIR / f"{date_str}-am.json"
+        processed_articles = filter_pm_duplicates(processed_articles, anthropic_key, am_metadata_path)
+        # Re-number after deduplication
+        number_articles(processed_articles)
+    else:
+        print("  AM edition — skipping PM deduplication")
+
+    # ── Step 8: S&P 500 ──────────────────────────────────────────────────
+    print("\n[8/14] Fetching S&P 500 close...")
     sp500 = fetch_sp500()
     print(f"  S&P 500: {sp500 if sp500 else 'unavailable (non-blocking)'}")
 
-    # ── Step 7: Save metadata ─────────────────────────────────────────────
-    print("\n[7/11] Saving metadata...")
+    # ── Step 9: Save metadata ─────────────────────────────────────────────
+    print("\n[9/14] Saving metadata...")
     metadata = save_metadata(date_str, run, processed_articles, len(deduped_articles), sp500, DOCS_DIR)
 
-    # ── Step 8: Generate audio ────────────────────────────────────────────
-    print("\n[8/11] Generating audio...")
+    # ── Step 10: Select top stories ───────────────────────────────────────
+    print("\n[10/14] Selecting top stories...")
+    top_stories = select_top_stories(processed_articles, anthropic_key)
+
+    # ── Step 11: Determine category order ────────────────────────────────
+    print("\n[11/14] Determining editorial category order...")
+    category_order = order_categories(processed_articles, anthropic_key)
+
+    # ── Step 12: Generate audio ───────────────────────────────────────────
+    print("\n[12/14] Generating audio...")
     mp3_path = None
     if AUDIO_ENABLED:
         if elevenlabs_key:
@@ -1152,19 +1503,18 @@ def main():
     else:
         print("  Audio disabled (AUDIO_ENABLED = False)")
 
-    # ── Step 9: Collect archive ───────────────────────────────────────────
-    print("\n[9/11] Building archive index...")
+    # ── Step 13: Collect archive and render output ────────────────────────
+    print("\n[13/14] Building archive index and rendering output files...")
     archive = collect_archive(DOCS_DIR)
     write_archive_json(archive, DOCS_DIR)
-
-    # ── Step 10: Render output files ──────────────────────────────────────
-    print("\n[10/11] Rendering output files...")
-    render_digest(processed_articles, date_str, run, metadata, archive, DOCS_DIR)
+    render_digest(processed_articles, date_str, run, metadata, archive, DOCS_DIR,
+                  top_stories=top_stories, category_order=category_order)
     render_sources(processed_articles, date_str, run, archive, DOCS_DIR)
-    render_index(processed_articles, date_str, run, metadata, archive, DOCS_DIR)
+    render_index(processed_articles, date_str, run, metadata, archive, DOCS_DIR,
+                 top_stories=top_stories, category_order=category_order)
 
-    # ── Step 11: Podcast RSS ──────────────────────────────────────────────
-    print("\n[11/11] Updating podcast RSS feed...")
+    # ── Step 14: Podcast RSS ──────────────────────────────────────────────
+    print("\n[14/14] Updating podcast RSS feed...")
     if AUDIO_ENABLED:
         try:
             update_podcast_feed(DOCS_DIR)
@@ -1176,6 +1526,8 @@ def main():
     print(f"\n[DONE] Balm {date_str} {run.upper()} complete.")
     print(f"  Stories published : {len(processed_articles)}")
     print(f"  Clusters processed: {len(clusters)} ({len(multi)} multi-source)")
+    print(f"  Top stories       : {len(top_stories)}")
+    print(f"  Category order    : {' → '.join(category_order[:4])}{'...' if len(category_order) > 4 else ''}")
     print(f"  Audio             : {'yes' if mp3_path else 'disabled' if not AUDIO_ENABLED else 'no'}")
     print(f"  S&P 500           : {sp500 if sp500 else 'unavailable'}")
 

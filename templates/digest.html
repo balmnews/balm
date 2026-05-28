@@ -389,6 +389,60 @@
       background: #ebe5db;
       text-decoration: none;
     }
+
+    /* Dynamic story length variants */
+    .article-long .article-headline { font-size: 1.35rem; }
+    .article-short .article-headline { font-size: 1.05rem; }
+
+    /* Top stories navigation panel */
+    .top-stories {
+      background: #ebe5db;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .top-stories-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .top-story-item {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.6rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .top-story-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .top-story-link {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      color: var(--ink);
+      text-decoration: none;
+      line-height: 1.3;
+    }
+
+    .top-story-link:hover { color: var(--accent); text-decoration: none; }
+
+    .top-story-reason {
+      font-size: 0.78rem;
+      color: var(--secondary);
+      font-style: italic;
+      margin-top: 0.15rem;
+    }
   </style>
 </head>
 <body>
@@ -448,6 +502,22 @@
     </div>
     {% endif %}
 
+    <!-- Top stories navigation -->
+    {% if top_stories %}
+    <div class="top-stories">
+      <div class="top-stories-heading">Today's top stories</div>
+      {% for ts in top_stories %}
+      {% set art = article_by_id.get(ts.story_id) %}
+      {% if art %}
+      <div class="top-story-item">
+        <a class="top-story-link" href="#{{ ts.story_id }}">{{ art.headline }}</a>
+        {% if ts.reason %}<span class="top-story-reason">{{ ts.reason }}</span>{% endif %}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+
     <!-- Stories -->
     {% for section in categories %}
       {% if section.name == 'DIFFICULT NEWS' %}
@@ -460,7 +530,7 @@
             <p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
             <div class="difficult-content">
               {% for article in section.articles %}
-              <div class="article">
+              <div class="article article-{{ article.length | default('medium') }}" id="{{ article.story_id }}">
                 <h2 class="article-headline">{{ article.headline }}</h2>
                 <div class="summary-toggle">
                   <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
@@ -494,7 +564,7 @@
       {% else %}
         <div class="section-header">{{ section.name }}</div>
         {% for article in section.articles %}
-        <div class="article">
+        <div class="article article-{{ article.length | default('medium') }}" id="{{ article.story_id }}">
           <h2 class="article-headline">{{ article.headline }}</h2>
           <div class="summary-toggle">
             <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
