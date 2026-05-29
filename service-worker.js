@@ -6,7 +6,7 @@ const PRECACHE_ASSETS = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/balm/contact.html',
+  '/contact.html',
 ];
 
 // Install: precache static assets

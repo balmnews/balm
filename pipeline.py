@@ -23,7 +23,7 @@ from jinja2 import Environment, FileSystemLoader
 
 DOCS_DIR = Path(__file__).parent / "docs"
 TEMPLATES_DIR = Path(__file__).parent / "templates"
-BASE_URL = "https://balmnews.github.io/balm"
+BASE_URL = "https://balm.news"
 
 CLAUDE_MODEL = "claude-sonnet-4-6"
 CLAUDE_MAX_TOKENS = 8000
