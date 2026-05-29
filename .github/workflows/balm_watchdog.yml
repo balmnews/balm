@@ -1,0 +1,63 @@
+name: Balm Watchdog — Morning Digest Recovery
+
+on:
+  schedule:
+    - cron: '30 13 * * *'  # 6:30am PDT — after morning digest should have run
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check if AM digest exists for today
+        id: check
+        run: |
+          DATE=$(date -u +"%Y-%m-%d")
+          FILE="docs/${DATE}-am.html"
+          if [ -f "$FILE" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "AM digest already exists for $DATE — no action needed"
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "AM digest missing for $DATE — triggering recovery run"
+          fi
+
+      - name: Set up Python
+        if: steps.check.outputs.exists == 'false'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        if: steps.check.outputs.exists == 'false'
+        run: pip install -r requirements.txt
+
+      - name: Run AM pipeline
+        if: steps.check.outputs.exists == 'false'
+        run: python pipeline.py --run am
+        env:
+          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
+          GUARDIAN_API_KEY: ${{ secrets.GUARDIAN_API_KEY }}
+          NYT_API_KEY: ${{ secrets.NYT_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ELEVEN_LABS_API_KEY: ${{ secrets.ELEVEN_LABS_API_KEY }}
+
+      - name: Commit and push if digest was generated
+        if: steps.check.outputs.exists == 'false'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "Watchdog recovery: AM digest $(date -u +%Y-%m-%d)"
+          git push

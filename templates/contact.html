@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm Sources — {{ date_display }}{% if run_label %} {{ run_label }}{% endif %}</title>
-  <meta name="description" content="Source attribution for the Balm digest of {{ date_display }}.">
+  <title>Balm — Contact</title>
+  <meta name="description" content="Contact Balm — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
   <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -110,72 +111,24 @@
       margin: 2rem 0 1.5rem;
     }
 
-    /* Source entries */
-    .source-entry {
-      display: flex;
-      gap: 1.25rem;
-      padding-bottom: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .source-entry:last-child {
-      border-bottom: none;
-    }
-
-    .source-num {
-      font-family: 'Source Serif 4', serif;
-      font-size: 0.72rem;
-      font-weight: 300;
-      color: var(--muted);
-      min-width: 1.5rem;
-      padding-top: 0.2rem;
-      text-align: right;
-      flex-shrink: 0;
-    }
-
-    .source-body {
-      flex: 1;
-    }
-
-    .source-balm-headline {
-      font-family: 'Playfair Display', serif;
+    /* Contact body */
+    .contact-body {
       font-size: 1rem;
-      font-weight: 600;
-      line-height: 1.35;
+      line-height: 1.8;
       color: var(--ink);
-      margin-bottom: 0.6rem;
+      max-width: 600px;
     }
 
-    .source-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+    .contact-body p { margin-bottom: 1.25rem; }
+    .contact-body p:last-child { margin-bottom: 0; }
 
-    .source-list li {
-      font-size: 0.85rem;
-      line-height: 1.6;
-      color: var(--secondary);
-      padding: 0.15rem 0;
-    }
-
-    .source-list li::before {
-      content: "· ";
-      color: var(--muted);
-    }
-
-    .source-outlet {
-      font-style: normal;
+    .contact-email {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
       color: var(--accent);
     }
 
-    .source-original-headline {
-      font-style: italic;
-      color: var(--secondary);
-    }
-
-    /* Sidebar */
+    /* Sidebar archive */
     .sidebar-title {
       font-family: 'Playfair Display', serif;
       font-size: 0.65rem;
@@ -206,7 +159,6 @@
     }
 
     .archive-link:hover { color: var(--accent); text-decoration: none; }
-    .archive-link.current { color: var(--accent); font-style: italic; }
 
     /* Footer */
     .footer {
@@ -233,8 +185,7 @@
     <div class="archive-month">
       <div class="archive-month-label">{{ month.month }}</div>
       {% for entry in month.entries %}
-      <a class="archive-link{% if entry.file == date_str + '-' + run + '.html' %} current{% endif %}"
-         href="{{ entry.file }}">
+      <a class="archive-link" href="{{ entry.file }}">
         {{ entry.date[5:] }} {{ entry.run | upper }}
       </a>
       {% endfor %}
@@ -248,7 +199,7 @@
     <!-- Masthead -->
     <header class="masthead">
       <div class="masthead-logo">
-        <a href="{{ digest_file }}" style="text-decoration:none;">
+        <a href="index.html" style="text-decoration:none;">
           <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
@@ -269,54 +220,45 @@
         </a>
       </div>
       <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">{{ date_display }}{% if run_label %} &middot; {{ run_label }} Edition{% endif %} &middot; Sources</p>
+      <p class="masthead-dateline">Contact</p>
     </header>
 
-    <!-- Sources list -->
-    <div class="section-header">Sources for this digest</div>
+    <!-- Contact content -->
+    <div class="section-header">Contact</div>
 
-    {% for article in articles %}
-    <div class="source-entry">
-      <div class="source-num">{{ article.ref }}</div>
-      <div class="source-body">
-        <div class="source-balm-headline">{{ article.headline }}</div>
-        <ul class="source-list">
-          {% for src in article.sources %}
-          <li>
-            <a class="source-outlet" href="{{ src.url }}" target="_blank" rel="noopener noreferrer">{{ src.source }}</a>
-            {% if src.original_headline %}
-            &mdash; <span class="source-original-headline">&ldquo;{{ src.original_headline }}&rdquo;</span>
-            {% endif %}
-          </li>
-          {% else %}
-          <li><span style="color:var(--muted);font-style:italic;">Source unavailable</span></li>
-          {% endfor %}
-        </ul>
-      </div>
+    <div class="contact-body">
+      <p>Balm is built and maintained by one person in Santa Cruz, California.</p>
+
+      <p>For questions, feedback, story suggestions, or press inquiries:</p>
+
+      <p><a class="contact-email" href="mailto:contact@balm.news">contact@balm.news</a></p>
+
+      <p>Balm is an independent project with no advertising, no investors, and no
+      editorial agenda. It exists because calm, factual news is worth having.</p>
+
+      <p>If Balm is useful to you, consider supporting it on
+      <a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Ko-fi</a>.</p>
     </div>
-    {% endfor %}
 
     <!-- Footer -->
     <footer class="footer">
-      <p><a href="{{ digest_file }}">← Return to digest</a></p>
+      <p><a href="index.html">← Today's Digest</a></p>
       <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/balm/contact.html">Contact</a></p>
       <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
     </footer>
 
   </div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
+
 <script>
   // Dynamic archive — fetches live archive.json so sidebar always shows all editions
   (function() {
-    var current = '{{ date_str }}-{{ run }}.html';
     fetch('archive.json')
       .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
       .then(function(data) {
         var html = data.months.map(function(m) {
           var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
+            return '<a class="archive-link" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
           }).join('');
           return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
         }).join('');
@@ -325,6 +267,10 @@
       })
       .catch(function() {});
   })();
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
 </script>
 </body>
 </html>

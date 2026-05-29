@@ -1158,6 +1158,28 @@ def render_index(articles: list[dict], date_str: str, run: str, metadata: dict,
     print(f"[OK] index.html updated")
 
 
+def render_contact(archive: list[dict], docs_dir: Path) -> None:
+    """Render docs/contact.html from templates/contact.html.
+
+    Generated once on first run — never overwritten. The contact page is
+    static content; the archive sidebar is populated by the JS dynamic load
+    (fetch archive.json) on every page view, so the page stays current
+    even though it's only written once.
+    """
+    out_path = docs_dir / "contact.html"
+    if out_path.exists():
+        return  # Static — generate once only
+
+    env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)))
+    template = env.get_template("contact.html")
+
+    html = template.render(
+        archive_months=group_archive_by_month(archive),
+    )
+    out_path.write_text(html, encoding="utf-8")
+    print(f"[OK] contact.html generated")
+
+
 # ---------------------------------------------------------------------------
 # Audio generation
 # ---------------------------------------------------------------------------
@@ -1667,6 +1689,7 @@ def main():
     render_sources(processed_articles, date_str, run, archive, DOCS_DIR)
     render_index(processed_articles, date_str, run, metadata, archive, DOCS_DIR,
                  top_stories=top_stories, category_order=category_order)
+    render_contact(archive, DOCS_DIR)
 
     # ── Step 14: Podcast RSS ──────────────────────────────────────────────
     print("\n[14/14] Updating podcast RSS feed...")
