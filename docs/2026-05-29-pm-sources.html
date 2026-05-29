@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balm Sources — Friday, May 29, 2026 PM</title>
+  <meta name="description" content="Source attribution for the Balm digest of Friday, May 29, 2026.">
+  <meta name="theme-color" content="#6b82a8">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f2ede4;
+      --ink: #2a2520;
+      --secondary: #6a6058;
+      --muted: #9a9288;
+      --rule: #c8c0b4;
+      --accent: #6b82a8;
+      --difficult: #5a4a3a;
+    }
+
+    html { font-size: 18px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Layout */
+    .page-wrapper {
+      display: flex;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      padding: 2rem 1.5rem 2rem 0;
+      border-right: 1px solid var(--rule);
+      min-height: 100vh;
+    }
+
+    .main-content {
+      flex: 1;
+      max-width: 860px;
+      padding: 0 2rem 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .page-wrapper { display: block; padding: 0; }
+      .sidebar { display: none; }
+      .main-content { padding: 0 1.25rem 3rem; }
+    }
+
+    /* Masthead */
+    .masthead {
+      text-align: center;
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 3px double var(--rule);
+      margin-bottom: 1.5rem;
+    }
+
+    .masthead-logo svg {
+      display: block;
+      margin: 0 auto 0.5rem;
+    }
+
+    .masthead-tagline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--secondary);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .masthead-dateline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    /* Section header */
+    .section-header {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-top: 1px solid var(--rule);
+      padding-top: 1.25rem;
+      margin: 2rem 0 1.5rem;
+    }
+
+    /* Source entries */
+    .source-entry {
+      display: flex;
+      gap: 1.25rem;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .source-entry:last-child {
+      border-bottom: none;
+    }
+
+    .source-num {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--muted);
+      min-width: 1.5rem;
+      padding-top: 0.2rem;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .source-body {
+      flex: 1;
+    }
+
+    .source-balm-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .source-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .source-list li {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--secondary);
+      padding: 0.15rem 0;
+    }
+
+    .source-list li::before {
+      content: "· ";
+      color: var(--muted);
+    }
+
+    .source-outlet {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .source-original-headline {
+      font-style: italic;
+      color: var(--secondary);
+    }
+
+    /* Sidebar */
+    .sidebar-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      padding-top: 2rem;
+    }
+
+    .archive-month { margin-bottom: 1rem; }
+
+    .archive-month-label {
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .archive-link {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--secondary);
+      padding: 0.1rem 0;
+      line-height: 1.6;
+    }
+
+    .archive-link:hover { color: var(--accent); text-decoration: none; }
+    .archive-link.current { color: var(--accent); font-style: italic; }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 3rem;
+      padding: 2rem 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .footer a { color: var(--muted); text-decoration: underline; }
+    .footer a:hover { color: var(--secondary); }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- Sidebar archive nav -->
+  <nav class="sidebar" aria-label="Archive">
+    <div class="sidebar-title">Archive</div>
+    
+    <div class="archive-month">
+      <div class="archive-month-label">May 2026</div>
+      
+      <a class="archive-link current"
+         href="2026-05-29-pm.html">
+        05-29 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-28-pm.html">
+        05-28 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-28-am.html">
+        05-28 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-27-pm.html">
+        05-27 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-27-am.html">
+        05-27 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-26-pm.html">
+        05-26 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-26-am.html">
+        05-26 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-25-pm.html">
+        05-25 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-24-pm.html">
+        05-24 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-24-am.html">
+        05-24 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-23-pm.html">
+        05-23 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-23-am.html">
+        05-23 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-22-pm.html">
+        05-22 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-22-am.html">
+        05-22 AM
+      </a>
+      
+    </div>
+    
+  </nav>
+
+  <!-- Main content -->
+  <div class="main-content">
+
+    <!-- Masthead -->
+    <header class="masthead">
+      <div class="masthead-logo">
+        <a href="2026-05-29-pm.html" style="text-decoration:none;">
+          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
+                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
+                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
+                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
+              </filter>
+            </defs>
+            <text x="90" y="44"
+                  font-family="Caveat, cursive"
+                  font-size="52"
+                  font-weight="700"
+                  fill="#6b82a8"
+                  text-anchor="middle"
+                  letter-spacing="8"
+                  filter="url(#balm-spread)">Balm</text>
+          </svg>
+        </a>
+      </div>
+      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
+      <p class="masthead-dateline">Friday, May 29, 2026 &middot; PM Edition &middot; Sources</p>
+    </header>
+
+    <!-- Sources list -->
+    <div class="section-header">Sources for this digest</div>
+
+    
+    <div class="source-entry">
+      <div class="source-num">1</div>
+      <div class="source-body">
+        <div class="source-balm-headline">US and Iran Reach Tentative Ceasefire Extension, Nuclear Talks Remain Unresolved</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.cbsnews.com/live-updates/iran-war-us-strikes-trump-oman-strait-of-hormuz-deal/" target="_blank" rel="noopener noreferrer">CBS News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Live Updates: Iran fires missile at Kuwait after U.S. strikes, as Trump says regime "negotiating on fumes" - CBS News&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/live/2026/05/29/world/iran-war-us-trump-deal" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Iran War Live Updates: Uncertainty Hangs Over Talks as U.S. Says It Is Close to Agreement&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/c87qng40wz9o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;US and Iran 'very close' to deal but 'not there yet', Vance says&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/c87qng40wz9o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;US and Iran 'very close' to deal but 'not there yet', Vance says&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/how-does-trump-solve-key-nuclear-dust-hang-up-negotiations-end-iran-war" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;How does Trump solve key 'nuclear dust' hang-up in negotiations to end Iran War?&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/world/u-s-and-iranian-negotiators-reach-tentative-deal-to-extend-ceasefire-and-start-new-nuclear-talks" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;U.S. and Iranian negotiators reach tentative deal to extend ceasefire and start new nuclear talks&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">2</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Russian Drone Strikes Apartment Building in NATO Member Romania, Injuring Two</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/05/29/world/europe/romania-drone-russia-ukraine.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Russian Drone Hits Romanian Apartment Building, Officials Say&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/world/drone-strikes-apartment-building-nato-member-romania-russia-attacks-neighboring-ukraine" target="_blank" rel="noopener noreferrer">Fox News World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Drone strikes apartment building in NATO member Romania as Russia attacks neighboring Ukraine&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/c93x4nxlkjeo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Nato condemns Russian 'recklessness' after drone hits Romanian residential block&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/05/29/g-s1-124773/russian-drone-romania" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Russian drone launched against Ukraine crashes in Romania, injuring 2&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/world/russian-drone-targeting-ukraine-crashes-into-romanian-apartment-building" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Russian drone targeting Ukraine crashes into Romanian apartment building&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">3</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Israel Announces Plans to Expand Military Control Over Gaza to 70 Percent</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/ceqpelq5reqo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Netanyahu says he has directed IDF to increase control of Gaza to 70%&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">4</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Russia and Taliban Reportedly Sign Military Cooperation Agreement</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/world/moscow-taliban-forge-military-alliance-power-grab-us-afghanistan-exit" target="_blank" rel="noopener noreferrer">Fox News World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Moscow, Taliban forge military alliance in power grab after US Afghanistan exit: reports&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">5</div>
+      <div class="source-body">
+        <div class="source-balm-headline">US Designates Brazil's Two Largest Criminal Gangs as Terrorist Organizations</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/may/29/brazil-gangs-terrorist-rubio" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;US designates Brazil’s two largest gangs as terrorist organizations&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">6</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Federal Reserve Chair Powell Says Rate Cut Possible as Soon as September</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.marketwatch.com/story/powell-says-labor-market-not-a-source-of-significant-inflation-pressure-cc3b1297?mod=mw_rss_realtimeheadlines" target="_blank" rel="noopener noreferrer">WSJ Markets</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Powell says labor market not a source of significant inflation pressure&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.marketwatch.com/story/feds-powell-says-rate-cut-on-the-table-as-soon-as-september-f3f7c8f2?mod=mw_rss_realtimeheadlines" target="_blank" rel="noopener noreferrer">WSJ Markets</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Fed’s Powell says rate cut ‘on the table’ as soon as September&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">7</div>
+      <div class="source-body">
+        <div class="source-balm-headline">US Stocks Close at Record Highs as Oil Prices Fall on Hopes for Iran Ceasefire Deal</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.marketwatch.com/livecoverage/stock-market-today-dow-s-p-500-nasdaq-oil-prices-us-iran-peace-deal" target="_blank" rel="noopener noreferrer">MarketWatch</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Stock Market Today: Dow, S&P 500 and Nasdaq close at record highs on hopes for Iran war ending; oil prices drop; Micron extends epic run - MarketWatch&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/business/live/2026/may/29/asian-stocks-oil-price-us-iran-peace-deal-business-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Global stocks rise and oil price slips amid hopes of US-Iran peace deal - business live&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/business/2026/may/29/oil-price-drops-amid-hopes-of-us-iran-peace-deal" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Oil price drops amid hopes of US-Iran peace deal&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">8</div>
+      <div class="source-body">
+        <div class="source-balm-headline">US Cattle Herd Falls to Lowest Level Since 1951, Contributing to Higher Beef Prices</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/05/29/nx-s1-5719511/beef-cattle-herd-food-prices" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Why the U.S. cattle herd is at a 75-year low — and what it means for beef prices&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">9</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Former Attorney General Bondi Questioned by House Committee on Epstein Files</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/czj2ldllgwgo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Former US attorney general Pam Bondi testifies in congressional Epstein probe&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/bondi-grilled-epstein-files-first-capitol-hill-return-since-doj-ouster" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Bondi grilled on Epstein files in first Capitol Hill return since DOJ ouster&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/pam-bondi-will-face-a-closed-door-questioning-from-house-lawmakers-over-the-epstein-files" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Pam Bondi will face a closed-door questioning from House lawmakers over the Epstein files&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">10</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Federal Judge Declines to Block Trump Executive Order Restricting Mail-In Voting</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/05/28/nx-s1-5797889/trump-mail-in-voting-order" target="_blank" rel="noopener noreferrer">NPR</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;A federal judge in D.C. declines to block Trump's executive order on voting by mail - NPR&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">11</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Supreme Court Rules in Favor of Death Row Inmate Challenging Racial Discrimination in Jury Selection</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.scotusblog.com/2026/05/supreme-court-sides-with-death-row-inmate-in-challenge-to-racial-discrimination-in-jury-selectio/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Supreme Court sides with death row inmate in challenge to racial discrimination in jury selection&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">12</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Vermont Becomes First US State to Ban Herbicide Paraquat Over Parkinson's Disease Concerns</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/may/26/vermont-paraquat-weedkiller-ban" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Vermont becomes first US state to ban paraquat herbicide over Parkinson’s fears&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">13</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Ebola Outbreak in Congo Kills Over 200, WHO Chief Visits as Rare Virus Strain Complicates Response</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/may/29/who-chief-tedros-adhanom-ghebreyesus-drc-ebola-outbreak-epidemic" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;WHO puts Ebola outbreak death rate at ‘huge’ 30-50% as chief arrives in DRC&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/05/27/science/ebola-hantavirus-species-strains.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Why the Ebola and Hantavirus Outbreaks Have Confounded Scientists&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/05/29/nx-s1-5838635/who-chief-visits-congo-ebola-outbreak" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;WHO chief lands in Congo to address rare Ebola outbreak amid distrust and insecurity&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/health/what-to-know-about-the-bundibugyo-virus-form-of-ebola-causing-an-outbreak-in-congo" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;What to know about the Bundibugyo virus, form of Ebola causing an outbreak in Congo&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/health/ebola-outbreak-can-be-stopped-who-chief-says-as-he-arrives-in-congo" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Ebola outbreak 'can be stopped,' WHO chief says as he arrives in Congo&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">14</div>
+      <div class="source-body">
+        <div class="source-balm-headline">New Drug Shows Potential to Cure Chronic Hepatitis B in About One in Five Patients</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/05/28/health/hepatitis-b-chronic-bepirovirsen.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Scientists Find a Potential Cure for Chronic Hepatitis B&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">15</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Anthropic Raises $65 Billion, Surpassing OpenAI as Most Highly Valued AI Company</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/technology/2026/may/28/anthropic-ai-valuation" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Anthropic reaches valuation of $965bn, beating OpenAI to become world’s most valuable AI firm&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/05/29/business/dealbook/anthropic-ai-openai.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;How Anthropic Got So Big, So Fast&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/05/28/technology/anthropic-tops-openai-valuation.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Anthropic Tops OpenAI to Become the World’s Most Valuable A.I. Start-Up&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">16</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Blue Origin Rocket Explodes During Ground Test, Raising Questions About NASA Moon Program</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/science/2026/may/29/blue-origin-rocket-explodes" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Blue Origin rocket explodes during test in latest setback for Jeff Bezos-owned company&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/science/2026/may/26/nasa-jeff-bezos-blue-origin" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Nasa selects Jeff Bezos’s Blue Origin for first of three uncrewed lunar missions&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/cwy2q0g07kgo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Exploding rocket casts doubts over Nasa's Moon plans&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/cwy2q0g07kgo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Exploding rocket casts doubts over Nasa's Moon plans&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/science/blue-origin-rocket-explodes-on-the-launch-pad-during-an-engine-firing-test" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Blue Origin rocket explodes on the launch pad during an engine-firing test&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p><a href="2026-05-29-pm.html">← Return to digest</a></p>
+      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
+      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
+    </footer>
+
+  </div><!-- /.main-content -->
+</div><!-- /.page-wrapper -->
+<script>
+  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
+  (function() {
+    var current = '2026-05-29-pm.html';
+    fetch('archive.json')
+      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function(data) {
+        var html = data.months.map(function(m) {
+          var links = m.entries.map(function(e) {
+            var cls = 'archive-link' + (e.file === current ? ' current' : '');
+            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
+          }).join('');
+          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
+        }).join('');
+        var nav = document.querySelector('nav.sidebar');
+        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
+      })
+      .catch(function() {});
+  })();
+</script>
+</body>
+</html>
