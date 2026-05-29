@@ -2,10 +2,8 @@ name: Balm Digest
 
 on:
   schedule:
-    - cron: '15 11 * * *'   # 4:15am PDT (UTC-7, mid-Mar to early-Nov)
-    - cron: '15 12 * * *'   # 4:15am PST (UTC-8, early-Nov to mid-Mar)
-    - cron: '15 20 * * *'   # 1:15pm PDT (UTC-7, mid-Mar to early-Nov)
-    - cron: '15 21 * * *'   # 2:15pm PST (UTC-8, early-Nov to mid-Mar)
+    - cron: '15 11 * * *'   # AM: 4:15am PDT / 5:15am PST (one-hour seasonal drift accepted)
+    - cron: '15 21 * * *'   # PM: 2:15pm PDT / 1:15pm PST (one-hour seasonal drift accepted)
   workflow_dispatch:
     inputs:
       run:
