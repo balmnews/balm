@@ -29,8 +29,9 @@ Your site will be live at `https://[your-username].github.io/balm`.
 
 You need five API keys. All have free tiers sufficient to run Balm.
 
-**NewsAPI** — [newsapi.org](https://newsapi.org)
+**NewsData.io** — [newsdata.io](https://newsdata.io)
 - Register for a free account
+- Free tier explicitly permits commercial and production use (unlike NewsAPI, which restricts free keys to non-production)
 - Your API key is shown on the dashboard immediately after registration
 
 **The Guardian** — [open-platform.theguardian.com](https://open-platform.theguardian.com)
@@ -61,11 +62,13 @@ You need five API keys. All have free tiers sufficient to run Balm.
 
 | Secret name | Value |
 |---|---|
-| `NEWS_API_KEY` | Your NewsAPI key |
+| `NEWSDATA_API_KEY` | Your NewsData.io key |
 | `GUARDIAN_API_KEY` | Your Guardian key |
 | `NYT_API_KEY` | Your NYT key |
 | `ANTHROPIC_API_KEY` | Your Anthropic key |
 | `ELEVEN_LABS_API_KEY` | Your ElevenLabs key |
+
+If you previously had a `NEWS_API_KEY` secret, it can be deleted from your repository secrets — it is no longer used.
 
 ### 6. Set up Ko-fi (optional)
 
@@ -105,7 +108,7 @@ git clone https://github.com/[your-username]/balm
 cd balm
 pip install -r requirements.txt
 
-export NEWS_API_KEY=...
+export NEWSDATA_API_KEY=...
 export GUARDIAN_API_KEY=...
 export NYT_API_KEY=...
 export ANTHROPIC_API_KEY=...

@@ -43,29 +43,39 @@ CATEGORY_ORDER = [
     "DIFFICULT NEWS",
 ]
 
+# Each entry: (source_name, feed_url, max_articles)
+# Standard feeds: max 8 articles. Official primary sources: max 5.
 RSS_FEEDS = [
-    # Existing feeds
-    ("Fox News", "https://feeds.foxnews.com/foxnews/latest"),
-    ("Fox News World", "https://feeds.foxnews.com/foxnews/world"),
-    ("WSJ Markets", "https://feeds.content.dowjones.io/public/rss/mw_realtimeheadlines"),
-    ("BBC News", "http://feeds.bbci.co.uk/news/rss.xml"),
-    ("BBC World", "http://feeds.bbci.co.uk/news/world/rss.xml"),
-    # Political balance — right-leaning domestic politics perspective
-    ("Fox News Politics", "https://feeds.foxnews.com/foxnews/politics"),
-    # Wire service — authoritative domestic and political coverage
-    # NOTE: Reuters has been known to restrict or move RSS endpoints; if these
-    # return 0 articles, Reuters may have discontinued free RSS access.
-    ("Reuters Top News", "https://feeds.reuters.com/reuters/topNews"),
-    ("Reuters Domestic", "https://feeds.reuters.com/Reuters/domesticNews"),
-    ("Reuters Politics", "https://feeds.reuters.com/Reuters/politicsNews"),
-    # Public media — domestic coverage with different editorial priorities
-    ("NPR News", "https://feeds.npr.org/1001/rss.xml"),
-    ("PBS NewsHour", "https://www.pbs.org/newshour/feeds/rss/headlines"),
-    # Climate and environment — dedicated coverage for NATURAL EVENTS / SCIENCE & HEALTH
-    ("Guardian Environment", "https://www.theguardian.com/environment/rss"),
-    # Legal and justice — Supreme Court and federal judiciary coverage
-    ("SCOTUSblog", "https://www.scotusblog.com/feed/"),
+    # Media feeds — up to 8 articles each
+    ("Fox News",         "https://feeds.foxnews.com/foxnews/latest",                            8),
+    ("Fox News World",   "https://feeds.foxnews.com/foxnews/world",                             8),
+    ("Fox News Politics","https://feeds.foxnews.com/foxnews/politics",                          8),
+    ("WSJ Markets",      "https://feeds.content.dowjones.io/public/rss/mw_realtimeheadlines",   8),
+    ("BBC News",         "http://feeds.bbci.co.uk/news/rss.xml",                                8),
+    ("BBC World",        "http://feeds.bbci.co.uk/news/world/rss.xml",                          8),
+    # Wire service — NOTE: Reuters has been known to restrict or move RSS endpoints;
+    # if these return 0 articles, Reuters may have discontinued free RSS access.
+    ("Reuters Top News", "https://feeds.reuters.com/reuters/topNews",                           8),
+    ("Reuters Domestic", "https://feeds.reuters.com/Reuters/domesticNews",                      8),
+    ("Reuters Politics", "https://feeds.reuters.com/Reuters/politicsNews",                      8),
+    # Public media
+    ("NPR News",         "https://feeds.npr.org/1001/rss.xml",                                  8),
+    ("PBS NewsHour",     "https://www.pbs.org/newshour/feeds/rss/headlines",                    8),
+    # Topical specialist feeds
+    ("Guardian Environment", "https://www.theguardian.com/environment/rss",                     8),
+    ("SCOTUSblog",       "https://www.scotusblog.com/feed/",                                     8),
+    # Official primary sources — public domain, no licensing concerns.
+    # Capped at 5: these publish less frequently; quality over quantity.
+    # They naturally cluster with news articles on the same policy decisions,
+    # giving Claude primary source material alongside press coverage.
+    ("White House",      "https://www.whitehouse.gov/feed/",                                    5),
+    ("Federal Reserve",  "https://www.federalreserve.gov/feeds/press_all.xml",                  5),
+    ("CDC Health Alerts","https://tools.cdc.gov/api/v2/resources/media/403372.rss",             5),
+    ("State Department", "https://www.state.gov/rss-feeds/press-releases/",                     5),
 ]
+
+# Names of official primary source feeds — used for distinguished logging
+_OFFICIAL_RSS_SOURCES = {"White House", "Federal Reserve", "CDC Health Alerts", "State Department"}
 
 EDITORIAL_SYSTEM_PROMPT = """You are the editorial engine for Balm, a news digest with one guiding principle: inform without agitating.
 
@@ -90,36 +100,37 @@ When multiple sources cover the same story, you will receive all versions togeth
 - Never present a contested fact as settled
 - The goal is a synthesis no single outlet would write — more complete and more neutral than any individual source
 
-STORY LENGTH — DYNAMIC:
-Assign each story a length based on its significance and complexity:
+STORY LENGTH — TWO DISTINCT FORMATS:
 
-SHORT (1-2 sentences brief, 1 paragraph full):
-- Routine updates with limited new information
-- Minor policy announcements
-- Sports results without broader significance
-- Economic indicators that confirm existing trends
+You are producing TWO genuinely different versions of each story. They should feel like different products, not the same content slightly expanded.
 
-MEDIUM (2-3 sentences brief, 2 paragraphs full):
-- Standard news stories with clear facts and moderate significance
-- Policy decisions with defined scope
-- Scientific findings with clear implications
-- Most stories fall in this range
+BRIEF: 1-2 sentences maximum. Absolute maximum 40 words. The factual kernel only — who did what, where. No context, no background, no implications, no qualifications. A reader scanning 16 briefs should be done in 90 seconds.
 
-LONG (3-4 sentences brief, 3-4 paragraphs full):
-- Major geopolitical developments with broad implications
-- Significant economic shifts affecting many people
-- Landmark legal decisions
-- Major public health developments
-- Stories that require substantial context to understand
+Examples of correct brief length:
+- "The Federal Reserve indicated a September interest rate cut is possible, citing reduced inflation pressure from the labor market."
+- "Israeli forces captured Beaufort Castle in southern Lebanon and expanded evacuation orders as the ground operation extended beyond the Litani River."
 
-CONTEXT-DEPENDENT (match length to complexity):
-- Ongoing situations: provide enough background for a reader who missed previous coverage
-- Breaking developments: longer if situation is still evolving, shorter if outcome is clear
+FULL: Substantially longer — target 150-300 words for medium stories, 300-500 words for long/complex stories. This is the complete story for a reader who wants full understanding. Structure it as:
+1. What happened — expand the brief with key details
+2. Context and background — what does a reader need to know to understand why this matters
+3. Key specifics — figures, named parties, timeline, disputed elements
+4. Significance — implications for readers, what happens next
+
+For ongoing stories: include enough background that a reader who missed previous coverage can follow without confusion.
+For complex or landmark stories (Supreme Court rulings, major geopolitical developments, economic policy shifts): aim for the upper end of the word count range. These stories deserve space.
+
+LENGTH TIERS:
+- SHORT (routine updates): brief = 1 sentence, full = 2-3 sentences (50-80 words)
+- MEDIUM (standard news): brief = 1-2 sentences, full = 4-6 sentences (100-180 words)
+- LONG (significant developments): brief = 2 sentences, full = 8-12 sentences (200-300 words)
+- COMPLEX (landmark decisions, major crises): brief = 2 sentences, full = 12-18 sentences (300-500 words)
+
+The brief/full toggle exists because readers have genuinely different needs at different moments. A reader with 3 minutes reads all the briefs. A reader with 30 minutes reads full summaries on the stories they care about. Honor that difference — make the full version worth the click.
 
 Include a "length" field in your JSON response for each article:
 "length": "short" | "medium" | "long"
 
-This field is used by the template to apply appropriate typographic treatment. The full_summary is also the podcast script — the listener cannot re-read, so provide sufficient context per sentence.
+Use "long" for both LONG and COMPLEX stories. The full_summary is also the podcast script — the listener cannot re-read, so provide sufficient context per sentence.
 
 CATEGORIZATION:
 Assign each story exactly one of these categories:
@@ -253,34 +264,56 @@ Adjust the order (except DIFFICULT NEWS must be last) to reflect today's editori
 # Article fetching — API sources
 # ---------------------------------------------------------------------------
 
-def fetch_newsapi(api_key: str) -> list[dict]:
-    categories = ["world", "business", "technology", "health", "science", "sports",
-                  "politics", "national"]
+def fetch_newsdata(api_key: str) -> list[dict]:
+    """Fetch top headlines from NewsData.io.
+
+    Free tier explicitly permits commercial and production use — unlike
+    NewsAPI's Developer plan which restricts to non-production only.
+    Covers the same broad category set as the former NewsAPI integration.
+    """
+    categories = ["world", "business", "technology", "health", "science", "sports"]
     articles = []
     for category in categories:
         try:
             resp = requests.get(
-                "https://newsapi.org/v2/top-headlines",
-                params={"category": category, "pageSize": 5, "language": "en", "apiKey": api_key},
+                "https://newsdata.io/api/1/news",
+                params={
+                    "apikey": api_key,
+                    "category": category,
+                    "language": "en",
+                    "country": "us",
+                    "size": 5,
+                },
                 timeout=15,
             )
             resp.raise_for_status()
             data = resp.json()
-            for a in data.get("articles", [])[:5]:
-                if a.get("title") and a.get("url"):
-                    articles.append({
-                        "title": a["title"],
-                        "description": a.get("description", ""),
-                        "url": a["url"],
-                        "source": a.get("source", {}).get("name", "NewsAPI"),
-                    })
+            for item in data.get("results", []):
+                if not item.get("title") or not item.get("description"):
+                    continue
+                articles.append({
+                    "title": item.get("title", ""),
+                    "description": (item.get("description") or item.get("content", ""))[:300],
+                    "url": item.get("link", ""),
+                    "source": item.get("source_name", "NewsData"),
+                })
+            time.sleep(0.5)
         except Exception as e:
-            print(f"[WARN] NewsAPI {category}: {e}", file=sys.stderr)
+            print(f"  [WARN] NewsData {category}: {e}", file=sys.stderr)
+    print(f"  NewsData.io: {len(articles)} articles")
     return articles
 
 
 def fetch_guardian(api_key: str) -> list[dict]:
-    sections = ["world", "business", "technology", "science", "sport"]
+    """Fetch articles from The Guardian with full article body text.
+
+    Uses show-fields=bodyText,trailText,headline to retrieve full article
+    content. Body truncated at 800 chars — roughly 3-4 sentences of actual
+    journalism, substantially more context than the former snippet-only fetch.
+    The Guardian explicitly permits full content retrieval on the free tier.
+    """
+    sections = ["world", "business", "technology", "science", "sport",
+                "politics", "environment", "us-news"]
     articles = []
     for section in sections:
         try:
@@ -289,7 +322,9 @@ def fetch_guardian(api_key: str) -> list[dict]:
                 params={
                     "section": section,
                     "page-size": 5,
-                    "show-fields": "trailText",
+                    "show-fields": "bodyText,trailText,headline",
+                    "order-by": "newest",
+                    "lang": "en",
                     "api-key": api_key,
                 },
                 timeout=15,
@@ -297,14 +332,22 @@ def fetch_guardian(api_key: str) -> list[dict]:
             resp.raise_for_status()
             data = resp.json()
             for a in data.get("response", {}).get("results", [])[:5]:
+                fields = a.get("fields", {})
+                # Prefer full body text; fall back to trail text snippet
+                body = fields.get("bodyText", "") or fields.get("trailText", "")
+                title = fields.get("headline", "") or a.get("webTitle", "")
+                if not title:
+                    continue
                 articles.append({
-                    "title": a.get("webTitle", ""),
-                    "description": a.get("fields", {}).get("trailText", ""),
+                    "title": title,
+                    "description": body[:800].strip(),
                     "url": a.get("webUrl", ""),
                     "source": "The Guardian",
                 })
+            time.sleep(0.3)
         except Exception as e:
-            print(f"[WARN] Guardian {section}: {e}", file=sys.stderr)
+            print(f"  [WARN] Guardian {section}: {e}", file=sys.stderr)
+    print(f"  Guardian: {len(articles)} articles (full text)")
     return articles
 
 
@@ -346,19 +389,19 @@ def fetch_nyt(api_key: str) -> list[dict]:
 def fetch_rss_feeds() -> list[dict]:
     """Fetch articles from public RSS feeds. No API key required."""
     articles = []
-    for source_name, feed_url in RSS_FEEDS:
+    official_count = 0
+    for source_name, feed_url, max_articles in RSS_FEEDS:
         try:
             feed = feedparser.parse(feed_url)
             count = 0
             for entry in feed.entries:
-                if count >= 8:
+                if count >= max_articles:
                     break
                 title = (entry.get("title") or "").strip()
                 link = (entry.get("link") or "").strip()
                 summary = (entry.get("summary") or entry.get("description") or "").strip()
                 if not title or not link:
                     continue
-                # Strip HTML tags from summary
                 summary = re.sub(r"<[^>]+>", " ", summary)
                 summary = re.sub(r"\s+", " ", summary).strip()
                 articles.append({
@@ -368,9 +411,15 @@ def fetch_rss_feeds() -> list[dict]:
                     "source": source_name,
                 })
                 count += 1
-            print(f"  RSS {source_name}: {count} articles")
+            if source_name in _OFFICIAL_RSS_SOURCES:
+                official_count += count
+            else:
+                print(f"  RSS {source_name}: {count} articles")
         except Exception as e:
-            print(f"[WARN] RSS {source_name}: {e}", file=sys.stderr)
+            print(f"  [WARN] RSS {source_name}: {e}", file=sys.stderr)
+    if official_count:
+        print(f"  RSS Official Sources: {official_count} articles "
+              f"(White House, Fed, CDC, State Dept)")
     return articles
 
 
@@ -1567,32 +1616,28 @@ def main():
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
 
     # Read API keys
-    news_api_key    = os.environ.get("NEWS_API_KEY", "")
-    guardian_api_key = os.environ.get("GUARDIAN_API_KEY", "")
-    nyt_api_key     = os.environ.get("NYT_API_KEY", "")
-    anthropic_key   = os.environ.get("ANTHROPIC_API_KEY", "")
-    elevenlabs_key  = os.environ.get("ELEVEN_LABS_API_KEY", "")
+    newsdata_api_key  = os.environ.get("NEWSDATA_API_KEY", "")
+    guardian_api_key  = os.environ.get("GUARDIAN_API_KEY", "")
+    nyt_api_key       = os.environ.get("NYT_API_KEY", "")
+    anthropic_key     = os.environ.get("ANTHROPIC_API_KEY", "")
+    elevenlabs_key    = os.environ.get("ELEVEN_LABS_API_KEY", "")
 
     # Fail fast on required keys
     if not anthropic_key:
         print("[ERROR] ANTHROPIC_API_KEY not set.", file=sys.stderr)
+        sys.exit(1)
+    if not newsdata_api_key:
+        print("[ERROR] NEWSDATA_API_KEY not set.", file=sys.stderr)
         sys.exit(1)
 
     # ── Step 1: Fetch articles ────────────────────────────────────────────
     print("\n[1/14] Fetching articles from all sources...")
     raw_articles: list[dict] = []
 
-    if news_api_key:
-        fetched = fetch_newsapi(news_api_key)
-        print(f"  NewsAPI: {len(fetched)} articles")
-        raw_articles.extend(fetched)
-    else:
-        print("  [WARN] NEWS_API_KEY not set — skipping NewsAPI")
+    raw_articles.extend(fetch_newsdata(newsdata_api_key))
 
     if guardian_api_key:
-        fetched = fetch_guardian(guardian_api_key)
-        print(f"  Guardian: {len(fetched)} articles")
-        raw_articles.extend(fetched)
+        raw_articles.extend(fetch_guardian(guardian_api_key))
     else:
         print("  [WARN] GUARDIAN_API_KEY not set — skipping Guardian")
 

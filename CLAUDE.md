@@ -116,31 +116,21 @@ When multiple sources cover the same story, you will receive all versions togeth
 - Never present a contested fact as settled
 - The goal is a synthesis no single outlet would write — more complete and more neutral than any individual source
 
-STORY LENGTH — DYNAMIC:
-Assign each story a length based on its significance and complexity:
+STORY LENGTH — TWO DISTINCT FORMATS:
 
-SHORT (1-2 sentences brief, 1 paragraph full):
-- Routine updates with limited new information
-- Minor policy announcements
-- Sports results without broader significance
-- Economic indicators that confirm existing trends
+You are producing TWO genuinely different versions of each story. They should feel like different products, not the same content slightly expanded.
 
-MEDIUM (2-3 sentences brief, 2 paragraphs full):
-- Standard news stories with clear facts and moderate significance
-- Policy decisions with defined scope
-- Scientific findings with clear implications
-- Most stories fall in this range
+BRIEF: 1-2 sentences maximum. Absolute maximum 40 words. The factual kernel only — who did what, where. No context, no background, no implications, no qualifications. A reader scanning 16 briefs should be done in 90 seconds.
 
-LONG (3-4 sentences brief, 3-4 paragraphs full):
-- Major geopolitical developments with broad implications
-- Significant economic shifts affecting many people
-- Landmark legal decisions
-- Major public health developments
-- Stories that require substantial context to understand
+FULL: Substantially longer — target 150-300 words for medium stories, 300-500 words for long/complex stories. This is the complete story for a reader who wants full understanding. Structure: (1) what happened, (2) context and background, (3) key specifics (figures, parties, timeline), (4) significance. For ongoing stories: enough background that a reader who missed previous coverage can follow. For landmark stories: aim for the upper end of the word count range.
 
-CONTEXT-DEPENDENT (match length to complexity):
-- Ongoing situations: provide enough background for a reader who missed previous coverage
-- Breaking developments: longer if situation is still evolving, shorter if outcome is clear
+LENGTH TIERS:
+- SHORT (routine updates): brief = 1 sentence, full = 2-3 sentences (50-80 words)
+- MEDIUM (standard news): brief = 1-2 sentences, full = 4-6 sentences (100-180 words)
+- LONG (significant developments): brief = 2 sentences, full = 8-12 sentences (200-300 words)
+- COMPLEX (landmark decisions, major crises): brief = 2 sentences, full = 12-18 sentences (300-500 words)
+
+Use "long" in the JSON length field for both LONG and COMPLEX stories.
 
 Include a "length" field in your JSON response for each article:
 "length": "short" | "medium" | "long"
@@ -209,8 +199,8 @@ All secrets are stored as GitHub repository Secrets and injected into the Action
 
 | Variable | Purpose | Where to obtain |
 |---|---|---|
-| `NEWS_API_KEY` | NewsAPI.org — fetches headlines across categories | newsapi.org → Register → API key |
-| `GUARDIAN_API_KEY` | The Guardian Open Platform | open-platform.theguardian.com → Register |
+| `NEWSDATA_API_KEY` | NewsData.io — headline fetch across 6 categories; free tier permits commercial/production use | newsdata.io → Register → API key |
+| `GUARDIAN_API_KEY` | The Guardian Open Platform — full article body text via `show-fields=bodyText` | open-platform.theguardian.com → Register |
 | `NYT_API_KEY` | New York Times Developer API | developer.nytimes.com → Apps → + New App |
 | `ANTHROPIC_API_KEY` | Claude API for editorial processing | console.anthropic.com → API Keys |
 | `ELEVEN_LABS_API_KEY` | ElevenLabs text-to-speech for audio digest | elevenlabs.io → Profile → API Key |
@@ -219,14 +209,14 @@ All secrets are stored as GitHub repository Secrets and injected into the Action
 
 ## News Sources and Clustering Architecture
 
-Sources are fetched per run from three API sources and twelve RSS feeds. Target input before clustering: ~120–160 raw articles.
+Sources are fetched per run from three API sources, thirteen standard RSS feeds, and four official primary source feeds. Target input before clustering: ~130–170 raw articles.
 
 **API sources (require keys):**
-1. **NewsAPI** — categories: world, business, technology, health, science, sports, politics, national — 5 articles each (40 total). *politics* and *national* added to close the domestic-coverage gap present in the world/business-only set.
-2. **The Guardian** — sections: world, business, technology, science, sport — 5 articles each (25 total).
-3. **New York Times** — sections: world, business, technology, health, science, sports, politics, climate — 5 articles each (40 total). *politics* adds authoritative domestic political coverage; *climate* provides dedicated environmental reporting that rarely surfaces from the general sections.
+1. **NewsData.io** — categories: world, business, technology, health, science, sports — 5 articles each (up to 30 total). Replaces NewsAPI; free tier explicitly permits commercial and production use. `newsdata.io → Register`.
+2. **The Guardian** — sections: world, business, technology, science, sport, politics, environment, us-news — 5 articles each (up to 40 total). Upgraded from snippet-only to full article body text via `show-fields=bodyText,trailText,headline`. Body text truncated at 800 characters (~3–4 sentences of journalism) per article to manage token costs while providing substantially richer synthesis input than the former trail-text snippets.
+3. **New York Times** — sections: world, business, technology, health, science — 5 articles each (up to 25 total). Reduced from 8 sections to 5: sports, politics, and climate dropped due to consistent 429 rate-limit errors; same coverage arrives via RSS.
 
-**RSS feeds (no API key required, parsed via feedparser, up to 8 articles each):**
+**Standard RSS feeds (no API key required, parsed via feedparser, up to 8 articles each):**
 
 | Feed | URL | Rationale |
 |---|---|---|
@@ -243,6 +233,17 @@ Sources are fetched per run from three API sources and twelve RSS feeds. Target 
 | PBS NewsHour | `www.pbs.org/newshour/feeds/rss/headlines` | Public media; adds domestic depth and often covers stories commercial outlets skip |
 | Guardian Environment | `www.theguardian.com/environment/rss` | Dedicated climate and environment feed; improves NATURAL EVENTS and SCIENCE & HEALTH coverage |
 | SCOTUSblog | `www.scotusblog.com/feed/` | Supreme Court and federal judiciary; sole specialist legal source, covers DOMESTIC POLICY stories general feeds miss |
+
+**Official primary source feeds (public domain, no licensing concerns, up to 5 articles each):**
+
+These sources publish press releases and official statements directly. They cluster naturally with news articles covering the same policy decisions, providing Claude primary source material alongside press coverage for richer synthesis.
+
+| Feed | URL | Rationale |
+|---|---|---|
+| White House | `www.whitehouse.gov/feed/` | Official executive branch press releases and statements |
+| Federal Reserve | `www.federalreserve.gov/feeds/press_all.xml` | Official monetary policy announcements and Fed statements |
+| CDC Health Alerts | `tools.cdc.gov/api/v2/resources/media/403372.rss` | Official public health alerts and guidance |
+| State Department | `www.state.gov/rss-feeds/press-releases/` | Official foreign policy statements and diplomatic announcements |
 
 ### Exact duplicate removal
 

@@ -59,7 +59,7 @@ from pipeline import (
     collect_archive,
     DOCS_DIR as MAIN_DOCS_DIR,
     fetch_guardian,
-    fetch_newsapi,
+    fetch_newsdata,
     fetch_nyt,
     fetch_rss_feeds,
     group_archive_by_month,
@@ -1009,30 +1009,26 @@ def main() -> None:
     HYBRID_DOCS_DIR.mkdir(parents=True, exist_ok=True)
 
     # API keys
-    news_api_key     = os.environ.get("NEWS_API_KEY", "")
-    guardian_api_key = os.environ.get("GUARDIAN_API_KEY", "")
-    nyt_api_key      = os.environ.get("NYT_API_KEY", "")
-    anthropic_key    = os.environ.get("ANTHROPIC_API_KEY", "")
+    newsdata_api_key  = os.environ.get("NEWSDATA_API_KEY", "")
+    guardian_api_key  = os.environ.get("GUARDIAN_API_KEY", "")
+    nyt_api_key       = os.environ.get("NYT_API_KEY", "")
+    anthropic_key     = os.environ.get("ANTHROPIC_API_KEY", "")
 
     if not anthropic_key:
         print("[ERROR] ANTHROPIC_API_KEY not set.", file=sys.stderr)
+        sys.exit(1)
+    if not newsdata_api_key:
+        print("[ERROR] NEWSDATA_API_KEY not set.", file=sys.stderr)
         sys.exit(1)
 
     # ── Step 1: Fetch ─────────────────────────────────────────────────────
     print("\n[1/7] Fetching articles from all sources...")
     raw: list[dict] = []
 
-    if news_api_key:
-        fetched = fetch_newsapi(news_api_key)
-        print(f"  NewsAPI: {len(fetched)} articles")
-        raw.extend(fetched)
-    else:
-        print("  [WARN] NEWS_API_KEY not set — skipping NewsAPI", file=sys.stderr)
+    raw.extend(fetch_newsdata(newsdata_api_key))
 
     if guardian_api_key:
-        fetched = fetch_guardian(guardian_api_key)
-        print(f"  Guardian: {len(fetched)} articles")
-        raw.extend(fetched)
+        raw.extend(fetch_guardian(guardian_api_key))
     else:
         print("  [WARN] GUARDIAN_API_KEY not set — skipping Guardian", file=sys.stderr)
 

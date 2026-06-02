@@ -18,7 +18,7 @@ from pathlib import Path
 # Import all pipeline functions directly — backfill runs the same steps as main()
 from pipeline import (
     DOCS_DIR,
-    fetch_newsapi,
+    fetch_newsdata,
     fetch_guardian,
     fetch_nyt,
     fetch_rss_feeds,
@@ -51,7 +51,7 @@ def run_one(date_str: str, run: str, api_keys: dict) -> bool:
     """
     print(f"\n[{date_str}] [{run.upper()}] — generating...")
 
-    news_key = api_keys["news"]
+    newsdata_key = api_keys["newsdata"]
     guardian_key = api_keys["guardian"]
     nyt_key = api_keys["nyt"]
     anthropic_key = api_keys["anthropic"]
@@ -59,10 +59,7 @@ def run_one(date_str: str, run: str, api_keys: dict) -> bool:
     try:
         # ── Fetch ─────────────────────────────────────────────────────────
         raw_articles: list[dict] = []
-        if news_key:
-            raw_articles.extend(fetch_newsapi(news_key))
-        else:
-            print("  [WARN] NEWS_API_KEY not set — skipping NewsAPI")
+        raw_articles.extend(fetch_newsdata(newsdata_key))
         if guardian_key:
             raw_articles.extend(fetch_guardian(guardian_key))
         else:
@@ -161,13 +158,16 @@ def main() -> None:
 
     # Read API keys
     api_keys = {
-        "news": os.environ.get("NEWS_API_KEY", ""),
+        "newsdata": os.environ.get("NEWSDATA_API_KEY", ""),
         "guardian": os.environ.get("GUARDIAN_API_KEY", ""),
         "nyt": os.environ.get("NYT_API_KEY", ""),
         "anthropic": os.environ.get("ANTHROPIC_API_KEY", ""),
     }
     if not api_keys["anthropic"]:
         print("[ERROR] ANTHROPIC_API_KEY not set.", file=sys.stderr)
+        sys.exit(1)
+    if not api_keys["newsdata"]:
+        print("[ERROR] NEWSDATA_API_KEY not set.", file=sys.stderr)
         sys.exit(1)
 
     # Resolve editions list
