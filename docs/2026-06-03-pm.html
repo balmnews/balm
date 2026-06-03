@@ -3,15 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Wednesday, June 3, 2026 PM</title>
+  <meta name="description" content="Balm news digest for Wednesday, June 3, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -70,7 +66,6 @@
       .sidebar { display: none; }
       .main-content { padding: 0 1.25rem 3rem; }
 
-      /* Mobile archive toggle */
       .mobile-archive-toggle {
         display: flex;
         align-items: center;
@@ -94,6 +89,14 @@
       }
 
       .mobile-archive-panel.open { display: block; }
+
+      .mobile-archive-title {
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 0.75rem;
+      }
     }
 
     @media (min-width: 769px) {
@@ -191,7 +194,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -206,6 +211,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -244,13 +253,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -358,10 +367,15 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
 
-    /* Sidebar */
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
+
+    /* Sidebar archive */
     .sidebar-title {
       font-family: 'Playfair Display', serif;
       font-size: 0.65rem;
@@ -372,15 +386,9 @@
       padding-top: 2rem;
     }
 
-    .sidebar-home-link {
-      display: block;
-      font-size: 0.72rem;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-      letter-spacing: 0.04em;
+    .archive-month {
+      margin-bottom: 1rem;
     }
-
-    .archive-month { margin-bottom: 1rem; }
 
     .archive-month-label {
       font-size: 0.68rem;
@@ -401,15 +409,6 @@
 
     .archive-link:hover { color: var(--accent); text-decoration: none; }
     .archive-link.current { color: var(--accent); font-style: italic; }
-
-    /* Mobile archive */
-    .mobile-archive-title {
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
 
     /* Footer */
     .footer {
@@ -436,7 +435,10 @@
       text-decoration: none;
     }
 
-    .kofi-link:hover { background: #ebe5db; text-decoration: none; }
+    .kofi-link:hover {
+      background: #ebe5db;
+      text-decoration: none;
+    }
 
     /* Top stories panel */
     .top-stories {
@@ -635,7 +637,7 @@
 
 <div class="page-wrapper">
 
-  <!-- Desktop sidebar -->
+  <!-- Sidebar archive nav -->
   <nav class="sidebar" aria-label="Archive">
     <div class="sidebar-title">Archive</div>
     
@@ -1431,10 +1433,10 @@
               <div class="article article-long" id="story_14">
                 <h2 class="article-headline">Violent Protests Erupt in UK Following Murder Case; Political Debate Intensifies Over Immigration and Policing</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>Protests connected to the murder of Henry Nowak turned violent in Southampton and other UK cities, injuring eleven police officers. Prime Minister Starmer and Reform UK leader Farage clashed publicly over the case and policing, with Nowak's family objecting to the political use of the incident.</span></span>
                   <span class="summary-full"><span>Demonstrations in the United Kingdom connected to the murder of Henry Nowak turned violent, with eleven police officers injured as crowds threw rocks and other objects at police. A British cabinet minister described the scenes as 'unacceptable.' The case has become the center of a significant political dispute. Reform UK leader Nigel Farage called for 'pure, cold rage' in response to police conduct, while Prime Minister Keir Starmer accused Farage of exploiting the case against the wishes of Nowak's family. Starmer also rejected claims of 'two-tier policing.' The incidents have amplified existing tensions in the UK over immigration enforcement, policing standards, and far-right mobilization online. A former police officer was separately forced to relocate to a safe location after being falsely accused online of involvement in the murder. The case has drawn attention to the role of social media platforms and AI tools in spreading misinformation during high-profile violent incidents.</span></span>
                 </div>
@@ -1494,6 +1496,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1515,10 +1518,10 @@
     var toggle = document.getElementById('mobile-toggle');
     var isOpen = panel.classList.toggle('open');
     toggle.setAttribute('aria-expanded', String(isOpen));
-    // Caret direction is handled by CSS [aria-expanded="true"] rotate — no JS needed
   }
 
-  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
+  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
+  // always show all editions regardless of which page was generated.
   (function() {
     var current = '2026-06-03-pm.html';
     fetch('archive.json')
@@ -1540,7 +1543,7 @@
   })();
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
