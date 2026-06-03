@@ -568,6 +568,11 @@ def _cluster_single_batch(articles: list[dict], anthropic_key: str,
             text = response.content[0].text.strip()
             text = re.sub(r"^```(?:json)?\s*", "", text)
             text = re.sub(r"\s*```$", "", text).strip()
+            # Slice to the outermost JSON object so trailing prose after the
+            # closing brace doesn't cause 'Extra data' parse errors.
+            start, end = text.find("{"), text.rfind("}")
+            if start != -1 and end > start:
+                text = text[start:end + 1]
             data = json.loads(text)
             raw_clusters = data.get("clusters", [])
 
@@ -638,6 +643,11 @@ def _cross_batch_merge(
         raw = response.content[0].text.strip()
         raw = re.sub(r"^```(?:json)?\s*", "", raw)
         raw = re.sub(r"\s*```$", "", raw).strip()
+        # Slice to the outermost JSON object so trailing prose after the
+        # closing brace doesn't cause 'Extra data' parse errors.
+        start, end = raw.find("{"), raw.rfind("}")
+        if start != -1 and end > start:
+            raw = raw[start:end + 1]
         merges: list[list[int]] = json.loads(raw).get("merges", [])
     except Exception as e:
         print(
