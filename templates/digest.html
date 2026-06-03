@@ -17,6 +17,7 @@
     :root {
       --bg: #f2ede4;
       --ink: #2a2520;
+      --ink-light: #5a5048;
       --secondary: #6a6058;
       --muted: #9a9288;
       --rule: #c8c0b4;
@@ -64,6 +65,55 @@
       .page-wrapper { display: block; padding: 0; }
       .sidebar { display: none; }
       .main-content { padding: 0 1.25rem 3rem; }
+
+      .mobile-archive-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.25rem;
+        border-bottom: 1px solid var(--rule);
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        cursor: pointer;
+        background: var(--bg);
+        user-select: none;
+      }
+
+      .mobile-archive-panel {
+        display: none;
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid var(--rule);
+        background: #ebe5db;
+      }
+
+      .mobile-archive-panel.open { display: block; }
+
+      .mobile-archive-title {
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 0.75rem;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-archive-toggle { display: none; }
+      .mobile-archive-panel { display: none !important; }
+    }
+
+    /* Mobile archive caret — CSS rotation, no character substitution */
+    .mobile-archive-caret {
+      display: inline-block;
+      font-size: 1rem;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+
+    .mobile-archive-toggle[aria-expanded="true"] .mobile-archive-caret {
+      transform: rotate(90deg);
     }
 
     /* Masthead */
@@ -390,35 +440,35 @@
       text-decoration: none;
     }
 
-    /* Dynamic story length variants */
-    .article-long .article-headline { font-size: 1.35rem; }
-    .article-short .article-headline { font-size: 1.05rem; }
-
-    /* Top stories navigation panel */
+    /* Top stories panel */
     .top-stories {
-      background: #ebe5db;
+      background: #ede9e2;
       border: 1px solid var(--rule);
       border-radius: 4px;
-      padding: 1rem 1.25rem;
+      padding: 1.25rem 1.5rem;
       margin-bottom: 2rem;
     }
 
     .top-stories-heading {
       font-family: 'Playfair Display', serif;
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       font-weight: 400;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
+      color: var(--accent);
+      padding-bottom: 0.75rem;
+      margin-bottom: 0.9rem;
+      border-bottom: 1px solid var(--rule);
     }
 
     .top-story-item {
       display: flex;
       flex-direction: column;
-      margin-bottom: 0.6rem;
-      padding-bottom: 0.6rem;
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.9rem;
+      padding-left: 1rem;
       border-bottom: 1px solid var(--rule);
+      border-left: 3px solid var(--accent);
     }
 
     .top-story-item:last-child {
@@ -429,7 +479,8 @@
 
     .top-story-link {
       font-family: 'Playfair Display', serif;
-      font-size: 0.95rem;
+      font-size: 1.2rem;
+      font-weight: 600;
       color: var(--ink);
       text-decoration: none;
       line-height: 1.3;
@@ -438,14 +489,37 @@
     .top-story-link:hover { color: var(--accent); text-decoration: none; }
 
     .top-story-reason {
-      font-size: 0.78rem;
-      color: var(--secondary);
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-size: 0.85rem;
+      color: var(--ink-light);
       font-style: italic;
-      margin-top: 0.15rem;
+      margin-top: 0.3rem;
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
+
+<!-- Mobile archive toggle (shown only on mobile) -->
+<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
+  <span class="mobile-archive-caret">›</span> Archive
+</div>
+<div class="mobile-archive-panel" id="mobile-archive-panel">
+  <div class="mobile-archive-title">Past Editions</div>
+  {% for month in archive_months %}
+  <div class="archive-month">
+    <div class="archive-month-label">{{ month.month }}</div>
+    {% for entry in month.entries %}
+    <a class="archive-link{% if entry.file == date_str + '-' + run + '.html' %} current{% endif %}"
+       href="{{ entry.file }}">
+      {{ entry.date[5:] }} {{ entry.run | upper }}
+    </a>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+
 <div class="page-wrapper">
 
   <!-- Sidebar archive nav -->
@@ -505,7 +579,7 @@
     <!-- Top stories navigation -->
     {% if top_stories %}
     <div class="top-stories">
-      <div class="top-stories-heading">Today's top stories</div>
+      <div class="top-stories-heading">Today's Top Stories</div>
       {% for ts in top_stories %}
       {% set art = article_by_id.get(ts.story_id) %}
       {% if art %}
@@ -626,7 +700,15 @@
     btn.setAttribute('aria-expanded', String(!expanded));
   });
 
-  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
+  function toggleMobileArchive() {
+    var panel = document.getElementById('mobile-archive-panel');
+    var toggle = document.getElementById('mobile-toggle');
+    var isOpen = panel.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  }
+
+  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
+  // always show all editions regardless of which page was generated.
   (function() {
     var current = '{{ date_str }}-{{ run }}.html';
     fetch('archive.json')
@@ -641,6 +723,8 @@
         }).join('');
         var nav = document.querySelector('nav.sidebar');
         if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
+        var mob = document.getElementById('mobile-archive-panel');
+        if (mob) mob.innerHTML = '<div class="mobile-archive-title">Past Editions</div>' + html;
       })
       .catch(function() {});
   })();
