@@ -1054,8 +1054,21 @@ def fetch_sp500() -> float | None:
 # ---------------------------------------------------------------------------
 
 def collect_archive(docs_dir: Path) -> list[dict]:
-    """Return sorted list of all digest metadata for archive nav."""
-    entries = []
+    """Return sorted list of all published digests for archive nav.
+
+    Primary scan: metadata JSON files (YYYY-MM-DD-{am,pm}.json).
+    Because the current run's JSON is written at step 9 — before this
+    function is called in step 13 — the current digest is always included.
+
+    Fallback scan: digest HTML files (YYYY-MM-DD-{am,pm}.html) for any
+    digest whose metadata JSON is absent (e.g. a partial run that wrote
+    HTML before a JSON write failure). HTML files are the actual published
+    artifact, so the archive must reflect them.
+    """
+    entries: list[dict] = []
+    seen_stems: set[str] = set()
+
+    # Primary: JSON files carry rich metadata (run, date)
     for f in sorted(docs_dir.glob("????-??-??-??.json"), reverse=True):
         try:
             meta = json.loads(f.read_text())
@@ -1067,8 +1080,27 @@ def collect_archive(docs_dir: Path) -> list[dict]:
                 "label": f"{date_str} {'AM' if run == 'am' else 'PM'}",
                 "file": f.stem + ".html",
             })
+            seen_stems.add(f.stem)
         except Exception:
             continue
+
+    # Fallback: HTML files for any digest that has no metadata JSON
+    for f in sorted(docs_dir.glob("????-??-??-??.html"), reverse=True):
+        if f.stem in seen_stems:
+            continue  # already captured via JSON
+        parts = f.stem.split("-")
+        if len(parts) != 4 or parts[3] not in ("am", "pm"):
+            continue
+        date_str = "-".join(parts[:3])
+        run = parts[3]
+        entries.append({
+            "date": date_str,
+            "run": run,
+            "label": f"{date_str} {'AM' if run == 'am' else 'PM'}",
+            "file": f.name,
+        })
+
+    entries.sort(key=lambda e: (e["date"], e["run"]), reverse=True)
     return entries
 
 
