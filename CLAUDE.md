@@ -377,6 +377,57 @@ Each run saves a `YYYY-MM-DD-am.json` / `YYYY-MM-DD-pm.json` alongside the HTML 
 
 ---
 
+## Article Freshness Filter
+
+Articles older than 48 hours are discarded before clustering. The filter is applied in three fetch functions:
+
+- **`fetch_newsdata()`** — checks the `pubDate` field from NewsData.io results
+- **`fetch_guardian()`** — checks the `webPublicationDate` field from Guardian API results
+- **`fetch_rss_feeds()`** — checks the feedparser `published` field (falls back to `updated`)
+- **NYT** — no filter needed; Top Stories API always returns current articles by definition
+
+The `is_fresh(date_str, max_age_hours=48)` helper parses the date with `dateutil.parser`, normalises to UTC if no timezone is present, and returns `True` (keep) when the date is unparseable — giving articles the benefit of the doubt. All three functions store the raw publication date string in an `published_at` field on the article dict for traceability.
+
+Staleness is reported per source:
+```
+  RSS WSJ Markets: 8 fetched, 3 stale, 5 kept
+  Guardian: 40 fetched, 2 stale, 38 kept (full text)
+```
+When no articles are stale, the simpler single-count format is used.
+
+---
+
+## Archive Sidebar
+
+`archive.json` is fetched by JavaScript on every page load to populate the sidebar and mobile archive panel. The fetch URL includes a cache-busting timestamp parameter:
+
+```javascript
+fetch('archive.json?v=' + Date.now())
+```
+
+This forces browsers and CDNs to always retrieve the latest version rather than serving a cached copy that may be missing recent digests.
+
+---
+
+## Icons and Favicon
+
+The site uses SVG icons as the primary format for modern browser and PWA support:
+
+- **`docs/favicon.svg`** — 32×32 SVG, parchment background `#f2ede4`, italic bold "B" in dusty slate `#6b82a8`
+- **`docs/icons/icon.svg`** — 192×192 SVG, same palette, full "Balm" wordmark; scalable to any size for PWA home screen icons
+- **`docs/icons/icon-192.png`** and **`icon-512.png`** — PNG fallbacks for older devices and platforms that don't support SVG icons
+
+The manifest references the SVG as primary (`"sizes": "any"`) with PNG fallbacks. Templates link both SVG and PNG favicons:
+
+```html
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" href="/icons/icon-192.png">
+```
+
+`ensure_static_icons(docs_dir)` in `pipeline.py` recreates the SVG files on any run where they are absent — a self-healing safety net in case `docs/` is re-initialized without the static assets.
+
+---
+
 ## Deployment
 
 ### First-time setup

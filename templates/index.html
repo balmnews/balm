@@ -10,6 +10,8 @@
   <meta property="og:description" content="The same news, without the agitation.">
   <meta property="og:type" content="website">
   <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/icons/icon-192.png">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
   <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -708,7 +710,7 @@
   // Dynamic archive — fetches live archive.json so sidebar always shows all editions
   (function() {
     var current = '{{ current_digest_file }}';
-    fetch('archive.json')
+    fetch('archive.json?v=' + Date.now())
       .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
       .then(function(data) {
         var html = data.months.map(function(m) {

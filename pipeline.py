@@ -264,6 +264,26 @@ Adjust the order (except DIFFICULT NEWS must be last) to reflect today's editori
 # Article fetching — API sources
 # ---------------------------------------------------------------------------
 
+def is_fresh(date_str: str, max_age_hours: int = 48) -> bool:
+    """Return True if the article date is within max_age_hours of now.
+
+    Returns True (keep) when date_str is absent or unparseable — we cannot
+    determine staleness so the article gets the benefit of the doubt.
+    """
+    if not date_str:
+        return True
+    try:
+        from dateutil import parser as _dp
+        from datetime import timezone as _tz
+        pub_date = _dp.parse(date_str)
+        if pub_date.tzinfo is None:
+            pub_date = pub_date.replace(tzinfo=_tz.utc)
+        age_hours = (datetime.now(_tz.utc) - pub_date).total_seconds() / 3600
+        return age_hours <= max_age_hours
+    except Exception:
+        return True  # Can't parse date — keep it
+
+
 def fetch_newsdata(api_key: str) -> list[dict]:
     """Fetch top headlines from NewsData.io.
 
@@ -273,6 +293,7 @@ def fetch_newsdata(api_key: str) -> list[dict]:
     """
     categories = ["world", "business", "technology", "health", "science", "sports"]
     articles = []
+    total_stale = 0
     for category in categories:
         try:
             resp = requests.get(
@@ -291,16 +312,25 @@ def fetch_newsdata(api_key: str) -> list[dict]:
             for item in data.get("results", []):
                 if not item.get("title") or not item.get("description"):
                     continue
+                pub_str = item.get("pubDate", "")
+                if not is_fresh(pub_str):
+                    total_stale += 1
+                    continue
                 articles.append({
                     "title": item.get("title", ""),
                     "description": (item.get("description") or item.get("content", ""))[:300],
                     "url": item.get("link", ""),
                     "source": item.get("source_name", "NewsData"),
+                    "published_at": pub_str,
                 })
             time.sleep(0.5)
         except Exception as e:
             print(f"  [WARN] NewsData {category}: {e}", file=sys.stderr)
-    print(f"  NewsData.io: {len(articles)} articles")
+    kept = len(articles)
+    if total_stale:
+        print(f"  NewsData.io: {kept + total_stale} fetched, {total_stale} stale, {kept} kept")
+    else:
+        print(f"  NewsData.io: {kept} articles")
     return articles
 
 
@@ -315,6 +345,7 @@ def fetch_guardian(api_key: str) -> list[dict]:
     sections = ["world", "business", "technology", "science", "sport",
                 "politics", "environment", "us-news"]
     articles = []
+    total_stale = 0
     for section in sections:
         try:
             resp = requests.get(
@@ -332,6 +363,10 @@ def fetch_guardian(api_key: str) -> list[dict]:
             resp.raise_for_status()
             data = resp.json()
             for a in data.get("response", {}).get("results", [])[:5]:
+                pub_str = a.get("webPublicationDate", "")
+                if not is_fresh(pub_str):
+                    total_stale += 1
+                    continue
                 fields = a.get("fields", {})
                 # Prefer full body text; fall back to trail text snippet
                 body = fields.get("bodyText", "") or fields.get("trailText", "")
@@ -343,11 +378,16 @@ def fetch_guardian(api_key: str) -> list[dict]:
                     "description": body[:800].strip(),
                     "url": a.get("webUrl", ""),
                     "source": "The Guardian",
+                    "published_at": pub_str,
                 })
             time.sleep(0.3)
         except Exception as e:
             print(f"  [WARN] Guardian {section}: {e}", file=sys.stderr)
-    print(f"  Guardian: {len(articles)} articles (full text)")
+    kept = len(articles)
+    if total_stale:
+        print(f"  Guardian: {kept + total_stale} fetched, {total_stale} stale, {kept} kept (full text)")
+    else:
+        print(f"  Guardian: {kept} articles (full text)")
     return articles
 
 
@@ -393,15 +433,26 @@ def fetch_rss_feeds() -> list[dict]:
     for source_name, feed_url, max_articles in RSS_FEEDS:
         try:
             feed = feedparser.parse(feed_url)
-            count = 0
+            kept = 0
+            stale = 0
             for entry in feed.entries:
-                if count >= max_articles:
+                if kept >= max_articles:
                     break
                 title = (entry.get("title") or "").strip()
                 link = (entry.get("link") or "").strip()
-                summary = (entry.get("summary") or entry.get("description") or "").strip()
                 if not title or not link:
                     continue
+                # Use the richer published date if available; fall back to updated
+                pub_str = entry.get("published", "") or entry.get("updated", "")
+                if not is_fresh(pub_str):
+                    stale += 1
+                    print(
+                        f"  [WARN] Stale RSS ({source_name}): {title[:70]}"
+                        f" (published {pub_str})",
+                        file=sys.stderr,
+                    )
+                    continue
+                summary = (entry.get("summary") or entry.get("description") or "").strip()
                 summary = re.sub(r"<[^>]+>", " ", summary)
                 summary = re.sub(r"\s+", " ", summary).strip()
                 articles.append({
@@ -409,12 +460,17 @@ def fetch_rss_feeds() -> list[dict]:
                     "description": summary[:400],
                     "url": link,
                     "source": source_name,
+                    "published_at": pub_str,
                 })
-                count += 1
+                kept += 1
             if source_name in _OFFICIAL_RSS_SOURCES:
-                official_count += count
+                official_count += kept
             else:
-                print(f"  RSS {source_name}: {count} articles")
+                if stale:
+                    print(f"  RSS {source_name}: {kept + stale} fetched, "
+                          f"{stale} stale, {kept} kept")
+                else:
+                    print(f"  RSS {source_name}: {kept} articles")
         except Exception as e:
             print(f"  [WARN] RSS {source_name}: {e}", file=sys.stderr)
     if official_count:
@@ -1144,6 +1200,41 @@ def _group_by_category(articles: list[dict],
     ]
 
 
+def ensure_static_icons(docs_dir: Path) -> None:
+    """Write SVG icon files to docs/ if they are not already present.
+
+    These files are committed to the repo, but this function acts as a
+    self-healing safety net: if docs/ is ever re-initialized without the
+    static assets, the next pipeline run recreates them.
+    """
+    favicon = docs_dir / "favicon.svg"
+    if not favicon.exists():
+        favicon.write_text(
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">\n'
+            '  <rect width="32" height="32" fill="#f2ede4" rx="4"/>\n'
+            '  <text x="16" y="23" font-family="Georgia, serif" font-size="22"\n'
+            '    font-weight="bold" fill="#6b82a8" text-anchor="middle"\n'
+            '    font-style="italic">B</text>\n'
+            '</svg>\n',
+            encoding="utf-8",
+        )
+        print("[OK] favicon.svg created")
+
+    icon_svg = docs_dir / "icons" / "icon.svg"
+    if not icon_svg.exists():
+        icon_svg.parent.mkdir(parents=True, exist_ok=True)
+        icon_svg.write_text(
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">\n'
+            '  <rect width="192" height="192" fill="#f2ede4"/>\n'
+            '  <text x="96" y="115" font-family="Georgia, serif" font-size="64"\n'
+            '    font-weight="bold" fill="#6b82a8" text-anchor="middle"\n'
+            '    font-style="italic">Balm</text>\n'
+            '</svg>\n',
+            encoding="utf-8",
+        )
+        print("[OK] icons/icon.svg created")
+
+
 def render_digest(articles: list[dict], date_str: str, run: str, metadata: dict,
                   archive: list[dict], docs_dir: Path,
                   top_stories: list[dict] | None = None,
@@ -1771,6 +1862,7 @@ def main():
     print("\n[13/14] Building archive index and rendering output files...")
     archive = collect_archive(DOCS_DIR)
     write_archive_json(archive, DOCS_DIR)
+    ensure_static_icons(DOCS_DIR)
     render_digest(processed_articles, date_str, run, metadata, archive, DOCS_DIR,
                   top_stories=top_stories, category_order=category_order)
     render_sources(processed_articles, date_str, run, archive, DOCS_DIR)
