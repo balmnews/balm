@@ -509,17 +509,7 @@
 </div>
 <div class="mobile-archive-panel" id="mobile-archive-panel">
   <div class="mobile-archive-title">Past Editions</div>
-  {% for month in archive_months %}
-  <div class="archive-month">
-    <div class="archive-month-label">{{ month.month }}</div>
-    {% for entry in month.entries %}
-    <a class="archive-link{% if entry.file == date_str + '-' + run + '.html' %} current{% endif %}"
-       href="{{ entry.file }}">
-      {{ entry.date[5:] }} {{ entry.run | upper }}
-    </a>
-    {% endfor %}
-  </div>
-  {% endfor %}
+  <!-- populated by archive.json fetch on page load — never server-rendered -->
 </div>
 
 <div class="page-wrapper">
@@ -527,17 +517,7 @@
   <!-- Sidebar archive nav -->
   <nav class="sidebar" aria-label="Archive">
     <div class="sidebar-title">Archive</div>
-    {% for month in archive_months %}
-    <div class="archive-month">
-      <div class="archive-month-label">{{ month.month }}</div>
-      {% for entry in month.entries %}
-      <a class="archive-link{% if entry.file == date_str + '-' + run + '.html' %} current{% endif %}"
-         href="{{ entry.file }}">
-        {{ entry.date[5:] }} {{ entry.run | upper }}
-      </a>
-      {% endfor %}
-    </div>
-    {% endfor %}
+    <!-- populated by archive.json fetch on page load — never server-rendered -->
   </nav>
 
   <!-- Main content -->

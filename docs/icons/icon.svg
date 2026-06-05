@@ -1,10 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;display=swap');</style>
+    <filter id="f" x="-10%" y="-10%" width="120%" height="120%">
+      <feMorphology operator="dilate" radius="1.5" result="spread"/>
+      <feGaussianBlur in="spread" stdDeviation="0.9" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
   <rect width="192" height="192" fill="#f2ede4"/>
-  <text x="96" y="115"
-    font-family="Georgia, serif"
-    font-size="64"
-    font-weight="bold"
+  <text x="96" y="118"
+    font-family="Caveat, cursive"
+    font-weight="700"
+    font-size="72"
     fill="#6b82a8"
     text-anchor="middle"
-    font-style="italic">Balm</text>
+    letter-spacing="4"
+    filter="url(#f)">Balm</text>
 </svg>

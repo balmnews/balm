@@ -1207,31 +1207,57 @@ def ensure_static_icons(docs_dir: Path) -> None:
     self-healing safety net: if docs/ is ever re-initialized without the
     static assets, the next pipeline run recreates them.
     """
+    _FAVICON_SVG = (
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">\n'
+        '  <defs>\n'
+        '    <style>@import url(\'https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;display=swap\');</style>\n'
+        '    <filter id="f" x="-15%" y="-15%" width="130%" height="130%">\n'
+        '      <feMorphology operator="dilate" radius="0.4" result="spread"/>\n'
+        '      <feGaussianBlur in="spread" stdDeviation="0.3" result="blur"/>\n'
+        '      <feComposite in="SourceGraphic" in2="blur" operator="over"/>\n'
+        '    </filter>\n'
+        '  </defs>\n'
+        '  <rect width="32" height="32" fill="#f2ede4" rx="4"/>\n'
+        '  <text x="16" y="24"\n'
+        '    font-family="Caveat, cursive"\n'
+        '    font-weight="700"\n'
+        '    font-size="24"\n'
+        '    fill="#6b82a8"\n'
+        '    text-anchor="middle"\n'
+        '    filter="url(#f)">B</text>\n'
+        '</svg>\n'
+    )
+    _ICON_SVG = (
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">\n'
+        '  <defs>\n'
+        '    <style>@import url(\'https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;display=swap\');</style>\n'
+        '    <filter id="f" x="-10%" y="-10%" width="120%" height="120%">\n'
+        '      <feMorphology operator="dilate" radius="1.5" result="spread"/>\n'
+        '      <feGaussianBlur in="spread" stdDeviation="0.9" result="blur"/>\n'
+        '      <feComposite in="SourceGraphic" in2="blur" operator="over"/>\n'
+        '    </filter>\n'
+        '  </defs>\n'
+        '  <rect width="192" height="192" fill="#f2ede4"/>\n'
+        '  <text x="96" y="118"\n'
+        '    font-family="Caveat, cursive"\n'
+        '    font-weight="700"\n'
+        '    font-size="72"\n'
+        '    fill="#6b82a8"\n'
+        '    text-anchor="middle"\n'
+        '    letter-spacing="4"\n'
+        '    filter="url(#f)">Balm</text>\n'
+        '</svg>\n'
+    )
+
     favicon = docs_dir / "favicon.svg"
     if not favicon.exists():
-        favicon.write_text(
-            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">\n'
-            '  <rect width="32" height="32" fill="#f2ede4" rx="4"/>\n'
-            '  <text x="16" y="23" font-family="Georgia, serif" font-size="22"\n'
-            '    font-weight="bold" fill="#6b82a8" text-anchor="middle"\n'
-            '    font-style="italic">B</text>\n'
-            '</svg>\n',
-            encoding="utf-8",
-        )
+        favicon.write_text(_FAVICON_SVG, encoding="utf-8")
         print("[OK] favicon.svg created")
 
     icon_svg = docs_dir / "icons" / "icon.svg"
     if not icon_svg.exists():
         icon_svg.parent.mkdir(parents=True, exist_ok=True)
-        icon_svg.write_text(
-            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">\n'
-            '  <rect width="192" height="192" fill="#f2ede4"/>\n'
-            '  <text x="96" y="115" font-family="Georgia, serif" font-size="64"\n'
-            '    font-weight="bold" fill="#6b82a8" text-anchor="middle"\n'
-            '    font-style="italic">Balm</text>\n'
-            '</svg>\n',
-            encoding="utf-8",
-        )
+        icon_svg.write_text(_ICON_SVG, encoding="utf-8")
         print("[OK] icons/icon.svg created")
 
 
