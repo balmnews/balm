@@ -1201,21 +1201,27 @@ def _group_by_category(articles: list[dict],
 
 
 def ensure_static_icons(docs_dir: Path) -> None:
-    """Write SVG icon files to docs/ if they are not already present.
+    """Generate PNG icon files for docs/ using Pillow with Caveat Bold font.
 
-    These files are committed to the repo, but this function acts as a
-    self-healing safety net: if docs/ is ever re-initialized without the
-    static assets, the next pipeline run recreates them.
+    Downloads the Caveat Bold TTF from GitHub on first run and renders three
+    PNG icons with the correct palette (parchment background, dusty-slate text).
+    Falls back to writing SVG reference files if Pillow or the font download
+    fails. Acts as a self-healing safety net if docs/ is re-initialized without
+    the static assets.
     """
+    import tempfile
+
+    _PARCHMENT = "#f2ede4"
+    _SLATE = "#6b82a8"
+    _CAVEAT_TTF_URL = (
+        "https://github.com/googlefonts/caveat/raw/main/fonts/ttf/Caveat-Bold.ttf"
+    )
+
+    # SVG reference files — kept for completeness; not used for display.
     _FAVICON_SVG = (
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">\n'
         '  <defs>\n'
         '    <style>@import url(\'https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;display=swap\');</style>\n'
-        '    <filter id="f" x="-15%" y="-15%" width="130%" height="130%">\n'
-        '      <feMorphology operator="dilate" radius="0.4" result="spread"/>\n'
-        '      <feGaussianBlur in="spread" stdDeviation="0.3" result="blur"/>\n'
-        '      <feComposite in="SourceGraphic" in2="blur" operator="over"/>\n'
-        '    </filter>\n'
         '  </defs>\n'
         '  <rect width="32" height="32" fill="#f2ede4" rx="4"/>\n'
         '  <text x="16" y="24"\n'
@@ -1223,19 +1229,13 @@ def ensure_static_icons(docs_dir: Path) -> None:
         '    font-weight="700"\n'
         '    font-size="24"\n'
         '    fill="#6b82a8"\n'
-        '    text-anchor="middle"\n'
-        '    filter="url(#f)">B</text>\n'
+        '    text-anchor="middle">B</text>\n'
         '</svg>\n'
     )
     _ICON_SVG = (
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">\n'
         '  <defs>\n'
         '    <style>@import url(\'https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;display=swap\');</style>\n'
-        '    <filter id="f" x="-10%" y="-10%" width="120%" height="120%">\n'
-        '      <feMorphology operator="dilate" radius="1.5" result="spread"/>\n'
-        '      <feGaussianBlur in="spread" stdDeviation="0.9" result="blur"/>\n'
-        '      <feComposite in="SourceGraphic" in2="blur" operator="over"/>\n'
-        '    </filter>\n'
         '  </defs>\n'
         '  <rect width="192" height="192" fill="#f2ede4"/>\n'
         '  <text x="96" y="118"\n'
@@ -1244,21 +1244,76 @@ def ensure_static_icons(docs_dir: Path) -> None:
         '    font-size="72"\n'
         '    fill="#6b82a8"\n'
         '    text-anchor="middle"\n'
-        '    letter-spacing="4"\n'
-        '    filter="url(#f)">Balm</text>\n'
+        '    letter-spacing="4">Balm</text>\n'
         '</svg>\n'
     )
 
+    icons_dir = docs_dir / "icons"
+    icons_dir.mkdir(parents=True, exist_ok=True)
+
+    icon_32  = icons_dir / "icon-32.png"
+    icon_192 = icons_dir / "icon-192.png"
+    icon_512 = icons_dir / "icon-512.png"
+
+    png_missing = not (icon_32.exists() and icon_192.exists() and icon_512.exists())
+
+    if png_missing:
+        try:
+            from PIL import Image, ImageDraw, ImageFont
+
+            # Download Caveat Bold TTF to a temporary file.
+            resp = requests.get(_CAVEAT_TTF_URL, timeout=15)
+            resp.raise_for_status()
+
+            with tempfile.NamedTemporaryFile(suffix=".ttf", delete=False) as tmp:
+                tmp.write(resp.content)
+                ttf_path = tmp.name
+
+            try:
+                def _make_icon(size: int, text: str, font_size: int) -> "Image.Image":
+                    img = Image.new("RGB", (size, size), _PARCHMENT)
+                    draw = ImageDraw.Draw(img)
+                    font = ImageFont.truetype(ttf_path, font_size)
+                    # textbbox at (0,0) gives (left, top, right, bottom);
+                    # left/top may be non-zero due to font metrics.
+                    bbox = draw.textbbox((0, 0), text, font=font)
+                    text_w = bbox[2] - bbox[0]
+                    text_h = bbox[3] - bbox[1]
+                    x = (size - text_w) / 2 - bbox[0]
+                    y = (size - text_h) / 2 - bbox[1]
+                    draw.text((x, y), text, fill=_SLATE, font=font)
+                    return img
+
+                if not icon_32.exists():
+                    _make_icon(32, "B", 22).save(str(icon_32), "PNG")
+                    print("[OK] icons/icon-32.png created")
+
+                if not icon_192.exists():
+                    _make_icon(192, "Balm", 80).save(str(icon_192), "PNG")
+                    print("[OK] icons/icon-192.png created")
+
+                if not icon_512.exists():
+                    _make_icon(512, "Balm", 214).save(str(icon_512), "PNG")
+                    print("[OK] icons/icon-512.png created")
+
+            finally:
+                import os as _os
+                try:
+                    _os.unlink(ttf_path)
+                except Exception:
+                    pass
+
+        except Exception as exc:
+            print(f"[WARN] PNG icon generation failed ({exc}); browser will use SVG reference files")
+
+    # Always keep SVG reference files present (not used for display).
     favicon = docs_dir / "favicon.svg"
     if not favicon.exists():
         favicon.write_text(_FAVICON_SVG, encoding="utf-8")
-        print("[OK] favicon.svg created")
 
-    icon_svg = docs_dir / "icons" / "icon.svg"
+    icon_svg = icons_dir / "icon.svg"
     if not icon_svg.exists():
-        icon_svg.parent.mkdir(parents=True, exist_ok=True)
         icon_svg.write_text(_ICON_SVG, encoding="utf-8")
-        print("[OK] icons/icon.svg created")
 
 
 def render_digest(articles: list[dict], date_str: str, run: str, metadata: dict,
