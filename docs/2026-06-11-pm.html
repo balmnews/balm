@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Thursday, June 11, 2026 PM</title>
+  <meta name="description" content="Balm news digest for Thursday, June 11, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -71,7 +67,6 @@
       .sidebar { display: none; }
       .main-content { padding: 0 1.25rem 3rem; }
 
-      /* Mobile archive toggle */
       .mobile-archive-toggle {
         display: flex;
         align-items: center;
@@ -95,6 +90,14 @@
       }
 
       .mobile-archive-panel.open { display: block; }
+
+      .mobile-archive-title {
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 0.75rem;
+      }
     }
 
     @media (min-width: 769px) {
@@ -192,7 +195,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -207,6 +212,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -245,13 +254,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -359,10 +368,15 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
 
-    /* Sidebar */
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
+
+    /* Sidebar archive */
     .sidebar-title {
       font-family: 'Playfair Display', serif;
       font-size: 0.65rem;
@@ -373,15 +387,9 @@
       padding-top: 2rem;
     }
 
-    .sidebar-home-link {
-      display: block;
-      font-size: 0.72rem;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-      letter-spacing: 0.04em;
+    .archive-month {
+      margin-bottom: 1rem;
     }
-
-    .archive-month { margin-bottom: 1rem; }
 
     .archive-month-label {
       font-size: 0.68rem;
@@ -402,15 +410,6 @@
 
     .archive-link:hover { color: var(--accent); text-decoration: none; }
     .archive-link.current { color: var(--accent); font-style: italic; }
-
-    /* Mobile archive */
-    .mobile-archive-title {
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
 
     /* Footer */
     .footer {
@@ -437,7 +436,10 @@
       text-decoration: none;
     }
 
-    .kofi-link:hover { background: #ebe5db; text-decoration: none; }
+    .kofi-link:hover {
+      background: #ebe5db;
+      text-decoration: none;
+    }
 
     /* Top stories panel */
     .top-stories {
@@ -511,7 +513,7 @@
 
 <div class="page-wrapper">
 
-  <!-- Desktop sidebar -->
+  <!-- Sidebar archive nav -->
   <nav class="sidebar" aria-label="Archive">
     <div class="sidebar-title">Archive</div>
     <!-- populated by archive.json fetch on page load — never server-rendered -->
@@ -1164,10 +1166,10 @@
               <div class="article article-medium" id="story_14">
                 <h2 class="article-headline">Federal Prosecutors Reach Plea Agreement in Killings of Minnesota Legislators, Death Penalty Off the Table</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>Federal prosecutors announced they will not seek the death penalty under a plea agreement with the man charged with killing the top Democrat in the Minnesota House of Representatives and her husband, and with the attempted murders of a state senator and his wife.</span></span>
                   <span class="summary-full"><span>U.S. prosecutors announced Wednesday that they have reached a plea agreement with the man charged in the killings of the Minnesota House's top Democratic official and her husband, as well as the attempted murders of a state senator and his wife. Under the terms of the agreement, prosecutors will not seek the death penalty. The case involved targeted violence against elected officials and their family members, and drew significant attention as an example of political violence directed at public servants. The plea agreement means the case will not proceed to a capital trial. Further details about sentencing terms were not specified in available reporting. The killings occurred amid a broader national discussion about the safety of elected officials and the potential for politically motivated violence.</span></span>
                 </div>
@@ -1209,6 +1211,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1230,10 +1233,10 @@
     var toggle = document.getElementById('mobile-toggle');
     var isOpen = panel.classList.toggle('open');
     toggle.setAttribute('aria-expanded', String(isOpen));
-    // Caret direction is handled by CSS [aria-expanded="true"] rotate — no JS needed
   }
 
-  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
+  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
+  // always show all editions regardless of which page was generated.
   (function() {
     var current = '2026-06-11-pm.html';
     fetch('archive.json?v=' + Date.now())
@@ -1255,7 +1258,7 @@
   })();
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
