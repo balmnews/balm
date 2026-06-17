@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Wednesday, June 17, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Wednesday, June 17, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -71,7 +67,6 @@
       .sidebar { display: none; }
       .main-content { padding: 0 1.25rem 3rem; }
 
-      /* Mobile archive toggle */
       .mobile-archive-toggle {
         display: flex;
         align-items: center;
@@ -95,6 +90,14 @@
       }
 
       .mobile-archive-panel.open { display: block; }
+
+      .mobile-archive-title {
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 0.75rem;
+      }
     }
 
     @media (min-width: 769px) {
@@ -192,7 +195,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -207,6 +212,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -245,13 +254,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -359,10 +368,15 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
 
-    /* Sidebar */
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
+
+    /* Sidebar archive */
     .sidebar-title {
       font-family: 'Playfair Display', serif;
       font-size: 0.65rem;
@@ -373,15 +387,9 @@
       padding-top: 2rem;
     }
 
-    .sidebar-home-link {
-      display: block;
-      font-size: 0.72rem;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-      letter-spacing: 0.04em;
+    .archive-month {
+      margin-bottom: 1rem;
     }
-
-    .archive-month { margin-bottom: 1rem; }
 
     .archive-month-label {
       font-size: 0.68rem;
@@ -402,15 +410,6 @@
 
     .archive-link:hover { color: var(--accent); text-decoration: none; }
     .archive-link.current { color: var(--accent); font-style: italic; }
-
-    /* Mobile archive */
-    .mobile-archive-title {
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
 
     /* Footer */
     .footer {
@@ -437,7 +436,10 @@
       text-decoration: none;
     }
 
-    .kofi-link:hover { background: #ebe5db; text-decoration: none; }
+    .kofi-link:hover {
+      background: #ebe5db;
+      text-decoration: none;
+    }
 
     /* Top stories panel */
     .top-stories {
@@ -511,7 +513,7 @@
 
 <div class="page-wrapper">
 
-  <!-- Desktop sidebar -->
+  <!-- Sidebar archive nav -->
   <nav class="sidebar" aria-label="Archive">
     <div class="sidebar-title">Archive</div>
     <!-- populated by archive.json fetch on page load — never server-rendered -->
@@ -1107,10 +1109,10 @@
               <div class="article article-medium" id="story_13">
                 <h2 class="article-headline">B-52 Crash at Edwards Air Force Base Kills All Eight Aboard</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>A B-52 Stratofortress crashed shortly after takeoff from Edwards Air Force Base in California, killing all eight people aboard. The aircraft was conducting a radar modernization test mission.</span></span>
                   <span class="summary-full"><span>A B-52 Stratofortress bomber crashed shortly after takeoff from Edwards Air Force Base in California, killing all eight people aboard. The aircraft was on a radar modernization test mission at the time of the crash. Investigators are examining the aircraft's engines and its controllability as potential factors in the accident. Edwards Air Force Base is the US Air Force's primary flight test center, where aircraft are evaluated under developmental and operational testing conditions. The B-52 is a long-range strategic bomber that has been in service for decades and is undergoing several modernization programs. The Air Force has not released additional details about the cause pending the investigation.</span></span>
                 </div>
@@ -1135,10 +1137,10 @@
               <div class="article article-medium" id="story_14">
                 <h2 class="article-headline">Man Sentenced to Life in Prison for Gilgo Beach Serial Killings on Long Island</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>A Manhattan architect was sentenced to life in prison without parole in Riverhead, New York, after pleading guilty to seven murders and admitting to an eighth in killings that spanned from 1993 to 2010 on Long Island.</span></span>
                   <span class="summary-full"><span>A man who pleaded guilty to murdering seven women connected to the Gilgo Beach case on Long Island was sentenced to life in prison without parole on Wednesday in Riverhead, New York. He also admitted to an eighth killing. Victims' family members addressed the court before the sentence was delivered. The judge imposed three consecutive life sentences plus additional consecutive terms on related charges. The killings occurred between 1993 and 2010. The case had remained unsolved for years before the suspect's arrest. The sentencing brought formal closure to a case that had drawn significant public attention and prompted discussions about investigative processes and how law enforcement handles missing persons reports.</span></span>
                 </div>
@@ -1181,10 +1183,10 @@
               <div class="article article-medium" id="story_15">
                 <h2 class="article-headline">FBI Says Group Planned Armed Attack on White House UFC Event</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-3-diff">
                   <span class="summary-brief"><span>Newly unsealed court filings show the FBI alleges a group planned to attack a UFC event held at the White House using snipers and drones, citing grievances about government corruption and related issues.</span></span>
                   <span class="summary-full"><span>Newly unsealed federal court filings reveal that the FBI alleges a group planned to carry out an armed attack on a UFC event held at the White House, using snipers and drones. According to the government's filings, the group allegedly expressed grievances about corruption, the Epstein files, and data centers. The filings do not provide full details about how far the alleged planning progressed or what disrupted it. The allegations represent a significant domestic threat assessment involving a high-profile public event at the White House. All claims in the court filings are allegations and have not been adjudicated.</span></span>
                 </div>
@@ -1226,6 +1228,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1247,10 +1250,10 @@
     var toggle = document.getElementById('mobile-toggle');
     var isOpen = panel.classList.toggle('open');
     toggle.setAttribute('aria-expanded', String(isOpen));
-    // Caret direction is handled by CSS [aria-expanded="true"] rotate — no JS needed
   }
 
-  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
+  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
+  // always show all editions regardless of which page was generated.
   (function() {
     var current = '2026-06-17-am.html';
     fetch('archive.json?v=' + Date.now())
@@ -1272,7 +1275,7 @@
   })();
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>

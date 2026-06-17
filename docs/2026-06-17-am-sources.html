@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balm Sources — Wednesday, June 17, 2026 AM</title>
+  <meta name="description" content="Source attribution for the Balm digest of Wednesday, June 17, 2026.">
+  <meta name="theme-color" content="#6b82a8">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f2ede4;
+      --ink: #2a2520;
+      --secondary: #6a6058;
+      --muted: #9a9288;
+      --rule: #c8c0b4;
+      --accent: #6b82a8;
+      --difficult: #5a4a3a;
+    }
+
+    html { font-size: 18px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Layout */
+    .page-wrapper {
+      display: flex;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      padding: 2rem 1.5rem 2rem 0;
+      border-right: 1px solid var(--rule);
+      min-height: 100vh;
+    }
+
+    .main-content {
+      flex: 1;
+      max-width: 860px;
+      padding: 0 2rem 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .page-wrapper { display: block; padding: 0; }
+      .sidebar { display: none; }
+      .main-content { padding: 0 1.25rem 3rem; }
+    }
+
+    /* Masthead */
+    .masthead {
+      text-align: center;
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 3px double var(--rule);
+      margin-bottom: 1.5rem;
+    }
+
+    .masthead-logo svg {
+      display: block;
+      margin: 0 auto 0.5rem;
+    }
+
+    .masthead-tagline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--secondary);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .masthead-dateline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    /* Section header */
+    .section-header {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-top: 1px solid var(--rule);
+      padding-top: 1.25rem;
+      margin: 2rem 0 1.5rem;
+    }
+
+    /* Source entries */
+    .source-entry {
+      display: flex;
+      gap: 1.25rem;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .source-entry:last-child {
+      border-bottom: none;
+    }
+
+    .source-num {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--muted);
+      min-width: 1.5rem;
+      padding-top: 0.2rem;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .source-body {
+      flex: 1;
+    }
+
+    .source-balm-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .source-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .source-list li {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--secondary);
+      padding: 0.15rem 0;
+    }
+
+    .source-list li::before {
+      content: "· ";
+      color: var(--muted);
+    }
+
+    .source-outlet {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .source-original-headline {
+      font-style: italic;
+      color: var(--secondary);
+    }
+
+    /* Sidebar */
+    .sidebar-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      padding-top: 2rem;
+    }
+
+    .archive-month { margin-bottom: 1rem; }
+
+    .archive-month-label {
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .archive-link {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--secondary);
+      padding: 0.1rem 0;
+      line-height: 1.6;
+    }
+
+    .archive-link:hover { color: var(--accent); text-decoration: none; }
+    .archive-link.current { color: var(--accent); font-style: italic; }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 3rem;
+      padding: 2rem 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .footer a { color: var(--muted); text-decoration: underline; }
+    .footer a:hover { color: var(--secondary); }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- Sidebar archive nav -->
+  <nav class="sidebar" aria-label="Archive">
+    <div class="sidebar-title">Archive</div>
+    
+    <div class="archive-month">
+      <div class="archive-month-label">June 2026</div>
+      
+      <a class="archive-link"
+         href="2026-06-17-pm.html">
+        06-17 PM
+      </a>
+      
+      <a class="archive-link current"
+         href="2026-06-17-am.html">
+        06-17 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-16-pm.html">
+        06-16 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-16-am.html">
+        06-16 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-15-pm.html">
+        06-15 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-15-am.html">
+        06-15 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-14-pm.html">
+        06-14 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-14-am.html">
+        06-14 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-13-pm.html">
+        06-13 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-13-am.html">
+        06-13 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-12-pm.html">
+        06-12 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-12-am.html">
+        06-12 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-11-pm.html">
+        06-11 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-11-am.html">
+        06-11 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-10-pm.html">
+        06-10 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-10-am.html">
+        06-10 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-09-pm.html">
+        06-09 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-09-am.html">
+        06-09 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-08-pm.html">
+        06-08 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-08-am.html">
+        06-08 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-07-pm.html">
+        06-07 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-07-am.html">
+        06-07 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-06-pm.html">
+        06-06 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-06-am.html">
+        06-06 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-05-pm.html">
+        06-05 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-05-am.html">
+        06-05 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-04-pm.html">
+        06-04 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-04-am.html">
+        06-04 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-03-pm.html">
+        06-03 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-03-am.html">
+        06-03 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-02-pm.html">
+        06-02 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-01-pm.html">
+        06-01 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-01-am.html">
+        06-01 AM
+      </a>
+      
+    </div>
+    
+    <div class="archive-month">
+      <div class="archive-month-label">May 2026</div>
+      
+      <a class="archive-link"
+         href="2026-05-31-pm.html">
+        05-31 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-31-am.html">
+        05-31 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-30-pm.html">
+        05-30 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-30-am.html">
+        05-30 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-29-pm.html">
+        05-29 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-29-am.html">
+        05-29 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-28-pm.html">
+        05-28 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-28-am.html">
+        05-28 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-27-pm.html">
+        05-27 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-27-am.html">
+        05-27 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-26-pm.html">
+        05-26 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-26-am.html">
+        05-26 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-25-pm.html">
+        05-25 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-24-pm.html">
+        05-24 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-24-am.html">
+        05-24 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-23-pm.html">
+        05-23 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-23-am.html">
+        05-23 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-22-pm.html">
+        05-22 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-22-am.html">
+        05-22 AM
+      </a>
+      
+    </div>
+    
+  </nav>
+
+  <!-- Main content -->
+  <div class="main-content">
+
+    <!-- Masthead -->
+    <header class="masthead">
+      <div class="masthead-logo">
+        <a href="2026-06-17-am.html" style="text-decoration:none;">
+          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
+                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
+                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
+                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
+              </filter>
+            </defs>
+            <text x="90" y="44"
+                  font-family="Caveat, cursive"
+                  font-size="52"
+                  font-weight="700"
+                  fill="#6b82a8"
+                  text-anchor="middle"
+                  letter-spacing="8"
+                  filter="url(#balm-spread)">Balm</text>
+          </svg>
+        </a>
+      </div>
+      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
+      <p class="masthead-dateline">Wednesday, June 17, 2026 &middot; AM Edition &middot; Sources</p>
+    </header>
+
+    <!-- Sources list -->
+    <div class="section-header">Sources for this digest</div>
+
+    
+    <div class="source-entry">
+      <div class="source-num">1</div>
+      <div class="source-body">
+        <div class="source-balm-headline">G7 Leaders Back US-Iran Ceasefire Agreement as Trump Defends Deal Details</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.ntd.com/ntdplus/italys-meloni-affirms-trump-friendship-at-g7-summit_1152811.html" target="_blank" rel="noopener noreferrer">Ntd</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Italy’s Meloni Affirms Trump Friendship at G7 Summit&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/17/g7-leaders-evian-donald-trump-ukraine-russia-war-iran-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Donald Trump speaks at G7 summit after Macron hails ‘real progress’ on Ukraine – Europe live&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/live/2026/06/17/world/g7-summit-trump-france" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Live Updates: Trump Speaks at G7 Summit After Renewing Threats on Iran&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">2</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Trump Defends Iran Ceasefire Deal at G7, Warns of Resumed Strikes if Agreement Fails</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/17/middle-east-war-iran-israel-us-donald-trump-hezbollah-lebanon-peace-deal-netanyahu-latest-news-updated" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Middle East crisis live: US will ‘probably go back to bombing’ Iran if it does not honour deal, says Trump&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/17/trump-g7-leaders-iran-missile-programme-ukraine" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;I’ll resume bombing if Iran acts up, Trump warns after criticism of deal&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/06/17/world/middleeast/bahrain-iran-citizenship-expulsions.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Their Country Revoked Their Citizenship, Then Tried to Expel Them to Iran&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/06/17/us/politics/trump-iran-peace-deal-obama.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump Angrily Defends Iran Deal, Belittling the One Obama Signed&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">3</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Iranian Oil Tankers Move Past US Naval Blockade in Gulf of Oman</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/cpq37yxexd9o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Iran sends tankers loaded with oil past US military blockade&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/cpq37yxexd9o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Iran sends tankers loaded with oil past US military blockade&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/06/17/nx-s1-5860909/iran-ships-strait-of-hormuz-trump" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;With Iran deal, Trump told ships to 'start your engines.' That's not happening yet&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">4</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Israel Conducts New Strikes on Lebanon After Trump Urges Restraint</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/c7vyn17g832o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Israel launches fresh strikes on Lebanon despite Trump criticism&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/c7vyn17g832o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Israel launches fresh strikes on Lebanon despite Trump criticism&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">5</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Ukraine Targeting Fuel Supply Routes to Crimea in Sustained Logistics Campaign</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/06/17/world/europe/russia-ukraine-crimea-fuel-shortages.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Sending Fuel Trucks Up in Flames, Ukraine Tries to Cut Off Crimea&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">6</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Trump Signals Possible Reimposition of Sanctions on Russian Oil at G7</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/world/trump-signals-he-may-reimpose-sanctions-on-russian-oil-as-g7-refocuses-on-ukraine" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump signals he may reimpose sanctions on Russian oil as G7 refocuses on Ukraine&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">7</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Federal Reserve Holds Rates at Kevin Warsh's First Meeting as Chairman</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.investing.com/analysis/markets-catch-their-breath-before-warshs-fed-debut-200682283" target="_blank" rel="noopener noreferrer">Investing Us</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Markets Catch Their Breath Before Warsh’s Fed Debut&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/live/2026/06/17/business/fed-meeting-warsh-interest-rates/how-to-read-the-feds-projections-like-a-pro" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;How to read the Fed’s projections like a pro.&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/06/17/business/economy/political-spotlight-shines-on-warsh-for-his-first-fed-meeting-as-chair.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Political Spotlight Shines on Warsh for His First Fed Meeting as Chairman&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/live/2026/06/17/business/fed-meeting-warsh-interest-rates/who-is-kevin-warsh-the-feds-new-chairman" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Who is Kevin Warsh, the Fed’s new chairman?&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/live/2026/06/17/business/fed-meeting-warsh-interest-rates/warsh-is-focused-on-the-feds-balance-sheet-heres-what-you-need-to-know" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Warsh is focused on the Fed’s balance sheet. Here’s what you need to know.&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/economy/watch-live-new-fed-chair-kevin-warsh-holds-first-news-conference-after-interest-rate-decision" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;WATCH LIVE: New Fed chair Kevin Warsh holds first news conference after interest rate decision&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">8</div>
+      <div class="source-body">
+        <div class="source-balm-headline">SpaceX Surpasses Amazon in Market Value; Tesla Merger Speculation Grows</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://biztoc.com/x/d3a7755169edd203" target="_blank" rel="noopener noreferrer">Biztoc</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Elon Musk: Wall Street’s new roll-up artist&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/technology/2026/jun/16/elon-musk-techscape" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Elon Musk’s unprecendented accumulation of wealth&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/06/17/business/spacex-tesla-merger-elon-musk.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Musk’s Next Move May Be a Mega-Merger of SpaceX and Tesla&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">9</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Jaguar Land Rover Shifts Away from All-Electric Plans, Adding Hybrids for US Market</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/business/2026/jun/17/jaguar-land-rover-reverses-ev-only-factory-plans" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Jaguar Land Rover to make more hybrid cars in US sales push&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/business/2026/jun/17/jaguar-land-rover-reverses-ev-only-factory-plans" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Jaguar Land Rover to make more hybrid cars in US sales push&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">10</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Senate Proceeds with Jay Clayton DNI Confirmation Hearing Despite Trump's Request to Delay</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/us-news/live/2026/jun/17/trump-georgia-primary-mike-collins-jon-ossoff-midterms-g7-us-politics-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Jay Clayton’s nomination hearing canceled after Trump directs him not to appear – US politics live &rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/trump-jay-clayton-dni-hearing-delayed" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump says Senate hearing on DNI nominee is cancelled until US attorney replacement confirmed&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/trump-dni-pick-braces-senate-grilling-temporary-stand-in-fuels-dem-pressure-6-17-26" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump's DNI pick will have to wait for his confirmation hearing after Truth Social bomb&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/06/17/nx-s1-5859298/jay-clayton-confirmation-hearing-director-of-national-intelligence" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Senate to proceed with intel chief confirmation hearing despite Trump's call to delay&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/watch-live-senate-holds-confirmation-hearing-for-jay-clayton-despite-trump-pressure-to-delay" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;WATCH LIVE: Senate holds confirmation hearing for Jay Clayton despite Trump pressure to delay&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">11</div>
+      <div class="source-body">
+        <div class="source-balm-headline">House Member Accuses FBI Director of Directing Over $1 Million in Bonus Payments to Loyalist Agents</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/17/kash-patel-slush-fund-bonus-loyalist-agents" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Kash Patel accused of directing $1m to ‘slush fund’ to pay bonuses to loyalist agents&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">12</div>
+      <div class="source-body">
+        <div class="source-balm-headline">FEMA and TSA Nominees Testify at Senate Confirmation Hearing</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/watch-live-fema-tsa-nominees-testify-in-confirmation-hearing-before-senate-homeland-security-panel" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;WATCH: FEMA, TSA nominees testify in confirmation hearing before Senate Homeland Security panel&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">13</div>
+      <div class="source-body">
+        <div class="source-balm-headline">HHS Secretary Orders Woman to Remain in Hantavirus Quarantine Against CDC Guidance</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/06/15/health/hantavirus-quarantine-kennedy.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Kennedy Orders Woman to Stay in Hantavirus Quarantine, Despite C.D.C. Recommendation&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">14</div>
+      <div class="source-body">
+        <div class="source-balm-headline">B-52 Crash at Edwards Air Force Base Kills All Eight Aboard</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/deadly-b-52-crash-puts-focus-engines-controllability-investigators-hunt-answers" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Deadly B-52 crash puts focus on engines, controllability as investigators hunt for answers&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">15</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Man Sentenced to Life in Prison for Gilgo Beach Serial Killings on Long Island</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/17/gilgo-beach-killer-rex-heuermann-sentencing" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Gilgo Beach serial killer Rex Heuermann sentenced to life in prison without parole&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/us/gilgo-beach-serial-killer-rex-heuermann-slammed-small-man-judge-gives-max-sentence-murder-spree" target="_blank" rel="noopener noreferrer">Fox News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Gilgo Beach serial killer Rex Heuermann slammed as ‘small man’ as judge gives max sentence for murder spree&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/clyw29kvlydo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Serial killer who murdered eight women in Long Island town imprisoned for life&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/nation/rex-heuermann-sentenced-to-life-in-prison-for-new-yorks-gilgo-beach-serial-killings" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Rex Heuermann sentenced to life in prison for New York's Gilgo Beach serial killings&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">16</div>
+      <div class="source-body">
+        <div class="source-balm-headline">FBI Says Group Planned Armed Attack on White House UFC Event</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/cqx10xlje1lo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Group planned to attack White House UFC event using snipers and drones, FBI says&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p><a href="2026-06-17-am.html">← Return to digest</a></p>
+      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
+      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
+      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
+    </footer>
+
+  </div><!-- /.main-content -->
+</div><!-- /.page-wrapper -->
+<script>
+  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
+  (function() {
+    var current = '2026-06-17-am.html';
+    fetch('archive.json')
+      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function(data) {
+        var html = data.months.map(function(m) {
+          var links = m.entries.map(function(e) {
+            var cls = 'archive-link' + (e.file === current ? ' current' : '');
+            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
+          }).join('');
+          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
+        }).join('');
+        var nav = document.querySelector('nav.sidebar');
+        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
+      })
+      .catch(function() {});
+  })();
+</script>
+</body>
+</html>
