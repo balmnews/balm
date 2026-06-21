@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Sunday, June 21, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Sunday, June 21, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -71,7 +67,6 @@
       .sidebar { display: none; }
       .main-content { padding: 0 1.25rem 3rem; }
 
-      /* Mobile archive toggle */
       .mobile-archive-toggle {
         display: flex;
         align-items: center;
@@ -95,6 +90,14 @@
       }
 
       .mobile-archive-panel.open { display: block; }
+
+      .mobile-archive-title {
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 0.75rem;
+      }
     }
 
     @media (min-width: 769px) {
@@ -192,7 +195,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -207,6 +212,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -245,13 +254,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -359,10 +368,15 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
 
-    /* Sidebar */
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
+
+    /* Sidebar archive */
     .sidebar-title {
       font-family: 'Playfair Display', serif;
       font-size: 0.65rem;
@@ -373,15 +387,9 @@
       padding-top: 2rem;
     }
 
-    .sidebar-home-link {
-      display: block;
-      font-size: 0.72rem;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-      letter-spacing: 0.04em;
+    .archive-month {
+      margin-bottom: 1rem;
     }
-
-    .archive-month { margin-bottom: 1rem; }
 
     .archive-month-label {
       font-size: 0.68rem;
@@ -402,15 +410,6 @@
 
     .archive-link:hover { color: var(--accent); text-decoration: none; }
     .archive-link.current { color: var(--accent); font-style: italic; }
-
-    /* Mobile archive */
-    .mobile-archive-title {
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
 
     /* Footer */
     .footer {
@@ -437,7 +436,10 @@
       text-decoration: none;
     }
 
-    .kofi-link:hover { background: #ebe5db; text-decoration: none; }
+    .kofi-link:hover {
+      background: #ebe5db;
+      text-decoration: none;
+    }
 
     /* Top stories panel */
     .top-stories {
@@ -511,7 +513,7 @@
 
 <div class="page-wrapper">
 
-  <!-- Desktop sidebar -->
+  <!-- Sidebar archive nav -->
   <nav class="sidebar" aria-label="Archive">
     <div class="sidebar-title">Archive</div>
     <!-- populated by archive.json fetch on page load — never server-rendered -->
@@ -1062,10 +1064,10 @@
               <div class="article article-medium" id="story_12">
                 <h2 class="article-headline">Los Angeles Declares Emergency as Warehouse Fire Continues to Affect Air Quality Across Metro Area</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>Los Angeles Mayor Karen Bass declared a state of emergency as firefighters continued to battle a blaze at a Boyle Heights cold-storage facility, with smoke affecting air quality across the metropolitan area.</span></span>
                   <span class="summary-full"><span>Los Angeles Mayor Karen Bass issued a state of emergency declaration as firefighters worked to contain a large fire at a cold-storage warehouse in the Boyle Heights neighborhood. The blaze has persisted over multiple days and continued to send smoke across the broader Los Angeles metropolitan area, prompting air quality concerns for residents. Health officials recommended that people in affected areas limit outdoor exposure, use high-quality masks where necessary, and keep windows closed. The emergency declaration expands the city's access to resources for response and recovery. Local medical providers offered guidance on protecting respiratory health during the smoke event, particularly for people with pre-existing lung or heart conditions. The fire has not yet been fully contained.</span></span>
                 </div>
@@ -1096,10 +1098,10 @@
               <div class="article article-long" id="story_13">
                 <h2 class="article-headline">Pentagon Has Issued No Public Account Four Months After Tomahawk Strike on Iranian School</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>Nearly four months after a US Tomahawk cruise missile struck a girls' elementary school in the Iranian town of Minab on the first day of the war, the Pentagon has not released findings or a public explanation of the strike, one of the deadliest US civilian incidents in decades.</span></span>
                   <span class="summary-full"><span>Four months after a US military strike killed civilians at a girls' elementary school in Minab, Iran, the Defense Department has not publicly released any findings or explanation for how the strike occurred. The attack, carried out with a Tomahawk cruise missile on the opening day of US military operations, resulted in significant civilian casualties and has been described as one of the deadliest incidents of US civilian harm in decades. Accountability and transparency advocates, as well as journalists, have raised concerns that the Pentagon's silence reflects a decision to suppress findings rather than an ongoing investigation. Defense Secretary Pete Hegseth has not addressed the incident in public statements. The absence of any official account has drawn criticism from human rights organizations and members of Congress who have called for an independent review. Under Department of Defense policy, significant civilian harm incidents are subject to formal investigation and public disclosure. The episode is particularly sensitive given the broader diplomatic context of ongoing US-Iran negotiations, where the civilian toll of the conflict remains a point of contention.</span></span>
                 </div>
@@ -1124,10 +1126,10 @@
               <div class="article article-long" id="story_14">
                 <h2 class="article-headline">Israeli Strikes in Gaza Kill Six People, Including Children and a Journalist</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-3-diff">
                   <span class="summary-brief"><span>Israeli military strikes in Gaza killed six people, including two children and an Al Jazeera cameraman, according to officials. The strikes occurred despite a ceasefire agreed to in October, under which near-daily attacks have continued.</span></span>
                   <span class="summary-full"><span>Israeli military strikes in Gaza killed six people, according to Palestinian and international officials, including two children and a cameraman working for Al Jazeera. The Israeli military stated that the cameraman was a member of a militant organization, a claim made without presenting supporting evidence. Al Jazeera disputed the characterization. The deaths occurred despite a ceasefire agreement reached in October between Israel and Hamas. According to Gaza's Health Ministry, more than 1,000 Palestinians have been killed since that ceasefire took effect, as near-daily Israeli military operations have continued in the enclave. The killing of journalists in conflict zones is tracked by press freedom organizations, which have documented a significant number of media worker deaths in Gaza since the conflict began. The situation continues to draw international diplomatic pressure, though formal accountability mechanisms have not produced changes in the operational tempo of Israeli strikes.</span></span>
                 </div>
@@ -1158,10 +1160,10 @@
               <div class="article article-medium" id="story_15">
                 <h2 class="article-headline">Counterterrorism Officials Investigating Alleged Hate-Motivated Attack Near Edinburgh Mosque</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-4-diff">
                   <span class="summary-brief"><span>Counterterrorism police in Scotland are investigating an alleged attack near a mosque in Edinburgh that left five men injured, which authorities are treating as a potential hate crime.</span></span>
                   <span class="summary-full"><span>Counterterrorism officers in Scotland have opened an investigation into an alleged attack near a mosque in Edinburgh in which five men were injured. Authorities are treating the incident as a potential hate-motivated offense. The investigation involves both local police and specialized counterterrorism units. Scottish authorities have not released detailed information about the circumstances of the attack or the condition of those injured. Mosque communities and Muslim organizations in Scotland have been informed of the investigation. Hate-motivated incidents targeting religious sites and communities have been a subject of ongoing policy concern across the United Kingdom.</span></span>
                 </div>
@@ -1203,6 +1205,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1224,10 +1227,10 @@
     var toggle = document.getElementById('mobile-toggle');
     var isOpen = panel.classList.toggle('open');
     toggle.setAttribute('aria-expanded', String(isOpen));
-    // Caret direction is handled by CSS [aria-expanded="true"] rotate — no JS needed
   }
 
-  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
+  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
+  // always show all editions regardless of which page was generated.
   (function() {
     var current = '2026-06-21-am.html';
     fetch('archive.json?v=' + Date.now())
@@ -1249,7 +1252,7 @@
   })();
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
