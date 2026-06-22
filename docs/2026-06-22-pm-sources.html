@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balm Sources — Monday, June 22, 2026 PM</title>
+  <meta name="description" content="Source attribution for the Balm digest of Monday, June 22, 2026.">
+  <meta name="theme-color" content="#6b82a8">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f2ede4;
+      --ink: #2a2520;
+      --secondary: #6a6058;
+      --muted: #9a9288;
+      --rule: #c8c0b4;
+      --accent: #6b82a8;
+      --difficult: #5a4a3a;
+    }
+
+    html { font-size: 18px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Layout */
+    .page-wrapper {
+      display: flex;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      padding: 2rem 1.5rem 2rem 0;
+      border-right: 1px solid var(--rule);
+      min-height: 100vh;
+    }
+
+    .main-content {
+      flex: 1;
+      max-width: 860px;
+      padding: 0 2rem 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .page-wrapper { display: block; padding: 0; }
+      .sidebar { display: none; }
+      .main-content { padding: 0 1.25rem 3rem; }
+    }
+
+    /* Masthead */
+    .masthead {
+      text-align: center;
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 3px double var(--rule);
+      margin-bottom: 1.5rem;
+    }
+
+    .masthead-logo svg {
+      display: block;
+      margin: 0 auto 0.5rem;
+    }
+
+    .masthead-tagline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--secondary);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .masthead-dateline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    /* Section header */
+    .section-header {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-top: 1px solid var(--rule);
+      padding-top: 1.25rem;
+      margin: 2rem 0 1.5rem;
+    }
+
+    /* Source entries */
+    .source-entry {
+      display: flex;
+      gap: 1.25rem;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .source-entry:last-child {
+      border-bottom: none;
+    }
+
+    .source-num {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--muted);
+      min-width: 1.5rem;
+      padding-top: 0.2rem;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .source-body {
+      flex: 1;
+    }
+
+    .source-balm-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .source-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .source-list li {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--secondary);
+      padding: 0.15rem 0;
+    }
+
+    .source-list li::before {
+      content: "· ";
+      color: var(--muted);
+    }
+
+    .source-outlet {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .source-original-headline {
+      font-style: italic;
+      color: var(--secondary);
+    }
+
+    /* Sidebar */
+    .sidebar-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      padding-top: 2rem;
+    }
+
+    .archive-month { margin-bottom: 1rem; }
+
+    .archive-month-label {
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .archive-link {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--secondary);
+      padding: 0.1rem 0;
+      line-height: 1.6;
+    }
+
+    .archive-link:hover { color: var(--accent); text-decoration: none; }
+    .archive-link.current { color: var(--accent); font-style: italic; }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 3rem;
+      padding: 2rem 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .footer a { color: var(--muted); text-decoration: underline; }
+    .footer a:hover { color: var(--secondary); }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- Sidebar archive nav -->
+  <nav class="sidebar" aria-label="Archive">
+    <div class="sidebar-title">Archive</div>
+    
+    <div class="archive-month">
+      <div class="archive-month-label">June 2026</div>
+      
+      <a class="archive-link current"
+         href="2026-06-22-pm.html">
+        06-22 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-21-pm.html">
+        06-21 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-21-am.html">
+        06-21 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-20-pm.html">
+        06-20 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-20-am.html">
+        06-20 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-19-pm.html">
+        06-19 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-19-am.html">
+        06-19 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-18-pm.html">
+        06-18 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-18-am.html">
+        06-18 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-17-pm.html">
+        06-17 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-17-am.html">
+        06-17 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-16-pm.html">
+        06-16 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-16-am.html">
+        06-16 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-15-pm.html">
+        06-15 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-15-am.html">
+        06-15 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-14-pm.html">
+        06-14 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-14-am.html">
+        06-14 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-13-pm.html">
+        06-13 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-13-am.html">
+        06-13 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-12-pm.html">
+        06-12 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-12-am.html">
+        06-12 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-11-pm.html">
+        06-11 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-11-am.html">
+        06-11 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-10-pm.html">
+        06-10 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-10-am.html">
+        06-10 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-09-pm.html">
+        06-09 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-09-am.html">
+        06-09 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-08-pm.html">
+        06-08 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-08-am.html">
+        06-08 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-07-pm.html">
+        06-07 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-07-am.html">
+        06-07 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-06-pm.html">
+        06-06 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-06-am.html">
+        06-06 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-05-pm.html">
+        06-05 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-05-am.html">
+        06-05 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-04-pm.html">
+        06-04 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-04-am.html">
+        06-04 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-03-pm.html">
+        06-03 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-03-am.html">
+        06-03 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-02-pm.html">
+        06-02 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-01-pm.html">
+        06-01 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-01-am.html">
+        06-01 AM
+      </a>
+      
+    </div>
+    
+    <div class="archive-month">
+      <div class="archive-month-label">May 2026</div>
+      
+      <a class="archive-link"
+         href="2026-05-31-pm.html">
+        05-31 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-31-am.html">
+        05-31 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-30-pm.html">
+        05-30 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-30-am.html">
+        05-30 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-29-pm.html">
+        05-29 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-29-am.html">
+        05-29 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-28-pm.html">
+        05-28 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-28-am.html">
+        05-28 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-27-pm.html">
+        05-27 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-27-am.html">
+        05-27 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-26-pm.html">
+        05-26 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-26-am.html">
+        05-26 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-25-pm.html">
+        05-25 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-24-pm.html">
+        05-24 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-24-am.html">
+        05-24 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-23-pm.html">
+        05-23 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-23-am.html">
+        05-23 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-22-pm.html">
+        05-22 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-22-am.html">
+        05-22 AM
+      </a>
+      
+    </div>
+    
+  </nav>
+
+  <!-- Main content -->
+  <div class="main-content">
+
+    <!-- Masthead -->
+    <header class="masthead">
+      <div class="masthead-logo">
+        <a href="2026-06-22-pm.html" style="text-decoration:none;">
+          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
+                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
+                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
+                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
+              </filter>
+            </defs>
+            <text x="90" y="44"
+                  font-family="Caveat, cursive"
+                  font-size="52"
+                  font-weight="700"
+                  fill="#6b82a8"
+                  text-anchor="middle"
+                  letter-spacing="8"
+                  filter="url(#balm-spread)">Balm</text>
+          </svg>
+        </a>
+      </div>
+      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
+      <p class="masthead-dateline">Monday, June 22, 2026 &middot; PM Edition &middot; Sources</p>
+    </header>
+
+    <!-- Sources list -->
+    <div class="section-header">Sources for this digest</div>
+
+    
+    <div class="source-entry">
+      <div class="source-num">1</div>
+      <div class="source-body">
+        <div class="source-balm-headline">UK Prime Minister Keir Starmer Resigns After Labour Party Losses and Internal Pressure</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://biztoc.com/x/d25cdafdad7ef893" target="_blank" rel="noopener noreferrer">Biztoc</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;‘Wake-up call’: Brexit turns 10 as another UK leader might be heading for the exit&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/22/european-leaders-pay-tribute-keir-starmer-eu-uk-summit-postponed" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;European leaders pay tribute to Starmer as EU-UK summit is postponed&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/business/live/2026/jun/22/oil-prices-fall-stock-markets-rise-us-iran-peace-talks-trump-burnham-starmer-pound-ftse-hormuz-business-live" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Markets steady as prime minister Keir Starmer resigns; ex-Fed chair Alan Greenspan dies at 100 – as it happened&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/politics/live/2026/jun/22/keir-starmer-resignation-timeable-andy-burnham-labour-leadership-prime-minister-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Andy Burnham sworn in as an MP after Keir Starmer resigns as prime minister - UK politics live&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/politics/ng-interactive/2026/jun/22/the-rise-and-fall-of-keir-starmer-where-did-it-all-go-wrong" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;The rise and fall of Keir Starmer: where did it all go wrong?&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/politics/2026/jun/22/keir-starmer-resignation-podium-of-doom" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Starmer’s turn at the Podium of Doom sees him depart with good(ish) grace&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/politics/2026/may/17/the-ungovernable-country-why-britain-keeps-losing-prime-ministers" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;The ungovernable country? Why Britain keeps losing prime ministers&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/politics/2026/jun/22/keir-starmers-resignation-speech-the-six-key-takeaways" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Keir Starmer’s resignation speech: the six key takeaways&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/live/2026/06/22/world/uk-keir-starmer-resign-pressure" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;U.K. Live Updates: Starmer Announces Resignation; Burnham Wins Key Endorsement&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/06/22/business/starmer-burnham-chancellor.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;After Starmer Quits, Investors Wonder Where the British Economy Goes Next&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/world/keir-starmer-resigns-british-prime-minister-after-devastating-labour-revolt-local-election-losses" target="_blank" rel="noopener noreferrer">Fox News World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Keir Starmer resigns as British prime minister after devastating Labour revolt and local election losses&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/c0qyllvpkw8o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Why did Starmer resign and what could happen next?&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/cp8p9qellmqo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Starmer's premiership in six charts&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/cp8pml5z8p6o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Who is Andy Burnham? Ex-Manchester mayor who wants to lead the country&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/c621nnq4pm7o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Watch and read Starmer's resignation speech in full&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/cwygj95xrp9o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Top lawyer whose 'Mr Rules' approach failed to connect with the public&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/06/22/g-s1-129268/up-first-newsletter-keir-starmer-iran-us-vance-trump-reflection-pool" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;UK PM Keir Starmer resigns. And, US and Iran agree to roadmap for final deal&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/06/22/nx-s1-5866231/keir-starmer-resigns" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Keir Starmer has resigned, paving way for a 7th U.K. prime minister in 10 years&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/world/6-leaders-in-10-years-a-look-at-the-quick-succession-of-british-prime-ministers" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;6 leaders in 10 years. A look at the quick succession of British prime ministers&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/world/starmer-says-hell-resign-as-uk-prime-minister-roiling-british-politics-yet-again" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Starmer says he'll resign as UK prime minister, roiling British politics yet again&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">2</div>
+      <div class="source-body">
+        <div class="source-balm-headline">US and Iran Agree to Roadmap for Nuclear Deal; Iran to Readmit Inspectors as Hormuz Reopens</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://biztoc.com/x/296579dfcb82467d" target="_blank" rel="noopener noreferrer">Biztoc</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Vance Heads to Switzerland for US-Iran Talks, Hormuz Closes | Bloomberg This Weekend: June 21, 2026&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/22/middle-east-crisis-iran-us-peace-talks-switzerland-strait-of-hormuz-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Middle East crisis live: US-Iran talks laid ‘very good foundation for a successful final deal’, says Vance&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/22/iran-us-talks-progress-pakistan-qatar-lebanon-israel" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Iran agrees to UN nuclear inspectors’ return as part of agreement with US&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/live/2026/06/22/world/iran-us-trump-lebanon" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Mideast Live Updates: U.S. Eases Sanctions as Vance Says Iran Agrees to Resume Nuclear Inspections&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/world/major-dispute-threaten-trumps-iran-deal-over-billions-frozen-tehran-funds-expert" target="_blank" rel="noopener noreferrer">Fox News World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Major dispute to threaten Trump's Iran deal over billions in frozen Tehran funds: expert&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/world/irans-unprecedented-whole-regime-delegation-us-deal-talks-signals-one-goal-expert" target="_blank" rel="noopener noreferrer">Fox News World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Iran's unprecedented 'whole-regime' delegation at US deal talks signals one goal: expert&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/pence-says-iran-agreement-smacks-kind-appeasement-trump-rejected-prior-term" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Pence says Iran agreement 'smacks of the kind of appeasement' Trump rejected in prior term&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/trumps-iran-gamble-divides-gop-hawks-america-first-conservatives-victory-looks-like" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump's Iran gamble divides GOP hawks and 'America First' conservatives over what victory looks like&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/c3vy3nr63gxo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Vance says Iran will allow nuclear inspectors back into the country&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/c3vy3nr63gxo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Vance says Iran will allow nuclear inspectors back into the country&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">3</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Tens of Thousands Flee Eastern Ukraine Cities as Russian Forces Advance</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/06/22/world/europe/ukraine-donetsk-donbas-sloviansk-kramatorsk-russia.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Thousands Are Fleeing Ukraine’s Donbas Strongholds as Russia Pushes Closer&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">4</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Trump-Endorsed Candidate Holds Narrow Lead in Colombia Presidential Election; Rival Disputes Result</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/clye4ky2yzpo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump-backed political outsider wins Colombia election, initial count shows&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/world/trump-endorsed-de-la-espriella-holds-a-slim-lead-in-colombias-election-as-his-rival-challenges-vote" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump-endorsed de la Espriella holds a slim lead in Colombia's election as his rival challenges vote&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">5</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Explosion at Qatar's Main Natural Gas Facility Kills at Least 13 and Injures Dozens</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://kdhnews.com/news/world/explosion-as-qatar-restarts-gas-export-terminal-hurts-54-and-leaves-18-missing/article_5c5049f3-6d4b-5520-9f5c-cca5e470bce2.html" target="_blank" rel="noopener noreferrer">Killeen Daily Herald</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Explosion as Qatar restarts gas export terminal hurts 54 and leaves 18 missing&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.timesargus.com/news/business/explosion-as-qatar-restarts-gas-export-terminal-hurts-54-and-leaves-18-missing/article_d9ce0964-ff63-51ec-b85d-787fab7ff241.html" target="_blank" rel="noopener noreferrer">Times Argus</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Explosion as Qatar restarts gas export terminal hurts 54 and leaves 18 missing&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.record-eagle.com/ap/business/explosion-as-qatar-restarts-gas-export-terminal-hurts-54-and-leaves-18-missing/article_cc6bcdc5-ca83-5dff-a404-fdd701a1c0af.html" target="_blank" rel="noopener noreferrer">Record Eagle</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Explosion as Qatar restarts gas export terminal hurts 54 and leaves 18 missing&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.dailyadvance.com/news/world/explosion-as-qatar-restarts-gas-export-terminal-hurts-54-and-leaves-18-missing/article_e4252b3c-e9cd-5554-8e55-3b6880641085.html" target="_blank" rel="noopener noreferrer">Dailyadvance</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Explosion as Qatar restarts gas export terminal hurts 54 and leaves 18 missing&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.postregister.com/businessreport/healthcare/explosion-as-qatar-restarts-gas-export-terminal-hurts-54-and-leaves-18-missing/article_4e11089f-06bc-5177-98e3-cd301ce425e4.html" target="_blank" rel="noopener noreferrer">Postregister</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Explosion as Qatar restarts gas export terminal hurts 54 and leaves 18 missing&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.dailyrecordnews.com/ap_news/international/explosion-as-qatar-restarts-gas-export-terminal-hurts-54-and-leaves-18-missing/article_a78db00d-ef72-5863-9cd9-525f9d4f1d01.html" target="_blank" rel="noopener noreferrer">Dailyrecordnews</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Explosion as Qatar restarts gas export terminal hurts 54 and leaves 18 missing&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/06/22/world/middleeast/qatar-explosion-gas.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Explosion at Qatar Gas Plant Kills at Least 13 and Injures 66&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/cwy05llpjpno?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;At least 13 killed and dozens injured after Qatar gas explosion&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">6</div>
+      <div class="source-body">
+        <div class="source-balm-headline">UN Report Says Myanmar Military Killed Over 700 Civilians, Including 153 Children, in Six Months</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/cnv97e42r7yo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Myanmar army killed over 700 civilians in six months, UN says&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">7</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Former Federal Reserve Chair Alan Greenspan Dies at 100</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/business/2026/jun/22/alan-greenspan-dies-aged-100" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Alan Greenspan, longtime head of the US federal reserve, dies aged 100&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/06/22/656930918/alan-greenspan-the-legendary-former-federal-reserve-chair-dies" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Alan Greenspan, the legendary former Federal Reserve chair, dies&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.federalreserve.gov/newsevents/pressreleases/other20260622a.htm" target="_blank" rel="noopener noreferrer">Federal Reserve</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Federal Reserve notes with deep sadness the passing of Alan Greenspan&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">8</div>
+      <div class="source-body">
+        <div class="source-balm-headline">US Oil Output Expected to Grow Only Modestly Despite Middle East Supply Gap</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/06/22/business/energy-environment/iran-war-us-oil-companies.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;U.S. Oil Is Skipping the Chance to Grab Market Share From the Gulf&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">9</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Supreme Court Leaves in Place Ruling That Limits Voting Rights Act Enforcement in Seven States</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/06/22/nx-s1-5863532/supreme-court-voting-rights-act-private-right-arkansas" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Supreme Court allows a ruling that ends a tool to protect minority voters in 7 states&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">10</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Abortion Numbers Have Nearly Doubled Since State Bans Took Effect, Driven by Medication Prescriptions Via Telehealth</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/06/22/nx-s1-5863103/medication-abortion-telehealth-post-roe-dobbs" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Despite state bans, abortions have almost doubled. The reason? Pills via telehealth&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">11</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Supreme Court Rules Plea Deal Waivers of Appeal Cannot Stand When Miscarriage of Justice Would Result</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/court-determines-federal-defendants-appellate-waivers-unenforceable-if-a-miscarriage-of-justice-/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Court determines federal defendants’ appellate waivers unenforceable if a miscarriage of justice would result&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/a-victory-for-the-defendant-in-united-states-v-hemani-but-little-guidance-for-the-lower-courts/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;A victory for the defendant in United States v. Hemani, but little guidance for the lower courts&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/hemani-proving-the-reason-not-just-naming-it/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Hemani: proving the reason, not just naming it&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">12</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Trump Says Apple Will Purchase Computer Chips From Intel</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/06/18/technology/apple-intel-trump-chips.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Apple to Buy Computer Chips From Intel, Trump Says&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">13</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Five Eyes Intelligence Agencies Warn That Highly Capable AI Models Pose Near-Term Threat to Governments and Businesses</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/technology/2026/jun/22/anthropic-claude-fable-ai-model-artificial-intelligence-national-security" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;AI models that can take down governments and business months away, rare Five Eyes statement warns&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">14</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Extreme Heatwave Across Western Europe Brings Record Temperatures; Two Children Die in France</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/22/europe-record-heatwave-temperatures-forecast-reach-44c" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Two children found dead in family car in France as Europe suffers under extreme heatwave&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.com/news/articles/c0jy9g96086o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Schools close as more than half of France under red heat alerts&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/22/europe-record-heatwave-temperatures-forecast-reach-44c" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Two children found dead in family car in France as Europe suffers under extreme heatwave&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/22/from-mobile-jungles-to-shadow-art-how-dutch-people-try-to-beat-the-heat" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;From mobile jungles to shadow art: how Dutch people try to beat the heat&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/21/france-cancels-events-restricts-alcohol-consumption-music-festival-heatwave" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;France cancels events and restricts alcohol consumption amid brutal heatwave&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">15</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Three Hikers Die of Suspected Heat-Related Illness at Grand Canyon</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.ntd.com/3-hikers-die-of-suspected-heat-related-illness-at-grand-canyon_1153920.html" target="_blank" rel="noopener noreferrer">Ntd</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;3 Hikers Die of Suspected Heat-Related Illness at Grand Canyon&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">16</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Seven People Killed and 38 Injured in Chicago Over Juneteenth Weekend</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/chicagos-deadly-juneteenth-weekend-leaves-7-dead-trump-shames-dem-gov-inaction" target="_blank" rel="noopener noreferrer">Fox News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Chicago's deadly Juneteenth weekend leaves 7 dead as Trump shames Dem gov for inaction&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/chicagos-deadly-juneteenth-weekend-leaves-7-dead-trump-shames-dem-gov-inaction" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Chicago's deadly Juneteenth weekend leaves 7 dead as Trump shames Dem gov for inaction&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p><a href="2026-06-22-pm.html">← Return to digest</a></p>
+      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
+      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
+      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
+    </footer>
+
+  </div><!-- /.main-content -->
+</div><!-- /.page-wrapper -->
+<script>
+  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
+  (function() {
+    var current = '2026-06-22-pm.html';
+    fetch('archive.json')
+      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function(data) {
+        var html = data.months.map(function(m) {
+          var links = m.entries.map(function(e) {
+            var cls = 'archive-link' + (e.file === current ? ' current' : '');
+            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
+          }).join('');
+          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
+        }).join('');
+        var nav = document.querySelector('nav.sidebar');
+        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
+      })
+      .catch(function() {});
+  })();
+</script>
+</body>
+</html>
