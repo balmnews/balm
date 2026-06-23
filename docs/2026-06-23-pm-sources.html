@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balm Sources — Tuesday, June 23, 2026 PM</title>
+  <meta name="description" content="Source attribution for the Balm digest of Tuesday, June 23, 2026.">
+  <meta name="theme-color" content="#6b82a8">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f2ede4;
+      --ink: #2a2520;
+      --secondary: #6a6058;
+      --muted: #9a9288;
+      --rule: #c8c0b4;
+      --accent: #6b82a8;
+      --difficult: #5a4a3a;
+    }
+
+    html { font-size: 18px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Layout */
+    .page-wrapper {
+      display: flex;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      padding: 2rem 1.5rem 2rem 0;
+      border-right: 1px solid var(--rule);
+      min-height: 100vh;
+    }
+
+    .main-content {
+      flex: 1;
+      max-width: 860px;
+      padding: 0 2rem 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .page-wrapper { display: block; padding: 0; }
+      .sidebar { display: none; }
+      .main-content { padding: 0 1.25rem 3rem; }
+    }
+
+    /* Masthead */
+    .masthead {
+      text-align: center;
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 3px double var(--rule);
+      margin-bottom: 1.5rem;
+    }
+
+    .masthead-logo svg {
+      display: block;
+      margin: 0 auto 0.5rem;
+    }
+
+    .masthead-tagline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--secondary);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .masthead-dateline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    /* Section header */
+    .section-header {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-top: 1px solid var(--rule);
+      padding-top: 1.25rem;
+      margin: 2rem 0 1.5rem;
+    }
+
+    /* Source entries */
+    .source-entry {
+      display: flex;
+      gap: 1.25rem;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .source-entry:last-child {
+      border-bottom: none;
+    }
+
+    .source-num {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--muted);
+      min-width: 1.5rem;
+      padding-top: 0.2rem;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .source-body {
+      flex: 1;
+    }
+
+    .source-balm-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .source-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .source-list li {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--secondary);
+      padding: 0.15rem 0;
+    }
+
+    .source-list li::before {
+      content: "· ";
+      color: var(--muted);
+    }
+
+    .source-outlet {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .source-original-headline {
+      font-style: italic;
+      color: var(--secondary);
+    }
+
+    /* Sidebar */
+    .sidebar-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      padding-top: 2rem;
+    }
+
+    .archive-month { margin-bottom: 1rem; }
+
+    .archive-month-label {
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .archive-link {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--secondary);
+      padding: 0.1rem 0;
+      line-height: 1.6;
+    }
+
+    .archive-link:hover { color: var(--accent); text-decoration: none; }
+    .archive-link.current { color: var(--accent); font-style: italic; }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 3rem;
+      padding: 2rem 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .footer a { color: var(--muted); text-decoration: underline; }
+    .footer a:hover { color: var(--secondary); }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- Sidebar archive nav -->
+  <nav class="sidebar" aria-label="Archive">
+    <div class="sidebar-title">Archive</div>
+    
+    <div class="archive-month">
+      <div class="archive-month-label">June 2026</div>
+      
+      <a class="archive-link current"
+         href="2026-06-23-pm.html">
+        06-23 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-23-am.html">
+        06-23 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-22-pm.html">
+        06-22 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-22-am.html">
+        06-22 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-21-pm.html">
+        06-21 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-21-am.html">
+        06-21 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-20-pm.html">
+        06-20 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-20-am.html">
+        06-20 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-19-pm.html">
+        06-19 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-19-am.html">
+        06-19 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-18-pm.html">
+        06-18 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-18-am.html">
+        06-18 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-17-pm.html">
+        06-17 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-17-am.html">
+        06-17 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-16-pm.html">
+        06-16 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-16-am.html">
+        06-16 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-15-pm.html">
+        06-15 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-15-am.html">
+        06-15 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-14-pm.html">
+        06-14 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-14-am.html">
+        06-14 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-13-pm.html">
+        06-13 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-13-am.html">
+        06-13 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-12-pm.html">
+        06-12 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-12-am.html">
+        06-12 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-11-pm.html">
+        06-11 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-11-am.html">
+        06-11 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-10-pm.html">
+        06-10 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-10-am.html">
+        06-10 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-09-pm.html">
+        06-09 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-09-am.html">
+        06-09 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-08-pm.html">
+        06-08 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-08-am.html">
+        06-08 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-07-pm.html">
+        06-07 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-07-am.html">
+        06-07 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-06-pm.html">
+        06-06 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-06-am.html">
+        06-06 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-05-pm.html">
+        06-05 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-05-am.html">
+        06-05 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-04-pm.html">
+        06-04 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-04-am.html">
+        06-04 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-03-pm.html">
+        06-03 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-03-am.html">
+        06-03 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-02-pm.html">
+        06-02 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-01-pm.html">
+        06-01 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-06-01-am.html">
+        06-01 AM
+      </a>
+      
+    </div>
+    
+    <div class="archive-month">
+      <div class="archive-month-label">May 2026</div>
+      
+      <a class="archive-link"
+         href="2026-05-31-pm.html">
+        05-31 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-31-am.html">
+        05-31 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-30-pm.html">
+        05-30 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-30-am.html">
+        05-30 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-29-pm.html">
+        05-29 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-29-am.html">
+        05-29 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-28-pm.html">
+        05-28 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-28-am.html">
+        05-28 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-27-pm.html">
+        05-27 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-27-am.html">
+        05-27 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-26-pm.html">
+        05-26 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-26-am.html">
+        05-26 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-25-pm.html">
+        05-25 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-24-pm.html">
+        05-24 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-24-am.html">
+        05-24 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-23-pm.html">
+        05-23 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-23-am.html">
+        05-23 AM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-22-pm.html">
+        05-22 PM
+      </a>
+      
+      <a class="archive-link"
+         href="2026-05-22-am.html">
+        05-22 AM
+      </a>
+      
+    </div>
+    
+  </nav>
+
+  <!-- Main content -->
+  <div class="main-content">
+
+    <!-- Masthead -->
+    <header class="masthead">
+      <div class="masthead-logo">
+        <a href="2026-06-23-pm.html" style="text-decoration:none;">
+          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
+                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
+                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
+                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
+              </filter>
+            </defs>
+            <text x="90" y="44"
+                  font-family="Caveat, cursive"
+                  font-size="52"
+                  font-weight="700"
+                  fill="#6b82a8"
+                  text-anchor="middle"
+                  letter-spacing="8"
+                  filter="url(#balm-spread)">Balm</text>
+          </svg>
+        </a>
+      </div>
+      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
+      <p class="masthead-dateline">Tuesday, June 23, 2026 &middot; PM Edition &middot; Sources</p>
+    </header>
+
+    <!-- Sources list -->
+    <div class="section-header">Sources for this digest</div>
+
+    
+    <div class="source-entry">
+      <div class="source-num">1</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Ship Traffic Recovering Through Strait of Hormuz After US-Iran Deal; Iran Seeks Toll Authority, Rubio Objects</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.eenews.net/articles/traffic-through-hormuz-increases-but-not-back-to-normal/" target="_blank" rel="noopener noreferrer">E&e News By Politico</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Traffic through Hormuz increases, but not back to normal&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/23/marco-rubio-gulf-allies-us-iran-ceasefire-deal" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Rubio insists strait of Hormuz will be toll-free as he arrives for Gulf meeting&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/06/23/world/middleeast/iran-control-strait-of-hormuz.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Iran Makes Moves to Assert Control Over the Strait of Hormuz&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c24yr796emzo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;UN says it will evacuate sailors stranded in Strait of Hormuz, as Rubio warns against tolls&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c24yr796emzo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;UN says it will evacuate sailors stranded in Strait of Hormuz, as Rubio warns against tolls&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cx23rnzdgl8o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Dozens of ships head through Strait of Hormuz after US-Iran deal&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cx23rnzdgl8o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Dozens of ships head through Strait of Hormuz after US-Iran deal&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">2</div>
+      <div class="source-body">
+        <div class="source-balm-headline">US and Iran Offer Conflicting Accounts of Nuclear Inspection Agreement</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/live/2026/06/23/world/iran-us-trump-lebanon" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;U.S. and Iran Offer Conflicting Accounts of Nuclear Discussions&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">3</div>
+      <div class="source-body">
+        <div class="source-balm-headline">UK Prime Minister Starmer Resigns; Andy Burnham in Transition Talks</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/world/keir-starmer-resigns-british-prime-minister-after-devastating-labour-revolt-local-election-losses" target="_blank" rel="noopener noreferrer">Fox News World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Keir Starmer resigns as British prime minister after devastating Labour revolt and local election losses&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c2eyj7j4evko?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Starmer holds talks with Burnham as he seeks 'orderly' transition&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">4</div>
+      <div class="source-body">
+        <div class="source-balm-headline">UN Commission of Inquiry Concludes Israel Is Committing Genocide in Gaza by Targeting Children</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/23/israel-deliberately-targeting-gaza-children-to-commit-genocide-un-inquiry-finds" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Israel continues to commit genocide by targeting children in Gaza, UN inquiry finds&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c0jy96w6pw2o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;UN commission of inquiry says Israel committing genocide in Gaza by deliberately targeting children&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">5</div>
+      <div class="source-body">
+        <div class="source-balm-headline">US Tech Stocks Sell Off, Pulling Global Markets Lower</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/business/2026/jun/23/ai-stocks-sell-off-us-markets" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;US AI stock sell-off shakes markets from Wall Street to Asia&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/business/live/2026/jun/23/crude-oil-falls-us-waiver-iran-sanctions-peace-talks-progress-live-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Global shares tumble after US tech sell-off; UK services sector shrinks at fastest pace since 2023 – as it happened&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">6</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Senate Passes War Powers Resolution Directing Trump to Halt Iran Military Operations</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/us-news/live/2026/jun/23/primary-elections-ny-maryland-utah-supreme-court-ruling-politics-latest-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Senate approves war powers resolution in rare rebuke of Trump over Iran conflict – US politics live&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/23/trump-iran-war-powers-resolution" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;US Senate passes war powers resolution challenging Trump’s Iran war authority&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/republicans-break-trump-rebuke-iran-war-wont-change-policy" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Republicans break with Trump to rebuke Iran war — but it won't change policy&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/06/23/nx-s1-5868599/senate-iran-war-powers-resolution" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;In symbolic vote, Congress directs Trump to remove forces from Iran war&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/senate-again-set-to-vote-on-war-powers-resolution-to-halt-iran-conflict" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Senate for 1st time approves war powers resolution to halt Iran conflict&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">7</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Texas Anti-ICE Protesters Sentenced to Minimum 50 Years in Prison on Terrorism Convictions</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/23/prairieland-ice-protesters-texas-sentenced" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Texas anti-ICE protesters convicted of terrorism charges sentenced to at least 50 years in prison&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">8</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Supreme Court Rules Against Green Card Holders' Procedural Rights in Criminal Cases</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/court-sides-with-government-in-dispute-over-rights-of-green-card-holders-accused-of-committing-a/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Court sides with government in dispute over rights of green card holders accused of committing a crime&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">9</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Supreme Court Restricts Foreign Nationals' Access to US Courts for International Law Violations</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/supreme-court-limits-ability-of-foreigners-to-bring-lawsuits-for-violations-of-international-law/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Supreme Court limits ability of foreigners to bring lawsuits for violations of international law&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">10</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Trump Signs Executive Orders on Quantum Computing, Partnering with IBM and Google</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/trump-signs-landmark-executive-order-investing-quantum-computing-cryptography-security" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump signs landmark executive order investing in quantum computing and cryptography security&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">11</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Current Ebola Outbreak Shows Milder Symptoms Than Past Episodes, Complicating Containment</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/interactive/2026/06/23/world/africa/ebola-virus-outbreak-update.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;How Bad Could the Ebola Outbreak Get? Here Are 5 Key Factors.&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/06/23/health/ebola-symptoms-death-rate.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Ebola Symptoms in Current Outbreak May Be Milder Than in Previous Ones&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">12</div>
+      <div class="source-body">
+        <div class="source-balm-headline">China Claims World's Fastest Supercomputer Title for First Time Since 2017</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/06/23/technology/china-supercomputer-crown-us.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;China Takes Supercomputer Crown From U.S. for First Time Since 2017&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">13</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Five Eyes Intelligence Alliance Warns Advanced AI Could Enable Major Cyberattacks Within Months</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://us.headtopics.com/news/ai-on-pace-to-bypass-cybersecurity-systems-in-months-not-84818361" target="_blank" rel="noopener noreferrer">Headtopics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;AI on pace to bypass cybersecurity systems in months, not years,Five Eyes spy partners warn&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/technology/2026/jun/22/anthropic-claude-fable-ai-model-artificial-intelligence-national-security" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;AI models capable of devastating attacks on governments and business months away, rare Five Eyes statement warns&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">14</div>
+      <div class="source-body">
+        <div class="source-balm-headline">NSA Lost Access to Anthropic AI Tool Amid Administration Dispute with Company</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/06/23/us/politics/nsa-lost-access-anthropic-tool.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;N.S.A. Lost Access to Powerful A.I. Model Amid Anthropic Dispute&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">15</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Europe Heatwave Sets Records in France, Causes Forty Drowning Deaths; UK Temperatures Approach Historic Highs</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/23/europe-heatwave-live-news-updates-uk-red-temperature-warnings-40-degrees-france-heat-deaths-crisis-meeting" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Forty people drown in France; Met Office warns UK temperatures could reach 39C – as it happened&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/business/2026/jun/23/electricity-prices-jump-in-europe-as-demands-soars-in-the-heatwave" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Europe’s heatwave drives electricity prices to new highs as demand soars&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/23/searing-uk-heat-leaves-schools-hospitals-and-transport-networks-struggling-to-cope" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Searing UK heat leaves schools, hospitals and transport networks struggling to cope&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/23/how-to-shade-your-home-supercharged-heatwaves-uk" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;From yoghurt to luxury sails: how to shade your home from supercharged UK heatwaves&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/23/we-would-like-to-hear-your-memories-of-the-1976-uk-heatwave" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;We would like to hear your memories of the 1976 UK heatwave&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/06/23/climate/europe-heat-wave-climate-change.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;As Europe Warms, Scientists Ask: How Much Hotter Could Summers Get?&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cwyl940y94xo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Hundreds of schools plan closures ahead of red heat alerts&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cz0j87vpz79o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;From cool-down spots to chalk on windows - how Europe is coping with the heat&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c79yvw3j114o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Drowning deaths soar in France as Europe buckles in peak of heatwave&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/23/searing-uk-heat-leaves-schools-hospitals-and-transport-networks-struggling-to-cope" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Searing UK heat leaves schools, hospitals and transport networks struggling to cope&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/23/europe-heatwave-live-news-updates-uk-red-temperature-warnings-40-degrees-france-heat-deaths-crisis-meeting" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Forty people drown in France; Met Office warns UK temperatures could reach 39C – as it happened&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/23/heatwave-france-spain-italy-europe" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;France records hottest day ever as 40 people drown across country&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">16</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Three People Killed in Montreal Shooting; Police Warn of Possible Copycat Incidents</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.thejc.com/news/world/police-officer-jewish-man-killed-montreal-shooting-vxzp3xyf" target="_blank" rel="noopener noreferrer">The Jc</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Police officer and Jewish man killed in Montreal shooting&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/23/canada-police-warn-copycat-attack-montreal-shooting" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Canadian police warn of possible copycat attacks after deadly shootout in Montreal&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/world/suspect-neutralized-montreal-shooting-leaves-dead-including-officer" target="_blank" rel="noopener noreferrer">Fox News World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Suspect 'neutralized' after Montreal shooting leaves at least 2 dead including officer&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p><a href="2026-06-23-pm.html">← Return to digest</a></p>
+      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
+      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
+      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
+    </footer>
+
+  </div><!-- /.main-content -->
+</div><!-- /.page-wrapper -->
+<script>
+  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
+  (function() {
+    var current = '2026-06-23-pm.html';
+    fetch('archive.json')
+      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function(data) {
+        var html = data.months.map(function(m) {
+          var links = m.entries.map(function(e) {
+            var cls = 'archive-link' + (e.file === current ? ' current' : '');
+            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
+          }).join('');
+          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
+        }).join('');
+        var nav = document.querySelector('nav.sidebar');
+        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
+      })
+      .catch(function() {});
+  })();
+</script>
+</body>
+</html>
