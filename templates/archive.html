@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Contact</title>
-  <meta name="description" content="Contact Balm — topical, anti-inflammatory news.">
+  <title>Balm — Archive</title>
+  <meta name="description" content="All past editions of the Balm news digest.">
   <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" href="/icons/icon-32.png">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -17,11 +18,11 @@
     :root {
       --bg: #f2ede4;
       --ink: #2a2520;
+      --ink-light: #5a5048;
       --secondary: #6a6058;
       --muted: #9a9288;
       --rule: #c8c0b4;
       --accent: #6b82a8;
-      --difficult: #5a4a3a;
     }
 
     html { font-size: 18px; scroll-behavior: smooth; }
@@ -38,32 +39,19 @@
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* Layout */
+    /* Layout — single column, centered */
     .page-wrapper {
-      display: flex;
-      max-width: 1100px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    .sidebar {
-      width: 220px;
-      flex-shrink: 0;
-      padding: 2rem 1.5rem 2rem 0;
-      border-right: 1px solid var(--rule);
-      min-height: 100vh;
+      padding: 0 1.25rem;
     }
 
     .main-content {
-      flex: 1;
-      max-width: 860px;
-      padding: 0 2rem 4rem;
+      padding: 0 0 4rem;
     }
 
     @media (max-width: 768px) {
-      .page-wrapper { display: block; padding: 0; }
-      .sidebar { display: none; }
-      .main-content { padding: 0 1.25rem 3rem; }
+      .main-content { padding: 0 0 3rem; }
     }
 
     /* Masthead */
@@ -88,7 +76,7 @@
       font-family: 'Source Serif 4', serif;
       font-weight: 300;
       font-style: italic;
-      font-size: 0.85rem;
+      font-size: 1rem;
       color: var(--secondary);
       letter-spacing: 0.08em;
       margin-bottom: 0.4rem;
@@ -103,7 +91,7 @@
       text-transform: uppercase;
     }
 
-    /* Section header */
+    /* Archive listing */
     .section-header {
       font-family: 'Playfair Display', serif;
       font-size: 0.7rem;
@@ -113,57 +101,40 @@
       color: var(--accent);
       border-top: 1px solid var(--rule);
       padding-top: 1.25rem;
-      margin: 2rem 0 1.5rem;
+      margin: 2rem 0 1.25rem;
     }
 
-    /* Contact body */
-    .contact-body {
-      font-size: 1rem;
-      line-height: 1.8;
+    .archive-month-group {
+      margin-bottom: 2.25rem;
+    }
+
+    .archive-month-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
       color: var(--ink);
-      max-width: 600px;
+      margin-bottom: 0.6rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--rule);
     }
 
-    .contact-body p { margin-bottom: 1.25rem; }
-    .contact-body p:last-child { margin-bottom: 0; }
-
-    .contact-email {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      color: var(--accent);
+    .archive-entry {
+      padding: 0.2rem 0;
     }
 
-    /* Sidebar archive */
-    .sidebar-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-top: 2rem;
-    }
-
-    .archive-month { margin-bottom: 1rem; }
-
-    .archive-month-label {
-      font-size: 0.68rem;
+    .archive-entry-link {
+      font-family: 'Source Serif 4', serif;
       font-weight: 300;
-      letter-spacing: 0.08em;
+      font-size: 0.95rem;
       color: var(--secondary);
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
+      text-decoration: none;
+      transition: color 0.15s;
     }
 
-    .archive-link {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--secondary);
-      padding: 0.1rem 0;
-      line-height: 1.6;
+    .archive-entry-link:hover {
+      color: var(--accent);
+      text-decoration: none;
     }
-
-    .archive-link:hover { color: var(--accent); text-decoration: none; }
 
     /* Footer */
     .footer {
@@ -178,27 +149,38 @@
 
     .footer a { color: var(--muted); text-decoration: underline; }
     .footer a:hover { color: var(--secondary); }
+
+    .footer .footer-kofi {
+      font-size: 0.92rem;
+      color: var(--accent);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+
+    .footer .footer-kofi:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .footer .footer-contact {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s;
+    }
+
+    .footer .footer-contact:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
 <div class="page-wrapper">
-
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    {% for month in archive_months %}
-    <div class="archive-month">
-      <div class="archive-month-label">{{ month.month }}</div>
-      {% for entry in month.entries %}
-      <a class="archive-link" href="{{ entry.file }}">
-        {{ entry.date[5:] }} {{ entry.run | upper }}
-      </a>
-      {% endfor %}
-    </div>
-    {% endfor %}
-  </nav>
-
-  <!-- Main content -->
   <div class="main-content">
 
     <!-- Masthead -->
@@ -225,30 +207,29 @@
         </a>
       </div>
       <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Contact</p>
+      <p class="masthead-dateline">Archive</p>
     </header>
 
-    <!-- Contact content -->
-    <div class="section-header">Contact</div>
+    <!-- Archive listing -->
+    <div class="section-header">Past Editions</div>
 
-    <div class="contact-body">
-      <p>Balm is built and maintained by one person in Santa Cruz, California.</p>
-
-      <p>For questions, feedback, story suggestions, or press inquiries:</p>
-
-      <p><a class="contact-email" href="mailto:contact@balm.news">contact@balm.news</a></p>
-
-      <p>Balm is an independent project with no advertising, no investors, and no
-      editorial agenda. It exists because calm, factual news is worth having.</p>
-
-      <p>If Balm is useful to you, consider supporting it on
-      <a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Ko-fi</a>.</p>
+    {% for month in archive_months %}
+    <div class="archive-month-group">
+      <h2 class="archive-month-heading">{{ month.month }}</h2>
+      {% for entry in month.entries %}
+      <div class="archive-entry">
+        <a href="/{{ entry.file }}" class="archive-entry-link">{{ entry.date | format_date }} &mdash; {{ entry.run | upper }}</a>
+      </div>
+      {% endfor %}
     </div>
+    {% endfor %}
 
     <!-- Footer -->
     <footer class="footer">
-      <p><a href="index.html">← Today's Digest</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
+      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+      Perpetrator details are withheld from violent events by editorial policy.</p>
+      <p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
+      <p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
       <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
     </footer>
 
@@ -256,25 +237,8 @@
 </div><!-- /.page-wrapper -->
 
 <script>
-  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
-  (function() {
-    fetch('archive.json')
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            return '<a class="archive-link" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-      })
-      .catch(function() {});
-  })();
-
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>

@@ -44,74 +44,19 @@
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* Layout */
+    /* Layout — single column, centered */
     .page-wrapper {
-      display: flex;
-      max-width: 1100px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    .sidebar {
-      width: 220px;
-      flex-shrink: 0;
-      padding: 2rem 1.5rem 2rem 0;
-      border-right: 1px solid var(--rule);
-      min-height: 100vh;
+      padding: 0 1.25rem;
     }
 
     .main-content {
-      flex: 1;
-      max-width: 860px;
-      padding: 0 2rem 4rem;
+      padding: 0 0 4rem;
     }
 
     @media (max-width: 768px) {
-      .page-wrapper { display: block; padding: 0; }
-      .sidebar { display: none; }
-      .main-content { padding: 0 1.25rem 3rem; }
-
-      /* Mobile archive toggle */
-      .mobile-archive-toggle {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.75rem 1.25rem;
-        border-bottom: 1px solid var(--rule);
-        font-size: 0.72rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--muted);
-        cursor: pointer;
-        background: var(--bg);
-        user-select: none;
-      }
-
-      .mobile-archive-panel {
-        display: none;
-        padding: 1rem 1.25rem;
-        border-bottom: 1px solid var(--rule);
-        background: #ebe5db;
-      }
-
-      .mobile-archive-panel.open { display: block; }
-    }
-
-    @media (min-width: 769px) {
-      .mobile-archive-toggle { display: none; }
-      .mobile-archive-panel { display: none !important; }
-    }
-
-    /* Mobile archive caret — CSS rotation, no character substitution */
-    .mobile-archive-caret {
-      display: inline-block;
-      font-size: 1rem;
-      line-height: 1;
-      transition: transform 0.2s ease;
-    }
-
-    .mobile-archive-toggle[aria-expanded="true"] .mobile-archive-caret {
-      transform: rotate(90deg);
+      .main-content { padding: 0 0 3rem; }
     }
 
     /* Masthead */
@@ -125,6 +70,11 @@
     .masthead-logo svg {
       display: block;
       margin: 0 auto 0.5rem;
+    }
+
+    .masthead-link {
+      text-decoration: none;
+      display: inline-block;
     }
 
     .masthead-tagline {
@@ -183,6 +133,17 @@
       border-top: 1px solid var(--rule);
       padding-top: 1.25rem;
       margin: 2rem 0 1.25rem;
+    }
+
+    /* Market trend line — appears below Economy section header */
+    .market-trend {
+      font-family: 'Source Serif 4', serif;
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: -0.5rem 0 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--rule);
     }
 
     /* Article cards */
@@ -362,54 +323,28 @@
     .difficult-content { margin-top: 1.25rem; }
     .difficult-content .article-headline { color: var(--difficult); }
 
-    /* Sidebar */
-    .sidebar-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-top: 2rem;
-    }
-
-    .sidebar-home-link {
-      display: block;
-      font-size: 0.72rem;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-      letter-spacing: 0.04em;
-    }
-
-    .archive-month { margin-bottom: 1rem; }
-
-    .archive-month-label {
-      font-size: 0.68rem;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      color: var(--secondary);
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
+    /* Archive link — below Difficult News, above footer */
+    .archive-link-section {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+      text-align: center;
     }
 
     .archive-link {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--secondary);
-      padding: 0.1rem 0;
-      line-height: 1.6;
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s, border-color 0.15s;
     }
 
-    .archive-link:hover { color: var(--accent); text-decoration: none; }
-    .archive-link.current { color: var(--accent); font-style: italic; }
-
-    /* Mobile archive */
-    .mobile-archive-title {
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
+    .archive-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      text-decoration: none;
     }
 
     /* Footer */
@@ -426,18 +361,33 @@
     .footer a { color: var(--muted); text-decoration: underline; }
     .footer a:hover { color: var(--secondary); }
 
-    .kofi-link {
-      display: inline-block;
-      margin-top: 0.75rem;
-      font-size: 0.75rem;
-      color: var(--secondary);
-      border: 1px solid var(--rule);
-      padding: 0.25rem 0.75rem;
-      border-radius: 3px;
+    .footer .footer-kofi {
+      font-size: 0.92rem;
+      color: var(--accent);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+
+    .footer .footer-kofi:hover {
+      opacity: 1;
       text-decoration: none;
     }
 
-    .kofi-link:hover { background: #ebe5db; text-decoration: none; }
+    .footer .footer-contact {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s;
+    }
+
+    .footer .footer-contact:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
 
     /* Top stories panel */
     .top-stories {
@@ -499,47 +449,31 @@
   </style>
 </head>
 <body>
-
-<!-- Mobile archive toggle (shown only on mobile) -->
-<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
-  <span class="mobile-archive-caret">›</span> Archive
-</div>
-<div class="mobile-archive-panel" id="mobile-archive-panel">
-  <div class="mobile-archive-title">Past Editions</div>
-  <!-- populated by archive.json fetch on page load — never server-rendered -->
-</div>
-
 <div class="page-wrapper">
-
-  <!-- Desktop sidebar -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    <!-- populated by archive.json fetch on page load — never server-rendered -->
-  </nav>
-
-  <!-- Main content -->
   <div class="main-content">
 
     <!-- Masthead -->
     <header class="masthead">
       <div class="masthead-logo">
-        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-              <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-              <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-            </filter>
-          </defs>
-          <text x="90" y="44"
-                font-family="Caveat, cursive"
-                font-size="52"
-                font-weight="700"
-                fill="#6b82a8"
-                text-anchor="middle"
-                letter-spacing="8"
-                filter="url(#balm-spread)">Balm</text>
-        </svg>
+        <a href="https://balm.news" class="masthead-link">
+          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
+                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
+                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
+                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
+              </filter>
+            </defs>
+            <text x="90" y="44"
+                  font-family="Caveat, cursive"
+                  font-size="52"
+                  font-weight="700"
+                  fill="#6b82a8"
+                  text-anchor="middle"
+                  letter-spacing="8"
+                  filter="url(#balm-spread)">Balm</text>
+          </svg>
+        </a>
       </div>
       <p class="masthead-tagline">Topical, anti-inflammatory news</p>
       <p class="masthead-dateline">{{ date_display }}{% if run_label %} &middot; {{ run_label }} Edition{% endif %}</p>
@@ -616,6 +550,9 @@
         </div>
       {% else %}
         <div class="section-header">{{ section.name }}</div>
+        {% if section.name == 'ECONOMY' and market_trend %}
+        <p class="market-trend">{{ market_trend }}</p>
+        {% endif %}
         {% for article in section.articles %}
         <div class="article article-{{ article.length | default('medium') }}" id="{{ article.story_id }}">
           <h2 class="article-headline">{{ article.headline }}</h2>
@@ -648,13 +585,18 @@
       {% endif %}
     {% endfor %}
 
+    <!-- Archive link -->
+    <div class="archive-link-section">
+      <a href="/archive.html" class="archive-link">Browse past editions →</a>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
       <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
       <p style="margin-top:0.75rem;"><a href="{{ sources_file }}">Sources for this digest →</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
+      <p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
+      <p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
       <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
     </footer>
 
@@ -677,35 +619,6 @@
     const expanded = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', String(!expanded));
   });
-
-  function toggleMobileArchive() {
-    var panel = document.getElementById('mobile-archive-panel');
-    var toggle = document.getElementById('mobile-toggle');
-    var isOpen = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-    // Caret direction is handled by CSS [aria-expanded="true"] rotate — no JS needed
-  }
-
-  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
-  (function() {
-    var current = '{{ current_digest_file }}';
-    fetch('archive.json?v=' + Date.now())
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-        var mob = document.getElementById('mobile-archive-panel');
-        if (mob) mob.innerHTML = '<div class="mobile-archive-title">Past Editions</div>' + html;
-      })
-      .catch(function() {});
-  })();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js');

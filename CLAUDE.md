@@ -40,12 +40,12 @@ After each run, `index.html` is regenerated to point to the latest digest and re
 5. **Classify difficult news** — `classify_difficult_news()` pre-identifies mass-casualty and violent-crime clusters; returns a parallel bool list; flags are injected as annotations in the synthesis prompt so Claude applies DIFFICULT NEWS editorial rules; non-blocking
 6. **Synthesize** — `call_claude()` sends all clusters to Claude with difficult-news annotations; Claude synthesizes multi-source stories, assigns categories, dynamic lengths, and `isDifficult` flags; returns 10–16 articles with `cluster_id` for source attribution
 7. **PM deduplication** (PM edition only) — `filter_pm_duplicates()` reads the AM metadata JSON headlines and asks Claude which PM articles are genuine new developments vs. AM repeats; non-blocking
-8. **S&P 500** — non-blocking fetch from Yahoo Finance
+8. **S&P 500 + market trend** — non-blocking fetch from Yahoo Finance; `calculate_market_trend()` reads the last 10 metadata JSONs, derives trend direction, and calls Claude (`MARKET_TREND_PROMPT`) to produce a calm one-sentence summary; non-blocking (returns `""` on failure)
 9. **Metadata** — JSON saved alongside digest; includes `headlines` list for PM deduplication
 10. **Select top stories** — `select_top_stories()` asks Claude to choose 2–4 broadly significant stories from different categories; each includes a `story_id` anchor and one-sentence reason; non-blocking
 11. **Category order** — `order_categories()` asks Claude to suggest editorial section order based on today's significance; DIFFICULT NEWS always last; non-blocking
 12. **Audio** — ElevenLabs TTS from concatenated `full_summary` fields (currently disabled: `AUDIO_ENABLED = False`)
-13. **Archive and render** — `collect_archive()` + `write_archive_json()`, then digest HTML, sources page HTML, and index.html written from Jinja2 templates; top stories and category order passed to templates
+13. **Archive and render** — `collect_archive()` + `write_archive_json()`, then digest HTML, sources page HTML, index.html, contact.html, and `archive.html` written from Jinja2 templates; top stories, category order, and market trend passed to digest/index templates
 14. **Podcast RSS** — `podcast.xml` updated (skipped when `AUDIO_ENABLED = False`)
 
 ### Sources page
@@ -105,6 +105,7 @@ REWRITING RULES:
 - Never use: "shocking", "bombshell", "explosive", "crisis", "chaos", "slams", "blasts", "rips", "warns of disaster", "you won't believe", or any equivalent
 - Write as Balm's own neutral voice — never attribute claims to a specific outlet in the text. All claims are attributed to original sources via the article link only, not in the text itself.
 - Perpetrator details — names, photos, methods, manifestos — must be omitted from all violent events
+- For product recalls, safety alerts, and consumer health notices: always include the specific product name or brand name in the brief summary — this is the information that makes the story immediately actionable for readers.
 
 MULTI-SOURCE SYNTHESIS:
 When multiple sources cover the same story, you will receive all versions together as a cluster.
@@ -397,31 +398,42 @@ When no articles are stale, the simpler single-count format is used.
 
 ---
 
-## Archive Sidebar
+## Archive Page
 
-`archive.json` is fetched by JavaScript on every page load to populate the sidebar and mobile archive panel. The fetch URL includes a cache-busting timestamp parameter:
+The digest and index templates have no sidebar. Navigation to past editions is provided by a dedicated archive page at `/archive.html`, generated on every pipeline run by `render_archive_page()`.
 
-```javascript
-fetch('archive.json?v=' + Date.now())
-```
+`archive.html` lists all past editions grouped by month (most recent first). Month headings use Playfair Display; edition links use Source Serif 4. A `format_date` Jinja2 filter is registered on the template environment to convert `YYYY-MM-DD` strings to "Month D, YYYY" display format. The archive page uses the same masthead and footer as all other Balm pages.
 
-This forces browsers and CDNs to always retrieve the latest version rather than serving a cached copy that may be missing recent digests.
+A "Browse past editions →" link appears on every digest page below the Difficult News section and above the footer, styled as italic Source Serif 4 text with a hover accent color.
+
+`archive.json` is still written each run (for backwards compatibility) but is no longer used to populate any sidebar.
+
+## Market Trend Line
+
+`calculate_market_trend(docs_dir, anthropic_key)` scans all `????-??-??-??.json` metadata files, extracts `sp500_close` values, takes the most recent 10 (sorted newest first), and reverses to oldest-first order for the prompt.
+
+- If fewer than 3 non-null values exist, returns `""` and no line is rendered.
+- Computes a directional fallback by comparing the most recent close to the average of the oldest half.
+- Calls Claude with `MARKET_TREND_PROMPT` (max 60 tokens) requesting a single calm sentence with no numbers. Falls back to the directional string if the Claude call fails.
+
+The result is passed as `market_trend` to `render_digest()` and `render_index()`. Templates insert it as `<p class="market-trend">` immediately after the ECONOMY section header, before the first Economy story. Non-blocking — failure returns `""` and the line is silently omitted.
 
 ---
 
 ## Icons and Favicon
 
-The site uses SVG icons as the primary format for modern browser and PWA support:
+Icons are PNG files generated by `ensure_static_icons()` using Pillow and the Caveat Bold TTF (downloaded from `github.com/googlefonts/caveat` on first run). SVG files are kept as reference only and are not referenced in HTML or the manifest.
 
-- **`docs/favicon.svg`** — 32×32 SVG, parchment background `#f2ede4`, italic bold "B" in dusty slate `#6b82a8`
-- **`docs/icons/icon.svg`** — 192×192 SVG, same palette, full "Balm" wordmark; scalable to any size for PWA home screen icons
-- **`docs/icons/icon-192.png`** and **`icon-512.png`** — PNG fallbacks for older devices and platforms that don't support SVG icons
+- **`docs/icons/icon-32.png`** — 32×32px, parchment background `#f2ede4`, "B" lettermark in dusty slate `#6b82a8`, Caveat Bold 22px
+- **`docs/icons/icon-192.png`** — 192×192px, same palette, "Balm" wordmark, Caveat Bold 80px
+- **`docs/icons/icon-512.png`** — 512×512px, same palette, "Balm" wordmark, Caveat Bold 214px
+- **`docs/favicon.svg`** and **`docs/icons/icon.svg`** — reference files only, not used for display
 
-The manifest references the SVG as primary (`"sizes": "any"`) with PNG fallbacks. Templates link both SVG and PNG favicons:
+Font sizes were calibrated to fill ~75% of each canvas width with proper centering via `textbbox()`. The manifest references only the PNG icons. Templates link:
 
 ```html
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" href="/icons/icon-192.png">
+<link rel="icon" type="image/png" href="/icons/icon-32.png">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
 ```
 
 `ensure_static_icons(docs_dir)` in `pipeline.py` recreates the SVG files on any run where they are absent — a self-healing safety net in case `docs/` is re-initialized without the static assets.

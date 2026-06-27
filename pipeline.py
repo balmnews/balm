@@ -89,6 +89,7 @@ REWRITING RULES:
 - Never use: "shocking", "bombshell", "explosive", "crisis", "chaos", "slams", "blasts", "rips", "warns of disaster", "you won't believe", or any equivalent
 - Write as Balm's own neutral voice — never attribute claims to a specific outlet in the text. All claims are attributed to original sources via the article link only, not in the text itself.
 - Perpetrator details — names, photos, methods, manifestos — must be omitted from all violent events
+- For product recalls, safety alerts, and consumer health notices: always include the specific product name or brand name in the brief summary — this is the information that makes the story immediately actionable for readers.
 
 MULTI-SOURCE SYNTHESIS:
 When multiple sources cover the same story, you will receive all versions together as a cluster.
@@ -258,6 +259,29 @@ Return ONLY valid JSON:
 {"order": ["GEOPOLITICS", "ECONOMY", "DOMESTIC POLICY", "SCIENCE & HEALTH", "TECHNOLOGY", "NATURAL EVENTS", "SPORTS", "DIFFICULT NEWS"]}
 
 Adjust the order (except DIFFICULT NEWS must be last) to reflect today's editorial significance."""
+
+MARKET_TREND_PROMPT = """You are writing one calm, factual sentence about recent stock market performance for Balm, a neutral news digest.
+
+You will receive recent S&P 500 closing values in chronological order (oldest first).
+
+Write exactly one sentence characterizing the trend over this period.
+
+RULES:
+- No specific numbers or percentages
+- No alarm language — avoid "plunged", "surged", "crashed", "soared"
+- Calm directional language only: "trended upward", "declined modestly", "remained relatively flat", "been mixed with no clear direction", "recovered after earlier losses"
+- If the trend is genuinely ambiguous or volatile, say so calmly: "Markets have been volatile with no clear trend over the past week"
+- Write in past tense, referring to "the past week" or "recent sessions"
+- The sentence will appear below the Economy section heading in a news digest
+- Maximum 20 words
+
+Examples of correct output:
+"Markets have trended modestly higher over the past week."
+"Stocks have declined gradually over recent sessions."
+"Markets have been relatively flat with no clear direction this week."
+"Stocks have recovered after declining earlier in the week."
+
+Return ONLY the sentence. No preamble, no quotation marks."""
 
 
 # ---------------------------------------------------------------------------
@@ -1105,6 +1129,67 @@ def fetch_sp500() -> float | None:
         return None
 
 
+def calculate_market_trend(docs_dir: Path, anthropic_key: str) -> str:
+    """Return a one-sentence S&P 500 trend description for the Economy section.
+
+    Reads sp500_close values from the last 10 metadata JSONs, calls Claude
+    with MARKET_TREND_PROMPT, and returns the sentence. Falls back to a
+    simple directional string if fewer than 3 values exist or Claude fails.
+    Non-blocking — returns "" on any unexpected error.
+    """
+    try:
+        entries: list[tuple[str, float]] = []
+        for f in sorted(docs_dir.glob("????-??-??-??.json"), reverse=True):
+            try:
+                meta = json.loads(f.read_text())
+                close = meta.get("sp500_close")
+                date = meta.get("date", f.stem[:10])
+                if close is not None:
+                    entries.append((date, float(close)))
+            except Exception:
+                continue
+            if len(entries) >= 10:
+                break
+
+        if len(entries) < 3:
+            return ""
+
+        # Chronological order (oldest first) for the prompt
+        prices = [v for _, v in reversed(entries)]
+
+        # Simple directional fallback: most recent vs. average of older half
+        midpoint = len(prices) // 2
+        avg_older = sum(prices[:midpoint]) / midpoint
+        recent = prices[-1]
+        if recent > avg_older * 1.005:
+            fallback = "Markets have trended modestly higher over the past week."
+        elif recent < avg_older * 0.995:
+            fallback = "Stocks have declined gradually over recent sessions."
+        else:
+            fallback = "Markets have been relatively flat with no clear direction this week."
+
+        try:
+            client = Anthropic(api_key=anthropic_key)
+            prices_str = ", ".join(str(p) for p in prices)
+            msg = client.messages.create(
+                model=CLAUDE_MODEL,
+                max_tokens=60,
+                system=MARKET_TREND_PROMPT,
+                messages=[{"role": "user", "content": f"S&P 500 closing prices, oldest first: {prices_str}"}],
+            )
+            sentence = msg.content[0].text.strip().strip('"').strip("'")
+            if sentence:
+                return sentence
+        except Exception as e:
+            print(f"  [WARN] Market trend Claude call failed: {e}", file=sys.stderr)
+
+        return fallback
+
+    except Exception as e:
+        print(f"  [WARN] calculate_market_trend failed: {e}", file=sys.stderr)
+        return ""
+
+
 # ---------------------------------------------------------------------------
 # HTML generation
 # ---------------------------------------------------------------------------
@@ -1319,7 +1404,8 @@ def ensure_static_icons(docs_dir: Path) -> None:
 def render_digest(articles: list[dict], date_str: str, run: str, metadata: dict,
                   archive: list[dict], docs_dir: Path,
                   top_stories: list[dict] | None = None,
-                  category_order: list[str] | None = None) -> Path:
+                  category_order: list[str] | None = None,
+                  market_trend: str = "") -> Path:
     env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)))
     template = env.get_template("digest.html")
 
@@ -1348,6 +1434,7 @@ def render_digest(articles: list[dict], date_str: str, run: str, metadata: dict,
         sources_file=sources_file,
         top_stories=top_stories or [],
         article_by_id=article_by_id,
+        market_trend=market_trend,
     )
 
     out_path = docs_dir / f"{date_str}-{run}.html"
@@ -1384,7 +1471,8 @@ def render_sources(articles: list[dict], date_str: str, run: str,
 def render_index(articles: list[dict], date_str: str, run: str, metadata: dict,
                  archive: list[dict], docs_dir: Path,
                  top_stories: list[dict] | None = None,
-                 category_order: list[str] | None = None) -> None:
+                 category_order: list[str] | None = None,
+                 market_trend: str = "") -> None:
     env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)))
     template = env.get_template("index.html")
 
@@ -1414,6 +1502,7 @@ def render_index(articles: list[dict], date_str: str, run: str, metadata: dict,
         sources_file=sources_file,
         top_stories=top_stories or [],
         article_by_id=article_by_id,
+        market_trend=market_trend,
     )
 
     out_path = docs_dir / "index.html"
@@ -1422,25 +1511,33 @@ def render_index(articles: list[dict], date_str: str, run: str, metadata: dict,
 
 
 def render_contact(archive: list[dict], docs_dir: Path) -> None:
-    """Render docs/contact.html from templates/contact.html.
-
-    Generated once on first run — never overwritten. The contact page is
-    static content; the archive sidebar is populated by the JS dynamic load
-    (fetch archive.json) on every page view, so the page stays current
-    even though it's only written once.
-    """
-    out_path = docs_dir / "contact.html"
-    if out_path.exists():
-        return  # Static — generate once only
-
+    """Render docs/contact.html from templates/contact.html."""
     env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)))
     template = env.get_template("contact.html")
-
     html = template.render(
         archive_months=group_archive_by_month(archive),
     )
+    out_path = docs_dir / "contact.html"
     out_path.write_text(html, encoding="utf-8")
-    print(f"[OK] contact.html generated")
+    print(f"[OK] contact.html updated")
+
+
+def render_archive_page(archive: list[dict], docs_dir: Path) -> None:
+    """Render docs/archive.html — a standalone listing of all past editions."""
+    env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)))
+
+    def _format_date(date_str: str) -> str:
+        try:
+            return datetime.strptime(date_str, "%Y-%m-%d").strftime("%B %-d, %Y")
+        except Exception:
+            return date_str
+
+    env.filters["format_date"] = _format_date
+    template = env.get_template("archive.html")
+    html = template.render(archive_months=group_archive_by_month(archive))
+    out_path = docs_dir / "archive.html"
+    out_path.write_text(html, encoding="utf-8")
+    print(f"[OK] archive.html updated")
 
 
 # ---------------------------------------------------------------------------
@@ -1915,6 +2012,13 @@ def main():
     sp500 = fetch_sp500()
     print(f"  S&P 500: {sp500 if sp500 else 'unavailable (non-blocking)'}")
 
+    print("  Calculating market trend line...")
+    market_trend = calculate_market_trend(DOCS_DIR, anthropic_key)
+    if market_trend:
+        print(f"  Market trend: {market_trend}")
+    else:
+        print("  Market trend: unavailable (non-blocking)")
+
     # ── Step 9: Save metadata ─────────────────────────────────────────────
     print("\n[9/14] Saving metadata...")
     metadata = save_metadata(date_str, run, processed_articles, len(deduped_articles), sp500, DOCS_DIR)
@@ -1945,11 +2049,12 @@ def main():
     write_archive_json(archive, DOCS_DIR)
     ensure_static_icons(DOCS_DIR)
     render_digest(processed_articles, date_str, run, metadata, archive, DOCS_DIR,
-                  top_stories=top_stories, category_order=category_order)
+                  top_stories=top_stories, category_order=category_order, market_trend=market_trend)
     render_sources(processed_articles, date_str, run, archive, DOCS_DIR)
     render_index(processed_articles, date_str, run, metadata, archive, DOCS_DIR,
-                 top_stories=top_stories, category_order=category_order)
+                 top_stories=top_stories, category_order=category_order, market_trend=market_trend)
     render_contact(archive, DOCS_DIR)
+    render_archive_page(archive, DOCS_DIR)
 
     # ── Step 14: Podcast RSS ──────────────────────────────────────────────
     print("\n[14/14] Updating podcast RSS feed...")
