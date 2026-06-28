@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Saturday, June 13, 2026 PM</title>
-  <meta name="description" content="Balm news digest for Saturday, June 13, 2026 — topical, anti-inflammatory news.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/png" href="/icons/icon-32.png">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm — Saturday, June 13, 2026 PM</title>
+<meta content="Balm news digest for Saturday, June 13, 2026 — topical, anti-inflammatory news." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/icons/icon-32.png" rel="icon" type="image/png"/>
+<link href="/icons/icon-192.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -42,10 +43,9 @@
 
     /* Layout */
     .page-wrapper {
-      display: flex;
-      max-width: 1100px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.25rem;
     }
 
     .sidebar {
@@ -501,292 +501,208 @@
   </style>
 </head>
 <body>
-
 <!-- Mobile archive toggle (shown only on mobile) -->
-<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
-  <span class="mobile-archive-caret">›</span> Archive
-</div>
-<div class="mobile-archive-panel" id="mobile-archive-panel">
-  <div class="mobile-archive-title">Past Editions</div>
-  <!-- populated by archive.json fetch on page load — never server-rendered -->
-</div>
+
 
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    <!-- populated by archive.json fetch on page load — never server-rendered -->
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-              <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-              <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-            </filter>
-          </defs>
-          <text x="90" y="44"
-                font-family="Caveat, cursive"
-                font-size="52"
-                font-weight="700"
-                fill="#6b82a8"
-                text-anchor="middle"
-                letter-spacing="8"
-                filter="url(#balm-spread)">Balm</text>
-        </svg>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Saturday, June 13, 2026 &middot; PM Edition</p>
-    </header>
-
-    <!-- Audio player -->
-    
-
-    <!-- Top stories navigation -->
-    
-    <div class="top-stories">
-      <div class="top-stories-heading">Today's Top Stories</div>
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_0">Ukraine Depleting US-Made Air Defense Interceptors Amid Russian Missile Pressure</a>
-        <span class="top-story-reason">Depletion of air defense interceptors has direct consequences for civilian protection in an active war zone and raises urgent questions about Western military support.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_4">Five Lupus Patients Enter Remission After Experimental Cell Therapy Trial</a>
-        <span class="top-story-reason">Achieving remission in lupus patients through cell therapy represents a potentially landmark shift in treating a chronic autoimmune disease affecting millions.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_5">Advances in Embryo Gene Editing Prompt Debate Over Medical Use and Genetic Enhancement</a>
-        <span class="top-story-reason">New advances in embryo gene editing open significant ethical and regulatory questions with long-term implications for medicine and human genetics.</span>
-      </div>
-      
-      
-    </div>
-    
-
-    <!-- Stories -->
-    
-      
-        <div class="section-header">GEOPOLITICS</div>
-        
-        <div class="article article-medium" id="story_0">
-          <h2 class="article-headline">Ukraine Depleting US-Made Air Defense Interceptors Amid Russian Missile Pressure</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Ukraine is running low on American-made Patriot air defense interceptors and has appealed for resupply as Russia maintains a substantial ballistic missile arsenal.</span></span>
-            <span class="summary-full"><span>Ukraine is facing a critical shortage of Patriot air defense interceptors, the American-made missiles used to shoot down Russian ballistic rockets. Ukrainian officials have made formal requests for additional supplies as the country's existing stockpile runs down. Russia maintains a large inventory of ballistic missiles, and Ukraine's ability to intercept them depends heavily on continued deliveries from the United States. The Patriot system is one of the most capable air defense platforms available to Ukraine and has been central to protecting cities and military infrastructure. The shortfall represents a significant vulnerability at a time when Russian long-range strikes on Ukrainian territory remain frequent. The situation raises questions for US policymakers about the pace and scale of future military aid.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news"><svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg></a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Saturday, June 13, 2026 · PM Edition</p>
+</header>
+<!-- Audio player -->
+<!-- Top stories navigation -->
+<div class="top-stories">
+<div class="top-stories-heading">Today's Top Stories</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_0">Ukraine Depleting US-Made Air Defense Interceptors Amid Russian Missile Pressure</a>
+<span class="top-story-reason">Depletion of air defense interceptors has direct consequences for civilian protection in an active war zone and raises urgent questions about Western military support.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_4">Five Lupus Patients Enter Remission After Experimental Cell Therapy Trial</a>
+<span class="top-story-reason">Achieving remission in lupus patients through cell therapy represents a potentially landmark shift in treating a chronic autoimmune disease affecting millions.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_5">Advances in Embryo Gene Editing Prompt Debate Over Medical Use and Genetic Enhancement</a>
+<span class="top-story-reason">New advances in embryo gene editing open significant ethical and regulatory questions with long-term implications for medicine and human genetics.</span>
+</div>
+</div>
+<!-- Stories -->
+<div class="section-header">GEOPOLITICS</div>
+<div class="article article-medium" id="story_0">
+<h2 class="article-headline">Ukraine Depleting US-Made Air Defense Interceptors Amid Russian Missile Pressure</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Ukraine is running low on American-made Patriot air defense interceptors and has appealed for resupply as Russia maintains a substantial ballistic missile arsenal.</span></span>
+<span class="summary-full"><span>Ukraine is facing a critical shortage of Patriot air defense interceptors, the American-made missiles used to shoot down Russian ballistic rockets. Ukrainian officials have made formal requests for additional supplies as the country's existing stockpile runs down. Russia maintains a large inventory of ballistic missiles, and Ukraine's ability to intercept them depends heavily on continued deliveries from the United States. The Patriot system is one of the most capable air defense platforms available to Ukraine and has been central to protecting cities and military infrastructure. The shortfall represents a significant vulnerability at a time when Russian long-range strikes on Ukrainian territory remain frequent. The situation raises questions for US policymakers about the pace and scale of future military aid.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/13/world/europe/ukraine-russia-patriot-interceptors.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/13/world/europe/ukraine-russia-patriot-interceptors.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-short" id="story_1">
-          <h2 class="article-headline">Ukraine Reports Strike on Russian Oil Facility in Volgograd Region</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Ukraine's military said it struck an oil processing and pumping facility near the village of Kotovo in Russia's Volgograd region.</span></span>
-            <span class="summary-full"><span>Ukraine's military said it carried out a strike on an oil processing and pumping facility near the village of Kotovo in Russia's Volgograd region. The Ukrainian military announced the operation, though independent verification of the damage was not immediately available. Ukraine has conducted a series of strikes on Russian energy infrastructure as part of its broader effort to degrade Russian military and economic capacity.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-short" id="story_1">
+<h2 class="article-headline">Ukraine Reports Strike on Russian Oil Facility in Volgograd Region</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Ukraine's military said it struck an oil processing and pumping facility near the village of Kotovo in Russia's Volgograd region.</span></span>
+<span class="summary-full"><span>Ukraine's military said it carried out a strike on an oil processing and pumping facility near the village of Kotovo in Russia's Volgograd region. The Ukrainian military announced the operation, though independent verification of the damage was not immediately available. Ukraine has conducted a series of strikes on Russian energy infrastructure as part of its broader effort to degrade Russian military and economic capacity.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.usnews.com/news/world/articles/2026-06-13/ukrainian-military-hits-russias-oil-infrastructure-in-volgograd-region-kyiv-says" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.usnews.com/news/world/articles/2026-06-13/ukrainian-military-hits-russias-oil-infrastructure-in-volgograd-region-kyiv-says" rel="noopener" target="_blank">
                   Usnews
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SCIENCE & HEALTH</div>
-        
-        <div class="article article-medium" id="story_4">
-          <h2 class="article-headline">Five Lupus Patients Enter Remission After Experimental Cell Therapy Trial</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Five patients in England are in remission from lupus following treatment with a genetically modified T-cell therapy in an NHS trial, in results researchers describe as a potential route to a cure.</span></span>
-            <span class="summary-full"><span>Five patients in England have entered remission from lupus after receiving a form of CAR T-cell therapy in an NHS clinical trial. The treatment involves removing a type of white blood cell from the patient, genetically modifying it in a laboratory, and reintroducing it into the body to target and eliminate the cells driving the autoimmune disease. Lupus is a chronic condition in which the immune system attacks the body's own tissues, and current treatments manage symptoms rather than addressing the underlying cause. Researchers described the results as a potential breakthrough that could offer patients a cure rather than long-term disease management. The trial is among the first of its kind to apply CAR T-cell technology, previously used primarily in certain cancers, to an autoimmune condition.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SCIENCE &amp; HEALTH</div>
+<div class="article article-medium" id="story_4">
+<h2 class="article-headline">Five Lupus Patients Enter Remission After Experimental Cell Therapy Trial</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Five patients in England are in remission from lupus following treatment with a genetically modified T-cell therapy in an NHS trial, in results researchers describe as a potential route to a cure.</span></span>
+<span class="summary-full"><span>Five patients in England have entered remission from lupus after receiving a form of CAR T-cell therapy in an NHS clinical trial. The treatment involves removing a type of white blood cell from the patient, genetically modifying it in a laboratory, and reintroducing it into the body to target and eliminate the cells driving the autoimmune disease. Lupus is a chronic condition in which the immune system attacks the body's own tissues, and current treatments manage symptoms rather than addressing the underlying cause. Researchers described the results as a potential breakthrough that could offer patients a cure rather than long-term disease management. The trial is among the first of its kind to apply CAR T-cell technology, previously used primarily in certain cancers, to an autoimmune condition.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/science/2026/jun/12/lupus-patients-in-remission-england-nhs-trial-genentically-modified-t-cell-therapy" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/science/2026/jun/12/lupus-patients-in-remission-england-nhs-trial-genentically-modified-t-cell-therapy" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_5">
-          <h2 class="article-headline">Advances in Embryo Gene Editing Prompt Debate Over Medical Use and Genetic Enhancement</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Progress in base editing technology that can modify embryo DNA before implantation is generating debate among fertility specialists, biotech companies, and ethicists over whether its use should be limited to eliminating disease or could lead to genetic enhancement.</span></span>
-            <span class="summary-full"><span>Improvements in base editing, a technique for altering specific sequences in embryo DNA, are drawing attention from fertility specialists, biotechnology companies, and ethicists who are divided over how the technology should be applied. Proponents argue it could eliminate heritable genetic diseases before a child is born, offering affected families a path to healthy pregnancies. Critics and ethicists raise concerns that the same technology could be used to select for traits unrelated to health, potentially opening the door to what some call designer babies. The debate involves questions of scientific capability, medical ethics, regulatory frameworks, and societal values. No consensus exists among practitioners or policymakers on where the line should be drawn between therapeutic and enhancement uses.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_5">
+<h2 class="article-headline">Advances in Embryo Gene Editing Prompt Debate Over Medical Use and Genetic Enhancement</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Progress in base editing technology that can modify embryo DNA before implantation is generating debate among fertility specialists, biotech companies, and ethicists over whether its use should be limited to eliminating disease or could lead to genetic enhancement.</span></span>
+<span class="summary-full"><span>Improvements in base editing, a technique for altering specific sequences in embryo DNA, are drawing attention from fertility specialists, biotechnology companies, and ethicists who are divided over how the technology should be applied. Proponents argue it could eliminate heritable genetic diseases before a child is born, offering affected families a path to healthy pregnancies. Critics and ethicists raise concerns that the same technology could be used to select for traits unrelated to health, potentially opening the door to what some call designer babies. The debate involves questions of scientific capability, medical ethics, regulatory frameworks, and societal values. No consensus exists among practitioners or policymakers on where the line should be drawn between therapeutic and enhancement uses.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/11/science/base-editing-embryos-debate.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/11/science/base-editing-embryos-debate.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">DOMESTIC POLICY</div>
-        
-        <div class="article article-short" id="story_2">
-          <h2 class="article-headline">Trump Nominates James McDonald to Lead Southern District of New York</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>President Trump has announced his intent to appoint James M. McDonald as US Attorney for the Southern District of New York, filling the seat vacated when Jay Clayton was nominated as Director of National Intelligence.</span></span>
-            <span class="summary-full"><span>President Trump announced his intention to nominate James M. McDonald as United States Attorney for the Southern District of New York, one of the most prominent federal prosecutorial offices in the country. McDonald would replace Jay Clayton, who held the position and was subsequently nominated to serve as Director of National Intelligence. The Southern District of New York has jurisdiction over Manhattan and handles a wide range of high-profile federal cases including financial crimes, public corruption, and national security matters.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">DOMESTIC POLICY</div>
+<div class="article article-short" id="story_2">
+<h2 class="article-headline">Trump Nominates James McDonald to Lead Southern District of New York</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>President Trump has announced his intent to appoint James M. McDonald as US Attorney for the Southern District of New York, filling the seat vacated when Jay Clayton was nominated as Director of National Intelligence.</span></span>
+<span class="summary-full"><span>President Trump announced his intention to nominate James M. McDonald as United States Attorney for the Southern District of New York, one of the most prominent federal prosecutorial offices in the country. McDonald would replace Jay Clayton, who held the position and was subsequently nominated to serve as Director of National Intelligence. The Southern District of New York has jurisdiction over Manhattan and handles a wide range of high-profile federal cases including financial crimes, public corruption, and national security matters.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/trump-picks-james-mcdonald-lead-powerful-southern-district-new-york-jay-claytons-departure" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/politics/trump-picks-james-mcdonald-lead-powerful-southern-district-new-york-jay-claytons-departure" rel="noopener" target="_blank">
                   Fox News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/trump-picks-james-mcdonald-lead-powerful-southern-district-new-york-jay-claytons-departure" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/politics/trump-picks-james-mcdonald-lead-powerful-southern-district-new-york-jay-claytons-departure" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_3">
-          <h2 class="article-headline">New York Enacts First Law Requiring 3D Printers to Block Gun Manufacturing</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>New York has passed legislation requiring 3D printers sold for home and business use to include technology that prevents them from manufacturing firearms, the first law of its kind in the United States.</span></span>
-            <span class="summary-full"><span>New York has enacted what is described as the first law of its kind in the United States requiring 3D printers sold for home or commercial use to be equipped with technology that blocks them from being used to manufacture firearms. The law addresses a gap in existing gun regulations that has allowed untraceable weapons, sometimes called ghost guns, to be produced using commercially available printers. As 3D printing technology has become more accessible and affordable, its use in producing functional firearms has grown. New York's approach of mandating hardware-level restrictions at the point of sale represents a new regulatory model that other states may consider.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_3">
+<h2 class="article-headline">New York Enacts First Law Requiring 3D Printers to Block Gun Manufacturing</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>New York has passed legislation requiring 3D printers sold for home and business use to include technology that prevents them from manufacturing firearms, the first law of its kind in the United States.</span></span>
+<span class="summary-full"><span>New York has enacted what is described as the first law of its kind in the United States requiring 3D printers sold for home or commercial use to be equipped with technology that blocks them from being used to manufacture firearms. The law addresses a gap in existing gun regulations that has allowed untraceable weapons, sometimes called ghost guns, to be produced using commercially available printers. As 3D printing technology has become more accessible and affordable, its use in producing functional firearms has grown. New York's approach of mandating hardware-level restrictions at the point of sale represents a new regulatory model that other states may consider.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/nation/first-of-its-kind-law-in-new-york-could-block-3d-printers-from-making-guns" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.pbs.org/newshour/nation/first-of-its-kind-law-in-new-york-could-block-3d-printers-from-making-guns" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
+</li>
+</ul>
+</div>
+</div>
+<!-- Footer -->
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+<div class="archive-link-section"><a class="archive-link" href="/archive.html">Browse past editions →</a></div>
+<footer class="footer">
+<p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
-      <p style="margin-top:0.75rem;"><a href="2026-06-13-pm-sources.html">Sources for this digest →</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<p style="margin-top:0.75rem;"><a href="2026-06-13-pm-sources.html">Sources for this digest →</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-
 <script>
   // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
@@ -805,34 +721,6 @@
     btn.setAttribute('aria-expanded', String(!expanded));
   });
 
-  function toggleMobileArchive() {
-    var panel = document.getElementById('mobile-archive-panel');
-    var toggle = document.getElementById('mobile-toggle');
-    var isOpen = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  }
-
-  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
-  // always show all editions regardless of which page was generated.
-  (function() {
-    var current = '2026-06-13-pm.html';
-    fetch('archive.json?v=' + Date.now())
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-        var mob = document.getElementById('mobile-archive-panel');
-        if (mob) mob.innerHTML = '<div class="mobile-archive-title">Past Editions</div>' + html;
-      })
-      .catch(function() {});
-  })();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');

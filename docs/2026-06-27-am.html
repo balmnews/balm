@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Saturday, June 27, 2026 AM</title>
-  <meta name="description" content="Balm news digest for Saturday, June 27, 2026 — topical, anti-inflammatory news.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/png" href="/icons/icon-32.png">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm — Saturday, June 27, 2026 AM</title>
+<meta content="Balm news digest for Saturday, June 27, 2026 — topical, anti-inflammatory news." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/icons/icon-32.png" rel="icon" type="image/png"/>
+<link href="/icons/icon-192.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -40,19 +41,80 @@
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* Layout — single column, centered */
+    /* Layout */
     .page-wrapper {
       max-width: 860px;
       margin: 0 auto;
       padding: 0 1.25rem;
     }
 
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      padding: 2rem 1.5rem 2rem 0;
+      border-right: 1px solid var(--rule);
+      min-height: 100vh;
+    }
+
     .main-content {
-      padding: 0 0 4rem;
+      flex: 1;
+      max-width: 860px;
+      padding: 0 2rem 4rem;
     }
 
     @media (max-width: 768px) {
-      .main-content { padding: 0 0 3rem; }
+      .page-wrapper { display: block; padding: 0; }
+      .sidebar { display: none; }
+      .main-content { padding: 0 1.25rem 3rem; }
+
+      .mobile-archive-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.25rem;
+        border-bottom: 1px solid var(--rule);
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        cursor: pointer;
+        background: var(--bg);
+        user-select: none;
+      }
+
+      .mobile-archive-panel {
+        display: none;
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid var(--rule);
+        background: #ebe5db;
+      }
+
+      .mobile-archive-panel.open { display: block; }
+
+      .mobile-archive-title {
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 0.75rem;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-archive-toggle { display: none; }
+      .mobile-archive-panel { display: none !important; }
+    }
+
+    /* Mobile archive caret — CSS rotation, no character substitution */
+    .mobile-archive-caret {
+      display: inline-block;
+      font-size: 1rem;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+
+    .mobile-archive-toggle[aria-expanded="true"] .mobile-archive-caret {
+      transform: rotate(90deg);
     }
 
     /* Masthead */
@@ -66,11 +128,6 @@
     .masthead-logo svg {
       display: block;
       margin: 0 auto 0.5rem;
-    }
-
-    .masthead-link {
-      text-decoration: none;
-      display: inline-block;
     }
 
     .masthead-tagline {
@@ -129,17 +186,6 @@
       border-top: 1px solid var(--rule);
       padding-top: 1.25rem;
       margin: 2rem 0 1.25rem;
-    }
-
-    /* Market trend line — appears below Economy section header */
-    .market-trend {
-      font-family: 'Source Serif 4', serif;
-      font-style: italic;
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin: -0.5rem 0 1.5rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--rule);
     }
 
     /* Article cards */
@@ -330,29 +376,40 @@
       color: var(--difficult);
     }
 
-    /* Archive link — below Difficult News, above footer */
-    .archive-link-section {
-      padding: 1.5rem 0;
-      border-top: 1px solid var(--rule);
-      text-align: center;
+    /* Sidebar archive */
+    .sidebar-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      padding-top: 2rem;
+    }
+
+    .archive-month {
+      margin-bottom: 1rem;
+    }
+
+    .archive-month-label {
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
     }
 
     .archive-link {
-      font-family: 'Source Serif 4', serif;
-      font-size: 0.85rem;
-      font-style: italic;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      border-bottom: 1px solid var(--rule);
-      transition: color 0.15s, border-color 0.15s;
+      display: block;
+      font-size: 0.75rem;
+      color: var(--secondary);
+      padding: 0.1rem 0;
+      line-height: 1.6;
     }
 
-    .archive-link:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-      text-decoration: none;
-    }
+    .archive-link:hover { color: var(--accent); text-decoration: none; }
+    .archive-link.current { color: var(--accent); font-style: italic; }
 
     /* Footer */
     .footer {
@@ -368,31 +425,19 @@
     .footer a { color: var(--muted); text-decoration: underline; }
     .footer a:hover { color: var(--secondary); }
 
-    .footer .footer-kofi {
-      font-size: 0.92rem;
-      color: var(--accent);
-      font-weight: 400;
-      text-decoration: none;
-      border-bottom: 1px solid var(--accent);
-      opacity: 0.85;
-      transition: opacity 0.15s;
-    }
-
-    .footer .footer-kofi:hover {
-      opacity: 1;
+    .kofi-link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.75rem;
+      color: var(--secondary);
+      border: 1px solid var(--rule);
+      padding: 0.25rem 0.75rem;
+      border-radius: 3px;
       text-decoration: none;
     }
 
-    .footer .footer-contact {
-      font-size: 0.88rem;
-      color: var(--ink-light);
-      text-decoration: none;
-      border-bottom: 1px solid var(--rule);
-      transition: color 0.15s;
-    }
-
-    .footer .footer-contact:hover {
-      color: var(--accent);
+    .kofi-link:hover {
+      background: #ebe5db;
       text-decoration: none;
     }
 
@@ -456,757 +501,571 @@
   </style>
 </head>
 <body>
+<!-- Mobile archive toggle (shown only on mobile) -->
+
+
 <div class="page-wrapper">
-  <div class="main-content">
+<!-- Sidebar archive nav -->
 
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <a href="https://balm.news" class="masthead-link">
-          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-              </filter>
-            </defs>
-            <text x="90" y="44"
-                  font-family="Caveat, cursive"
-                  font-size="52"
-                  font-weight="700"
-                  fill="#6b82a8"
-                  text-anchor="middle"
-                  letter-spacing="8"
-                  filter="url(#balm-spread)">Balm</text>
-          </svg>
-        </a>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Saturday, June 27, 2026 &middot; AM Edition</p>
-    </header>
-
-    <!-- Audio player -->
-    
-
-    <!-- Top stories navigation -->
-    
-    <div class="top-stories">
-      <div class="top-stories-heading">Today's Top Stories</div>
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_0">Iran Launches Drone Strike on Bahrain and Hits Ship in Strait of Hormuz After U.S. Airstrikes</a>
-        <span class="top-story-reason">Iran's drone strike on Bahrain and a ship in the Strait of Hormuz marks a significant escalation in Middle East tensions with direct implications for global oil shipping and regional security.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_4">Volkswagen Reportedly Plans to Cut Up to 100,000 Jobs and Reduce Production Capacity</a>
-        <span class="top-story-reason">Volkswagen cutting up to 100,000 jobs would be one of the largest industrial layoffs in European history, with sweeping effects on workers, supply chains, and the broader auto industry transition.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_10">Africa's CDC Warns Congo Ebola Outbreak Could Become the Largest Ever Recorded</a>
-        <span class="top-story-reason">A potentially record-breaking Ebola outbreak in Congo poses a serious international public health concern that could require a coordinated global response.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_2">Andy Burnham Emerges as Likely UK Prime Minister Following Keir Starmer's Resignation</a>
-        <span class="top-story-reason">Keir Starmer's resignation and the emergence of a new likely UK Prime Minister represents a major political shift in one of the world's leading democracies.</span>
-      </div>
-      
-      
-    </div>
-    
-
-    <!-- Stories -->
-    
-      
-        <div class="section-header">GEOPOLITICS</div>
-        
-        
-        <div class="article article-long" id="story_0">
-          <h2 class="article-headline">Iran Launches Drone Strike on Bahrain and Hits Ship in Strait of Hormuz After U.S. Airstrikes</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Iran struck Bahrain with drones and attacked a vessel in the Strait of Hormuz, following overnight U.S. airstrikes on Iranian military sites. Gulf nations condemned the attacks as shipping disruptions threatened a recent traffic recovery in the strait.</span></span>
-            <span class="summary-full"><span>Iran launched drone strikes against Bahrain and attacked a ship in the Strait of Hormuz on Saturday, actions described as retaliation for overnight U.S. airstrikes on Iranian military targets. Bahrain's foreign ministry confirmed that multiple drones were launched against the country, though no immediate reports of casualties were provided. A vessel in the strait was also struck, the second such attack in recent days. Gulf nations condemned the strikes strongly. The exchanges come despite a recently announced interim deal between the U.S. and Iran intended to establish a framework toward ending their ongoing conflict. Iran accused the United States of violating that agreement with its overnight strikes. U.S. Vice President JD Vance stated that the U.S. wins regardless of whether a final deal is reached, citing what he described as the destruction of Iran's nuclear program. The Strait of Hormuz had seen shipping traffic reach its highest levels since the start of the U.S.-Iran conflict, and analysts noted the renewed attacks threaten that recovery. The situation remains unstable, with competing claims about who bears responsibility for the latest escalation.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news"><svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg></a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Saturday, June 27, 2026 · AM Edition</p>
+</header>
+<!-- Audio player -->
+<!-- Top stories navigation -->
+<div class="top-stories">
+<div class="top-stories-heading">Today's Top Stories</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_0">U.S. and Iran Exchange Strikes as Fragile Ceasefire Breaks Down Over Strait of Hormuz</a>
+<span class="top-story-reason">Direct military exchanges between the U.S. and Iran risk major regional escalation and threaten global oil flows through the Strait of Hormuz.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_5">Supreme Court Ruling on Temporary Protected Status Leaves Hundreds of Thousands of Haitians and Syrians Facing Deportation</a>
+<span class="top-story-reason">The Supreme Court ruling puts hundreds of thousands of Haitians and Syrians at risk of deportation, representing a major shift in U.S. immigration policy affecting a large vulnerable population.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_3">Volkswagen Plans to Cut Up to 100,000 Jobs and Close Plants</a>
+<span class="top-story-reason">Volkswagen cutting up to 100,000 jobs signals a significant contraction in the global auto industry with broad economic ripple effects across Europe and beyond.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_13">Record Temperatures Sweep Europe, Killing Toddlers in France and Setting Heat Records in Germany and UK</a>
+<span class="top-story-reason">Record-breaking European heat causing fatalities underscores an accelerating climate pattern with immediate public health consequences across a densely populated continent.</span>
+</div>
+</div>
+<!-- Stories -->
+<div class="section-header">GEOPOLITICS</div>
+<div class="article article-long" id="story_0">
+<h2 class="article-headline">U.S. and Iran Exchange Strikes as Fragile Ceasefire Breaks Down Over Strait of Hormuz</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The U.S. military conducted new strikes against Iran after a cargo ship was attacked in the Strait of Hormuz, with Iran retaliating against targets linked to American forces. Bahrain also reported being struck by Iranian drones, testing a ceasefire that had briefly reopened the key shipping lane.</span></span>
+<span class="summary-full"><span>A fragile ceasefire between the United States and Iran broke down this week following a series of escalating military exchanges centered on the Strait of Hormuz, one of the world's most critical shipping passages. The U.S. military launched strikes against Iranian military sites overnight, and Iran responded by striking targets it said were linked to American forces, accusing Washington of violating their agreement. Bahrain separately reported being struck by Iranian drones, which officials described as retaliation for the U.S. strikes. A cargo ship also came under attack in the Strait of Hormuz — the second such incident in recent days. The deteriorating situation follows a memorandum of understanding signed roughly ten days ago between the two countries, which had briefly allowed shipping traffic through the strait to recover to its highest levels since the start of U.S. military operations in Iran. Iran has accused the United States of violating the deal, while the Trump administration has characterized Iran's actions as the triggering violation. The renewed hostilities carry significant implications for American consumers: the Strait of Hormuz handles a substantial share of global oil and gas exports, and analysts noted that gas prices, which had begun to ease modestly at the pump following the initial agreement, are likely to remain elevated or increase again if the conflict continues. Fuel prices and shipping costs for goods that transit the Persian Gulf are both sensitive to disruptions in the strait.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/27/bahrain-iran-drone-attack-overnight-us-strikes-strait-hormuz" target="_blank" rel="noopener">
-                  The Guardian
+<ul class="sources-list">
+<li>
+<a href="https://www.wmar2news.com/us-news/iran-war/experts-say-gas-prices-will-remain-sticky-especially-if-iran-conflict-flares-up-again" rel="noopener" target="_blank">
+                  Wmar 2 News Baltimore
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/live/2026/06/27/world/us-iran-strikes-hormuz" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/27/business/strait-of-hormuz-shipping-iran.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/27/business/strait-of-hormuz-shipping-iran.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/live/2026/06/27/world/us-iran-strikes-hormuz" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/gulf-countries-strongly-condemn-irans-drone-attack-bahrain-rising-tensions-threaten-mou" target="_blank" rel="noopener">
-                  Fox News
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/ckg590wqxwpo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
+                  BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/gulf-countries-strongly-condemn-irans-drone-attack-bahrain-rising-tensions-threaten-mou" target="_blank" rel="noopener">
-                  Fox News World
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/ckg590wqxwpo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/ckg590wqxwpo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/iranian-drones-attack-bahrain-and-a-ship-is-struck-in-the-strait-after-u-s-airstrikes" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/show/us-strikes" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_1">
-          <h2 class="article-headline">Israel and Lebanon Sign Framework Agreement; Hezbollah Disarmament Requirement Seen as Major Obstacle</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Israel and Lebanon signed a U.S.-brokered 14-point framework agreement in Washington. The deal links Israel's withdrawal from Lebanon to the disarmament of Hezbollah, which has rejected that condition.</span></span>
-            <span class="summary-full"><span>Israel and Lebanon signed a framework agreement in Washington, announced by Secretary of State Marco Rubio and welcomed by Israeli Prime Minister Benjamin Netanyahu. The deal, which Hezbollah did not participate in signing, ties Israel's military withdrawal from Lebanese territory to the disarmament of Hezbollah, the Iran-backed armed group that controls significant parts of Lebanon. Hezbollah has publicly rejected disarmament as a condition. Analysts have described enforcement of that requirement as extremely difficult given Hezbollah's entrenched military and political position in Lebanon. Legal experts, meanwhile, have raised concerns that terms of the agreement could limit the ability of victims of alleged Israeli war crimes in Lebanon to pursue accountability, including potentially hindering future efforts to give the International Criminal Court jurisdiction in the country. Sources varied in their emphasis: some highlighted the agreement as a step toward lasting peace, others focused on Iran's likely opposition to the deal and the legal implications for accountability.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_1">
+<h2 class="article-headline">NATO's Eastern Members Increasingly Uncertain Whether U.S. Would Defend Them Against Russian Attack</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Eastern European NATO members are growing less confident that the United States would come to their defense in the event of a Russian attack, a concern that has intensified since Donald Trump returned to the White House.</span></span>
+<span class="summary-full"><span>Leaders and officials across NATO's eastern flank — the alliance members closest to Russia — are expressing increasing uncertainty about whether the United States would fulfill its Article 5 mutual defense commitments if Russia were to attack, according to reporting on discussions taking place within the alliance. The concern has grown more acute since Donald Trump returned to the presidency, given his repeated criticism of NATO burden-sharing and his historically warmer posture toward Moscow. Eastern European officials describe the scenario of a Russian attack without U.S. involvement as a concern that is being discussed with greater frequency and seriousness, though rarely stated openly in public. For American readers, the significance lies in the potential reshaping of U.S. defense commitments that have underpinned European security since the end of World War Two. A weakened U.S. commitment to NATO could prompt European members to dramatically increase their own military spending, reconfigure the alliance's structure, or seek alternative security arrangements — all of which carry economic and diplomatic implications for the United States.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/27/lebanon-israel-deal-alleged-war-crime-victims-justice-icc" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/world/ng-interactive/2026/jun/27/nato-leaders-fear-they-can-no-longer-rely-on-us-help-if-russia-attacks-trump-eastern-europe" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/rubio-announces-framework-deal-between-israel-lebanon-experts-warn-iran-fight-sabotage" target="_blank" rel="noopener">
-                  Fox News World
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/lebanons-deal-with-israel-requires-hezbollah-to-disarm-that-might-be-difficult" target="_blank" rel="noopener">
-                  PBS NewsHour
-                </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_2">
-          <h2 class="article-headline">Andy Burnham Emerges as Likely UK Prime Minister Following Keir Starmer's Resignation</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Former Greater Manchester mayor Andy Burnham is widely expected to become the next UK Prime Minister following Keir Starmer's resignation. Burnham has been sworn into Parliament and is navigating constraints from existing Labour Party commitments.</span></span>
-            <span class="summary-full"><span>Andy Burnham, the former mayor of Greater Manchester, has emerged as the leading candidate to succeed Keir Starmer as UK Prime Minister after Starmer announced his resignation. Burnham was sworn into Parliament in the immediate aftermath of Starmer's departure, having won a by-election in Makerfield. He faces a complicated political landscape: while he has sought to differentiate himself from Starmer's record, he is expected to be constrained by the platform the Labour Party was elected on in 2024. Senior military and defence figures have said the next prime minister must demonstrate commitment to national security, with one former defence chief calling for Burnham to pass both domestic and international credibility tests. Reform UK leader Nigel Farage, noting Starmer's departure, claimed that Britain's political system is broken and that his party now has a realistic path to winning the next election. The leadership transition comes as the UK government has been dealing with internal disputes, including a reported rift between Starmer and the Home Secretary over immigration policy.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_2">
+<h2 class="article-headline">Ukraine Launches One of Its Largest Drone Attacks Deep Inside Russia</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Ukraine launched a major drone strike against targets inside Russia, including operations reaching up to 1,200 miles from the front, hitting oil refineries and fuel depots.</span></span>
+<span class="summary-full"><span>Ukraine conducted one of its largest drone attacks against Russian territory, with strikes reported to reach as far as 1,200 miles from the front lines. Reporting indicates Ukrainian long-range drone teams have been targeting oil refineries, fuel depots, and other infrastructure deep inside Russia. The attacks represent a continued expansion of Ukraine's long-range strike capability and are aimed at degrading Russian logistics and energy infrastructure supporting the war effort. The campaign has strategic significance for the United States, which has provided substantial military and financial support to Ukraine throughout the conflict and is watching closely how Ukrainian forces deploy long-range capabilities.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/world/farage-says-mass-migration-has-changed-uk-literally-beyond-recognition-believes-party-can-win-election" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/ukraine-launches-largest-drone-attacks-russia-report" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/cdxdwr0xk55o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
-                  BBC News
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/c621e13n2dvo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
-                  BBC News
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/andy-burnham-distanced-himself-from-uk-prime-minister-starmer-but-may-be-stuck-with-his-policies" target="_blank" rel="noopener">
-                  PBS NewsHour
-                </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_3">
-          <h2 class="article-headline">Ukraine Launches One of Its Largest Drone Strikes Deep Inside Russia</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Ukraine launched one of its largest drone attacks against targets inside Russia, with strikes reaching up to 1,200 miles from the front, hitting oil refineries and fuel depots.</span></span>
-            <span class="summary-full"><span>Ukraine conducted what is described as one of its largest drone attacks against Russian territory, with long-range drones striking targets including oil refineries and fuel depots at distances of up to 1,200 miles from the front lines. The strikes were carried out by specialized Ukrainian teams operating drones designed for deep-penetration missions. Ukraine has increasingly relied on long-range drone campaigns to target Russian energy and logistics infrastructure as the war continues. The attacks underscore Ukraine's evolving aerial strategy and its capacity to reach targets well inside Russian territory despite the extended conflict.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
-            </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/world/ukraine-launches-largest-drone-attacks-russia-report" target="_blank" rel="noopener">
-                  Fox News World
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/27/g-s1-129704/ukraine-long-range-drones-russia-war" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/27/g-s1-129704/ukraine-long-range-drones-russia-war" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">DOMESTIC POLICY</div>
-        
-        
-        <div class="article article-long" id="story_5">
-          <h2 class="article-headline">Supreme Court Ruling Expanding Trump's Deportation Power Could Accelerate U.S. Population Decline</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A recent Supreme Court ruling confirmed the Trump administration's authority to deport hundreds of thousands of people with Temporary Protected Status. Demographers warn this could accelerate an already declining U.S. population trend.</span></span>
-            <span class="summary-full"><span>The Supreme Court confirmed the Trump administration's authority to deport large numbers of immigrants who had held Temporary Protected Status, a humanitarian program that shields foreign nationals from countries experiencing conflict or disasters. Demographers and population experts have noted that the U.S. population was already aging and moving toward natural decline before this ruling, and the removal of hundreds of thousands of working-age immigrants could accelerate that trajectory. Population decline carries long-term economic implications, including reduced labor supply, slower economic growth, and increased strain on social safety net programs supported by a shrinking workforce. The ruling represents a significant expansion of executive power over immigration enforcement and is expected to affect communities across multiple U.S. states where TPS holders have lived and worked for years.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">DOMESTIC POLICY</div>
+<div class="article article-long" id="story_5">
+<h2 class="article-headline">Supreme Court Ruling on Temporary Protected Status Leaves Hundreds of Thousands of Haitians and Syrians Facing Deportation</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A Supreme Court ruling this week allows the Trump administration to end Temporary Protected Status for Haitians and Syrians in the U.S., potentially affecting more than one million people. Ohio's Republican governor described the move as a job loss for his state.</span></span>
+<span class="summary-full"><span>The Supreme Court issued a ruling this week allowing the Trump administration to end Temporary Protected Status, or TPS, for hundreds of thousands of Haitian and Syrian nationals living in the United States. TPS is a designation that allows people from countries experiencing disasters, conflict, or other extraordinary conditions to live and work legally in the U.S. on a temporary basis. The ruling clears the path for deportations on a large scale — estimates suggest the decision could affect more than one million people when accounting for both nationalities and their family members. The Haitian community in Springfield, Ohio — which became a prominent national news subject during the 2024 presidential campaign — is among those directly affected. Ohio's Republican Governor Mike DeWine called the policy a job killer and said it would damage his state's economy, noting that more than 10,000 Haitian migrants have settled in Ohio and become part of the workforce. The decision has also prompted concerns from demographers, who note that the U.S. population is already aging and trending toward decline, and that large-scale deportations could accelerate that trajectory. The ruling represents one of the most significant immigration decisions of the current Supreme Court term.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/27/nx-s1-5871338/tps-population-scotus-immigration-trump" target="_blank" rel="noopener">
-                  NPR News
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/27/haitians-ohio-supreme-court-ruling" rel="noopener" target="_blank">
+                  The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_6">
-          <h2 class="article-headline">Federal Appeals Court Rejects EPA's Attempt to Abandon Biden-Era Soot Pollution Rule</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A federal appeals court unanimously rejected the Environmental Protection Agency's move to abandon a Biden-era rule setting strict limits on soot pollution from coal plants and industrial sources, leaving the standard in place.</span></span>
-            <span class="summary-full"><span>A federal appeals court rejected the Trump administration's Environmental Protection Agency bid to abandon a Biden-era regulation that established tough limits on fine particulate matter, commonly known as soot pollution. The unanimous decision leaves the standard in place. Soot pollution, which comes from coal-fired power plants, factories, vehicles, and other industrial sources, is linked to serious health conditions including heart and lung disease. The Biden-era rule had set stricter limits on exposure levels than the previous standard. The Trump EPA had sought to withdraw from defending the rule, a move the court rejected. The ruling is a significant setback for the administration's effort to roll back environmental regulations and a win for public health advocates who argued the standard was necessary to protect communities near industrial facilities.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_6">
+<h2 class="article-headline">Supreme Court Rules for Roundup Maker, Blocking Thousands of Cancer Warning Lawsuits</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Supreme Court ruled 6-3 in favor of the maker of Roundup herbicide, finding that federal pesticide labeling law preempts state-law lawsuits alleging the company failed to warn users of cancer risks. The decision is expected to block thousands of pending cases.</span></span>
+<span class="summary-full"><span>The Supreme Court ruled in favor of the former Monsanto company, now owned by Bayer, in a case that is expected to eliminate thousands of lawsuits filed by individuals who allege they developed cancer from exposure to Roundup, a widely used herbicide whose active ingredient is glyphosate. The case, Monsanto v. Durnell, centered on whether federal pesticide law — which governs what warnings must appear on product labels — preempts state-law claims that the company inadequately warned consumers of health risks. The court ruled 6-3 that it does, meaning plaintiffs cannot use state courts to argue that the federally approved label was insufficient. The ruling has broad significance because it applies to a large body of pending litigation involving Roundup and could influence similar preemption arguments in other product liability areas. Bayer had faced billions of dollars in potential liability from the accumulated lawsuits. Dissenting justices argued the ruling leaves consumers without a legal remedy for harms they allege resulted from inadequate warnings.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/jun/27/trump-epa-court-ruling-soot-pollution" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/business/2026/jun/25/monsanto-supreme-court-pesticide-case" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_7">
-          <h2 class="article-headline">Supreme Court Issues Rulings on Gun Rights, Immigration, and Pesticide Labeling</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Supreme Court issued decisions covering gun rights, immigration authority, and pesticide label regulations. Additional opinions are expected Monday.</span></span>
-            <span class="summary-full"><span>The Supreme Court handed down rulings addressing three distinct areas of law: gun rights, immigration enforcement, and pesticide labeling requirements. In the gun rights case, the court struck down a Hawaii firearm law in a 6-to-3 decision. The immigration ruling confirmed expanded executive authority over deportations. The pesticide label case addressed regulatory requirements for product labeling under federal law. The court's term continues, with more opinions expected in the coming days.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
-            </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.scotusblog.com/2026/06/court-rules-on-gun-rights-immigration-and-pesticide-labels/" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.scotusblog.com/2026/06/court-rules-for-roundup-maker-in-dispute-over-cancer-warnings-on-pesticide-labels/" rel="noopener" target="_blank">
                   SCOTUSblog
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_8">
-          <h2 class="article-headline">California Plastics Phase-Out Law Draws Opposition From Industry and Environmental Groups</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>California's new law requiring packaging producers to phase out single-use plastics has drawn legal challenges from 17 states and the chemicals industry, while some environmental groups say the law does not go far enough.</span></span>
-            <span class="summary-full"><span>A California law requiring packaging producers to phase out single-use plastics has generated opposition from multiple directions shortly after taking effect. The chemicals industry is opposing the law, and 17 states have moved to file suit against it. At the same time, some environmental groups have criticized the law as insufficiently ambitious. The legislation targets packaging producers and establishes a phased timeline for eliminating single-use plastic packaging. California has previously been a model for environmental legislation that other states eventually adopt, making the outcome of this legal and political challenge consequential beyond the state's borders.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_7">
+<h2 class="article-headline">Supreme Court Strikes Down Hawaii Handgun Carry Restriction 6-3</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Supreme Court struck down a Hawaii gun carry law 6-3 in Wolford v. Lopez, expanding Second Amendment protections in a ruling that drew attention for the content of the dissenting opinion.</span></span>
+<span class="summary-full"><span>The Supreme Court issued a 6-3 ruling in Wolford v. Lopez striking down a Hawaii law that restricted the carrying of handguns in public. The decision extends a line of recent Supreme Court rulings that have expanded Second Amendment rights. The case drew additional attention because of the dissenting opinion, which cited historical legal codes — including laws from the post-Civil War era that restricted the rights of Black Americans — as part of its argument. Gun rights advocates criticized the use of that history in the dissent, and the ruling's majority opinion appeared to repudiate the dissent's reasoning. The decision has implications for similar gun carry restrictions in other states.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/jun/26/california-single-use-plastic-law" target="_blank" rel="noopener">
-                  Guardian Environment
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/politics/lawyer-beat-hawaii-gun-law-calls-states-reliance-black-code-disgraceful" rel="noopener" target="_blank">
+                  Fox News Politics
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_9">
-          <h2 class="article-headline">Texas Board of Education Votes to Require Bible Passages in Public School Reading Curricula</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Texas State Board of Education voted to make Bible passages required reading in public schools, drawing criticism from groups who say it infringes on religious freedoms and the separation of church and state.</span></span>
-            <span class="summary-full"><span>The Texas State Board of Education voted to require Bible passages as part of public school reading curricula. Critics of the measure, including civil liberties advocates, say the requirement violates religious freedom protections and blurs the constitutional separation of church and state. Supporters of the measure frame it as incorporating a historically significant text into educational standards. The decision is likely to face legal challenges. Texas has one of the largest public school systems in the United States, making its curriculum decisions influential in the national textbook market.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-short" id="story_8">
+<h2 class="article-headline">Pete Buttigieg Describes Brief Separation from Children Following False Police Report</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Former Transportation Secretary Pete Buttigieg was briefly separated from his twin children after a false police report was filed, an incident he described as among the most difficult of his life.</span></span>
+<span class="summary-full"><span>Pete Buttigieg, the former U.S. Secretary of Transportation, publicly described an incident in which he was temporarily separated from his twin children following what he characterized as a false police report. Buttigieg said the experience was among the most difficult of his life. The incident has drawn attention given its connection to Buttigieg's public profile and the broader context of political targeting of public figures. No further details about the nature of the false report were provided in the available sourcing.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/sports/nba-josh-hart-celebrates-texas-bible-passages-required-reading" target="_blank" rel="noopener">
-                  Fox News
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/ckg8m2xkg84o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.co.uk/news/articles/cwydx95kjx0o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">ECONOMY</div>
-        
-        <p class="market-trend">Markets have declined gradually over recent sessions.</p>
-        
-        
-        <div class="article article-medium" id="story_4">
-          <h2 class="article-headline">Volkswagen Reportedly Plans to Cut Up to 100,000 Jobs and Reduce Production Capacity</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Volkswagen is reportedly planning to cut up to 100,000 jobs and wind down production at some of its plants, according to reports describing a management presentation at a recent board meeting.</span></span>
-            <span class="summary-full"><span>Germany's Volkswagen is planning to cut up to 100,000 jobs and reduce, and eventually halt, production at some of its manufacturing facilities, according to reports describing a management presentation at a board meeting. Volkswagen declined to comment on the reports. If the plans proceed, they would represent one of the largest restructurings in the company's history and would have significant implications for the German economy and automotive sector. The reported cuts come amid broader pressures on the European auto industry, including competition from lower-cost electric vehicle manufacturers, particularly in China, and shifting consumer demand. The scale of the reported job reductions would affect not only Volkswagen's direct workforce but also the supply chain and communities dependent on its plants.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">ECONOMY</div>
+<div class="article article-medium" id="story_3">
+<h2 class="article-headline">Volkswagen Plans to Cut Up to 100,000 Jobs and Close Plants</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Volkswagen is reported to be planning cuts of up to 100,000 jobs and the eventual closure of some production facilities, in what would be one of the largest restructurings in the German automaker's history.</span></span>
+<span class="summary-full"><span>Germany's Volkswagen is planning to cut up to 100,000 jobs and reduce or eventually halt production at a number of its plants, according to reports describing a management presentation at a board meeting. Volkswagen has declined to comment on the reports. If confirmed, the scale of the cuts would represent one of the most significant restructurings in the company's history. The move would affect one of Europe's largest employers and has implications for the broader automotive supply chain, including suppliers with U.S. operations. Volkswagen has been navigating a difficult period marked by declining sales in China, increased competition from lower-cost electric vehicle manufacturers, and pressure to reduce costs while investing in electrification. The company has a significant manufacturing presence in the United States, including a major plant in Chattanooga, Tennessee.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/business/2026/jun/26/vw-cut-jobs-shut-plants-volkswagen-china" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/business/2026/jun/26/vw-cut-jobs-shut-plants-volkswagen-china" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">NATURAL EVENTS</div>
-        
-        
-        <div class="article article-long" id="story_13">
-          <h2 class="article-headline">Record Temperatures Across Europe Leave Multiple Dead and Strain Power Grids</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A major heatwave set all-time temperature records in Germany, the UK, Denmark, and Slovakia, killing at least four toddlers in France and more than 55 people in drowning incidents. Grid operators in Great Britain issued emergency notices as the heat spread eastward.</span></span>
-            <span class="summary-full"><span>A wide-ranging heatwave gripped Europe this week, breaking temperature records in multiple countries and causing deaths linked to extreme heat and heat-related drowning incidents. Germany recorded a new national high of 41.5 degrees Celsius in Saxony-Anhalt on Saturday, surpassing a record of 41.3 degrees set the previous day in Saarbrücken. The United Kingdom recorded its highest June temperature on record, provisionally 37.3 degrees Celsius in Suffolk, prompting a rare red weather warning. Denmark also recorded its highest temperature in history. At least four toddlers died in France linked to the heat, and more than 55 drowning deaths were reported across the region as people sought relief in water. Great Britain's National Energy System Operator issued emergency notices on consecutive days, asking power generators to provide additional electricity capacity as demand spiked. In Italy, drought conditions emerged as the country's longest river began to run low, threatening agriculture. Forecasters said the heat system was shifting eastward, placing approximately 150 million people under temperatures above 35 degrees Celsius. Scientists described the event as the most severe and wide-reaching heatwave on record for the region. Heathrow and Gatwick airports experienced major disruption as thunderstorms followed the peak heat, with more than 900 flights delayed. Public health officials warned about risks to infants, and reports emerged of parents booking air-conditioned hotel rooms to keep newborns safe.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_4">
+<h2 class="article-headline">Trump Threatens 100% Tariff on European Countries That Tax U.S. Digital Companies</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>President Trump threatened to impose 100% import tariffs on any European country that introduces a digital services tax targeting U.S. technology companies.</span></span>
+<span class="summary-full"><span>President Trump announced on Truth Social that he would place a 100% import tariff on any European country that imposes a digital services tax on American companies. Trump stated that several European nations had been discussing such a tax on U.S. technology businesses. Digital services taxes have been a persistent source of friction between the United States and European governments, with Washington arguing they unfairly target American firms such as Google, Meta, and Amazon. The threatened tariff level — 100% — would be among the highest the administration has proposed. If implemented, the measure would affect trade in goods from targeted countries, functioning as economic leverage to discourage the digital taxes rather than a direct response to any announced action. The threat adds to ongoing trade tensions between the U.S. and Europe.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/world/live/2026/jun/27/europe-heatwave-germany-poland-france-uk-temperature-heat-latest-news-updates" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/27/trump-threatens-tariff-eu-countries-impose-digital-tax" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/business/2026/jun/26/great-britain-grid-operator-power-supplies-heatwave-neso-electricity" target="_blank" rel="noopener">
-                  The Guardian
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/jun/27/decades-climate-warnings-why-europe-so-unprepared-rising-heat" target="_blank" rel="noopener">
-                  The Guardian
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/jun/27/parents-air-conditioned-hotels-keep-babies-safe-heatwave" target="_blank" rel="noopener">
-                  The Guardian
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/live/2026/jun/26/europe-heatwave-extreme-heat-red-alert-weather-uk-england-france-climate-crisis-latest-news-updates" target="_blank" rel="noopener">
-                  The Guardian
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/jun/26/europe-heatwave-shift-east-child-deaths-france-cities-heat-stress" target="_blank" rel="noopener">
-                  The Guardian
-                </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_14">
-          <h2 class="article-headline">Utah Wildfire, Now the Largest Active Fire in the U.S., Forces Additional Evacuations</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A fast-moving wildfire in Utah has grown to become the largest active fire in the United States, spreading overnight and prompting expanded evacuation orders. Fire managers describe conditions as unprecedented.</span></span>
-            <span class="summary-full"><span>A wildfire burning in Utah has expanded rapidly overnight, becoming the largest active fire in the United States and forcing additional communities to evacuate. Fire managers and experts have described the conditions driving the blaze as unprecedented, presenting firefighters with significant challenges on the ground. Authorities have expanded evacuation zones as the fire continues to spread. Officials have not yet provided a full containment timeline given the severity of the conditions.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">NATURAL EVENTS</div>
+<div class="article article-long" id="story_13">
+<h2 class="article-headline">Record Temperatures Sweep Europe, Killing Toddlers in France and Setting Heat Records in Germany and UK</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A severe heatwave has broken temperature records across Europe, with Germany provisionally reaching 41.3°C and the UK setting a new June high of 37.3°C. At least four toddlers have died in France, over 55 drownings have been recorded, and power grid operators in Britain have issued emergency supply warnings.</span></span>
+<span class="summary-full"><span>A major heatwave described by scientists as among the most severe and widespread on record is sweeping across Europe, claiming lives and breaking temperature records in multiple countries. In France, at least four toddlers have died in heat-related deaths, with more than 55 drowning deaths also recorded as people sought relief in water. Germany provisionally set a new national temperature record of 41.3 degrees Celsius in Saarbrücken, while the United Kingdom recorded a new June high of 37.3°C in Santon Downham, Suffolk — a record broken multiple times within the same week. The UK issued a rare red weather warning for extreme heat. Great Britain's energy system operator issued emergency notices on multiple occasions asking generators to provide additional electricity as air conditioning and cooling loads strained the power grid. Romania issued a red alert covering nearly the entire country for conditions expected to extend through Wednesday, and Slovakia confirmed that Friday night was its warmest on record, with temperatures not falling below 26.3°C overnight. Forecasters said the most intense heat was shifting east, with an estimated 150 million people facing temperatures above 35°C. In Switzerland, glacier experts warned that all snow and ice accumulation from the previous winter was expected to melt by Monday, with rates described as enormous. Italy's longest river, the Po, began to run dry as seawater seeped into its mouth, threatening a major agricultural region. The heatwave has direct relevance for American travelers and businesses with European operations, and climate scientists note it reflects long-forecast warming trends that are now being measured in record-setting events.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/nation/fast-moving-fire-in-utah-the-largest-in-the-u-s-spreads-overnight-leading-to-more-evacuations" target="_blank" rel="noopener">
-                  PBS NewsHour
-                </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SCIENCE & HEALTH</div>
-        
-        
-        <div class="article article-long" id="story_10">
-          <h2 class="article-headline">Africa's CDC Warns Congo Ebola Outbreak Could Become the Largest Ever Recorded</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Africa's CDC has warned that the Ebola outbreak in the Democratic Republic of Congo could become the largest ever, as contact tracing falls behind and the origin of the virus strain remains unidentified.</span></span>
-            <span class="summary-full"><span>Africa's Centers for Disease Control and Prevention has warned that the ongoing Ebola outbreak in the Democratic Republic of Congo could surpass all previous outbreaks in scale. Health officials reported that most people testing positive for Ebola are not already known to contact tracers, indicating that the disease is spreading in ways that health workers are not adequately tracking. The outbreak involves the Bundibugyo strain of the virus, which scientists believe persists in an animal species and occasionally spreads to humans, though the specific animal reservoir has not been identified. Frontline workers conducting safe burials — a critical containment measure — are performing essential work under significant risk, facing both infection danger and, in some communities, hostility from residents fearful of authorities. The outbreak's trajectory and the gaps in contact tracing have raised serious concern among international health authorities about the capacity to contain it.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
-            </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/25/world/africa/africa-cdc-congo-ebola.html" target="_blank" rel="noopener">
-                  The New York Times
-                </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/24/science/ebola-bundibugyo-animal-reservoir.html" target="_blank" rel="noopener">
-                  The New York Times
-                </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">TECHNOLOGY</div>
-        
-        
-        <div class="article article-long" id="story_11">
-          <h2 class="article-headline">Apple Raises Prices on MacBooks and iPads, Citing Memory Chip Costs Driven by AI Demand</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Apple raised prices on MacBooks and iPads, saying soaring memory and storage chip costs driven by the AI industry's data center expansion can no longer be absorbed. iPhone prices were not affected.</span></span>
-            <span class="summary-full"><span>Apple raised prices on its MacBook and iPad product lines, citing an inability to continue shielding customers from rising memory and storage chip costs. The company attributed the price increases to surging demand for chips from the artificial intelligence industry, which has fueled a shortage affecting the broader consumer electronics market. Apple described the situation as an unprecedented challenge. The iPhone lineup was not affected by the current price changes, though analysts have indicated Apple may raise iPhone prices later in the year. The increases were implemented globally — Australian consumers, for example, saw prices rise by at least 20 percent. Microsoft also raised prices around the same period. The price hikes reflect a broader industry trend in which AI infrastructure investment is creating cost pressures throughout the semiconductor supply chain, with downstream effects for consumers.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
-            </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/technology/2026/jun/26/apple-ipad-macbook-price-rise-australia" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/world/live/2026/jun/27/europe-heatwave-germany-poland-france-uk-temperature-heat-latest-news-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/technology/2026/jun/25/apple-price-hike" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/business/2026/jun/26/great-britain-grid-operator-power-supplies-heatwave-neso-electricity" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/economy/apple-increases-prices-for-macs-and-ipads-blaming-memory-chip-shortage-fueled-by-ai" target="_blank" rel="noopener">
-                  PBS NewsHour
+</li>
+<li>
+<a href="https://www.theguardian.com/environment/2026/jun/27/decades-climate-warnings-why-europe-so-unprepared-rising-heat" rel="noopener" target="_blank">
+                  The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_12">
-          <h2 class="article-headline">U.S. Government Partially Lifts Restrictions on Anthropic's Most Advanced AI Model</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Trump administration partially lifted export restrictions it had placed on Anthropic's Mythos AI model, easing a dispute between the government and the company. The administration is also screening user access to OpenAI's newest model.</span></span>
-            <span class="summary-full"><span>The Trump administration has partially lifted restrictions it had imposed on Anthropic's Mythos artificial intelligence model, de-escalating a conflict between the government and the AI company. The administration had previously restricted access to Mythos, one of the most capable AI systems currently available. As part of a broader pattern, OpenAI has also agreed to allow the administration to screen users of its newest model before they gain access. Anthropic expressed dissatisfaction with the initial restrictions, saying they kept advanced tools away from users, developers, and enterprises. The government's actions represent a new level of federal influence over access to cutting-edge AI systems, determining which companies and individuals can use the most capable models. The move follows a similar pattern with the earlier release of Anthropic's Mythos, which was also subject to government-requested staging of its rollout. These developments come as Chinese AI companies have been narrowing the gap with their American counterparts, adding competitive pressure to U.S. AI policy decisions.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+<li>
+<a href="https://www.theguardian.com/environment/2026/jun/27/parents-air-conditioned-hotels-keep-babies-safe-heatwave" rel="noopener" target="_blank">
+                  The Guardian
+                </a>
+</li>
+<li>
+<a href="https://www.theguardian.com/environment/live/2026/jun/26/europe-heatwave-extreme-heat-red-alert-weather-uk-england-france-climate-crisis-latest-news-updates" rel="noopener" target="_blank">
+                  The Guardian
+                </a>
+</li>
+<li>
+<a href="https://www.theguardian.com/environment/2026/jun/26/europe-heatwave-shift-east-child-deaths-france-cities-heat-stress" rel="noopener" target="_blank">
+                  The Guardian
+                </a>
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/cx2knzzwprgo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
+                  BBC World
+                </a>
+</li>
+<li>
+<a href="https://www.theguardian.com/world/live/2026/jun/27/europe-heatwave-germany-poland-france-uk-temperature-heat-latest-news-updates" rel="noopener" target="_blank">
+                  Guardian Environment
+                </a>
+</li>
+<li>
+<a href="https://www.theguardian.com/environment/2026/jun/27/parents-air-conditioned-hotels-keep-babies-safe-heatwave" rel="noopener" target="_blank">
+                  Guardian Environment
+                </a>
+</li>
+<li>
+<a href="https://www.theguardian.com/environment/2026/jun/27/snow-and-ice-on-swiss-glaciers-melting-at-alarming-rate-amid-heatwave-expert-says" rel="noopener" target="_blank">
+                  Guardian Environment
+                </a>
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_14">
+<h2 class="article-headline">Twin Earthquakes Kill More Than 920 in Venezuela as International Rescue Teams Arrive</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Two powerful earthquakes struck Venezuela in rapid succession, killing at least 920 people and leaving tens of thousands missing. International rescue teams including U.S. responders have arrived, though a slow government response has hampered relief operations.</span></span>
+<span class="summary-full"><span>Two earthquakes measuring 7.2 and 7.5 in magnitude struck Venezuela within seconds of each other, killing at least 920 people and leaving tens of thousands unaccounted for. Entire neighborhoods in Caracas and surrounding communities have been reduced to rubble, and rescue crews are working against time to find survivors believed to be trapped. International rescue teams from the United States, the United Nations, and other organizations have arrived in the country, but reporting indicates that a slow response from the Venezuelan government has complicated relief efforts on the ground. Venezuelans living in Colombia have organized to send aid across the border. The United States is expected to play a role in the recovery effort, a significant development given the historically strained relationship between Washington and the government of Venezuelan President Nicolás Maduro. The disaster compounds existing conditions in Venezuela, which has experienced severe economic deterioration over decades of political misrule. The death toll is expected to rise as search operations continue and the full scale of the destruction becomes clearer.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/26/technology/anthropic-mythos-government-restrictions.html" target="_blank" rel="noopener">
-                  The New York Times
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/venezuelan-earthquake-death-toll-hits-least-920-us-rescuers-race-against-critical-survival-window" rel="noopener" target="_blank">
+                  Fox News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/27/nx-s1-5871245/trump-administration-imposes-restrictions-for-anthropic-to-halt-access-to-2-ai-models" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/world/venezuelan-earthquake-death-toll-hits-least-920-us-rescuers-race-against-critical-survival-window" rel="noopener" target="_blank">
+                  Fox News World
+                </a>
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/c39y79g7gzko?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
+                  BBC World
+                </a>
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/c0jydyz8z6jo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
+                  BBC World
+                </a>
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/27/nx-s1-5872951/venezuela-earthquakes-colombia-aid" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="difficult-section">
-          <details>
-            <summary class="difficult-toggle">
-              <span class="difficult-caret">&#9658;</span>
-              <span class="difficult-label">Difficult News</span>
-            </summary>
-            <p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
-            <div class="difficult-content">
-              
-              <div class="article article-long" id="story_15">
-                <h2 class="article-headline">Death Toll Rises Above 1,400 After Twin Earthquakes Strike Northern Venezuela</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-1-diff">
-                  <span class="summary-brief"><span>Twin earthquakes of magnitude 7.2 and 7.5 struck northern Venezuela, killing more than 1,400 people. International search-and-rescue teams have joined local efforts as the window for finding survivors narrows.</span></span>
-                  <span class="summary-full"><span>Twin earthquakes measuring 7.2 and 7.5 in magnitude struck northern Venezuela earlier this week, killing more than 1,400 people according to the most recent figures, though earlier reports put the toll at around 920 — accounts vary by source and the situation remains fluid. Hundreds of people are still feared trapped under collapsed buildings, and international rescue teams have arrived to assist local crews working around the clock. Officials and aid workers have described the survival window as narrowing, reducing urgency as each day passes without new survivors found. The earthquakes rank among the most destructive natural disasters in Venezuela's modern history. The country was already experiencing significant economic and institutional strain before the disaster, which has complicated coordination of relief efforts. Family members waiting for news of missing relatives have gathered near collapse sites in Caracas and other affected areas.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
-                  </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.nytimes.com/live/2026/06/27/world/venezuela-earthquake" target="_blank" rel="noopener">
-                        The New York Times
-                      </a>
-                    </li>
-                    
-                    <li>
-                      <a href="https://www.foxnews.com/world/venezuelan-earthquake-death-toll-hits-least-920-us-rescuers-race-against-critical-survival-window" target="_blank" rel="noopener">
-                        Fox News World
-                      </a>
-                    </li>
-                    
-                    <li>
-                      <a href="https://www.bbc.co.uk/news/articles/cdjk8zwe7z3o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
-                        BBC News
-                      </a>
-                    </li>
-                    
-                    <li>
-                      <a href="https://www.bbc.co.uk/news/articles/c39y79g7gzko?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
-                        BBC World
-                      </a>
-                    </li>
-                    
-                    <li>
-                      <a href="https://www.bbc.co.uk/news/articles/cdjk8zwe7z3o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
-                        BBC World
-                      </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-            </div>
-          </details>
-        </div>
-      
-    
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/show/crews-race-to-find-survivors-in-mountains-of-rubble-after-venezuela-earthquakes" rel="noopener" target="_blank">
+                  PBS NewsHour
+                </a>
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/show/reporter-in-caracas-describes-earthquake-destruction-and-response-in-venezuela" rel="noopener" target="_blank">
+                  PBS NewsHour
+                </a>
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">TECHNOLOGY</div>
+<div class="article article-medium" id="story_10">
+<h2 class="article-headline">Apple Raises iPad and MacBook Prices, Citing Chip Cost Increases Driven by AI Demand</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Apple has increased prices for iPads and MacBooks, citing soaring memory and storage chip costs it attributes to AI industry demand. The iPhone line was not affected, though analysts expect prices there to follow later in the year.</span></span>
+<span class="summary-full"><span>Apple raised prices on its iPad and MacBook product lines, saying it could no longer absorb rapidly rising costs for memory and storage chips. The company described the demand spike — driven largely by the AI industry's data center expansion — as an unprecedented challenge for the consumer electronics industry. The iPhone range was not included in the price increases, though analysts cited in reporting predict Apple may raise iPhone prices later in the year. Microsoft also raised prices for some products in the same period. The increases are global, with some markets such as Australia seeing rises of at least 20 percent. For U.S. consumers, the price increases represent a direct cost increase for some of Apple's most popular computing products. The chip shortage underlying the increases reflects the broader competition between AI infrastructure investment and consumer electronics for the same components.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
+            </button>
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/technology/2026/jun/26/apple-ipad-macbook-price-rise-australia" rel="noopener" target="_blank">
+                  The Guardian
+                </a>
+</li>
+<li>
+<a href="https://www.theguardian.com/technology/2026/jun/25/apple-price-hike" rel="noopener" target="_blank">
+                  The Guardian
+                </a>
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/economy/apple-increases-prices-for-macs-and-ipads-blaming-memory-chip-shortage-fueled-by-ai" rel="noopener" target="_blank">
+                  PBS NewsHour
+                </a>
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_11">
+<h2 class="article-headline">OpenAI Delays Latest AI Model Release Following U.S. Government Request</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>OpenAI staggered the release of its latest AI model at the request of the U.S. government, following a similar move by Anthropic. OpenAI expressed dissatisfaction, saying the delay withholds advanced tools from users and developers.</span></span>
+<span class="summary-full"><span>OpenAI has agreed to stagger the public release of its newest AI model following a request from the U.S. government, according to reporting on the matter. The move follows a similar intervention with Anthropic's Mythos model, suggesting a pattern of the Trump administration seeking to manage the pace of advanced AI releases. OpenAI signaled its dissatisfaction with the arrangement, stating that delaying releases keeps the best AI tools away from users, developers, and enterprises. The government has not publicly detailed its rationale for the requests. The episode raises questions about the relationship between the federal government and leading AI companies, and the degree to which Washington is seeking to shape the timing and availability of frontier AI systems.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
+            </button>
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/technology/2026/jun/26/openai-ai-model-release-trump-us-sam-altman-gpt-anthropic-mythos" rel="noopener" target="_blank">
+                  The Guardian
+                </a>
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_12">
+<h2 class="article-headline">Intel Shows Early Signs of Recovery After Years of Manufacturing Setbacks</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Intel's chip manufacturing division is showing early signs of stabilization after years of struggles, though the company remains central to U.S. policy goals around domestic semiconductor production and has significant ground yet to recover.</span></span>
+<span class="summary-full"><span>Intel's chip manufacturing business is displaying early indicators of recovery after a prolonged period of difficulty that saw the company fall behind competitors in fabricating advanced semiconductors. The company remains central to the Trump administration's effort to expand domestic chip production and reduce reliance on foreign manufacturers, particularly those in Taiwan. Despite the positive signals, analysts note that Intel's recovery is not yet complete and that substantial challenges remain in matching the capabilities of leading chipmakers. The broader context is significant for U.S. technology and national security policy: American dependence on Taiwan for the most advanced chip packaging and fabrication has become a recognized strategic vulnerability, and Intel's trajectory will affect how successfully the U.S. can diversify its semiconductor supply chain.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
+            </button>
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/26/technology/intel-turnaround.html" rel="noopener" target="_blank">
+                  The New York Times
+                </a>
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SCIENCE &amp; HEALTH</div>
+<div class="article article-long" id="story_9">
+<h2 class="article-headline">Congo Ebola Outbreak Could Become Largest on Record, Africa's CDC Warns</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Africa's CDC has warned that the ongoing Ebola outbreak in the Democratic Republic of Congo may become the largest ever recorded, with contact tracing lagging dangerously behind the spread. Most new cases are appearing among people not previously identified by health workers.</span></span>
+<span class="summary-full"><span>Health authorities are raising concern that the Ebola outbreak in the Democratic Republic of Congo could surpass all previous outbreaks in scale, according to Africa's Centers for Disease Control and Prevention. The most urgent warning sign is that most people testing positive for Ebola are not already in the contact-tracing system maintained by health workers, suggesting the outbreak is spreading faster than it is being tracked. The current outbreak involves the Bundibugyo strain of the virus, which scientists believe persists in an animal species that occasionally transmits it to humans — though the specific animal reservoir has not yet been identified. Frontline Congolese workers conducting safe burials — a critical measure for preventing transmission — face both the risk of infection and hostility from communities frightened by the disease, complicating containment efforts. While the outbreak is centered in Africa, large Ebola outbreaks have historically drawn international attention and resources given their potential to spread, and prior outbreaks have prompted global health emergency responses.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
+            </button>
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/27/world/africa/ebola-outbreak-congo-volunteers-burials-backlash.html" rel="noopener" target="_blank">
+                  The New York Times
+                </a>
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/25/world/africa/africa-cdc-congo-ebola.html" rel="noopener" target="_blank">
+                  The New York Times
+                </a>
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/24/science/ebola-bundibugyo-animal-reservoir.html" rel="noopener" target="_blank">
+                  The New York Times
+                </a>
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SPORTS</div>
+<div class="article article-short" id="story_15">
+<h2 class="article-headline">WNBA Suspends Alyssa Thomas One Game After Contact with Caitlin Clark's Throat</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The WNBA suspended Phoenix player Alyssa Thomas for one game after she made contact with her fist to Indiana's Caitlin Clark's throat during a Wednesday night game.</span></span>
+<span class="summary-full"><span>The WNBA announced a one-game suspension for Phoenix player Alyssa Thomas following an incident during a Wednesday matchup against Indiana in which Thomas made contact with her fist to Caitlin Clark's throat. The league reviewed the play and determined a suspension was warranted. Clark, who has become one of the sport's most prominent players, was not reported to have suffered a serious injury from the contact. The incident drew significant attention given Clark's high public profile and ongoing discussions about physicality and officiating in the league.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
+            </button>
+<ul class="sources-list">
+<li>
+<a href="https://www.pbs.org/newshour/nation/wnba-suspends-alyssa-thomas-for-1-game-over-hit-to-caitlin-clarks-throat" rel="noopener" target="_blank">
+                  PBS NewsHour
+                </a>
+</li>
+</ul>
+</div>
+</div>
+<!-- Footer -->
 
-    <!-- Archive link -->
-    <div class="archive-link-section">
-      <a href="/archive.html" class="archive-link">Browse past editions →</a>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+<div class="archive-link-section"><a class="archive-link" href="/archive.html">Browse past editions →</a></div>
+<footer class="footer">
+<p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
-      <p style="margin-top:0.75rem;"><a href="2026-06-27-am-sources.html">Sources for this digest →</a></p>
-      <p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<p style="margin-top:0.75rem;"><a href="2026-06-27-am-sources.html">Sources for this digest →</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-
 <script>
   // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
@@ -1224,6 +1083,7 @@
     const expanded = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', String(!expanded));
   });
+
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');

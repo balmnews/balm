@@ -1,19 +1,20 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Saturday, June 6, 2026 PM</title>
-  <meta name="description" content="Balm news digest for Saturday, June 6, 2026 — topical, anti-inflammatory news.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" href="/icons/icon-192.png">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm — Saturday, June 6, 2026 PM</title>
+<meta content="Balm news digest for Saturday, June 6, 2026 — topical, anti-inflammatory news." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/icons/icon-192.png" rel="icon" type="image/png"/>
+<link href="/icons/icon-192.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -43,10 +44,9 @@
 
     /* Layout */
     .page-wrapper {
-      display: flex;
-      max-width: 1100px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.25rem;
     }
 
     .sidebar {
@@ -502,1025 +502,800 @@
   </style>
 </head>
 <body>
-
 <!-- Mobile archive toggle (shown only on mobile) -->
-<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
-  <span class="mobile-archive-caret">›</span> Archive
-</div>
-<div class="mobile-archive-panel" id="mobile-archive-panel">
-  <div class="mobile-archive-title">Past Editions</div>
-  <!-- populated by archive.json fetch on page load — never server-rendered -->
-</div>
+
 
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    <!-- populated by archive.json fetch on page load — never server-rendered -->
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-              <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-              <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-            </filter>
-          </defs>
-          <text x="90" y="44"
-                font-family="Caveat, cursive"
-                font-size="52"
-                font-weight="700"
-                fill="#6b82a8"
-                text-anchor="middle"
-                letter-spacing="8"
-                filter="url(#balm-spread)">Balm</text>
-        </svg>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Saturday, June 6, 2026 &middot; PM Edition</p>
-    </header>
-
-    <!-- Audio player -->
-    
-
-    <!-- Top stories navigation -->
-    
-    <div class="top-stories">
-      <div class="top-stories-heading">Today's Top Stories</div>
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_0">US and Iran Exchange Strikes in Gulf as Bahrain and Kuwait Come Under Fire</a>
-        <span class="top-story-reason">Direct military exchanges between the US and Iran represent a major escalation with broad regional and global security implications.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_7">SpaceX IPO Set for June 12 at $135 Per Share, Expected to Enter Index Funds and 401(k)s</a>
-        <span class="top-story-reason">A SpaceX IPO at this scale would be a landmark financial event likely to affect index funds and retirement accounts held by millions of Americans.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_19">Researchers Demonstrate Precise Gene Editing of Human Embryos Using New Technique</a>
-        <span class="top-story-reason">Precise gene editing of human embryos marks a significant scientific milestone with wide-ranging ethical, medical, and policy implications.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_1">Congress Advances War Powers Resolutions to Limit US Military Action Against Iran</a>
-        <span class="top-story-reason">Congressional efforts to limit presidential war powers over Iran reflect a significant constitutional and political development affecting the balance of power in US governance.</span>
-      </div>
-      
-      
-    </div>
-    
-
-    <!-- Stories -->
-    
-      
-        <div class="section-header">GEOPOLITICS</div>
-        
-        <div class="article article-long" id="story_0">
-          <h2 class="article-headline">US and Iran Exchange Strikes in Gulf as Bahrain and Kuwait Come Under Fire</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The US military struck Iranian drones and radar sites in the Gulf, after which Iran fired ballistic missiles and drones at Bahrain and Kuwait. Bahrain's government said the missiles were intercepted and called on Iran to halt attacks threatening a fragile ceasefire.</span></span>
-            <span class="summary-full"><span>The United States military struck Iranian drones and radar installations in the Gulf region, after which Iran launched ballistic missiles and drones targeting Bahrain and Kuwait. Bahrain's government confirmed the incoming fire and said the projectiles were intercepted. Air raid sirens sounded across Bahrain, and residents were directed to shelter in place. Bahrain issued a formal call for Iran to stop attacks on Gulf neighbors, warning that the exchange threatened a fragile ceasefire that has been under repeated strain. The sequence of events marked the latest in a series of military flare-ups between the US and Iran in the region. Both sides have confirmed strikes, though accounts of the sequence and scope of fire differ across sources. The broader context involves ongoing US military engagement in the region and the state of the Iran conflict, which Congress has also been debating through War Powers resolutions. The stability of Gulf states — several of which host major US military installations — is directly tied to American strategic and economic interests, including regional oil supply.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news"><svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg></a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Saturday, June 6, 2026 · PM Edition</p>
+</header>
+<!-- Audio player -->
+<!-- Top stories navigation -->
+<div class="top-stories">
+<div class="top-stories-heading">Today's Top Stories</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_0">US and Iran Exchange Strikes in Gulf as Bahrain and Kuwait Come Under Fire</a>
+<span class="top-story-reason">Direct military exchanges between the US and Iran represent a major escalation with broad regional and global security implications.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_7">SpaceX IPO Set for June 12 at $135 Per Share, Expected to Enter Index Funds and 401(k)s</a>
+<span class="top-story-reason">A SpaceX IPO at this scale would be a landmark financial event likely to affect index funds and retirement accounts held by millions of Americans.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_19">Researchers Demonstrate Precise Gene Editing of Human Embryos Using New Technique</a>
+<span class="top-story-reason">Precise gene editing of human embryos marks a significant scientific milestone with wide-ranging ethical, medical, and policy implications.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_1">Congress Advances War Powers Resolutions to Limit US Military Action Against Iran</a>
+<span class="top-story-reason">Congressional efforts to limit presidential war powers over Iran reflect a significant constitutional and political development affecting the balance of power in US governance.</span>
+</div>
+</div>
+<!-- Stories -->
+<div class="section-header">GEOPOLITICS</div>
+<div class="article article-long" id="story_0">
+<h2 class="article-headline">US and Iran Exchange Strikes in Gulf as Bahrain and Kuwait Come Under Fire</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The US military struck Iranian drones and radar sites in the Gulf, after which Iran fired ballistic missiles and drones at Bahrain and Kuwait. Bahrain's government said the missiles were intercepted and called on Iran to halt attacks threatening a fragile ceasefire.</span></span>
+<span class="summary-full"><span>The United States military struck Iranian drones and radar installations in the Gulf region, after which Iran launched ballistic missiles and drones targeting Bahrain and Kuwait. Bahrain's government confirmed the incoming fire and said the projectiles were intercepted. Air raid sirens sounded across Bahrain, and residents were directed to shelter in place. Bahrain issued a formal call for Iran to stop attacks on Gulf neighbors, warning that the exchange threatened a fragile ceasefire that has been under repeated strain. The sequence of events marked the latest in a series of military flare-ups between the US and Iran in the region. Both sides have confirmed strikes, though accounts of the sequence and scope of fire differ across sources. The broader context involves ongoing US military engagement in the region and the state of the Iran conflict, which Congress has also been debating through War Powers resolutions. The stability of Gulf states — several of which host major US military installations — is directly tied to American strategic and economic interests, including regional oil supply.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/06/us-says-iran-radar-sites-struck-and-drones-intercepted-in-latest-threat-to-fragile-ceasefire" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/06/us-says-iran-radar-sites-struck-and-drones-intercepted-in-latest-threat-to-fragile-ceasefire" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cvgzgyjk2weo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cvgzgyjk2weo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/u-s-iran-exchange-of-fire-in-gulf-tests-fragile-ceasefire" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/world/u-s-iran-exchange-of-fire-in-gulf-tests-fragile-ceasefire" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_1">
-          <h2 class="article-headline">Congress Advances War Powers Resolutions to Limit US Military Action Against Iran</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Both the House and Senate have advanced War Powers resolutions aimed at curtailing President Trump's authority to continue military operations against Iran, raising constitutional questions about the 53-year-old law's enforceability.</span></span>
-            <span class="summary-full"><span>The House and Senate have each advanced War Powers resolutions intended to limit President Trump's ability to continue military action against Iran without congressional authorization. The War Powers Resolution, enacted in 1973, requires the president to notify Congress within 48 hours of committing US forces to hostilities and limits deployments to 60 days absent congressional approval. How the resolutions would be enforced, whether the president would be bound by them, and what procedural steps would be required to wind down operations remain open legal and political questions. The moves come as US forces have continued to exchange fire with Iran in the Gulf region, and as Congress debates its constitutional role in authorizing the use of military force. Presidents of both parties have historically disputed the Resolution's constitutionality, and no administration has fully complied with its terms in major engagements.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_1">
+<h2 class="article-headline">Congress Advances War Powers Resolutions to Limit US Military Action Against Iran</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Both the House and Senate have advanced War Powers resolutions aimed at curtailing President Trump's authority to continue military operations against Iran, raising constitutional questions about the 53-year-old law's enforceability.</span></span>
+<span class="summary-full"><span>The House and Senate have each advanced War Powers resolutions intended to limit President Trump's ability to continue military action against Iran without congressional authorization. The War Powers Resolution, enacted in 1973, requires the president to notify Congress within 48 hours of committing US forces to hostilities and limits deployments to 60 days absent congressional approval. How the resolutions would be enforced, whether the president would be bound by them, and what procedural steps would be required to wind down operations remain open legal and political questions. The moves come as US forces have continued to exchange fire with Iran in the Gulf region, and as Congress debates its constitutional role in authorizing the use of military force. Presidents of both parties have historically disputed the Resolution's constitutionality, and no administration has fully complied with its terms in major engagements.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/politics/whats-next-for-the-war-powers-resolution-on-iran-politifact-explains" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.pbs.org/newshour/politics/whats-next-for-the-war-powers-resolution-on-iran-politifact-explains" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_2">
-          <h2 class="article-headline">Ukraine Launches Second Drone Strike on St. Petersburg in Days</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Ukrainian drones struck St. Petersburg for the second time in days, hours after Russian President Putin addressed an economic forum in the city. Russian authorities described the attack as unprecedented and told residents to stay indoors.</span></span>
-            <span class="summary-full"><span>Ukraine carried out a long-range drone attack on St. Petersburg, Russia's second-largest city, marking the second such strike in the span of a few days. The attack came hours after President Vladimir Putin had been present in the city for an economic forum. Russian authorities described the strikes as unprecedented and instructed city residents to shelter indoors — the first such directive since the war began. The repeat targeting of St. Petersburg represents a significant escalation in Ukraine's drone campaign, which has increasingly reached into Russian territory far from the front lines. Russian air defenses were activated in response. No immediate casualty figures were confirmed across sources. The strikes add pressure on Moscow as the war enters its fifth year and come at a moment when Ukrainian President Zelensky has separately proposed a direct meeting with Putin to negotiate a settlement.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_2">
+<h2 class="article-headline">Ukraine Launches Second Drone Strike on St. Petersburg in Days</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Ukrainian drones struck St. Petersburg for the second time in days, hours after Russian President Putin addressed an economic forum in the city. Russian authorities described the attack as unprecedented and told residents to stay indoors.</span></span>
+<span class="summary-full"><span>Ukraine carried out a long-range drone attack on St. Petersburg, Russia's second-largest city, marking the second such strike in the span of a few days. The attack came hours after President Vladimir Putin had been present in the city for an economic forum. Russian authorities described the strikes as unprecedented and instructed city residents to shelter indoors — the first such directive since the war began. The repeat targeting of St. Petersburg represents a significant escalation in Ukraine's drone campaign, which has increasingly reached into Russian territory far from the front lines. Russian air defenses were activated in response. No immediate casualty figures were confirmed across sources. The strikes add pressure on Moscow as the war enters its fifth year and come at a moment when Ukrainian President Zelensky has separately proposed a direct meeting with Putin to negotiate a settlement.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/06/world/europe/ukraine-drone-strike-st-petersburg.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/06/world/europe/ukraine-drone-strike-st-petersburg.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cg7498kz808o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cg7498kz808o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cg7498kz808o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cg7498kz808o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_3">
-          <h2 class="article-headline">Zelensky Proposes Direct Talks with Putin as US Attention Shifts to Iran</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Ukrainian President Zelensky issued an open letter to Russian President Putin proposing a face-to-face meeting to negotiate an end to the war, as US attention remains focused on its military engagement with Iran.</span></span>
-            <span class="summary-full"><span>Ukrainian President Volodymyr Zelensky published an open letter to Russian President Vladimir Putin proposing a direct meeting to negotiate an end to the nearly four-year war. The proposal comes at a moment when US diplomatic and military focus has shifted significantly toward Iran, reducing the immediate pressure Washington can apply to either side in the Ukraine conflict. Zelensky has periodically called for direct negotiations, but Russia has not agreed to formal talks. The timing of the letter, coinciding with US engagement in the Gulf and the 82nd anniversary of D-Day, drew attention from allied governments. No response from the Kremlin was reported at the time of publication.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_3">
+<h2 class="article-headline">Zelensky Proposes Direct Talks with Putin as US Attention Shifts to Iran</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Ukrainian President Zelensky issued an open letter to Russian President Putin proposing a face-to-face meeting to negotiate an end to the war, as US attention remains focused on its military engagement with Iran.</span></span>
+<span class="summary-full"><span>Ukrainian President Volodymyr Zelensky published an open letter to Russian President Vladimir Putin proposing a direct meeting to negotiate an end to the nearly four-year war. The proposal comes at a moment when US diplomatic and military focus has shifted significantly toward Iran, reducing the immediate pressure Washington can apply to either side in the Ukraine conflict. Zelensky has periodically called for direct negotiations, but Russia has not agreed to formal talks. The timing of the letter, coinciding with US engagement in the Gulf and the 82nd anniversary of D-Day, drew attention from allied governments. No response from the Kremlin was reported at the time of publication.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/world/zelenskyy-issues-open-letter-putin-proposing-meeting-us-fully-focused-iran" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/zelenskyy-issues-open-letter-putin-proposing-meeting-us-fully-focused-iran" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_4">
-          <h2 class="article-headline">Seven-Month-Old Palestinian Infant Killed After Israeli Troops Fire on Car in West Bank</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Israeli troops shot at a car in the occupied West Bank's Tel Rumeida area, killing a seven-month-old Palestinian infant and wounding his parents. The Israeli military said a soldier fired after perceiving the vehicle as accelerating toward troops; the family disputed that account.</span></span>
-            <span class="summary-full"><span>Israeli troops opened fire on a car carrying a seven-month-old infant and his parents in the Tel Rumeida area of the occupied West Bank, killing the baby and wounding both parents. Palestinian health officials confirmed the death and said the bullet struck the boy in the face. The Israeli military stated that a soldier fired after troops perceived the vehicle accelerating toward them. The baby's grandmother, who was also in the car, disputed that account, saying the car had complied with an order to stop. A funeral was held for the infant, whose body was wrapped in a Palestinian flag and carried by his father. The incident drew condemnation from Palestinian officials and international observers. Accounts of the circumstances of the shooting differ between Israeli military statements and the family's testimony. The West Bank has seen elevated levels of military operations in recent months, with fatalities among both Palestinians and Israelis.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_4">
+<h2 class="article-headline">Seven-Month-Old Palestinian Infant Killed After Israeli Troops Fire on Car in West Bank</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Israeli troops shot at a car in the occupied West Bank's Tel Rumeida area, killing a seven-month-old Palestinian infant and wounding his parents. The Israeli military said a soldier fired after perceiving the vehicle as accelerating toward troops; the family disputed that account.</span></span>
+<span class="summary-full"><span>Israeli troops opened fire on a car carrying a seven-month-old infant and his parents in the Tel Rumeida area of the occupied West Bank, killing the baby and wounding both parents. Palestinian health officials confirmed the death and said the bullet struck the boy in the face. The Israeli military stated that a soldier fired after troops perceived the vehicle accelerating toward them. The baby's grandmother, who was also in the car, disputed that account, saying the car had complied with an order to stop. A funeral was held for the infant, whose body was wrapped in a Palestinian flag and carried by his father. The incident drew condemnation from Palestinian officials and international observers. Accounts of the circumstances of the shooting differ between Israeli military statements and the family's testimony. The West Bank has seen elevated levels of military operations in recent months, with fatalities among both Palestinians and Israelis.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/06/palestinian-baby-shot-dead-israeli-troops-occupied-west-bank" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/06/palestinian-baby-shot-dead-israeli-troops-occupied-west-bank" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/06/world/middleeast/israel-west-bank-infant.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/06/world/middleeast/israel-west-bank-infant.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cly8lgn0x30o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cly8lgn0x30o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/7-month-old-baby-killed-after-israeli-troops-open-fire-on-a-car-palestinian-health-officials-say" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/world/7-month-old-baby-killed-after-israeli-troops-open-fire-on-a-car-palestinian-health-officials-say" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_5">
-          <h2 class="article-headline">Israeli Strike Kills Lebanese Army Officers; White Phosphorus Use Reported Near Lebanese Towns</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Israeli airstrikes killed at least nine people in Lebanon, including a Lebanese army general and other soldiers, after a ceasefire deal. Separately, reports emerged of Israeli use of white phosphorus near Lebanese population centers.</span></span>
-            <span class="summary-full"><span>Israeli airstrikes in southern Lebanon killed at least nine people, including a Lebanese army general and other military officers, according to multiple sources. The Israeli military confirmed striking a vehicle and said the incident was under review. Lebanese President Joseph Aoun condemned the strike as a violation of Lebanese sovereignty and international law. The deaths occurred after a ceasefire agreement had been reached, raising questions about compliance with its terms. Separately, NPR reported that Israel has used white phosphorus in areas near Lebanese cities and towns. White phosphorus is not prohibited under international law when used as a smoke screen in open areas, but humanitarian organizations have warned that its use near civilian populations can cause severe and indiscriminate harm. The combination of the officer killings and the white phosphorus reports intensified international scrutiny of Israeli operations in Lebanon.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_5">
+<h2 class="article-headline">Israeli Strike Kills Lebanese Army Officers; White Phosphorus Use Reported Near Lebanese Towns</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Israeli airstrikes killed at least nine people in Lebanon, including a Lebanese army general and other soldiers, after a ceasefire deal. Separately, reports emerged of Israeli use of white phosphorus near Lebanese population centers.</span></span>
+<span class="summary-full"><span>Israeli airstrikes in southern Lebanon killed at least nine people, including a Lebanese army general and other military officers, according to multiple sources. The Israeli military confirmed striking a vehicle and said the incident was under review. Lebanese President Joseph Aoun condemned the strike as a violation of Lebanese sovereignty and international law. The deaths occurred after a ceasefire agreement had been reached, raising questions about compliance with its terms. Separately, NPR reported that Israel has used white phosphorus in areas near Lebanese cities and towns. White phosphorus is not prohibited under international law when used as a smoke screen in open areas, but humanitarian organizations have warned that its use near civilian populations can cause severe and indiscriminate harm. The combination of the officer killings and the white phosphorus reports intensified international scrutiny of Israeli operations in Lebanon.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cj0g8jymg92o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.com/news/articles/cj0g8jymg92o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/06/nx-s1-5848668/israel-lebanon-white-phosphorus" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/06/nx-s1-5848668/israel-lebanon-white-phosphorus" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/06/nx-s1-5848595/israeli-airstrikes-kill-lebanese-army-officers" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/06/nx-s1-5848595/israeli-airstrikes-kill-lebanese-army-officers" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_6">
-          <h2 class="article-headline">Pope Leo XIV Begins Seven-Day Spain Visit, Calls for Political Unity and Opposes Iran War</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Pope Leo XIV arrived in Spain for a seven-day visit — the first papal tour of the country in 15 years — calling on political leaders to avoid stoking division. He also told reporters that the US-Iran conflict does not meet the Catholic Church's standard for a just war.</span></span>
-            <span class="summary-full"><span>Pope Leo XIV began a seven-day official visit to Spain, the first papal tour of the country in 15 years. In his opening remarks, he called on political leaders to seek unity rather than exploit divisions for political gain, and praised Spain's commitments to peace and to receiving migrants. The visit focuses significantly on marginalized communities and migrants, themes Leo has emphasized since becoming pope. Separately, aboard the papal plane, Leo told journalists that the conflict between the United States and Iran does not qualify as a just war under Catholic teaching — a significant theological and political statement given the ongoing US military operations in the region. The visit comes at a moment of political friction in Spain, where the Socialist-led government faces challenges and the far-right Vox party has been critical of the Church's direction under Leo. The pope is expected to meet with migrants and government officials during the trip.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_6">
+<h2 class="article-headline">Pope Leo XIV Begins Seven-Day Spain Visit, Calls for Political Unity and Opposes Iran War</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Pope Leo XIV arrived in Spain for a seven-day visit — the first papal tour of the country in 15 years — calling on political leaders to avoid stoking division. He also told reporters that the US-Iran conflict does not meet the Catholic Church's standard for a just war.</span></span>
+<span class="summary-full"><span>Pope Leo XIV began a seven-day official visit to Spain, the first papal tour of the country in 15 years. In his opening remarks, he called on political leaders to seek unity rather than exploit divisions for political gain, and praised Spain's commitments to peace and to receiving migrants. The visit focuses significantly on marginalized communities and migrants, themes Leo has emphasized since becoming pope. Separately, aboard the papal plane, Leo told journalists that the conflict between the United States and Iran does not qualify as a just war under Catholic teaching — a significant theological and political statement given the ongoing US military operations in the region. The visit comes at a moment of political friction in Spain, where the Socialist-led government faces challenges and the far-right Vox party has been critical of the Church's direction under Leo. The pope is expected to meet with migrants and government officials during the trip.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/06/pope-leo-xiv-spain-tour-madrid-catholic-church" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/06/pope-leo-xiv-spain-tour-madrid-catholic-church" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/06/world/europe/leo-spain-visit.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/06/world/europe/leo-spain-visit.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c8d2pgjy4qgo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c8d2pgjy4qgo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c8d2pgjy4qgo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c8d2pgjy4qgo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/pope-leo-xiv-warns-against-fanning-the-flames-of-polarization-on-first-papal-visit-to-spain-in-15-years" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/world/pope-leo-xiv-warns-against-fanning-the-flames-of-polarization-on-first-papal-visit-to-spain-in-15-years" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">DOMESTIC POLICY</div>
-        
-        <div class="article article-medium" id="story_10">
-          <h2 class="article-headline">Trump Pardons Former Republican Congressman Convicted of Insider Trading</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>President Trump granted a full pardon to former Indiana Representative Stephen Buyer, who had been convicted of insider trading in 2023 and served nearly two years of a 22-month prison sentence.</span></span>
-            <span class="summary-full"><span>President Trump issued a full pardon to Stephen Buyer, a former Republican congressman from Indiana who was convicted of insider trading in 2023. Buyer was found to have made illegal stock trades using non-public information obtained through his work as a lobbyist after leaving Congress. He had served nearly two years of a 22-month prison sentence before receiving the pardon. The pardon absolves Buyer of the conviction entirely. The action continues a pattern of Trump using the pardon power for individuals with political or personal connections, and follows other high-profile pardons issued during his current and previous terms.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">DOMESTIC POLICY</div>
+<div class="article article-medium" id="story_10">
+<h2 class="article-headline">Trump Pardons Former Republican Congressman Convicted of Insider Trading</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>President Trump granted a full pardon to former Indiana Representative Stephen Buyer, who had been convicted of insider trading in 2023 and served nearly two years of a 22-month prison sentence.</span></span>
+<span class="summary-full"><span>President Trump issued a full pardon to Stephen Buyer, a former Republican congressman from Indiana who was convicted of insider trading in 2023. Buyer was found to have made illegal stock trades using non-public information obtained through his work as a lobbyist after leaving Congress. He had served nearly two years of a 22-month prison sentence before receiving the pardon. The pardon absolves Buyer of the conviction entirely. The action continues a pattern of Trump using the pardon power for individuals with political or personal connections, and follows other high-profile pardons issued during his current and previous terms.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/former-indiana-rep-stephen-buyer-receives-full-pardon-trump-2023-insider-trading-conviction" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/politics/former-indiana-rep-stephen-buyer-receives-full-pardon-trump-2023-insider-trading-conviction" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/politics/trump-pardons-former-republican-congressman-convicted-of-insider-trading" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/politics/trump-pardons-former-republican-congressman-convicted-of-insider-trading" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_11">
-          <h2 class="article-headline">Trump Directs Acting Intelligence Chief to Begin Reducing the Office of the Director of National Intelligence</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>President Trump said he has instructed acting Director of National Intelligence Bill Pulte to begin shrinking the ODNI, characterizing the office as too large and overstaffed with personnel from prior administrations.</span></span>
-            <span class="summary-full"><span>President Trump announced that he has directed acting Director of National Intelligence Bill Pulte to begin reducing the size of the Office of the Director of National Intelligence, describing it as unnecessarily large and populated with holdovers from previous administrations. The ODNI was created after the September 11 attacks to coordinate the work of the US intelligence community across agencies. The move comes ahead of a permanent director being confirmed to lead the office. Specific details about which functions or personnel would be cut were not immediately available. The action is part of a broader effort by the administration to reduce the size and reshape the priorities of federal agencies, including those in the national security apparatus.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_11">
+<h2 class="article-headline">Trump Directs Acting Intelligence Chief to Begin Reducing the Office of the Director of National Intelligence</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>President Trump said he has instructed acting Director of National Intelligence Bill Pulte to begin shrinking the ODNI, characterizing the office as too large and overstaffed with personnel from prior administrations.</span></span>
+<span class="summary-full"><span>President Trump announced that he has directed acting Director of National Intelligence Bill Pulte to begin reducing the size of the Office of the Director of National Intelligence, describing it as unnecessarily large and populated with holdovers from previous administrations. The ODNI was created after the September 11 attacks to coordinate the work of the US intelligence community across agencies. The move comes ahead of a permanent director being confirmed to lead the office. Specific details about which functions or personnel would be cut were not immediately available. The action is part of a broader effort by the administration to reduce the size and reshape the priorities of federal agencies, including those in the national security apparatus.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/trump-moves-slash-intelligence-office-ahead-permanent-chiefs-arrival" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/politics/trump-moves-slash-intelligence-office-ahead-permanent-chiefs-arrival" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_12">
-          <h2 class="article-headline">US Forest Service Plans to Open Millions of Acres of National Forests to Off-Road Vehicles</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The US Forest Service is preparing to open millions of acres of national forest land to off-road vehicles, according to an internal memo, potentially reversing protections from the 2001 Roadless Area Conservation Rule that have shielded more than 58 million acres for over two decades.</span></span>
-            <span class="summary-full"><span>The US Forest Service is preparing an order that would open millions of acres of national forest land to off-road vehicles, according to a memo reviewed by the New York Times. The move would reverse or significantly weaken the Roadless Area Conservation Rule, a bipartisan policy enacted in 2001 that has prohibited road construction and vehicle access in more than 58 million acres of national forests for over 25 years. Critics, including former officials, argue that roads cause lasting damage in forest ecosystems and that opening these areas would be difficult to reverse. The action is consistent with the Trump administration's broader approach to expanding access to and development on public lands, and follows the administration's decisions to repeal other executive orders protecting public lands from vehicles. Conservation groups have indicated they are prepared to challenge the order legally.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_12">
+<h2 class="article-headline">US Forest Service Plans to Open Millions of Acres of National Forests to Off-Road Vehicles</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The US Forest Service is preparing to open millions of acres of national forest land to off-road vehicles, according to an internal memo, potentially reversing protections from the 2001 Roadless Area Conservation Rule that have shielded more than 58 million acres for over two decades.</span></span>
+<span class="summary-full"><span>The US Forest Service is preparing an order that would open millions of acres of national forest land to off-road vehicles, according to a memo reviewed by the New York Times. The move would reverse or significantly weaken the Roadless Area Conservation Rule, a bipartisan policy enacted in 2001 that has prohibited road construction and vehicle access in more than 58 million acres of national forests for over 25 years. Critics, including former officials, argue that roads cause lasting damage in forest ecosystems and that opening these areas would be difficult to reverse. The action is consistent with the Trump administration's broader approach to expanding access to and development on public lands, and follows the administration's decisions to repeal other executive orders protecting public lands from vehicles. Conservation groups have indicated they are prepared to challenge the order legally.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/05/climate/national-forests-off-road-vehicles-public-lands-trump.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/05/climate/national-forests-off-road-vehicles-public-lands-trump.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/commentisfree/2026/jun/05/trump-roadless-rule-national-forests-protection" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/commentisfree/2026/jun/05/trump-roadless-rule-national-forests-protection" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_13">
-          <h2 class="article-headline">Arctic National Wildlife Refuge Oil Auction Draws Minimal Interest Despite Federal Push</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A federal auction to lease drilling rights in the Arctic National Wildlife Refuge concluded with only about 10 percent of available acreage claimed, despite the Trump administration's active promotion of energy development in the refuge.</span></span>
-            <span class="summary-full"><span>A federal lease sale for oil development rights in the Arctic National Wildlife Refuge ended with bids on only about 10 percent of the land made available, a result that fell well short of the scale the Trump administration had promoted. The administration has characterized the refuge as a significant untapped energy resource, using language emphasizing its potential value. The limited industry response reflects a pattern seen in previous ANWR auctions, where major oil companies have declined to participate despite political encouragement, citing high extraction costs, logistical challenges, and reputational and legal risks associated with drilling in the ecologically sensitive area. The refuge's coastal plain has been a contested site of energy and environmental policy debates for decades.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_13">
+<h2 class="article-headline">Arctic National Wildlife Refuge Oil Auction Draws Minimal Interest Despite Federal Push</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A federal auction to lease drilling rights in the Arctic National Wildlife Refuge concluded with only about 10 percent of available acreage claimed, despite the Trump administration's active promotion of energy development in the refuge.</span></span>
+<span class="summary-full"><span>A federal lease sale for oil development rights in the Arctic National Wildlife Refuge ended with bids on only about 10 percent of the land made available, a result that fell well short of the scale the Trump administration had promoted. The administration has characterized the refuge as a significant untapped energy resource, using language emphasizing its potential value. The limited industry response reflects a pattern seen in previous ANWR auctions, where major oil companies have declined to participate despite political encouragement, citing high extraction costs, logistical challenges, and reputational and legal risks associated with drilling in the ecologically sensitive area. The refuge's coastal plain has been a contested site of energy and environmental policy debates for decades.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/05/climate/anwr-lease-sale-alaska.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/05/climate/anwr-lease-sale-alaska.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_14">
-          <h2 class="article-headline">Supreme Court Rules Generic Drug Makers Not Liable for Pharmacist Prescribing Decisions</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Supreme Court rejected a legal theory that would have held generic pharmaceutical manufacturers liable for harms arising from pharmacist decisions about how their products are prescribed or dispensed.</span></span>
-            <span class="summary-full"><span>The Supreme Court ruled that generic drug manufacturers cannot be held legally responsible for harms that result from decisions made by pharmacists regarding how their products are prescribed or dispensed. The ruling limits the scope of failure-to-warn liability for generic drugmakers, who are legally required to carry the same labeling as the brand-name drugs they replicate and generally cannot independently update warnings. The decision was welcomed by the generic pharmaceutical industry, which had argued that extending liability to pharmacist-level decisions would expose manufacturers to unpredictable legal risk. Consumer advocates expressed concern that the ruling further narrows the legal options available to patients harmed by generic medications.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_14">
+<h2 class="article-headline">Supreme Court Rules Generic Drug Makers Not Liable for Pharmacist Prescribing Decisions</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Supreme Court rejected a legal theory that would have held generic pharmaceutical manufacturers liable for harms arising from pharmacist decisions about how their products are prescribed or dispensed.</span></span>
+<span class="summary-full"><span>The Supreme Court ruled that generic drug manufacturers cannot be held legally responsible for harms that result from decisions made by pharmacists regarding how their products are prescribed or dispensed. The ruling limits the scope of failure-to-warn liability for generic drugmakers, who are legally required to carry the same labeling as the brand-name drugs they replicate and generally cannot independently update warnings. The decision was welcomed by the generic pharmaceutical industry, which had argued that extending liability to pharmacist-level decisions would expose manufacturers to unpredictable legal risk. Consumer advocates expressed concern that the ruling further narrows the legal options available to patients harmed by generic medications.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.scotusblog.com/2026/06/justices-reject-holding-generic-pharmaceutical-manufacturers-liable-for-decisions-of-pharmacists/" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.scotusblog.com/2026/06/justices-reject-holding-generic-pharmaceutical-manufacturers-liable-for-decisions-of-pharmacists/" rel="noopener" target="_blank">
                   SCOTUSblog
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_15">
-          <h2 class="article-headline">Supreme Court Upholds SEC's Authority to Seek Disgorgement in Securities Enforcement Cases</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Supreme Court ruled that the Securities and Exchange Commission may continue using disgorgement — requiring wrongdoers to give up profits from illegal activity — as an enforcement remedy in securities fraud cases.</span></span>
-            <span class="summary-full"><span>The Supreme Court issued a ruling validating the SEC's use of disgorgement as a tool in securities enforcement actions. Disgorgement requires individuals or companies found to have violated securities laws to forfeit the profits they obtained through the illegal conduct. The practice had been contested in lower courts and subject to constraints imposed by a prior Supreme Court ruling. The decision preserves a significant enforcement mechanism for the SEC at a time when the agency's role and resources are under scrutiny. It means the commission can continue to pursue disgorgement in fraud and market manipulation cases alongside other financial penalties.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_15">
+<h2 class="article-headline">Supreme Court Upholds SEC's Authority to Seek Disgorgement in Securities Enforcement Cases</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Supreme Court ruled that the Securities and Exchange Commission may continue using disgorgement — requiring wrongdoers to give up profits from illegal activity — as an enforcement remedy in securities fraud cases.</span></span>
+<span class="summary-full"><span>The Supreme Court issued a ruling validating the SEC's use of disgorgement as a tool in securities enforcement actions. Disgorgement requires individuals or companies found to have violated securities laws to forfeit the profits they obtained through the illegal conduct. The practice had been contested in lower courts and subject to constraints imposed by a prior Supreme Court ruling. The decision preserves a significant enforcement mechanism for the SEC at a time when the agency's role and resources are under scrutiny. It means the commission can continue to pursue disgorgement in fraud and market manipulation cases alongside other financial penalties.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.scotusblog.com/2026/06/justices-validate-secs-use-of-disgorgement-in-securities-enforcement/" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.scotusblog.com/2026/06/justices-validate-secs-use-of-disgorgement-in-securities-enforcement/" rel="noopener" target="_blank">
                   SCOTUSblog
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_16">
-          <h2 class="article-headline">Defense Secretary Hegseth Uses D-Day Ceremony to Link Migration to Military Readiness</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>US Defense Secretary Pete Hegseth, speaking at D-Day anniversary ceremonies in Normandy, drew a parallel between Allied operations in 1944 and present-day concerns about migration and ideology, warning that the freedoms won in the war require ongoing defense.</span></span>
-            <span class="summary-full"><span>US Defense Secretary Pete Hegseth delivered remarks at the 82nd anniversary of the D-Day landings in Normandy, France, using the occasion to address themes including immigration and what he characterized as dangerous ideologies. Hegseth appeared to link arrivals of migrants by sea to the wartime context of the liberation of Europe, warning that the freedoms established through Allied sacrifices could be lost if contemporary leaders failed to defend them. The speech drew attention internationally, with European observers and some American commentators noting the juxtaposition of immigration rhetoric with the commemoration of Allied cooperation. The D-Day anniversary is typically marked by heads of state and military leaders from NATO allies.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_16">
+<h2 class="article-headline">Defense Secretary Hegseth Uses D-Day Ceremony to Link Migration to Military Readiness</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>US Defense Secretary Pete Hegseth, speaking at D-Day anniversary ceremonies in Normandy, drew a parallel between Allied operations in 1944 and present-day concerns about migration and ideology, warning that the freedoms won in the war require ongoing defense.</span></span>
+<span class="summary-full"><span>US Defense Secretary Pete Hegseth delivered remarks at the 82nd anniversary of the D-Day landings in Normandy, France, using the occasion to address themes including immigration and what he characterized as dangerous ideologies. Hegseth appeared to link arrivals of migrants by sea to the wartime context of the liberation of Europe, warning that the freedoms established through Allied sacrifices could be lost if contemporary leaders failed to defend them. The speech drew attention internationally, with European observers and some American commentators noting the juxtaposition of immigration rhetoric with the commemoration of Allied cooperation. The D-Day anniversary is typically marked by heads of state and military leaders from NATO allies.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c802e7jk458o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.com/news/articles/c802e7jk458o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c802e7jk458o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c802e7jk458o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/politics/hegseth-warns-of-invasion-and-dangerous-ideologies-in-d-day-anniversary-speech" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/politics/hegseth-warns-of-invasion-and-dangerous-ideologies-in-d-day-anniversary-speech" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_17">
-          <h2 class="article-headline">Planned Parenthood to Offer Advance Abortion Medication at Clinics in Washington and Hawaii</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Planned Parenthood clinics in Washington state and Hawaii will begin providing abortion medication in advance of pregnancy, allowing patients to fill a prescription before they need it, amid ongoing restrictions on access in other parts of the country.</span></span>
-            <span class="summary-full"><span>Planned Parenthood announced it will offer advance prescription abortion medication — pills provided to patients before a pregnancy occurs so they are available if needed — at clinics in Washington state and Hawaii. The practice, sometimes called advance provision, is already available at some independent clinics and through certain telehealth providers, but Planned Parenthood's participation is expected to bring broader visibility to the option given the organization's national presence. Advocates say advance provision addresses barriers including travel distance, wait times, and appointment availability that have increased since abortion access was restricted in many states following the Supreme Court's 2022 decision overturning Roe v. Wade. The option is currently limited to states where abortion remains legal.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_17">
+<h2 class="article-headline">Planned Parenthood to Offer Advance Abortion Medication at Clinics in Washington and Hawaii</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Planned Parenthood clinics in Washington state and Hawaii will begin providing abortion medication in advance of pregnancy, allowing patients to fill a prescription before they need it, amid ongoing restrictions on access in other parts of the country.</span></span>
+<span class="summary-full"><span>Planned Parenthood announced it will offer advance prescription abortion medication — pills provided to patients before a pregnancy occurs so they are available if needed — at clinics in Washington state and Hawaii. The practice, sometimes called advance provision, is already available at some independent clinics and through certain telehealth providers, but Planned Parenthood's participation is expected to bring broader visibility to the option given the organization's national presence. Advocates say advance provision addresses barriers including travel distance, wait times, and appointment availability that have increased since abortion access was restricted in many states following the Supreme Court's 2022 decision overturning Roe v. Wade. The option is currently limited to states where abortion remains legal.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/06/advance-abortion-pill-planned-parenthood" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/06/advance-abortion-pill-planned-parenthood" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_18">
-          <h2 class="article-headline">Trump Administration Offers $700 Million to Support Construction of First New US Coal Plants in Over a Decade</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Trump administration announced $700 million in federal funding to support the construction of new coal-fired power plants, the first such facilities to be built in the United States in more than 13 years.</span></span>
-            <span class="summary-full"><span>President Trump announced $700 million in federal funding directed at reviving coal-fired electricity generation, including support for what would be the first new coal power plants built in the United States since 2013. The domestic coal industry has been in a prolonged decline driven by competition from cheaper natural gas and, more recently, renewable energy sources. The administration has framed the investment as part of a broader energy independence strategy. The announcement comes as electricity demand is rising nationally, driven in part by data center expansion and AI computing infrastructure. Critics from the energy sector and environmental groups questioned the economic viability of new coal plants given their cost relative to alternatives.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_18">
+<h2 class="article-headline">Trump Administration Offers $700 Million to Support Construction of First New US Coal Plants in Over a Decade</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Trump administration announced $700 million in federal funding to support the construction of new coal-fired power plants, the first such facilities to be built in the United States in more than 13 years.</span></span>
+<span class="summary-full"><span>President Trump announced $700 million in federal funding directed at reviving coal-fired electricity generation, including support for what would be the first new coal power plants built in the United States since 2013. The domestic coal industry has been in a prolonged decline driven by competition from cheaper natural gas and, more recently, renewable energy sources. The administration has framed the investment as part of a broader energy independence strategy. The announcement comes as electricity demand is rising nationally, driven in part by data center expansion and AI computing infrastructure. Critics from the energy sector and environmental groups questioned the economic viability of new coal plants given their cost relative to alternatives.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/04/climate/trump-coal-plants-funding.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/04/climate/trump-coal-plants-funding.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">ECONOMY</div>
-        
-        <div class="article article-long" id="story_7">
-          <h2 class="article-headline">SpaceX IPO Set for June 12 at $135 Per Share, Expected to Enter Index Funds and 401(k)s</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>SpaceX is scheduled to begin trading on June 12 at a share price of $135, with a total valuation that would make it the largest initial public offering in history. The company plans to raise approximately $75 billion, and index rule changes mean shares will automatically flow into index funds and retirement accounts.</span></span>
-            <span class="summary-full"><span>SpaceX, Elon Musk's rocket and aerospace company, is set to list on public markets on June 12 at a price of $135 per share, with the company planning to sell approximately 555.6 million shares and raise around $75 billion. If completed as planned, it would be the largest initial public offering in history. Changes to index inclusion rules by Nasdaq and other index providers mean SpaceX shares will automatically be incorporated into index funds shortly after the IPO, which means the stock will end up in the portfolios of Americans who hold index-based 401(k) accounts whether or not they actively choose it. Reports indicate that up to a quarter of shares may be allocated to retail investors. The company's day-to-day operations are largely overseen by President and COO Gwynne Shotwell, who has managed operational continuity alongside Musk's broader public activities. The IPO arrives amid a broader wave of large market listings and a resurgence of investor interest in the space sector.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">ECONOMY</div>
+<div class="article article-long" id="story_7">
+<h2 class="article-headline">SpaceX IPO Set for June 12 at $135 Per Share, Expected to Enter Index Funds and 401(k)s</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>SpaceX is scheduled to begin trading on June 12 at a share price of $135, with a total valuation that would make it the largest initial public offering in history. The company plans to raise approximately $75 billion, and index rule changes mean shares will automatically flow into index funds and retirement accounts.</span></span>
+<span class="summary-full"><span>SpaceX, Elon Musk's rocket and aerospace company, is set to list on public markets on June 12 at a price of $135 per share, with the company planning to sell approximately 555.6 million shares and raise around $75 billion. If completed as planned, it would be the largest initial public offering in history. Changes to index inclusion rules by Nasdaq and other index providers mean SpaceX shares will automatically be incorporated into index funds shortly after the IPO, which means the stock will end up in the portfolios of Americans who hold index-based 401(k) accounts whether or not they actively choose it. Reports indicate that up to a quarter of shares may be allocated to retail investors. The company's day-to-day operations are largely overseen by President and COO Gwynne Shotwell, who has managed operational continuity alongside Musk's broader public activities. The IPO arrives amid a broader wave of large market listings and a resurgence of investor interest in the space sector.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/science/2026/jun/06/spacex-ipo-buy-shares-elon-musk-stock-market-launch-risks" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/science/2026/jun/06/spacex-ipo-buy-shares-elon-musk-stock-market-launch-risks" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/05/technology/spacex-indexes-401k.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/05/technology/spacex-indexes-401k.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/04/technology/gwynne-shotwell-spacex.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/04/technology/gwynne-shotwell-spacex.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/04/technology/space-nerds-spacex-ipo.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/04/technology/space-nerds-spacex-ipo.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/05/podcasts/hardfork-ipo-math.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/05/podcasts/hardfork-ipo-math.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_8">
-          <h2 class="article-headline">US Mortgage Rates Remain Elevated, With Limited Ability for the Fed to Intervene</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>US mortgage rates remain high, and the Federal Reserve has limited tools to bring them down, as investor inflation expectations — rather than the central bank's benchmark rate — are among the primary factors driving home loan costs.</span></span>
-            <span class="summary-full"><span>Mortgage rates in the United States remain elevated, and the Federal Reserve has few direct levers to lower them in the near term. Unlike the Fed's benchmark interest rate, mortgage rates are more closely tied to bond market dynamics and investor expectations about future inflation. As long as those expectations remain elevated — reflecting concerns about tariffs, government spending, or broader economic uncertainty — mortgage costs are likely to stay high regardless of Fed decisions. The situation continues to constrain home affordability across the country, affecting both first-time buyers and existing homeowners looking to refinance or move.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_8">
+<h2 class="article-headline">US Mortgage Rates Remain Elevated, With Limited Ability for the Fed to Intervene</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>US mortgage rates remain high, and the Federal Reserve has limited tools to bring them down, as investor inflation expectations — rather than the central bank's benchmark rate — are among the primary factors driving home loan costs.</span></span>
+<span class="summary-full"><span>Mortgage rates in the United States remain elevated, and the Federal Reserve has few direct levers to lower them in the near term. Unlike the Fed's benchmark interest rate, mortgage rates are more closely tied to bond market dynamics and investor expectations about future inflation. As long as those expectations remain elevated — reflecting concerns about tariffs, government spending, or broader economic uncertainty — mortgage costs are likely to stay high regardless of Fed decisions. The situation continues to constrain home affordability across the country, affecting both first-time buyers and existing homeowners looking to refinance or move.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/economy/u-s-mortgage-rates-are-staying-high-and-the-federal-reserve-can-do-little-about-it" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.pbs.org/newshour/economy/u-s-mortgage-rates-are-staying-high-and-the-federal-reserve-can-do-little-about-it" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_9">
-          <h2 class="article-headline">New World Screwworm Border Closure Creates Diverging Conditions for US and Mexican Cattle Industries</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A US border closure intended to prevent the spread of New World screwworm flies has driven up beef prices in Mexico while squeezing Texas cattle operations, which are also contending with drought.</span></span>
-            <span class="summary-full"><span>A US border closure enacted to prevent the spread of New World screwworm flies — a parasitic pest that can devastate livestock — has created sharply different conditions on either side of the border. In Mexico, restricted cattle exports have increased domestic supply, pushing beef prices lower and benefiting Mexican consumers and some processors. In Texas, feedlot operators and ranchers face reduced access to cattle imports they depend on, compounding pressure already created by drought conditions that have forced early sales of livestock. The screwworm, which lays eggs in open wounds of warm-blooded animals, had been eradicated from the US decades ago; its reemergence in Mexico prompted the closure as a precautionary measure. Texas ranchers expressed concern about the combined impact of the border restriction and insufficient rainfall reducing the grass available to sustain herds. The situation illustrates how a single animal health policy decision can have cascading and uneven economic effects across a shared agricultural market.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_9">
+<h2 class="article-headline">New World Screwworm Border Closure Creates Diverging Conditions for US and Mexican Cattle Industries</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A US border closure intended to prevent the spread of New World screwworm flies has driven up beef prices in Mexico while squeezing Texas cattle operations, which are also contending with drought.</span></span>
+<span class="summary-full"><span>A US border closure enacted to prevent the spread of New World screwworm flies — a parasitic pest that can devastate livestock — has created sharply different conditions on either side of the border. In Mexico, restricted cattle exports have increased domestic supply, pushing beef prices lower and benefiting Mexican consumers and some processors. In Texas, feedlot operators and ranchers face reduced access to cattle imports they depend on, compounding pressure already created by drought conditions that have forced early sales of livestock. The screwworm, which lays eggs in open wounds of warm-blooded animals, had been eradicated from the US decades ago; its reemergence in Mexico prompted the closure as a precautionary measure. Texas ranchers expressed concern about the combined impact of the border restriction and insufficient rainfall reducing the grass available to sustain herds. The situation illustrates how a single animal health policy decision can have cascading and uneven economic effects across a shared agricultural market.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.usnews.com/news/world/articles/2026-06-06/screwworm-border-closure-fuels-beef-boom-in-mexico-gloom-in-texas" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.usnews.com/news/world/articles/2026-06-06/screwworm-border-closure-fuels-beef-boom-in-mexico-gloom-in-texas" rel="noopener" target="_blank">
                   Usnews
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/06/business/screwworm-flies-drought-cattle.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/06/business/screwworm-flies-drought-cattle.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SCIENCE & HEALTH</div>
-        
-        <div class="article article-long" id="story_19">
-          <h2 class="article-headline">Researchers Demonstrate Precise Gene Editing of Human Embryos Using New Technique</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Scientists report editing genes in human embryos with a high degree of precision using a newer CRISPR-based technique, raising both medical possibilities and bioethical concerns about the engineering of human embryos.</span></span>
-            <span class="summary-full"><span>Researchers have demonstrated a new level of precision in editing the genes of human embryos, using an advanced version of CRISPR gene-editing technology that allows for more targeted changes than earlier methods. The technique involves base editing or a related approach that modifies individual genetic letters rather than cutting DNA strands, reducing the risk of unintended mutations. Scientists say the findings open potential pathways for preventing inherited genetic diseases, but bioethicists have long flagged concerns about the editing of human embryos, including the possibility of heritable changes being passed to future generations and the prospect of selecting or engineering traits beyond disease prevention. The research, published before a major scientific conference, adds urgency to ongoing international debates about the governance of human germline editing. No clinical applications were announced, and the embryos used in the research were not implanted.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SCIENCE &amp; HEALTH</div>
+<div class="article article-long" id="story_19">
+<h2 class="article-headline">Researchers Demonstrate Precise Gene Editing of Human Embryos Using New Technique</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Scientists report editing genes in human embryos with a high degree of precision using a newer CRISPR-based technique, raising both medical possibilities and bioethical concerns about the engineering of human embryos.</span></span>
+<span class="summary-full"><span>Researchers have demonstrated a new level of precision in editing the genes of human embryos, using an advanced version of CRISPR gene-editing technology that allows for more targeted changes than earlier methods. The technique involves base editing or a related approach that modifies individual genetic letters rather than cutting DNA strands, reducing the risk of unintended mutations. Scientists say the findings open potential pathways for preventing inherited genetic diseases, but bioethicists have long flagged concerns about the editing of human embryos, including the possibility of heritable changes being passed to future generations and the prospect of selecting or engineering traits beyond disease prevention. The research, published before a major scientific conference, adds urgency to ongoing international debates about the governance of human germline editing. No clinical applications were announced, and the embryos used in the research were not implanted.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/04/science/embryos-gene-editing-crispr.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/04/science/embryos-gene-editing-crispr.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_20">
-          <h2 class="article-headline">New Cancer Research Presented at ASCO Conference Includes Advances in Immunotherapy and Chemotherapy Reduction</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The 2026 American Society of Clinical Oncology conference in Chicago, attended by 40,000 health professionals, featured research on new approaches to making tumors visible to the immune system and on safely reducing chemotherapy for some patients.</span></span>
-            <span class="summary-full"><span>Researchers and physicians at the 2026 American Society of Clinical Oncology annual meeting in Chicago shared advances across multiple areas of cancer treatment. Among the highlights were studies exploring ways to strip the molecular signals that allow tumors to hide from the immune system — described colloquially as removing their invisibility cloaks — and findings suggesting that some patients may be able to safely reduce or skip chemotherapy regimens without reducing survival outcomes. The conference, the world's largest gathering focused on cancer care, featured more than 200 sessions and over 2,700 research presentations attended by approximately 40,000 health professionals. Specific drug and trial results were reported across tumor types, with implications for how future treatment protocols may be designed.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_20">
+<h2 class="article-headline">New Cancer Research Presented at ASCO Conference Includes Advances in Immunotherapy and Chemotherapy Reduction</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The 2026 American Society of Clinical Oncology conference in Chicago, attended by 40,000 health professionals, featured research on new approaches to making tumors visible to the immune system and on safely reducing chemotherapy for some patients.</span></span>
+<span class="summary-full"><span>Researchers and physicians at the 2026 American Society of Clinical Oncology annual meeting in Chicago shared advances across multiple areas of cancer treatment. Among the highlights were studies exploring ways to strip the molecular signals that allow tumors to hide from the immune system — described colloquially as removing their invisibility cloaks — and findings suggesting that some patients may be able to safely reduce or skip chemotherapy regimens without reducing survival outcomes. The conference, the world's largest gathering focused on cancer care, featured more than 200 sessions and over 2,700 research presentations attended by approximately 40,000 health professionals. Specific drug and trial results were reported across tumor types, with implications for how future treatment protocols may be designed.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/science/2026/jun/06/new-weapons-war-on-cancer-asco-conference-takeaways" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/science/2026/jun/06/new-weapons-war-on-cancer-asco-conference-takeaways" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_21">
-          <h2 class="article-headline">Scientists Warn That Trump Plan to Dismantle Ocean Monitoring System Would Harm Weather Forecasting</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>American and European scientists warned that a Trump administration plan to shut down a major ocean observation network would significantly reduce the accuracy of weather forecasts and El Niño predictions, with economic consequences for the United States.</span></span>
-            <span class="summary-full"><span>Scientists from the United States and Europe issued warnings about a Trump administration proposal to dismantle the Argo ocean observation system, a global network of thousands of automated floats that continuously measure ocean temperature, salinity, and currents. Researchers said eliminating the system would severely degrade the accuracy of weather predictions, hurricane forecasts, and El Niño modeling, all of which have direct economic consequences for agriculture, shipping, insurance, and emergency management. The US has historically been a major funder and contributor to the system, which is jointly operated with international partners. Scientists emphasized that the data collected is irreplaceable in real time and that losing it would set back decades of oceanographic monitoring. The administration has not publicly detailed the rationale for the proposed cuts beyond broad budget reduction goals.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_21">
+<h2 class="article-headline">Scientists Warn That Trump Plan to Dismantle Ocean Monitoring System Would Harm Weather Forecasting</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>American and European scientists warned that a Trump administration plan to shut down a major ocean observation network would significantly reduce the accuracy of weather forecasts and El Niño predictions, with economic consequences for the United States.</span></span>
+<span class="summary-full"><span>Scientists from the United States and Europe issued warnings about a Trump administration proposal to dismantle the Argo ocean observation system, a global network of thousands of automated floats that continuously measure ocean temperature, salinity, and currents. Researchers said eliminating the system would severely degrade the accuracy of weather predictions, hurricane forecasts, and El Niño modeling, all of which have direct economic consequences for agriculture, shipping, insurance, and emergency management. The US has historically been a major funder and contributor to the system, which is jointly operated with international partners. Scientists emphasized that the data collected is irreplaceable in real time and that losing it would set back decades of oceanographic monitoring. The administration has not publicly detailed the rationale for the proposed cuts beyond broad budget reduction goals.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/jun/05/trump-plan-ocean-monitoring-system-concern-scientists" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/environment/2026/jun/05/trump-plan-ocean-monitoring-system-concern-scientists" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/jun/05/trump-plan-ocean-monitoring-system-concern-scientists" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/environment/2026/jun/05/trump-plan-ocean-monitoring-system-concern-scientists" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_22">
-          <h2 class="article-headline">NASA Orders ISS Crew to Shelter in Dragon Spacecraft Amid Air Leak Repair Pause</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>NASA directed the five American crew members aboard the International Space Station to shelter in the docked SpaceX Dragon spacecraft and prepare for a possible evacuation after an air leak repair was paused.</span></span>
-            <span class="summary-full"><span>NASA ordered the four crew members of its SpaceX Crew-12 mission and a fifth American astronaut aboard the International Space Station to move into the docked Dragon capsule and prepare for a potential evacuation after work on an air leak repair was suspended. The Russian space agency Roscosmos was reported to be taking on a more extensive role in the repair effort. Air leaks on the ISS have been an ongoing concern, with previous instances managed without crew evacuation. The shelter-in-place directive represented an elevated precautionary response. NASA did not immediately announce a timeline for resuming repair work or returning crew to the station's main modules.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_22">
+<h2 class="article-headline">NASA Orders ISS Crew to Shelter in Dragon Spacecraft Amid Air Leak Repair Pause</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>NASA directed the five American crew members aboard the International Space Station to shelter in the docked SpaceX Dragon spacecraft and prepare for a possible evacuation after an air leak repair was paused.</span></span>
+<span class="summary-full"><span>NASA ordered the four crew members of its SpaceX Crew-12 mission and a fifth American astronaut aboard the International Space Station to move into the docked Dragon capsule and prepare for a potential evacuation after work on an air leak repair was suspended. The Russian space agency Roscosmos was reported to be taking on a more extensive role in the repair effort. Air leaks on the ISS have been an ongoing concern, with previous instances managed without crew evacuation. The shelter-in-place directive represented an elevated precautionary response. NASA did not immediately announce a timeline for resuming repair work or returning crew to the station's main modules.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/science/live/2026/jun/05/international-space-station-astronauts-evacuation-air-leak-latest-news-updates" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/science/live/2026/jun/05/international-space-station-astronauts-evacuation-air-leak-latest-news-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_23">
-          <h2 class="article-headline">Ebola Outbreak in Congo Widens as Testing Shortfalls and US Response Questions Mount</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>An Ebola outbreak caused by the Bundibugyo strain in the Democratic Republic of Congo is expanding, with a shortage of diagnostic tests limiting containment efforts. The Trump administration has not stated whether Americans at risk would be permitted to return to the US for monitoring or treatment.</span></span>
-            <span class="summary-full"><span>A widening Ebola outbreak in the Democratic Republic of Congo, caused by the Bundibugyo strain — a variant that had previously caused only two small outbreaks — has drawn concern from global health officials. A severe shortage of specialized diagnostic tests has hampered the ability of health workers to identify cases quickly, allowing the virus to spread before patients can be isolated. Scientists are racing to develop effective vaccines and treatments for this specific Bundibugyo variant, for which fewer countermeasures exist than for the more familiar Zaire strain. The outbreak also threatens wildlife in the region, including rare mountain gorillas in Virunga National Park, where rangers are working to contain the virus while also managing increased conflict-related violence in the area. The Trump administration has not outlined a plan for handling Americans who may have been exposed, and has not confirmed whether such individuals would be permitted to return to the US under existing protocols that allow repatriation for monitoring and treatment. The lack of clarity represents a departure from standard procedures followed in previous administrations.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_23">
+<h2 class="article-headline">Ebola Outbreak in Congo Widens as Testing Shortfalls and US Response Questions Mount</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>An Ebola outbreak caused by the Bundibugyo strain in the Democratic Republic of Congo is expanding, with a shortage of diagnostic tests limiting containment efforts. The Trump administration has not stated whether Americans at risk would be permitted to return to the US for monitoring or treatment.</span></span>
+<span class="summary-full"><span>A widening Ebola outbreak in the Democratic Republic of Congo, caused by the Bundibugyo strain — a variant that had previously caused only two small outbreaks — has drawn concern from global health officials. A severe shortage of specialized diagnostic tests has hampered the ability of health workers to identify cases quickly, allowing the virus to spread before patients can be isolated. Scientists are racing to develop effective vaccines and treatments for this specific Bundibugyo variant, for which fewer countermeasures exist than for the more familiar Zaire strain. The outbreak also threatens wildlife in the region, including rare mountain gorillas in Virunga National Park, where rangers are working to contain the virus while also managing increased conflict-related violence in the area. The Trump administration has not outlined a plan for handling Americans who may have been exposed, and has not confirmed whether such individuals would be permitted to return to the US under existing protocols that allow repatriation for monitoring and treatment. The lack of clarity represents a departure from standard procedures followed in previous administrations.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/03/us/politics/trump-administration-ebola-response.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/03/us/politics/trump-administration-ebola-response.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/02/health/ebola-tests-congo.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/02/health/ebola-tests-congo.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/01/science/ebola-vaccines-treatments.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/01/science/ebola-vaccines-treatments.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/06/g-s1-126287/ebola-gorillas-democratic-republic-congo" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/06/g-s1-126287/ebola-gorillas-democratic-republic-congo" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">TECHNOLOGY</div>
-        
-        <div class="article article-medium" id="story_24">
-          <h2 class="article-headline">More Than 150 Mathematicians Urge Governments to Approach AI Capability Claims With Skepticism</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A group of more than 150 mathematicians published a statement warning governments not to accept technology industry claims about AI capabilities at face value, citing strong commercial incentives to overstate what current systems can do.</span></span>
-            <span class="summary-full"><span>More than 150 professional mathematicians signed a statement directed at government policymakers, urging caution about claims made by technology companies regarding the capabilities of artificial intelligence systems. The signatories argued that there is a significant commercial incentive for AI developers to exaggerate what their products can accomplish, and that policymakers making regulatory and investment decisions should seek independent assessments rather than relying on industry self-reporting. The letter did not argue that AI is without value or impact, but focused specifically on the gap between marketing claims and demonstrated technical performance. The statement arrives as governments around the world are actively developing AI policy frameworks and making substantial public investments in the technology.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">TECHNOLOGY</div>
+<div class="article article-medium" id="story_24">
+<h2 class="article-headline">More Than 150 Mathematicians Urge Governments to Approach AI Capability Claims With Skepticism</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A group of more than 150 mathematicians published a statement warning governments not to accept technology industry claims about AI capabilities at face value, citing strong commercial incentives to overstate what current systems can do.</span></span>
+<span class="summary-full"><span>More than 150 professional mathematicians signed a statement directed at government policymakers, urging caution about claims made by technology companies regarding the capabilities of artificial intelligence systems. The signatories argued that there is a significant commercial incentive for AI developers to exaggerate what their products can accomplish, and that policymakers making regulatory and investment decisions should seek independent assessments rather than relying on industry self-reporting. The letter did not argue that AI is without value or impact, but focused specifically on the gap between marketing claims and demonstrated technical performance. The statement arrives as governments around the world are actively developing AI policy frameworks and making substantial public investments in the technology.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://futurism.com/artificial-intelligence/mathematicians-warn-governments-hype-ai" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://futurism.com/artificial-intelligence/mathematicians-warn-governments-hype-ai" rel="noopener" target="_blank">
                   Futurism
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SPORTS</div>
-        
-        <div class="article article-short" id="story_25">
-          <h2 class="article-headline">Mirra Andreeva Wins French Open Women's Title</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Russian teenager Mirra Andreeva won her first Grand Slam title at the French Open, defeating Polish qualifier Maja Chwalinska in the final.</span></span>
-            <span class="summary-full"><span>Mirra Andreeva, a teenage Russian tennis player, claimed her first Grand Slam championship at the French Open, defeating Maja Chwalinska of Poland in the final. Chwalinska, who entered the tournament as a qualifier, had been one of the more unexpected finalists in recent Grand Slam history before falling to Andreeva. The victory fulfilled expectations that had surrounded Andreeva as one of the most promising young players on the women's tour.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SPORTS</div>
+<div class="article article-short" id="story_25">
+<h2 class="article-headline">Mirra Andreeva Wins French Open Women's Title</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Russian teenager Mirra Andreeva won her first Grand Slam title at the French Open, defeating Polish qualifier Maja Chwalinska in the final.</span></span>
+<span class="summary-full"><span>Mirra Andreeva, a teenage Russian tennis player, claimed her first Grand Slam championship at the French Open, defeating Maja Chwalinska of Poland in the final. Chwalinska, who entered the tournament as a qualifier, had been one of the more unexpected finalists in recent Grand Slam history before falling to Andreeva. The victory fulfilled expectations that had surrounded Andreeva as one of the most promising young players on the women's tour.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.bbc.com/sport/tennis/articles/c1dy7grv4y3o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.com/sport/tennis/articles/c1dy7grv4y3o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
+</li>
+</ul>
+</div>
+</div>
+<!-- Footer -->
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+<div class="archive-link-section"><a class="archive-link" href="/archive.html">Browse past editions →</a></div>
+<footer class="footer">
+<p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
-      <p style="margin-top:0.75rem;"><a href="2026-06-06-pm-sources.html">Sources for this digest →</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<p style="margin-top:0.75rem;"><a href="2026-06-06-pm-sources.html">Sources for this digest →</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-
 <script>
   // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
@@ -1539,34 +1314,6 @@
     btn.setAttribute('aria-expanded', String(!expanded));
   });
 
-  function toggleMobileArchive() {
-    var panel = document.getElementById('mobile-archive-panel');
-    var toggle = document.getElementById('mobile-toggle');
-    var isOpen = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  }
-
-  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
-  // always show all editions regardless of which page was generated.
-  (function() {
-    var current = '2026-06-06-pm.html';
-    fetch('archive.json?v=' + Date.now())
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-        var mob = document.getElementById('mobile-archive-panel');
-        if (mob) mob.innerHTML = '<div class="mobile-archive-title">Past Editions</div>' + html;
-      })
-      .catch(function() {});
-  })();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');

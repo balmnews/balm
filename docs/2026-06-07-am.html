@@ -1,19 +1,20 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Sunday, June 7, 2026 AM</title>
-  <meta name="description" content="Balm news digest for Sunday, June 7, 2026 — topical, anti-inflammatory news.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" href="/icons/icon-192.png">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm — Sunday, June 7, 2026 AM</title>
+<meta content="Balm news digest for Sunday, June 7, 2026 — topical, anti-inflammatory news." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/icons/icon-192.png" rel="icon" type="image/png"/>
+<link href="/icons/icon-192.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -43,10 +44,9 @@
 
     /* Layout */
     .page-wrapper {
-      display: flex;
-      max-width: 1100px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.25rem;
     }
 
     .sidebar {
@@ -502,660 +502,504 @@
   </style>
 </head>
 <body>
-
 <!-- Mobile archive toggle (shown only on mobile) -->
-<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
-  <span class="mobile-archive-caret">›</span> Archive
-</div>
-<div class="mobile-archive-panel" id="mobile-archive-panel">
-  <div class="mobile-archive-title">Past Editions</div>
-  <!-- populated by archive.json fetch on page load — never server-rendered -->
-</div>
+
 
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    <!-- populated by archive.json fetch on page load — never server-rendered -->
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-              <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-              <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-            </filter>
-          </defs>
-          <text x="90" y="44"
-                font-family="Caveat, cursive"
-                font-size="52"
-                font-weight="700"
-                fill="#6b82a8"
-                text-anchor="middle"
-                letter-spacing="8"
-                filter="url(#balm-spread)">Balm</text>
-        </svg>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Sunday, June 7, 2026 &middot; AM Edition</p>
-    </header>
-
-    <!-- Audio player -->
-    
-
-    <!-- Top stories navigation -->
-    
-    <div class="top-stories">
-      <div class="top-stories-heading">Today's Top Stories</div>
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_0">Russian Drone Strikes Spent Nuclear Fuel Storage Building Near Chornobyl</a>
-        <span class="top-story-reason">A drone strike on a nuclear fuel storage facility near Chornobyl raises serious radiological safety concerns with potential international implications.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_1">U.S. and Iran Exchange Fire in Gulf, Testing Fragile Ceasefire</a>
-        <span class="top-story-reason">Direct military exchange between the U.S. and Iran threatens to escalate a fragile ceasefire with significant consequences for regional stability and global energy markets.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_13">Scientists Achieve Precise Gene Editing of Human Embryos Using Newer CRISPR Technique</a>
-        <span class="top-story-reason">Precise gene editing of human embryos marks a significant scientific milestone with far-reaching ethical, medical, and regulatory implications.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_10">Cuts to U.S. AIDS Funding in Africa Are Disrupting Treatment Programs and Endangering Patients</a>
-        <span class="top-story-reason">Cuts to U.S. AIDS funding in Africa are immediately disrupting life-saving treatment for millions of patients, with broad humanitarian consequences.</span>
-      </div>
-      
-      
-    </div>
-    
-
-    <!-- Stories -->
-    
-      
-        <div class="section-header">GEOPOLITICS</div>
-        
-        <div class="article article-medium" id="story_0">
-          <h2 class="article-headline">Russian Drone Strikes Spent Nuclear Fuel Storage Building Near Chornobyl</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A Russian Shahed drone substantially damaged a building used to store spent nuclear fuel near the decommissioned Chornobyl nuclear power plant in Ukraine, according to Ukrainian officials.</span></span>
-            <span class="summary-full"><span>A Russian Shahed drone struck and substantially damaged a building at the spent nuclear fuel storage facility near the decommissioned Chornobyl nuclear power plant in northern Ukraine. Ukrainian officials described the attack as deliberate. The building that was hit is identified as the reception building of the spent fuel storage facility — not the primary storage structure itself — but the strike prompted immediate concern from Ukrainian authorities about the integrity of nuclear safety at the site. Ukrainian President Volodymyr Zelensky characterized the attack as 'extremely vile.' The Chornobyl site, scene of the 1986 nuclear disaster, has remained a point of international concern throughout the conflict. Nuclear safety experts and international monitors have repeatedly warned about the risks posed by military activity near Ukraine's nuclear infrastructure. The strike comes as ceasefire negotiations between Russia and Ukraine remain unresolved.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news"><svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg></a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Sunday, June 7, 2026 · AM Edition</p>
+</header>
+<!-- Audio player -->
+<!-- Top stories navigation -->
+<div class="top-stories">
+<div class="top-stories-heading">Today's Top Stories</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_0">Russian Drone Strikes Spent Nuclear Fuel Storage Building Near Chornobyl</a>
+<span class="top-story-reason">A drone strike on a nuclear fuel storage facility near Chornobyl raises serious radiological safety concerns with potential international implications.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_1">U.S. and Iran Exchange Fire in Gulf, Testing Fragile Ceasefire</a>
+<span class="top-story-reason">Direct military exchange between the U.S. and Iran threatens to escalate a fragile ceasefire with significant consequences for regional stability and global energy markets.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_13">Scientists Achieve Precise Gene Editing of Human Embryos Using Newer CRISPR Technique</a>
+<span class="top-story-reason">Precise gene editing of human embryos marks a significant scientific milestone with far-reaching ethical, medical, and regulatory implications.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_10">Cuts to U.S. AIDS Funding in Africa Are Disrupting Treatment Programs and Endangering Patients</a>
+<span class="top-story-reason">Cuts to U.S. AIDS funding in Africa are immediately disrupting life-saving treatment for millions of patients, with broad humanitarian consequences.</span>
+</div>
+</div>
+<!-- Stories -->
+<div class="section-header">GEOPOLITICS</div>
+<div class="article article-medium" id="story_0">
+<h2 class="article-headline">Russian Drone Strikes Spent Nuclear Fuel Storage Building Near Chornobyl</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A Russian Shahed drone substantially damaged a building used to store spent nuclear fuel near the decommissioned Chornobyl nuclear power plant in Ukraine, according to Ukrainian officials.</span></span>
+<span class="summary-full"><span>A Russian Shahed drone struck and substantially damaged a building at the spent nuclear fuel storage facility near the decommissioned Chornobyl nuclear power plant in northern Ukraine. Ukrainian officials described the attack as deliberate. The building that was hit is identified as the reception building of the spent fuel storage facility — not the primary storage structure itself — but the strike prompted immediate concern from Ukrainian authorities about the integrity of nuclear safety at the site. Ukrainian President Volodymyr Zelensky characterized the attack as 'extremely vile.' The Chornobyl site, scene of the 1986 nuclear disaster, has remained a point of international concern throughout the conflict. Nuclear safety experts and international monitors have repeatedly warned about the risks posed by military activity near Ukraine's nuclear infrastructure. The strike comes as ceasefire negotiations between Russia and Ukraine remain unresolved.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/07/russian-drone-hits-building-spent-nuclear-fuel-chornobyl" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/07/russian-drone-hits-building-spent-nuclear-fuel-chornobyl" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_1">
-          <h2 class="article-headline">U.S. and Iran Exchange Fire in Gulf, Testing Fragile Ceasefire</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Iran fired ballistic missiles and drones toward Bahrain and Kuwait, which were intercepted, as the United States and Iran again exchanged fire in the Gulf, putting pressure on an already fragile ceasefire.</span></span>
-            <span class="summary-full"><span>Iran launched ballistic missiles and drones toward Bahrain and Kuwait early Saturday, which were intercepted, according to Bahrain's government. The exchange of fire between U.S. and Iranian forces in the Gulf represents a continuing threat to a ceasefire in the Middle East conflict. Bahrain called on Tehran to halt attacks on Gulf neighbors. The incident adds to international concern that the ceasefire — already described as fragile — may not hold. The United Nations has separately warned that the ongoing conflict is driving tens of millions more people toward acute hunger, with the World Food Programme noting that earlier pessimistic forecasts about food insecurity are being borne out. U.S. efforts to reach a negotiated peace deal remain ongoing. The situation has direct implications for American military personnel stationed in the region and for global energy markets, which have already seen oil price increases attributed to the conflict.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_1">
+<h2 class="article-headline">U.S. and Iran Exchange Fire in Gulf, Testing Fragile Ceasefire</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Iran fired ballistic missiles and drones toward Bahrain and Kuwait, which were intercepted, as the United States and Iran again exchanged fire in the Gulf, putting pressure on an already fragile ceasefire.</span></span>
+<span class="summary-full"><span>Iran launched ballistic missiles and drones toward Bahrain and Kuwait early Saturday, which were intercepted, according to Bahrain's government. The exchange of fire between U.S. and Iranian forces in the Gulf represents a continuing threat to a ceasefire in the Middle East conflict. Bahrain called on Tehran to halt attacks on Gulf neighbors. The incident adds to international concern that the ceasefire — already described as fragile — may not hold. The United Nations has separately warned that the ongoing conflict is driving tens of millions more people toward acute hunger, with the World Food Programme noting that earlier pessimistic forecasts about food insecurity are being borne out. U.S. efforts to reach a negotiated peace deal remain ongoing. The situation has direct implications for American military personnel stationed in the region and for global energy markets, which have already seen oil price increases attributed to the conflict.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/u-s-iran-exchange-of-fire-in-gulf-tests-fragile-ceasefire" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.pbs.org/newshour/world/u-s-iran-exchange-of-fire-in-gulf-tests-fragile-ceasefire" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_2">
-          <h2 class="article-headline">Ukrainian Drones Strike St. Petersburg During Russia's Flagship Economic Forum</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Ukrainian drone attacks on St. Petersburg disrupted Russia's major annual economic forum, overshadowing the event as the war continues.</span></span>
-            <span class="summary-full"><span>Ukrainian drone attacks struck the St. Petersburg area during Russia's flagship annual economic forum, disrupting what is typically a high-profile showcase event for the Russian government. The attacks drew international attention to the ongoing conflict and underscored Ukraine's expanding drone capabilities, which have now reached deep inside Russian territory. The economic forum, which Russia uses to signal investment confidence and international engagement, was significantly overshadowed by the strikes. The incident is part of a broader pattern of Ukrainian long-range drone operations targeting Russian cities and infrastructure.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_2">
+<h2 class="article-headline">Ukrainian Drones Strike St. Petersburg During Russia's Flagship Economic Forum</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Ukrainian drone attacks on St. Petersburg disrupted Russia's major annual economic forum, overshadowing the event as the war continues.</span></span>
+<span class="summary-full"><span>Ukrainian drone attacks struck the St. Petersburg area during Russia's flagship annual economic forum, disrupting what is typically a high-profile showcase event for the Russian government. The attacks drew international attention to the ongoing conflict and underscored Ukraine's expanding drone capabilities, which have now reached deep inside Russian territory. The economic forum, which Russia uses to signal investment confidence and international engagement, was significantly overshadowed by the strikes. The incident is part of a broader pattern of Ukrainian long-range drone operations targeting Russian cities and infrastructure.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c9q2gp52rgro?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.com/news/articles/c9q2gp52rgro?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c9q2gp52rgro?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c9q2gp52rgro?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_3">
-          <h2 class="article-headline">Congress Advances War Powers Resolutions to Limit U.S. Military Action Against Iran</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Both the House and Senate have advanced War Powers Resolution measures aimed at limiting President Trump's authority to continue military operations against Iran, raising questions about whether the 53-year-old law can be enforced.</span></span>
-            <span class="summary-full"><span>Both chambers of Congress have advanced War Powers Resolution measures that would seek to curtail President Trump's authority to continue U.S. military operations against Iran. The War Powers Resolution, enacted in 1973, requires the president to notify Congress within 48 hours of committing armed forces to hostilities and limits unauthorized military engagements to 60 days without congressional approval. Whether Congress can effectively enforce the resolution against a president who disputes its applicability remains an open legal and political question. The measures reflect growing congressional concern about the scope and duration of U.S. military involvement in the Iran conflict. For the resolutions to result in an end to hostilities, they would need to clear procedural and political hurdles in both chambers and withstand a likely presidential veto, requiring a two-thirds majority to override. The debate has direct implications for American service members in the region and for U.S. foreign policy more broadly.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_3">
+<h2 class="article-headline">Congress Advances War Powers Resolutions to Limit U.S. Military Action Against Iran</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Both the House and Senate have advanced War Powers Resolution measures aimed at limiting President Trump's authority to continue military operations against Iran, raising questions about whether the 53-year-old law can be enforced.</span></span>
+<span class="summary-full"><span>Both chambers of Congress have advanced War Powers Resolution measures that would seek to curtail President Trump's authority to continue U.S. military operations against Iran. The War Powers Resolution, enacted in 1973, requires the president to notify Congress within 48 hours of committing armed forces to hostilities and limits unauthorized military engagements to 60 days without congressional approval. Whether Congress can effectively enforce the resolution against a president who disputes its applicability remains an open legal and political question. The measures reflect growing congressional concern about the scope and duration of U.S. military involvement in the Iran conflict. For the resolutions to result in an end to hostilities, they would need to clear procedural and political hurdles in both chambers and withstand a likely presidential veto, requiring a two-thirds majority to override. The debate has direct implications for American service members in the region and for U.S. foreign policy more broadly.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/politics/whats-next-for-the-war-powers-resolution-on-iran-politifact-explains" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.pbs.org/newshour/politics/whats-next-for-the-war-powers-resolution-on-iran-politifact-explains" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_4">
-          <h2 class="article-headline">Pope Leo XIV Draws Estimated One Million to Madrid, Calls for End to Political Polarization</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>An estimated one million people gathered in Madrid for Pope Leo XIV's open-air Mass, the first papal visit to Spain in 15 years. The pope urged Spaniards to stop fueling political division.</span></span>
-            <span class="summary-full"><span>Pope Leo XIV drew an estimated one million people to the streets of Madrid during his open-air Mass at the Plaza de Cibeles, making it the first papal visit to Spain in 15 years. The crowd, which included a large youth contingent, gathered for a flower-carpeted procession and vigil, with some estimates placing attendance at a Saturday vigil at around 500,000. The pope used the visit to address Spain's current political climate, urging citizens to stop 'fanning the flames of polarization.' Spain is currently experiencing political tension under its Socialist-led government and what observers describe as a credibility challenge for the Catholic Church in the country. Sources vary on total crowd figures, with estimates ranging from 500,000 to one million depending on which event is counted. The visit carries significance beyond Spain as an indicator of the new pope's public engagement style and his priorities for the Catholic Church in Europe.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_4">
+<h2 class="article-headline">Pope Leo XIV Draws Estimated One Million to Madrid, Calls for End to Political Polarization</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>An estimated one million people gathered in Madrid for Pope Leo XIV's open-air Mass, the first papal visit to Spain in 15 years. The pope urged Spaniards to stop fueling political division.</span></span>
+<span class="summary-full"><span>Pope Leo XIV drew an estimated one million people to the streets of Madrid during his open-air Mass at the Plaza de Cibeles, making it the first papal visit to Spain in 15 years. The crowd, which included a large youth contingent, gathered for a flower-carpeted procession and vigil, with some estimates placing attendance at a Saturday vigil at around 500,000. The pope used the visit to address Spain's current political climate, urging citizens to stop 'fanning the flames of polarization.' Spain is currently experiencing political tension under its Socialist-led government and what observers describe as a credibility challenge for the Catholic Church in the country. Sources vary on total crowd figures, with estimates ranging from 500,000 to one million depending on which event is counted. The visit carries significance beyond Spain as an indicator of the new pope's public engagement style and his priorities for the Catholic Church in Europe.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/world/pope-leo-xiv-jokes-young-spaniards-would-pick-bad-bunny-madrid-visit-weekend" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/pope-leo-xiv-jokes-young-spaniards-would-pick-bad-bunny-madrid-visit-weekend" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c4gyejvzx9eo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c4gyejvzx9eo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/07/nx-s1-5849147/1-million-flood-madrid-streets-pope-procession" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/07/nx-s1-5849147/1-million-flood-madrid-streets-pope-procession" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/pope-leo-xiv-warns-against-fanning-the-flames-of-polarization-on-first-papal-visit-to-spain-in-15-years" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/world/pope-leo-xiv-warns-against-fanning-the-flames-of-polarization-on-first-papal-visit-to-spain-in-15-years" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">ECONOMY</div>
-        
-        <div class="article article-long" id="story_5">
-          <h2 class="article-headline">SpaceX IPO Set for June 12 in What May Be the Largest U.S. Stock Market Debut on Record</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>SpaceX is scheduled to begin trading on June 12 at a valuation of $135 per share, aiming to raise $75 billion in what is projected to be the largest initial public offering in U.S. history. The company will automatically enter major index funds, affecting 401(k) holders.</span></span>
-            <span class="summary-full"><span>SpaceX is set to go public on June 12, offering 555.6 million shares at $135 each, which would raise approximately $75 billion and give the company a market valuation that would make it the largest IPO in U.S. history. Following rule changes by Nasdaq and other index providers, SpaceX shares are expected to be automatically included in major index funds shortly after the offering, meaning the stock will likely appear in the retirement accounts of millions of Americans — including 401(k) holders — whether or not they actively choose to invest. Up to a quarter of available shares were reported to be in high demand from institutional investors ahead of the listing. Sources covering the IPO have highlighted the role of Gwynne Shotwell, SpaceX's president and chief operating officer, in managing the company's day-to-day operations as it prepares for the public market. SpaceX's business spans satellite internet services, government launch contracts, and ongoing development of heavy-lift rockets. Analysts note the offering is being closely watched as a test of investor appetite for large, capital-intensive technology companies. The IPO is one of what observers describe as a cluster of major market debuts expected this summer.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">ECONOMY</div>
+<div class="article article-long" id="story_5">
+<h2 class="article-headline">SpaceX IPO Set for June 12 in What May Be the Largest U.S. Stock Market Debut on Record</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>SpaceX is scheduled to begin trading on June 12 at a valuation of $135 per share, aiming to raise $75 billion in what is projected to be the largest initial public offering in U.S. history. The company will automatically enter major index funds, affecting 401(k) holders.</span></span>
+<span class="summary-full"><span>SpaceX is set to go public on June 12, offering 555.6 million shares at $135 each, which would raise approximately $75 billion and give the company a market valuation that would make it the largest IPO in U.S. history. Following rule changes by Nasdaq and other index providers, SpaceX shares are expected to be automatically included in major index funds shortly after the offering, meaning the stock will likely appear in the retirement accounts of millions of Americans — including 401(k) holders — whether or not they actively choose to invest. Up to a quarter of available shares were reported to be in high demand from institutional investors ahead of the listing. Sources covering the IPO have highlighted the role of Gwynne Shotwell, SpaceX's president and chief operating officer, in managing the company's day-to-day operations as it prepares for the public market. SpaceX's business spans satellite internet services, government launch contracts, and ongoing development of heavy-lift rockets. Analysts note the offering is being closely watched as a test of investor appetite for large, capital-intensive technology companies. The IPO is one of what observers describe as a cluster of major market debuts expected this summer.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/science/2026/jun/06/spacex-ipo-buy-shares-elon-musk-stock-market-launch-risks" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/science/2026/jun/06/spacex-ipo-buy-shares-elon-musk-stock-market-launch-risks" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/05/technology/spacex-indexes-401k.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/05/technology/spacex-indexes-401k.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/04/technology/gwynne-shotwell-spacex.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/04/technology/gwynne-shotwell-spacex.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/04/technology/space-nerds-spacex-ipo.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/04/technology/space-nerds-spacex-ipo.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/05/podcasts/hardfork-ipo-math.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/05/podcasts/hardfork-ipo-math.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_6">
-          <h2 class="article-headline">Mortgage Rates Remain Elevated and the Federal Reserve Has Limited Tools to Bring Them Down</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>U.S. mortgage rates continue to stay high, with analysts noting that investor inflation expectations — not Federal Reserve policy — are the primary driver, leaving the central bank with limited ability to provide relief to homebuyers.</span></span>
-            <span class="summary-full"><span>U.S. mortgage rates remain elevated, and economists say the Federal Reserve has limited tools to bring them down in the near term. Unlike short-term borrowing costs, which the Fed controls directly through its benchmark interest rate, mortgage rates are more closely tied to longer-term bond market yields, which in turn reflect investor expectations about future inflation. With inflation expectations remaining elevated — partly due to the ongoing conflict with Iran and its effect on energy prices — long-term rates have stayed high even as the Fed has kept its policy rate steady. For prospective homebuyers and current homeowners looking to refinance, the situation means continued pressure on affordability. Housing economists say relief would likely require a sustained decline in inflation expectations, which depends on factors largely outside the Fed's immediate control.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_6">
+<h2 class="article-headline">Mortgage Rates Remain Elevated and the Federal Reserve Has Limited Tools to Bring Them Down</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>U.S. mortgage rates continue to stay high, with analysts noting that investor inflation expectations — not Federal Reserve policy — are the primary driver, leaving the central bank with limited ability to provide relief to homebuyers.</span></span>
+<span class="summary-full"><span>U.S. mortgage rates remain elevated, and economists say the Federal Reserve has limited tools to bring them down in the near term. Unlike short-term borrowing costs, which the Fed controls directly through its benchmark interest rate, mortgage rates are more closely tied to longer-term bond market yields, which in turn reflect investor expectations about future inflation. With inflation expectations remaining elevated — partly due to the ongoing conflict with Iran and its effect on energy prices — long-term rates have stayed high even as the Fed has kept its policy rate steady. For prospective homebuyers and current homeowners looking to refinance, the situation means continued pressure on affordability. Housing economists say relief would likely require a sustained decline in inflation expectations, which depends on factors largely outside the Fed's immediate control.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/economy/u-s-mortgage-rates-are-staying-high-and-the-federal-reserve-can-do-little-about-it" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.pbs.org/newshour/economy/u-s-mortgage-rates-are-staying-high-and-the-federal-reserve-can-do-little-about-it" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_7">
-          <h2 class="article-headline">Rising Fuel Costs Tied to Iran Conflict Are Affecting Summer Boating Plans</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Higher fuel prices linked to the Iran war are increasing costs for recreational boaters this summer, with ethanol-free marine gasoline particularly expensive.</span></span>
-            <span class="summary-full"><span>Recreational boaters are facing significantly higher fuel costs this summer, adding to the pressure already felt by motorists and airline passengers. Ethanol-free gasoline, which many boats require and which is not blended with corn-based additives, is selling at a premium above the already-elevated prices at standard fuel pumps. Analysts attribute the spike partly to the ongoing U.S.-Iran conflict, which has disrupted oil markets and pushed petroleum prices higher. Many boat owners say the increased costs are leading them to reduce the frequency or distance of trips, scale back summer plans, or delay purchases of fuel-intensive watercraft. The trend reflects a broader pattern of energy price increases affecting multiple sectors of the American consumer economy.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_7">
+<h2 class="article-headline">Rising Fuel Costs Tied to Iran Conflict Are Affecting Summer Boating Plans</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Higher fuel prices linked to the Iran war are increasing costs for recreational boaters this summer, with ethanol-free marine gasoline particularly expensive.</span></span>
+<span class="summary-full"><span>Recreational boaters are facing significantly higher fuel costs this summer, adding to the pressure already felt by motorists and airline passengers. Ethanol-free gasoline, which many boats require and which is not blended with corn-based additives, is selling at a premium above the already-elevated prices at standard fuel pumps. Analysts attribute the spike partly to the ongoing U.S.-Iran conflict, which has disrupted oil markets and pushed petroleum prices higher. Many boat owners say the increased costs are leading them to reduce the frequency or distance of trips, scale back summer plans, or delay purchases of fuel-intensive watercraft. The trend reflects a broader pattern of energy price increases affecting multiple sectors of the American consumer economy.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.timeswv.com/news/business/fuel-prices-are-shaping-summer-plans-as-us-boaters-get-ready-to-hit-the-water/article_52882eb5-ad31-562e-9e0f-36bb520d29f4.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.timeswv.com/news/business/fuel-prices-are-shaping-summer-plans-as-us-boaters-get-ready-to-hit-the-water/article_52882eb5-ad31-562e-9e0f-36bb520d29f4.html" rel="noopener" target="_blank">
                   Timeswv
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">DOMESTIC POLICY</div>
-        
-        <div class="article article-medium" id="story_8">
-          <h2 class="article-headline">Arctic Refuge Oil Auction Draws Minimal Interest Despite Administration Push</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>An auction to lease drilling rights in the Arctic National Wildlife Refuge concluded with only 10 percent of available land receiving bids, despite the administration's promotion of oil development there.</span></span>
-            <span class="summary-full"><span>A federal auction of oil drilling leases in the Arctic National Wildlife Refuge ended with bids on only about 10 percent of the available acreage, a result that signals limited enthusiasm from energy companies despite the Trump administration's strong advocacy for oil development in the refuge. The refuge, located in northeastern Alaska, has been a flashpoint in debates over energy development and environmental protection for decades. Congress authorized leasing in the refuge as part of a 2017 tax bill, but prior lease sales also drew minimal industry participation, with companies citing uncertain economics, legal challenges, and reputational risks. The latest auction's outcome suggests that even with administration support, market forces and legal uncertainty continue to deter significant investment in the area.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">DOMESTIC POLICY</div>
+<div class="article article-medium" id="story_8">
+<h2 class="article-headline">Arctic Refuge Oil Auction Draws Minimal Interest Despite Administration Push</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>An auction to lease drilling rights in the Arctic National Wildlife Refuge concluded with only 10 percent of available land receiving bids, despite the administration's promotion of oil development there.</span></span>
+<span class="summary-full"><span>A federal auction of oil drilling leases in the Arctic National Wildlife Refuge ended with bids on only about 10 percent of the available acreage, a result that signals limited enthusiasm from energy companies despite the Trump administration's strong advocacy for oil development in the refuge. The refuge, located in northeastern Alaska, has been a flashpoint in debates over energy development and environmental protection for decades. Congress authorized leasing in the refuge as part of a 2017 tax bill, but prior lease sales also drew minimal industry participation, with companies citing uncertain economics, legal challenges, and reputational risks. The latest auction's outcome suggests that even with administration support, market forces and legal uncertainty continue to deter significant investment in the area.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/05/climate/anwr-lease-sale-alaska.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/05/climate/anwr-lease-sale-alaska.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_9">
-          <h2 class="article-headline">Trump Administration Offers $700 Million in Federal Funds to Support New Coal Plants</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Trump administration announced $700 million in federal funding to support construction of new coal-fired power plants, the first such initiative in more than a decade.</span></span>
-            <span class="summary-full"><span>The Trump administration announced $700 million in federal funding directed at reinvigorating the domestic coal industry, with the money intended to support the construction of new coal-fired power plants — the first such initiative in more than 13 years. The coal industry has been in long-term structural decline driven by competition from natural gas and renewable energy sources, as well as lower electricity demand from some industrial sectors. The announcement reflects the administration's stated goal of expanding domestic energy production across all fuel types. Critics argue that federal investment in new coal infrastructure runs counter to market trends and climate commitments, while proponents contend it supports energy security and preserves jobs in coal-producing regions. The funding mechanism and the specific projects it would support were not detailed in available reporting.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_9">
+<h2 class="article-headline">Trump Administration Offers $700 Million in Federal Funds to Support New Coal Plants</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Trump administration announced $700 million in federal funding to support construction of new coal-fired power plants, the first such initiative in more than a decade.</span></span>
+<span class="summary-full"><span>The Trump administration announced $700 million in federal funding directed at reinvigorating the domestic coal industry, with the money intended to support the construction of new coal-fired power plants — the first such initiative in more than 13 years. The coal industry has been in long-term structural decline driven by competition from natural gas and renewable energy sources, as well as lower electricity demand from some industrial sectors. The announcement reflects the administration's stated goal of expanding domestic energy production across all fuel types. Critics argue that federal investment in new coal infrastructure runs counter to market trends and climate commitments, while proponents contend it supports energy security and preserves jobs in coal-producing regions. The funding mechanism and the specific projects it would support were not detailed in available reporting.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/04/climate/trump-coal-plants-funding.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/04/climate/trump-coal-plants-funding.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_10">
-          <h2 class="article-headline">Cuts to U.S. AIDS Funding in Africa Are Disrupting Treatment Programs and Endangering Patients</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Health care providers in South Africa and Mozambique say the cancellation or redirection of U.S. PEPFAR funding under the Trump administration has already disrupted HIV treatment programs and cost lives.</span></span>
-            <span class="summary-full"><span>Health care providers in South Africa and Mozambique report that changes to U.S. funding under the President's Emergency Plan for AIDS Relief — known as PEPFAR — have disrupted antiretroviral treatment programs and endangered vulnerable patients, including pregnant women and children. Workers on the ground say some clinics have had to reduce services, turn away patients, or halt distribution of medications that had previously been funded by the United States. PEPFAR, which began under the George W. Bush administration and has been continued by successive administrations, is credited with saving millions of lives since its creation in 2003. The Trump administration has redirected or canceled portions of the program as part of broader reductions to U.S. foreign assistance. The reported consequences are now becoming visible in communities that had become dependent on the funding for primary HIV care.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_10">
+<h2 class="article-headline">Cuts to U.S. AIDS Funding in Africa Are Disrupting Treatment Programs and Endangering Patients</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Health care providers in South Africa and Mozambique say the cancellation or redirection of U.S. PEPFAR funding under the Trump administration has already disrupted HIV treatment programs and cost lives.</span></span>
+<span class="summary-full"><span>Health care providers in South Africa and Mozambique report that changes to U.S. funding under the President's Emergency Plan for AIDS Relief — known as PEPFAR — have disrupted antiretroviral treatment programs and endangered vulnerable patients, including pregnant women and children. Workers on the ground say some clinics have had to reduce services, turn away patients, or halt distribution of medications that had previously been funded by the United States. PEPFAR, which began under the George W. Bush administration and has been continued by successive administrations, is credited with saving millions of lives since its creation in 2003. The Trump administration has redirected or canceled portions of the program as part of broader reductions to U.S. foreign assistance. The reported consequences are now becoming visible in communities that had become dependent on the funding for primary HIV care.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/07/nx-s1-5837324/usaid-aids-africa" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.npr.org/2026/06/07/nx-s1-5837324/usaid-aids-africa" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SCIENCE & HEALTH</div>
-        
-        <div class="article article-medium" id="story_11">
-          <h2 class="article-headline">Major Insurers Will Continue Covering Routine Vaccines Through 2027</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A group of large U.S. insurers announced they will continue covering routine vaccines through 2027, providing stability for patients amid ongoing federal policy uncertainty around vaccine funding.</span></span>
-            <span class="summary-full"><span>A coalition of major U.S. insurers announced they will continue providing coverage for routine vaccines through 2027, a commitment that public health experts say carries significant weight given the current policy environment. The announcement comes as the Trump administration has taken steps that experts say have introduced uncertainty into vaccine policy, and as outbreaks of preventable illnesses — including measles and whooping cough — have led to hospitalizations and deaths. Health policy experts told reporters that the insurers' decision sends a meaningful signal about the medical and scientific consensus on vaccine safety and effectiveness, independent of the federal government's current posture. The commitment covers routine immunizations for children and adults as recommended by public health guidelines. The decision does not replace federal vaccine programs but may provide continuity for patients whose access to vaccinations might otherwise be affected by federal funding or policy changes.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SCIENCE &amp; HEALTH</div>
+<div class="article article-medium" id="story_11">
+<h2 class="article-headline">Major Insurers Will Continue Covering Routine Vaccines Through 2027</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A group of large U.S. insurers announced they will continue covering routine vaccines through 2027, providing stability for patients amid ongoing federal policy uncertainty around vaccine funding.</span></span>
+<span class="summary-full"><span>A coalition of major U.S. insurers announced they will continue providing coverage for routine vaccines through 2027, a commitment that public health experts say carries significant weight given the current policy environment. The announcement comes as the Trump administration has taken steps that experts say have introduced uncertainty into vaccine policy, and as outbreaks of preventable illnesses — including measles and whooping cough — have led to hospitalizations and deaths. Health policy experts told reporters that the insurers' decision sends a meaningful signal about the medical and scientific consensus on vaccine safety and effectiveness, independent of the federal government's current posture. The commitment covers routine immunizations for children and adults as recommended by public health guidelines. The decision does not replace federal vaccine programs but may provide continuity for patients whose access to vaccinations might otherwise be affected by federal funding or policy changes.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/07/insurance-coverage-vaccines-trump" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/07/insurance-coverage-vaccines-trump" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_12">
-          <h2 class="article-headline">Cancer Researchers Share Advances in Immunotherapy, Chemotherapy Reduction, and Early Detection at Major Conference</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Oncologists and researchers presented new findings at the 2026 American Society of Clinical Oncology conference, including approaches that may allow some patients to skip chemotherapy and new methods to help the immune system target tumors.</span></span>
-            <span class="summary-full"><span>More than 40,000 health professionals gathered in Chicago for the 2026 American Society of Clinical Oncology annual meeting, the world's largest cancer conference, where researchers presented findings across more than 200 sessions. Among the highlighted areas were techniques described as removing 'invisibility cloaks' from cancer cells — approaches that help the immune system detect and attack tumors that had previously evaded it. Researchers also presented data suggesting that certain patients may be able to safely forgo chemotherapy based on more precise tumor profiling, reducing treatment side effects while maintaining effectiveness. The conference featured more than 2,700 individual research presentations. Advances in early detection were also highlighted as a priority area. While many findings presented at major conferences require further validation before becoming standard care, the ASCO meeting is widely considered one of the most influential annual gatherings in oncology and often shapes treatment guidelines in subsequent years.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_12">
+<h2 class="article-headline">Cancer Researchers Share Advances in Immunotherapy, Chemotherapy Reduction, and Early Detection at Major Conference</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Oncologists and researchers presented new findings at the 2026 American Society of Clinical Oncology conference, including approaches that may allow some patients to skip chemotherapy and new methods to help the immune system target tumors.</span></span>
+<span class="summary-full"><span>More than 40,000 health professionals gathered in Chicago for the 2026 American Society of Clinical Oncology annual meeting, the world's largest cancer conference, where researchers presented findings across more than 200 sessions. Among the highlighted areas were techniques described as removing 'invisibility cloaks' from cancer cells — approaches that help the immune system detect and attack tumors that had previously evaded it. Researchers also presented data suggesting that certain patients may be able to safely forgo chemotherapy based on more precise tumor profiling, reducing treatment side effects while maintaining effectiveness. The conference featured more than 2,700 individual research presentations. Advances in early detection were also highlighted as a priority area. While many findings presented at major conferences require further validation before becoming standard care, the ASCO meeting is widely considered one of the most influential annual gatherings in oncology and often shapes treatment guidelines in subsequent years.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/science/2026/jun/06/new-weapons-war-on-cancer-asco-conference-takeaways" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/science/2026/jun/06/new-weapons-war-on-cancer-asco-conference-takeaways" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_13">
-          <h2 class="article-headline">Scientists Achieve Precise Gene Editing of Human Embryos Using Newer CRISPR Technique</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Researchers report using an advanced gene-editing technique to modify human embryo genes with greater precision than previous methods, raising renewed debate among bioethicists about the implications of engineering human embryos.</span></span>
-            <span class="summary-full"><span>Scientists have reported achieving highly precise edits to genes in human embryos using a newer variation of CRISPR gene-editing technology, according to research published this week. The technique offers greater accuracy than earlier CRISPR methods, which sometimes produced unintended edits at off-target locations in the genome. Researchers say the advance brings the possibility of engineering human embryos closer to technical feasibility, a prospect that has long been a subject of intense ethical debate. Bioethicists have raised concerns about the potential for such technology to be used to select or enhance traits beyond the treatment of serious genetic diseases, and about the implications of making heritable changes to the human genome — changes that would be passed to future generations. The research was conducted in the laboratory setting and did not involve embryos intended for implantation. International scientific bodies have called for broad societal discussion before any clinical application of embryo gene editing proceeds.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_13">
+<h2 class="article-headline">Scientists Achieve Precise Gene Editing of Human Embryos Using Newer CRISPR Technique</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Researchers report using an advanced gene-editing technique to modify human embryo genes with greater precision than previous methods, raising renewed debate among bioethicists about the implications of engineering human embryos.</span></span>
+<span class="summary-full"><span>Scientists have reported achieving highly precise edits to genes in human embryos using a newer variation of CRISPR gene-editing technology, according to research published this week. The technique offers greater accuracy than earlier CRISPR methods, which sometimes produced unintended edits at off-target locations in the genome. Researchers say the advance brings the possibility of engineering human embryos closer to technical feasibility, a prospect that has long been a subject of intense ethical debate. Bioethicists have raised concerns about the potential for such technology to be used to select or enhance traits beyond the treatment of serious genetic diseases, and about the implications of making heritable changes to the human genome — changes that would be passed to future generations. The research was conducted in the laboratory setting and did not involve embryos intended for implantation. International scientific bodies have called for broad societal discussion before any clinical application of embryo gene editing proceeds.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/04/science/embryos-gene-editing-crispr.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/04/science/embryos-gene-editing-crispr.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="difficult-section">
-          <details>
-            <summary class="difficult-toggle">
-              <span class="difficult-caret">&#9658;</span>
-              <span class="difficult-label">Difficult News</span>
-            </summary>
-            <p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
-            <div class="difficult-content">
-              
-              <div class="article article-medium" id="story_14">
-                <h2 class="article-headline">At Least 12 People Shot Near Community Festival in Toledo, Ohio</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-1-diff">
-                  <span class="summary-brief"><span>At least 12 people were shot near a community street festival in Toledo, Ohio on Saturday afternoon. A search for suspects was ongoing as of initial reports.</span></span>
-                  <span class="summary-full"><span>At least 12 people were shot Saturday afternoon near a community street festival in Toledo, Ohio, according to police. The gunfire sent some attendees scrambling for cover while others moved to assist those injured. A search for suspects was ongoing. No additional details about the circumstances of the shooting were available in initial reporting. The incident is one of multiple mass casualty shootings at or near public gatherings reported in the United States in recent months.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="difficult-section">
+<details>
+<summary class="difficult-toggle">
+<span class="difficult-caret">►</span>
+<span class="difficult-label">Difficult News</span>
+</summary>
+<p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
+<div class="difficult-content">
+<div class="article article-medium" id="story_14">
+<h2 class="article-headline">At Least 12 People Shot Near Community Festival in Toledo, Ohio</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-1-diff">
+<span class="summary-brief"><span>At least 12 people were shot near a community street festival in Toledo, Ohio on Saturday afternoon. A search for suspects was ongoing as of initial reports.</span></span>
+<span class="summary-full"><span>At least 12 people were shot Saturday afternoon near a community street festival in Toledo, Ohio, according to police. The gunfire sent some attendees scrambling for cover while others moved to assist those injured. A search for suspects was ongoing. No additional details about the circumstances of the shooting were available in initial reporting. The incident is one of multiple mass casualty shootings at or near public gatherings reported in the United States in recent months.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.npr.org/2026/06/07/nx-s1-5849137/12-people-shot-ohio-festival" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.npr.org/2026/06/07/nx-s1-5849137/12-people-shot-ohio-festival" rel="noopener" target="_blank">
                         NPR News
                       </a>
-                    </li>
-                    
-                    <li>
-                      <a href="https://www.pbs.org/newshour/nation/multiple-people-shot-near-festival-in-toledo-ohio-authorities-say" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/nation/multiple-people-shot-near-festival-in-toledo-ohio-authorities-say" rel="noopener" target="_blank">
                         PBS NewsHour
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-              <div class="article article-long" id="story_15">
-                <h2 class="article-headline">Ebola Outbreak in Central Africa Widens as Testing Gaps and Vaccine Shortages Slow Response</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-2-diff">
-                  <span class="summary-brief"><span>An Ebola outbreak caused by the Bundibugyo virus — a less-studied type that previously caused only two small outbreaks — is expanding in Central Africa. Limited testing capacity and vaccine availability are hampering containment efforts, and the Trump administration has not announced a plan for Americans who may be at risk.</span></span>
-                  <span class="summary-full"><span>A widening Ebola outbreak in Central Africa is centered on the Bundibugyo strain of the virus, a type that had previously caused only two limited outbreaks and for which fewer diagnostic tools and treatments have been developed. A chronic shortage of effective, widely deployed tests has left clinicians with limited ability to confirm cases quickly, allowing the virus to spread before patients are isolated. Scientists are working to accelerate development of vaccines and treatments specific to this strain, but none are yet widely available. The outbreak has spread across multiple areas, with the pace of expansion raising concern among international health officials. In the United States, the Trump administration has not publicly outlined a plan for handling Americans who may have been exposed abroad, departing from long-established protocols for monitoring and treating returning travelers at risk of Ebola infection. The U.S. has historically played a significant role in international outbreak response through agencies including the CDC.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_15">
+<h2 class="article-headline">Ebola Outbreak in Central Africa Widens as Testing Gaps and Vaccine Shortages Slow Response</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-2-diff">
+<span class="summary-brief"><span>An Ebola outbreak caused by the Bundibugyo virus — a less-studied type that previously caused only two small outbreaks — is expanding in Central Africa. Limited testing capacity and vaccine availability are hampering containment efforts, and the Trump administration has not announced a plan for Americans who may be at risk.</span></span>
+<span class="summary-full"><span>A widening Ebola outbreak in Central Africa is centered on the Bundibugyo strain of the virus, a type that had previously caused only two limited outbreaks and for which fewer diagnostic tools and treatments have been developed. A chronic shortage of effective, widely deployed tests has left clinicians with limited ability to confirm cases quickly, allowing the virus to spread before patients are isolated. Scientists are working to accelerate development of vaccines and treatments specific to this strain, but none are yet widely available. The outbreak has spread across multiple areas, with the pace of expansion raising concern among international health officials. In the United States, the Trump administration has not publicly outlined a plan for handling Americans who may have been exposed abroad, departing from long-established protocols for monitoring and treating returning travelers at risk of Ebola infection. The U.S. has historically played a significant role in international outbreak response through agencies including the CDC.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.nytimes.com/2026/06/03/us/politics/trump-administration-ebola-response.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/03/us/politics/trump-administration-ebola-response.html" rel="noopener" target="_blank">
                         The New York Times
                       </a>
-                    </li>
-                    
-                    <li>
-                      <a href="https://www.nytimes.com/2026/06/02/health/ebola-tests-congo.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/02/health/ebola-tests-congo.html" rel="noopener" target="_blank">
                         The New York Times
                       </a>
-                    </li>
-                    
-                    <li>
-                      <a href="https://www.nytimes.com/2026/06/01/science/ebola-vaccines-treatments.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/01/science/ebola-vaccines-treatments.html" rel="noopener" target="_blank">
                         The New York Times
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-            </div>
-          </details>
-        </div>
-      
-    
+</li>
+</ul>
+</div>
+</div>
+</div>
+</details>
+</div>
+<!-- Footer -->
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+<div class="archive-link-section"><a class="archive-link" href="/archive.html">Browse past editions →</a></div>
+<footer class="footer">
+<p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
-      <p style="margin-top:0.75rem;"><a href="2026-06-07-am-sources.html">Sources for this digest →</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<p style="margin-top:0.75rem;"><a href="2026-06-07-am-sources.html">Sources for this digest →</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-
 <script>
   // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
@@ -1174,34 +1018,6 @@
     btn.setAttribute('aria-expanded', String(!expanded));
   });
 
-  function toggleMobileArchive() {
-    var panel = document.getElementById('mobile-archive-panel');
-    var toggle = document.getElementById('mobile-toggle');
-    var isOpen = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  }
-
-  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
-  // always show all editions regardless of which page was generated.
-  (function() {
-    var current = '2026-06-07-am.html';
-    fetch('archive.json?v=' + Date.now())
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-        var mob = document.getElementById('mobile-archive-panel');
-        if (mob) mob.innerHTML = '<div class="mobile-archive-title">Past Editions</div>' + html;
-      })
-      .catch(function() {});
-  })();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');

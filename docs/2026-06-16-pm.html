@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Tuesday, June 16, 2026 PM</title>
-  <meta name="description" content="Balm news digest for Tuesday, June 16, 2026 — topical, anti-inflammatory news.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/png" href="/icons/icon-32.png">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm — Tuesday, June 16, 2026 PM</title>
+<meta content="Balm news digest for Tuesday, June 16, 2026 — topical, anti-inflammatory news." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/icons/icon-32.png" rel="icon" type="image/png"/>
+<link href="/icons/icon-192.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -42,10 +43,9 @@
 
     /* Layout */
     .page-wrapper {
-      display: flex;
-      max-width: 1100px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.25rem;
     }
 
     .sidebar {
@@ -501,356 +501,268 @@
   </style>
 </head>
 <body>
-
 <!-- Mobile archive toggle (shown only on mobile) -->
-<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
-  <span class="mobile-archive-caret">›</span> Archive
-</div>
-<div class="mobile-archive-panel" id="mobile-archive-panel">
-  <div class="mobile-archive-title">Past Editions</div>
-  <!-- populated by archive.json fetch on page load — never server-rendered -->
-</div>
+
 
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    <!-- populated by archive.json fetch on page load — never server-rendered -->
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-              <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-              <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-            </filter>
-          </defs>
-          <text x="90" y="44"
-                font-family="Caveat, cursive"
-                font-size="52"
-                font-weight="700"
-                fill="#6b82a8"
-                text-anchor="middle"
-                letter-spacing="8"
-                filter="url(#balm-spread)">Balm</text>
-        </svg>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Tuesday, June 16, 2026 &middot; PM Edition</p>
-    </header>
-
-    <!-- Audio player -->
-    
-
-    <!-- Top stories navigation -->
-    
-    <div class="top-stories">
-      <div class="top-stories-heading">Today's Top Stories</div>
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_0">US and Iran Reach Initial Agreement on Strait of Hormuz and Nuclear Program; Key Details Remain Unresolved</a>
-        <span class="top-story-reason">A US-Iran agreement on nuclear development and the Strait of Hormuz—a critical global shipping corridor—would have major implications for international security and energy markets worldwide.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_4">SpaceX Becomes One of the World's Most Valuable Companies After IPO, Agrees to Acquire AI Coding Startup for $60 Billion</a>
-        <span class="top-story-reason">SpaceX's IPO makes it one of the world's most valuable companies, a landmark moment for the private space industry and a significant economic event for investors and markets broadly.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_7">UK Announces Plan to Ban Children Under 16 from Social Media; Scope of Exemptions Unclear</a>
-        <span class="top-story-reason">The UK's proposed social media ban for children under 16 is a major policy shift that could set a precedent for how democracies regulate youth access to digital platforms globally.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_5">Trump Administration Moves Special Education and Civil Rights Oversight Out of the Department of Education</a>
-        <span class="top-story-reason">Restructuring federal oversight of special education and civil rights enforcement affects millions of students and families who rely on those protections.</span>
-      </div>
-      
-      
-    </div>
-    
-
-    <!-- Stories -->
-    
-      
-        <div class="section-header">DOMESTIC POLICY</div>
-        
-        <div class="article article-long" id="story_5">
-          <h2 class="article-headline">Trump Administration Moves Special Education and Civil Rights Oversight Out of the Department of Education</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Trump administration is transferring civil rights enforcement and special education oversight from the Department of Education to the Justice Department and the Department of Health and Human Services, respectively — continuing a broader effort to dismantle the agency.</span></span>
-            <span class="summary-full"><span>The Trump administration announced it is shifting two major functions out of the Department of Education: civil rights enforcement will move to the Department of Justice, and oversight of special education programs will transfer to the Department of Health and Human Services. The moves represent a further step toward the president's stated goal of closing the Department of Education entirely.
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news"><svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg></a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Tuesday, June 16, 2026 · PM Edition</p>
+</header>
+<!-- Audio player -->
+<!-- Top stories navigation -->
+<div class="top-stories">
+<div class="top-stories-heading">Today's Top Stories</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_0">US and Iran Reach Initial Agreement on Strait of Hormuz and Nuclear Program; Key Details Remain Unresolved</a>
+<span class="top-story-reason">A US-Iran agreement on nuclear development and the Strait of Hormuz—a critical global shipping corridor—would have major implications for international security and energy markets worldwide.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_4">SpaceX Becomes One of the World's Most Valuable Companies After IPO, Agrees to Acquire AI Coding Startup for $60 Billion</a>
+<span class="top-story-reason">SpaceX's IPO makes it one of the world's most valuable companies, a landmark moment for the private space industry and a significant economic event for investors and markets broadly.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_7">UK Announces Plan to Ban Children Under 16 from Social Media; Scope of Exemptions Unclear</a>
+<span class="top-story-reason">The UK's proposed social media ban for children under 16 is a major policy shift that could set a precedent for how democracies regulate youth access to digital platforms globally.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_5">Trump Administration Moves Special Education and Civil Rights Oversight Out of the Department of Education</a>
+<span class="top-story-reason">Restructuring federal oversight of special education and civil rights enforcement affects millions of students and families who rely on those protections.</span>
+</div>
+</div>
+<!-- Stories -->
+<div class="section-header">DOMESTIC POLICY</div>
+<div class="article article-long" id="story_5">
+<h2 class="article-headline">Trump Administration Moves Special Education and Civil Rights Oversight Out of the Department of Education</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Trump administration is transferring civil rights enforcement and special education oversight from the Department of Education to the Justice Department and the Department of Health and Human Services, respectively — continuing a broader effort to dismantle the agency.</span></span>
+<span class="summary-full"><span>The Trump administration announced it is shifting two major functions out of the Department of Education: civil rights enforcement will move to the Department of Justice, and oversight of special education programs will transfer to the Department of Health and Human Services. The moves represent a further step toward the president's stated goal of closing the Department of Education entirely.
 
 The civil rights office within the Department of Education has historically handled complaints related to discrimination in schools, including cases involving students with disabilities and those from minority groups. Advocates for students with disabilities have expressed concern that splitting oversight across agencies could reduce coordination and accountability.
 
 Congress created the Department of Education in 1979, and formally closing it would require legislative action. The administration is restructuring its functions through executive action in the interim. Critics, including some education policy organizations, argue the changes will create bureaucratic confusion and reduce protections for vulnerable students. The administration has characterized the moves as increasing efficiency.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/16/nx-s1-5717030/special-ed-civil-rights-education-department" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.npr.org/2026/06/16/nx-s1-5717030/special-ed-civil-rights-education-department" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/show/news-wrap-civil-rights-special-education-oversight-shifted-from-department-of-education" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/show/news-wrap-civil-rights-special-education-oversight-shifted-from-department-of-education" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_6">
-          <h2 class="article-headline">Fifteen People in Minnesota Charged with Conspiracy Related to Immigration Enforcement Incident</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Federal prosecutors charged fifteen people in Minnesota with conspiracy to obstruct federal officers, in connection with an immigration enforcement operation earlier this year that resulted in at least one death.</span></span>
-            <span class="summary-full"><span>The US Attorney for Minnesota and the special agent in charge of Homeland Security Investigations announced charges against fifteen individuals for conspiracy to impede or injure federal officers. The charges stem from a response to an immigration enforcement crackdown in the state earlier this year that was described at the time as both controversial and deadly.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_6">
+<h2 class="article-headline">Fifteen People in Minnesota Charged with Conspiracy Related to Immigration Enforcement Incident</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Federal prosecutors charged fifteen people in Minnesota with conspiracy to obstruct federal officers, in connection with an immigration enforcement operation earlier this year that resulted in at least one death.</span></span>
+<span class="summary-full"><span>The US Attorney for Minnesota and the special agent in charge of Homeland Security Investigations announced charges against fifteen individuals for conspiracy to impede or injure federal officers. The charges stem from a response to an immigration enforcement crackdown in the state earlier this year that was described at the time as both controversial and deadly.
 
 The charges carry serious federal penalties. Prosecutors have not publicly detailed exactly what actions each defendant is alleged to have taken, but the conspiracy charges relate broadly to alleged interference with federal immigration enforcement operations.
 
 The case is one of the most significant federal prosecutions arising from resistance to immigration enforcement since the administration intensified its operations. It follows a pattern of the Justice Department bringing conspiracy charges against individuals alleged to have organized or participated in efforts to obstruct federal agents conducting immigration enforcement.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/16/minnesota-immigration-enforcement-conspiracy-charges" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/16/minnesota-immigration-enforcement-conspiracy-charges" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_7">
-          <h2 class="article-headline">UK Announces Plan to Ban Children Under 16 from Social Media; Scope of Exemptions Unclear</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The UK government announced plans to prohibit children under 16 from using social media platforms, following similar legislation in Australia. What the ban would mean for platforms like YouTube, Roblox, and WhatsApp has not been fully defined.</span></span>
-            <span class="summary-full"><span>British Prime Minister Keir Starmer announced that the UK government plans to bar children under 16 from accessing social media platforms. The proposal follows comparable legislation passed in Australia and reflects growing pressure across multiple governments to impose age-based restrictions on social media use.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_7">
+<h2 class="article-headline">UK Announces Plan to Ban Children Under 16 from Social Media; Scope of Exemptions Unclear</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The UK government announced plans to prohibit children under 16 from using social media platforms, following similar legislation in Australia. What the ban would mean for platforms like YouTube, Roblox, and WhatsApp has not been fully defined.</span></span>
+<span class="summary-full"><span>British Prime Minister Keir Starmer announced that the UK government plans to bar children under 16 from accessing social media platforms. The proposal follows comparable legislation passed in Australia and reflects growing pressure across multiple governments to impose age-based restrictions on social media use.
 
 The practical scope of the ban remains unclear. Officials have not yet resolved whether platforms that combine social and entertainment features — such as YouTube, Roblox, and WhatsApp — would fall within the prohibition. These distinctions matter significantly for enforcement, as those platforms are among the most widely used by children in the UK.
 
 Age verification requirements would be central to any implementation, and how platforms would be required to verify user ages has not been specified. The proposal is likely to face both legislative debate and legal challenges. Similar efforts in other countries have encountered difficulties in defining platform categories and enforcing restrictions without creating significant privacy burdens for users of all ages.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/15/world/europe/uk-social-media-children.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/15/world/europe/uk-social-media-children.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c9824zvpz9po?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c9824zvpz9po?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_8">
-          <h2 class="article-headline">ICE Relocates Detainees from Florida's Remote Everglades Detention Facility</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>US Immigration and Customs Enforcement announced that detainees held at the detention facility in Florida's Everglades, widely referred to as 'Alligator Alcatraz,' have been moved to other facilities.</span></span>
-            <span class="summary-full"><span>ICE announced the relocation of detainees from a detention facility situated in a remote area of the Florida Everglades, which had operated under significant public and legal scrutiny. The facility, promoted by President Trump for its harsh and remote conditions, had faced repeated criticism from immigration advocates and civil liberties organizations over access to legal counsel, medical care, and the conditions of detention.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_8">
+<h2 class="article-headline">ICE Relocates Detainees from Florida's Remote Everglades Detention Facility</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>US Immigration and Customs Enforcement announced that detainees held at the detention facility in Florida's Everglades, widely referred to as 'Alligator Alcatraz,' have been moved to other facilities.</span></span>
+<span class="summary-full"><span>ICE announced the relocation of detainees from a detention facility situated in a remote area of the Florida Everglades, which had operated under significant public and legal scrutiny. The facility, promoted by President Trump for its harsh and remote conditions, had faced repeated criticism from immigration advocates and civil liberties organizations over access to legal counsel, medical care, and the conditions of detention.
 
 The move had been anticipated. Officials have not provided full details on where detainees were transferred or the total number affected. The closure or repurposing of the facility has not been officially announced — ICE's statement addressed only the relocation of current detainees.
 
 The facility became a symbol of the administration's approach to immigration detention, and its operation drew legal challenges and congressional attention. The relocation does not resolve pending legal questions about the conditions detainees experienced while held there.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/16/alligator-alcatraz-detainees-ice" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/16/alligator-alcatraz-detainees-ice" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_9">
-          <h2 class="article-headline">DOJ Seeks to Dismiss Air Pollution Lawsuit Against xAI Data Center, Citing National Security</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Justice Department moved to halt a citizens' environmental lawsuit against Elon Musk's xAI data center in Mississippi, arguing the company's role in the Iran war constitutes a national security justification for dismissal.</span></span>
-            <span class="summary-full"><span>The Department of Justice filed to stop an environmental lawsuit brought against xAI, the artificial intelligence company owned by Elon Musk, over air pollution from diesel generators at a data center in Mississippi. The suit, brought by the NAACP and local residents, alleged the facility's turbines were operating in violation of air quality standards.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_9">
+<h2 class="article-headline">DOJ Seeks to Dismiss Air Pollution Lawsuit Against xAI Data Center, Citing National Security</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Justice Department moved to halt a citizens' environmental lawsuit against Elon Musk's xAI data center in Mississippi, arguing the company's role in the Iran war constitutes a national security justification for dismissal.</span></span>
+<span class="summary-full"><span>The Department of Justice filed to stop an environmental lawsuit brought against xAI, the artificial intelligence company owned by Elon Musk, over air pollution from diesel generators at a data center in Mississippi. The suit, brought by the NAACP and local residents, alleged the facility's turbines were operating in violation of air quality standards.
 
 The DOJ argued two grounds for dismissal: first, that xAI played a significant role in US military operations during the recent Iran conflict, making the facility a matter of national security; and second, that the executive branch has authority to halt citizen-initiated environmental lawsuits under these circumstances.
 
 The second argument is legally novel and is expected to be contested. Environmental law has long included provisions allowing private citizens to sue over pollution violations, and legal experts note that using national security as a basis to block such suits would represent a significant expansion of executive authority. The case is likely to proceed to judicial review of the DOJ's standing to intervene.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/16/climate/xai-musk-mississippi-grok-turbine-lawsuit-naacp.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/16/climate/xai-musk-mississippi-grok-turbine-lawsuit-naacp.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_10">
-          <h2 class="article-headline">Supreme Court Agrees to Hear Three New Cases, Including Challenge to Six-Person Juries</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Supreme Court added three cases to its 2026-27 docket, including one that will examine the constitutionality of six-person juries. The court also declined to review several other notable petitions.</span></span>
-            <span class="summary-full"><span>The Supreme Court announced it will take up three new cases for its upcoming term. The most broadly significant of the three involves a constitutional challenge to the use of six-person juries, a practice permitted in some states for certain criminal cases. The Sixth Amendment guarantees the right to a jury trial, but courts have allowed smaller juries in non-capital criminal cases under precedents the new case may revisit.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_10">
+<h2 class="article-headline">Supreme Court Agrees to Hear Three New Cases, Including Challenge to Six-Person Juries</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Supreme Court added three cases to its 2026-27 docket, including one that will examine the constitutionality of six-person juries. The court also declined to review several other notable petitions.</span></span>
+<span class="summary-full"><span>The Supreme Court announced it will take up three new cases for its upcoming term. The most broadly significant of the three involves a constitutional challenge to the use of six-person juries, a practice permitted in some states for certain criminal cases. The Sixth Amendment guarantees the right to a jury trial, but courts have allowed smaller juries in non-capital criminal cases under precedents the new case may revisit.
 
 The other two cases added to the docket were not described in detail in the available sources. The court also denied review in several other petitions that had been under consideration, though the specific cases declined were not detailed in available sources.
 
 The six-person jury question has significant practical implications for state criminal justice systems. A ruling that six-person juries are constitutionally insufficient in certain contexts could require states to revisit conviction records and alter current trial procedures.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.scotusblog.com/2026/06/court-adds-three-cases-to-2026-27-docket/" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.scotusblog.com/2026/06/court-adds-three-cases-to-2026-27-docket/" rel="noopener" target="_blank">
                   SCOTUSblog
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.scotusblog.com/2026/06/court-agrees-to-hear-three-new-cases-including-on-the-constitutionality-of-six-person-juries/" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.scotusblog.com/2026/06/court-agrees-to-hear-three-new-cases-including-on-the-constitutionality-of-six-person-juries/" rel="noopener" target="_blank">
                   SCOTUSblog
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_11">
-          <h2 class="article-headline">Five Arrested Over Alleged Plot to Attack White House UFC Event</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Justice Department announced the arrest of five people who were allegedly planning an attack on a UFC event held at the White House. One of those arrested is a 19-year-old from Ohio who, according to court documents, described planning the attack with a group holding extreme ideological views.</span></span>
-            <span class="summary-full"><span>Federal prosecutors announced the arrest of five individuals alleged to have planned a violent attack on a UFC event hosted at the White House. According to an arrest document, one defendant — a 19-year-old from Ohio — stated he had been coordinating with a group described as holding ultra-religious extremist views.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_11">
+<h2 class="article-headline">Five Arrested Over Alleged Plot to Attack White House UFC Event</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Justice Department announced the arrest of five people who were allegedly planning an attack on a UFC event held at the White House. One of those arrested is a 19-year-old from Ohio who, according to court documents, described planning the attack with a group holding extreme ideological views.</span></span>
+<span class="summary-full"><span>Federal prosecutors announced the arrest of five individuals alleged to have planned a violent attack on a UFC event hosted at the White House. According to an arrest document, one defendant — a 19-year-old from Ohio — stated he had been coordinating with a group described as holding ultra-religious extremist views.
 
 The event proceeded, and no attack occurred. The arrests were made in advance of the gathering. The Justice Department did not provide full details on all five defendants or the precise nature of the alleged plan in publicly available materials at the time of this report.
 
 The case is part of a broader pattern of federal prosecutions targeting individuals alleged to have planned attacks on high-profile public events. The White House venue for a major sporting event raised its own security profile and was an unusual setting for such an occasion.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/show/5-arrested-over-plot-to-attack-white-house-ufc-event-doj-says" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.pbs.org/newshour/show/5-arrested-over-plot-to-attack-white-house-ufc-event-doj-says" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">GEOPOLITICS</div>
-        
-        <div class="article article-long" id="story_0">
-          <h2 class="article-headline">US and Iran Reach Initial Agreement on Strait of Hormuz and Nuclear Program; Key Details Remain Unresolved</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The US and Iran signed a memorandum of understanding to reopen the Strait of Hormuz and begin addressing Iran's nuclear program, with 60 days of follow-on negotiations set to begin Friday. Israel, shipping companies, and regional actors are navigating significant uncertainty about the deal's terms and durability.</span></span>
-            <span class="summary-full"><span>The United States and Iran have reached an initial agreement — described as a memorandum of understanding — covering the reopening of the Strait of Hormuz and the outlines of a nuclear framework. A formal signing ceremony is scheduled for Friday, after which a 60-day negotiation window will begin to work out details including sanctions relief and Iran's nuclear concessions. President Trump described the agreement as a step toward normalizing relations, though officials from both governments acknowledged that core issues remain unresolved.
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">GEOPOLITICS</div>
+<div class="article article-long" id="story_0">
+<h2 class="article-headline">US and Iran Reach Initial Agreement on Strait of Hormuz and Nuclear Program; Key Details Remain Unresolved</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The US and Iran signed a memorandum of understanding to reopen the Strait of Hormuz and begin addressing Iran's nuclear program, with 60 days of follow-on negotiations set to begin Friday. Israel, shipping companies, and regional actors are navigating significant uncertainty about the deal's terms and durability.</span></span>
+<span class="summary-full"><span>The United States and Iran have reached an initial agreement — described as a memorandum of understanding — covering the reopening of the Strait of Hormuz and the outlines of a nuclear framework. A formal signing ceremony is scheduled for Friday, after which a 60-day negotiation window will begin to work out details including sanctions relief and Iran's nuclear concessions. President Trump described the agreement as a step toward normalizing relations, though officials from both governments acknowledged that core issues remain unresolved.
 
 Despite the agreement, shipping has not yet returned to normal through the Strait. Experts and industry leaders cite three primary obstacles: residual security concerns, the possible presence of naval mines on the sea floor, and questions about transit fees. The head of one of the world's largest tanker operators indicated that ships would need proof the agreement is functioning before resuming normal routes, and the US Navy is deploying drone-based systems to sweep for mines. The process could take weeks.
 
@@ -859,395 +771,326 @@ The deal has introduced visible strain between the United States and Israel. Isr
 Iran's state media characterized the agreement as a political victory, while analysts noted that for ordinary Iranians, the primary concern is whether it will reduce the cost of living and reduce the risk of further military conflict. Senate Republicans blocked a Democratic war powers resolution that would have constrained the administration's military authority during negotiations.
 
 The agreement's economic ripple effects are already being felt. Brent crude fell below $80 per barrel for the first time in more than three months following news that Iranian oil tankers had resumed some shipments. However, the cost of motor oil and lubricants — which depend on supply chains disrupted by the conflict — is expected to remain elevated even after the Strait fully reopens, as the inputs involved are not quickly replaceable. American farmers are also facing higher fertilizer costs linked to wartime supply disruptions.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/world/netanyahus-israel-grapples-trump-iran-deal-details-remain-unclear" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/netanyahus-israel-grapples-trump-iran-deal-details-remain-unclear" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/irans-regime-spins-nuclear-strait-hormuz-deal-trump-victory-over-us-israel" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/world/irans-regime-spins-nuclear-strait-hormuz-deal-trump-victory-over-us-israel" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/republicans-bat-bid-handcuff-trumps-war-powers-peace-deal-nears-" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/politics/republicans-bat-bid-handcuff-trumps-war-powers-peace-deal-nears-" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/trumps-iran-agreement-raises-basic-question-actually-deal" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/politics/trumps-iran-agreement-raises-basic-question-actually-deal" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cn4rwzxvl8ko?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cn4rwzxvl8ko?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cn4rw784nj2o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cn4rw784nj2o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cn4rwzxvl8ko?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cn4rwzxvl8ko?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cvgepl5gdp1o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cvgepl5gdp1o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/16/nx-s1-5847024/motor-oil-iran-war" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/16/nx-s1-5847024/motor-oil-iran-war" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/show/maritime-security-expert-weighs-u-s-iran-deals-impact-on-global-shipping" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/show/maritime-security-expert-weighs-u-s-iran-deals-impact-on-global-shipping" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/trumps-relationship-with-netanyahu-frays-as-he-pursues-a-deal-with-iran" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/world/trumps-relationship-with-netanyahu-frays-as-he-pursues-a-deal-with-iran" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_1">
-          <h2 class="article-headline">Iran Says Israeli Withdrawal from Lebanon Is a Condition of Any Broader US Peace Agreement</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Iran's foreign minister stated that a comprehensive agreement with the United States would require Israel to withdraw from Lebanon. Follow-on nuclear and sanctions talks are set to begin Friday.</span></span>
-            <span class="summary-full"><span>Iran's top diplomat has said that a broader peace arrangement with the United States cannot be finalized without Israeli forces withdrawing from Lebanon. The statement introduces a significant complication to diplomacy already in motion: the initial US-Iran memorandum of understanding, signed this week, addressed the Strait of Hormuz and nuclear outlines but did not resolve the situation in Lebanon.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_1">
+<h2 class="article-headline">Iran Says Israeli Withdrawal from Lebanon Is a Condition of Any Broader US Peace Agreement</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Iran's foreign minister stated that a comprehensive agreement with the United States would require Israel to withdraw from Lebanon. Follow-on nuclear and sanctions talks are set to begin Friday.</span></span>
+<span class="summary-full"><span>Iran's top diplomat has said that a broader peace arrangement with the United States cannot be finalized without Israeli forces withdrawing from Lebanon. The statement introduces a significant complication to diplomacy already in motion: the initial US-Iran memorandum of understanding, signed this week, addressed the Strait of Hormuz and nuclear outlines but did not resolve the situation in Lebanon.
 
 Israel has not agreed to withdraw, and Israeli defense officials have stated publicly that the military will maintain its current positions in Lebanese territory it currently occupies. The divergence places the United States in a position of mediating between a deal partner — Iran — and a close ally — Israel — whose objectives are in direct conflict on this point.
 
 President Trump has been notably critical of Israel's conduct in recent days, with reports indicating he described Israeli actions as irresponsible. The tension reflects a broader shift: the US-Iran agreement was reached without Israeli endorsement, and Israeli officials are now publicly questioning its implications for their security. The next round of talks, covering nuclear arms and sanctions relief, is scheduled to begin Friday.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://worldisraelnews.com/iran-demands-israel-withdraw-from-lebanon-as-condition-for-interim-deal/" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://worldisraelnews.com/iran-demands-israel-withdraw-from-lebanon-as-condition-for-interim-deal/" rel="noopener" target="_blank">
                   Win
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/16/irans-top-envoy-says-peace-deal-with-the-us-dependent-on-israels-withdrawal-from-lebanon" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/16/irans-top-envoy-says-peace-deal-with-the-us-dependent-on-israels-withdrawal-from-lebanon" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_2">
-          <h2 class="article-headline">US-Iran Agreement Prompts Reassessment of Washington's Relationship with Israel</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The US-Iran deal has strained the relationship between the two countries, with Israel's prime minister declining to endorse the agreement and Trump publicly criticizing Israeli conduct during the war.</span></span>
-            <span class="summary-full"><span>The agreement between the United States and Iran has brought into public view a significant fracture in the US-Israel relationship. Israeli Prime Minister Benjamin Netanyahu took more than a day to respond publicly after news of the deal emerged, and when he did, he stopped short of endorsing it — a notable departure from the unified posture the two governments maintained at the outset of the conflict.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_2">
+<h2 class="article-headline">US-Iran Agreement Prompts Reassessment of Washington's Relationship with Israel</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The US-Iran deal has strained the relationship between the two countries, with Israel's prime minister declining to endorse the agreement and Trump publicly criticizing Israeli conduct during the war.</span></span>
+<span class="summary-full"><span>The agreement between the United States and Iran has brought into public view a significant fracture in the US-Israel relationship. Israeli Prime Minister Benjamin Netanyahu took more than a day to respond publicly after news of the deal emerged, and when he did, he stopped short of endorsing it — a notable departure from the unified posture the two governments maintained at the outset of the conflict.
 
 Trump, who entered the military campaign in partnership with Israel, has since described Israeli actions in Lebanon as irresponsible, according to multiple reports. That level of public criticism from an American president toward Israel is unusual, and analysts note it signals a genuine divergence in strategic objectives at a critical moment in negotiations.
 
 Israel's position is complicated by the fact that Iran is now conditioning broader peace on Israeli withdrawal from Lebanon — something Netanyahu has given no indication of agreeing to. The US-Israel relationship has endured friction across four presidencies during Netanyahu's tenure, but the current tension is playing out while a fragile, partly unverified ceasefire framework is still taking shape.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/16/us-iran-deal-israel-relationship" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/16/us-iran-deal-israel-relationship" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_3">
-          <h2 class="article-headline">G7 Leaders Adopt More Cooperative Tone with Trump as Iran Agreement Takes Shape</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>At a G7 summit in France, European leaders moderated their public friction with the United States, with the Iran peace framework and Ukraine discussions providing common ground.</span></span>
-            <span class="summary-full"><span>The Group of Seven summit in Évian-les-Bains, France, opened with a noticeably less adversarial tone between European leaders and the United States than recent meetings had produced. Diplomats attributed the shift in part to the US-Iran agreement, which European governments broadly welcomed as reducing the risk of a wider regional conflict and stabilizing energy markets.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_3">
+<h2 class="article-headline">G7 Leaders Adopt More Cooperative Tone with Trump as Iran Agreement Takes Shape</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>At a G7 summit in France, European leaders moderated their public friction with the United States, with the Iran peace framework and Ukraine discussions providing common ground.</span></span>
+<span class="summary-full"><span>The Group of Seven summit in Évian-les-Bains, France, opened with a noticeably less adversarial tone between European leaders and the United States than recent meetings had produced. Diplomats attributed the shift in part to the US-Iran agreement, which European governments broadly welcomed as reducing the risk of a wider regional conflict and stabilizing energy markets.
 
 The Ukraine situation also provided a basis for cooperation, with Trump, Zelenskyy, and Macron participating in joint sessions. However, British Prime Minister Keir Starmer appeared to occupy a more peripheral position at the gathering — reports indicated he was excluded from an informal communication channel established by other leaders ahead of the summit, and his influence on the key agenda items was described as limited.
 
 The summit reflects a broader recalibration: European leaders who spent much of the past year in open disagreement with Washington over trade and security policy are now managing those tensions more carefully as the geopolitical landscape shifts.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/16/world/europe/trump-g7-leaders-europe.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/16/world/europe/trump-g7-leaders-europe.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">ECONOMY</div>
-        
-        <div class="article article-long" id="story_4">
-          <h2 class="article-headline">SpaceX Becomes One of the World's Most Valuable Companies After IPO, Agrees to Acquire AI Coding Startup for $60 Billion</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>SpaceX surpassed Amazon in market valuation within days of its stock market debut, and agreed to acquire Anysphere — the company behind the AI coding tool Cursor — in an all-stock deal valued at $60 billion.</span></span>
-            <span class="summary-full"><span>Elon Musk's SpaceX has become one of the world's most valuable publicly traded companies within days of its initial public offering, surpassing Amazon to rank fifth globally by market capitalization. The milestone places it alongside technology giants well above most other publicly listed companies.
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">ECONOMY</div>
+<div class="article article-long" id="story_4">
+<h2 class="article-headline">SpaceX Becomes One of the World's Most Valuable Companies After IPO, Agrees to Acquire AI Coding Startup for $60 Billion</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>SpaceX surpassed Amazon in market valuation within days of its stock market debut, and agreed to acquire Anysphere — the company behind the AI coding tool Cursor — in an all-stock deal valued at $60 billion.</span></span>
+<span class="summary-full"><span>Elon Musk's SpaceX has become one of the world's most valuable publicly traded companies within days of its initial public offering, surpassing Amazon to rank fifth globally by market capitalization. The milestone places it alongside technology giants well above most other publicly listed companies.
 
 Simultaneously, SpaceX announced it would acquire Anysphere, the startup that developed the AI-powered coding application Cursor, in an all-stock transaction valued at approximately $60 billion. The acquisition signals an expansion of SpaceX's ambitions into artificial intelligence, capitalizing on the rapid adoption of AI coding tools in the technology industry.
 
 The IPO has generated significant retail investor demand, with analysts describing it as one of the most sought-after new listings in recent memory. The combination of SpaceX's existing launch and satellite business, its government contracts — including a significant role in the recent Iran conflict — and its new AI positioning has driven the elevated valuation. The deal and its scale are drawing fresh attention to the concentration of influence held by Musk across multiple major industries simultaneously.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/science/2026/jun/16/spacex-ai-coding-anysphere-cursor-amazon-market-valuation-xai" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/science/2026/jun/16/spacex-ai-coding-anysphere-cursor-amazon-market-valuation-xai" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/16/business/spacex-market-value-ranking.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/16/business/spacex-market-value-ranking.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/16/business/spacex-cursor-aquisition-ipo.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/16/business/spacex-cursor-aquisition-ipo.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="difficult-section">
-          <details>
-            <summary class="difficult-toggle">
-              <span class="difficult-caret">&#9658;</span>
-              <span class="difficult-label">Difficult News</span>
-            </summary>
-            <p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
-            <div class="difficult-content">
-              
-              <div class="article article-medium" id="story_12">
-                <h2 class="article-headline">B-52 Bomber Crashes at California Air Force Base During Test Flight, Killing Crew Members</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-1-diff">
-                  <span class="summary-brief"><span>A US Air Force B-52 Stratofortress carrying eight people crashed and caught fire during a test flight at Edwards Air Force Base in California. An investigation is expected to take up to six months.</span></span>
-                  <span class="summary-full"><span>A Boeing B-52 Stratofortress bomber crashed at Edwards Air Force Base in California during a scheduled test flight, resulting in fatalities among the eight people aboard. The aircraft caught fire upon impact, sending visible columns of smoke into the air. The number and identities of those killed were not confirmed in available sources at the time of this report.
+</li>
+</ul>
+</div>
+</div>
+<div class="difficult-section">
+<details>
+<summary class="difficult-toggle">
+<span class="difficult-caret">►</span>
+<span class="difficult-label">Difficult News</span>
+</summary>
+<p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
+<div class="difficult-content">
+<div class="article article-medium" id="story_12">
+<h2 class="article-headline">B-52 Bomber Crashes at California Air Force Base During Test Flight, Killing Crew Members</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-1-diff">
+<span class="summary-brief"><span>A US Air Force B-52 Stratofortress carrying eight people crashed and caught fire during a test flight at Edwards Air Force Base in California. An investigation is expected to take up to six months.</span></span>
+<span class="summary-full"><span>A Boeing B-52 Stratofortress bomber crashed at Edwards Air Force Base in California during a scheduled test flight, resulting in fatalities among the eight people aboard. The aircraft caught fire upon impact, sending visible columns of smoke into the air. The number and identities of those killed were not confirmed in available sources at the time of this report.
 
 The Air Force said an investigation into the cause of the crash could take up to six months to complete. Edwards Air Force Base is the primary installation for flight testing of military aircraft and is one of the most active test aviation facilities in the country.
 
 The B-52 has been in service with the US Air Force since the 1950s and has undergone multiple modernization programs. The Air Force operates a relatively small number of the aircraft, which remain central to the US nuclear deterrent and long-range conventional strike capability.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.theguardian.com/us-news/2026/jun/16/us-air-force-b52-bomber-crash" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/16/us-air-force-b52-bomber-crash" rel="noopener" target="_blank">
                         The Guardian
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-              <div class="article article-medium" id="story_13">
-                <h2 class="article-headline">Russian Artist and Putin Critic Killed in Poland</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-2-diff">
-                  <span class="summary-brief"><span>A Russian artist known for caricatures of Vladimir Putin was shot and killed in Poland. He worked under a pseudonym and had been a visible critic of the Russian government.</span></span>
-                  <span class="summary-full"><span>A Russian artist who worked under a pseudonym and was known for satirical caricatures of senior Russian political figures, including President Vladimir Putin, was shot and killed in Poland. His legal name was Robert Kuzovkov.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_13">
+<h2 class="article-headline">Russian Artist and Putin Critic Killed in Poland</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-2-diff">
+<span class="summary-brief"><span>A Russian artist known for caricatures of Vladimir Putin was shot and killed in Poland. He worked under a pseudonym and had been a visible critic of the Russian government.</span></span>
+<span class="summary-full"><span>A Russian artist who worked under a pseudonym and was known for satirical caricatures of senior Russian political figures, including President Vladimir Putin, was shot and killed in Poland. His legal name was Robert Kuzovkov.
 
 No suspect was identified in available reports at the time of this publication, and Polish authorities have not publicly named a person of interest. The killing of a Russian dissident or critic on the territory of a NATO member state is significant in the current geopolitical context, given prior incidents of Russian state-linked violence against opposition figures abroad. Polish authorities have not publicly attributed responsibility.
 
 The case is likely to draw attention from European security services given the pattern of previous killings of Russian dissidents and critics outside Russia's borders.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.bbc.com/news/articles/clyrzd5g6k2o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.com/news/articles/clyrzd5g6k2o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                         BBC World
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-              <div class="article article-medium" id="story_14">
-                <h2 class="article-headline">UK Police Investigating Alleged Russian-Linked Arson Attacks on Properties Connected to Prime Minister Starmer</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-3-diff">
-                  <span class="summary-brief"><span>British police are investigating alleged arson attacks on properties connected to Prime Minister Keir Starmer, with reports indicating the investigation has identified a possible link to Russian intelligence activity.</span></span>
-                  <span class="summary-full"><span>UK authorities are investigating a series of arson attacks on properties linked to Prime Minister Keir Starmer, with police indicating a suspected connection to Russian state actors. Reports describe an alleged Russian intelligence diplomat as having recruited Ukrainian nationals to carry out the attacks.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_14">
+<h2 class="article-headline">UK Police Investigating Alleged Russian-Linked Arson Attacks on Properties Connected to Prime Minister Starmer</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-3-diff">
+<span class="summary-brief"><span>British police are investigating alleged arson attacks on properties connected to Prime Minister Keir Starmer, with reports indicating the investigation has identified a possible link to Russian intelligence activity.</span></span>
+<span class="summary-full"><span>UK authorities are investigating a series of arson attacks on properties linked to Prime Minister Keir Starmer, with police indicating a suspected connection to Russian state actors. Reports describe an alleged Russian intelligence diplomat as having recruited Ukrainian nationals to carry out the attacks.
 
 No formal charges have been announced in available sources, and the investigation is ongoing. The allegations, if substantiated, would represent one of the most direct alleged acts of Russian-linked sabotage targeting a sitting British head of government.
 
 The UK has been a significant supporter of Ukraine since Russia's invasion in 2022, and British intelligence services have previously documented Russian intelligence operations targeting UK infrastructure and officials. The investigation is expected to involve coordination between domestic police and intelligence services.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.foxnews.com/world/russia-linked-arson-attacks-properties-connected-uk-pm-keir-starmer-police-say" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/russia-linked-arson-attacks-properties-connected-uk-pm-keir-starmer-police-say" rel="noopener" target="_blank">
                         Fox News World
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-              <div class="article article-medium" id="story_15">
-                <h2 class="article-headline">Toronto Police Link Dozens of Shootings, Including Attack on US Consulate, to Organized Gun-for-Hire Network</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-4-diff">
-                  <span class="summary-brief"><span>Toronto police say a structured gun-for-hire network is responsible for dozens of shootings across the city, including a March attack on the US consulate and a series of attacks on synagogues.</span></span>
-                  <span class="summary-full"><span>Toronto's police chief announced that investigators have connected dozens of separate shootings to a single organized network operating on a gun-for-hire basis. The network, described as multilayered in structure, is alleged to be responsible for attacks that include a shooting at the US consulate in March and a series of incidents targeting synagogues in Canada's largest city.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_15">
+<h2 class="article-headline">Toronto Police Link Dozens of Shootings, Including Attack on US Consulate, to Organized Gun-for-Hire Network</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-4-diff">
+<span class="summary-brief"><span>Toronto police say a structured gun-for-hire network is responsible for dozens of shootings across the city, including a March attack on the US consulate and a series of attacks on synagogues.</span></span>
+<span class="summary-full"><span>Toronto's police chief announced that investigators have connected dozens of separate shootings to a single organized network operating on a gun-for-hire basis. The network, described as multilayered in structure, is alleged to be responsible for attacks that include a shooting at the US consulate in March and a series of incidents targeting synagogues in Canada's largest city.
 
 The investigation represents one of the largest organized violent crime cases in the city's recent history. Police did not release details in available sources about arrests made or suspects charged in connection with the broader network, beyond the announcement of the investigation's findings.
 
 The alleged attack on the US consulate gives the case direct relevance for American readers, as consular facilities are considered US sovereign territory under international law. The targeting of synagogues adds a dimension of concern about organized antisemitic violence. Canadian federal authorities are expected to be involved given the transnational dimensions of the case.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.theguardian.com/world/2026/jun/16/toronto-police-shootings-gun-for-hire-network" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/16/toronto-police-shootings-gun-for-hire-network" rel="noopener" target="_blank">
                         The Guardian
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-            </div>
-          </details>
-        </div>
-      
-    
+</li>
+</ul>
+</div>
+</div>
+</div>
+</details>
+</div>
+<!-- Footer -->
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+<div class="archive-link-section"><a class="archive-link" href="/archive.html">Browse past editions →</a></div>
+<footer class="footer">
+<p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
-      <p style="margin-top:0.75rem;"><a href="2026-06-16-pm-sources.html">Sources for this digest →</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<p style="margin-top:0.75rem;"><a href="2026-06-16-pm-sources.html">Sources for this digest →</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-
 <script>
   // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
@@ -1266,34 +1109,6 @@ The alleged attack on the US consulate gives the case direct relevance for Ameri
     btn.setAttribute('aria-expanded', String(!expanded));
   });
 
-  function toggleMobileArchive() {
-    var panel = document.getElementById('mobile-archive-panel');
-    var toggle = document.getElementById('mobile-toggle');
-    var isOpen = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  }
-
-  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
-  // always show all editions regardless of which page was generated.
-  (function() {
-    var current = '2026-06-16-pm.html';
-    fetch('archive.json?v=' + Date.now())
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-        var mob = document.getElementById('mobile-archive-panel');
-        if (mob) mob.innerHTML = '<div class="mobile-archive-title">Past Editions</div>' + html;
-      })
-      .catch(function() {});
-  })();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');

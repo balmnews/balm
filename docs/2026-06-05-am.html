@@ -1,19 +1,20 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Friday, June 5, 2026 AM</title>
-  <meta name="description" content="Balm news digest for Friday, June 5, 2026 — topical, anti-inflammatory news.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" href="/icons/icon-192.png">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm — Friday, June 5, 2026 AM</title>
+<meta content="Balm news digest for Friday, June 5, 2026 — topical, anti-inflammatory news." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/icons/icon-192.png" rel="icon" type="image/png"/>
+<link href="/icons/icon-192.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -43,10 +44,9 @@
 
     /* Layout */
     .page-wrapper {
-      display: flex;
-      max-width: 1100px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.25rem;
     }
 
     .sidebar {
@@ -502,725 +502,555 @@
   </style>
 </head>
 <body>
-
 <!-- Mobile archive toggle (shown only on mobile) -->
-<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
-  <span class="mobile-archive-caret">›</span> Archive
-</div>
-<div class="mobile-archive-panel" id="mobile-archive-panel">
-  <div class="mobile-archive-title">Past Editions</div>
-  <!-- populated by archive.json fetch on page load — never server-rendered -->
-</div>
+
 
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    <!-- populated by archive.json fetch on page load — never server-rendered -->
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-              <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-              <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-            </filter>
-          </defs>
-          <text x="90" y="44"
-                font-family="Caveat, cursive"
-                font-size="52"
-                font-weight="700"
-                fill="#6b82a8"
-                text-anchor="middle"
-                letter-spacing="8"
-                filter="url(#balm-spread)">Balm</text>
-        </svg>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Friday, June 5, 2026 &middot; AM Edition</p>
-    </header>
-
-    <!-- Audio player -->
-    
-
-    <!-- Top stories navigation -->
-    
-    <div class="top-stories">
-      <div class="top-stories-heading">Today's Top Stories</div>
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_11">Scientists Report First Precise Gene Editing of Human Embryos</a>
-        <span class="top-story-reason">The first precise gene editing of human embryos marks a historic and ethically significant scientific milestone with far-reaching implications for medicine and bioethics.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_5">Senate Passes $70 Billion Immigration Enforcement Funding Bill After Overnight Vote</a>
-        <span class="top-story-reason">A $70 billion immigration enforcement funding bill passing the Senate represents one of the largest and most consequential shifts in US domestic policy in years.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_2">Ukraine's President Proposes Direct Talks with Putin in Open Letter</a>
-        <span class="top-story-reason">Zelensky's open letter proposing direct talks with Putin signals a potentially significant diplomatic development in the ongoing Russia-Ukraine conflict.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_3">US Employers Added 172,000 Jobs in May, Unemployment Steady at 4.3%</a>
-        <span class="top-story-reason">Monthly jobs data showing steady employment and stable unemployment affects economic planning and Federal Reserve policy decisions for millions of Americans.</span>
-      </div>
-      
-      
-    </div>
-    
-
-    <!-- Stories -->
-    
-      
-        <div class="section-header">GEOPOLITICS</div>
-        
-        <div class="article article-long" id="story_0">
-          <h2 class="article-headline">Israel Strikes Southern Lebanon as Ceasefire Talks Stall After Hezbollah Rejects Terms</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Israel carried out strikes in southern Lebanon after ordering residents of nine villages to evacuate, killing six people. Hezbollah rejected a US-brokered ceasefire agreement, saying the terms — which required the group to stop firing first — amounted to a condition it would not accept.</span></span>
-            <span class="summary-full"><span>Israel conducted airstrikes in southern Lebanon on Friday after issuing forced evacuation orders for nine villages in the region, and six people were reported killed. Thousands of residents fled communities including Anqoun ahead of the strikes. The military action followed Hezbollah's rejection, on Thursday, of a ceasefire agreement brokered by the United States. The terms of the proposed agreement required Hezbollah to cease fire first, a condition the group — which was not party to the talks — rejected as amounting to a virtual surrender. Iran backs Hezbollah. The situation on Israel's northern border has continued to generate civilian disruption on both sides, with residents near the border describing persistent rocket fire and alerts despite prior agreements. The collapse of ceasefire momentum raises questions about the diplomatic path forward, as direct negotiations between Israel and Hezbollah remain absent and the US-facilitated framework has so far failed to produce a halt in hostilities.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news"><svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg></a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Friday, June 5, 2026 · AM Edition</p>
+</header>
+<!-- Audio player -->
+<!-- Top stories navigation -->
+<div class="top-stories">
+<div class="top-stories-heading">Today's Top Stories</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_11">Scientists Report First Precise Gene Editing of Human Embryos</a>
+<span class="top-story-reason">The first precise gene editing of human embryos marks a historic and ethically significant scientific milestone with far-reaching implications for medicine and bioethics.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_5">Senate Passes $70 Billion Immigration Enforcement Funding Bill After Overnight Vote</a>
+<span class="top-story-reason">A $70 billion immigration enforcement funding bill passing the Senate represents one of the largest and most consequential shifts in US domestic policy in years.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_2">Ukraine's President Proposes Direct Talks with Putin in Open Letter</a>
+<span class="top-story-reason">Zelensky's open letter proposing direct talks with Putin signals a potentially significant diplomatic development in the ongoing Russia-Ukraine conflict.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_3">US Employers Added 172,000 Jobs in May, Unemployment Steady at 4.3%</a>
+<span class="top-story-reason">Monthly jobs data showing steady employment and stable unemployment affects economic planning and Federal Reserve policy decisions for millions of Americans.</span>
+</div>
+</div>
+<!-- Stories -->
+<div class="section-header">GEOPOLITICS</div>
+<div class="article article-long" id="story_0">
+<h2 class="article-headline">Israel Strikes Southern Lebanon as Ceasefire Talks Stall After Hezbollah Rejects Terms</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Israel carried out strikes in southern Lebanon after ordering residents of nine villages to evacuate, killing six people. Hezbollah rejected a US-brokered ceasefire agreement, saying the terms — which required the group to stop firing first — amounted to a condition it would not accept.</span></span>
+<span class="summary-full"><span>Israel conducted airstrikes in southern Lebanon on Friday after issuing forced evacuation orders for nine villages in the region, and six people were reported killed. Thousands of residents fled communities including Anqoun ahead of the strikes. The military action followed Hezbollah's rejection, on Thursday, of a ceasefire agreement brokered by the United States. The terms of the proposed agreement required Hezbollah to cease fire first, a condition the group — which was not party to the talks — rejected as amounting to a virtual surrender. Iran backs Hezbollah. The situation on Israel's northern border has continued to generate civilian disruption on both sides, with residents near the border describing persistent rocket fire and alerts despite prior agreements. The collapse of ceasefire momentum raises questions about the diplomatic path forward, as direct negotiations between Israel and Hezbollah remain absent and the US-facilitated framework has so far failed to produce a halt in hostilities.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/05/israel-strikes-southern-lebanon-evacuations-nine-villages" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/05/israel-strikes-southern-lebanon-evacuations-nine-villages" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/05/world/middleeast/lebanon-cease-fire-israel-hezbollah.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/05/world/middleeast/lebanon-cease-fire-israel-hezbollah.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_1">
-          <h2 class="article-headline">House Passes Bill Providing Additional Ukraine Aid and New Russia Sanctions</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The House voted 226-195 to pass legislation providing additional aid to Ukraine and imposing new sanctions on Russia, representing a second significant foreign policy break with the Trump administration in the same week.</span></span>
-            <span class="summary-full"><span>The House of Representatives passed a bill 226-195 to provide additional aid to Ukraine and impose new sanctions on Russia. The vote represents a notable departure from the Trump administration's approach to the Russia-Ukraine conflict, and marks the second significant foreign policy divergence between the House and the White House in the same week. Ukraine has been fighting a Russian invasion that has continued into its fourth year. The administration has taken a more restrained posture toward direct confrontation with Russia, focusing diplomatic attention elsewhere, including on the ongoing conflict with Iran. Congressional supporters of the bill argued that continued US backing of Ukraine is necessary to deter further Russian aggression and uphold allied commitments. The legislation now moves to the Senate, where its prospects depend on whether Republicans join Democrats in sufficient numbers to advance it.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_1">
+<h2 class="article-headline">House Passes Bill Providing Additional Ukraine Aid and New Russia Sanctions</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The House voted 226-195 to pass legislation providing additional aid to Ukraine and imposing new sanctions on Russia, representing a second significant foreign policy break with the Trump administration in the same week.</span></span>
+<span class="summary-full"><span>The House of Representatives passed a bill 226-195 to provide additional aid to Ukraine and impose new sanctions on Russia. The vote represents a notable departure from the Trump administration's approach to the Russia-Ukraine conflict, and marks the second significant foreign policy divergence between the House and the White House in the same week. Ukraine has been fighting a Russian invasion that has continued into its fourth year. The administration has taken a more restrained posture toward direct confrontation with Russia, focusing diplomatic attention elsewhere, including on the ongoing conflict with Iran. Congressional supporters of the bill argued that continued US backing of Ukraine is necessary to deter further Russian aggression and uphold allied commitments. The legislation now moves to the Senate, where its prospects depend on whether Republicans join Democrats in sufficient numbers to advance it.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/politics/house-passes-bill-to-provide-more-ukraine-aid-and-impose-new-sanctions-on-russia" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.pbs.org/newshour/politics/house-passes-bill-to-provide-more-ukraine-aid-and-impose-new-sanctions-on-russia" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_2">
-          <h2 class="article-headline">Ukraine's President Proposes Direct Talks with Putin in Open Letter</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Ukrainian President Volodymyr Zelensky published an open letter to Russian President Vladimir Putin proposing a face-to-face meeting, saying only direct engagement between the two countries could end the war. The appeal came as US diplomatic attention is focused on the Iran conflict.</span></span>
-            <span class="summary-full"><span>Ukrainian President Volodymyr Zelensky addressed an open letter to Russian President Vladimir Putin proposing direct, face-to-face negotiations to end the war in Ukraine. Zelensky stated that only direct engagement between the two countries' leaderships could achieve a resolution, and noted that the United States is currently focused on the ongoing conflict with Iran, reducing American diplomatic bandwidth for the Ukraine situation. Russia has not publicly responded to the proposal. The war, now in its fourth year, has so far proceeded without direct talks between the two heads of state. The letter reflects Ukraine's continued effort to keep international attention on the conflict as US foreign policy priorities shift. Whether Putin would agree to any meeting remains unclear given Russia's stated positions on the conditions for negotiations.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_2">
+<h2 class="article-headline">Ukraine's President Proposes Direct Talks with Putin in Open Letter</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Ukrainian President Volodymyr Zelensky published an open letter to Russian President Vladimir Putin proposing a face-to-face meeting, saying only direct engagement between the two countries could end the war. The appeal came as US diplomatic attention is focused on the Iran conflict.</span></span>
+<span class="summary-full"><span>Ukrainian President Volodymyr Zelensky addressed an open letter to Russian President Vladimir Putin proposing direct, face-to-face negotiations to end the war in Ukraine. Zelensky stated that only direct engagement between the two countries' leaderships could achieve a resolution, and noted that the United States is currently focused on the ongoing conflict with Iran, reducing American diplomatic bandwidth for the Ukraine situation. Russia has not publicly responded to the proposal. The war, now in its fourth year, has so far proceeded without direct talks between the two heads of state. The letter reflects Ukraine's continued effort to keep international attention on the conflict as US foreign policy priorities shift. Whether Putin would agree to any meeting remains unclear given Russia's stated positions on the conditions for negotiations.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/world/zelenskyy-issues-open-letter-putin-proposing-meeting-us-fully-focused-iran" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/zelenskyy-issues-open-letter-putin-proposing-meeting-us-fully-focused-iran" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cwy2ypyp4x4o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cwy2ypyp4x4o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">DOMESTIC POLICY</div>
-        
-        <div class="article article-long" id="story_5">
-          <h2 class="article-headline">Senate Passes $70 Billion Immigration Enforcement Funding Bill After Overnight Vote</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Senate passed a $70 billion bill to fund Immigration and Customs Enforcement and the Border Patrol for three years, following an 18-hour overnight vote session that exposed divisions within the Republican caucus.</span></span>
-            <span class="summary-full"><span>After an 18-hour overnight vote session, the Senate passed legislation providing $70 billion in funding for immigration enforcement agencies, including ICE and the Border Patrol, covering a three-year period. The bill moved forward despite internal Republican disagreements and opposition from Democrats, who attempted amendments during the extended vote process. An earlier version of the bill had been threatened by controversy over an unrelated $1.776 billion settlement fund, which was ultimately removed from the final legislation. Separately, ICE announced it would no longer report deaths of detainees who have recently been released from its custody, rescinding a 2021 policy. Critics said that change could reduce transparency around the human cost of detention policies, while the administration did not publicly address the concern. The legislation now moves to further legislative steps before it can become law. The vote outcome reflects both Republican unity on the core immigration enforcement goal and the procedural challenges of moving major spending legislation through a narrowly divided chamber.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">DOMESTIC POLICY</div>
+<div class="article article-long" id="story_5">
+<h2 class="article-headline">Senate Passes $70 Billion Immigration Enforcement Funding Bill After Overnight Vote</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Senate passed a $70 billion bill to fund Immigration and Customs Enforcement and the Border Patrol for three years, following an 18-hour overnight vote session that exposed divisions within the Republican caucus.</span></span>
+<span class="summary-full"><span>After an 18-hour overnight vote session, the Senate passed legislation providing $70 billion in funding for immigration enforcement agencies, including ICE and the Border Patrol, covering a three-year period. The bill moved forward despite internal Republican disagreements and opposition from Democrats, who attempted amendments during the extended vote process. An earlier version of the bill had been threatened by controversy over an unrelated $1.776 billion settlement fund, which was ultimately removed from the final legislation. Separately, ICE announced it would no longer report deaths of detainees who have recently been released from its custody, rescinding a 2021 policy. Critics said that change could reduce transparency around the human cost of detention policies, while the administration did not publicly address the concern. The legislation now moves to further legislative steps before it can become law. The vote outcome reflects both Republican unity on the core immigration enforcement goal and the procedural challenges of moving major spending legislation through a narrowly divided chamber.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/live/2026/jun/05/us-politics-latest-news-updates-donald-trump-republicans-democrats" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/live/2026/jun/05/us-politics-latest-news-updates-donald-trump-republicans-democrats" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/trump-scores-victory-despite-growing-gop-divide-senate-passes-70-billion-ice-border-patrol-funding-package" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/politics/trump-scores-victory-despite-growing-gop-divide-senate-passes-70-billion-ice-border-patrol-funding-package" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/05/g-s1-126290/up-first-newsletter-immigration-fund-save-act-john-bolton-artificial-intelligence-teachers-brady-atf-doj" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/05/g-s1-126290/up-first-newsletter-immigration-fund-save-act-john-bolton-artificial-intelligence-teachers-brady-atf-doj" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/05/nx-s1-5846807/senate-weaponization-fund-reconciliation-vote-immigration-enforcement" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/05/nx-s1-5846807/senate-weaponization-fund-reconciliation-vote-immigration-enforcement" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/05/nx-s1-5847589/senate-passes-immigration-enforcement-bill-without-limits-on-trump-settlement-fund" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/05/nx-s1-5847589/senate-passes-immigration-enforcement-bill-without-limits-on-trump-settlement-fund" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_6">
-          <h2 class="article-headline">Senate Fails to Advance Surveillance Program Renewal Amid Dispute Over Intelligence Director Pick</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A bipartisan group of senators blocked a procedural vote to extend a key government surveillance program, with seven Republicans joining Democrats in a 47-52 vote. The program is set to expire June 12, and opposition centered on concerns about the administration's choice to lead the Office of the Director of National Intelligence.</span></span>
-            <span class="summary-full"><span>The Senate fell short of the votes needed to advance renewal of a major government surveillance program, failing 47-52 on a procedural motion that would have set up a final vote. Seven Republican senators joined Democrats in blocking the measure, a notable bipartisan rebuke. The program, which grants the government broad authority to collect foreign intelligence communications, is due to expire on June 12, creating urgency for Congress to act. Opposition from both parties focused on concerns about the administration's selection of Bill Pulte as the new head of the Office of the Director of National Intelligence, with critics questioning his experience for the role. Sources framed the dynamics differently: some emphasized the bipartisan nature of the opposition, others highlighted Democratic procedural tactics. Congress has limited time to resolve the standoff before the expiration deadline. The outcome leaves the future of a surveillance authority used extensively by national security agencies uncertain as the clock runs down.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_6">
+<h2 class="article-headline">Senate Fails to Advance Surveillance Program Renewal Amid Dispute Over Intelligence Director Pick</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A bipartisan group of senators blocked a procedural vote to extend a key government surveillance program, with seven Republicans joining Democrats in a 47-52 vote. The program is set to expire June 12, and opposition centered on concerns about the administration's choice to lead the Office of the Director of National Intelligence.</span></span>
+<span class="summary-full"><span>The Senate fell short of the votes needed to advance renewal of a major government surveillance program, failing 47-52 on a procedural motion that would have set up a final vote. Seven Republican senators joined Democrats in blocking the measure, a notable bipartisan rebuke. The program, which grants the government broad authority to collect foreign intelligence communications, is due to expire on June 12, creating urgency for Congress to act. Opposition from both parties focused on concerns about the administration's selection of Bill Pulte as the new head of the Office of the Director of National Intelligence, with critics questioning his experience for the role. Sources framed the dynamics differently: some emphasized the bipartisan nature of the opposition, others highlighted Democratic procedural tactics. Congress has limited time to resolve the standoff before the expiration deadline. The outcome leaves the future of a surveillance authority used extensively by national security agencies uncertain as the clock runs down.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/05/senate-blocks-surveillance-program-trump-bill-pulte" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/05/senate-blocks-surveillance-program-trump-bill-pulte" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/senate-push-reauthorize-nations-spy-powers-weathers-another-controversial-trump-decision" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/politics/senate-push-reauthorize-nations-spy-powers-weathers-another-controversial-trump-decision" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/politics/senate-blocks-extending-key-surveillance-program-following-backlash-over-trump-pick-to-lead-intel" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/politics/senate-blocks-extending-key-surveillance-program-following-backlash-over-trump-pick-to-lead-intel" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_7">
-          <h2 class="article-headline">Trump Directs $700 Million in Federal Funds Toward New Coal Power Plants</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The administration announced $700 million in federal funding to support construction of new coal-fired power plants, invoking the Defense Production Act. Plans include facilities in Alaska and West Virginia, the first new US coal plants proposed in 13 years.</span></span>
-            <span class="summary-full"><span>The Trump administration announced $700 million in federal funding directed at reinvigorating the domestic coal industry, with plans for new coal-fired power plants in Alaska and West Virginia. The funding was authorized using the Defense Production Act, a wartime authority that grants the executive branch broad power to direct industrial production for national security purposes. The proposed facilities would be the first new coal plants built in the United States in 13 years, as the industry has been in decline amid competition from natural gas and renewable energy. The administration characterized coal as a clean and reliable energy source. Critics and environmental groups have challenged that framing, pointing to coal's carbon emissions relative to other energy sources. The use of the Defense Production Act to fund fossil fuel development is a significant expansion of executive authority in energy policy and is expected to face legal and political scrutiny.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_7">
+<h2 class="article-headline">Trump Directs $700 Million in Federal Funds Toward New Coal Power Plants</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The administration announced $700 million in federal funding to support construction of new coal-fired power plants, invoking the Defense Production Act. Plans include facilities in Alaska and West Virginia, the first new US coal plants proposed in 13 years.</span></span>
+<span class="summary-full"><span>The Trump administration announced $700 million in federal funding directed at reinvigorating the domestic coal industry, with plans for new coal-fired power plants in Alaska and West Virginia. The funding was authorized using the Defense Production Act, a wartime authority that grants the executive branch broad power to direct industrial production for national security purposes. The proposed facilities would be the first new coal plants built in the United States in 13 years, as the industry has been in decline amid competition from natural gas and renewable energy. The administration characterized coal as a clean and reliable energy source. Critics and environmental groups have challenged that framing, pointing to coal's carbon emissions relative to other energy sources. The use of the Defense Production Act to fund fossil fuel development is a significant expansion of executive authority in energy policy and is expected to face legal and political scrutiny.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/04/climate/trump-coal-plants-funding.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/04/climate/trump-coal-plants-funding.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/04/trump-coal-defense-production-act" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/04/trump-coal-defense-production-act" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_8">
-          <h2 class="article-headline">California Governor's Primary Race Remains Undecided as Vote Count Continues</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Three days after California's primary election, the governor's race remained unresolved, with conservative commentator Steve Hilton holding a narrow lead as roughly 60% of ballots had been counted. Ballot counting was expected to continue for several more days.</span></span>
-            <span class="summary-full"><span>California's primary election produced no clear winner in the governor's race three days after polls closed, with experts saying the counting process could extend for additional days as mail-in ballots continue to be tabulated. Conservative commentator Steve Hilton held a narrow lead with an estimated 60% of ballots counted at the time of reporting. In the Los Angeles mayoral primary, a separate race also remained unsettled, with earlier vote totals shifting as additional mail-in ballots were processed. California's vote-counting timeline routinely extends well beyond election night due to the volume of mail-in ballots and the time allowed by state law for their receipt and processing. Final results in multiple races will not be known until counting concludes.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_8">
+<h2 class="article-headline">California Governor's Primary Race Remains Undecided as Vote Count Continues</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Three days after California's primary election, the governor's race remained unresolved, with conservative commentator Steve Hilton holding a narrow lead as roughly 60% of ballots had been counted. Ballot counting was expected to continue for several more days.</span></span>
+<span class="summary-full"><span>California's primary election produced no clear winner in the governor's race three days after polls closed, with experts saying the counting process could extend for additional days as mail-in ballots continue to be tabulated. Conservative commentator Steve Hilton held a narrow lead with an estimated 60% of ballots counted at the time of reporting. In the Los Angeles mayoral primary, a separate race also remained unsettled, with earlier vote totals shifting as additional mail-in ballots were processed. California's vote-counting timeline routinely extends well beyond election night due to the volume of mail-in ballots and the time allowed by state law for their receipt and processing. Final results in multiple races will not be known until counting concludes.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/05/california-primary-election-races-too-close-to-call" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/05/california-primary-election-races-too-close-to-call" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">ECONOMY</div>
-        
-        <div class="article article-long" id="story_3">
-          <h2 class="article-headline">US Employers Added 172,000 Jobs in May, Unemployment Steady at 4.3%</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The US economy added 172,000 jobs in May, more than double the 80,000 economists had forecast, while the unemployment rate held at 4.3%. Wage growth softened, however, and analysts noted the strong report reduces the likelihood of a near-term Federal Reserve rate cut.</span></span>
-            <span class="summary-full"><span>US employers added 172,000 jobs in May, well above the roughly 80,000 economists had projected, and the unemployment rate remained steady at 4.3%. The report marks the third consecutive month of job gains after a difficult 2025, suggesting the labor market has maintained resilience despite elevated energy prices tied to ongoing conflict in the Middle East and continued inflation pressure. Wage growth softened in the month, and at least one analysis suggested wage gains may not be keeping pace with rising prices, which remains a concern for workers' purchasing power. The stronger-than-expected headline number reduces the probability that the Federal Reserve will cut interest rates in the near term, since a robust jobs market gives policymakers less reason to ease monetary conditions. The White House welcomed the report, which provides a favorable economic data point ahead of the midterm elections. Markets and economists will continue watching inflation and wage data in coming months to assess whether the job market's recovery is broadening or narrowing.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">ECONOMY</div>
+<div class="article article-long" id="story_3">
+<h2 class="article-headline">US Employers Added 172,000 Jobs in May, Unemployment Steady at 4.3%</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The US economy added 172,000 jobs in May, more than double the 80,000 economists had forecast, while the unemployment rate held at 4.3%. Wage growth softened, however, and analysts noted the strong report reduces the likelihood of a near-term Federal Reserve rate cut.</span></span>
+<span class="summary-full"><span>US employers added 172,000 jobs in May, well above the roughly 80,000 economists had projected, and the unemployment rate remained steady at 4.3%. The report marks the third consecutive month of job gains after a difficult 2025, suggesting the labor market has maintained resilience despite elevated energy prices tied to ongoing conflict in the Middle East and continued inflation pressure. Wage growth softened in the month, and at least one analysis suggested wage gains may not be keeping pace with rising prices, which remains a concern for workers' purchasing power. The stronger-than-expected headline number reduces the probability that the Federal Reserve will cut interest rates in the near term, since a robust jobs market gives policymakers less reason to ease monetary conditions. The White House welcomed the report, which provides a favorable economic data point ahead of the midterm elections. Markets and economists will continue watching inflation and wage data in coming months to assess whether the job market's recovery is broadening or narrowing.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/business/live/2026/jun/05/jet-fuel-europe-transport-chief-us-jobs-report-uk-house-prices-stock-markets-oil-live-news-updates" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/business/live/2026/jun/05/jet-fuel-europe-transport-chief-us-jobs-report-uk-house-prices-stock-markets-oil-live-news-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/business/2026/jun/05/us-jobs-market-unemployment" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/business/2026/jun/05/us-jobs-market-unemployment" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/live/2026/business/jobs-report-economy/white-house-rejoices-over-strong-jobs-report" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/live/2026/business/jobs-report-economy/white-house-rejoices-over-strong-jobs-report" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/05/nx-s1-5847669/jobs-labor-market-unemployment-wages-inflation" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/05/nx-s1-5847669/jobs-labor-market-unemployment-wages-inflation" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/economy/172000-jobs-added-in-may-showing-market-resilience-despite-iran-war" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/economy/172000-jobs-added-in-may-showing-market-resilience-despite-iran-war" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_4">
-          <h2 class="article-headline">SpaceX Targets $75 Billion IPO on June 12, Poised to Be Largest Public Offering on Record</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>SpaceX is targeting a $75 billion initial public offering scheduled for June 12, which would be the largest IPO in history. The listing will place the company in major index funds, meaning it will automatically appear in many Americans' retirement accounts.</span></span>
-            <span class="summary-full"><span>SpaceX, the rocket and spacecraft company led by Elon Musk, is planning to raise $75 billion through an initial public offering scheduled for June 12, which would surpass all previous IPOs in size. At that valuation, Musk's stake in the company could substantially increase his already record net worth. The upcoming listing carries significance beyond investor enthusiasm: changes by Nasdaq and other index providers mean SpaceX shares will be added to major stock indexes after going public, which will in turn place them in index funds held widely in 401(k) and other retirement accounts, giving ordinary Americans indirect exposure to the company whether or not they actively choose to invest. Coverage of the IPO highlighted the central operational role of Gwynne Shotwell, SpaceX's president and chief operating officer, who has managed day-to-day operations as the company has grown. The IPO is arriving during what analysts describe as an unusually active period for large public offerings. SpaceX's public market debut is expected to draw attention from both space enthusiasts and mainstream investors as the June 12 date approaches.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_4">
+<h2 class="article-headline">SpaceX Targets $75 Billion IPO on June 12, Poised to Be Largest Public Offering on Record</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>SpaceX is targeting a $75 billion initial public offering scheduled for June 12, which would be the largest IPO in history. The listing will place the company in major index funds, meaning it will automatically appear in many Americans' retirement accounts.</span></span>
+<span class="summary-full"><span>SpaceX, the rocket and spacecraft company led by Elon Musk, is planning to raise $75 billion through an initial public offering scheduled for June 12, which would surpass all previous IPOs in size. At that valuation, Musk's stake in the company could substantially increase his already record net worth. The upcoming listing carries significance beyond investor enthusiasm: changes by Nasdaq and other index providers mean SpaceX shares will be added to major stock indexes after going public, which will in turn place them in index funds held widely in 401(k) and other retirement accounts, giving ordinary Americans indirect exposure to the company whether or not they actively choose to invest. Coverage of the IPO highlighted the central operational role of Gwynne Shotwell, SpaceX's president and chief operating officer, who has managed day-to-day operations as the company has grown. The IPO is arriving during what analysts describe as an unusually active period for large public offerings. SpaceX's public market debut is expected to draw attention from both space enthusiasts and mainstream investors as the June 12 date approaches.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/science/2026/jun/03/spacex-ipo-stock-musk" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/science/2026/jun/03/spacex-ipo-stock-musk" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/05/technology/spacex-indexes-401k.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/05/technology/spacex-indexes-401k.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/04/technology/gwynne-shotwell-spacex.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/04/technology/gwynne-shotwell-spacex.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/04/technology/space-nerds-spacex-ipo.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/04/technology/space-nerds-spacex-ipo.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/05/podcasts/hardfork-ipo-math.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/05/podcasts/hardfork-ipo-math.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SCIENCE & HEALTH</div>
-        
-        <div class="article article-long" id="story_9">
-          <h2 class="article-headline">NASA Orders Astronauts to Shelter in SpaceX Capsule After New Air Leak on Space Station</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>NASA directed five astronauts aboard the International Space Station to move into a docked SpaceX capsule as a precaution after a new air leak was detected on the Russian section of the station. Russian cosmonauts took over efforts to repair the leak.</span></span>
-            <span class="summary-full"><span>NASA ordered five astronauts on the International Space Station to shelter in the docked SpaceX Dragon capsule and prepare for a possible evacuation after a new air leak was detected. The leak is located on the Russian side of the orbital laboratory. Russian space agency Roscosmos took on a more extensive role in repair efforts while the American crew remained in the Dragon spacecraft. The five crew members included astronauts from NASA's SpaceX Crew-12 mission and an additional American astronaut already aboard the station. The situation did not result in an evacuation as of reporting, and the shelter order was a precautionary measure while the leak was assessed. Air leaks on the ISS have occurred previously and are considered serious but manageable, depending on their rate and location. Further updates on the repair status were pending.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SCIENCE &amp; HEALTH</div>
+<div class="article article-long" id="story_9">
+<h2 class="article-headline">NASA Orders Astronauts to Shelter in SpaceX Capsule After New Air Leak on Space Station</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>NASA directed five astronauts aboard the International Space Station to move into a docked SpaceX capsule as a precaution after a new air leak was detected on the Russian section of the station. Russian cosmonauts took over efforts to repair the leak.</span></span>
+<span class="summary-full"><span>NASA ordered five astronauts on the International Space Station to shelter in the docked SpaceX Dragon capsule and prepare for a possible evacuation after a new air leak was detected. The leak is located on the Russian side of the orbital laboratory. Russian space agency Roscosmos took on a more extensive role in repair efforts while the American crew remained in the Dragon spacecraft. The five crew members included astronauts from NASA's SpaceX Crew-12 mission and an additional American astronaut already aboard the station. The situation did not result in an evacuation as of reporting, and the shelter order was a precautionary measure while the leak was assessed. Air leaks on the ISS have occurred previously and are considered serious but manageable, depending on their rate and location. Further updates on the repair status were pending.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/science/live/2026/jun/05/international-space-station-astronauts-evacuation-air-leak-latest-news-updates" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/science/live/2026/jun/05/international-space-station-astronauts-evacuation-air-leak-latest-news-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/science/nasa-orders-astronauts-to-take-shelter-after-new-leak-aboard-the-international-space-station" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/science/nasa-orders-astronauts-to-take-shelter-after-new-leak-aboard-the-international-space-station" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_10">
-          <h2 class="article-headline">Flesh-Eating Parasite Found in Texas Cattle for First Time in Six Decades</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Agriculture officials confirmed the first case of the New World screwworm fly in US cattle in approximately 60 years, found in a calf in Texas. The parasite poses a significant threat to the livestock industry.</span></span>
-            <span class="summary-full"><span>The US Department of Agriculture confirmed the discovery of a New World screwworm fly larva in a calf in Texas, marking the first confirmed case of the parasite in US cattle in roughly six decades. The screwworm fly lays eggs in open wounds on warm-blooded animals, and the hatched larvae feed on living tissue, making infestations lethal if untreated. The parasite was eradicated from the United States in the 1960s through a sustained federal program, and its reappearance is considered a significant concern for the cattle industry. Agriculture officials did not immediately disclose how the infection occurred or its precise location, but the USDA confirmation signals that monitoring and response protocols are being activated. The cattle industry represents a major sector of the US agricultural economy, and a broader infestation could have substantial economic consequences.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_10">
+<h2 class="article-headline">Flesh-Eating Parasite Found in Texas Cattle for First Time in Six Decades</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Agriculture officials confirmed the first case of the New World screwworm fly in US cattle in approximately 60 years, found in a calf in Texas. The parasite poses a significant threat to the livestock industry.</span></span>
+<span class="summary-full"><span>The US Department of Agriculture confirmed the discovery of a New World screwworm fly larva in a calf in Texas, marking the first confirmed case of the parasite in US cattle in roughly six decades. The screwworm fly lays eggs in open wounds on warm-blooded animals, and the hatched larvae feed on living tissue, making infestations lethal if untreated. The parasite was eradicated from the United States in the 1960s through a sustained federal program, and its reappearance is considered a significant concern for the cattle industry. Agriculture officials did not immediately disclose how the infection occurred or its precise location, but the USDA confirmation signals that monitoring and response protocols are being activated. The cattle industry represents a major sector of the US agricultural economy, and a broader infestation could have substantial economic consequences.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/04/new-world-screwworm-texas-cattle-industry" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/04/new-world-screwworm-texas-cattle-industry" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_11">
-          <h2 class="article-headline">Scientists Report First Precise Gene Editing of Human Embryos</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Researchers have for the first time used a newer gene-editing technique to make precise edits to human embryo genes, according to a published study. The development raises ethical questions that have long surrounded the prospect of heritable genetic engineering.</span></span>
-            <span class="summary-full"><span>Scientists reported achieving the first precise editing of genes in human embryos, using a newer variant of the CRISPR gene-editing approach that allows more targeted modifications than earlier techniques. The research represents a technical milestone in reproductive genetics, as prior gene-editing work in human embryos had been limited or imprecise. The development has significant implications: if embryos with edited genes were brought to term, those changes would be heritable, passing to future generations. Bioethicists have long flagged this prospect as raising profound questions about consent, equity, and the boundaries of genetic medicine. The research was conducted under laboratory conditions, and no indication was given that edited embryos were implanted or developed further. Regulatory frameworks governing embryo research vary by country, and the study is expected to intensify ongoing international debates about where to draw the line on germline genetic modification.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_11">
+<h2 class="article-headline">Scientists Report First Precise Gene Editing of Human Embryos</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Researchers have for the first time used a newer gene-editing technique to make precise edits to human embryo genes, according to a published study. The development raises ethical questions that have long surrounded the prospect of heritable genetic engineering.</span></span>
+<span class="summary-full"><span>Scientists reported achieving the first precise editing of genes in human embryos, using a newer variant of the CRISPR gene-editing approach that allows more targeted modifications than earlier techniques. The research represents a technical milestone in reproductive genetics, as prior gene-editing work in human embryos had been limited or imprecise. The development has significant implications: if embryos with edited genes were brought to term, those changes would be heritable, passing to future generations. Bioethicists have long flagged this prospect as raising profound questions about consent, equity, and the boundaries of genetic medicine. The research was conducted under laboratory conditions, and no indication was given that edited embryos were implanted or developed further. Regulatory frameworks governing embryo research vary by country, and the study is expected to intensify ongoing international debates about where to draw the line on germline genetic modification.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/04/science/embryos-gene-editing-crispr.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/04/science/embryos-gene-editing-crispr.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_12">
-          <h2 class="article-headline">Ebola Outbreak in Congo Widens as Testing Gaps and US Policy Uncertainty Slow Response</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>An Ebola outbreak caused by the Bundibugyo strain — previously responsible for only two small outbreaks — is spreading in a remote part of the Democratic Republic of Congo. Limited diagnostic testing, a shortage of targeted vaccines, and uncertainty about US response policies are complicating containment efforts.</span></span>
-            <span class="summary-full"><span>An Ebola outbreak in the Democratic Republic of Congo caused by the Bundibugyo strain of the virus is expanding, according to multiple reports. The Bundibugyo strain had previously caused only two small outbreaks, making this event unusual in scale and epidemiological significance. The outbreak is centered in a remote mining region, where population movement tied to gold mining is contributing to the virus's spread. A chronic lack of investment in diagnostic testing infrastructure has left health workers with inadequate tools to identify cases quickly, allowing transmission to continue. Vaccines and treatments targeting the more common Zaire strain of Ebola are not fully effective against Bundibugyo, and researchers are working to accelerate development of applicable countermeasures. The Trump administration had not, as of recent reporting, announced a plan for responding to the outbreak or clarified its policy on repatriating Americans who may have been exposed. Long-established procedures for monitoring and treating returning Americans at risk of Ebola exposure exist, but their application in this situation has not been confirmed. The outbreak's trajectory and the adequacy of the international response remain uncertain.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_12">
+<h2 class="article-headline">Ebola Outbreak in Congo Widens as Testing Gaps and US Policy Uncertainty Slow Response</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>An Ebola outbreak caused by the Bundibugyo strain — previously responsible for only two small outbreaks — is spreading in a remote part of the Democratic Republic of Congo. Limited diagnostic testing, a shortage of targeted vaccines, and uncertainty about US response policies are complicating containment efforts.</span></span>
+<span class="summary-full"><span>An Ebola outbreak in the Democratic Republic of Congo caused by the Bundibugyo strain of the virus is expanding, according to multiple reports. The Bundibugyo strain had previously caused only two small outbreaks, making this event unusual in scale and epidemiological significance. The outbreak is centered in a remote mining region, where population movement tied to gold mining is contributing to the virus's spread. A chronic lack of investment in diagnostic testing infrastructure has left health workers with inadequate tools to identify cases quickly, allowing transmission to continue. Vaccines and treatments targeting the more common Zaire strain of Ebola are not fully effective against Bundibugyo, and researchers are working to accelerate development of applicable countermeasures. The Trump administration had not, as of recent reporting, announced a plan for responding to the outbreak or clarified its policy on repatriating Americans who may have been exposed. Long-established procedures for monitoring and treating returning Americans at risk of Ebola exposure exist, but their application in this situation has not been confirmed. The outbreak's trajectory and the adequacy of the international response remain uncertain.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/03/us/politics/trump-administration-ebola-response.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/03/us/politics/trump-administration-ebola-response.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/02/health/ebola-tests-congo.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/02/health/ebola-tests-congo.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/01/science/ebola-vaccines-treatments.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/01/science/ebola-vaccines-treatments.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_13">
-          <h2 class="article-headline">Scientists Warn Proposed Dismantling of US Ocean Monitoring System Would Reduce Weather Forecast Accuracy</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Scientists from the US and Europe warned that the Trump administration's plan to shut down a major ocean observation network would significantly reduce the accuracy of weather forecasts, El Niño predictions, and climate monitoring, with economic consequences across multiple sectors.</span></span>
-            <span class="summary-full"><span>An international group of scientists issued warnings that a Trump administration plan to dismantle a US ocean observation network would materially degrade the accuracy of weather forecasting, El Niño predictions, and broader climate monitoring. The ocean observation system collects data used not only by American forecasters but by meteorological agencies around the world, meaning its elimination would affect forecasting accuracy globally. Scientists said the degradation would have economic consequences across sectors that depend on weather prediction, including agriculture, shipping, insurance, and emergency management. El Niño cycles, which drive extreme weather patterns across multiple continents, are tracked in part using data from the system in question. The administration has not responded publicly to the scientists' concerns. The warnings reflect a broader pattern of tension between the current administration's approach to environmental programs and the scientific community's assessments of the downstream effects.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_13">
+<h2 class="article-headline">Scientists Warn Proposed Dismantling of US Ocean Monitoring System Would Reduce Weather Forecast Accuracy</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Scientists from the US and Europe warned that the Trump administration's plan to shut down a major ocean observation network would significantly reduce the accuracy of weather forecasts, El Niño predictions, and climate monitoring, with economic consequences across multiple sectors.</span></span>
+<span class="summary-full"><span>An international group of scientists issued warnings that a Trump administration plan to dismantle a US ocean observation network would materially degrade the accuracy of weather forecasting, El Niño predictions, and broader climate monitoring. The ocean observation system collects data used not only by American forecasters but by meteorological agencies around the world, meaning its elimination would affect forecasting accuracy globally. Scientists said the degradation would have economic consequences across sectors that depend on weather prediction, including agriculture, shipping, insurance, and emergency management. El Niño cycles, which drive extreme weather patterns across multiple continents, are tracked in part using data from the system in question. The administration has not responded publicly to the scientists' concerns. The warnings reflect a broader pattern of tension between the current administration's approach to environmental programs and the scientific community's assessments of the downstream effects.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/jun/05/trump-plan-ocean-monitoring-system-concern-scientists" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/environment/2026/jun/05/trump-plan-ocean-monitoring-system-concern-scientists" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/jun/05/trump-plan-ocean-monitoring-system-concern-scientists" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/environment/2026/jun/05/trump-plan-ocean-monitoring-system-concern-scientists" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">TECHNOLOGY</div>
-        
-        <div class="article article-long" id="story_14">
-          <h2 class="article-headline">Anthropic Calls for International Limits on Self-Improving AI Models</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>AI company Anthropic published a proposal calling for a "brake pedal" mechanism to limit the development of self-improving artificial intelligence models, framing unchecked AI advancement as a risk to humanity requiring international coordination similar to nuclear nonproliferation frameworks.</span></span>
-            <span class="summary-full"><span>Anthropic, one of the leading artificial intelligence companies, publicly called for the establishment of binding international limits on AI systems capable of improving themselves without human oversight. The company framed the proposal in terms analogous to nuclear nonproliferation, arguing that self-improving AI models represent a category of risk that requires coordinated global governance rather than individual corporate or national responses. Anthropic described the need for a "brake pedal" — a mechanism that could slow or halt development of the most powerful systems if safety thresholds are crossed. The proposal carries weight given Anthropic's position as a major developer of frontier AI systems, including the Claude model family. It is also notable because calls for restraint from within the AI industry are relatively uncommon. The proposal does not carry legal force on its own, but could influence regulatory conversations in the US, EU, and international forums currently debating AI governance. Critics of such proposals sometimes argue they could entrench advantages held by existing large companies by raising barriers for new entrants.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">TECHNOLOGY</div>
+<div class="article article-long" id="story_14">
+<h2 class="article-headline">Anthropic Calls for International Limits on Self-Improving AI Models</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>AI company Anthropic published a proposal calling for a "brake pedal" mechanism to limit the development of self-improving artificial intelligence models, framing unchecked AI advancement as a risk to humanity requiring international coordination similar to nuclear nonproliferation frameworks.</span></span>
+<span class="summary-full"><span>Anthropic, one of the leading artificial intelligence companies, publicly called for the establishment of binding international limits on AI systems capable of improving themselves without human oversight. The company framed the proposal in terms analogous to nuclear nonproliferation, arguing that self-improving AI models represent a category of risk that requires coordinated global governance rather than individual corporate or national responses. Anthropic described the need for a "brake pedal" — a mechanism that could slow or halt development of the most powerful systems if safety thresholds are crossed. The proposal carries weight given Anthropic's position as a major developer of frontier AI systems, including the Claude model family. It is also notable because calls for restraint from within the AI industry are relatively uncommon. The proposal does not carry legal force on its own, but could influence regulatory conversations in the US, EU, and international forums currently debating AI governance. Critics of such proposals sometimes argue they could entrench advantages held by existing large companies by raising barriers for new entrants.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/05/business/dealbook/anthropic-ai-nonproliferation.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/05/business/dealbook/anthropic-ai-nonproliferation.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="difficult-section">
-          <details>
-            <summary class="difficult-toggle">
-              <span class="difficult-caret">&#9658;</span>
-              <span class="difficult-label">Difficult News</span>
-            </summary>
-            <p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
-            <div class="difficult-content">
-              
-              <div class="article article-medium" id="story_15">
-                <h2 class="article-headline">Nearly 50 People Die of Dehydration After Vehicle Breaks Down in Sahara Desert</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-1-diff">
-                  <span class="summary-brief"><span>Nearly 50 people died of dehydration after their lorry broke down in the Sahara Desert. Only two survivors made it more than 50 kilometers on foot to reach authorities.</span></span>
-                  <span class="summary-full"><span>Nearly 50 people died after a lorry transporting them broke down in the Sahara Desert, leaving passengers stranded without water in extreme heat. Only two people survived, trekking more than 50 kilometers across the desert to alert authorities. The incident is consistent with documented patterns of mass fatalities among people crossing the Sahara, many of whom are migrants attempting to reach North Africa. Desert crossings of this kind frequently involve overcrowded vehicles and no safety infrastructure, and fatalities from heat and dehydration are regularly recorded by humanitarian organizations tracking migration routes through the region.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="difficult-section">
+<details>
+<summary class="difficult-toggle">
+<span class="difficult-caret">►</span>
+<span class="difficult-label">Difficult News</span>
+</summary>
+<p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
+<div class="difficult-content">
+<div class="article article-medium" id="story_15">
+<h2 class="article-headline">Nearly 50 People Die of Dehydration After Vehicle Breaks Down in Sahara Desert</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-1-diff">
+<span class="summary-brief"><span>Nearly 50 people died of dehydration after their lorry broke down in the Sahara Desert. Only two survivors made it more than 50 kilometers on foot to reach authorities.</span></span>
+<span class="summary-full"><span>Nearly 50 people died after a lorry transporting them broke down in the Sahara Desert, leaving passengers stranded without water in extreme heat. Only two people survived, trekking more than 50 kilometers across the desert to alert authorities. The incident is consistent with documented patterns of mass fatalities among people crossing the Sahara, many of whom are migrants attempting to reach North Africa. Desert crossings of this kind frequently involve overcrowded vehicles and no safety infrastructure, and fatalities from heat and dehydration are regularly recorded by humanitarian organizations tracking migration routes through the region.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.bbc.com/news/articles/c62r2ldyejro?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.com/news/articles/c62r2ldyejro?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                         BBC World
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-            </div>
-          </details>
-        </div>
-      
-    
+</li>
+</ul>
+</div>
+</div>
+</div>
+</details>
+</div>
+<!-- Footer -->
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+<div class="archive-link-section"><a class="archive-link" href="/archive.html">Browse past editions →</a></div>
+<footer class="footer">
+<p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
-      <p style="margin-top:0.75rem;"><a href="2026-06-05-am-sources.html">Sources for this digest →</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<p style="margin-top:0.75rem;"><a href="2026-06-05-am-sources.html">Sources for this digest →</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-
 <script>
   // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
@@ -1239,34 +1069,6 @@
     btn.setAttribute('aria-expanded', String(!expanded));
   });
 
-  function toggleMobileArchive() {
-    var panel = document.getElementById('mobile-archive-panel');
-    var toggle = document.getElementById('mobile-toggle');
-    var isOpen = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  }
-
-  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
-  // always show all editions regardless of which page was generated.
-  (function() {
-    var current = '2026-06-05-am.html';
-    fetch('archive.json?v=' + Date.now())
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-        var mob = document.getElementById('mobile-archive-panel');
-        if (mob) mob.innerHTML = '<div class="mobile-archive-title">Past Editions</div>' + html;
-      })
-      .catch(function() {});
-  })();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');

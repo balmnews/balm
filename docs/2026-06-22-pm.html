@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Monday, June 22, 2026 PM</title>
-  <meta name="description" content="Balm news digest for Monday, June 22, 2026 — topical, anti-inflammatory news.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/png" href="/icons/icon-32.png">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm — Monday, June 22, 2026 PM</title>
+<meta content="Balm news digest for Monday, June 22, 2026 — topical, anti-inflammatory news." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/icons/icon-32.png" rel="icon" type="image/png"/>
+<link href="/icons/icon-192.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -42,10 +43,9 @@
 
     /* Layout */
     .page-wrapper {
-      display: flex;
-      max-width: 1100px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.25rem;
     }
 
     .sidebar {
@@ -501,380 +501,276 @@
   </style>
 </head>
 <body>
-
 <!-- Mobile archive toggle (shown only on mobile) -->
-<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
-  <span class="mobile-archive-caret">›</span> Archive
-</div>
-<div class="mobile-archive-panel" id="mobile-archive-panel">
-  <div class="mobile-archive-title">Past Editions</div>
-  <!-- populated by archive.json fetch on page load — never server-rendered -->
-</div>
+
 
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    <!-- populated by archive.json fetch on page load — never server-rendered -->
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-              <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-              <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-            </filter>
-          </defs>
-          <text x="90" y="44"
-                font-family="Caveat, cursive"
-                font-size="52"
-                font-weight="700"
-                fill="#6b82a8"
-                text-anchor="middle"
-                letter-spacing="8"
-                filter="url(#balm-spread)">Balm</text>
-        </svg>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Monday, June 22, 2026 &middot; PM Edition</p>
-    </header>
-
-    <!-- Audio player -->
-    
-
-    <!-- Top stories navigation -->
-    
-    <div class="top-stories">
-      <div class="top-stories-heading">Today's Top Stories</div>
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_1">Senate Passes Bipartisan Bill Aimed at Lowering Housing Costs</a>
-        <span class="top-story-reason">A bipartisan Senate bill to lower housing costs would directly affect millions of Americans struggling with affordability.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_0">China Restricts Exports to US Defense Firms in Response to American Sanctions</a>
-        <span class="top-story-reason">China's export restrictions targeting US defense firms signal a significant escalation in trade and geopolitical tensions with broad economic and security implications.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_2">Federal Judge Rules Trump Administration Voter Verification System Unlawful</a>
-        <span class="top-story-reason">A federal court ruling against the administration's voter verification system has direct consequences for election integrity and voting access nationwide.</span>
-      </div>
-      
-      
-    </div>
-    
-
-    <!-- Stories -->
-    
-      
-        <div class="section-header">DOMESTIC POLICY</div>
-        
-        <div class="article article-medium" id="story_1">
-          <h2 class="article-headline">Senate Passes Bipartisan Bill Aimed at Lowering Housing Costs</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The US Senate passed the 21st Century Road to Housing Act, a bipartisan bill intended to reduce housing costs by streamlining construction permitting and limiting the ability of large investors to purchase single-family homes.</span></span>
-            <span class="summary-full"><span>The United States Senate passed the 21st Century Road to Housing Act on Monday, ending months of negotiations on legislation that both parties had identified as a priority ahead of November's midterm elections. The bill aims to lower housing costs through two primary mechanisms: streamlining construction and permitting processes to accelerate the building of new homes, and limiting the purchasing power of large institutional investors in the single-family home market. Housing affordability has become one of the most consistently cited economic concerns among American voters, with home prices and rents having risen sharply over the past several years relative to median incomes. The bill's passage through the Senate does not guarantee enactment; it would still require further legislative steps. The measure received support from both parties, reflecting a degree of bipartisan agreement that housing supply and investor concentration are contributing factors to affordability challenges.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news"><svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg></a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Monday, June 22, 2026 · PM Edition</p>
+</header>
+<!-- Audio player -->
+<!-- Top stories navigation -->
+<div class="top-stories">
+<div class="top-stories-heading">Today's Top Stories</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_1">Senate Passes Bipartisan Bill Aimed at Lowering Housing Costs</a>
+<span class="top-story-reason">A bipartisan Senate bill to lower housing costs would directly affect millions of Americans struggling with affordability.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_0">China Restricts Exports to US Defense Firms in Response to American Sanctions</a>
+<span class="top-story-reason">China's export restrictions targeting US defense firms signal a significant escalation in trade and geopolitical tensions with broad economic and security implications.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_2">Federal Judge Rules Trump Administration Voter Verification System Unlawful</a>
+<span class="top-story-reason">A federal court ruling against the administration's voter verification system has direct consequences for election integrity and voting access nationwide.</span>
+</div>
+</div>
+<!-- Stories -->
+<div class="section-header">DOMESTIC POLICY</div>
+<div class="article article-medium" id="story_1">
+<h2 class="article-headline">Senate Passes Bipartisan Bill Aimed at Lowering Housing Costs</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The US Senate passed the 21st Century Road to Housing Act, a bipartisan bill intended to reduce housing costs by streamlining construction permitting and limiting the ability of large investors to purchase single-family homes.</span></span>
+<span class="summary-full"><span>The United States Senate passed the 21st Century Road to Housing Act on Monday, ending months of negotiations on legislation that both parties had identified as a priority ahead of November's midterm elections. The bill aims to lower housing costs through two primary mechanisms: streamlining construction and permitting processes to accelerate the building of new homes, and limiting the purchasing power of large institutional investors in the single-family home market. Housing affordability has become one of the most consistently cited economic concerns among American voters, with home prices and rents having risen sharply over the past several years relative to median incomes. The bill's passage through the Senate does not guarantee enactment; it would still require further legislative steps. The measure received support from both parties, reflecting a degree of bipartisan agreement that housing supply and investor concentration are contributing factors to affordability challenges.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/22/us-senate-housing-bill" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/22/us-senate-housing-bill" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_2">
-          <h2 class="article-headline">Federal Judge Rules Trump Administration Voter Verification System Unlawful</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A federal judge has ruled that the Trump administration's revamped SAVE system, used to verify voter eligibility, is unlawful. The system had already processed the data of tens of millions of voters.</span></span>
-            <span class="summary-full"><span>A federal judge ruled on Sunday that the Trump administration's use of the SAVE system — a database tool that was overhauled to verify the citizenship status of registered voters — is unlawful. The ruling came after the system had already been used to run checks on tens of millions of American voters. SAVE, which stands for Systematic Alien Verification for Entitlements, was originally designed to verify immigration status for benefit eligibility purposes. The administration's expansion of its use to voter rolls was challenged in court. The ruling adds to a series of legal disputes over the administration's efforts to identify and remove non-citizens from voter registration lists. Critics have argued the process is prone to error and could disenfranchise eligible voters; supporters contend it is necessary to maintain election integrity. The administration's next legal steps were not immediately known.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_2">
+<h2 class="article-headline">Federal Judge Rules Trump Administration Voter Verification System Unlawful</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A federal judge has ruled that the Trump administration's revamped SAVE system, used to verify voter eligibility, is unlawful. The system had already processed the data of tens of millions of voters.</span></span>
+<span class="summary-full"><span>A federal judge ruled on Sunday that the Trump administration's use of the SAVE system — a database tool that was overhauled to verify the citizenship status of registered voters — is unlawful. The ruling came after the system had already been used to run checks on tens of millions of American voters. SAVE, which stands for Systematic Alien Verification for Entitlements, was originally designed to verify immigration status for benefit eligibility purposes. The administration's expansion of its use to voter rolls was challenged in court. The ruling adds to a series of legal disputes over the administration's efforts to identify and remove non-citizens from voter registration lists. Critics have argued the process is prone to error and could disenfranchise eligible voters; supporters contend it is necessary to maintain election integrity. The administration's next legal steps were not immediately known.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/22/nx-s1-5866719/save-voter-data-trump-judge-unlawful" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.npr.org/2026/06/22/nx-s1-5866719/save-voter-data-trump-judge-unlawful" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_3">
-          <h2 class="article-headline">AI Industry Spending Heavily in 2026 Midterms, With NYC House Primary as Key Battleground</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Artificial intelligence companies and advocacy groups have raised over $100 million for the 2026 midterm elections, with a New York City House primary drawing $49 million in AI-related spending as the industry seeks to shape the first generation of federal AI legislation.</span></span>
-            <span class="summary-full"><span>The artificial intelligence industry has emerged as a significant financial force in the 2026 midterm elections, with AI-focused political action committees raising more than $100 million this cycle. A New York City congressional primary has become the central focus of that spending, drawing approximately $49 million — a sum that reflects how heavily the industry is investing in races where candidates hold differing views on AI regulation. Pro-AI groups are largely seeking to elect candidates who favor limited federal oversight, while a counter-effort called the Guardrails Alliance — which has raised $5 million — is positioning itself as a populist response aimed at workers and voters who favor stronger AI guardrails. The scale of industry spending in a single congressional primary is notable and has drawn scrutiny from campaign finance observers. The outcome of these races will likely influence the first significant round of federal legislation governing artificial intelligence, covering areas including labor, copyright, liability, and national security.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_3">
+<h2 class="article-headline">AI Industry Spending Heavily in 2026 Midterms, With NYC House Primary as Key Battleground</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Artificial intelligence companies and advocacy groups have raised over $100 million for the 2026 midterm elections, with a New York City House primary drawing $49 million in AI-related spending as the industry seeks to shape the first generation of federal AI legislation.</span></span>
+<span class="summary-full"><span>The artificial intelligence industry has emerged as a significant financial force in the 2026 midterm elections, with AI-focused political action committees raising more than $100 million this cycle. A New York City congressional primary has become the central focus of that spending, drawing approximately $49 million — a sum that reflects how heavily the industry is investing in races where candidates hold differing views on AI regulation. Pro-AI groups are largely seeking to elect candidates who favor limited federal oversight, while a counter-effort called the Guardrails Alliance — which has raised $5 million — is positioning itself as a populist response aimed at workers and voters who favor stronger AI guardrails. The scale of industry spending in a single congressional primary is notable and has drawn scrutiny from campaign finance observers. The outcome of these races will likely influence the first significant round of federal legislation governing artificial intelligence, covering areas including labor, copyright, liability, and national security.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/22/new-york-city-house-primary-race" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/22/new-york-city-house-primary-race" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/18/technology/ai-super-pac-guardrails-alliance.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/18/technology/ai-super-pac-guardrails-alliance.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_4">
-          <h2 class="article-headline">Music Executive Clive Davis Dies at 94</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Clive Davis, one of the most influential figures in the American music industry, died at age 94. He was responsible for the careers of artists including Whitney Houston, Bruce Springsteen, Barry Manilow, Billy Joel, and Alicia Keys.</span></span>
-            <span class="summary-full"><span>Clive Davis, a central figure in the American recording industry for more than five decades, died on Monday at the age of 94. Davis rose from a midlevel position at Columbia Records to become one of the most powerful executives in music history, signing and developing artists across genres including rock, pop, R&B, and soul. Among the artists whose careers he shaped were Whitney Houston, Bruce Springsteen, Barry Manilow, Billy Joel, Alicia Keys, Pink Floyd, and Aerosmith. He founded Arista Records in 1974 and later led J Records and RCA Records. Davis was known for his ability to identify commercial talent and his active involvement in the creative direction of the artists he signed. His legacy spans some of the most commercially successful recordings of the late twentieth and early twenty-first centuries.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_4">
+<h2 class="article-headline">Music Executive Clive Davis Dies at 94</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Clive Davis, one of the most influential figures in the American music industry, died at age 94. He was responsible for the careers of artists including Whitney Houston, Bruce Springsteen, Barry Manilow, Billy Joel, and Alicia Keys.</span></span>
+<span class="summary-full"><span>Clive Davis, a central figure in the American recording industry for more than five decades, died on Monday at the age of 94. Davis rose from a midlevel position at Columbia Records to become one of the most powerful executives in music history, signing and developing artists across genres including rock, pop, R&amp;B, and soul. Among the artists whose careers he shaped were Whitney Houston, Bruce Springsteen, Barry Manilow, Billy Joel, Alicia Keys, Pink Floyd, and Aerosmith. He founded Arista Records in 1974 and later led J Records and RCA Records. Davis was known for his ability to identify commercial talent and his active involvement in the creative direction of the artists he signed. His legacy spans some of the most commercially successful recordings of the late twentieth and early twenty-first centuries.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/22/arts/music/clive-davis-dead.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/22/arts/music/clive-davis-dead.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c3vy3e6q90qo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c3vy3e6q90qo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">GEOPOLITICS</div>
-        
-        <div class="article article-medium" id="story_0">
-          <h2 class="article-headline">China Restricts Exports to US Defense Firms in Response to American Sanctions</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>China announced sanctions on ten American military-related companies, restricting its exports to those firms, in direct response to a US move barring certain Chinese technology companies from US defense contracts.</span></span>
-            <span class="summary-full"><span>China's government announced on Monday that it is imposing sanctions on ten American companies with ties to the US military, restricting those firms' access to Chinese exports. The action is a direct response to a prior US decision that barred a number of leading Chinese technology companies from participating in American defense contracts. The move represents an escalation in the ongoing technology and trade dispute between the two countries, with each side now targeting the other's defense-adjacent business sectors. For American companies affected, the restrictions could disrupt supply chains that rely on Chinese-manufactured components. The broader US-China technology rivalry has accelerated in recent years, encompassing semiconductors, artificial intelligence, and advanced manufacturing, with both governments using trade and sanctions tools to limit the other's access to strategically sensitive industries.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">GEOPOLITICS</div>
+<div class="article article-medium" id="story_0">
+<h2 class="article-headline">China Restricts Exports to US Defense Firms in Response to American Sanctions</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>China announced sanctions on ten American military-related companies, restricting its exports to those firms, in direct response to a US move barring certain Chinese technology companies from US defense contracts.</span></span>
+<span class="summary-full"><span>China's government announced on Monday that it is imposing sanctions on ten American companies with ties to the US military, restricting those firms' access to Chinese exports. The action is a direct response to a prior US decision that barred a number of leading Chinese technology companies from participating in American defense contracts. The move represents an escalation in the ongoing technology and trade dispute between the two countries, with each side now targeting the other's defense-adjacent business sectors. For American companies affected, the restrictions could disrupt supply chains that rely on Chinese-manufactured components. The broader US-China technology rivalry has accelerated in recent years, encompassing semiconductors, artificial intelligence, and advanced manufacturing, with both governments using trade and sanctions tools to limit the other's access to strategically sensitive industries.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/china-hits-back-at-u-s-sanctions-on-tech-giants-restricting-its-exports-to-american-defense-firms" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.pbs.org/newshour/world/china-hits-back-at-u-s-sanctions-on-tech-giants-restricting-its-exports-to-american-defense-firms" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">TECHNOLOGY</div>
-        
-        <div class="article article-medium" id="story_5">
-          <h2 class="article-headline">Two Individuals Plead Guilty to 2024 Cyberattack on London Transit System</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Two British individuals have pleaded guilty to a 2024 cyberattack on Transport for London that cost £39 million and affected approximately 10 million people.</span></span>
-            <span class="summary-full"><span>Two British individuals pleaded guilty in an English court to offenses under the Computer Misuse Act in connection with a 2024 cyberattack on Transport for London, the agency that oversees the city's public transit network. The attack cost the agency £39 million and affected approximately 10 million people. The individuals are connected to the Scattered Spider hacking group, which has been linked to a series of high-profile cyberattacks on large organizations. The guilty pleas mark a significant law enforcement outcome in a case that drew considerable attention due to the scale of disruption to a major urban transit system. Sentencing has not yet been announced.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">TECHNOLOGY</div>
+<div class="article article-medium" id="story_5">
+<h2 class="article-headline">Two Individuals Plead Guilty to 2024 Cyberattack on London Transit System</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Two British individuals have pleaded guilty to a 2024 cyberattack on Transport for London that cost £39 million and affected approximately 10 million people.</span></span>
+<span class="summary-full"><span>Two British individuals pleaded guilty in an English court to offenses under the Computer Misuse Act in connection with a 2024 cyberattack on Transport for London, the agency that oversees the city's public transit network. The attack cost the agency £39 million and affected approximately 10 million people. The individuals are connected to the Scattered Spider hacking group, which has been linked to a series of high-profile cyberattacks on large organizations. The guilty pleas mark a significant law enforcement outcome in a case that drew considerable attention due to the scale of disruption to a major urban transit system. Sentencing has not yet been announced.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/technology/2026/jun/22/two-britons-plead-guilty-to-39m-2024-cyber-attack-on-transport-for-london" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/technology/2026/jun/22/two-britons-plead-guilty-to-39m-2024-cyber-attack-on-transport-for-london" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SPORTS</div>
-        
-        <div class="article article-medium" id="story_6">
-          <h2 class="article-headline">Lionel Messi Sets All-Time World Cup Scoring Record with Two Goals Against Austria</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Lionel Messi scored his 17th and 18th World Cup goals in Argentina's 2-0 win over Austria, breaking the all-time scoring record across both men's and women's World Cup competition.</span></span>
-            <span class="summary-full"><span>Lionel Messi broke the all-time World Cup scoring record during Argentina's group stage match against Austria on Monday, netting his 17th career World Cup goal to surpass the previous record. He then added an 18th goal in stoppage time. The record encompasses both men's and women's World Cup tournaments. Argentina, the defending champion, won the match 2-0. Messi, competing in what is expected to be his final World Cup, has now set the benchmark for scoring across all editions of the tournament's history. The record had previously stood as one of the most durable milestones in international soccer.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SPORTS</div>
+<div class="article article-medium" id="story_6">
+<h2 class="article-headline">Lionel Messi Sets All-Time World Cup Scoring Record with Two Goals Against Austria</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Lionel Messi scored his 17th and 18th World Cup goals in Argentina's 2-0 win over Austria, breaking the all-time scoring record across both men's and women's World Cup competition.</span></span>
+<span class="summary-full"><span>Lionel Messi broke the all-time World Cup scoring record during Argentina's group stage match against Austria on Monday, netting his 17th career World Cup goal to surpass the previous record. He then added an 18th goal in stoppage time. The record encompasses both men's and women's World Cup tournaments. Argentina, the defending champion, won the match 2-0. Messi, competing in what is expected to be his final World Cup, has now set the benchmark for scoring across all editions of the tournament's history. The record had previously stood as one of the most durable milestones in international soccer.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/22/nx-s1-5866649/2026-world-cup-fifa-lionel-messi-argentina-scoring-record" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.npr.org/2026/06/22/nx-s1-5866649/2026-world-cup-fifa-lionel-messi-argentina-scoring-record" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/lionel-messi-breaks-world-cup-scoring-record-with-his-17th-and-18th-goals-in-argentina-win" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/world/lionel-messi-breaks-world-cup-scoring-record-with-his-17th-and-18th-goals-in-argentina-win" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="difficult-section">
-          <details>
-            <summary class="difficult-toggle">
-              <span class="difficult-caret">&#9658;</span>
-              <span class="difficult-label">Difficult News</span>
-            </summary>
-            <p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
-            <div class="difficult-content">
-              
-              <div class="article article-medium" id="story_7">
-                <h2 class="article-headline">UN Reports Myanmar Military Killed Over 700 Civilians, Including 153 Children, in Six Months</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-1-diff">
-                  <span class="summary-brief"><span>A United Nations report found that Myanmar's military killed more than 700 civilians, including 153 children, over a six-month period last year as the country's civil conflict continues.</span></span>
-                  <span class="summary-full"><span>A newly released United Nations report documents that Myanmar's military killed at least 702 civilians, including 153 children, during a six-month period in the previous year. The report reflects ongoing patterns of violence against the civilian population amid Myanmar's continuing civil conflict, which escalated following the military's takeover in 2021. Human rights organizations have repeatedly documented attacks on civilian settlements, medical facilities, and schools. The scale of documented child casualties is among the most significant findings in the report. International pressure on Myanmar's military leadership has had limited effect to date, and the country remains under widespread sanctions from Western governments. Humanitarian access to affected areas remains severely constrained.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="difficult-section">
+<details>
+<summary class="difficult-toggle">
+<span class="difficult-caret">►</span>
+<span class="difficult-label">Difficult News</span>
+</summary>
+<p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
+<div class="difficult-content">
+<div class="article article-medium" id="story_7">
+<h2 class="article-headline">UN Reports Myanmar Military Killed Over 700 Civilians, Including 153 Children, in Six Months</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-1-diff">
+<span class="summary-brief"><span>A United Nations report found that Myanmar's military killed more than 700 civilians, including 153 children, over a six-month period last year as the country's civil conflict continues.</span></span>
+<span class="summary-full"><span>A newly released United Nations report documents that Myanmar's military killed at least 702 civilians, including 153 children, during a six-month period in the previous year. The report reflects ongoing patterns of violence against the civilian population amid Myanmar's continuing civil conflict, which escalated following the military's takeover in 2021. Human rights organizations have repeatedly documented attacks on civilian settlements, medical facilities, and schools. The scale of documented child casualties is among the most significant findings in the report. International pressure on Myanmar's military leadership has had limited effect to date, and the country remains under widespread sanctions from Western governments. Humanitarian access to affected areas remains severely constrained.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.bbc.com/news/articles/cnv97e42r7yo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.com/news/articles/cnv97e42r7yo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                         BBC World
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-            </div>
-          </details>
-        </div>
-      
-    
+</li>
+</ul>
+</div>
+</div>
+</div>
+</details>
+</div>
+<!-- Footer -->
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+<div class="archive-link-section"><a class="archive-link" href="/archive.html">Browse past editions →</a></div>
+<footer class="footer">
+<p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
-      <p style="margin-top:0.75rem;"><a href="2026-06-22-pm-sources.html">Sources for this digest →</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<p style="margin-top:0.75rem;"><a href="2026-06-22-pm-sources.html">Sources for this digest →</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-
 <script>
   // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
@@ -893,34 +789,6 @@
     btn.setAttribute('aria-expanded', String(!expanded));
   });
 
-  function toggleMobileArchive() {
-    var panel = document.getElementById('mobile-archive-panel');
-    var toggle = document.getElementById('mobile-toggle');
-    var isOpen = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  }
-
-  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
-  // always show all editions regardless of which page was generated.
-  (function() {
-    var current = '2026-06-22-pm.html';
-    fetch('archive.json?v=' + Date.now())
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-        var mob = document.getElementById('mobile-archive-panel');
-        if (mob) mob.innerHTML = '<div class="mobile-archive-title">Past Editions</div>' + html;
-      })
-      .catch(function() {});
-  })();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');

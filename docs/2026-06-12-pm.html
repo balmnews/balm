@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Friday, June 12, 2026 PM</title>
-  <meta name="description" content="Balm news digest for Friday, June 12, 2026 — topical, anti-inflammatory news.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/png" href="/icons/icon-32.png">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm — Friday, June 12, 2026 PM</title>
+<meta content="Balm news digest for Friday, June 12, 2026 — topical, anti-inflammatory news." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/icons/icon-32.png" rel="icon" type="image/png"/>
+<link href="/icons/icon-192.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -42,10 +43,9 @@
 
     /* Layout */
     .page-wrapper {
-      display: flex;
-      max-width: 1100px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.25rem;
     }
 
     .sidebar {
@@ -501,796 +501,611 @@
   </style>
 </head>
 <body>
-
 <!-- Mobile archive toggle (shown only on mobile) -->
-<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
-  <span class="mobile-archive-caret">›</span> Archive
-</div>
-<div class="mobile-archive-panel" id="mobile-archive-panel">
-  <div class="mobile-archive-title">Past Editions</div>
-  <!-- populated by archive.json fetch on page load — never server-rendered -->
-</div>
+
 
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    <!-- populated by archive.json fetch on page load — never server-rendered -->
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-              <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-              <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-            </filter>
-          </defs>
-          <text x="90" y="44"
-                font-family="Caveat, cursive"
-                font-size="52"
-                font-weight="700"
-                fill="#6b82a8"
-                text-anchor="middle"
-                letter-spacing="8"
-                filter="url(#balm-spread)">Balm</text>
-        </svg>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Friday, June 12, 2026 &middot; PM Edition</p>
-    </header>
-
-    <!-- Audio player -->
-    
-
-    <!-- Top stories navigation -->
-    
-    <div class="top-stories">
-      <div class="top-stories-heading">Today's Top Stories</div>
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_0">US and Iran Signal Progress Toward Ceasefire Agreement as Negotiations Continue</a>
-        <span class="top-story-reason">A potential US-Iran ceasefire agreement would have sweeping implications for Middle East stability and global security.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_14">Solar Energy Surpasses Coal in US Electricity Generation for First Time</a>
-        <span class="top-story-reason">Solar surpassing coal in US electricity generation marks a historic energy transition milestone affecting consumers, industry, and climate policy.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_6">Key US Surveillance Authority, FISA Section 702, Set to Expire as Congress Has Not Renewed It</a>
-        <span class="top-story-reason">The expiration of FISA Section 702 removes a key intelligence-gathering tool with significant consequences for national security and civil liberties.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_13">El Niño Officially Forms; Scientists Predict It Could Be the Strongest This Century</a>
-        <span class="top-story-reason">The formation of a potentially record-breaking El Niño will drive major weather disruptions affecting agriculture, water supply, and communities worldwide.</span>
-      </div>
-      
-      
-    </div>
-    
-
-    <!-- Stories -->
-    
-      
-        <div class="section-header">GEOPOLITICS</div>
-        
-        <div class="article article-long" id="story_0">
-          <h2 class="article-headline">US and Iran Signal Progress Toward Ceasefire Agreement as Negotiations Continue</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>US and Iranian officials said they are close to finalizing a ceasefire deal, with President Trump canceling planned military strikes. Oil prices fell sharply on the news, though details remain unresolved and previous announcements of imminent deals have not held.</span></span>
-            <span class="summary-full"><span>The United States and Iran signaled on Friday that a formal ceasefire agreement is close to being finalized, with both sides and mediating country Pakistan describing the talks as nearly complete. President Trump canceled further planned military strikes against Iran during the day, citing progress in negotiations. Iranian officials said a deal would lead to the reopening of the Strait of Hormuz, a vital global shipping lane that has been a flashpoint in the conflict. Oil prices fell sharply on the news, with Brent crude dropping from around $93 a barrel to significantly lower levels as markets responded to the prospect of reduced tensions. US stock futures also rose on reports of a potential agreement. However, the path to a deal remained complicated on Friday. US and Iranian officials issued conflicting statements about the scope and terms of any agreement, including whether Iran's nuclear program would be included. Iran's foreign minister said Lebanon was part of the framework under discussion, but that the nuclear program was not on the table. Multiple earlier announcements of imminent deals have not resulted in lasting agreements. Sources describe the current situation as a prolonged state of low-intensity conflict that has persisted since a nominal ceasefire was announced roughly two months ago, with continued sporadic violence involving Iran, Israel, and the United States. US national security officials said Gulf allies including the UAE and Bahrain have expressed support for the American pressure campaign against Iran. Indian officials separately raised objections with the US Secretary of State over the deaths of three Indian seafarers in US strikes on oil tankers in the Strait of Hormuz. The situation remains fluid, and no final agreement had been announced as of Friday.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news"><svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg></a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Friday, June 12, 2026 · PM Edition</p>
+</header>
+<!-- Audio player -->
+<!-- Top stories navigation -->
+<div class="top-stories">
+<div class="top-stories-heading">Today's Top Stories</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_0">US and Iran Signal Progress Toward Ceasefire Agreement as Negotiations Continue</a>
+<span class="top-story-reason">A potential US-Iran ceasefire agreement would have sweeping implications for Middle East stability and global security.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_14">Solar Energy Surpasses Coal in US Electricity Generation for First Time</a>
+<span class="top-story-reason">Solar surpassing coal in US electricity generation marks a historic energy transition milestone affecting consumers, industry, and climate policy.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_6">Key US Surveillance Authority, FISA Section 702, Set to Expire as Congress Has Not Renewed It</a>
+<span class="top-story-reason">The expiration of FISA Section 702 removes a key intelligence-gathering tool with significant consequences for national security and civil liberties.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_13">El Niño Officially Forms; Scientists Predict It Could Be the Strongest This Century</a>
+<span class="top-story-reason">The formation of a potentially record-breaking El Niño will drive major weather disruptions affecting agriculture, water supply, and communities worldwide.</span>
+</div>
+</div>
+<!-- Stories -->
+<div class="section-header">GEOPOLITICS</div>
+<div class="article article-long" id="story_0">
+<h2 class="article-headline">US and Iran Signal Progress Toward Ceasefire Agreement as Negotiations Continue</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>US and Iranian officials said they are close to finalizing a ceasefire deal, with President Trump canceling planned military strikes. Oil prices fell sharply on the news, though details remain unresolved and previous announcements of imminent deals have not held.</span></span>
+<span class="summary-full"><span>The United States and Iran signaled on Friday that a formal ceasefire agreement is close to being finalized, with both sides and mediating country Pakistan describing the talks as nearly complete. President Trump canceled further planned military strikes against Iran during the day, citing progress in negotiations. Iranian officials said a deal would lead to the reopening of the Strait of Hormuz, a vital global shipping lane that has been a flashpoint in the conflict. Oil prices fell sharply on the news, with Brent crude dropping from around $93 a barrel to significantly lower levels as markets responded to the prospect of reduced tensions. US stock futures also rose on reports of a potential agreement. However, the path to a deal remained complicated on Friday. US and Iranian officials issued conflicting statements about the scope and terms of any agreement, including whether Iran's nuclear program would be included. Iran's foreign minister said Lebanon was part of the framework under discussion, but that the nuclear program was not on the table. Multiple earlier announcements of imminent deals have not resulted in lasting agreements. Sources describe the current situation as a prolonged state of low-intensity conflict that has persisted since a nominal ceasefire was announced roughly two months ago, with continued sporadic violence involving Iran, Israel, and the United States. US national security officials said Gulf allies including the UAE and Bahrain have expressed support for the American pressure campaign against Iran. Indian officials separately raised objections with the US Secretary of State over the deaths of three Indian seafarers in US strikes on oil tankers in the Strait of Hormuz. The situation remains fluid, and no final agreement had been announced as of Friday.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.cnbc.com/video/2026/06/12/us-stock-futures-rise-on-signs-of-a-potential-us-iran-peace-deal.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.cnbc.com/video/2026/06/12/us-stock-futures-rise-on-signs-of-a-potential-us-iran-peace-deal.html" rel="noopener" target="_blank">
                   Cnbc
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/live/2026/jun/12/middle-east-crisis-live-us-iran-israel-lebanon-trump-hormuz-oil-peace-deal-doubt-latest-news-updates" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/live/2026/jun/12/middle-east-crisis-live-us-iran-israel-lebanon-trump-hormuz-oil-peace-deal-doubt-latest-news-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/12/us-iran-peace-deal-remains-elusive-as-trump-and-tehran-trade-conflicting-claims" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/12/us-iran-peace-deal-remains-elusive-as-trump-and-tehran-trade-conflicting-claims" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/12/trump-rollercoaster-deal-us-iran" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/12/trump-rollercoaster-deal-us-iran" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/business/2026/jun/12/global-oil-prices-trump-us-iran-deal-brent-crude-strait-of-hormuz" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/business/2026/jun/12/global-oil-prices-trump-us-iran-deal-brent-crude-strait-of-hormuz" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/live/2026/06/12/world/iran-war-trump-us-israel" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/live/2026/06/12/world/iran-war-trump-us-israel" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/12/world/middleeast/iran-war-limbo.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/12/world/middleeast/iran-war-limbo.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c39y02x98k8o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c39y02x98k8o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c39y02x98k8o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c39y02x98k8o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/12/g-s1177-127971/trump-says-he-has-canceled-planned-strikes-on-iran-and-peace-deal-is-near-again" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/12/g-s1177-127971/trump-says-he-has-canceled-planned-strikes-on-iran-and-peace-deal-is-near-again" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_1">
-          <h2 class="article-headline">UK Defence Secretary Resigns Over Military Spending Dispute as NATO Summit Approaches</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>UK Defence Secretary John Healey resigned following a dispute with Prime Minister Keir Starmer over the level of defence spending, with Dan Jarvis named as his replacement. The resignation came weeks before a NATO summit and drew concern from the United States.</span></span>
-            <span class="summary-full"><span>UK Defence Secretary John Healey resigned from government on Thursday following a dispute with Prime Minister Keir Starmer over military spending levels, with Healey subsequently saying the government's defence investment plan falls well short of what is required. Starmer acknowledged on Friday that he needs to 'turn things around' after the resignation, while insisting he has a duty to remain in office and has made difficult decisions on defence funding. Dan Jarvis, a former paratrooper who has worked his way through ministerial roles, was named as Healey's replacement. The resignation comes at a sensitive moment, with a NATO summit scheduled in Ankara in the coming weeks and sustained pressure from the United States on European allies to increase defence contributions. The US has been monitoring the situation and the Healey resignation drew attention in Washington. Within the UK government, Downing Street and the Treasury were reported to have been exchanging recriminations, while former defence minister Al Carns delivered a critical assessment of the government's approach to the defence budget. The episode has raised broader questions about the UK's capacity to meet its defence commitments at a time when NATO allies face heightened demands. Healey's departure is the latest in a series of difficulties for the Starmer government.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_1">
+<h2 class="article-headline">UK Defence Secretary Resigns Over Military Spending Dispute as NATO Summit Approaches</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>UK Defence Secretary John Healey resigned following a dispute with Prime Minister Keir Starmer over the level of defence spending, with Dan Jarvis named as his replacement. The resignation came weeks before a NATO summit and drew concern from the United States.</span></span>
+<span class="summary-full"><span>UK Defence Secretary John Healey resigned from government on Thursday following a dispute with Prime Minister Keir Starmer over military spending levels, with Healey subsequently saying the government's defence investment plan falls well short of what is required. Starmer acknowledged on Friday that he needs to 'turn things around' after the resignation, while insisting he has a duty to remain in office and has made difficult decisions on defence funding. Dan Jarvis, a former paratrooper who has worked his way through ministerial roles, was named as Healey's replacement. The resignation comes at a sensitive moment, with a NATO summit scheduled in Ankara in the coming weeks and sustained pressure from the United States on European allies to increase defence contributions. The US has been monitoring the situation and the Healey resignation drew attention in Washington. Within the UK government, Downing Street and the Treasury were reported to have been exchanging recriminations, while former defence minister Al Carns delivered a critical assessment of the government's approach to the defence budget. The episode has raised broader questions about the UK's capacity to meet its defence commitments at a time when NATO allies face heightened demands. Healey's departure is the latest in a series of difficulties for the Starmer government.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/politics/2026/jun/12/keir-starmer-john-healey-defence-secretary-exit" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/politics/2026/jun/12/keir-starmer-john-healey-defence-secretary-exit" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/politics/live/2026/jun/12/keir-starmer-defence-investment-plan-spending-dan-jarvis-al-cairns-john-healey-latest-news-updates" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/politics/live/2026/jun/12/keir-starmer-defence-investment-plan-spending-dan-jarvis-al-cairns-john-healey-latest-news-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/global/2026/jun/12/who-is-dan-jarvis-the-new-defence-secretary-replacing-john-healey" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/global/2026/jun/12/who-is-dan-jarvis-the-new-defence-secretary-replacing-john-healey" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/starmer-seismic-crisis-uk-defense-chief-quits-high-stakes-trump-nato-summit" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/world/starmer-seismic-crisis-uk-defense-chief-quits-high-stakes-trump-nato-summit" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c621wr1zg97o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c621wr1zg97o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c8d2q84y1gno?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c8d2q84y1gno?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_2">
-          <h2 class="article-headline">US Plans to Withdraw About One-Third of Fighter Jets Assigned to NATO in Europe</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Trump administration has outlined plans to pull roughly a third of the fighter jets it contributes to NATO in Europe, according to US officials and a written document, marking a significant reduction in the American military commitment to the alliance.</span></span>
-            <span class="summary-full"><span>The Trump administration has prepared plans to withdraw approximately one-third of the fighter aircraft it currently contributes to NATO operations in Europe, according to US officials and details contained in a written planning document. The reduction would represent one of the clearest concrete indicators to date of the administration's intent to scale back its military presence and commitments within the NATO alliance. The plans provide what sources describe as rare specificity about the scope of the intended drawdown. The United States currently supplies a significant share of NATO's combat air capacity in Europe, and a reduction of this scale would require European allies to fill the gap or accept reduced overall capability. The announcement comes at a moment of heightened tension within NATO over defence spending burdens and the future of the transatlantic security relationship. A NATO summit is scheduled in Ankara in the coming weeks, where spending levels and burden-sharing are expected to be central topics. The news of planned jet withdrawals follows ongoing US pressure on European members to increase their own defence expenditures.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_2">
+<h2 class="article-headline">US Plans to Withdraw About One-Third of Fighter Jets Assigned to NATO in Europe</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Trump administration has outlined plans to pull roughly a third of the fighter jets it contributes to NATO in Europe, according to US officials and a written document, marking a significant reduction in the American military commitment to the alliance.</span></span>
+<span class="summary-full"><span>The Trump administration has prepared plans to withdraw approximately one-third of the fighter aircraft it currently contributes to NATO operations in Europe, according to US officials and details contained in a written planning document. The reduction would represent one of the clearest concrete indicators to date of the administration's intent to scale back its military presence and commitments within the NATO alliance. The plans provide what sources describe as rare specificity about the scope of the intended drawdown. The United States currently supplies a significant share of NATO's combat air capacity in Europe, and a reduction of this scale would require European allies to fill the gap or accept reduced overall capability. The announcement comes at a moment of heightened tension within NATO over defence spending burdens and the future of the transatlantic security relationship. A NATO summit is scheduled in Ankara in the coming weeks, where spending levels and burden-sharing are expected to be central topics. The news of planned jet withdrawals follows ongoing US pressure on European members to increase their own defence expenditures.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/12/world/europe/us-nato-cuts-drawdown-jets.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/12/world/europe/us-nato-cuts-drawdown-jets.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_3">
-          <h2 class="article-headline">China Detains US Scholar with Myanmar Activism Background on Espionage Allegations</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Chinese authorities detained Min Zin, a US citizen who leads a think tank focused on Myanmar, on suspicion of espionage and endangering national security.</span></span>
-            <span class="summary-full"><span>China's government announced the detention of Min Zin, a US citizen who heads a think tank focused on Myanmar, on suspicion of engaging in espionage and endangering Chinese national security. Min Zin has a documented background in Myanmar political activism. Chinese authorities did not provide detailed evidence supporting the espionage allegation. The arrest of American citizens by China on national security grounds has become a recurring source of tension between the two governments. Such detentions are sometimes described by US officials and analysts as leverage in broader diplomatic disputes, though China consistently frames them as lawful law enforcement actions. The US government's response to the detention had not been fully detailed in available source material at time of publication.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_3">
+<h2 class="article-headline">China Detains US Scholar with Myanmar Activism Background on Espionage Allegations</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Chinese authorities detained Min Zin, a US citizen who leads a think tank focused on Myanmar, on suspicion of espionage and endangering national security.</span></span>
+<span class="summary-full"><span>China's government announced the detention of Min Zin, a US citizen who heads a think tank focused on Myanmar, on suspicion of engaging in espionage and endangering Chinese national security. Min Zin has a documented background in Myanmar political activism. Chinese authorities did not provide detailed evidence supporting the espionage allegation. The arrest of American citizens by China on national security grounds has become a recurring source of tension between the two governments. Such detentions are sometimes described by US officials and analysts as leverage in broader diplomatic disputes, though China consistently frames them as lawful law enforcement actions. The US government's response to the detention had not been fully detailed in available source material at time of publication.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/12/nx-s1-5856394/china-arrest-us-citizen-myanmar" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.npr.org/2026/06/12/nx-s1-5856394/china-arrest-us-citizen-myanmar" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_4">
-          <h2 class="article-headline">South Korea's Former President Sentenced to 30 Additional Years for Ordering Drone Flights Over North Korea</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A South Korean court sentenced former President Yoon Suk Yeol to 30 years in prison for ordering drone flights into North Korea, which prosecutors said was an attempt to manufacture a pretext for declaring martial law. He is already serving a life sentence for insurrection.</span></span>
-            <span class="summary-full"><span>A South Korean court sentenced former President Yoon Suk Yeol to 30 years in prison for allegedly ordering drone flights into North Korean airspace months before he declared martial law in late 2024. Prosecutors argued the drone operations were intended to create a manufactured state of emergency that would justify the martial law declaration. Yoon is already serving a life sentence following a separate insurrection conviction stemming from the short-lived martial law declaration itself. The additional 30-year sentence further extends the legal consequences he faces from the events surrounding December 2024. Both sources covering the case agree on the core facts of the new sentence and its connection to the drone flights, though they differ slightly in emphasis regarding the underlying motive.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_4">
+<h2 class="article-headline">South Korea's Former President Sentenced to 30 Additional Years for Ordering Drone Flights Over North Korea</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A South Korean court sentenced former President Yoon Suk Yeol to 30 years in prison for ordering drone flights into North Korea, which prosecutors said was an attempt to manufacture a pretext for declaring martial law. He is already serving a life sentence for insurrection.</span></span>
+<span class="summary-full"><span>A South Korean court sentenced former President Yoon Suk Yeol to 30 years in prison for allegedly ordering drone flights into North Korean airspace months before he declared martial law in late 2024. Prosecutors argued the drone operations were intended to create a manufactured state of emergency that would justify the martial law declaration. Yoon is already serving a life sentence following a separate insurrection conviction stemming from the short-lived martial law declaration itself. The additional 30-year sentence further extends the legal consequences he faces from the events surrounding December 2024. Both sources covering the case agree on the core facts of the new sentence and its connection to the drone flights, though they differ slightly in emphasis regarding the underlying motive.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.newser.com/story/387943/south-koreas-ex-president-faces-30-years-over-drone-plot.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.newser.com/story/387943/south-koreas-ex-president-faces-30-years-over-drone-plot.html" rel="noopener" target="_blank">
                   Newser
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/former-south-korean-president-yoon-suk-yeol-sentenced-30-years-over-north-korea-drone-flights" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/world/former-south-korean-president-yoon-suk-yeol-sentenced-30-years-over-north-korea-drone-flights" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">DOMESTIC POLICY</div>
-        
-        <div class="article article-long" id="story_6">
-          <h2 class="article-headline">Key US Surveillance Authority, FISA Section 702, Set to Expire as Congress Has Not Renewed It</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>FISA Section 702, a surveillance tool that officials say underpins more than 60% of the president's daily intelligence briefing, is set to lapse Friday as Congress has been unable to pass renewal legislation.</span></span>
-            <span class="summary-full"><span>A major US government surveillance authority known as FISA Section 702 is set to expire on Friday after Congress failed to pass legislation renewing it. The tool authorizes the collection of electronic communications from foreign targets overseas and is described by officials as a foundational component of American intelligence gathering. Government officials have stated that more than 60% of the content in the president's daily intelligence briefing draws on information collected under Section 702. The authority has existed in its current form since 2008 and has been renewed multiple times, but reauthorization efforts have been repeatedly complicated by disagreements between lawmakers over privacy protections and the scope of permissible searches of communications involving American citizens. The lapse does not immediately terminate all existing collection, but it would prevent the government from initiating new collection under the authority and could have cascading effects on intelligence operations over time. The expiration comes as the US is engaged in active military and diplomatic activity in the Middle East, increasing the operational stakes of a gap in surveillance capacity.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">DOMESTIC POLICY</div>
+<div class="article article-long" id="story_6">
+<h2 class="article-headline">Key US Surveillance Authority, FISA Section 702, Set to Expire as Congress Has Not Renewed It</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>FISA Section 702, a surveillance tool that officials say underpins more than 60% of the president's daily intelligence briefing, is set to lapse Friday as Congress has been unable to pass renewal legislation.</span></span>
+<span class="summary-full"><span>A major US government surveillance authority known as FISA Section 702 is set to expire on Friday after Congress failed to pass legislation renewing it. The tool authorizes the collection of electronic communications from foreign targets overseas and is described by officials as a foundational component of American intelligence gathering. Government officials have stated that more than 60% of the content in the president's daily intelligence briefing draws on information collected under Section 702. The authority has existed in its current form since 2008 and has been renewed multiple times, but reauthorization efforts have been repeatedly complicated by disagreements between lawmakers over privacy protections and the scope of permissible searches of communications involving American citizens. The lapse does not immediately terminate all existing collection, but it would prevent the government from initiating new collection under the authority and could have cascading effects on intelligence operations over time. The expiration comes as the US is engaged in active military and diplomatic activity in the Middle East, increasing the operational stakes of a gap in surveillance capacity.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/12/nx-s1-5856291/fisa-702-surveillance-expiration-bill-pulte" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.npr.org/2026/06/12/nx-s1-5856291/fisa-702-surveillance-expiration-bill-pulte" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_7">
-          <h2 class="article-headline">Trump Administration Waives Environmental Laws to Allow Border Wall Construction in Big Bend National Park</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Trump administration has waived environmental and historical preservation laws to permit construction of a border wall through Big Bend National Park in Texas, drawing objections from conservation groups despite declining border crossing numbers.</span></span>
-            <span class="summary-full"><span>The Trump administration has issued waivers for a range of environmental and historical preservation statutes to allow construction of a border wall through Big Bend National Park in west Texas. The waivers bypass laws that would ordinarily require environmental review and protection of cultural and natural resources in the area. Big Bend is a vast and ecologically sensitive wilderness area on the US-Mexico border in a remote part of Texas. Conservation groups and others have objected to the plan, describing the proposed construction as significant destruction of a pristine landscape. The administration's decision to proceed comes despite data showing a decline in border crossings in the region. The use of statutory waivers to accelerate border infrastructure construction in protected areas has been employed in previous administrations as well, though the application to a national park of this size and character has drawn particular attention.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_7">
+<h2 class="article-headline">Trump Administration Waives Environmental Laws to Allow Border Wall Construction in Big Bend National Park</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Trump administration has waived environmental and historical preservation laws to permit construction of a border wall through Big Bend National Park in Texas, drawing objections from conservation groups despite declining border crossing numbers.</span></span>
+<span class="summary-full"><span>The Trump administration has issued waivers for a range of environmental and historical preservation statutes to allow construction of a border wall through Big Bend National Park in west Texas. The waivers bypass laws that would ordinarily require environmental review and protection of cultural and natural resources in the area. Big Bend is a vast and ecologically sensitive wilderness area on the US-Mexico border in a remote part of Texas. Conservation groups and others have objected to the plan, describing the proposed construction as significant destruction of a pristine landscape. The administration's decision to proceed comes despite data showing a decline in border crossings in the region. The use of statutory waivers to accelerate border infrastructure construction in protected areas has been employed in previous administrations as well, though the application to a national park of this size and character has drawn particular attention.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/13/texas-border-wall-big-bend-national-park" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/13/texas-border-wall-big-bend-national-park" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_8">
-          <h2 class="article-headline">Supreme Court Denies Alabama's Request to Proceed with Nitrogen Gas Execution</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Supreme Court rejected Alabama's request to allow a nitrogen gas execution to proceed, leaving the method under continued legal scrutiny.</span></span>
-            <span class="summary-full"><span>The Supreme Court denied Alabama's request to allow a scheduled nitrogen gas execution to go forward, blocking the state from proceeding while legal questions about the method remain unresolved. Alabama has sought to use nitrogen hypoxia as an execution method, arguing it is humane. Opponents have challenged the method as potentially constituting cruel and unusual punishment under the Eighth Amendment. The court's denial does not constitute a final ruling on the constitutionality of the method but prevents this specific execution from taking place while litigation continues. The court also issued opinions in three other argued cases on the same day, per available source material, though details of those decisions are covered separately.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_8">
+<h2 class="article-headline">Supreme Court Denies Alabama's Request to Proceed with Nitrogen Gas Execution</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Supreme Court rejected Alabama's request to allow a nitrogen gas execution to proceed, leaving the method under continued legal scrutiny.</span></span>
+<span class="summary-full"><span>The Supreme Court denied Alabama's request to allow a scheduled nitrogen gas execution to go forward, blocking the state from proceeding while legal questions about the method remain unresolved. Alabama has sought to use nitrogen hypoxia as an execution method, arguing it is humane. Opponents have challenged the method as potentially constituting cruel and unusual punishment under the Eighth Amendment. The court's denial does not constitute a final ruling on the constitutionality of the method but prevents this specific execution from taking place while litigation continues. The court also issued opinions in three other argued cases on the same day, per available source material, though details of those decisions are covered separately.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.scotusblog.com/2026/06/court-considers-nitrogen-gas-execution/" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.scotusblog.com/2026/06/court-considers-nitrogen-gas-execution/" rel="noopener" target="_blank">
                   SCOTUSblog
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.scotusblog.com/2026/06/court-denies-alabamas-request-to-allow-execution-using-nitrogen-gas/" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.scotusblog.com/2026/06/court-denies-alabamas-request-to-allow-execution-using-nitrogen-gas/" rel="noopener" target="_blank">
                   SCOTUSblog
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SCIENCE & HEALTH</div>
-        
-        <div class="article article-medium" id="story_9">
-          <h2 class="article-headline">Five Lupus Patients in England Reach Remission Following Genetically Modified T-Cell Therapy Trial</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Five lupus patients in England are in remission after receiving CAR T-cell therapy in an NHS trial, a development doctors describe as a potential route to a cure for the autoimmune disease.</span></span>
-            <span class="summary-full"><span>Five patients with lupus enrolled in an NHS clinical trial in England have entered remission after receiving CAR T-cell therapy, according to doctors involved in the trial. The treatment, known as chimeric antigen receptor T-cell therapy, involves removing a patient's own white blood cells, genetically modifying them to target specific disease-causing cells, and reinfusing them into the body. The approach has previously shown results in certain blood cancers, and this trial represents an application to autoimmune disease. Lupus is a chronic autoimmune condition in which the immune system attacks healthy tissue, causing damage to organs including the kidneys, heart, and skin. There is currently no cure, and many patients require lifelong medication to manage symptoms. Doctors involved in the trial described the results as a potential medical breakthrough and said the therapy could eventually offer patients a cure rather than ongoing disease management. The trial remains at an early stage, and larger studies would be needed before the treatment could be considered for wider use.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SCIENCE &amp; HEALTH</div>
+<div class="article article-medium" id="story_9">
+<h2 class="article-headline">Five Lupus Patients in England Reach Remission Following Genetically Modified T-Cell Therapy Trial</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Five lupus patients in England are in remission after receiving CAR T-cell therapy in an NHS trial, a development doctors describe as a potential route to a cure for the autoimmune disease.</span></span>
+<span class="summary-full"><span>Five patients with lupus enrolled in an NHS clinical trial in England have entered remission after receiving CAR T-cell therapy, according to doctors involved in the trial. The treatment, known as chimeric antigen receptor T-cell therapy, involves removing a patient's own white blood cells, genetically modifying them to target specific disease-causing cells, and reinfusing them into the body. The approach has previously shown results in certain blood cancers, and this trial represents an application to autoimmune disease. Lupus is a chronic autoimmune condition in which the immune system attacks healthy tissue, causing damage to organs including the kidneys, heart, and skin. There is currently no cure, and many patients require lifelong medication to manage symptoms. Doctors involved in the trial described the results as a potential medical breakthrough and said the therapy could eventually offer patients a cure rather than ongoing disease management. The trial remains at an early stage, and larger studies would be needed before the treatment could be considered for wider use.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/science/2026/jun/12/lupus-patients-in-remission-england-nhs-trial-genentically-modified-t-cell-therapy" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/science/2026/jun/12/lupus-patients-in-remission-england-nhs-trial-genentically-modified-t-cell-therapy" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_10">
-          <h2 class="article-headline">Debate Grows Over Embryo Gene Editing as New Base-Editing Techniques Advance</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Fertility specialists, biotech companies, and ethicists are divided over emerging base-editing techniques that can modify human embryo DNA, with supporters citing disease elimination and critics raising concerns about enhancement applications.</span></span>
-            <span class="summary-full"><span>Advances in a form of genetic modification called base editing are intensifying debate among fertility specialists, biotechnology companies, and ethicists about the future of editing human embryos. Unlike earlier gene-editing tools, base editing allows researchers to make precise changes to individual DNA letters without cutting the double helix, reducing the risk of unintended mutations. Proponents argue the technology could be used to eliminate serious inherited diseases before birth. Critics raise concerns that the same techniques could be applied not to prevent disease but to select or enhance non-medical traits, a prospect widely described as ethically fraught. The debate reflects longstanding tensions in the field that predate base editing, but the increased precision and accessibility of the newer techniques has given the discussion renewed urgency. Regulatory frameworks governing embryo editing vary significantly across countries, and no consensus exists on where the boundary between therapeutic and enhancement use should be drawn.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_10">
+<h2 class="article-headline">Debate Grows Over Embryo Gene Editing as New Base-Editing Techniques Advance</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Fertility specialists, biotech companies, and ethicists are divided over emerging base-editing techniques that can modify human embryo DNA, with supporters citing disease elimination and critics raising concerns about enhancement applications.</span></span>
+<span class="summary-full"><span>Advances in a form of genetic modification called base editing are intensifying debate among fertility specialists, biotechnology companies, and ethicists about the future of editing human embryos. Unlike earlier gene-editing tools, base editing allows researchers to make precise changes to individual DNA letters without cutting the double helix, reducing the risk of unintended mutations. Proponents argue the technology could be used to eliminate serious inherited diseases before birth. Critics raise concerns that the same techniques could be applied not to prevent disease but to select or enhance non-medical traits, a prospect widely described as ethically fraught. The debate reflects longstanding tensions in the field that predate base editing, but the increased precision and accessibility of the newer techniques has given the discussion renewed urgency. Regulatory frameworks governing embryo editing vary significantly across countries, and no consensus exists on where the boundary between therapeutic and enhancement use should be drawn.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/11/science/base-editing-embryos-debate.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/11/science/base-editing-embryos-debate.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_11">
-          <h2 class="article-headline">Clinical Trials Begin on Treatments for Widening Ebola Outbreak Caused by Bundibugyo Variant</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Researchers have begun clinical trials on several drug candidates showing preliminary promise against the Bundibugyo Ebola virus strain driving an ongoing outbreak, as the spread of cases widens.</span></span>
-            <span class="summary-full"><span>Scientists have begun clinical trials of several experimental treatments targeting the Bundibugyo strain of Ebola virus, which is responsible for the current outbreak. The Bundibugyo variant is one of several known Ebola strains and has caused smaller outbreaks previously, though the current one has expanded enough to prompt emergency research efforts. Preliminary laboratory studies have identified a number of drug candidates that show activity against the virus, and researchers are moving quickly to test them in patients given the urgency of the situation. The development of treatments for Ebola strains beyond the best-known Zaire strain has historically been slower, in part because outbreaks have been less frequent. The geographic scope of the current outbreak and the number of cases affected were not fully specified in available source material, but the expansion is sufficient to have triggered formal trial processes.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_11">
+<h2 class="article-headline">Clinical Trials Begin on Treatments for Widening Ebola Outbreak Caused by Bundibugyo Variant</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Researchers have begun clinical trials on several drug candidates showing preliminary promise against the Bundibugyo Ebola virus strain driving an ongoing outbreak, as the spread of cases widens.</span></span>
+<span class="summary-full"><span>Scientists have begun clinical trials of several experimental treatments targeting the Bundibugyo strain of Ebola virus, which is responsible for the current outbreak. The Bundibugyo variant is one of several known Ebola strains and has caused smaller outbreaks previously, though the current one has expanded enough to prompt emergency research efforts. Preliminary laboratory studies have identified a number of drug candidates that show activity against the virus, and researchers are moving quickly to test them in patients given the urgency of the situation. The development of treatments for Ebola strains beyond the best-known Zaire strain has historically been slower, in part because outbreaks have been less frequent. The geographic scope of the current outbreak and the number of cases affected were not fully specified in available source material, but the expansion is sufficient to have triggered formal trial processes.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/12/health/ebola-treatment-bundibugyo-virus.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/12/health/ebola-treatment-bundibugyo-virus.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">NATURAL EVENTS</div>
-        
-        <div class="article article-medium" id="story_13">
-          <h2 class="article-headline">El Niño Officially Forms; Scientists Predict It Could Be the Strongest This Century</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>US weather officials at NOAA have confirmed El Niño has formed in the Pacific, with meteorologists predicting it could intensify to historic levels by autumn and drive extreme weather events globally.</span></span>
-            <span class="summary-full"><span>The climate pattern known as El Niño has officially formed in the Pacific Ocean, according to the US National Oceanic and Atmospheric Administration. Meteorologists predict the pattern could intensify to become the strongest El Niño of the century, with potentially severe effects expected to emerge in the autumn months. El Niño typically causes sea surface temperatures in the central and eastern Pacific to rise above average, which can amplify weather extremes around the world, including more intense hurricanes in some regions, drought conditions in others, and above-average temperatures globally. The UN Secretary-General has described the development as an urgent climate warning. Scientists note that because El Niño would be layered on top of already elevated global temperatures driven by long-term climate change, its effects could be more pronounced than historical comparisons would suggest. The United States typically experiences altered precipitation patterns during strong El Niño years, including wetter conditions in the southern states and drought in parts of the Pacific Northwest.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">NATURAL EVENTS</div>
+<div class="article article-medium" id="story_13">
+<h2 class="article-headline">El Niño Officially Forms; Scientists Predict It Could Be the Strongest This Century</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>US weather officials at NOAA have confirmed El Niño has formed in the Pacific, with meteorologists predicting it could intensify to historic levels by autumn and drive extreme weather events globally.</span></span>
+<span class="summary-full"><span>The climate pattern known as El Niño has officially formed in the Pacific Ocean, according to the US National Oceanic and Atmospheric Administration. Meteorologists predict the pattern could intensify to become the strongest El Niño of the century, with potentially severe effects expected to emerge in the autumn months. El Niño typically causes sea surface temperatures in the central and eastern Pacific to rise above average, which can amplify weather extremes around the world, including more intense hurricanes in some regions, drought conditions in others, and above-average temperatures globally. The UN Secretary-General has described the development as an urgent climate warning. Scientists note that because El Niño would be layered on top of already elevated global temperatures driven by long-term climate change, its effects could be more pronounced than historical comparisons would suggest. The United States typically experiences altered precipitation patterns during strong El Niño years, including wetter conditions in the southern states and drought in parts of the Pacific Northwest.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/apr/13/el-nino-explainer" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/environment/2026/apr/13/el-nino-explainer" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/11/el-nino-forms-historic-strength" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/11/el-nino-forms-historic-strength" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_14">
-          <h2 class="article-headline">Solar Energy Surpasses Coal in US Electricity Generation for First Time</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Solar power supplied 12.8% of US electricity in May, surpassing coal for the first time on record, according to data from the energy think tank Ember.</span></span>
-            <span class="summary-full"><span>Solar power generated more electricity in the United States than coal for the first time on record in May, according to data released by the global energy think tank Ember. Solar supplied 12.8% of US electricity during the month. The milestone arrives even as the current federal administration has promoted coal production and scaled back support for renewable energy policies. Solar has been the leading source of newly installed electricity generation capacity in the US for several years, and cumulative installations have now reached a scale sufficient to exceed coal's output during favorable months. Coal's share of the electricity mix has declined steadily over the past decade, displaced primarily by natural gas and, increasingly, by renewable sources. The monthly figure reflects seasonal conditions favorable to solar output and may vary in winter months when sunlight hours are shorter.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_14">
+<h2 class="article-headline">Solar Energy Surpasses Coal in US Electricity Generation for First Time</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Solar power supplied 12.8% of US electricity in May, surpassing coal for the first time on record, according to data from the energy think tank Ember.</span></span>
+<span class="summary-full"><span>Solar power generated more electricity in the United States than coal for the first time on record in May, according to data released by the global energy think tank Ember. Solar supplied 12.8% of US electricity during the month. The milestone arrives even as the current federal administration has promoted coal production and scaled back support for renewable energy policies. Solar has been the leading source of newly installed electricity generation capacity in the US for several years, and cumulative installations have now reached a scale sufficient to exceed coal's output during favorable months. Coal's share of the electricity mix has declined steadily over the past decade, displaced primarily by natural gas and, increasingly, by renewable sources. The monthly figure reflects seasonal conditions favorable to solar output and may vary in winter months when sunlight hours are shorter.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/11/solar-energy-us-coal" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/11/solar-energy-us-coal" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">ECONOMY</div>
-        
-        <div class="article article-medium" id="story_5">
-          <h2 class="article-headline">Justice Department Clears $111 Billion Paramount and Warner Bros. Discovery Merger</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Department of Justice's antitrust division has approved the approximately $111 billion merger of Paramount Skydance and Warner Bros. Discovery, uniting two major studios and placing CNN and CBS News under the same corporate ownership.</span></span>
-            <span class="summary-full"><span>The Justice Department's antitrust division approved the proposed merger of Paramount Skydance and Warner Bros. Discovery on Friday, clearing the way for a combination valued at approximately $110 to $111 billion depending on the source. The deal would unite two major Hollywood studios and bring together a significant array of media assets. Paramount, which is controlled by the Ellison family, owns the CBS broadcast network and CBS News, while Warner Bros. Discovery is the parent company of HBO and CNN, among other properties. The combination would place CBS News and CNN under the same corporate roof for the first time. The merger underwent months of antitrust review. The approval represents a significant consolidation in the traditional media industry at a time when broadcast and cable networks face sustained competition from streaming platforms. No conditions attached to the approval were specified in available source material.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">ECONOMY</div>
+<div class="article article-medium" id="story_5">
+<h2 class="article-headline">Justice Department Clears $111 Billion Paramount and Warner Bros. Discovery Merger</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Department of Justice's antitrust division has approved the approximately $111 billion merger of Paramount Skydance and Warner Bros. Discovery, uniting two major studios and placing CNN and CBS News under the same corporate ownership.</span></span>
+<span class="summary-full"><span>The Justice Department's antitrust division approved the proposed merger of Paramount Skydance and Warner Bros. Discovery on Friday, clearing the way for a combination valued at approximately $110 to $111 billion depending on the source. The deal would unite two major Hollywood studios and bring together a significant array of media assets. Paramount, which is controlled by the Ellison family, owns the CBS broadcast network and CBS News, while Warner Bros. Discovery is the parent company of HBO and CNN, among other properties. The combination would place CBS News and CNN under the same corporate roof for the first time. The merger underwent months of antitrust review. The approval represents a significant consolidation in the traditional media industry at a time when broadcast and cable networks face sustained competition from streaming platforms. No conditions attached to the approval were specified in available source material.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/12/paramount-warner-bros-merger" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/12/paramount-warner-bros-merger" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/12/business/media/paramount-warner-bros-merger.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/12/business/media/paramount-warner-bros-merger.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/12/nx-s1-5856567/paramount-acquisition-warner-bros-discovery-merger" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/12/nx-s1-5856567/paramount-acquisition-warner-bros-discovery-merger" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">TECHNOLOGY</div>
-        
-        <div class="article article-long" id="story_12">
-          <h2 class="article-headline">SpaceX Completes Largest IPO in History, Shares Rise 20% on First Day of Trading</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>SpaceX raised approximately $75 billion in its stock market debut on the Nasdaq, with shares closing around 20% above the IPO price of $135, pushing the company's valuation above $2 trillion.</span></span>
-            <span class="summary-full"><span>SpaceX completed the largest initial public offering in stock market history on Friday, raising approximately $75 billion after nearly 25 years as a private company. Shares opened for public trading at around $150 and closed at roughly $160.95, approximately 20% above the IPO price of $135, according to multiple sources. The company's market valuation settled in a range reported variously as $2.1 trillion to $2.2 trillion by day's end, depending on the source. The IPO also pushed Elon Musk's personal net worth above $1 trillion, according to the Bloomberg wealth index and Forbes, making him the first person ever to reach that threshold. His fortune increased by more than $60 billion on the day of the debut alone. SpaceX, which began as a rocket company and has expanded into satellite communications through its Starlink service and artificial intelligence, listed on the Nasdaq exchange. Sources note that the company's governance structure gives Musk significant control, and some analysts flagged arrangements that may benefit him relative to other shareholders. The successful debut is expected to influence the timing and terms of anticipated public offerings from OpenAI and Anthropic, both of which have signaled plans to list this year at valuations near $1 trillion each. SpaceX's IPO is widely seen as opening a new chapter for large technology and aerospace companies seeking public markets.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">TECHNOLOGY</div>
+<div class="article article-long" id="story_12">
+<h2 class="article-headline">SpaceX Completes Largest IPO in History, Shares Rise 20% on First Day of Trading</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>SpaceX raised approximately $75 billion in its stock market debut on the Nasdaq, with shares closing around 20% above the IPO price of $135, pushing the company's valuation above $2 trillion.</span></span>
+<span class="summary-full"><span>SpaceX completed the largest initial public offering in stock market history on Friday, raising approximately $75 billion after nearly 25 years as a private company. Shares opened for public trading at around $150 and closed at roughly $160.95, approximately 20% above the IPO price of $135, according to multiple sources. The company's market valuation settled in a range reported variously as $2.1 trillion to $2.2 trillion by day's end, depending on the source. The IPO also pushed Elon Musk's personal net worth above $1 trillion, according to the Bloomberg wealth index and Forbes, making him the first person ever to reach that threshold. His fortune increased by more than $60 billion on the day of the debut alone. SpaceX, which began as a rocket company and has expanded into satellite communications through its Starlink service and artificial intelligence, listed on the Nasdaq exchange. Sources note that the company's governance structure gives Musk significant control, and some analysts flagged arrangements that may benefit him relative to other shareholders. The successful debut is expected to influence the timing and terms of anticipated public offerings from OpenAI and Anthropic, both of which have signaled plans to list this year at valuations near $1 trillion each. SpaceX's IPO is widely seen as opening a new chapter for large technology and aerospace companies seeking public markets.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.cnbc.com/video/2026/06/12/spacex-raises-75b-in-biggest-ever-ipo.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.cnbc.com/video/2026/06/12/spacex-raises-75b-in-biggest-ever-ipo.html" rel="noopener" target="_blank">
                   Cnbc
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/business/live/2026/jun/12/spacex-float-us-stock-market-share-elon-musk-trillionaire-largest-ipo-ever-live-news-updates" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/business/live/2026/jun/12/spacex-float-us-stock-market-share-elon-musk-trillionaire-largest-ipo-ever-live-news-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/technology/2026/jun/12/elon-musk-spacex-net-worth" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/technology/2026/jun/12/elon-musk-spacex-net-worth" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/science/2026/jun/12/spacex-stock-price-ipo-spcx" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/science/2026/jun/12/spacex-stock-price-ipo-spcx" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/science/2026/jun/12/spacex-stock-market-debut" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/science/2026/jun/12/spacex-stock-market-debut" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/12/technology/spacex-ipo-journey.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/12/technology/spacex-ipo-journey.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/live/2026/06/12/business/spacex-ipo-elon-musk/the-steady-hand-at-spacex-is-not-elon-musks" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/live/2026/06/12/business/spacex-ipo-elon-musk/the-steady-hand-at-spacex-is-not-elon-musks" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/live/2026/06/12/business/spacex-ipo-elon-musk/spacex-is-structured-in-a-way-that-appears-to-benefit-musk-at-the-expense-of-other-shareholders" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/live/2026/06/12/business/spacex-ipo-elon-musk/spacex-is-structured-in-a-way-that-appears-to-benefit-musk-at-the-expense-of-other-shareholders" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/12/technology/spacex-ipo-elon-musk.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/12/technology/spacex-ipo-elon-musk.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/12/technology/elon-musk-trillionaire.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/12/technology/elon-musk-trillionaire.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/12/technology/spacex-ipo-openai-anthropic.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/12/technology/spacex-ipo-openai-anthropic.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c4gypy3wwl7o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c4gypy3wwl7o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c4gypy3wwl7o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c4gypy3wwl7o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/12/nx-s1-5855004/stock-ai-spacex-ipo-elon-musk" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/12/nx-s1-5855004/stock-ai-spacex-ipo-elon-musk" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="difficult-section">
-          <details>
-            <summary class="difficult-toggle">
-              <span class="difficult-caret">&#9658;</span>
-              <span class="difficult-label">Difficult News</span>
-            </summary>
-            <p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
-            <div class="difficult-content">
-              
-              <div class="article article-medium" id="story_15">
-                <h2 class="article-headline">Belfast Experiences Two Nights of Violence Following a Stabbing, with Targets Selected by Race</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-1-diff">
-                  <span class="summary-brief"><span>Northern Ireland authorities reported two nights of violence in Belfast following a stabbing, with individuals targeted on the basis of their race. Authorities described the unrest as anti-immigrant in character.</span></span>
-                  <span class="summary-full"><span>Belfast, Northern Ireland, experienced two consecutive nights of violence following a serious stabbing, with authorities reporting that individuals were targeted because of their race. Police described the unrest as anti-immigrant in nature. The episode has left residents describing a climate of fear in affected neighborhoods. Authorities are investigating the circumstances of the original stabbing and the subsequent violence. Anti-immigrant sentiment has been a recurring source of tension in parts of the United Kingdom and Ireland over recent years, with periodic outbreaks of unrest following individual incidents. Officials have not yet detailed the full scope of injuries or property damage from the two nights of violence.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="difficult-section">
+<details>
+<summary class="difficult-toggle">
+<span class="difficult-caret">►</span>
+<span class="difficult-label">Difficult News</span>
+</summary>
+<p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
+<div class="difficult-content">
+<div class="article article-medium" id="story_15">
+<h2 class="article-headline">Belfast Experiences Two Nights of Violence Following a Stabbing, with Targets Selected by Race</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-1-diff">
+<span class="summary-brief"><span>Northern Ireland authorities reported two nights of violence in Belfast following a stabbing, with individuals targeted on the basis of their race. Authorities described the unrest as anti-immigrant in character.</span></span>
+<span class="summary-full"><span>Belfast, Northern Ireland, experienced two consecutive nights of violence following a serious stabbing, with authorities reporting that individuals were targeted because of their race. Police described the unrest as anti-immigrant in nature. The episode has left residents describing a climate of fear in affected neighborhoods. Authorities are investigating the circumstances of the original stabbing and the subsequent violence. Anti-immigrant sentiment has been a recurring source of tension in parts of the United Kingdom and Ireland over recent years, with periodic outbreaks of unrest following individual incidents. Officials have not yet detailed the full scope of injuries or property damage from the two nights of violence.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.nytimes.com/2026/06/12/world/europe/belfast-stabbing-riots-anti-immigrant.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/12/world/europe/belfast-stabbing-riots-anti-immigrant.html" rel="noopener" target="_blank">
                         The New York Times
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-            </div>
-          </details>
-        </div>
-      
-    
+</li>
+</ul>
+</div>
+</div>
+</div>
+</details>
+</div>
+<!-- Footer -->
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+<div class="archive-link-section"><a class="archive-link" href="/archive.html">Browse past editions →</a></div>
+<footer class="footer">
+<p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
-      <p style="margin-top:0.75rem;"><a href="2026-06-12-pm-sources.html">Sources for this digest →</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<p style="margin-top:0.75rem;"><a href="2026-06-12-pm-sources.html">Sources for this digest →</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-
 <script>
   // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
@@ -1309,34 +1124,6 @@
     btn.setAttribute('aria-expanded', String(!expanded));
   });
 
-  function toggleMobileArchive() {
-    var panel = document.getElementById('mobile-archive-panel');
-    var toggle = document.getElementById('mobile-toggle');
-    var isOpen = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  }
-
-  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
-  // always show all editions regardless of which page was generated.
-  (function() {
-    var current = '2026-06-12-pm.html';
-    fetch('archive.json?v=' + Date.now())
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-        var mob = document.getElementById('mobile-archive-panel');
-        if (mob) mob.innerHTML = '<div class="mobile-archive-title">Past Editions</div>' + html;
-      })
-      .catch(function() {});
-  })();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');

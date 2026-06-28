@@ -1,19 +1,20 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Saturday, June 6, 2026 AM</title>
-  <meta name="description" content="Balm news digest for Saturday, June 6, 2026 — topical, anti-inflammatory news.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" href="/icons/icon-192.png">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm — Saturday, June 6, 2026 AM</title>
+<meta content="Balm news digest for Saturday, June 6, 2026 — topical, anti-inflammatory news." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/icons/icon-192.png" rel="icon" type="image/png"/>
+<link href="/icons/icon-192.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -43,10 +44,9 @@
 
     /* Layout */
     .page-wrapper {
-      display: flex;
-      max-width: 1100px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.25rem;
     }
 
     .sidebar {
@@ -502,776 +502,594 @@
   </style>
 </head>
 <body>
-
 <!-- Mobile archive toggle (shown only on mobile) -->
-<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
-  <span class="mobile-archive-caret">›</span> Archive
-</div>
-<div class="mobile-archive-panel" id="mobile-archive-panel">
-  <div class="mobile-archive-title">Past Editions</div>
-  <!-- populated by archive.json fetch on page load — never server-rendered -->
-</div>
+
 
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    <!-- populated by archive.json fetch on page load — never server-rendered -->
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-              <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-              <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-            </filter>
-          </defs>
-          <text x="90" y="44"
-                font-family="Caveat, cursive"
-                font-size="52"
-                font-weight="700"
-                fill="#6b82a8"
-                text-anchor="middle"
-                letter-spacing="8"
-                filter="url(#balm-spread)">Balm</text>
-        </svg>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Saturday, June 6, 2026 &middot; AM Edition</p>
-    </header>
-
-    <!-- Audio player -->
-    
-
-    <!-- Top stories navigation -->
-    
-    <div class="top-stories">
-      <div class="top-stories-heading">Today's Top Stories</div>
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_0">US and Iran Exchange Strikes; Iran Targets Bases in Kuwait and Bahrain as Ceasefire Strains</a>
-        <span class="top-story-reason">Direct military exchanges between the US and Iran, with strikes on regional bases, represent a major escalation with broad geopolitical and economic consequences.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_6">Stock Market Falls Sharply After Strong Jobs Data Signals Rates May Stay Higher</a>
-        <span class="top-story-reason">A sharp market drop tied to interest rate expectations directly affects savings, investments, and borrowing costs for millions of people.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_11">Researchers Achieve Precise Gene Editing of Human Embryos Using Newer CRISPR Technique</a>
-        <span class="top-story-reason">Precise gene editing of human embryos marks a significant scientific and ethical milestone with far-reaching implications for medicine and policy.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_10">Ebola Outbreak Spreads in East Africa; Vaccine Development Underway as Testing Remains Limited</a>
-        <span class="top-story-reason">An expanding Ebola outbreak in East Africa is a developing public health concern, with vaccine progress offering an important counterpoint.</span>
-      </div>
-      
-      
-    </div>
-    
-
-    <!-- Stories -->
-    
-      
-        <div class="section-header">GEOPOLITICS</div>
-        
-        <div class="article article-long" id="story_0">
-          <h2 class="article-headline">US and Iran Exchange Strikes; Iran Targets Bases in Kuwait and Bahrain as Ceasefire Strains</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The US military struck Iranian drones and radar sites in the Gulf, after which Iran launched ballistic missiles and drones at US bases in Kuwait and Bahrain. The Strait of Hormuz remains largely closed, and US-Iran negotiations show little sign of progress.</span></span>
-            <span class="summary-full"><span>The US military and Iran exchanged strikes over the Gulf in the latest in a series of incidents straining a fragile ceasefire between the two countries. US forces struck Iranian drones and radar sites, and Iran responded by targeting American military bases in Kuwait and Bahrain with ballistic missiles and drones. Air raid sirens sounded in Bahrain, where residents were directed to seek shelter. The exchange reflects ongoing tension as US-Iran talks have shown little sign of progress toward a broader agreement. The Strait of Hormuz, a critical chokepoint for global oil shipments, remains largely closed to commercial traffic. Energy analysts have raised concerns about the effect a prolonged closure could have on global energy markets and supply chains. Separately, the US labor market showed unexpected strength in May, with employers adding 172,000 jobs — the third consecutive month of gains — even as the conflict weighs on economic conditions. The Trump administration has been increasing diplomatic and military pressure on Iran in pursuit of a negotiated settlement, but no framework for talks has been publicly announced.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news"><svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg></a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Saturday, June 6, 2026 · AM Edition</p>
+</header>
+<!-- Audio player -->
+<!-- Top stories navigation -->
+<div class="top-stories">
+<div class="top-stories-heading">Today's Top Stories</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_0">US and Iran Exchange Strikes; Iran Targets Bases in Kuwait and Bahrain as Ceasefire Strains</a>
+<span class="top-story-reason">Direct military exchanges between the US and Iran, with strikes on regional bases, represent a major escalation with broad geopolitical and economic consequences.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_6">Stock Market Falls Sharply After Strong Jobs Data Signals Rates May Stay Higher</a>
+<span class="top-story-reason">A sharp market drop tied to interest rate expectations directly affects savings, investments, and borrowing costs for millions of people.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_11">Researchers Achieve Precise Gene Editing of Human Embryos Using Newer CRISPR Technique</a>
+<span class="top-story-reason">Precise gene editing of human embryos marks a significant scientific and ethical milestone with far-reaching implications for medicine and policy.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_10">Ebola Outbreak Spreads in East Africa; Vaccine Development Underway as Testing Remains Limited</a>
+<span class="top-story-reason">An expanding Ebola outbreak in East Africa is a developing public health concern, with vaccine progress offering an important counterpoint.</span>
+</div>
+</div>
+<!-- Stories -->
+<div class="section-header">GEOPOLITICS</div>
+<div class="article article-long" id="story_0">
+<h2 class="article-headline">US and Iran Exchange Strikes; Iran Targets Bases in Kuwait and Bahrain as Ceasefire Strains</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The US military struck Iranian drones and radar sites in the Gulf, after which Iran launched ballistic missiles and drones at US bases in Kuwait and Bahrain. The Strait of Hormuz remains largely closed, and US-Iran negotiations show little sign of progress.</span></span>
+<span class="summary-full"><span>The US military and Iran exchanged strikes over the Gulf in the latest in a series of incidents straining a fragile ceasefire between the two countries. US forces struck Iranian drones and radar sites, and Iran responded by targeting American military bases in Kuwait and Bahrain with ballistic missiles and drones. Air raid sirens sounded in Bahrain, where residents were directed to seek shelter. The exchange reflects ongoing tension as US-Iran talks have shown little sign of progress toward a broader agreement. The Strait of Hormuz, a critical chokepoint for global oil shipments, remains largely closed to commercial traffic. Energy analysts have raised concerns about the effect a prolonged closure could have on global energy markets and supply chains. Separately, the US labor market showed unexpected strength in May, with employers adding 172,000 jobs — the third consecutive month of gains — even as the conflict weighs on economic conditions. The Trump administration has been increasing diplomatic and military pressure on Iran in pursuit of a negotiated settlement, but no framework for talks has been publicly announced.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/06/us-says-iran-radar-sites-struck-and-drones-intercepted-in-latest-threat-to-fragile-ceasefire" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/06/us-says-iran-radar-sites-struck-and-drones-intercepted-in-latest-threat-to-fragile-ceasefire" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cvgzgyjk2weo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cvgzgyjk2weo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/06/nx-s1-5848184/u-s-military-shot-down-iranian-drones" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/06/nx-s1-5848184/u-s-military-shot-down-iranian-drones" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/show/why-hiring-surged-in-may-despite-economic-strain-from-the-iran-war" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/show/why-hiring-surged-in-may-despite-economic-strain-from-the-iran-war" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/show/what-may-happen-as-oil-supplies-dwindle-and-strait-of-hormuz-remains-mostly-closed" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/show/what-may-happen-as-oil-supplies-dwindle-and-strait-of-hormuz-remains-mostly-closed" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_1">
-          <h2 class="article-headline">Zelensky Proposes Direct Talks with Putin; Russia Declines</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Ukrainian President Volodymyr Zelensky issued an open letter proposing a direct meeting with Russian President Vladimir Putin to negotiate an end to the war. Putin declined the request, speaking at an economic forum in St. Petersburg.</span></span>
-            <span class="summary-full"><span>Ukrainian President Volodymyr Zelensky publicly proposed a direct face-to-face meeting with Russian President Vladimir Putin to discuss ending the ongoing war between their countries. Putin rejected the proposal, making remarks at an annual economic forum held in St. Petersburg. Zelensky characterized the rejection as Russia choosing war over diplomacy. The forum took place in a city still on edge following several Ukrainian drone strikes earlier in the week. US diplomatic attention has been described as largely focused on the conflict with Iran, leaving less bandwidth for active mediation of the Russia-Ukraine war. The rejection leaves the two sides with no apparent framework for negotiations, and the conflict continues with no resolution in sight.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_1">
+<h2 class="article-headline">Zelensky Proposes Direct Talks with Putin; Russia Declines</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Ukrainian President Volodymyr Zelensky issued an open letter proposing a direct meeting with Russian President Vladimir Putin to negotiate an end to the war. Putin declined the request, speaking at an economic forum in St. Petersburg.</span></span>
+<span class="summary-full"><span>Ukrainian President Volodymyr Zelensky publicly proposed a direct face-to-face meeting with Russian President Vladimir Putin to discuss ending the ongoing war between their countries. Putin rejected the proposal, making remarks at an annual economic forum held in St. Petersburg. Zelensky characterized the rejection as Russia choosing war over diplomacy. The forum took place in a city still on edge following several Ukrainian drone strikes earlier in the week. US diplomatic attention has been described as largely focused on the conflict with Iran, leaving less bandwidth for active mediation of the Russia-Ukraine war. The rejection leaves the two sides with no apparent framework for negotiations, and the conflict continues with no resolution in sight.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/world/zelenskyy-issues-open-letter-putin-proposing-meeting-us-fully-focused-iran" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/zelenskyy-issues-open-letter-putin-proposing-meeting-us-fully-focused-iran" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/show/what-putins-rejection-of-ukraines-call-for-talks-means-for-efforts-to-end-russias-war" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/show/what-putins-rejection-of-ukraines-call-for-talks-means-for-efforts-to-end-russias-war" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_2">
-          <h2 class="article-headline">Ukraine Launches Large-Scale Drone Attack on St. Petersburg</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Ukraine conducted a drone strike on St. Petersburg that Russia described as unprecedented in scale. The city's governor urged residents to remain indoors — the first such order since the start of the war.</span></span>
-            <span class="summary-full"><span>Ukraine launched a large-scale drone attack on St. Petersburg, Russia's second-largest city, in what Russian authorities called an unprecedented strike. The city's governor instructed residents to stay indoors, marking the first time such an order had been issued for St. Petersburg since the beginning of the war. The attack occurred during the same week that Russian President Putin hosted an economic forum in the city. Ukraine has increasingly used long-range drone strikes against Russian cities and infrastructure as the conflict continues without a negotiated settlement.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_2">
+<h2 class="article-headline">Ukraine Launches Large-Scale Drone Attack on St. Petersburg</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Ukraine conducted a drone strike on St. Petersburg that Russia described as unprecedented in scale. The city's governor urged residents to remain indoors — the first such order since the start of the war.</span></span>
+<span class="summary-full"><span>Ukraine launched a large-scale drone attack on St. Petersburg, Russia's second-largest city, in what Russian authorities called an unprecedented strike. The city's governor instructed residents to stay indoors, marking the first time such an order had been issued for St. Petersburg since the beginning of the war. The attack occurred during the same week that Russian President Putin hosted an economic forum in the city. Ukraine has increasingly used long-range drone strikes against Russian cities and infrastructure as the conflict continues without a negotiated settlement.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cg7498kz808o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.com/news/articles/cg7498kz808o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cg7498kz808o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cg7498kz808o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_3">
-          <h2 class="article-headline">Raul Castro Makes First Public Appearance Since US Murder Charges</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Former Cuban leader Raul Castro appeared at an Interior Ministry celebration broadcast on state television, his first known public appearance since the Trump administration charged him with murder in connection with the 1996 shoot-down of civilian aircraft.</span></span>
-            <span class="summary-full"><span>Former Cuban leader Raul Castro appeared at an Interior Ministry celebration in Havana, broadcast on Cuban state television. The appearance is his first publicly documented since the Trump administration charged him with murder in connection with the 1996 shoot-down of planes operated by the Brothers to the Rescue organization, which carried civilians. The US charges have not resulted in any extradition proceedings, as Cuba does not extradite its citizens to the United States. The appearance drew attention given the pending US legal action against him.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_3">
+<h2 class="article-headline">Raul Castro Makes First Public Appearance Since US Murder Charges</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Former Cuban leader Raul Castro appeared at an Interior Ministry celebration broadcast on state television, his first known public appearance since the Trump administration charged him with murder in connection with the 1996 shoot-down of civilian aircraft.</span></span>
+<span class="summary-full"><span>Former Cuban leader Raul Castro appeared at an Interior Ministry celebration in Havana, broadcast on Cuban state television. The appearance is his first publicly documented since the Trump administration charged him with murder in connection with the 1996 shoot-down of planes operated by the Brothers to the Rescue organization, which carried civilians. The US charges have not resulted in any extradition proceedings, as Cuba does not extradite its citizens to the United States. The appearance drew attention given the pending US legal action against him.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.usnews.com/news/world/articles/2026-06-05/cubas-raul-castro-wanted-by-us-appears-at-an-event-on-state-television" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.usnews.com/news/world/articles/2026-06-05/cubas-raul-castro-wanted-by-us-appears-at-an-event-on-state-television" rel="noopener" target="_blank">
                   Usnews
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/ral-castro-makes-first-public-appearance-since-trump-administration-charged-murder" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/world/ral-castro-makes-first-public-appearance-since-trump-administration-charged-murder" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_4">
-          <h2 class="article-headline">US Backs Bolivia's Government Amid Mass Protests and Coup Concerns</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The United States and a group of regional allies condemned what they described as efforts to overthrow Bolivia's elected president, Rodrigo Paz, as weeks of mass protests over fuel prices continued. Defense Secretary Pete Hegseth pledged US support for Bolivia's government.</span></span>
-            <span class="summary-full"><span>The United States and member countries of the Shield of the Americas alliance issued a joint condemnation of what they characterized as ongoing efforts to overthrow Bolivia's elected President Rodrigo Paz. Bolivia has experienced weeks of mass protests, driven in part by fuel price disputes. Defense Secretary Pete Hegseth stated that the US remains committed to defending Bolivia's elected government, directing warnings at what he referred to as narco-terrorist elements. The situation represents a test of US regional policy in Latin America, where the administration has emphasized backing of elected governments against destabilization efforts.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_4">
+<h2 class="article-headline">US Backs Bolivia's Government Amid Mass Protests and Coup Concerns</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The United States and a group of regional allies condemned what they described as efforts to overthrow Bolivia's elected president, Rodrigo Paz, as weeks of mass protests over fuel prices continued. Defense Secretary Pete Hegseth pledged US support for Bolivia's government.</span></span>
+<span class="summary-full"><span>The United States and member countries of the Shield of the Americas alliance issued a joint condemnation of what they characterized as ongoing efforts to overthrow Bolivia's elected President Rodrigo Paz. Bolivia has experienced weeks of mass protests, driven in part by fuel price disputes. Defense Secretary Pete Hegseth stated that the US remains committed to defending Bolivia's elected government, directing warnings at what he referred to as narco-terrorist elements. The situation represents a test of US regional policy in Latin America, where the administration has emphasized backing of elected governments against destabilization efforts.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/world/us-shield-americas-condemn-ongoing-efforts-overthrow-bolivias-elected-president-unrest" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/us-shield-americas-condemn-ongoing-efforts-overthrow-bolivias-elected-president-unrest" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/pete-hegseth-warns-narco-terrorists-us-backs-bolivias-government-coup-warnings" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/world/pete-hegseth-warns-narco-terrorists-us-backs-bolivias-government-coup-warnings" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SCIENCE & HEALTH</div>
-        
-        <div class="article article-long" id="story_10">
-          <h2 class="article-headline">Ebola Outbreak Spreads in East Africa; Vaccine Development Underway as Testing Remains Limited</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>An Ebola outbreak caused by the Bundibugyo strain is widening across East Africa, including in the Democratic Republic of Congo. Testing capacity remains critically limited, vaccine and treatment research is accelerating, and the Trump administration has not announced a plan for Americans at risk abroad.</span></span>
-            <span class="summary-full"><span>An outbreak of Ebola caused by the Bundibugyo strain — a type that previously triggered only two small outbreaks — is widening across East Africa, with the Democratic Republic of Congo among the most affected areas. Testing capacity is severely limited in the region, with health workers largely unable to quickly confirm cases, which allows the virus to spread unchecked. Scientists are working to accelerate the development of vaccines and treatments specifically targeting the Bundibugyo strain, though no approved options currently exist for this type. The Trump administration has not publicly announced a response plan, and it remains unclear whether Americans believed to be at risk abroad would be permitted to return home for monitoring or treatment. China has been identified as potentially well-positioned to step into a gap left by reduced US global health engagement, given its existing presence and medical infrastructure in parts of Africa. In Virunga National Park, wildlife rangers are also working to protect endangered gorilla populations, which are susceptible to Ebola, while simultaneously managing increased conflict-related violence in the area. Health officials and researchers have described the combination of inadequate diagnostics and limited treatment options as leaving clinicians operating with significant uncertainty.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SCIENCE &amp; HEALTH</div>
+<div class="article article-long" id="story_10">
+<h2 class="article-headline">Ebola Outbreak Spreads in East Africa; Vaccine Development Underway as Testing Remains Limited</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>An Ebola outbreak caused by the Bundibugyo strain is widening across East Africa, including in the Democratic Republic of Congo. Testing capacity remains critically limited, vaccine and treatment research is accelerating, and the Trump administration has not announced a plan for Americans at risk abroad.</span></span>
+<span class="summary-full"><span>An outbreak of Ebola caused by the Bundibugyo strain — a type that previously triggered only two small outbreaks — is widening across East Africa, with the Democratic Republic of Congo among the most affected areas. Testing capacity is severely limited in the region, with health workers largely unable to quickly confirm cases, which allows the virus to spread unchecked. Scientists are working to accelerate the development of vaccines and treatments specifically targeting the Bundibugyo strain, though no approved options currently exist for this type. The Trump administration has not publicly announced a response plan, and it remains unclear whether Americans believed to be at risk abroad would be permitted to return home for monitoring or treatment. China has been identified as potentially well-positioned to step into a gap left by reduced US global health engagement, given its existing presence and medical infrastructure in parts of Africa. In Virunga National Park, wildlife rangers are also working to protect endangered gorilla populations, which are susceptible to Ebola, while simultaneously managing increased conflict-related violence in the area. Health officials and researchers have described the combination of inadequate diagnostics and limited treatment options as leaving clinicians operating with significant uncertainty.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/06/world/asia/as-ebola-spreads-in-east-africa-will-china-step-up.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/06/world/asia/as-ebola-spreads-in-east-africa-will-china-step-up.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/03/us/politics/trump-administration-ebola-response.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/03/us/politics/trump-administration-ebola-response.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/02/health/ebola-tests-congo.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/02/health/ebola-tests-congo.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/01/science/ebola-vaccines-treatments.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/01/science/ebola-vaccines-treatments.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/06/g-s1-126287/ebola-gorillas-democratic-republic-congo" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/06/g-s1-126287/ebola-gorillas-democratic-republic-congo" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_11">
-          <h2 class="article-headline">Researchers Achieve Precise Gene Editing of Human Embryos Using Newer CRISPR Technique</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Scientists have used an advanced gene-editing technique to modify human embryo genes with a level of precision not previously demonstrated, raising both medical possibilities and ethical questions about the engineering of human embryos.</span></span>
-            <span class="summary-full"><span>Researchers have successfully edited genes in human embryos using a newer variation of CRISPR gene-editing technology, achieving a level of precision that previous methods could not attain. The technique works differently from standard CRISPR, reducing the risk of unintended edits to the genome. The development opens the possibility of correcting genetic diseases before birth, but it also raises concerns among bioethicists about the prospect of engineering embryos for non-medical traits. The embryos used in the research were not implanted. Debate over the ethical limits of human embryo editing has intensified as the underlying technology becomes more capable.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_11">
+<h2 class="article-headline">Researchers Achieve Precise Gene Editing of Human Embryos Using Newer CRISPR Technique</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Scientists have used an advanced gene-editing technique to modify human embryo genes with a level of precision not previously demonstrated, raising both medical possibilities and ethical questions about the engineering of human embryos.</span></span>
+<span class="summary-full"><span>Researchers have successfully edited genes in human embryos using a newer variation of CRISPR gene-editing technology, achieving a level of precision that previous methods could not attain. The technique works differently from standard CRISPR, reducing the risk of unintended edits to the genome. The development opens the possibility of correcting genetic diseases before birth, but it also raises concerns among bioethicists about the prospect of engineering embryos for non-medical traits. The embryos used in the research were not implanted. Debate over the ethical limits of human embryo editing has intensified as the underlying technology becomes more capable.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/04/science/embryos-gene-editing-crispr.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/04/science/embryos-gene-editing-crispr.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_12">
-          <h2 class="article-headline">Cancer Researchers Share New Treatment Approaches at Major Annual Conference</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>More than 40,000 health professionals gathered at the American Society of Clinical Oncology annual meeting in Chicago, where researchers presented new approaches to cancer treatment including techniques to help the immune system identify tumors and methods to identify patients who can safely avoid chemotherapy.</span></span>
-            <span class="summary-full"><span>The 2026 American Society of Clinical Oncology annual meeting in Chicago — the world's largest cancer conference — drew more than 40,000 health professionals and featured over 200 sessions and 2,700 research presentations. Among the areas highlighted were new approaches to helping the immune system recognize and attack cancer cells, sometimes described as removing the molecular signals tumors use to evade detection. Researchers also presented work on identifying which patients with certain cancers can safely skip chemotherapy without reducing their chances of survival, potentially sparing them significant side effects. The conference is a major forum where new data from clinical trials is first presented publicly, and findings from this year's meeting are expected to inform treatment guidelines in the coming years.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_12">
+<h2 class="article-headline">Cancer Researchers Share New Treatment Approaches at Major Annual Conference</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>More than 40,000 health professionals gathered at the American Society of Clinical Oncology annual meeting in Chicago, where researchers presented new approaches to cancer treatment including techniques to help the immune system identify tumors and methods to identify patients who can safely avoid chemotherapy.</span></span>
+<span class="summary-full"><span>The 2026 American Society of Clinical Oncology annual meeting in Chicago — the world's largest cancer conference — drew more than 40,000 health professionals and featured over 200 sessions and 2,700 research presentations. Among the areas highlighted were new approaches to helping the immune system recognize and attack cancer cells, sometimes described as removing the molecular signals tumors use to evade detection. Researchers also presented work on identifying which patients with certain cancers can safely skip chemotherapy without reducing their chances of survival, potentially sparing them significant side effects. The conference is a major forum where new data from clinical trials is first presented publicly, and findings from this year's meeting are expected to inform treatment guidelines in the coming years.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/science/2026/jun/06/new-weapons-war-on-cancer-asco-conference-takeaways" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/science/2026/jun/06/new-weapons-war-on-cancer-asco-conference-takeaways" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_13">
-          <h2 class="article-headline">New World Screwworm Parasite Confirmed in Texas Cattle for First Time in Six Decades</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>US agriculture officials confirmed the first case of the New World screwworm fly in cattle in the United States in approximately six decades. The flesh-eating parasite was found in a calf in Texas and poses a potential threat to the country's livestock industry.</span></span>
-            <span class="summary-full"><span>The US Department of Agriculture confirmed the presence of the New World screwworm fly in a Texas calf, marking the first confirmed case in US cattle in roughly sixty years. The screwworm is a flesh-eating parasite whose larvae burrow into open wounds of living animals and can be fatal if untreated. The parasite was eradicated from the United States through a decades-long sterile insect release program and has not been present in domestic cattle since the 1960s. Agriculture officials and cattle ranchers in Texas have expressed alarm at the detection, as a wider outbreak could have significant economic consequences for the US livestock industry. Officials are working to determine the extent of any spread.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_13">
+<h2 class="article-headline">New World Screwworm Parasite Confirmed in Texas Cattle for First Time in Six Decades</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>US agriculture officials confirmed the first case of the New World screwworm fly in cattle in the United States in approximately six decades. The flesh-eating parasite was found in a calf in Texas and poses a potential threat to the country's livestock industry.</span></span>
+<span class="summary-full"><span>The US Department of Agriculture confirmed the presence of the New World screwworm fly in a Texas calf, marking the first confirmed case in US cattle in roughly sixty years. The screwworm is a flesh-eating parasite whose larvae burrow into open wounds of living animals and can be fatal if untreated. The parasite was eradicated from the United States through a decades-long sterile insect release program and has not been present in domestic cattle since the 1960s. Agriculture officials and cattle ranchers in Texas have expressed alarm at the detection, as a wider outbreak could have significant economic consequences for the US livestock industry. Officials are working to determine the extent of any spread.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/04/new-world-screwworm-texas-cattle-industry" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/04/new-world-screwworm-texas-cattle-industry" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">DOMESTIC POLICY</div>
-        
-        <div class="article article-medium" id="story_7">
-          <h2 class="article-headline">Federal Judge Blocks Trump Administration's Conditions on SNAP Food Aid Funding</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A federal judge sided with 20 Democratic-led states and issued an order halting the Trump administration's effort to require states to meet a range of conditions in order to receive federal food assistance funding through the SNAP program.</span></span>
-            <span class="summary-full"><span>A federal judge has blocked the Trump administration from conditioning billions of dollars in federal food assistance on states' compliance with a set of requirements the administration sought to impose. Twenty Democratic-led states brought the legal challenge, arguing that the conditions were unlawfully applied to SNAP — the Supplemental Nutrition Assistance Program, which provides food benefits to tens of millions of low-income Americans. The court sided with the states and issued an order halting the policy while the legal challenge proceeds. The ruling prevents the administration from enforcing the conditions in the states that joined the lawsuit. The administration has not yet publicly responded to the ruling.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">DOMESTIC POLICY</div>
+<div class="article article-medium" id="story_7">
+<h2 class="article-headline">Federal Judge Blocks Trump Administration's Conditions on SNAP Food Aid Funding</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A federal judge sided with 20 Democratic-led states and issued an order halting the Trump administration's effort to require states to meet a range of conditions in order to receive federal food assistance funding through the SNAP program.</span></span>
+<span class="summary-full"><span>A federal judge has blocked the Trump administration from conditioning billions of dollars in federal food assistance on states' compliance with a set of requirements the administration sought to impose. Twenty Democratic-led states brought the legal challenge, arguing that the conditions were unlawfully applied to SNAP — the Supplemental Nutrition Assistance Program, which provides food benefits to tens of millions of low-income Americans. The court sided with the states and issued an order halting the policy while the legal challenge proceeds. The ruling prevents the administration from enforcing the conditions in the states that joined the lawsuit. The administration has not yet publicly responded to the ruling.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.usnews.com/news/us/articles/2026-06-05/judge-halts-trump-administration-efforts-to-impose-conditions-on-snap" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.usnews.com/news/us/articles/2026-06-05/judge-halts-trump-administration-efforts-to-impose-conditions-on-snap" rel="noopener" target="_blank">
                   Usnews
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.starbeacon.com/region/federal-judge-halts-effort-by-trump-administration-to-force-states-to-comply-with-conditions-to/article_1071aec0-4937-53d2-8072-bd48268bf640.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.starbeacon.com/region/federal-judge-halts-effort-by-trump-administration-to-force-states-to-comply-with-conditions-to/article_1071aec0-4937-53d2-8072-bd48268bf640.html" rel="noopener" target="_blank">
                   Starbeacon
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.wthr.com/article/syndication/associatedpress/federal-judge-halts-effort-by-trump-administration-to-force-states-to-comply-with-conditions-to-get-snap-funding/616-e66c3730-b8b4-485d-8997-ea9e8647dfc8" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.wthr.com/article/syndication/associatedpress/federal-judge-halts-effort-by-trump-administration-to-force-states-to-comply-with-conditions-to-get-snap-funding/616-e66c3730-b8b4-485d-8997-ea9e8647dfc8" rel="noopener" target="_blank">
                   Wthr
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQYVFaRmZXdXpSY3ZaTjdLVEVnODVQdGd6X290c1pxbmlGanFTejNQVFZjUXhjS2tPdWcxbkotV0pPbm5yQjdaTWNkN1FXOU9PZHA5Y2lkOTFmWUtPZkx2ZHBtdXpDRzNkenp3aHBFQlUwRHl3RDN4cVFqQXNPMUNULXYxckRQdXc3aUV2N0Vzakg3bHQzeFpuUnZfd3ZqMUhBVUE?oc=5" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQYVFaRmZXdXpSY3ZaTjdLVEVnODVQdGd6X290c1pxbmlGanFTejNQVFZjUXhjS2tPdWcxbkotV0pPbm5yQjdaTWNkN1FXOU9PZHA5Y2lkOTFmWUtPZkx2ZHBtdXpDRzNkenp3aHBFQlUwRHl3RDN4cVFqQXNPMUNULXYxckRQdXc3aUV2N0Vzakg3bHQzeFpuUnZfd3ZqMUhBVUE?oc=5" rel="noopener" target="_blank">
                   Google News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_8">
-          <h2 class="article-headline">Trump Directs Acting Intelligence Chief to Further Reduce Office of the Director of National Intelligence</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>President Trump directed acting Director of National Intelligence Bill Pulte to cut staffing at the Office of the Director of National Intelligence, describing the office as too large with too many holdovers from prior administrations.</span></span>
-            <span class="summary-full"><span>President Trump stated that he has instructed Bill Pulte, his newly appointed acting Director of National Intelligence, to further reduce staffing at the Office of the Director of National Intelligence. Trump described the office as unnecessarily large and said it contained holdovers from previous administrations. The office has already undergone significant staff reductions during Trump's second term. The move comes ahead of the expected arrival of a permanent DNI nominee. The Office of the Director of National Intelligence oversees and coordinates the activities of the US intelligence community, which includes seventeen agencies.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_8">
+<h2 class="article-headline">Trump Directs Acting Intelligence Chief to Further Reduce Office of the Director of National Intelligence</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>President Trump directed acting Director of National Intelligence Bill Pulte to cut staffing at the Office of the Director of National Intelligence, describing the office as too large with too many holdovers from prior administrations.</span></span>
+<span class="summary-full"><span>President Trump stated that he has instructed Bill Pulte, his newly appointed acting Director of National Intelligence, to further reduce staffing at the Office of the Director of National Intelligence. Trump described the office as unnecessarily large and said it contained holdovers from previous administrations. The office has already undergone significant staff reductions during Trump's second term. The move comes ahead of the expected arrival of a permanent DNI nominee. The Office of the Director of National Intelligence oversees and coordinates the activities of the US intelligence community, which includes seventeen agencies.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/trump-moves-slash-intelligence-office-ahead-permanent-chiefs-arrival" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/politics/trump-moves-slash-intelligence-office-ahead-permanent-chiefs-arrival" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/politics/trump-says-he-wants-pulte-to-further-slash-staffing-at-national-intelligence-office" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/politics/trump-says-he-wants-pulte-to-further-slash-staffing-at-national-intelligence-office" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-short" id="story_9">
-          <h2 class="article-headline">Trump Grants Full Pardon to Former Congressman Convicted of Insider Trading</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>President Trump granted a full pardon to former Indiana Representative Stephen Buyer, who had been convicted in 2023 of insider trading and sentenced to 22 months in prison.</span></span>
-            <span class="summary-full"><span>President Trump issued a full pardon to former Republican Congressman Stephen Buyer of Indiana, who was convicted in 2023 on insider trading charges. Buyer received a 22-month prison sentence following his conviction. The pardon fully absolves him of the conviction. Buyer served in the House of Representatives from 1993 to 2011. The White House has not issued a detailed public explanation of the reasoning behind the pardon.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-short" id="story_9">
+<h2 class="article-headline">Trump Grants Full Pardon to Former Congressman Convicted of Insider Trading</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>President Trump granted a full pardon to former Indiana Representative Stephen Buyer, who had been convicted in 2023 of insider trading and sentenced to 22 months in prison.</span></span>
+<span class="summary-full"><span>President Trump issued a full pardon to former Republican Congressman Stephen Buyer of Indiana, who was convicted in 2023 on insider trading charges. Buyer received a 22-month prison sentence following his conviction. The pardon fully absolves him of the conviction. Buyer served in the House of Representatives from 1993 to 2011. The White House has not issued a detailed public explanation of the reasoning behind the pardon.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/former-indiana-rep-stephen-buyer-receives-full-pardon-trump-2023-insider-trading-conviction" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/politics/former-indiana-rep-stephen-buyer-receives-full-pardon-trump-2023-insider-trading-conviction" rel="noopener" target="_blank">
                   Fox News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/former-indiana-rep-stephen-buyer-receives-full-pardon-trump-2023-insider-trading-conviction" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/politics/former-indiana-rep-stephen-buyer-receives-full-pardon-trump-2023-insider-trading-conviction" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">ECONOMY</div>
-        
-        <div class="article article-medium" id="story_5">
-          <h2 class="article-headline">SpaceX Prepares for What Could Be the Largest IPO in History</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>SpaceX is preparing for an initial public offering that analysts describe as potentially the largest in history. The company will be added to major stock indexes following rule changes, meaning it will appear automatically in many retirement accounts and index funds.</span></span>
-            <span class="summary-full"><span>SpaceX is moving toward an initial public offering that financial analysts describe as potentially the largest in US history. Following rule changes by Nasdaq and other index providers, the company will be included in major stock market indexes upon going public, which means it will automatically become part of index funds held by millions of Americans through 401(k) retirement accounts and other investment vehicles — regardless of whether individual investors choose to own it. Gwynne Shotwell, SpaceX's president and chief operating officer, has been described as playing a central operational role in preparing the company for its public market debut, managing day-to-day operations while Elon Musk focuses on broader direction. The IPO is expected to attract significant attention from both institutional investors and the space enthusiast community.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">ECONOMY</div>
+<div class="article article-medium" id="story_5">
+<h2 class="article-headline">SpaceX Prepares for What Could Be the Largest IPO in History</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>SpaceX is preparing for an initial public offering that analysts describe as potentially the largest in history. The company will be added to major stock indexes following rule changes, meaning it will appear automatically in many retirement accounts and index funds.</span></span>
+<span class="summary-full"><span>SpaceX is moving toward an initial public offering that financial analysts describe as potentially the largest in US history. Following rule changes by Nasdaq and other index providers, the company will be included in major stock market indexes upon going public, which means it will automatically become part of index funds held by millions of Americans through 401(k) retirement accounts and other investment vehicles — regardless of whether individual investors choose to own it. Gwynne Shotwell, SpaceX's president and chief operating officer, has been described as playing a central operational role in preparing the company for its public market debut, managing day-to-day operations while Elon Musk focuses on broader direction. The IPO is expected to attract significant attention from both institutional investors and the space enthusiast community.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/05/technology/spacex-indexes-401k.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/05/technology/spacex-indexes-401k.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/04/technology/gwynne-shotwell-spacex.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/04/technology/gwynne-shotwell-spacex.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/04/technology/space-nerds-spacex-ipo.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/04/technology/space-nerds-spacex-ipo.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_6">
-          <h2 class="article-headline">Stock Market Falls Sharply After Strong Jobs Data Signals Rates May Stay Higher</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The S&P 500 dropped more than 2.6 percent on Friday — its largest single-day decline of the year — after a stronger-than-expected jobs report led investors to conclude that the Federal Reserve is less likely to cut interest rates soon.</span></span>
-            <span class="summary-full"><span>US stocks fell sharply on Friday, with the S&P 500 declining more than 2.6 percent in its worst single-day performance of the year. The sell-off ended a nine-week run of gains. The trigger was a jobs report that showed the labor market remains stronger than many investors had anticipated, which reduced expectations for near-term interest rate cuts by the Federal Reserve. When the labor market is strong and inflation risk remains, the Fed is generally seen as less likely to lower borrowing costs. Higher rates tend to weigh on stock valuations. The jobs report showed employers added 172,000 positions in May, the third consecutive month of job growth.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_6">
+<h2 class="article-headline">Stock Market Falls Sharply After Strong Jobs Data Signals Rates May Stay Higher</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The S&amp;P 500 dropped more than 2.6 percent on Friday — its largest single-day decline of the year — after a stronger-than-expected jobs report led investors to conclude that the Federal Reserve is less likely to cut interest rates soon.</span></span>
+<span class="summary-full"><span>US stocks fell sharply on Friday, with the S&amp;P 500 declining more than 2.6 percent in its worst single-day performance of the year. The sell-off ended a nine-week run of gains. The trigger was a jobs report that showed the labor market remains stronger than many investors had anticipated, which reduced expectations for near-term interest rate cuts by the Federal Reserve. When the labor market is strong and inflation risk remains, the Fed is generally seen as less likely to lower borrowing costs. Higher rates tend to weigh on stock valuations. The jobs report showed employers added 172,000 positions in May, the third consecutive month of job growth.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/05/business/stock-market-jobs-report.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/05/business/stock-market-jobs-report.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">TECHNOLOGY</div>
-        
-        <div class="article article-medium" id="story_14">
-          <h2 class="article-headline">Google to Pay SpaceX $920 Million Monthly for AI Computing Capacity</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Google has agreed to pay SpaceX $920 million per month for computing capacity to support artificial intelligence operations, according to a filing SpaceX made with the Securities and Exchange Commission. The agreement runs from October 2026 through June 2029.</span></span>
-            <span class="summary-full"><span>Google will pay SpaceX $920 million per month for access to computing infrastructure to support its artificial intelligence operations, according to a Securities and Exchange Commission filing made by SpaceX. The agreement was signed on a Friday in early June and takes effect in October, running through June 2029. For the period between the signing and October, a different payment arrangement applies, according to the filing. The deal represents a significant revenue stream for SpaceX outside its launch and satellite businesses and underscores the scale of investment companies are making to secure AI computing capacity.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">TECHNOLOGY</div>
+<div class="article article-medium" id="story_14">
+<h2 class="article-headline">Google to Pay SpaceX $920 Million Monthly for AI Computing Capacity</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Google has agreed to pay SpaceX $920 million per month for computing capacity to support artificial intelligence operations, according to a filing SpaceX made with the Securities and Exchange Commission. The agreement runs from October 2026 through June 2029.</span></span>
+<span class="summary-full"><span>Google will pay SpaceX $920 million per month for access to computing infrastructure to support its artificial intelligence operations, according to a Securities and Exchange Commission filing made by SpaceX. The agreement was signed on a Friday in early June and takes effect in October, running through June 2029. For the period between the signing and October, a different payment arrangement applies, according to the filing. The deal represents a significant revenue stream for SpaceX outside its launch and satellite businesses and underscores the scale of investment companies are making to secure AI computing capacity.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.pymnts.com/artificial-intelligence-2/2026/google-agrees-to-pay-spacex-920-million-monthly-for-ai-compute/" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.pymnts.com/artificial-intelligence-2/2026/google-agrees-to-pay-spacex-920-million-monthly-for-ai-compute/" rel="noopener" target="_blank">
                   Pymnts
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SPORTS</div>
-        
-        <div class="article article-medium" id="story_15">
-          <h2 class="article-headline">Knicks Take 2-0 NBA Finals Lead Over Spurs with One-Point Victory in Game 2</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The New York Knicks defeated the San Antonio Spurs 105-104 in Game 2 of the NBA Finals, taking a 2-0 series lead. The series now shifts to Madison Square Garden, where the Knicks need two more wins for their first championship in more than fifty years.</span></span>
-            <span class="summary-full"><span>The New York Knicks defeated the San Antonio Spurs 105-104 in Game 2 of the NBA Finals, taking a 2-0 lead in the best-of-seven series. Karl-Anthony Towns led New York with 21 points on efficient shooting. The victory puts the Knicks within two wins of their first NBA championship since 1973. The series now moves to Madison Square Garden in New York for Games 3 and 4. The Spurs, to win the title, would need to accomplish something no team has done — come back from a 2-0 deficit when both games were played on the road.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SPORTS</div>
+<div class="article article-medium" id="story_15">
+<h2 class="article-headline">Knicks Take 2-0 NBA Finals Lead Over Spurs with One-Point Victory in Game 2</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The New York Knicks defeated the San Antonio Spurs 105-104 in Game 2 of the NBA Finals, taking a 2-0 series lead. The series now shifts to Madison Square Garden, where the Knicks need two more wins for their first championship in more than fifty years.</span></span>
+<span class="summary-full"><span>The New York Knicks defeated the San Antonio Spurs 105-104 in Game 2 of the NBA Finals, taking a 2-0 lead in the best-of-seven series. Karl-Anthony Towns led New York with 21 points on efficient shooting. The victory puts the Knicks within two wins of their first NBA championship since 1973. The series now moves to Madison Square Garden in New York for Games 3 and 4. The Spurs, to win the title, would need to accomplish something no team has done — come back from a 2-0 deficit when both games were played on the road.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://sports.yahoo.com/articles/kendrick-perkins-reveals-list-things-001549247.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://sports.yahoo.com/articles/kendrick-perkins-reveals-list-things-001549247.html" rel="noopener" target="_blank">
                   Yahoo! News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/sport/live/2026/jun/05/nba-finals-2026-game-2-new-york-knicks-san-antonio-spurs-live-score" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/sport/live/2026/jun/05/nba-finals-2026-game-2-new-york-knicks-san-antonio-spurs-live-score" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/sport/2026/jun/05/knicks-spurs-game-2-nba-finals-brunson-new-york" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/sport/2026/jun/05/knicks-spurs-game-2-nba-finals-brunson-new-york" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/06/nx-s1-5848552/knicks-spurs-nba-finals" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/06/nx-s1-5848552/knicks-spurs-nba-finals" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="difficult-section">
-          <details>
-            <summary class="difficult-toggle">
-              <span class="difficult-caret">&#9658;</span>
-              <span class="difficult-label">Difficult News</span>
-            </summary>
-            <p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
-            <div class="difficult-content">
-              
-              <div class="article article-medium" id="story_16">
-                <h2 class="article-headline">Israeli Strikes Kill Lebanese Army Personnel; Ceasefire Violations Continue</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-1-diff">
-                  <span class="summary-brief"><span>Israeli airstrikes in southern Lebanon killed nine people, including Lebanese army officers, after a ceasefire agreement. Lebanon's president called the strikes a violation of sovereignty and international law; the Israeli military said it is reviewing the incident.</span></span>
-                  <span class="summary-full"><span>Israeli airstrikes in southern Lebanon killed nine people, including Lebanese army officers, following a ceasefire agreement between Israel and Hezbollah. The Israeli military confirmed striking a vehicle and said the incident is under review. Lebanon's President Joseph Aoun described the strike as a violation of Lebanese sovereignty and international law. Residents of communities on Israel's northern border continue to report sirens and explosions despite the ceasefire. Hezbollah has rejected truce terms, and both sides continue to report incidents along the border. The situation represents ongoing instability in the region despite the formal ceasefire arrangement.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="difficult-section">
+<details>
+<summary class="difficult-toggle">
+<span class="difficult-caret">►</span>
+<span class="difficult-label">Difficult News</span>
+</summary>
+<p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
+<div class="difficult-content">
+<div class="article article-medium" id="story_16">
+<h2 class="article-headline">Israeli Strikes Kill Lebanese Army Personnel; Ceasefire Violations Continue</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-1-diff">
+<span class="summary-brief"><span>Israeli airstrikes in southern Lebanon killed nine people, including Lebanese army officers, after a ceasefire agreement. Lebanon's president called the strikes a violation of sovereignty and international law; the Israeli military said it is reviewing the incident.</span></span>
+<span class="summary-full"><span>Israeli airstrikes in southern Lebanon killed nine people, including Lebanese army officers, following a ceasefire agreement between Israel and Hezbollah. The Israeli military confirmed striking a vehicle and said the incident is under review. Lebanon's President Joseph Aoun described the strike as a violation of Lebanese sovereignty and international law. Residents of communities on Israel's northern border continue to report sirens and explosions despite the ceasefire. Hezbollah has rejected truce terms, and both sides continue to report incidents along the border. The situation represents ongoing instability in the region despite the formal ceasefire arrangement.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.foxnews.com/world/hezbollah-rejects-truce-families-israels-northern-border-describe-life-under-fire" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/hezbollah-rejects-truce-families-israels-northern-border-describe-life-under-fire" rel="noopener" target="_blank">
                         Fox News World
                       </a>
-                    </li>
-                    
-                    <li>
-                      <a href="https://www.bbc.com/news/articles/cj0g8jymg92o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cj0g8jymg92o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                         BBC World
                       </a>
-                    </li>
-                    
-                    <li>
-                      <a href="https://www.npr.org/2026/06/06/nx-s1-5848595/israeli-airstrikes-kill-lebanese-army-officers" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/06/nx-s1-5848595/israeli-airstrikes-kill-lebanese-army-officers" rel="noopener" target="_blank">
                         NPR News
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-            </div>
-          </details>
-        </div>
-      
-    
+</li>
+</ul>
+</div>
+</div>
+</div>
+</details>
+</div>
+<!-- Footer -->
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+<div class="archive-link-section"><a class="archive-link" href="/archive.html">Browse past editions →</a></div>
+<footer class="footer">
+<p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
-      <p style="margin-top:0.75rem;"><a href="2026-06-06-am-sources.html">Sources for this digest →</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<p style="margin-top:0.75rem;"><a href="2026-06-06-am-sources.html">Sources for this digest →</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-
 <script>
   // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
@@ -1290,34 +1108,6 @@
     btn.setAttribute('aria-expanded', String(!expanded));
   });
 
-  function toggleMobileArchive() {
-    var panel = document.getElementById('mobile-archive-panel');
-    var toggle = document.getElementById('mobile-toggle');
-    var isOpen = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  }
-
-  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
-  // always show all editions regardless of which page was generated.
-  (function() {
-    var current = '2026-06-06-am.html';
-    fetch('archive.json?v=' + Date.now())
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-        var mob = document.getElementById('mobile-archive-panel');
-        if (mob) mob.innerHTML = '<div class="mobile-archive-title">Past Editions</div>' + html;
-      })
-      .catch(function() {});
-  })();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');

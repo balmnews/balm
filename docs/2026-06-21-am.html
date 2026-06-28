@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Sunday, June 21, 2026 AM</title>
-  <meta name="description" content="Balm news digest for Sunday, June 21, 2026 — topical, anti-inflammatory news.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/png" href="/icons/icon-32.png">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm — Sunday, June 21, 2026 AM</title>
+<meta content="Balm news digest for Sunday, June 21, 2026 — topical, anti-inflammatory news." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/icons/icon-32.png" rel="icon" type="image/png"/>
+<link href="/icons/icon-192.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -42,10 +43,9 @@
 
     /* Layout */
     .page-wrapper {
-      display: flex;
-      max-width: 1100px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.25rem;
     }
 
     .sidebar {
@@ -501,709 +501,548 @@
   </style>
 </head>
 <body>
-
 <!-- Mobile archive toggle (shown only on mobile) -->
-<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
-  <span class="mobile-archive-caret">›</span> Archive
-</div>
-<div class="mobile-archive-panel" id="mobile-archive-panel">
-  <div class="mobile-archive-title">Past Editions</div>
-  <!-- populated by archive.json fetch on page load — never server-rendered -->
-</div>
+
 
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    <!-- populated by archive.json fetch on page load — never server-rendered -->
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-              <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-              <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-            </filter>
-          </defs>
-          <text x="90" y="44"
-                font-family="Caveat, cursive"
-                font-size="52"
-                font-weight="700"
-                fill="#6b82a8"
-                text-anchor="middle"
-                letter-spacing="8"
-                filter="url(#balm-spread)">Balm</text>
-        </svg>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Sunday, June 21, 2026 &middot; AM Edition</p>
-    </header>
-
-    <!-- Audio player -->
-    
-
-    <!-- Top stories navigation -->
-    
-    <div class="top-stories">
-      <div class="top-stories-heading">Today's Top Stories</div>
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_1">UK Prime Minister Keir Starmer Expected to Announce Resignation on Monday</a>
-        <span class="top-story-reason">The resignation of a sitting UK Prime Minister is a major political event with significant implications for British governance and its international relationships.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_11">H5N1 Bird Flu Detected in Australia, Completing Global Spread to All Continents</a>
-        <span class="top-story-reason">H5N1 reaching all continents marks a significant milestone in the virus's global spread, with broad public health implications worldwide.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_0">US and Iran Begin New Round of Talks in Switzerland as Strait of Hormuz Dispute Continues</a>
-        <span class="top-story-reason">New US-Iran nuclear or diplomatic talks directly affect global energy markets, regional stability, and international security.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_9">State Department Takes Over CDC's International Disease Programs, Critics Raise Capacity Concerns</a>
-        <span class="top-story-reason">Transferring CDC's international disease programs to the State Department raises concrete concerns about global health monitoring capacity that affects public health preparedness.</span>
-      </div>
-      
-      
-    </div>
-    
-
-    <!-- Stories -->
-    
-      
-        <div class="section-header">GEOPOLITICS</div>
-        
-        <div class="article article-long" id="story_0">
-          <h2 class="article-headline">US and Iran Begin New Round of Talks in Switzerland as Strait of Hormuz Dispute Continues</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>US and Iranian negotiators, including Vice President JD Vance, met in Switzerland to develop details of a fragile interim peace agreement, while Iran maintained it had closed the Strait of Hormuz in response to ongoing Israeli operations in Lebanon.</span></span>
-            <span class="summary-full"><span>A new round of direct negotiations between the United States and Iran opened in Switzerland on Sunday, with Vice President JD Vance joining envoys Steve Witkoff and Jared Kushner at the talks. The discussions aim to build on a fragile interim agreement to end the war and initiate broader conversations about Iran's nuclear program. Vance told reporters that substantial progress had been made and expressed hope for a future of regional stability, though he acknowledged Iran's role in past regional tensions. The talks are complicated by Iran's claim that it has again closed the Strait of Hormuz — a critical global shipping lane through which roughly 20 percent of the world's oil passes — citing Israeli attacks in Lebanon as the reason. The US disputed that the strait is fully closed. Iran warned that little may be achievable in the negotiations if fighting in Lebanon continues. The conflict in Lebanon has created a broader obstacle to any durable agreement, with ongoing combat undermining the ceasefire framework both sides are nominally operating under. The economic effects of the conflict have been significant: oil markets remain unsettled, and the potential reopening of the Strait of Hormuz is being watched closely by governments and markets worldwide. Analysts note that even if a formal agreement is reached, core concerns about Iran's nuclear capabilities and its regional influence remain unresolved.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news"><svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg></a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Sunday, June 21, 2026 · AM Edition</p>
+</header>
+<!-- Audio player -->
+<!-- Top stories navigation -->
+<div class="top-stories">
+<div class="top-stories-heading">Today's Top Stories</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_1">UK Prime Minister Keir Starmer Expected to Announce Resignation on Monday</a>
+<span class="top-story-reason">The resignation of a sitting UK Prime Minister is a major political event with significant implications for British governance and its international relationships.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_11">H5N1 Bird Flu Detected in Australia, Completing Global Spread to All Continents</a>
+<span class="top-story-reason">H5N1 reaching all continents marks a significant milestone in the virus's global spread, with broad public health implications worldwide.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_0">US and Iran Begin New Round of Talks in Switzerland as Strait of Hormuz Dispute Continues</a>
+<span class="top-story-reason">New US-Iran nuclear or diplomatic talks directly affect global energy markets, regional stability, and international security.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_9">State Department Takes Over CDC's International Disease Programs, Critics Raise Capacity Concerns</a>
+<span class="top-story-reason">Transferring CDC's international disease programs to the State Department raises concrete concerns about global health monitoring capacity that affects public health preparedness.</span>
+</div>
+</div>
+<!-- Stories -->
+<div class="section-header">GEOPOLITICS</div>
+<div class="article article-long" id="story_0">
+<h2 class="article-headline">US and Iran Begin New Round of Talks in Switzerland as Strait of Hormuz Dispute Continues</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>US and Iranian negotiators, including Vice President JD Vance, met in Switzerland to develop details of a fragile interim peace agreement, while Iran maintained it had closed the Strait of Hormuz in response to ongoing Israeli operations in Lebanon.</span></span>
+<span class="summary-full"><span>A new round of direct negotiations between the United States and Iran opened in Switzerland on Sunday, with Vice President JD Vance joining envoys Steve Witkoff and Jared Kushner at the talks. The discussions aim to build on a fragile interim agreement to end the war and initiate broader conversations about Iran's nuclear program. Vance told reporters that substantial progress had been made and expressed hope for a future of regional stability, though he acknowledged Iran's role in past regional tensions. The talks are complicated by Iran's claim that it has again closed the Strait of Hormuz — a critical global shipping lane through which roughly 20 percent of the world's oil passes — citing Israeli attacks in Lebanon as the reason. The US disputed that the strait is fully closed. Iran warned that little may be achievable in the negotiations if fighting in Lebanon continues. The conflict in Lebanon has created a broader obstacle to any durable agreement, with ongoing combat undermining the ceasefire framework both sides are nominally operating under. The economic effects of the conflict have been significant: oil markets remain unsettled, and the potential reopening of the Strait of Hormuz is being watched closely by governments and markets worldwide. Analysts note that even if a formal agreement is reached, core concerns about Iran's nuclear capabilities and its regional influence remain unresolved.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/world/live/2026/jun/21/iran-us-israel-war-middle-east-lebanon-peace-talks-switzerland-vance-trump-strait-of-hormuz-latest-news-updates" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/world/live/2026/jun/21/iran-us-israel-war-middle-east-lebanon-peace-talks-switzerland-vance-trump-strait-of-hormuz-latest-news-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/21/us-iran-talks-jd-vance-switzerland-strait-of-hormuz-lebanon" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/21/us-iran-talks-jd-vance-switzerland-strait-of-hormuz-lebanon" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/live/2026/06/21/world/iran-us-trump-lebanon" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/live/2026/06/21/world/iran-us-trump-lebanon" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/jd-vance-arrives-switzerland-join-kushner-witkoff-new-round-iran-negotiations" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/politics/jd-vance-arrives-switzerland-join-kushner-witkoff-new-round-iran-negotiations" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cwy0q41v1lzo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cwy0q41v1lzo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cwyekkwm1mmo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cwyekkwm1mmo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/20/nx-s1-5865006/fighting-lebanon-despite-ceasefire" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/20/nx-s1-5865006/fighting-lebanon-despite-ceasefire" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/u-s-and-iran-to-talk-sunday-in-switzerland-as-tehran-says-it-closed-strait-of-hormuz-again" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/world/u-s-and-iran-to-talk-sunday-in-switzerland-as-tehran-says-it-closed-strait-of-hormuz-again" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_1">
-          <h2 class="article-headline">UK Prime Minister Keir Starmer Expected to Announce Resignation on Monday</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>British Prime Minister Keir Starmer is expected to announce his departure on Monday, following sustained pressure from Labour MPs who have broadly shifted their support to Greater Manchester Mayor Andy Burnham as a potential successor.</span></span>
-            <span class="summary-full"><span>British Prime Minister Keir Starmer is expected to formally announce his resignation on Monday, according to multiple sources across the British political press. The move follows an extended period of internal Labour Party pressure, with growing numbers of Members of Parliament publicly calling for him to step aside. Senior Labour figures, including Business Secretary Peter Kyle, declined to address Starmer's future directly in Sunday media appearances, a posture widely interpreted as confirmation that a departure is imminent. An ally of Starmer told the BBC that he was taking time to assess the political landscape following what were described as a changed set of circumstances compared to the previous week. Andy Burnham, the Mayor of Greater Manchester who won a by-election in Makerfield, has emerged as the figure around whom significant Labour support is coalescing. Long-serving Labour MP Barry Gardiner said publicly that he believed Starmer should be allowed to leave with dignity and that he hoped to avoid a formal leadership contest. The timing of a leadership transition and whether a contest will follow remain unresolved. For American readers, the change at the top of the UK government is relevant to ongoing diplomatic relationships, trade negotiations, and coordination on shared security matters, including the situation in the Middle East.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_1">
+<h2 class="article-headline">UK Prime Minister Keir Starmer Expected to Announce Resignation on Monday</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>British Prime Minister Keir Starmer is expected to announce his departure on Monday, following sustained pressure from Labour MPs who have broadly shifted their support to Greater Manchester Mayor Andy Burnham as a potential successor.</span></span>
+<span class="summary-full"><span>British Prime Minister Keir Starmer is expected to formally announce his resignation on Monday, according to multiple sources across the British political press. The move follows an extended period of internal Labour Party pressure, with growing numbers of Members of Parliament publicly calling for him to step aside. Senior Labour figures, including Business Secretary Peter Kyle, declined to address Starmer's future directly in Sunday media appearances, a posture widely interpreted as confirmation that a departure is imminent. An ally of Starmer told the BBC that he was taking time to assess the political landscape following what were described as a changed set of circumstances compared to the previous week. Andy Burnham, the Mayor of Greater Manchester who won a by-election in Makerfield, has emerged as the figure around whom significant Labour support is coalescing. Long-serving Labour MP Barry Gardiner said publicly that he believed Starmer should be allowed to leave with dignity and that he hoped to avoid a formal leadership contest. The timing of a leadership transition and whether a contest will follow remain unresolved. For American readers, the change at the top of the UK government is relevant to ongoing diplomatic relationships, trade negotiations, and coordination on shared security matters, including the situation in the Middle East.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/world/keir-starmer-reportedly-considering-stepping-pm-could-announce-timetable-departure" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/keir-starmer-reportedly-considering-stepping-pm-could-announce-timetable-departure" rel="noopener" target="_blank">
                   Fox News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/politics/live/2026/jun/21/keir-starmer-expected-resign-resignation-monday--andy-burnham-makerfield-labour-uk-politics-latest-news-updates" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/politics/live/2026/jun/21/keir-starmer-expected-resign-resignation-monday--andy-burnham-makerfield-labour-uk-politics-latest-news-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/politics/2026/jun/21/keir-starmer-labour-leadership-peter-kyle-sunday-interviews" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/politics/2026/jun/21/keir-starmer-labour-leadership-peter-kyle-sunday-interviews" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/politics/2026/jun/21/keir-starmer-expected-to-announce-departure-as-prime-minister-on-monday" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/politics/2026/jun/21/keir-starmer-expected-to-announce-departure-as-prime-minister-on-monday" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/21/world/europe/keir-starmer-andy-burnham-uk.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/21/world/europe/keir-starmer-andy-burnham-uk.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/keir-starmer-reportedly-considering-stepping-pm-could-announce-timetable-departure" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/world/keir-starmer-reportedly-considering-stepping-pm-could-announce-timetable-departure" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cql10wwy69zo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cql10wwy69zo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_2">
-          <h2 class="article-headline">Analysts Say Iran Conflict's Resolution Left Core Threats Largely Unchanged</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Economic analysts and foreign policy experts say the interim US-Iran agreement, while stabilizing markets somewhat, has not addressed Iran's nuclear program or its broader regional influence, leaving key risks unresolved.</span></span>
-            <span class="summary-full"><span>As US and Iranian delegations hold new talks in Switzerland, analysts are offering a more cautious assessment of what the interim peace deal has actually achieved. Many experts say the agreement has not eliminated the central threats posed by Iran's nuclear program or its support for regional armed groups, and that the situation is more fragile than official characterizations suggest. Financial markets have responded positively to the agreement, and the Trump administration has pointed to that reaction as evidence of success. However, economists note that the possible reopening of the Strait of Hormuz may not quickly normalize oil flows, in part because China — which had been purchasing significant quantities of discounted Iranian oil during the conflict — may not return rapidly to prewar purchasing patterns from the Persian Gulf. The war itself caused measurable economic disruption, and analysts say that uncertainty about shipping routes and energy supply has not fully dissipated. The combination of ongoing negotiations, continued fighting in Lebanon, and unresolved nuclear questions means that the global economic picture tied to this conflict remains unsettled for American businesses and consumers, particularly with respect to oil prices.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_2">
+<h2 class="article-headline">Analysts Say Iran Conflict's Resolution Left Core Threats Largely Unchanged</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Economic analysts and foreign policy experts say the interim US-Iran agreement, while stabilizing markets somewhat, has not addressed Iran's nuclear program or its broader regional influence, leaving key risks unresolved.</span></span>
+<span class="summary-full"><span>As US and Iranian delegations hold new talks in Switzerland, analysts are offering a more cautious assessment of what the interim peace deal has actually achieved. Many experts say the agreement has not eliminated the central threats posed by Iran's nuclear program or its support for regional armed groups, and that the situation is more fragile than official characterizations suggest. Financial markets have responded positively to the agreement, and the Trump administration has pointed to that reaction as evidence of success. However, economists note that the possible reopening of the Strait of Hormuz may not quickly normalize oil flows, in part because China — which had been purchasing significant quantities of discounted Iranian oil during the conflict — may not return rapidly to prewar purchasing patterns from the Persian Gulf. The war itself caused measurable economic disruption, and analysts say that uncertainty about shipping routes and energy supply has not fully dissipated. The combination of ongoing negotiations, continued fighting in Lebanon, and unresolved nuclear questions means that the global economic picture tied to this conflict remains unsettled for American businesses and consumers, particularly with respect to oil prices.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/business/2026/jun/21/trump-iran-deal-long-shadow-global-economy" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/business/2026/jun/21/trump-iran-deal-long-shadow-global-economy" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/21/us/iran-us-peace-deal-nuclear-program-threats.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/21/us/iran-us-peace-deal-nuclear-program-threats.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/21/business/china-oil-iran.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/21/business/china-oil-iran.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_3">
-          <h2 class="article-headline">Ukraine-Poland Relations Strained After Zelensky Signs Decree Honoring Wartime Partisans</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Ukrainian President Volodymyr Zelensky signed a decree honoring World War II partisan fighters, a move that has worsened tensions with Poland due to the groups' historical role in violence against Polish civilians.</span></span>
-            <span class="summary-full"><span>A decree signed by Ukrainian President Volodymyr Zelensky recognizing World War II-era partisan fighters has triggered a significant diplomatic dispute with Poland, a critical ally in the ongoing war with Russia. The partisan groups in question are associated in Polish historical memory with mass killings of Polish civilians during the Second World War, making their official recognition deeply sensitive in Warsaw. The move has injected new friction into what has been one of Ukraine's most important bilateral relationships. Poland has been among the largest contributors of military and humanitarian support to Ukraine since Russia's full-scale invasion began in 2022, and its territory serves as a primary logistics corridor for Western arms deliveries. Analysts note that the historical feud between the two countries predates the current conflict but has never been fully resolved, and that political pressure within both countries can make compromise difficult. The episode highlights the challenge Ukraine faces in managing domestic historical politics while maintaining the international coalitions it depends on for military and economic survival.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_3">
+<h2 class="article-headline">Ukraine-Poland Relations Strained After Zelensky Signs Decree Honoring Wartime Partisans</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Ukrainian President Volodymyr Zelensky signed a decree honoring World War II partisan fighters, a move that has worsened tensions with Poland due to the groups' historical role in violence against Polish civilians.</span></span>
+<span class="summary-full"><span>A decree signed by Ukrainian President Volodymyr Zelensky recognizing World War II-era partisan fighters has triggered a significant diplomatic dispute with Poland, a critical ally in the ongoing war with Russia. The partisan groups in question are associated in Polish historical memory with mass killings of Polish civilians during the Second World War, making their official recognition deeply sensitive in Warsaw. The move has injected new friction into what has been one of Ukraine's most important bilateral relationships. Poland has been among the largest contributors of military and humanitarian support to Ukraine since Russia's full-scale invasion began in 2022, and its territory serves as a primary logistics corridor for Western arms deliveries. Analysts note that the historical feud between the two countries predates the current conflict but has never been fully resolved, and that political pressure within both countries can make compromise difficult. The episode highlights the challenge Ukraine faces in managing domestic historical politics while maintaining the international coalitions it depends on for military and economic survival.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/21/world/europe/ukraine-poland-alliance-russia.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/21/world/europe/ukraine-poland-alliance-russia.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_4">
-          <h2 class="article-headline">European Parliament Approves Accelerated Deportation Measures in Divided Vote</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The European Parliament passed the Return Regulation by a vote of 418 to 218, a measure designed to speed up deportations of migrants without legal status, in a session marked by vocal demonstrations from lawmakers on both sides.</span></span>
-            <span class="summary-full"><span>The European Parliament approved the Return Regulation by a vote of 418 to 218, advancing new rules intended to accelerate the deportation of people without legal authorization to remain in European Union member states. The vote was contentious, with vocal demonstrations from lawmakers across the political spectrum during and after the count. The regulation gives member states expanded tools to detain and remove individuals whose asylum claims have been denied or who lack valid residency status. Supporters framed the measure as a necessary step toward managing migration flows more effectively within EU law. Critics argued the rules could undermine asylum protections and lead to the removal of people who face genuine danger in their countries of origin. The vote reflects a broader rightward shift in European politics on migration, a trend that has accelerated following a series of elections in which immigration policy played a central role. For American readers, European migration policy carries indirect relevance as it shapes diplomatic dynamics between the EU and countries of origin in Africa and the Middle East, and influences transatlantic debates about border management.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_4">
+<h2 class="article-headline">European Parliament Approves Accelerated Deportation Measures in Divided Vote</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The European Parliament passed the Return Regulation by a vote of 418 to 218, a measure designed to speed up deportations of migrants without legal status, in a session marked by vocal demonstrations from lawmakers on both sides.</span></span>
+<span class="summary-full"><span>The European Parliament approved the Return Regulation by a vote of 418 to 218, advancing new rules intended to accelerate the deportation of people without legal authorization to remain in European Union member states. The vote was contentious, with vocal demonstrations from lawmakers across the political spectrum during and after the count. The regulation gives member states expanded tools to detain and remove individuals whose asylum claims have been denied or who lack valid residency status. Supporters framed the measure as a necessary step toward managing migration flows more effectively within EU law. Critics argued the rules could undermine asylum protections and lead to the removal of people who face genuine danger in their countries of origin. The vote reflects a broader rightward shift in European politics on migration, a trend that has accelerated following a series of elections in which immigration policy played a central role. For American readers, European migration policy carries indirect relevance as it shapes diplomatic dynamics between the EU and countries of origin in Africa and the Middle East, and influences transatlantic debates about border management.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/world/send-them-back-chants-rock-european-parliament-after-landslide-vote-speed-up-deportations" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/send-them-back-chants-rock-european-parliament-after-landslide-vote-speed-up-deportations" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_5">
-          <h2 class="article-headline">Colombia Heads Into Presidential Runoff Between Outsider and Left-Wing Senator</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Colombia's presidential runoff election pits a right-leaning political outsider endorsed by former US President Donald Trump against a left-wing senator who supports negotiations with armed groups, as the country faces escalating internal conflict.</span></span>
-            <span class="summary-full"><span>Colombia is heading into a pivotal presidential runoff election between two candidates offering sharply different visions for the country. One candidate, known widely by a nickname, is a political outsider who has campaigned on a hard line against cartels and criminal armed groups, and has received a public endorsement from former US President Donald Trump. His opponent is a left-wing senator who has advocated for dialogue and negotiated settlements with armed organizations. The election is taking place against a backdrop of escalating violence from armed groups operating across Colombia's territory, a conflict that has displaced communities and driven security concerns throughout the country. Colombia is a significant US partner in counter-narcotics efforts and regional stability initiatives, and the election's outcome is expected to shape the bilateral relationship with Washington. The winner will also face decisions about how to handle ongoing peace processes that have produced mixed results under the current government.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_5">
+<h2 class="article-headline">Colombia Heads Into Presidential Runoff Between Outsider and Left-Wing Senator</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Colombia's presidential runoff election pits a right-leaning political outsider endorsed by former US President Donald Trump against a left-wing senator who supports negotiations with armed groups, as the country faces escalating internal conflict.</span></span>
+<span class="summary-full"><span>Colombia is heading into a pivotal presidential runoff election between two candidates offering sharply different visions for the country. One candidate, known widely by a nickname, is a political outsider who has campaigned on a hard line against cartels and criminal armed groups, and has received a public endorsement from former US President Donald Trump. His opponent is a left-wing senator who has advocated for dialogue and negotiated settlements with armed organizations. The election is taking place against a backdrop of escalating violence from armed groups operating across Colombia's territory, a conflict that has displaced communities and driven security concerns throughout the country. Colombia is a significant US partner in counter-narcotics efforts and regional stability initiatives, and the election's outcome is expected to shape the bilateral relationship with Washington. The winner will also face decisions about how to handle ongoing peace processes that have produced mixed results under the current government.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/world/trump-backed-el-tigre-looks-crush-cartels-end-colombias-socialist-era-pivotal-election" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/trump-backed-el-tigre-looks-crush-cartels-end-colombias-socialist-era-pivotal-election" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cvgqv8q1ndpo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cvgqv8q1ndpo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_6">
-          <h2 class="article-headline">Fuel Sales Suspended in Occupied Crimea After Ukrainian Strikes on Oil Facilities</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Fuel sales were halted in Russian-occupied Crimea following Ukrainian strikes on oil infrastructure, compounding existing shortages caused by earlier attacks on supply routes.</span></span>
-            <span class="summary-full"><span>Fuel sales have been suspended in Russian-occupied Crimea after Ukrainian forces struck oil storage and distribution facilities in the region. The halt compounds fuel shortages that had already developed due to earlier Ukrainian attacks on supply routes connecting Crimea to mainland Russia. Crimea has been under Russian military occupation since 2014 and serves as a significant staging area for Russian military operations in southern Ukraine. Ukrainian strikes on energy and logistics infrastructure in occupied territories have been a consistent element of Kyiv's strategy to degrade Russian military capacity and supply lines. The fuel disruption affects both military logistics and civilian supply in the region, and represents one of the more significant near-term effects of Ukraine's ongoing interdiction campaign.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_6">
+<h2 class="article-headline">Fuel Sales Suspended in Occupied Crimea After Ukrainian Strikes on Oil Facilities</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Fuel sales were halted in Russian-occupied Crimea following Ukrainian strikes on oil infrastructure, compounding existing shortages caused by earlier attacks on supply routes.</span></span>
+<span class="summary-full"><span>Fuel sales have been suspended in Russian-occupied Crimea after Ukrainian forces struck oil storage and distribution facilities in the region. The halt compounds fuel shortages that had already developed due to earlier Ukrainian attacks on supply routes connecting Crimea to mainland Russia. Crimea has been under Russian military occupation since 2014 and serves as a significant staging area for Russian military operations in southern Ukraine. Ukrainian strikes on energy and logistics infrastructure in occupied territories have been a consistent element of Kyiv's strategy to degrade Russian military capacity and supply lines. The fuel disruption affects both military logistics and civilian supply in the region, and represents one of the more significant near-term effects of Ukraine's ongoing interdiction campaign.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/clyx2lk9d15o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.com/news/articles/clyx2lk9d15o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">DOMESTIC POLICY</div>
-        
-        <div class="article article-long" id="story_7">
-          <h2 class="article-headline">Justice Department Memo Challenges Civil Rights Protections Against Institutionalizing Disabled Americans</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A Justice Department legal opinion questions the civil rights framework that has long required community-based care for disabled Americans as an alternative to institutionalization, drawing concern from disability advocates.</span></span>
-            <span class="summary-full"><span>The Justice Department has issued a legal opinion that challenges long-standing civil rights protections for Americans with disabilities, specifically the interpretation that has made institutionalization a last resort under federal law. The opinion calls into question the framework established under the Supreme Court's 1999 Olmstead decision, which held that unnecessary institutionalization of disabled people constitutes discrimination under the Americans with Disabilities Act. Under that ruling, states have been required to provide community-based care and services wherever feasible. Disability rights advocates say the new DOJ memo could open the door to a reversal of decades of progress that moved millions of Americans out of institutional settings and into their communities. The practical implications could affect Medicaid-funded home and community-based service programs, which millions of disabled and elderly Americans rely on for daily support. The administration has not announced specific policy changes following the memo, but advocates say the opinion signals a significant shift in how the federal government may approach enforcement of disability rights law going forward.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">DOMESTIC POLICY</div>
+<div class="article article-long" id="story_7">
+<h2 class="article-headline">Justice Department Memo Challenges Civil Rights Protections Against Institutionalizing Disabled Americans</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A Justice Department legal opinion questions the civil rights framework that has long required community-based care for disabled Americans as an alternative to institutionalization, drawing concern from disability advocates.</span></span>
+<span class="summary-full"><span>The Justice Department has issued a legal opinion that challenges long-standing civil rights protections for Americans with disabilities, specifically the interpretation that has made institutionalization a last resort under federal law. The opinion calls into question the framework established under the Supreme Court's 1999 Olmstead decision, which held that unnecessary institutionalization of disabled people constitutes discrimination under the Americans with Disabilities Act. Under that ruling, states have been required to provide community-based care and services wherever feasible. Disability rights advocates say the new DOJ memo could open the door to a reversal of decades of progress that moved millions of Americans out of institutional settings and into their communities. The practical implications could affect Medicaid-funded home and community-based service programs, which millions of disabled and elderly Americans rely on for daily support. The administration has not announced specific policy changes following the memo, but advocates say the opinion signals a significant shift in how the federal government may approach enforcement of disability rights law going forward.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/20/nx-s1-5865100/doj-memo-trump-disability-civil-rights-institutionalization" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.npr.org/2026/06/20/nx-s1-5865100/doj-memo-trump-disability-civil-rights-institutionalization" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_8">
-          <h2 class="article-headline">FTC Probe Targets Transgender Youth Treatment Guidelines Over Evidence Standards</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Federal Trade Commission alleges that widely used clinical guidelines for gender-affirming care in minors were built on evidence that the organization's own leaders privately acknowledged was limited, potentially affecting how those guidelines are applied.</span></span>
-            <span class="summary-full"><span>The Federal Trade Commission has opened an investigation into the World Professional Association for Transgender Health, known as WPATH, alleging that the organization developed clinical guidelines for transgender youth treatment based on evidence its own leaders privately recognized as limited and uncertain. WPATH's guidelines have been widely referenced by medical providers, insurance companies, and courts in the United States when making decisions about care for minors with gender dysphoria. The FTC's inquiry focuses on whether the gap between the public presentation of those guidelines and internal assessments of their evidentiary basis constitutes a deceptive practice. The investigation could affect the legal and regulatory standing of the guidelines and may influence how insurers, hospitals, and state medical boards apply them. The probe is part of a broader set of Trump administration actions on gender-related medical care for minors, several of which are currently subject to legal challenges. The outcome of the FTC's investigation is likely to have significant downstream effects on clinical practice across the country.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_8">
+<h2 class="article-headline">FTC Probe Targets Transgender Youth Treatment Guidelines Over Evidence Standards</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Federal Trade Commission alleges that widely used clinical guidelines for gender-affirming care in minors were built on evidence that the organization's own leaders privately acknowledged was limited, potentially affecting how those guidelines are applied.</span></span>
+<span class="summary-full"><span>The Federal Trade Commission has opened an investigation into the World Professional Association for Transgender Health, known as WPATH, alleging that the organization developed clinical guidelines for transgender youth treatment based on evidence its own leaders privately recognized as limited and uncertain. WPATH's guidelines have been widely referenced by medical providers, insurance companies, and courts in the United States when making decisions about care for minors with gender dysphoria. The FTC's inquiry focuses on whether the gap between the public presentation of those guidelines and internal assessments of their evidentiary basis constitutes a deceptive practice. The investigation could affect the legal and regulatory standing of the guidelines and may influence how insurers, hospitals, and state medical boards apply them. The probe is part of a broader set of Trump administration actions on gender-related medical care for minors, several of which are currently subject to legal challenges. The outcome of the FTC's investigation is likely to have significant downstream effects on clinical practice across the country.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/trump-administration-probe-could-upend-widely-used-transgender-youth-treatment-guidelines" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/politics/trump-administration-probe-could-upend-widely-used-transgender-youth-treatment-guidelines" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_9">
-          <h2 class="article-headline">State Department Takes Over CDC's International Disease Programs, Critics Raise Capacity Concerns</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The State Department is assuming control of CDC global health programs, including initiatives previously managed under PEPFAR, with critics arguing the department lacks the technical expertise to manage disease surveillance and treatment efforts abroad.</span></span>
-            <span class="summary-full"><span>A restructuring of US global health programs transfers significant authority from the Centers for Disease Control and Prevention to the State Department, affecting operations that include HIV treatment and prevention programs funded under PEPFAR, as well as disease surveillance networks in dozens of countries. Critics, including former public health officials and global health advocates, argue that the State Department does not have the technical infrastructure or trained personnel needed to manage these programs effectively. The CDC has historically provided the scientific and epidemiological expertise underpinning these efforts, with staff embedded in foreign ministries of health and disease monitoring systems around the world. Supporters of the restructuring contend that consolidating foreign assistance under the State Department improves diplomatic accountability and reduces redundancy. The transition comes as the US government has separately reduced funding for several global health initiatives. Public health experts warn that disruptions to disease monitoring programs abroad could have downstream consequences for the United States, as infectious disease outbreaks rarely respect borders.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_9">
+<h2 class="article-headline">State Department Takes Over CDC's International Disease Programs, Critics Raise Capacity Concerns</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The State Department is assuming control of CDC global health programs, including initiatives previously managed under PEPFAR, with critics arguing the department lacks the technical expertise to manage disease surveillance and treatment efforts abroad.</span></span>
+<span class="summary-full"><span>A restructuring of US global health programs transfers significant authority from the Centers for Disease Control and Prevention to the State Department, affecting operations that include HIV treatment and prevention programs funded under PEPFAR, as well as disease surveillance networks in dozens of countries. Critics, including former public health officials and global health advocates, argue that the State Department does not have the technical infrastructure or trained personnel needed to manage these programs effectively. The CDC has historically provided the scientific and epidemiological expertise underpinning these efforts, with staff embedded in foreign ministries of health and disease monitoring systems around the world. Supporters of the restructuring contend that consolidating foreign assistance under the State Department improves diplomatic accountability and reduces redundancy. The transition comes as the US government has separately reduced funding for several global health initiatives. Public health experts warn that disruptions to disease monitoring programs abroad could have downstream consequences for the United States, as infectious disease outbreaks rarely respect borders.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/17/health/pepfar-cdc-cuts.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/17/health/pepfar-cdc-cuts.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_10">
-          <h2 class="article-headline">Pope Leo XIV Honors Patron Saint of Immigrants in Latest Statement on Migration</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Pope Leo XIV honored St. Frances Xavier Cabrini, recognized as the patron saint of immigrants and the first American to be canonized, and held her up as a model for how Christians should approach the care of migrants.</span></span>
-            <span class="summary-full"><span>Pope Leo XIV paid tribute to St. Frances Xavier Cabrini during a formal observance, describing her as a model for Christians in their treatment of migrants and immigrants. Cabrini, an Italian-born nun who became a naturalized American citizen in the early twentieth century, is recognized by the Catholic Church as the patron saint of immigrants and was the first American to be canonized. Leo, who is himself the first American-born pope, has repeatedly addressed the situation of migrants and refugees since his election, including in contexts that have placed him in tension with the Trump administration's immigration enforcement policies. The Vatican and the White House have exchanged pointed statements on immigration in recent months. Sunday's observance reinforced Leo's public posture on the issue without directly naming any government or policy. The Catholic Church has significant institutional presence in the United States, and the pope's position on immigration carries weight both among American Catholics and in broader public discourse on the issue.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_10">
+<h2 class="article-headline">Pope Leo XIV Honors Patron Saint of Immigrants in Latest Statement on Migration</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Pope Leo XIV honored St. Frances Xavier Cabrini, recognized as the patron saint of immigrants and the first American to be canonized, and held her up as a model for how Christians should approach the care of migrants.</span></span>
+<span class="summary-full"><span>Pope Leo XIV paid tribute to St. Frances Xavier Cabrini during a formal observance, describing her as a model for Christians in their treatment of migrants and immigrants. Cabrini, an Italian-born nun who became a naturalized American citizen in the early twentieth century, is recognized by the Catholic Church as the patron saint of immigrants and was the first American to be canonized. Leo, who is himself the first American-born pope, has repeatedly addressed the situation of migrants and refugees since his election, including in contexts that have placed him in tension with the Trump administration's immigration enforcement policies. The Vatican and the White House have exchanged pointed statements on immigration in recent months. Sunday's observance reinforced Leo's public posture on the issue without directly naming any government or policy. The Catholic Church has significant institutional presence in the United States, and the pope's position on immigration carries weight both among American Catholics and in broader public discourse on the issue.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/pope-leo-sends-unmistakable-message-immigrants-visit-honoring-americas-first-saint" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/politics/pope-leo-sends-unmistakable-message-immigrants-visit-honoring-americas-first-saint" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/pope-leo-xiv-exalts-first-american-saint-cabrini-as-a-model-for-christians-for-her-care-of-migrants" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/world/pope-leo-xiv-exalts-first-american-saint-cabrini-as-a-model-for-christians-for-her-care-of-migrants" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SCIENCE & HEALTH</div>
-        
-        <div class="article article-long" id="story_11">
-          <h2 class="article-headline">H5N1 Bird Flu Detected in Australia, Completing Global Spread to All Continents</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Australia has confirmed its first case of H5N1 bird flu, detected in a wild migratory seabird in Western Australia. The finding means the virus has now been recorded on every continent.</span></span>
-            <span class="summary-full"><span>Australian authorities have confirmed the country's first detection of H5N1 bird flu, identified in a brown skua, a wild migratory seabird found sick in Western Australia near Esperance. The bird died from the infection. Australia's federal agriculture minister confirmed the case over the weekend, describing it as a significant wildlife concern. The confirmation means H5N1 has now been detected on every continent, marking a major milestone in the global spread of the virus. H5N1 has caused widespread mortality in wild bird populations and domestic poultry globally, and has been detected in mammals including dairy cattle in the United States, prompting ongoing monitoring by American public health authorities. Human infections remain rare but have occurred, and health agencies continue to track the virus closely given its potential to mutate. Australia has been the last major landmass without a confirmed case, in part due to its geographic isolation. Wildlife officials are now working to assess the risk to Australia's native bird populations, and biosecurity agencies are monitoring for any spread to commercial poultry.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SCIENCE &amp; HEALTH</div>
+<div class="article article-long" id="story_11">
+<h2 class="article-headline">H5N1 Bird Flu Detected in Australia, Completing Global Spread to All Continents</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Australia has confirmed its first case of H5N1 bird flu, detected in a wild migratory seabird in Western Australia. The finding means the virus has now been recorded on every continent.</span></span>
+<span class="summary-full"><span>Australian authorities have confirmed the country's first detection of H5N1 bird flu, identified in a brown skua, a wild migratory seabird found sick in Western Australia near Esperance. The bird died from the infection. Australia's federal agriculture minister confirmed the case over the weekend, describing it as a significant wildlife concern. The confirmation means H5N1 has now been detected on every continent, marking a major milestone in the global spread of the virus. H5N1 has caused widespread mortality in wild bird populations and domestic poultry globally, and has been detected in mammals including dairy cattle in the United States, prompting ongoing monitoring by American public health authorities. Human infections remain rare but have occurred, and health agencies continue to track the virus closely given its potential to mutate. Australia has been the last major landmass without a confirmed case, in part due to its geographic isolation. Wildlife officials are now working to assess the risk to Australia's native bird populations, and biosecurity agencies are monitoring for any spread to commercial poultry.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/jun/21/h5-bird-flu-australia-wildlife-emergency-explainer-h5n1" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/environment/2026/jun/21/h5-bird-flu-australia-wildlife-emergency-explainer-h5n1" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/h5n1-bird-flu-confirmed-australia-first-time-meaning-virus-reached-every-continent" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/world/h5n1-bird-flu-confirmed-australia-first-time-meaning-virus-reached-every-continent" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="difficult-section">
-          <details>
-            <summary class="difficult-toggle">
-              <span class="difficult-caret">&#9658;</span>
-              <span class="difficult-label">Difficult News</span>
-            </summary>
-            <p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
-            <div class="difficult-content">
-              
-              <div class="article article-medium" id="story_12">
-                <h2 class="article-headline">Los Angeles Declares Emergency as Warehouse Fire Continues to Affect Air Quality Across Metro Area</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-1-diff">
-                  <span class="summary-brief"><span>Los Angeles Mayor Karen Bass declared a state of emergency as firefighters continued to battle a blaze at a Boyle Heights cold-storage facility, with smoke affecting air quality across the metropolitan area.</span></span>
-                  <span class="summary-full"><span>Los Angeles Mayor Karen Bass issued a state of emergency declaration as firefighters worked to contain a large fire at a cold-storage warehouse in the Boyle Heights neighborhood. The blaze has persisted over multiple days and continued to send smoke across the broader Los Angeles metropolitan area, prompting air quality concerns for residents. Health officials recommended that people in affected areas limit outdoor exposure, use high-quality masks where necessary, and keep windows closed. The emergency declaration expands the city's access to resources for response and recovery. Local medical providers offered guidance on protecting respiratory health during the smoke event, particularly for people with pre-existing lung or heart conditions. The fire has not yet been fully contained.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="difficult-section">
+<details>
+<summary class="difficult-toggle">
+<span class="difficult-caret">►</span>
+<span class="difficult-label">Difficult News</span>
+</summary>
+<p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
+<div class="difficult-content">
+<div class="article article-medium" id="story_12">
+<h2 class="article-headline">Los Angeles Declares Emergency as Warehouse Fire Continues to Affect Air Quality Across Metro Area</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-1-diff">
+<span class="summary-brief"><span>Los Angeles Mayor Karen Bass declared a state of emergency as firefighters continued to battle a blaze at a Boyle Heights cold-storage facility, with smoke affecting air quality across the metropolitan area.</span></span>
+<span class="summary-full"><span>Los Angeles Mayor Karen Bass issued a state of emergency declaration as firefighters worked to contain a large fire at a cold-storage warehouse in the Boyle Heights neighborhood. The blaze has persisted over multiple days and continued to send smoke across the broader Los Angeles metropolitan area, prompting air quality concerns for residents. Health officials recommended that people in affected areas limit outdoor exposure, use high-quality masks where necessary, and keep windows closed. The emergency declaration expands the city's access to resources for response and recovery. Local medical providers offered guidance on protecting respiratory health during the smoke event, particularly for people with pre-existing lung or heart conditions. The fire has not yet been fully contained.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.nbclosangeles.com/video/news/local/boyle-heights-warehouse-fire-health-impacts-smoke/3907077/" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nbclosangeles.com/video/news/local/boyle-heights-warehouse-fire-health-impacts-smoke/3907077/" rel="noopener" target="_blank">
                         Nbc Los Angeles
                       </a>
-                    </li>
-                    
-                    <li>
-                      <a href="https://www.theguardian.com/us-news/2026/jun/21/los-angeles-warehouse-fire" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/21/los-angeles-warehouse-fire" rel="noopener" target="_blank">
                         The Guardian
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-              <div class="article article-long" id="story_13">
-                <h2 class="article-headline">Pentagon Has Issued No Public Account Four Months After Tomahawk Strike on Iranian School</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-2-diff">
-                  <span class="summary-brief"><span>Nearly four months after a US Tomahawk cruise missile struck a girls' elementary school in the Iranian town of Minab on the first day of the war, the Pentagon has not released findings or a public explanation of the strike, one of the deadliest US civilian incidents in decades.</span></span>
-                  <span class="summary-full"><span>Four months after a US military strike killed civilians at a girls' elementary school in Minab, Iran, the Defense Department has not publicly released any findings or explanation for how the strike occurred. The attack, carried out with a Tomahawk cruise missile on the opening day of US military operations, resulted in significant civilian casualties and has been described as one of the deadliest incidents of US civilian harm in decades. Accountability and transparency advocates, as well as journalists, have raised concerns that the Pentagon's silence reflects a decision to suppress findings rather than an ongoing investigation. Defense Secretary Pete Hegseth has not addressed the incident in public statements. The absence of any official account has drawn criticism from human rights organizations and members of Congress who have called for an independent review. Under Department of Defense policy, significant civilian harm incidents are subject to formal investigation and public disclosure. The episode is particularly sensitive given the broader diplomatic context of ongoing US-Iran negotiations, where the civilian toll of the conflict remains a point of contention.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_13">
+<h2 class="article-headline">Pentagon Has Issued No Public Account Four Months After Tomahawk Strike on Iranian School</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-2-diff">
+<span class="summary-brief"><span>Nearly four months after a US Tomahawk cruise missile struck a girls' elementary school in the Iranian town of Minab on the first day of the war, the Pentagon has not released findings or a public explanation of the strike, one of the deadliest US civilian incidents in decades.</span></span>
+<span class="summary-full"><span>Four months after a US military strike killed civilians at a girls' elementary school in Minab, Iran, the Defense Department has not publicly released any findings or explanation for how the strike occurred. The attack, carried out with a Tomahawk cruise missile on the opening day of US military operations, resulted in significant civilian casualties and has been described as one of the deadliest incidents of US civilian harm in decades. Accountability and transparency advocates, as well as journalists, have raised concerns that the Pentagon's silence reflects a decision to suppress findings rather than an ongoing investigation. Defense Secretary Pete Hegseth has not addressed the incident in public statements. The absence of any official account has drawn criticism from human rights organizations and members of Congress who have called for an independent review. Under Department of Defense policy, significant civilian harm incidents are subject to formal investigation and public disclosure. The episode is particularly sensitive given the broader diplomatic context of ongoing US-Iran negotiations, where the civilian toll of the conflict remains a point of contention.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.theguardian.com/world/2026/jun/21/iran-school-bombing-minab-fears-trump-hegseth-bury-truth-investigation-findings" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/21/iran-school-bombing-minab-fears-trump-hegseth-bury-truth-investigation-findings" rel="noopener" target="_blank">
                         The Guardian
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-              <div class="article article-long" id="story_14">
-                <h2 class="article-headline">Israeli Strikes in Gaza Kill Six People, Including Children and a Journalist</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-3-diff">
-                  <span class="summary-brief"><span>Israeli military strikes in Gaza killed six people, including two children and an Al Jazeera cameraman, according to officials. The strikes occurred despite a ceasefire agreed to in October, under which near-daily attacks have continued.</span></span>
-                  <span class="summary-full"><span>Israeli military strikes in Gaza killed six people, according to Palestinian and international officials, including two children and a cameraman working for Al Jazeera. The Israeli military stated that the cameraman was a member of a militant organization, a claim made without presenting supporting evidence. Al Jazeera disputed the characterization. The deaths occurred despite a ceasefire agreement reached in October between Israel and Hamas. According to Gaza's Health Ministry, more than 1,000 Palestinians have been killed since that ceasefire took effect, as near-daily Israeli military operations have continued in the enclave. The killing of journalists in conflict zones is tracked by press freedom organizations, which have documented a significant number of media worker deaths in Gaza since the conflict began. The situation continues to draw international diplomatic pressure, though formal accountability mechanisms have not produced changes in the operational tempo of Israeli strikes.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_14">
+<h2 class="article-headline">Israeli Strikes in Gaza Kill Six People, Including Children and a Journalist</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-3-diff">
+<span class="summary-brief"><span>Israeli military strikes in Gaza killed six people, including two children and an Al Jazeera cameraman, according to officials. The strikes occurred despite a ceasefire agreed to in October, under which near-daily attacks have continued.</span></span>
+<span class="summary-full"><span>Israeli military strikes in Gaza killed six people, according to Palestinian and international officials, including two children and a cameraman working for Al Jazeera. The Israeli military stated that the cameraman was a member of a militant organization, a claim made without presenting supporting evidence. Al Jazeera disputed the characterization. The deaths occurred despite a ceasefire agreement reached in October between Israel and Hamas. According to Gaza's Health Ministry, more than 1,000 Palestinians have been killed since that ceasefire took effect, as near-daily Israeli military operations have continued in the enclave. The killing of journalists in conflict zones is tracked by press freedom organizations, which have documented a significant number of media worker deaths in Gaza since the conflict began. The situation continues to draw international diplomatic pressure, though formal accountability mechanisms have not produced changes in the operational tempo of Israeli strikes.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.bbc.com/news/articles/c4gy26p6pwzo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.com/news/articles/c4gy26p6pwzo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                         BBC World
                       </a>
-                    </li>
-                    
-                    <li>
-                      <a href="https://www.pbs.org/newshour/world/israeli-strikes-in-gaza-kill-6-including-2-children-and-an-al-jazeera-cameraman" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/world/israeli-strikes-in-gaza-kill-6-including-2-children-and-an-al-jazeera-cameraman" rel="noopener" target="_blank">
                         PBS NewsHour
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-              <div class="article article-medium" id="story_15">
-                <h2 class="article-headline">Counterterrorism Officials Investigating Alleged Hate-Motivated Attack Near Edinburgh Mosque</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-4-diff">
-                  <span class="summary-brief"><span>Counterterrorism police in Scotland are investigating an alleged attack near a mosque in Edinburgh that left five men injured, which authorities are treating as a potential hate crime.</span></span>
-                  <span class="summary-full"><span>Counterterrorism officers in Scotland have opened an investigation into an alleged attack near a mosque in Edinburgh in which five men were injured. Authorities are treating the incident as a potential hate-motivated offense. The investigation involves both local police and specialized counterterrorism units. Scottish authorities have not released detailed information about the circumstances of the attack or the condition of those injured. Mosque communities and Muslim organizations in Scotland have been informed of the investigation. Hate-motivated incidents targeting religious sites and communities have been a subject of ongoing policy concern across the United Kingdom.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_15">
+<h2 class="article-headline">Counterterrorism Officials Investigating Alleged Hate-Motivated Attack Near Edinburgh Mosque</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-4-diff">
+<span class="summary-brief"><span>Counterterrorism police in Scotland are investigating an alleged attack near a mosque in Edinburgh that left five men injured, which authorities are treating as a potential hate crime.</span></span>
+<span class="summary-full"><span>Counterterrorism officers in Scotland have opened an investigation into an alleged attack near a mosque in Edinburgh in which five men were injured. Authorities are treating the incident as a potential hate-motivated offense. The investigation involves both local police and specialized counterterrorism units. Scottish authorities have not released detailed information about the circumstances of the attack or the condition of those injured. Mosque communities and Muslim organizations in Scotland have been informed of the investigation. Hate-motivated incidents targeting religious sites and communities have been a subject of ongoing policy concern across the United Kingdom.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.foxnews.com/world/counterterrorism-officials-investigating-suspect-rampage-alleged-hate-attack" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/counterterrorism-officials-investigating-suspect-rampage-alleged-hate-attack" rel="noopener" target="_blank">
                         Fox News World
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-            </div>
-          </details>
-        </div>
-      
-    
+</li>
+</ul>
+</div>
+</div>
+</div>
+</details>
+</div>
+<!-- Footer -->
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+<div class="archive-link-section"><a class="archive-link" href="/archive.html">Browse past editions →</a></div>
+<footer class="footer">
+<p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
-      <p style="margin-top:0.75rem;"><a href="2026-06-21-am-sources.html">Sources for this digest →</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<p style="margin-top:0.75rem;"><a href="2026-06-21-am-sources.html">Sources for this digest →</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-
 <script>
   // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
@@ -1222,34 +1061,6 @@
     btn.setAttribute('aria-expanded', String(!expanded));
   });
 
-  function toggleMobileArchive() {
-    var panel = document.getElementById('mobile-archive-panel');
-    var toggle = document.getElementById('mobile-toggle');
-    var isOpen = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  }
-
-  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
-  // always show all editions regardless of which page was generated.
-  (function() {
-    var current = '2026-06-21-am.html';
-    fetch('archive.json?v=' + Date.now())
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-        var mob = document.getElementById('mobile-archive-panel');
-        if (mob) mob.innerHTML = '<div class="mobile-archive-title">Past Editions</div>' + html;
-      })
-      .catch(function() {});
-  })();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');

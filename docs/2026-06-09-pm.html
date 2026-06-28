@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Tuesday, June 9, 2026 PM</title>
-  <meta name="description" content="Balm news digest for Tuesday, June 9, 2026 — topical, anti-inflammatory news.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/png" href="/icons/icon-32.png">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm — Tuesday, June 9, 2026 PM</title>
+<meta content="Balm news digest for Tuesday, June 9, 2026 — topical, anti-inflammatory news." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/icons/icon-32.png" rel="icon" type="image/png"/>
+<link href="/icons/icon-192.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -42,10 +43,9 @@
 
     /* Layout */
     .page-wrapper {
-      display: flex;
-      max-width: 1100px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.25rem;
     }
 
     .sidebar {
@@ -501,109 +501,63 @@
   </style>
 </head>
 <body>
-
 <!-- Mobile archive toggle (shown only on mobile) -->
-<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
-  <span class="mobile-archive-caret">›</span> Archive
-</div>
-<div class="mobile-archive-panel" id="mobile-archive-panel">
-  <div class="mobile-archive-title">Past Editions</div>
-  <!-- populated by archive.json fetch on page load — never server-rendered -->
-</div>
+
 
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    <!-- populated by archive.json fetch on page load — never server-rendered -->
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-              <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-              <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-            </filter>
-          </defs>
-          <text x="90" y="44"
-                font-family="Caveat, cursive"
-                font-size="52"
-                font-weight="700"
-                fill="#6b82a8"
-                text-anchor="middle"
-                letter-spacing="8"
-                filter="url(#balm-spread)">Balm</text>
-        </svg>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Tuesday, June 9, 2026 &middot; PM Edition</p>
-    </header>
-
-    <!-- Audio player -->
-    
-
-    <!-- Top stories navigation -->
-    
-    <div class="top-stories">
-      <div class="top-stories-heading">Today's Top Stories</div>
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_0">US Launches Strikes on Iran After Army Helicopter Downed Near Strait of Hormuz</a>
-        <span class="top-story-reason">US military strikes on Iran represent a major escalation with sweeping implications for regional stability, global energy supplies, and international security.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_5">Social Security Trust Fund Projected to Face Shortfall by 2032, One Year Earlier Than Prior Estimate</a>
-        <span class="top-story-reason">A newly accelerated Social Security shortfall timeline directly affects tens of millions of Americans who depend on the program for retirement and disability income.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_9">Researchers Achieve High-Precision Gene Editing of Human Embryos Using Newer CRISPR Technique</a>
-        <span class="top-story-reason">High-precision gene editing of human embryos marks a significant scientific milestone with profound ethical, medical, and regulatory implications worldwide.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_2">Chinese President Xi Visits North Korea for Rare Summit With Kim Jong Un</a>
-        <span class="top-story-reason">A rare Xi-Kim summit signals shifting geopolitical alignments in East Asia with potential consequences for nuclear diplomacy and regional security.</span>
-      </div>
-      
-      
-    </div>
-    
-
-    <!-- Stories -->
-    
-      
-        <div class="section-header">GEOPOLITICS</div>
-        
-        <div class="article article-long" id="story_0">
-          <h2 class="article-headline">US Launches Strikes on Iran After Army Helicopter Downed Near Strait of Hormuz</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>US forces conducted strikes against Iran after an American Apache helicopter was downed near the Strait of Hormuz. Both pilots were reported safe. The attack threatened a ceasefire established between the two countries in April.</span></span>
-            <span class="summary-full"><span>The United States launched what it described as self-defense strikes against Iran after an American Army Apache helicopter was downed near the Strait of Hormuz. US Central Command said the strikes were a proportional response to what it called unjustified Iranian aggression. Both pilots aboard the downed helicopter were reported unharmed and safe.
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news"><svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg></a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Tuesday, June 9, 2026 · PM Edition</p>
+</header>
+<!-- Audio player -->
+<!-- Top stories navigation -->
+<div class="top-stories">
+<div class="top-stories-heading">Today's Top Stories</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_0">US Launches Strikes on Iran After Army Helicopter Downed Near Strait of Hormuz</a>
+<span class="top-story-reason">US military strikes on Iran represent a major escalation with sweeping implications for regional stability, global energy supplies, and international security.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_5">Social Security Trust Fund Projected to Face Shortfall by 2032, One Year Earlier Than Prior Estimate</a>
+<span class="top-story-reason">A newly accelerated Social Security shortfall timeline directly affects tens of millions of Americans who depend on the program for retirement and disability income.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_9">Researchers Achieve High-Precision Gene Editing of Human Embryos Using Newer CRISPR Technique</a>
+<span class="top-story-reason">High-precision gene editing of human embryos marks a significant scientific milestone with profound ethical, medical, and regulatory implications worldwide.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_2">Chinese President Xi Visits North Korea for Rare Summit With Kim Jong Un</a>
+<span class="top-story-reason">A rare Xi-Kim summit signals shifting geopolitical alignments in East Asia with potential consequences for nuclear diplomacy and regional security.</span>
+</div>
+</div>
+<!-- Stories -->
+<div class="section-header">GEOPOLITICS</div>
+<div class="article article-long" id="story_0">
+<h2 class="article-headline">US Launches Strikes on Iran After Army Helicopter Downed Near Strait of Hormuz</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>US forces conducted strikes against Iran after an American Apache helicopter was downed near the Strait of Hormuz. Both pilots were reported safe. The attack threatened a ceasefire established between the two countries in April.</span></span>
+<span class="summary-full"><span>The United States launched what it described as self-defense strikes against Iran after an American Army Apache helicopter was downed near the Strait of Hormuz. US Central Command said the strikes were a proportional response to what it called unjustified Iranian aggression. Both pilots aboard the downed helicopter were reported unharmed and safe.
 
 The incident placed significant strain on a ceasefire that had been announced by the US and Iran in April. Earlier the same day, Vice President JD Vance had said the two countries were very close to a peace deal, stating the conflict could conclude within a week or a few months.
 
@@ -612,646 +566,528 @@ Iranian state media reported the situation was calm following the strikes, thoug
 The conflict's economic effects are already visible domestically. The national average gasoline price stood at approximately $4.16 per gallon as of Tuesday, according to AAA — roughly 37 cents lower than the peak reached since the conflict began but still elevated compared to pre-conflict levels. Administration officials acknowledged affordability concerns.
 
 Negotiators face structural difficulties in reaching a lasting agreement: analysts note that both Washington and Tehran require any deal to be presented domestically as a victory, complicating the terms of potential settlement. The situation also compounds an existing humanitarian emergency in Sudan, where aid groups say the closure of the Strait of Hormuz has disrupted the flow of assistance to a population where nearly two in five people face emergency-level hunger.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.middleeastmonitor.com/20260609-irans-qaani-new-resistance-security-belt-will-stretch-from-hormuz-to-bab-al-mandab/" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.middleeastmonitor.com/20260609-irans-qaani-new-resistance-security-belt-will-stretch-from-hormuz-to-bab-al-mandab/" rel="noopener" target="_blank">
                   Middle East Monitor
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/09/jd-vance-iran-peace-deal" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/09/jd-vance-iran-peace-deal" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/09/trump-blames-iran-for-downing-of-army-helicopter-and-says-us-must-respond" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/09/trump-blames-iran-for-downing-of-army-helicopter-and-says-us-must-respond" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/live/2026/jun/09/middle-east-crisis-iran-israel-us-donald-trump-strait-of-hormuz-peace-deal-latest-news-updates" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/live/2026/jun/09/middle-east-crisis-iran-israel-us-donald-trump-strait-of-hormuz-peace-deal-latest-news-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/business/2026/jun/09/trump-gas-prices-not-very-high" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/business/2026/jun/09/trump-gas-prices-not-very-high" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/live/2026/06/09/world/iran-war-trump-israel-lebanon" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/live/2026/06/09/world/iran-war-trump-israel-lebanon" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/09/world/middleeast/us-iran-talks-war.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/09/world/middleeast/us-iran-talks-war.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cze9359gglyo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cze9359gglyo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/09/nx-s1-5851845/trump-confirms-iran-shot-down-helicopter-says-u-s-must-respond" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/09/nx-s1-5851845/trump-confirms-iran-shot-down-helicopter-says-u-s-must-respond" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/show/sudan-crisis-worsens-as-civil-war-enters-4th-year-and-hormuz-closure-disrupts-aid" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/show/sudan-crisis-worsens-as-civil-war-enters-4th-year-and-hormuz-closure-disrupts-aid" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/u-s-says-it-has-begun-strikes-against-iran-following-crash-of-army-apache-helicopter-off-oman-coast" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/world/u-s-says-it-has-begun-strikes-against-iran-following-crash-of-army-apache-helicopter-off-oman-coast" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_1">
-          <h2 class="article-headline">Israel Strikes Beirut After Rockets Fired Into Northern Israel; Iran Warns Against Further Attacks</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Israel launched airstrikes on Hezbollah command centers in Beirut after rockets were fired into northern Israel. Iran warned that it could resume broader hostilities if Israeli attacks on Hezbollah continue.</span></span>
-            <span class="summary-full"><span>Israel conducted airstrikes on what it described as Hezbollah command infrastructure in Beirut following rocket fire into northern Israel. The strikes represent a significant escalation in ongoing hostilities between Israel and the Lebanese militant group.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_1">
+<h2 class="article-headline">Israel Strikes Beirut After Rockets Fired Into Northern Israel; Iran Warns Against Further Attacks</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Israel launched airstrikes on Hezbollah command centers in Beirut after rockets were fired into northern Israel. Iran warned that it could resume broader hostilities if Israeli attacks on Hezbollah continue.</span></span>
+<span class="summary-full"><span>Israel conducted airstrikes on what it described as Hezbollah command infrastructure in Beirut following rocket fire into northern Israel. The strikes represent a significant escalation in ongoing hostilities between Israel and the Lebanese militant group.
 
 Iran, which supports Hezbollah, issued a warning that it could resume direct hostilities against Israel if attacks on the group do not stop. The warning adds a further dimension to an already complex regional military situation involving the US-Iran conflict centered on the Strait of Hormuz.
 
 Additionally, Israeli forces struck the Lebanese city of Tyre. The combination of strikes on Beirut and Tyre signals a broadening of Israeli military operations inside Lebanese territory. Accounts of the specific targets and extent of damage differed between Israeli military statements and Lebanese and Iranian sources.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/world/hezbollahs-secret-kill-wound-maim-bomb-network-exposed-israel-strikes-beirut" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/hezbollahs-secret-kill-wound-maim-bomb-network-exposed-israel-strikes-beirut" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c36y16nkr5no?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c36y16nkr5no?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_2">
-          <h2 class="article-headline">Chinese President Xi Visits North Korea for Rare Summit With Kim Jong Un</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Chinese President Xi Jinping traveled to Pyongyang for a state visit with North Korean leader Kim Jong Un, the first such visit in several years, as both governments seek to strengthen bilateral ties.</span></span>
-            <span class="summary-full"><span>Chinese President Xi Jinping arrived in Pyongyang for a rare state visit with North Korean leader Kim Jong Un, with both governments signaling an intent to restore and deepen their traditional alliance. The visit represents one of Xi's infrequent trips to North Korea and comes at a moment of significant geopolitical realignment.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_2">
+<h2 class="article-headline">Chinese President Xi Visits North Korea for Rare Summit With Kim Jong Un</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Chinese President Xi Jinping traveled to Pyongyang for a state visit with North Korean leader Kim Jong Un, the first such visit in several years, as both governments seek to strengthen bilateral ties.</span></span>
+<span class="summary-full"><span>Chinese President Xi Jinping arrived in Pyongyang for a rare state visit with North Korean leader Kim Jong Un, with both governments signaling an intent to restore and deepen their traditional alliance. The visit represents one of Xi's infrequent trips to North Korea and comes at a moment of significant geopolitical realignment.
 
 Chinese and North Korean state media devoted extensive coverage to the summit while making no reference to North Korea's nuclear weapons program — a central concern for the United States and its allies. Analysts note that Xi's silence on the nuclear issue effectively removes a point of international pressure on Pyongyang, allowing Kim to pursue weapons development without public criticism from his most important ally.
 
 The visit reinforces the deepening alignment between Beijing and Pyongyang at a time when both countries face significant tensions with Washington. For the US, the summit raises questions about whether diplomatic pressure on North Korea's nuclear program can be sustained when China declines to raise the issue publicly.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/world/xi-jinping-north-korea-kim-jong-un-talks" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/xi-jinping-north-korea-kim-jong-un-talks" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_3">
-          <h2 class="article-headline">Myanmar Military Gains Ground as Rebel Forces Face Sustained Pressure</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Reporting from rebel frontline positions inside Myanmar indicates that opposition forces are losing territory as the military intensifies pressure, including by compelling men into military service.</span></span>
-            <span class="summary-full"><span>Reporting from inside Myanmar, conducted without government authorization, found that rebel forces fighting the military government are losing ground across multiple frontline positions. The military has been forcing men into its ranks, providing an additional source of personnel as it pursues operations against opposition-held areas.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_3">
+<h2 class="article-headline">Myanmar Military Gains Ground as Rebel Forces Face Sustained Pressure</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Reporting from rebel frontline positions inside Myanmar indicates that opposition forces are losing territory as the military intensifies pressure, including by compelling men into military service.</span></span>
+<span class="summary-full"><span>Reporting from inside Myanmar, conducted without government authorization, found that rebel forces fighting the military government are losing ground across multiple frontline positions. The military has been forcing men into its ranks, providing an additional source of personnel as it pursues operations against opposition-held areas.
 
 Myanmar has been in a state of civil conflict since the military seized power in 2021, displacing millions of people and triggering a severe humanitarian crisis. Rebel groups initially made significant territorial gains in some regions, but recent reporting indicates the military is reasserting control in areas that had shifted toward the opposition.
 
 The conflict has received limited international attention relative to its scale. The situation has direct implications for regional stability in Southeast Asia and for the millions of people living under conditions of ongoing violence and displacement.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c20y6966xqzo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.com/news/articles/c20y6966xqzo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/videos/cx2k5nq51lgo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/videos/cx2k5nq51lgo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c20y6966xqzo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c20y6966xqzo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_4">
-          <h2 class="article-headline">Finland Says Ukraine Holds Diplomatic Advantage as Russia Signals Interest in Talks</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Finland's foreign minister said Ukraine currently holds the stronger negotiating position as Russia has signaled renewed interest in peace talks, coinciding with reported Ukrainian military gains.</span></span>
-            <span class="summary-full"><span>Finland's Foreign Minister Elina Valtonen stated that Ukraine holds the stronger position in any potential negotiations with Russia, as Moscow has signaled openness to talks. The assessment reflects Ukraine's recent military gains, which Finnish officials say have shifted the diplomatic balance.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_4">
+<h2 class="article-headline">Finland Says Ukraine Holds Diplomatic Advantage as Russia Signals Interest in Talks</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Finland's foreign minister said Ukraine currently holds the stronger negotiating position as Russia has signaled renewed interest in peace talks, coinciding with reported Ukrainian military gains.</span></span>
+<span class="summary-full"><span>Finland's Foreign Minister Elina Valtonen stated that Ukraine holds the stronger position in any potential negotiations with Russia, as Moscow has signaled openness to talks. The assessment reflects Ukraine's recent military gains, which Finnish officials say have shifted the diplomatic balance.
 
 Russia's signals toward negotiations follow a period in which Ukrainian forces have reportedly made progress on certain parts of the front. Whether Russian statements represent a genuine shift in negotiating posture or a tactical maneuver remains assessed differently by various governments and analysts.
 
 Finland, as a NATO member sharing a long border with Russia, has a direct interest in the conflict's trajectory. The foreign minister's comments are notable as an allied government's public assessment of the current balance of leverage heading into any potential diplomatic phase.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/world/finlands-foreign-minister-says-ukraine-is-now-holding-cards-russia-signals-talks" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/finlands-foreign-minister-says-ukraine-is-now-holding-cards-russia-signals-talks" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SCIENCE & HEALTH</div>
-        
-        <div class="article article-long" id="story_7">
-          <h2 class="article-headline">NASA Names Four-Person Crew for Artemis III Lunar Training Mission</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>NASA announced the four-person crew for the Artemis III mission: commander Randy Bresnik, European Space Agency pilot Luca Parmitano, and mission specialists Frank Rubio and Andre Douglas. The crew is scheduled to launch next year but will not land on the moon.</span></span>
-            <span class="summary-full"><span>NASA has selected four astronauts for the Artemis III mission, scheduled to launch in 2027. The crew consists of NASA astronaut and commander Randy Bresnik, European Space Agency pilot Luca Parmitano of Italy, and NASA mission specialists Frank Rubio and Andre Douglas.
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SCIENCE &amp; HEALTH</div>
+<div class="article article-long" id="story_7">
+<h2 class="article-headline">NASA Names Four-Person Crew for Artemis III Lunar Training Mission</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>NASA announced the four-person crew for the Artemis III mission: commander Randy Bresnik, European Space Agency pilot Luca Parmitano, and mission specialists Frank Rubio and Andre Douglas. The crew is scheduled to launch next year but will not land on the moon.</span></span>
+<span class="summary-full"><span>NASA has selected four astronauts for the Artemis III mission, scheduled to launch in 2027. The crew consists of NASA astronaut and commander Randy Bresnik, European Space Agency pilot Luca Parmitano of Italy, and NASA mission specialists Frank Rubio and Andre Douglas.
 
 Despite its designation in the Artemis lunar program, the Artemis III mission will not involve a lunar landing or travel close to the moon. The mission is described as a training exercise in preparation for subsequent lunar surface operations. The crew will have had less training time for this specific mission than the Artemis II crew received.
 
 Artemis III's crew was announced by NASA Administrator Jared Isaacman alongside broader updates on the agency's timeline for returning humans to the moon. Separately, questions remain about whether a crewed lunar landing can realistically occur by 2028, with analysts noting that the timeline depends heavily on the readiness of hardware and systems being developed by private contractors.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/science/2026/jun/09/artemis-iii-crew-nasa-moon" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/science/2026/jun/09/artemis-iii-crew-nasa-moon" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/09/science/space/artemis-iii-astronauts-training.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/09/science/space/artemis-iii-astronauts-training.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cdejn0gj12go?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cdejn0gj12go?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cdejn0gj12go?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cdejn0gj12go?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/09/nx-s1-5851860/nasa-artemis-iii-crew" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/09/nx-s1-5851860/nasa-artemis-iii-crew" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_8">
-          <h2 class="article-headline">US Ebola Quarantine Facility in Kenya Draws Protests and Policy Questions</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A US-established Ebola quarantine facility in Kenya has prompted protests in the country, with one person killed during a demonstration. The Trump administration has not stated whether Americans at risk of Ebola will be allowed to return to the US for monitoring.</span></span>
-            <span class="summary-full"><span>A quarantine facility established in Kenya for American citizens at risk of Ebola exposure has become a focal point of controversy on multiple fronts. In Kenya, protests against the center resulted in the death of at least one demonstrator after police opened fire during a demonstration in the town of Nanyuki. Protesters have cited concerns about cross-border infection risk and a lack of government transparency about the facility's operations.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_8">
+<h2 class="article-headline">US Ebola Quarantine Facility in Kenya Draws Protests and Policy Questions</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A US-established Ebola quarantine facility in Kenya has prompted protests in the country, with one person killed during a demonstration. The Trump administration has not stated whether Americans at risk of Ebola will be allowed to return to the US for monitoring.</span></span>
+<span class="summary-full"><span>A quarantine facility established in Kenya for American citizens at risk of Ebola exposure has become a focal point of controversy on multiple fronts. In Kenya, protests against the center resulted in the death of at least one demonstrator after police opened fire during a demonstration in the town of Nanyuki. Protesters have cited concerns about cross-border infection risk and a lack of government transparency about the facility's operations.
 
 The facility's existence reflects a significant policy departure. Despite long-established procedures for bringing Americans home for monitoring and treatment during disease outbreaks, the Trump administration has not stated that it will allow those at risk of Ebola to return to the United States. That position has drawn criticism from public health officials, including some with experience managing the 2014 Ebola outbreak.
 
 The Ebola outbreak, centered in Africa, has been expanding. Critics of the Kenya facility argue it places a health burden and associated risk on a host country rather than managing the situation domestically, while US officials have defended the arrangement. The combination of an active outbreak, a contested quarantine policy, and civil unrest at the facility site has elevated the situation's complexity.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/03/us/politics/trump-administration-ebola-response.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/03/us/politics/trump-administration-ebola-response.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c3wypjz3n57o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c3wypjz3n57o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/09/nx-s1-5850708/ebola-quarantine-u-s-citizens-kenya" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/09/nx-s1-5850708/ebola-quarantine-u-s-citizens-kenya" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_9">
-          <h2 class="article-headline">Researchers Achieve High-Precision Gene Editing of Human Embryos Using Newer CRISPR Technique</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Scientists have used an advanced gene-editing technique to alter human embryo genes with greater precision than previously achieved, according to new research. The development renews bioethical debate over the prospect of engineering human embryos.</span></span>
-            <span class="summary-full"><span>Researchers have demonstrated the ability to edit genes in human embryos with a level of precision described as startling, using a newer variant of CRISPR gene-editing technology. The technique offers greater accuracy than earlier methods, reducing the unintended edits that have been a persistent concern with genetic modification of embryos.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_9">
+<h2 class="article-headline">Researchers Achieve High-Precision Gene Editing of Human Embryos Using Newer CRISPR Technique</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Scientists have used an advanced gene-editing technique to alter human embryo genes with greater precision than previously achieved, according to new research. The development renews bioethical debate over the prospect of engineering human embryos.</span></span>
+<span class="summary-full"><span>Researchers have demonstrated the ability to edit genes in human embryos with a level of precision described as startling, using a newer variant of CRISPR gene-editing technology. The technique offers greater accuracy than earlier methods, reducing the unintended edits that have been a persistent concern with genetic modification of embryos.
 
 The research does not involve implanting edited embryos or producing children from them. Nevertheless, the advance brings the technical possibility of engineering heritable genetic changes in humans meaningfully closer, a prospect that has long been a central concern for bioethicists and regulatory bodies.
 
 The scientific community remains divided on where the boundaries for embryo research should sit. International guidelines restrict implantation of gene-edited embryos, but the guidelines are not legally binding in all countries. The new findings are expected to intensify ongoing discussions about regulatory frameworks governing human germline editing.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/04/science/embryos-gene-editing-crispr.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/04/science/embryos-gene-editing-crispr.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_10">
-          <h2 class="article-headline">Most Planned US AI Data Centers to Be Built in Water-Stressed Areas, Analysis Finds</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A majority of planned artificial intelligence data centers in the United States are slated to be built in areas already experiencing drought conditions, according to a Guardian analysis, raising concerns about water consumption as the country faces record drought.</span></span>
-            <span class="summary-full"><span>An analysis found that a majority of planned AI data center construction in the United States is concentrated in areas experiencing significant drought stress. Data centers require large volumes of water for cooling, and the overlap between planned facilities and water-scarce regions has drawn concern from environmental groups and water resource experts.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_10">
+<h2 class="article-headline">Most Planned US AI Data Centers to Be Built in Water-Stressed Areas, Analysis Finds</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A majority of planned artificial intelligence data centers in the United States are slated to be built in areas already experiencing drought conditions, according to a Guardian analysis, raising concerns about water consumption as the country faces record drought.</span></span>
+<span class="summary-full"><span>An analysis found that a majority of planned AI data center construction in the United States is concentrated in areas experiencing significant drought stress. Data centers require large volumes of water for cooling, and the overlap between planned facilities and water-scarce regions has drawn concern from environmental groups and water resource experts.
 
 The findings arrive as much of the United States is experiencing record-level drought conditions. AI computing infrastructure is particularly water-intensive compared to conventional data centers, given the processing demands of large AI models.
 
 The trend poses a potential conflict between the rapid expansion of AI infrastructure — driven by both industry and government — and water management constraints in already-stressed western and southwestern regions. Local communities in some areas have raised objections to data center projects on water use grounds, though those concerns have not consistently slowed development approvals.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/08/datacenter-ai-drought-water" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/08/datacenter-ai-drought-water" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">ECONOMY</div>
-        
-        <div class="article article-long" id="story_5">
-          <h2 class="article-headline">Social Security Trust Fund Projected to Face Shortfall by 2032, One Year Earlier Than Prior Estimate</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Social Security retirement trust fund is now projected to reach depletion in 2032, a year earlier than previously estimated. Without congressional action, benefits for the roughly 68 million Americans who rely on the program could be reduced by an average of 22 percent.</span></span>
-            <span class="summary-full"><span>A new projection indicates that Social Security's retirement trust fund is on track to be depleted by 2032, one year earlier than prior estimates. If the fund is exhausted and Congress takes no action, benefits for recipients could be cut by an average of approximately 22 percent.
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">ECONOMY</div>
+<div class="article article-long" id="story_5">
+<h2 class="article-headline">Social Security Trust Fund Projected to Face Shortfall by 2032, One Year Earlier Than Prior Estimate</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Social Security retirement trust fund is now projected to reach depletion in 2032, a year earlier than previously estimated. Without congressional action, benefits for the roughly 68 million Americans who rely on the program could be reduced by an average of 22 percent.</span></span>
+<span class="summary-full"><span>A new projection indicates that Social Security's retirement trust fund is on track to be depleted by 2032, one year earlier than prior estimates. If the fund is exhausted and Congress takes no action, benefits for recipients could be cut by an average of approximately 22 percent.
 
 The program currently supports roughly 68 million Americans. The revised timeline adds urgency to a long-running policy debate about how to address the program's structural funding gap, which results from a growing ratio of retirees to active workers paying into the system.
 
 Medicare's hospital insurance trust fund faces a separate but related challenge: it is projected to become unable to pay full benefits in 2033, a timeline that remains unchanged from last year's estimate.
 
 Addressing Social Security's shortfall would require Congress to act — options historically discussed include raising the payroll tax rate, increasing the income ceiling subject to the tax, reducing benefit levels, adjusting the retirement age, or some combination of these measures. No legislation to address the gap is currently moving through Congress.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/09/business/social-security-benefits-cuts.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/09/business/social-security-benefits-cuts.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/politics/social-securitys-retirement-trust-fund-faces-a-projected-funding-shortfall-in-2032-a-year-earlier-than-expected" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/politics/social-securitys-retirement-trust-fund-faces-a-projected-funding-shortfall-in-2032-a-year-earlier-than-expected" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">DOMESTIC POLICY</div>
-        
-        <div class="article article-long" id="story_6">
-          <h2 class="article-headline">House Passes $70 Billion Bill Funding ICE and Border Patrol Through End of Trump's Term</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The House approved the Secure America Act, a $70 billion package funding Immigration and Customs Enforcement and Border Patrol through 2029. The bill passed without Democratic support and goes to the president's desk after the Senate passed it last week.</span></span>
-            <span class="summary-full"><span>The House of Representatives approved a $70 billion immigration enforcement funding bill on Tuesday, sending it to the president's desk after the Senate passed it the previous week. The Secure America Act funds the Department of Homeland Security, ICE, and Border Patrol through 2029 — the remainder of the current presidential term.
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">DOMESTIC POLICY</div>
+<div class="article article-long" id="story_6">
+<h2 class="article-headline">House Passes $70 Billion Bill Funding ICE and Border Patrol Through End of Trump's Term</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The House approved the Secure America Act, a $70 billion package funding Immigration and Customs Enforcement and Border Patrol through 2029. The bill passed without Democratic support and goes to the president's desk after the Senate passed it last week.</span></span>
+<span class="summary-full"><span>The House of Representatives approved a $70 billion immigration enforcement funding bill on Tuesday, sending it to the president's desk after the Senate passed it the previous week. The Secure America Act funds the Department of Homeland Security, ICE, and Border Patrol through 2029 — the remainder of the current presidential term.
 
 The vote passed along party lines, with unanimous Democratic opposition. Democrats argued the measure cedes Congress's oversight role over immigration enforcement agencies. Republicans framed the bill as securing the administration's immigration agenda for the full duration of the term.
 
 The legislation ends months of a funding standoff that at one point forced the Department of Homeland Security to temporarily suspend operations. The bill consolidates funding that had previously been subject to recurring congressional battles, locking in resources for enforcement operations without requiring additional appropriations during the remainder of the term.
 
 The measure's passage marks a significant legislative victory for the administration's immigration enforcement priorities. Critics have raised concerns about the long-term implications of removing standard congressional oversight mechanisms from agency funding, while supporters argue the stability will allow enforcement agencies to operate more effectively.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/live/2026/jun/09/donald-trump-nithya-raman-los-angeles-la-spencer-pratt-mayor-politics-latest-news-updates" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/live/2026/jun/09/donald-trump-nithya-raman-los-angeles-la-spencer-pratt-mayor-politics-latest-news-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/09/house-immigration-bill-funding" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/09/house-immigration-bill-funding" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/trump-locks-ice-funding-through-end-presidency-after-house-passes-70b-package" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/politics/trump-locks-ice-funding-through-end-presidency-after-house-passes-70b-package" rel="noopener" target="_blank">
                   Fox News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/trump-locks-ice-funding-through-end-presidency-after-house-passes-70b-package" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/politics/trump-locks-ice-funding-through-end-presidency-after-house-passes-70b-package" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/trump-verge-securing-70b-ice-funding-victory-after-house-clears-hurdle" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/politics/trump-verge-securing-70b-ice-funding-victory-after-house-clears-hurdle" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/09/nx-s1-5851664/house-reconciliation-vote-immigration-enforcement-ice-border-patrol" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/09/nx-s1-5851664/house-reconciliation-vote-immigration-enforcement-ice-border-patrol" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/show/bill-pulte-deeply-unqualified-to-lead-u-s-intelligence-efforts-jeffries-says" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/show/bill-pulte-deeply-unqualified-to-lead-u-s-intelligence-efforts-jeffries-says" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SPORTS</div>
-        
-        <div class="article article-long" id="story_11">
-          <h2 class="article-headline">World Cup Opens Amid Immigration Disputes, Revoked Iran Tickets, and Labor Agreement</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The FIFA World Cup begins this week with several off-field issues: Iran's group-stage ticket allocation was revoked days before the tournament, a FIFA referee from Somalia was denied entry to the US after an 11-hour immigration interview, and a labor agreement with Southern California stadium workers was reached, averting a strike.</span></span>
-            <span class="summary-full"><span>The FIFA World Cup is set to begin in the United States this week against a backdrop of logistical and diplomatic complications. FIFA said it is working to restore opportunities for Iranian supporters to attend matches after the country's group-stage ticket allocation was revoked shortly before the tournament started. The circumstances behind the revocation were not fully detailed by FIFA.
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SPORTS</div>
+<div class="article article-long" id="story_11">
+<h2 class="article-headline">World Cup Opens Amid Immigration Disputes, Revoked Iran Tickets, and Labor Agreement</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The FIFA World Cup begins this week with several off-field issues: Iran's group-stage ticket allocation was revoked days before the tournament, a FIFA referee from Somalia was denied entry to the US after an 11-hour immigration interview, and a labor agreement with Southern California stadium workers was reached, averting a strike.</span></span>
+<span class="summary-full"><span>The FIFA World Cup is set to begin in the United States this week against a backdrop of logistical and diplomatic complications. FIFA said it is working to restore opportunities for Iranian supporters to attend matches after the country's group-stage ticket allocation was revoked shortly before the tournament started. The circumstances behind the revocation were not fully detailed by FIFA.
 
 Immigration enforcement has created additional friction around the tournament. A FIFA referee from Somalia was denied entry to the United States after an 11-hour immigration interview, despite reportedly holding valid documents and a visa. Other match officials and team members have faced heightened scrutiny at US entry points.
 
 On the labor front, a tentative agreement was reached with Southern California stadium workers, averting a strike that would have affected World Cup venues in the region. Under the agreement, stadium cooks are set to earn among the highest wages for the role in the country, with many reaching $40 per hour within approximately two years.
 
 Several nations are making their World Cup debut this year, including Uzbekistan, Jordan, Cape Verde, and Curacao.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.bbc.com/sport/football/articles/c9q2vrdx0ewo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.com/sport/football/articles/c9q2vrdx0ewo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/09/nx-s1-5851634/immigration-policies-affect-fifa" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/09/nx-s1-5851634/immigration-policies-affect-fifa" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/09/g-s1-127007/soccer-edition-world-cup-cinderella-group-stage" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/09/g-s1-127007/soccer-edition-world-cup-cinderella-group-stage" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/nation/southern-california-stadium-workers-say-they-have-a-tentative-deal-averting-strike-ahead-of-world-cup" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/nation/southern-california-stadium-workers-say-they-have-a-tentative-deal-averting-strike-ahead-of-world-cup" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="difficult-section">
-          <details>
-            <summary class="difficult-toggle">
-              <span class="difficult-caret">&#9658;</span>
-              <span class="difficult-label">Difficult News</span>
-            </summary>
-            <p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
-            <div class="difficult-content">
-              
-              <div class="article article-long" id="story_12">
-                <h2 class="article-headline">Belfast Unrest Follows Knife Attack, With Vehicles Burned and Properties Damaged</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-1-diff">
-                  <span class="summary-brief"><span>Unrest broke out in Belfast following a knife attack, with vehicles and bins set on fire and properties damaged. The incident follows a pattern of far-right groups using violent events as catalysts for organized disorder.</span></span>
-                  <span class="summary-full"><span>Significant unrest occurred in parts of Belfast following a knife attack, with vehicles and buses burned, properties damaged, and families displaced from affected areas. A man was arrested in connection with the knife attack on suspicion of attempted murder, with the victim suffering serious injuries.
+</li>
+</ul>
+</div>
+</div>
+<div class="difficult-section">
+<details>
+<summary class="difficult-toggle">
+<span class="difficult-caret">►</span>
+<span class="difficult-label">Difficult News</span>
+</summary>
+<p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
+<div class="difficult-content">
+<div class="article article-long" id="story_12">
+<h2 class="article-headline">Belfast Unrest Follows Knife Attack, With Vehicles Burned and Properties Damaged</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-1-diff">
+<span class="summary-brief"><span>Unrest broke out in Belfast following a knife attack, with vehicles and bins set on fire and properties damaged. The incident follows a pattern of far-right groups using violent events as catalysts for organized disorder.</span></span>
+<span class="summary-full"><span>Significant unrest occurred in parts of Belfast following a knife attack, with vehicles and buses burned, properties damaged, and families displaced from affected areas. A man was arrested in connection with the knife attack on suspicion of attempted murder, with the victim suffering serious injuries.
 
 The disorder followed a pattern identified by researchers in which a single violent incident is amplified online and used by far-right networks as a trigger for organized protests and unrest, a dynamic that has appeared in other countries in recent years. Video of the original incident spread rapidly across social media before the violence broke out.
 
 Elected officials, including North Belfast's MP, described the violence as shameful and unacceptable. The events have reignited political debate in Northern Ireland and the wider UK about community tensions, immigration policy, and the role of social media in accelerating the spread of inflammatory content.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.theguardian.com/politics/live/2026/jun/09/labour-badenoch-equality-duty-nowak-starmer-burnham-healey-lammy-latest-news-updates" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/politics/live/2026/jun/09/labour-badenoch-equality-duty-nowak-starmer-burnham-healey-lammy-latest-news-updates" rel="noopener" target="_blank">
                         The Guardian
                       </a>
-                    </li>
-                    
-                    <li>
-                      <a href="https://www.theguardian.com/politics/2026/jun/09/how-belfast-knife-attack-became-the-latest-far-right-trigger-event" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/politics/2026/jun/09/how-belfast-knife-attack-became-the-latest-far-right-trigger-event" rel="noopener" target="_blank">
                         The Guardian
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-            </div>
-          </details>
-        </div>
-      
-    
+</li>
+</ul>
+</div>
+</div>
+</div>
+</details>
+</div>
+<!-- Footer -->
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+<div class="archive-link-section"><a class="archive-link" href="/archive.html">Browse past editions →</a></div>
+<footer class="footer">
+<p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
-      <p style="margin-top:0.75rem;"><a href="2026-06-09-pm-sources.html">Sources for this digest →</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<p style="margin-top:0.75rem;"><a href="2026-06-09-pm-sources.html">Sources for this digest →</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-
 <script>
   // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
@@ -1270,34 +1106,6 @@ Elected officials, including North Belfast's MP, described the violence as shame
     btn.setAttribute('aria-expanded', String(!expanded));
   });
 
-  function toggleMobileArchive() {
-    var panel = document.getElementById('mobile-archive-panel');
-    var toggle = document.getElementById('mobile-toggle');
-    var isOpen = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  }
-
-  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
-  // always show all editions regardless of which page was generated.
-  (function() {
-    var current = '2026-06-09-pm.html';
-    fetch('archive.json?v=' + Date.now())
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-        var mob = document.getElementById('mobile-archive-panel');
-        if (mob) mob.innerHTML = '<div class="mobile-archive-title">Past Editions</div>' + html;
-      })
-      .catch(function() {});
-  })();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');

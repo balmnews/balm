@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Wednesday, June 24, 2026 AM</title>
-  <meta name="description" content="Balm news digest for Wednesday, June 24, 2026 — topical, anti-inflammatory news.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/png" href="/icons/icon-32.png">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm — Wednesday, June 24, 2026 AM</title>
+<meta content="Balm news digest for Wednesday, June 24, 2026 — topical, anti-inflammatory news." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/icons/icon-32.png" rel="icon" type="image/png"/>
+<link href="/icons/icon-192.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -42,10 +43,9 @@
 
     /* Layout */
     .page-wrapper {
-      display: flex;
-      max-width: 1100px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.25rem;
     }
 
     .sidebar {
@@ -501,827 +501,639 @@
   </style>
 </head>
 <body>
-
 <!-- Mobile archive toggle (shown only on mobile) -->
-<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
-  <span class="mobile-archive-caret">›</span> Archive
-</div>
-<div class="mobile-archive-panel" id="mobile-archive-panel">
-  <div class="mobile-archive-title">Past Editions</div>
-  <!-- populated by archive.json fetch on page load — never server-rendered -->
-</div>
+
 
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    <!-- populated by archive.json fetch on page load — never server-rendered -->
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-              <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-              <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-            </filter>
-          </defs>
-          <text x="90" y="44"
-                font-family="Caveat, cursive"
-                font-size="52"
-                font-weight="700"
-                fill="#6b82a8"
-                text-anchor="middle"
-                letter-spacing="8"
-                filter="url(#balm-spread)">Balm</text>
-        </svg>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Wednesday, June 24, 2026 &middot; AM Edition</p>
-    </header>
-
-    <!-- Audio player -->
-    
-
-    <!-- Top stories navigation -->
-    
-    <div class="top-stories">
-      <div class="top-stories-heading">Today's Top Stories</div>
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_6">Congress Passes Major Housing Legislation Aimed at Increasing Supply and Reducing Costs</a>
-        <span class="top-story-reason">Major federal housing legislation aimed at increasing supply and reducing costs would directly affect millions of Americans struggling with affordability.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_14">France Confirms First Ebola Case as Outbreak in DRC Continues to Expand</a>
-        <span class="top-story-reason">The first confirmed Ebola case in France signals potential international spread of the expanding DRC outbreak, with significant public health implications.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_0">IAEA Chief Says Nuclear Inspectors Will Visit Iran Sites Under Interim Deal</a>
-        <span class="top-story-reason">IAEA inspectors gaining access to Iranian nuclear sites under a new interim deal marks a concrete diplomatic development in one of the world's most consequential security situations.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_17">Severe Heatwave Across Europe Strains Power Grids, Closes Schools, and Breaks Records</a>
-        <span class="top-story-reason">A severe Europe-wide heatwave breaking records and straining infrastructure reflects a broadly felt climate impact with immediate humanitarian and economic consequences.</span>
-      </div>
-      
-      
-    </div>
-    
-
-    <!-- Stories -->
-    
-      
-        <div class="section-header">DOMESTIC POLICY</div>
-        
-        <div class="article article-long" id="story_5">
-          <h2 class="article-headline">Candidates Backed by NYC Mayor Mamdani Win Democratic Primaries, Unseating Two Incumbents</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>All three candidates endorsed by New York City Mayor Zohran Mamdani won Democratic congressional primaries on Tuesday, including Brad Lander, who defeated incumbent Representative Dan Goldman. Two sitting members of Congress lost their seats.</span></span>
-            <span class="summary-full"><span>All three congressional candidates endorsed by New York City Mayor Zohran Mamdani won their Democratic primary races on Tuesday, defeating establishment-aligned incumbents and candidates in results that reflected the growing influence of the mayor's political operation. Brad Lander, a former New York City comptroller and close Mamdani ally, defeated sitting U.S. Representative Dan Goldman. In a separate race, Darializa Avila Chevalier, a 32-year-old first-time candidate and doctoral student, won a primary against veteran incumbent Adriano Espaillat despite significant spending by outside groups opposing her candidacy. Claire Valdez won the Democratic nomination in New York's 7th Congressional District. The three wins represent a significant demonstration of the influence Mamdani has built since his mayoral victory, as he bet his political capital on candidates aligned with his democratic socialist platform. The results exposed divisions within the Democratic Party over Israel and Gaza, economic policy, and the direction of the party's left flank. Mamdani-backed candidates ran on platforms critical of U.S. policy toward Israel, and the races drew substantial outside spending from groups on both sides. Because New York City's congressional districts are heavily Democratic, Tuesday's primary results are widely expected to determine the general election outcomes in those seats. The results are being watched nationally as a signal of progressive energy within the Democratic Party ahead of the November midterms.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news"><svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg></a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Wednesday, June 24, 2026 · AM Edition</p>
+</header>
+<!-- Audio player -->
+<!-- Top stories navigation -->
+<div class="top-stories">
+<div class="top-stories-heading">Today's Top Stories</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_6">Congress Passes Major Housing Legislation Aimed at Increasing Supply and Reducing Costs</a>
+<span class="top-story-reason">Major federal housing legislation aimed at increasing supply and reducing costs would directly affect millions of Americans struggling with affordability.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_14">France Confirms First Ebola Case as Outbreak in DRC Continues to Expand</a>
+<span class="top-story-reason">The first confirmed Ebola case in France signals potential international spread of the expanding DRC outbreak, with significant public health implications.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_0">IAEA Chief Says Nuclear Inspectors Will Visit Iran Sites Under Interim Deal</a>
+<span class="top-story-reason">IAEA inspectors gaining access to Iranian nuclear sites under a new interim deal marks a concrete diplomatic development in one of the world's most consequential security situations.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_17">Severe Heatwave Across Europe Strains Power Grids, Closes Schools, and Breaks Records</a>
+<span class="top-story-reason">A severe Europe-wide heatwave breaking records and straining infrastructure reflects a broadly felt climate impact with immediate humanitarian and economic consequences.</span>
+</div>
+</div>
+<!-- Stories -->
+<div class="section-header">DOMESTIC POLICY</div>
+<div class="article article-long" id="story_5">
+<h2 class="article-headline">Candidates Backed by NYC Mayor Mamdani Win Democratic Primaries, Unseating Two Incumbents</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>All three candidates endorsed by New York City Mayor Zohran Mamdani won Democratic congressional primaries on Tuesday, including Brad Lander, who defeated incumbent Representative Dan Goldman. Two sitting members of Congress lost their seats.</span></span>
+<span class="summary-full"><span>All three congressional candidates endorsed by New York City Mayor Zohran Mamdani won their Democratic primary races on Tuesday, defeating establishment-aligned incumbents and candidates in results that reflected the growing influence of the mayor's political operation. Brad Lander, a former New York City comptroller and close Mamdani ally, defeated sitting U.S. Representative Dan Goldman. In a separate race, Darializa Avila Chevalier, a 32-year-old first-time candidate and doctoral student, won a primary against veteran incumbent Adriano Espaillat despite significant spending by outside groups opposing her candidacy. Claire Valdez won the Democratic nomination in New York's 7th Congressional District. The three wins represent a significant demonstration of the influence Mamdani has built since his mayoral victory, as he bet his political capital on candidates aligned with his democratic socialist platform. The results exposed divisions within the Democratic Party over Israel and Gaza, economic policy, and the direction of the party's left flank. Mamdani-backed candidates ran on platforms critical of U.S. policy toward Israel, and the races drew substantial outside spending from groups on both sides. Because New York City's congressional districts are heavily Democratic, Tuesday's primary results are widely expected to determine the general election outcomes in those seats. The results are being watched nationally as a signal of progressive energy within the Democratic Party ahead of the November midterms.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.wmar2news.com/politics/midterm-elections/mamdani-ally-brad-lander-upsets-rep-daniel-goldman-in-a-ny-democratic-primary" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.wmar2news.com/politics/midterm-elections/mamdani-ally-brad-lander-upsets-rep-daniel-goldman-in-a-ny-democratic-primary" rel="noopener" target="_blank">
                   Wmar 2 News Baltimore
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/live/2026/jun/24/mamdani-new-york-primaries-midterms-democrats-republicans-trump-250-anniversary-politics-latest-updates" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/us-news/live/2026/jun/24/mamdani-new-york-primaries-midterms-democrats-republicans-trump-250-anniversary-politics-latest-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/24/zohran-mamdani-new-york-elections" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/24/zohran-mamdani-new-york-elections" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/24/darializa-avila-chevalier-win-new-york" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/24/darializa-avila-chevalier-win-new-york" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/clye652m41po?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/clye652m41po?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/24/g-s1-129769/up-first-newsletter-trump-john-thune-housing-act-new-york-primaries" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/24/g-s1-129769/up-first-newsletter-trump-john-thune-housing-act-new-york-primaries" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/politics/mamdani-slate-sweeps-democratic-primaries-in-new-york-ousts-2-incumbents-from-congress" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/politics/mamdani-slate-sweeps-democratic-primaries-in-new-york-ousts-2-incumbents-from-congress" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_6">
-          <h2 class="article-headline">Congress Passes Major Housing Legislation Aimed at Increasing Supply and Reducing Costs</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The House gave final approval to a landmark housing bill described as the most sweeping federal effort in decades to increase housing supply and reduce costs for American families. Analysts note the legislation will take time to take effect.</span></span>
-            <span class="summary-full"><span>Congress has passed significant housing legislation that analysts describe as the most substantial federal effort to address housing affordability in decades. The House gave the bill final approval, sending it to the president. The legislation is focused primarily on increasing the supply of housing, which economists broadly identify as a central driver of elevated prices across much of the country. Supporters argue the bill addresses a longstanding gap in federal housing policy. However, analysts caution that the legislation will take time to implement and that its effects on home prices and rents will not be immediate, which may test the patience of families and renters who have been dealing with affordability pressures for several years. Specific provisions of the bill were not detailed in the available source material, but the legislation was described as having broad political appeal. The bill was referenced alongside separate primary election results in New York, suggesting it passed amid an active political moment. Housing costs have been a persistent economic concern for many Americans, particularly younger families and renters in high-cost metro areas.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_6">
+<h2 class="article-headline">Congress Passes Major Housing Legislation Aimed at Increasing Supply and Reducing Costs</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The House gave final approval to a landmark housing bill described as the most sweeping federal effort in decades to increase housing supply and reduce costs for American families. Analysts note the legislation will take time to take effect.</span></span>
+<span class="summary-full"><span>Congress has passed significant housing legislation that analysts describe as the most substantial federal effort to address housing affordability in decades. The House gave the bill final approval, sending it to the president. The legislation is focused primarily on increasing the supply of housing, which economists broadly identify as a central driver of elevated prices across much of the country. Supporters argue the bill addresses a longstanding gap in federal housing policy. However, analysts caution that the legislation will take time to implement and that its effects on home prices and rents will not be immediate, which may test the patience of families and renters who have been dealing with affordability pressures for several years. Specific provisions of the bill were not detailed in the available source material, but the legislation was described as having broad political appeal. The bill was referenced alongside separate primary election results in New York, suggesting it passed amid an active political moment. Housing costs have been a persistent economic concern for many Americans, particularly younger families and renters in high-cost metro areas.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/politics/house-gives-final-approval-to-landmark-housing-bill-aimed-at-lowering-costs" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.pbs.org/newshour/politics/house-gives-final-approval-to-landmark-housing-bill-aimed-at-lowering-costs" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_7">
-          <h2 class="article-headline">Congress Passes War Powers Measure on Iran Conflict, Breaking with White House</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Congress passed a war powers resolution related to the Iran conflict, the first such measure to pass, though it is largely symbolic. The resolution adds congressional pressure on the White House to bring the conflict to an end.</span></span>
-            <span class="summary-full"><span>Congress passed a war powers resolution on Tuesday related to the ongoing US conflict with Iran, marking the first time such a measure has cleared Congress. The resolution is described as largely symbolic, as it does not carry binding legal force to compel a change in military operations. Nonetheless, the passage represents a notable act of congressional assertion on war powers and signals meaningful opposition within the legislative branch to the continuation of the conflict without formal authorization. The War Powers Resolution, passed in 1973, requires the president to notify Congress within 48 hours of committing US forces to military action and limits unauthorized engagements to 60 days without congressional approval. Tuesday's vote adds pressure on the White House to either seek formal authorization or wind down military operations. The conflict with Iran has been ongoing, with US forces conducting strikes in the region. The passage of the resolution reflects divisions between the executive and legislative branches over the conduct and duration of the military campaign.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_7">
+<h2 class="article-headline">Congress Passes War Powers Measure on Iran Conflict, Breaking with White House</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Congress passed a war powers resolution related to the Iran conflict, the first such measure to pass, though it is largely symbolic. The resolution adds congressional pressure on the White House to bring the conflict to an end.</span></span>
+<span class="summary-full"><span>Congress passed a war powers resolution on Tuesday related to the ongoing US conflict with Iran, marking the first time such a measure has cleared Congress. The resolution is described as largely symbolic, as it does not carry binding legal force to compel a change in military operations. Nonetheless, the passage represents a notable act of congressional assertion on war powers and signals meaningful opposition within the legislative branch to the continuation of the conflict without formal authorization. The War Powers Resolution, passed in 1973, requires the president to notify Congress within 48 hours of committing US forces to military action and limits unauthorized engagements to 60 days without congressional approval. Tuesday's vote adds pressure on the White House to either seek formal authorization or wind down military operations. The conflict with Iran has been ongoing, with US forces conducting strikes in the region. The passage of the resolution reflects divisions between the executive and legislative branches over the conduct and duration of the military campaign.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/ce8j6g3v3r4o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.co.uk/news/articles/ce8j6g3v3r4o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_8">
-          <h2 class="article-headline">Trump Visits Senate Republicans as Party Works Toward Unity on SAVE America Act</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>President Trump traveled to Capitol Hill to meet with Senate Republicans as the party worked to align on the SAVE America Act ahead of the midterm elections.</span></span>
-            <span class="summary-full"><span>President Trump visited the Senate to meet with Republican lawmakers as the party worked to build cohesion around the SAVE America Act. The meeting came amid reported divisions within the Senate Republican caucus over the legislation. The SAVE America Act has been a White House legislative priority, though specific provisions were not detailed in the available source material. The visit reflects the administration's effort to maintain unity heading into the midterm election season, where the legislative record will be central to Republican campaign messaging. Senate Republican divisions on major legislation have been a recurring challenge for the White House, given the narrow margins in the chamber. The timing of the meeting, alongside other ongoing legislative activity including the passage of the housing bill, suggests a period of active congressional activity.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_8">
+<h2 class="article-headline">Trump Visits Senate Republicans as Party Works Toward Unity on SAVE America Act</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>President Trump traveled to Capitol Hill to meet with Senate Republicans as the party worked to align on the SAVE America Act ahead of the midterm elections.</span></span>
+<span class="summary-full"><span>President Trump visited the Senate to meet with Republican lawmakers as the party worked to build cohesion around the SAVE America Act. The meeting came amid reported divisions within the Senate Republican caucus over the legislation. The SAVE America Act has been a White House legislative priority, though specific provisions were not detailed in the available source material. The visit reflects the administration's effort to maintain unity heading into the midterm election season, where the legislative record will be central to Republican campaign messaging. Senate Republican divisions on major legislation have been a recurring challenge for the White House, given the narrow margins in the chamber. The timing of the meeting, alongside other ongoing legislative activity including the passage of the housing bill, suggests a period of active congressional activity.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/trump-heads-capitol-hill-pivotal-meeting-senate-gop-divisions-deepen" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/politics/trump-heads-capitol-hill-pivotal-meeting-senate-gop-divisions-deepen" rel="noopener" target="_blank">
                   Fox News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/trump-heads-capitol-hill-pivotal-meeting-senate-gop-divisions-deepen" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/politics/trump-heads-capitol-hill-pivotal-meeting-senate-gop-divisions-deepen" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_9">
-          <h2 class="article-headline">Supreme Court Rules Against Green Card Holders in Criminal Accusation Case</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Supreme Court sided with the government in a case involving the rights of lawful permanent residents accused of crimes, a ruling with implications for how green card holders are treated in the legal system.</span></span>
-            <span class="summary-full"><span>The Supreme Court ruled in favor of the government in a dispute over the legal rights of lawful permanent residents — green card holders — who have been accused of committing a crime. The ruling affects how such individuals can be treated under the law when facing criminal accusations. The specific legal question and the vote breakdown were not detailed in the available source material. The decision has practical implications for the large population of lawful permanent residents in the United States, who hold a legal status short of citizenship and whose rights in certain legal proceedings have been a recurring area of litigation. The ruling comes during a period of heightened attention to immigration enforcement and the legal status of non-citizen residents.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_9">
+<h2 class="article-headline">Supreme Court Rules Against Green Card Holders in Criminal Accusation Case</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Supreme Court sided with the government in a case involving the rights of lawful permanent residents accused of crimes, a ruling with implications for how green card holders are treated in the legal system.</span></span>
+<span class="summary-full"><span>The Supreme Court ruled in favor of the government in a dispute over the legal rights of lawful permanent residents — green card holders — who have been accused of committing a crime. The ruling affects how such individuals can be treated under the law when facing criminal accusations. The specific legal question and the vote breakdown were not detailed in the available source material. The decision has practical implications for the large population of lawful permanent residents in the United States, who hold a legal status short of citizenship and whose rights in certain legal proceedings have been a recurring area of litigation. The ruling comes during a period of heightened attention to immigration enforcement and the legal status of non-citizen residents.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.scotusblog.com/2026/06/court-sides-with-government-in-dispute-over-rights-of-green-card-holders-accused-of-committing-a/" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.scotusblog.com/2026/06/court-sides-with-government-in-dispute-over-rights-of-green-card-holders-accused-of-committing-a/" rel="noopener" target="_blank">
                   SCOTUSblog
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_10">
-          <h2 class="article-headline">Supreme Court Limits Foreigners' Ability to Sue in US Courts Over International Law Violations</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Supreme Court issued a ruling restricting the ability of foreign nationals to bring lawsuits in US courts for alleged violations of international law, narrowing the scope of a longstanding legal avenue for such claims.</span></span>
-            <span class="summary-full"><span>The Supreme Court ruled to limit the ability of foreign nationals to bring civil lawsuits in United States courts based on alleged violations of international law. The ruling narrows the Alien Tort Statute, a law that has historically been used to hold individuals and corporations accountable in US courts for serious international human rights violations committed abroad. The specific case and vote breakdown were not detailed in the available source material. The decision continues a line of Supreme Court rulings that have progressively narrowed the reach of the Alien Tort Statute. Critics of this trend argue it reduces accountability for human rights abuses; supporters argue US courts should not adjudicate disputes with limited connection to the United States. The ruling has implications for human rights organizations, multinational corporations, and foreign nationals seeking legal redress in US courts.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_10">
+<h2 class="article-headline">Supreme Court Limits Foreigners' Ability to Sue in US Courts Over International Law Violations</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Supreme Court issued a ruling restricting the ability of foreign nationals to bring lawsuits in US courts for alleged violations of international law, narrowing the scope of a longstanding legal avenue for such claims.</span></span>
+<span class="summary-full"><span>The Supreme Court ruled to limit the ability of foreign nationals to bring civil lawsuits in United States courts based on alleged violations of international law. The ruling narrows the Alien Tort Statute, a law that has historically been used to hold individuals and corporations accountable in US courts for serious international human rights violations committed abroad. The specific case and vote breakdown were not detailed in the available source material. The decision continues a line of Supreme Court rulings that have progressively narrowed the reach of the Alien Tort Statute. Critics of this trend argue it reduces accountability for human rights abuses; supporters argue US courts should not adjudicate disputes with limited connection to the United States. The ruling has implications for human rights organizations, multinational corporations, and foreign nationals seeking legal redress in US courts.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.scotusblog.com/2026/06/supreme-court-limits-ability-of-foreigners-to-bring-lawsuits-for-violations-of-international-law/" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.scotusblog.com/2026/06/supreme-court-limits-ability-of-foreigners-to-bring-lawsuits-for-violations-of-international-law/" rel="noopener" target="_blank">
                   SCOTUSblog
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-short" id="story_11">
-          <h2 class="article-headline">Customs and Border Protection Reaches Record Agent Count, Targets Further Growth</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>US Customs and Border Protection has reached a record 21,471 agents — the most in its 102-year history — and is offering hiring incentives of up to $60,000 as it works toward a target of 25,000 agents.</span></span>
-            <span class="summary-full"><span>US Customs and Border Protection announced it has reached a record staffing level of 21,471 agents, the highest in the agency's 102-year history. The agency is continuing to pursue growth, with a stated target of 25,000 agents. To support recruitment, CBP is offering hiring incentives of up to $60,000. The expansion reflects the Trump administration's priority of increasing border enforcement capacity. The agency did not specify a timeline for reaching the 25,000-agent target. Staffing levels at CBP have been a long-running issue, with the agency facing competition from private sector employers for qualified recruits.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-short" id="story_11">
+<h2 class="article-headline">Customs and Border Protection Reaches Record Agent Count, Targets Further Growth</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>US Customs and Border Protection has reached a record 21,471 agents — the most in its 102-year history — and is offering hiring incentives of up to $60,000 as it works toward a target of 25,000 agents.</span></span>
+<span class="summary-full"><span>US Customs and Border Protection announced it has reached a record staffing level of 21,471 agents, the highest in the agency's 102-year history. The agency is continuing to pursue growth, with a stated target of 25,000 agents. To support recruitment, CBP is offering hiring incentives of up to $60,000. The expansion reflects the Trump administration's priority of increasing border enforcement capacity. The agency did not specify a timeline for reaching the 25,000-agent target. Staffing levels at CBP have been a long-running issue, with the agency facing competition from private sector employers for qualified recruits.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/cbp-historic-milestone-pushes-larger-workforce-we-arent-stopping-here" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/politics/cbp-historic-milestone-pushes-larger-workforce-we-arent-stopping-here" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_12">
-          <h2 class="article-headline">Justice Department Charges Dozens in Medicare Fraud Scheme Involving Skin Treatments</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Justice Department announced Medicare fraud charges targeting the overuse of expensive skin substitute wound care treatments that cost the federal government nearly $15 billion in 2025, with prosecutors alleging proceeds funded luxury goods and shell companies.</span></span>
-            <span class="summary-full"><span>The Justice Department unveiled fraud charges related to the widespread misuse of Medicare billing for a category of wound care products known as skin substitutes. Prosecutors allege the scheme cost the federal government approximately $15 billion in 2025 alone, making it one of the largest Medicare fraud cases in recent memory. Allegations describe proceeds being used to purchase luxury goods and routed through shell companies. Skin substitutes are a wound care treatment that has seen explosive growth in Medicare billing in recent years, drawing scrutiny from government auditors. The charges reflect broader federal efforts to crack down on what officials describe as systematic exploitation of Medicare reimbursement rules. Specific individuals and organizations named in the charges were not detailed in the available source material beyond the general characterization of the alleged scheme.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_12">
+<h2 class="article-headline">Justice Department Charges Dozens in Medicare Fraud Scheme Involving Skin Treatments</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Justice Department announced Medicare fraud charges targeting the overuse of expensive skin substitute wound care treatments that cost the federal government nearly $15 billion in 2025, with prosecutors alleging proceeds funded luxury goods and shell companies.</span></span>
+<span class="summary-full"><span>The Justice Department unveiled fraud charges related to the widespread misuse of Medicare billing for a category of wound care products known as skin substitutes. Prosecutors allege the scheme cost the federal government approximately $15 billion in 2025 alone, making it one of the largest Medicare fraud cases in recent memory. Allegations describe proceeds being used to purchase luxury goods and routed through shell companies. Skin substitutes are a wound care treatment that has seen explosive growth in Medicare billing in recent years, drawing scrutiny from government auditors. The charges reflect broader federal efforts to crack down on what officials describe as systematic exploitation of Medicare reimbursement rules. Specific individuals and organizations named in the charges were not detailed in the available source material beyond the general characterization of the alleged scheme.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/23/us/skin-substitutes-medicare-fraud.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/23/us/skin-substitutes-medicare-fraud.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_13">
-          <h2 class="article-headline">ICE Steps Back from Plan to Use Warehouses as Large-Scale Detention Facilities</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>US Immigration and Customs Enforcement is abandoning a plan to convert warehouses into detention sites holding up to 10,000 people each, dropping a key element of a larger $38-billion detention expansion plan.</span></span>
-            <span class="summary-full"><span>US Immigration and Customs Enforcement is retreating from a plan to convert warehouses into large-scale immigration detention facilities capable of holding up to 10,000 people per site. The warehouse detention concept was a central component of a broader $38-billion plan developed under former Homeland Security Secretary Kristi Noem to rapidly expand detention capacity. Federal officials said the agency is now planning to offload some of the warehouses that had been purchased for the purpose. The decision marks a significant scaling back of one of the more ambitious detention expansion proposals from the current administration. ICE's overall detention capacity has been a point of ongoing debate, with the administration having prioritized increased enforcement and detention as core immigration policy tools. The reason for the reversal was not detailed in the available source material.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_13">
+<h2 class="article-headline">ICE Steps Back from Plan to Use Warehouses as Large-Scale Detention Facilities</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>US Immigration and Customs Enforcement is abandoning a plan to convert warehouses into detention sites holding up to 10,000 people each, dropping a key element of a larger $38-billion detention expansion plan.</span></span>
+<span class="summary-full"><span>US Immigration and Customs Enforcement is retreating from a plan to convert warehouses into large-scale immigration detention facilities capable of holding up to 10,000 people per site. The warehouse detention concept was a central component of a broader $38-billion plan developed under former Homeland Security Secretary Kristi Noem to rapidly expand detention capacity. Federal officials said the agency is now planning to offload some of the warehouses that had been purchased for the purpose. The decision marks a significant scaling back of one of the more ambitious detention expansion proposals from the current administration. ICE's overall detention capacity has been a point of ongoing debate, with the administration having prioritized increased enforcement and detention as core immigration policy tools. The reason for the reversal was not detailed in the available source material.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/politics/federal-officials-plan-to-offload-some-warehouses-purchased-for-immigrant-detention" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.pbs.org/newshour/politics/federal-officials-plan-to-offload-some-warehouses-purchased-for-immigrant-detention" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">GEOPOLITICS</div>
-        
-        <div class="article article-long" id="story_0">
-          <h2 class="article-headline">IAEA Chief Says Nuclear Inspectors Will Visit Iran Sites Under Interim Deal</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The head of the UN's nuclear agency says inspectors will visit Iranian nuclear sites as part of an interim agreement between the US and Iran, though an Iranian minister said such access would only be part of a final deal.</span></span>
-            <span class="summary-full"><span>The director general of the International Atomic Energy Agency has said that IAEA inspectors will visit Iranian nuclear enrichment sites as part of an interim arrangement between the United States and Iran. Rafael Grossi stated the agency is working on the practical details of how such access would be structured. However, an Iranian minister offered a different characterization, saying that nuclear inspection access would only be part of a comprehensive final deal with the United States, not an interim measure. The divergence in accounts follows a pattern of conflicting statements from both sides about the status and content of their ongoing negotiations. The IAEA plays the central verification role in international nuclear agreements, and inspector access to enrichment sites is considered a key benchmark for any agreement's credibility. Iran had significantly reduced IAEA access to its nuclear program in recent years following the collapse of the 2015 nuclear deal. The question of inspection access is among the most technically and politically significant elements of any new agreement, as it determines the international community's ability to verify Iranian compliance with any commitments made.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">GEOPOLITICS</div>
+<div class="article article-long" id="story_0">
+<h2 class="article-headline">IAEA Chief Says Nuclear Inspectors Will Visit Iran Sites Under Interim Deal</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The head of the UN's nuclear agency says inspectors will visit Iranian nuclear sites as part of an interim agreement between the US and Iran, though an Iranian minister said such access would only be part of a final deal.</span></span>
+<span class="summary-full"><span>The director general of the International Atomic Energy Agency has said that IAEA inspectors will visit Iranian nuclear enrichment sites as part of an interim arrangement between the United States and Iran. Rafael Grossi stated the agency is working on the practical details of how such access would be structured. However, an Iranian minister offered a different characterization, saying that nuclear inspection access would only be part of a comprehensive final deal with the United States, not an interim measure. The divergence in accounts follows a pattern of conflicting statements from both sides about the status and content of their ongoing negotiations. The IAEA plays the central verification role in international nuclear agreements, and inspector access to enrichment sites is considered a key benchmark for any agreement's credibility. Iran had significantly reduced IAEA access to its nuclear program in recent years following the collapse of the 2015 nuclear deal. The question of inspection access is among the most technically and politically significant elements of any new agreement, as it determines the international community's ability to verify Iranian compliance with any commitments made.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/cpd395zv81vo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.co.uk/news/articles/cpd395zv81vo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/cpd395zv81vo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/cpd395zv81vo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/24/g-s1-129770/iran-nuclear-inspection" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/24/g-s1-129770/iran-nuclear-inspection" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_1">
-          <h2 class="article-headline">US and Iran Offer Conflicting Descriptions of Nuclear Talks</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>President Trump said Iran had agreed to the highest level of nuclear inspections, while an Iranian official stated there were no detailed discussions on the nuclear issue — the two sides presenting sharply different accounts of their latest talks.</span></span>
-            <span class="summary-full"><span>The United States and Iran continued to offer conflicting public accounts of the state of their nuclear negotiations. President Trump stated that Iran had agreed to what he described as the highest level of inspections. Hours earlier, an Iranian official said there had been no detailed discussions on the nuclear issue during the latest round of talks. The divergence in public statements has been a recurring feature of the negotiations, making it difficult to assess actual progress. The talks are taking place against the backdrop of ongoing military conflict in the region and Iranian moves to assert greater control over the Strait of Hormuz, a waterway critical to global oil transit. A broader interim deal between the two countries has been discussed, but the specific terms — including the scope of nuclear inspections — remain publicly contested. The IAEA chief subsequently indicated inspectors would visit Iranian sites under such an arrangement, though Iranian officials described that access as contingent on a final deal rather than an interim one. The gap between the two governments' public positions has created uncertainty for US allies and oil markets.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_1">
+<h2 class="article-headline">US and Iran Offer Conflicting Descriptions of Nuclear Talks</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>President Trump said Iran had agreed to the highest level of nuclear inspections, while an Iranian official stated there were no detailed discussions on the nuclear issue — the two sides presenting sharply different accounts of their latest talks.</span></span>
+<span class="summary-full"><span>The United States and Iran continued to offer conflicting public accounts of the state of their nuclear negotiations. President Trump stated that Iran had agreed to what he described as the highest level of inspections. Hours earlier, an Iranian official said there had been no detailed discussions on the nuclear issue during the latest round of talks. The divergence in public statements has been a recurring feature of the negotiations, making it difficult to assess actual progress. The talks are taking place against the backdrop of ongoing military conflict in the region and Iranian moves to assert greater control over the Strait of Hormuz, a waterway critical to global oil transit. A broader interim deal between the two countries has been discussed, but the specific terms — including the scope of nuclear inspections — remain publicly contested. The IAEA chief subsequently indicated inspectors would visit Iranian sites under such an arrangement, though Iranian officials described that access as contingent on a final deal rather than an interim one. The gap between the two governments' public positions has created uncertainty for US allies and oil markets.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/live/2026/06/23/world/iran-us-trump-lebanon" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/live/2026/06/23/world/iran-us-trump-lebanon" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_2">
-          <h2 class="article-headline">Iran Moves to Charge Transit Fees in Strait of Hormuz as US Warns Against Tolls</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Iran is taking steps to assert control over the Strait of Hormuz and charge fees to ships seeking to transit the waterway. US Secretary of State Marco Rubio warned that no country has the right to charge such fees.</span></span>
-            <span class="summary-full"><span>Iran is taking steps to assert greater control over the Strait of Hormuz, including moves to charge transit fees to commercial vessels seeking to pass through the strategically vital waterway. Experts describe the effort as a continuation of Iran's strategy of using the strait as economic leverage, following a period in which military activity made transit too dangerous for many commercial operators. US Secretary of State Marco Rubio issued a public warning, stating that no country has the authority to charge fees for passage through the Strait of Hormuz, which is considered an international waterway. The United Nations has also been involved, announcing plans to evacuate sailors stranded in the strait. The Strait of Hormuz is the world's most important oil chokepoint, with roughly one-fifth of global oil supply transiting through it. Any restriction or fee structure imposed on shipping there would have significant implications for global energy prices and supply chains. The standoff over Hormuz transit rights has added a new dimension to ongoing US-Iran tensions beyond the nuclear file.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_2">
+<h2 class="article-headline">Iran Moves to Charge Transit Fees in Strait of Hormuz as US Warns Against Tolls</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Iran is taking steps to assert control over the Strait of Hormuz and charge fees to ships seeking to transit the waterway. US Secretary of State Marco Rubio warned that no country has the right to charge such fees.</span></span>
+<span class="summary-full"><span>Iran is taking steps to assert greater control over the Strait of Hormuz, including moves to charge transit fees to commercial vessels seeking to pass through the strategically vital waterway. Experts describe the effort as a continuation of Iran's strategy of using the strait as economic leverage, following a period in which military activity made transit too dangerous for many commercial operators. US Secretary of State Marco Rubio issued a public warning, stating that no country has the authority to charge fees for passage through the Strait of Hormuz, which is considered an international waterway. The United Nations has also been involved, announcing plans to evacuate sailors stranded in the strait. The Strait of Hormuz is the world's most important oil chokepoint, with roughly one-fifth of global oil supply transiting through it. Any restriction or fee structure imposed on shipping there would have significant implications for global energy prices and supply chains. The standoff over Hormuz transit rights has added a new dimension to ongoing US-Iran tensions beyond the nuclear file.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/23/world/middleeast/iran-control-strait-of-hormuz.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/23/world/middleeast/iran-control-strait-of-hormuz.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_3">
-          <h2 class="article-headline">Ukraine Strikes Leave Sevastopol, Crimea's Largest City, Without Power</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Ukrainian strikes left Sevastopol, the largest city in Russian-occupied Crimea, without electricity. The Moscow-installed governor warned power would not be restored to some areas until the evening.</span></span>
-            <span class="summary-full"><span>Ukrainian military strikes left Sevastopol, the largest city in Russian-occupied Crimea, without electricity on Wednesday. The governor installed by Russia warned residents that power would not be restored to some areas until the evening. Sevastopol is home to Russia's Black Sea Fleet and is a strategically significant military hub. Ukraine has conducted a series of strikes on Crimea since Russia's full-scale invasion began in 2022, targeting military infrastructure, logistics, and energy systems. Strikes on Crimea's power supply are part of a broader Ukrainian strategy of degrading Russian military capabilities and supply lines in the occupied peninsula. The incident has limited direct impact on American readers but reflects the ongoing nature of the conflict and Ukraine's continued ability to strike within Russian-controlled territory.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_3">
+<h2 class="article-headline">Ukraine Strikes Leave Sevastopol, Crimea's Largest City, Without Power</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Ukrainian strikes left Sevastopol, the largest city in Russian-occupied Crimea, without electricity. The Moscow-installed governor warned power would not be restored to some areas until the evening.</span></span>
+<span class="summary-full"><span>Ukrainian military strikes left Sevastopol, the largest city in Russian-occupied Crimea, without electricity on Wednesday. The governor installed by Russia warned residents that power would not be restored to some areas until the evening. Sevastopol is home to Russia's Black Sea Fleet and is a strategically significant military hub. Ukraine has conducted a series of strikes on Crimea since Russia's full-scale invasion began in 2022, targeting military infrastructure, logistics, and energy systems. Strikes on Crimea's power supply are part of a broader Ukrainian strategy of degrading Russian military capabilities and supply lines in the occupied peninsula. The incident has limited direct impact on American readers but reflects the ongoing nature of the conflict and Ukraine's continued ability to strike within Russian-controlled territory.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/c3ryv72pjqno?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.co.uk/news/articles/c3ryv72pjqno?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/c3ryv72pjqno?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/c3ryv72pjqno?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-short" id="story_4">
-          <h2 class="article-headline">US Forces Kill Senior ISIS Leader in Syria</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>US forces killed a senior ISIS leader in Syria, according to US Central Command.</span></span>
-            <span class="summary-full"><span>US Central Command announced that American forces killed a senior ISIS leader in Syria. No additional details about the operation were included in the available source material. US forces have maintained a counterterrorism presence in Syria as part of ongoing efforts to prevent ISIS from reconstituting its territorial control following the group's defeat in 2019. Periodic strikes against senior ISIS figures are a regular feature of US counterterrorism operations in the region.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-short" id="story_4">
+<h2 class="article-headline">US Forces Kill Senior ISIS Leader in Syria</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>US forces killed a senior ISIS leader in Syria, according to US Central Command.</span></span>
+<span class="summary-full"><span>US Central Command announced that American forces killed a senior ISIS leader in Syria. No additional details about the operation were included in the available source material. US forces have maintained a counterterrorism presence in Syria as part of ongoing efforts to prevent ISIS from reconstituting its territorial control following the group's defeat in 2019. Periodic strikes against senior ISIS figures are a regular feature of US counterterrorism operations in the region.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/us-forces-kill-senior-isis-leader-syria-centcom" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/politics/us-forces-kill-senior-isis-leader-syria-centcom" rel="noopener" target="_blank">
                   Fox News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/us-forces-kill-senior-isis-leader-syria-centcom" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/politics/us-forces-kill-senior-isis-leader-syria-centcom" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SCIENCE & HEALTH</div>
-        
-        <div class="article article-long" id="story_14">
-          <h2 class="article-headline">France Confirms First Ebola Case as Outbreak in DRC Continues to Expand</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>France has confirmed its first Ebola case in a doctor who returned from a humanitarian mission in the Democratic Republic of Congo, where the current outbreak has killed more than 260 people.</span></span>
-            <span class="summary-full"><span>France's health ministry has confirmed the country's first Ebola case in a medical professional who returned from a humanitarian mission in an area of the Democratic Republic of Congo affected by the ongoing outbreak. The patient was transferred to a specialist facility and was reported to be in stable condition. Health officials are working to trace anyone who may have had contact with the individual. The confirmation marks the first known case of the current outbreak strain reaching Western Europe. In the DRC, more than 260 people are known to have died, and the outbreak continues to spread. Reporting from the outbreak's likely origin point, a gold-mining town called Mongbwalu, describes significant obstacles to containment: shortages of supplies and widespread public skepticism about whether the virus is real are impeding contact-tracing efforts. Scientists are also tracking an unusual feature of the current outbreak — symptoms appear milder than in previous Ebola episodes, which is beneficial for individual patients but may make the virus harder to detect and control, since people may not recognize they are infected. Five factors that experts say will determine whether the outbreak can be contained include the pace of contact tracing, the availability of treatments, and the level of community trust in health authorities. Treatments that could help are reported to be months away from deployment at scale.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SCIENCE &amp; HEALTH</div>
+<div class="article article-long" id="story_14">
+<h2 class="article-headline">France Confirms First Ebola Case as Outbreak in DRC Continues to Expand</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>France has confirmed its first Ebola case in a doctor who returned from a humanitarian mission in the Democratic Republic of Congo, where the current outbreak has killed more than 260 people.</span></span>
+<span class="summary-full"><span>France's health ministry has confirmed the country's first Ebola case in a medical professional who returned from a humanitarian mission in an area of the Democratic Republic of Congo affected by the ongoing outbreak. The patient was transferred to a specialist facility and was reported to be in stable condition. Health officials are working to trace anyone who may have had contact with the individual. The confirmation marks the first known case of the current outbreak strain reaching Western Europe. In the DRC, more than 260 people are known to have died, and the outbreak continues to spread. Reporting from the outbreak's likely origin point, a gold-mining town called Mongbwalu, describes significant obstacles to containment: shortages of supplies and widespread public skepticism about whether the virus is real are impeding contact-tracing efforts. Scientists are also tracking an unusual feature of the current outbreak — symptoms appear milder than in previous Ebola episodes, which is beneficial for individual patients but may make the virus harder to detect and control, since people may not recognize they are infected. Five factors that experts say will determine whether the outbreak can be contained include the pace of contact tracing, the availability of treatments, and the level of community trust in health authorities. Treatments that could help are reported to be months away from deployment at scale.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/24/france-ebola-first-case-doctor-drc" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/24/france-ebola-first-case-doctor-drc" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/interactive/2026/06/23/world/africa/ebola-virus-outbreak-update.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/interactive/2026/06/23/world/africa/ebola-virus-outbreak-update.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/23/health/ebola-symptoms-death-rate.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/23/health/ebola-symptoms-death-rate.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/24/world/europe/ebola-france.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/24/world/europe/ebola-france.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/cj9gzr9rdjlo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/cj9gzr9rdjlo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/24/nx-s1-5863157/ebola-outbreak-democratic-republic-congo-health-crisis" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/24/nx-s1-5863157/ebola-outbreak-democratic-republic-congo-health-crisis" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_15">
-          <h2 class="article-headline">Crisis Pregnancy Centers Accused of Misleading Patients About Detecting Ectopic Pregnancies</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A watchdog group says many federally supported crisis pregnancy centers are telling patients they can rule out ectopic pregnancies, a claim health experts say is medically inaccurate and potentially dangerous.</span></span>
-            <span class="summary-full"><span>A watchdog organization has found that many crisis pregnancy centers — anti-abortion Christian-affiliated facilities that have received increased federal attention and support under the Trump administration — are telling patients they can rule out ectopic pregnancies. Medical professionals and reproductive health experts say this claim is inaccurate: ectopic pregnancies, in which a fertilized egg implants outside the uterus, require clinical diagnosis through ultrasound and blood tests and cannot be reliably identified at such centers. Ectopic pregnancies are a serious medical condition; if undetected and untreated, they can be life-threatening. The concern is that patients who are told a concerning ectopic pregnancy has been ruled out may delay seeking care from medical providers equipped to make an accurate diagnosis. The watchdog group's findings raise questions about oversight of the centers and the accuracy of medical information they provide. The issue sits at the intersection of abortion policy, reproductive healthcare access, and patient safety.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_15">
+<h2 class="article-headline">Crisis Pregnancy Centers Accused of Misleading Patients About Detecting Ectopic Pregnancies</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A watchdog group says many federally supported crisis pregnancy centers are telling patients they can rule out ectopic pregnancies, a claim health experts say is medically inaccurate and potentially dangerous.</span></span>
+<span class="summary-full"><span>A watchdog organization has found that many crisis pregnancy centers — anti-abortion Christian-affiliated facilities that have received increased federal attention and support under the Trump administration — are telling patients they can rule out ectopic pregnancies. Medical professionals and reproductive health experts say this claim is inaccurate: ectopic pregnancies, in which a fertilized egg implants outside the uterus, require clinical diagnosis through ultrasound and blood tests and cannot be reliably identified at such centers. Ectopic pregnancies are a serious medical condition; if undetected and untreated, they can be life-threatening. The concern is that patients who are told a concerning ectopic pregnancy has been ruled out may delay seeking care from medical providers equipped to make an accurate diagnosis. The watchdog group's findings raise questions about oversight of the centers and the accuracy of medical information they provide. The issue sits at the intersection of abortion policy, reproductive healthcare access, and patient safety.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/24/nx-s1-5860744/crisis-pregnancy-centers-ectopic-abortion" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.npr.org/2026/06/24/nx-s1-5860744/crisis-pregnancy-centers-ectopic-abortion" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">NATURAL EVENTS</div>
-        
-        <div class="article article-long" id="story_17">
-          <h2 class="article-headline">Severe Heatwave Across Europe Strains Power Grids, Closes Schools, and Breaks Records</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A major heatwave is moving across Europe, with an estimated 94 million people expected to experience temperatures above 35°C. The UK issued a rare red heat warning, about 68,000 homes in France lost power, and Italy placed 16 cities under weather alerts.</span></span>
-            <span class="summary-full"><span>A significant heatwave is affecting much of Europe, with temperatures forecast to reach approximately 39°C in parts of the United Kingdom — a potential record for June. The UK's Met Office issued a rare red extreme heat warning, prompting hundreds of schools in England to close and health officials to advise against unnecessary travel and outdoor exercise. Great Britain's national grid operator issued an unusual summer electricity margin notice, asking power plants to provide additional supply as demand increased during the evening peak. In France, roughly 68,000 homes in the Brittany region lost power, with electricity not expected to be fully restored until late Wednesday. Italy placed 16 cities under weather alerts. Across the continent, an estimated 94 million people are forecast to experience temperatures above 35°C on Wednesday. Scientists studying the event note that records are being broken for the second time within a month in some locations. Climate researchers are examining the upper limits of what warming conditions can produce, as the frequency and intensity of European heatwaves has increased in recent decades. Workers in outdoor and care settings reported acute difficulty managing the conditions, and one academic event focused on extreme heat was itself cancelled due to the red heat warning. The heatwave is expected to be at its most intense before easing later in the week.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">NATURAL EVENTS</div>
+<div class="article article-long" id="story_17">
+<h2 class="article-headline">Severe Heatwave Across Europe Strains Power Grids, Closes Schools, and Breaks Records</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A major heatwave is moving across Europe, with an estimated 94 million people expected to experience temperatures above 35°C. The UK issued a rare red heat warning, about 68,000 homes in France lost power, and Italy placed 16 cities under weather alerts.</span></span>
+<span class="summary-full"><span>A significant heatwave is affecting much of Europe, with temperatures forecast to reach approximately 39°C in parts of the United Kingdom — a potential record for June. The UK's Met Office issued a rare red extreme heat warning, prompting hundreds of schools in England to close and health officials to advise against unnecessary travel and outdoor exercise. Great Britain's national grid operator issued an unusual summer electricity margin notice, asking power plants to provide additional supply as demand increased during the evening peak. In France, roughly 68,000 homes in the Brittany region lost power, with electricity not expected to be fully restored until late Wednesday. Italy placed 16 cities under weather alerts. Across the continent, an estimated 94 million people are forecast to experience temperatures above 35°C on Wednesday. Scientists studying the event note that records are being broken for the second time within a month in some locations. Climate researchers are examining the upper limits of what warming conditions can produce, as the frequency and intensity of European heatwaves has increased in recent decades. Workers in outdoor and care settings reported acute difficulty managing the conditions, and one academic event focused on extreme heat was itself cancelled due to the red heat warning. The heatwave is expected to be at its most intense before easing later in the week.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/world/live/2026/jun/24/europe-heatwave-live-news-updates-uk-record-breaking-temperatures-italy-red-alert" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/world/live/2026/jun/24/europe-heatwave-live-news-updates-uk-record-breaking-temperatures-italy-red-alert" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/business/2026/jun/24/heatwave-great-britain-grid-operator-extra-electricity-power-plants" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/business/2026/jun/24/heatwave-great-britain-grid-operator-extra-electricity-power-plants" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/jun/24/as-temperatures-soar-in-baking-britain-how-are-workers-coping-in-the-heat" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/environment/2026/jun/24/as-temperatures-soar-in-baking-britain-how-are-workers-coping-in-the-heat" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/23/climate/europe-heat-wave-climate-change.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/23/climate/europe-heat-wave-climate-change.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/weather/articles/c3vyzly206no?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.co.uk/weather/articles/c3vyzly206no?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/c78y4102n1zo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/c78y4102n1zo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/live/2026/jun/24/europe-heatwave-live-news-updates-uk-record-breaking-temperatures-italy-red-alert" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/live/2026/jun/24/europe-heatwave-live-news-updates-uk-record-breaking-temperatures-italy-red-alert" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/24/wednesday-briefing-how-can-the-uk-protect-its-landscape-in-an-increasingly-hot-world" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/24/wednesday-briefing-how-can-the-uk-protect-its-landscape-in-an-increasingly-hot-world" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">TECHNOLOGY</div>
-        
-        <div class="article article-long" id="story_16">
-          <h2 class="article-headline">Chinese Supercomputer Ranked World's Fastest, First Time Since 2017</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A supercomputer in Shenzhen, China, called LineShine has been ranked the world's fastest on the Top500 list, displacing the top-ranked American system. It is the first time a Chinese machine has led the list since 2017, and notably uses standard microprocessors rather than specialized graphics chips.</span></span>
-            <span class="summary-full"><span>A supercomputer based in Shenzhen, China, named LineShine has been declared the world's most powerful machine on the Top500 ranking, a widely watched measure of national technological capability. The system displaces a previously top-ranked American computer. This is the first time a Chinese supercomputer has led the list since 2017. A notable technical detail reported by multiple sources is that LineShine achieves its performance using standard microprocessors rather than the specialized graphics processing units that have driven recent advances in high-performance computing. The Top500 list is published twice yearly and tracks the 500 most powerful supercomputers in the world. The ranking carries symbolic and strategic weight, as governments and technology sectors view supercomputing capability as an indicator of competitiveness in areas including scientific research, defense, and artificial intelligence. The development comes amid ongoing restrictions by the United States on the export of advanced semiconductors to China, making the achievement of top-ranked performance without specialized chips a point of particular interest to analysts.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">TECHNOLOGY</div>
+<div class="article article-long" id="story_16">
+<h2 class="article-headline">Chinese Supercomputer Ranked World's Fastest, First Time Since 2017</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A supercomputer in Shenzhen, China, called LineShine has been ranked the world's fastest on the Top500 list, displacing the top-ranked American system. It is the first time a Chinese machine has led the list since 2017, and notably uses standard microprocessors rather than specialized graphics chips.</span></span>
+<span class="summary-full"><span>A supercomputer based in Shenzhen, China, named LineShine has been declared the world's most powerful machine on the Top500 ranking, a widely watched measure of national technological capability. The system displaces a previously top-ranked American computer. This is the first time a Chinese supercomputer has led the list since 2017. A notable technical detail reported by multiple sources is that LineShine achieves its performance using standard microprocessors rather than the specialized graphics processing units that have driven recent advances in high-performance computing. The Top500 list is published twice yearly and tracks the 500 most powerful supercomputers in the world. The ranking carries symbolic and strategic weight, as governments and technology sectors view supercomputing capability as an indicator of competitiveness in areas including scientific research, defense, and artificial intelligence. The development comes amid ongoing restrictions by the United States on the export of advanced semiconductors to China, making the achievement of top-ranked performance without specialized chips a point of particular interest to analysts.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/technology/2026/jun/24/china-supercomputer-world-fastest-top500-ranking-lineshine" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/technology/2026/jun/24/china-supercomputer-world-fastest-top500-ranking-lineshine" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/23/technology/china-supercomputer-crown-us.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/23/technology/china-supercomputer-crown-us.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="difficult-section">
-          <details>
-            <summary class="difficult-toggle">
-              <span class="difficult-caret">&#9658;</span>
-              <span class="difficult-label">Difficult News</span>
-            </summary>
-            <p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
-            <div class="difficult-content">
-              
-              <div class="article article-medium" id="story_18">
-                <h2 class="article-headline">Camp Mystic Files for Bankruptcy Following Deaths in 2025 Texas Floods</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-1-diff">
-                  <span class="summary-brief"><span>Camp Mystic, the Texas summer camp where 28 people died in flash flooding in July 2025, has filed for Chapter 11 bankruptcy protection, citing total debt exceeding $10 million.</span></span>
-                  <span class="summary-full"><span>Camp Mystic, a Christian summer camp in Texas, has filed for Chapter 11 bankruptcy protection following the catastrophic flood in July 2025 that killed 28 people at the site. Court records show the filing was submitted in the southern district of Texas. The camp's owners stated that total debt exceeds $10 million. The bankruptcy filing comes as the camp faces legal exposure related to the deaths. The 2025 Texas floods were among the deadliest weather-related events to affect a single site in recent years. The filing reflects the broader legal and financial consequences that institutions can face following mass casualty events, and the case may have implications for how camps and outdoor facilities manage liability and safety obligations.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="difficult-section">
+<details>
+<summary class="difficult-toggle">
+<span class="difficult-caret">►</span>
+<span class="difficult-label">Difficult News</span>
+</summary>
+<p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
+<div class="difficult-content">
+<div class="article article-medium" id="story_18">
+<h2 class="article-headline">Camp Mystic Files for Bankruptcy Following Deaths in 2025 Texas Floods</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-1-diff">
+<span class="summary-brief"><span>Camp Mystic, the Texas summer camp where 28 people died in flash flooding in July 2025, has filed for Chapter 11 bankruptcy protection, citing total debt exceeding $10 million.</span></span>
+<span class="summary-full"><span>Camp Mystic, a Christian summer camp in Texas, has filed for Chapter 11 bankruptcy protection following the catastrophic flood in July 2025 that killed 28 people at the site. Court records show the filing was submitted in the southern district of Texas. The camp's owners stated that total debt exceeds $10 million. The bankruptcy filing comes as the camp faces legal exposure related to the deaths. The 2025 Texas floods were among the deadliest weather-related events to affect a single site in recent years. The filing reflects the broader legal and financial consequences that institutions can face following mass casualty events, and the case may have implications for how camps and outdoor facilities manage liability and safety obligations.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.theguardian.com/us-news/2026/jun/24/camp-mystic-files-bankruptcy-texas-floods" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/24/camp-mystic-files-bankruptcy-texas-floods" rel="noopener" target="_blank">
                         The Guardian
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-            </div>
-          </details>
-        </div>
-      
-    
+</li>
+</ul>
+</div>
+</div>
+</div>
+</details>
+</div>
+<!-- Footer -->
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+<div class="archive-link-section"><a class="archive-link" href="/archive.html">Browse past editions →</a></div>
+<footer class="footer">
+<p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
-      <p style="margin-top:0.75rem;"><a href="2026-06-24-am-sources.html">Sources for this digest →</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<p style="margin-top:0.75rem;"><a href="2026-06-24-am-sources.html">Sources for this digest →</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-
 <script>
   // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
@@ -1340,34 +1152,6 @@
     btn.setAttribute('aria-expanded', String(!expanded));
   });
 
-  function toggleMobileArchive() {
-    var panel = document.getElementById('mobile-archive-panel');
-    var toggle = document.getElementById('mobile-toggle');
-    var isOpen = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  }
-
-  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
-  // always show all editions regardless of which page was generated.
-  (function() {
-    var current = '2026-06-24-am.html';
-    fetch('archive.json?v=' + Date.now())
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-        var mob = document.getElementById('mobile-archive-panel');
-        if (mob) mob.innerHTML = '<div class="mobile-archive-title">Past Editions</div>' + html;
-      })
-      .catch(function() {});
-  })();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');

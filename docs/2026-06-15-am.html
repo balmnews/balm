@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Monday, June 15, 2026 AM</title>
-  <meta name="description" content="Balm news digest for Monday, June 15, 2026 — topical, anti-inflammatory news.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/png" href="/icons/icon-32.png">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm — Monday, June 15, 2026 AM</title>
+<meta content="Balm news digest for Monday, June 15, 2026 — topical, anti-inflammatory news." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/icons/icon-32.png" rel="icon" type="image/png"/>
+<link href="/icons/icon-192.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -42,10 +43,9 @@
 
     /* Layout */
     .page-wrapper {
-      display: flex;
-      max-width: 1100px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.25rem;
     }
 
     .sidebar {
@@ -501,109 +501,63 @@
   </style>
 </head>
 <body>
-
 <!-- Mobile archive toggle (shown only on mobile) -->
-<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
-  <span class="mobile-archive-caret">›</span> Archive
-</div>
-<div class="mobile-archive-panel" id="mobile-archive-panel">
-  <div class="mobile-archive-title">Past Editions</div>
-  <!-- populated by archive.json fetch on page load — never server-rendered -->
-</div>
+
 
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    <!-- populated by archive.json fetch on page load — never server-rendered -->
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-              <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-              <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-            </filter>
-          </defs>
-          <text x="90" y="44"
-                font-family="Caveat, cursive"
-                font-size="52"
-                font-weight="700"
-                fill="#6b82a8"
-                text-anchor="middle"
-                letter-spacing="8"
-                filter="url(#balm-spread)">Balm</text>
-        </svg>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Monday, June 15, 2026 &middot; AM Edition</p>
-    </header>
-
-    <!-- Audio player -->
-    
-
-    <!-- Top stories navigation -->
-    
-    <div class="top-stories">
-      <div class="top-stories-heading">Today's Top Stories</div>
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_0">US and Iran Sign Preliminary Agreement to End Hostilities and Reopen Strait of Hormuz</a>
-        <span class="top-story-reason">A preliminary US-Iran agreement to end hostilities and reopen the Strait of Hormuz would have sweeping implications for global oil markets, regional stability, and international diplomacy.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_2">Germany Commits to Building Europe's Largest Conventional Military Force Within NATO</a>
-        <span class="top-story-reason">Germany's commitment to building Europe's largest conventional military force marks a historic shift in European defense and NATO dynamics.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_10">Ebola Outbreak Expands in Congo as Drug Trials Begin and US Quarantine Facility Draws Protests in Kenya</a>
-        <span class="top-story-reason">An expanding Ebola outbreak in Congo combined with international quarantine tensions signals a potential public health concern with cross-border implications.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_12">UK to Ban Children Under 16 from Social Media Platforms Starting in 2027</a>
-        <span class="top-story-reason">The UK's ban on social media for children under 16 is a landmark policy move that could influence similar legislation in other countries and reshape how platforms operate globally.</span>
-      </div>
-      
-      
-    </div>
-    
-
-    <!-- Stories -->
-    
-      
-        <div class="section-header">GEOPOLITICS</div>
-        
-        <div class="article article-long" id="story_0">
-          <h2 class="article-headline">US and Iran Sign Preliminary Agreement to End Hostilities and Reopen Strait of Hormuz</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The United States and Iran have signed a memorandum of understanding to end their conflict and reopen the Strait of Hormuz to oil tankers. Key details of the agreement have not been made public, and the two sides deferred major unresolved issues to further negotiations.</span></span>
-            <span class="summary-full"><span>The United States and Iran have signed a preliminary agreement aimed at ending their military conflict and reopening the Strait of Hormuz, one of the world's most critical shipping passages for oil and gas. The memorandum of understanding was signed by President Trump, Vice President Vance, and Iranian parliament speaker Mohammad Bagher Qalibaf, according to a senior US official. Trump confirmed the signing publicly but said the full text would be released shortly, describing it as a significant document.
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news"><svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg></a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Monday, June 15, 2026 · AM Edition</p>
+</header>
+<!-- Audio player -->
+<!-- Top stories navigation -->
+<div class="top-stories">
+<div class="top-stories-heading">Today's Top Stories</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_0">US and Iran Sign Preliminary Agreement to End Hostilities and Reopen Strait of Hormuz</a>
+<span class="top-story-reason">A preliminary US-Iran agreement to end hostilities and reopen the Strait of Hormuz would have sweeping implications for global oil markets, regional stability, and international diplomacy.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_2">Germany Commits to Building Europe's Largest Conventional Military Force Within NATO</a>
+<span class="top-story-reason">Germany's commitment to building Europe's largest conventional military force marks a historic shift in European defense and NATO dynamics.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_10">Ebola Outbreak Expands in Congo as Drug Trials Begin and US Quarantine Facility Draws Protests in Kenya</a>
+<span class="top-story-reason">An expanding Ebola outbreak in Congo combined with international quarantine tensions signals a potential public health concern with cross-border implications.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_12">UK to Ban Children Under 16 from Social Media Platforms Starting in 2027</a>
+<span class="top-story-reason">The UK's ban on social media for children under 16 is a landmark policy move that could influence similar legislation in other countries and reshape how platforms operate globally.</span>
+</div>
+</div>
+<!-- Stories -->
+<div class="section-header">GEOPOLITICS</div>
+<div class="article article-long" id="story_0">
+<h2 class="article-headline">US and Iran Sign Preliminary Agreement to End Hostilities and Reopen Strait of Hormuz</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The United States and Iran have signed a memorandum of understanding to end their conflict and reopen the Strait of Hormuz to oil tankers. Key details of the agreement have not been made public, and the two sides deferred major unresolved issues to further negotiations.</span></span>
+<span class="summary-full"><span>The United States and Iran have signed a preliminary agreement aimed at ending their military conflict and reopening the Strait of Hormuz, one of the world's most critical shipping passages for oil and gas. The memorandum of understanding was signed by President Trump, Vice President Vance, and Iranian parliament speaker Mohammad Bagher Qalibaf, according to a senior US official. Trump confirmed the signing publicly but said the full text would be released shortly, describing it as a significant document.
 
 The agreement represents a major development in a conflict that disrupted global energy markets for more than 100 days, producing what analysts have called the largest recorded disruption to world energy supplies. However, the deal is explicitly preliminary — the two sides set aside their most significant disagreements, including specifics around Iran's nuclear program, for later rounds of talks. Sources differ on how durable or comprehensive the framework is.
 
@@ -614,733 +568,590 @@ Israel's government is weighing the deal's implications carefully. Defense Minis
 In Lebanon, some residents began returning to southern villages after the ceasefire was announced, though Israeli military vehicles remained present in the area. In Kuwait and other parts of the region, the announcement was met with relief tempered by doubt about the deal's long-term durability.
 
 Iranian state media characterized the agreement as a victory. A formal signing ceremony was expected later in the week, though the deal's inherent ambiguities — particularly on nuclear matters — leave significant uncertainty about what further negotiations will produce. Analysts noted that both sides essentially returned to the position they held before the conflict began, at the cost of thousands of lives.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.bdtonline.com/news/nation_world/ap-news-summary-at-2-02-a-m-edt/article_9401bbc7-1861-553e-8515-f5512f79907a.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bdtonline.com/news/nation_world/ap-news-summary-at-2-02-a-m-edt/article_9401bbc7-1861-553e-8515-f5512f79907a.html" rel="noopener" target="_blank">
                   Bluefield Daily Telegraph
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.hastingstribune.com/ap/health/ap-news-summary-at-2-04-a-m-edt/article_ecc5f518-38cf-51e1-906c-803b0cc9a8db.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.hastingstribune.com/ap/health/ap-news-summary-at-2-04-a-m-edt/article_ecc5f518-38cf-51e1-906c-803b0cc9a8db.html" rel="noopener" target="_blank">
                   Hastingstribune
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/15/analysis-us-iran-peace-deal-nuclear-talks-resume" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/15/analysis-us-iran-peace-deal-nuclear-talks-resume" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/15/us-iran-ceasefire-respite-true-peace-distant" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/15/us-iran-ceasefire-respite-true-peace-distant" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/live/2026/jun/15/iran-us-peace-deal-live-updates-trump-israel-lebanon-hormuz-nuclear-program-europe-response" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/live/2026/jun/15/iran-us-peace-deal-live-updates-trump-israel-lebanon-hormuz-nuclear-program-europe-response" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/15/war-weary-lebanese-ceasefire-caution" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/15/war-weary-lebanese-ceasefire-caution" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/business/live/2026/jun/15/oil-price-low-stock-markets-rally-us-iran-peace-deal-ftse-wall-street-live-news-updates" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/business/live/2026/jun/15/oil-price-low-stock-markets-rally-us-iran-peace-deal-ftse-wall-street-live-news-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/business/2026/jun/15/oil-prices-fall-strait-of-hormuz-reopening-hopes-iran-us-peace-deal" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/business/2026/jun/15/oil-prices-fall-strait-of-hormuz-reopening-hopes-iran-us-peace-deal" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/business/2026/jun/15/return-pre-crisis-oil-gas-supplies-months-away-iran-strait-of-hormuz" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/business/2026/jun/15/return-pre-crisis-oil-gas-supplies-months-away-iran-strait-of-hormuz" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/live/2026/jun/15/donald-trump-ufc-white-house-michelle-obama-g7-iran-peace-deal-us-politics-latest-news-updates" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/us-news/live/2026/jun/15/donald-trump-ufc-white-house-michelle-obama-g7-iran-peace-deal-us-politics-latest-news-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/live/2026/06/15/world/iran-war-trump-us-deal" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/live/2026/06/15/world/iran-war-trump-us-deal" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/15/business/energy-environment/iran-deal-oil-natural-gas.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/15/business/energy-environment/iran-deal-oil-natural-gas.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/15/business/dealbook/trump-iran-peace-rally.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/15/business/dealbook/trump-iran-peace-rally.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/netanyahus-israel-grapples-trump-iran-deal-details-remain-unclear" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/world/netanyahus-israel-grapples-trump-iran-deal-details-remain-unclear" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/irans-regime-spins-nuclear-strait-hormuz-deal-trump-victory-over-us-israel" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/world/irans-regime-spins-nuclear-strait-hormuz-deal-trump-victory-over-us-israel" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/khameneis-target-rich-funeral-irans-biggest-security-gamble-sends-message-us-expert" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/world/khameneis-target-rich-funeral-irans-biggest-security-gamble-sends-message-us-expert" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/israel-fears-trump-weary-highly-suspicious-netanyahu-could-flip-amid-iran-deal-analyst" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/world/israel-fears-trump-weary-highly-suspicious-netanyahu-could-flip-amid-iran-deal-analyst" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cdr4x3vg347o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cdr4x3vg347o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/15/g-s1-128145/up-first-newsletter-iran-war-g7-summit-ufc-fight" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/15/g-s1-128145/up-first-newsletter-iran-war-g7-summit-ufc-fight" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/15/nx-s1-5858590/us-iran-deal-updates" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/15/nx-s1-5858590/us-iran-deal-updates" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_1">
-          <h2 class="article-headline">Trump Arrives at G7 Summit in France Following US-Iran Deal Announcement</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>President Trump arrived at the G7 summit in France's Alps region, where he is set to meet with allied leaders. Ukrainian President Zelenskyy spoke with Trump by phone ahead of the summit and agreed to hold further peace talks there.</span></span>
-            <span class="summary-full"><span>President Trump traveled to the French Alps on Monday to attend the Group of Seven summit, arriving shortly after announcing the preliminary US-Iran agreement. The summit brings together leaders from the world's major democratic economies at a moment of significant geopolitical activity.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_1">
+<h2 class="article-headline">Trump Arrives at G7 Summit in France Following US-Iran Deal Announcement</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>President Trump arrived at the G7 summit in France's Alps region, where he is set to meet with allied leaders. Ukrainian President Zelenskyy spoke with Trump by phone ahead of the summit and agreed to hold further peace talks there.</span></span>
+<span class="summary-full"><span>President Trump traveled to the French Alps on Monday to attend the Group of Seven summit, arriving shortly after announcing the preliminary US-Iran agreement. The summit brings together leaders from the world's major democratic economies at a moment of significant geopolitical activity.
 
 Ukrainian President Volodymyr Zelenskyy spoke with Trump by phone before the summit, offering congratulations and discussing ongoing efforts toward a peace settlement in Ukraine. The two leaders agreed to meet at the G7 to continue those discussions. The call signals continued diplomatic engagement between Washington and Kyiv even as the US-Iran situation commanded international attention.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/world/zelenskyy-congratulates-trump-turning-80-birthday-call-vows-ukraine-peace-talks-g7-tuesday" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/zelenskyy-congratulates-trump-turning-80-birthday-call-vows-ukraine-peace-talks-g7-tuesday" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/watch-live-trump-joins-official-leaders-greeting-at-g7-summit-in-france" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/world/watch-live-trump-joins-official-leaders-greeting-at-g7-summit-in-france" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_2">
-          <h2 class="article-headline">Germany Commits to Building Europe's Largest Conventional Military Force Within NATO</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Germany has pledged to develop Europe's strongest conventional army within the NATO alliance, with its ambassador stating Berlin is prepared to take on a significantly greater defense role.</span></span>
-            <span class="summary-full"><span>Germany has announced a commitment to building the largest conventional military force in Europe within the NATO alliance. A German ambassador stated that Berlin is ready to assume an expanded defense role, a position that reflects sustained pressure from the Trump administration on NATO allies to increase their own military contributions. The pledge marks a notable shift for Germany, which has historically maintained a restrained defense posture in the post-World War II era. The announcement comes amid broader NATO discussions about burden-sharing and European strategic autonomy.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_2">
+<h2 class="article-headline">Germany Commits to Building Europe's Largest Conventional Military Force Within NATO</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Germany has pledged to develop Europe's strongest conventional army within the NATO alliance, with its ambassador stating Berlin is prepared to take on a significantly greater defense role.</span></span>
+<span class="summary-full"><span>Germany has announced a commitment to building the largest conventional military force in Europe within the NATO alliance. A German ambassador stated that Berlin is ready to assume an expanded defense role, a position that reflects sustained pressure from the Trump administration on NATO allies to increase their own military contributions. The pledge marks a notable shift for Germany, which has historically maintained a restrained defense posture in the post-World War II era. The announcement comes amid broader NATO discussions about burden-sharing and European strategic autonomy.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/world/germany-pledges-build-europes-strongest-army-nato-allies-answer-trump-pressure" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/germany-pledges-build-europes-strongest-army-nato-allies-answer-trump-pressure" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_3">
-          <h2 class="article-headline">Ukraine Advances EU Membership Bid as Its Main Bloc Opponent Steps Aside</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Ukraine is moving forward in its bid to join the European Union following the removal of its primary opposition within the bloc, though negotiators acknowledge the full accession process will take years.</span></span>
-            <span class="summary-full"><span>Ukraine's path toward European Union membership has advanced after the country's main opponent within the bloc is no longer a factor in the negotiations. Formal accession talks are now beginning, marking a significant procedural step forward. However, officials acknowledge that the road ahead remains long — EU membership requires satisfying extensive legal, institutional, and economic criteria, and full accession for any country typically takes many years. Ukraine's candidacy has gained momentum since Russia's invasion, with broad political support from most EU member states.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_3">
+<h2 class="article-headline">Ukraine Advances EU Membership Bid as Its Main Bloc Opponent Steps Aside</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Ukraine is moving forward in its bid to join the European Union following the removal of its primary opposition within the bloc, though negotiators acknowledge the full accession process will take years.</span></span>
+<span class="summary-full"><span>Ukraine's path toward European Union membership has advanced after the country's main opponent within the bloc is no longer a factor in the negotiations. Formal accession talks are now beginning, marking a significant procedural step forward. However, officials acknowledge that the road ahead remains long — EU membership requires satisfying extensive legal, institutional, and economic criteria, and full accession for any country typically takes many years. Ukraine's candidacy has gained momentum since Russia's invasion, with broad political support from most EU member states.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/15/world/europe/ukraine-eu-membership.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/15/world/europe/ukraine-eu-membership.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_4">
-          <h2 class="article-headline">BBC Investigation Links Russia to Arson Attacks Targeting UK Prime Minister</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A BBC investigation has found evidence that Russia directed arson attacks targeting the UK prime minister, while also using fake far-right and Islamist groups to stoke domestic tensions in Britain.</span></span>
-            <span class="summary-full"><span>A BBC investigation has uncovered evidence linking Russia to arson attacks directed at the UK prime minister. According to the reporting, Russian operatives directed the plot and simultaneously worked to inflame domestic tensions in Britain by creating and promoting fabricated far-right and Muslim extremist groups. The investigation points to a coordinated campaign to destabilize British political life through both physical attacks and disinformation. The findings represent a significant escalation in documented Russian interference activities targeting a NATO ally.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_4">
+<h2 class="article-headline">BBC Investigation Links Russia to Arson Attacks Targeting UK Prime Minister</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A BBC investigation has found evidence that Russia directed arson attacks targeting the UK prime minister, while also using fake far-right and Islamist groups to stoke domestic tensions in Britain.</span></span>
+<span class="summary-full"><span>A BBC investigation has uncovered evidence linking Russia to arson attacks directed at the UK prime minister. According to the reporting, Russian operatives directed the plot and simultaneously worked to inflame domestic tensions in Britain by creating and promoting fabricated far-right and Muslim extremist groups. The investigation points to a coordinated campaign to destabilize British political life through both physical attacks and disinformation. The findings represent a significant escalation in documented Russian interference activities targeting a NATO ally.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c8r2l352z2do?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.com/news/articles/c8r2l352z2do?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">ECONOMY</div>
-        
-        <div class="article article-medium" id="story_5">
-          <h2 class="article-headline">Fox Corporation Agrees to Acquire Streaming Platform Roku for $22 Billion</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Fox Corporation has agreed to acquire Roku in a $22 billion deal, gaining access to more than 100 million global streaming households and a major first-party data platform.</span></span>
-            <span class="summary-full"><span>Fox Corporation has agreed to purchase Roku, the streaming hardware and software company, in a $22 billion transaction. The deal gives Fox access to the Roku Channel, first-party viewer data, and a distribution network reaching more than 100 million streaming households worldwide. It marks one of the largest moves by Lachlan Murdoch since he assumed the chairmanship of Fox Corporation in 2023, following the exit of his father Rupert Murdoch. The acquisition positions Fox more competitively in the battle among traditional media companies to establish direct relationships with streaming audiences, at a time when cable television viewership continues to decline.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">ECONOMY</div>
+<div class="article article-medium" id="story_5">
+<h2 class="article-headline">Fox Corporation Agrees to Acquire Streaming Platform Roku for $22 Billion</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Fox Corporation has agreed to acquire Roku in a $22 billion deal, gaining access to more than 100 million global streaming households and a major first-party data platform.</span></span>
+<span class="summary-full"><span>Fox Corporation has agreed to purchase Roku, the streaming hardware and software company, in a $22 billion transaction. The deal gives Fox access to the Roku Channel, first-party viewer data, and a distribution network reaching more than 100 million streaming households worldwide. It marks one of the largest moves by Lachlan Murdoch since he assumed the chairmanship of Fox Corporation in 2023, following the exit of his father Rupert Murdoch. The acquisition positions Fox more competitively in the battle among traditional media companies to establish direct relationships with streaming audiences, at a time when cable television viewership continues to decline.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/15/business/fox-roku-acquisition-streaming-media.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/15/business/fox-roku-acquisition-streaming-media.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/economy/fox-corp-to-buy-streaming-pioneer-roku-in-a-22-billion-deal" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/economy/fox-corp-to-buy-streaming-pioneer-roku-in-a-22-billion-deal" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_6">
-          <h2 class="article-headline">SpaceX Shares Rise Sharply on First Full Day of Public Trading</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>SpaceX shares surged on their first full trading day following the company's initial public offering, which executives confirmed raised more money than initially reported in what was already a record-breaking debut.</span></span>
-            <span class="summary-full"><span>SpaceX shares climbed significantly on Monday, the first full day of trading following the company's initial public offering. Executives announced that the offering raised more capital than previously disclosed, making it one of the largest IPOs on record. The strong market debut reflects sustained investor interest in the private space industry and in SpaceX's dual role as both a launch provider and a satellite internet operator through its Starlink service. The company, founded by Elon Musk, had long resisted going public before proceeding with the offering.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_6">
+<h2 class="article-headline">SpaceX Shares Rise Sharply on First Full Day of Public Trading</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>SpaceX shares surged on their first full trading day following the company's initial public offering, which executives confirmed raised more money than initially reported in what was already a record-breaking debut.</span></span>
+<span class="summary-full"><span>SpaceX shares climbed significantly on Monday, the first full day of trading following the company's initial public offering. Executives announced that the offering raised more capital than previously disclosed, making it one of the largest IPOs on record. The strong market debut reflects sustained investor interest in the private space industry and in SpaceX's dual role as both a launch provider and a satellite internet operator through its Starlink service. The company, founded by Elon Musk, had long resisted going public before proceeding with the offering.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/15/business/spacex-stock.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/15/business/spacex-stock.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_7">
-          <h2 class="article-headline">Trump's Critical Minerals Pricing Proposal Meets Resistance at G7 and Within Industry</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Trump administration's plan to establish new pricing mechanisms for critical minerals has encountered skepticism from G7 partners and a divided response from the mining industry, as negotiations continue at the summit in France.</span></span>
-            <span class="summary-full"><span>The Trump administration's push to reshape how critical minerals are priced internationally is facing resistance at the G7 summit in Évian-les-Bains, France. Several allied governments have expressed skepticism about the proposal, and the mining and minerals industry is itself divided over whether the plan would benefit producers. Critical minerals — including lithium, cobalt, nickel, and rare earth elements — are essential for electric vehicle batteries, defense systems, and clean energy technology, making their pricing and supply a significant economic and strategic issue. The US has argued that current pricing structures give too much leverage to China, which dominates processing of many of these materials. The outcome of G7 discussions could shape Western supply chain strategy for years.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_7">
+<h2 class="article-headline">Trump's Critical Minerals Pricing Proposal Meets Resistance at G7 and Within Industry</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Trump administration's plan to establish new pricing mechanisms for critical minerals has encountered skepticism from G7 partners and a divided response from the mining industry, as negotiations continue at the summit in France.</span></span>
+<span class="summary-full"><span>The Trump administration's push to reshape how critical minerals are priced internationally is facing resistance at the G7 summit in Évian-les-Bains, France. Several allied governments have expressed skepticism about the proposal, and the mining and minerals industry is itself divided over whether the plan would benefit producers. Critical minerals — including lithium, cobalt, nickel, and rare earth elements — are essential for electric vehicle batteries, defense systems, and clean energy technology, making their pricing and supply a significant economic and strategic issue. The US has argued that current pricing structures give too much leverage to China, which dominates processing of many of these materials. The outcome of G7 discussions could shape Western supply chain strategy for years.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.usnews.com/news/world/articles/2026-06-15/trumps-critical-minerals-pricing-plan-faces-skeptical-g7-divided-industry" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.usnews.com/news/world/articles/2026-06-15/trumps-critical-minerals-pricing-plan-faces-skeptical-g7-divided-industry" rel="noopener" target="_blank">
                   Usnews
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxPUUJoZ2owWVMteUg4ZWhBTU1EMHdoUDlLUW5pZUFCMHAzS2pzakVrTHZienFFaFFycEFZY0k3Vm91cXRJRjNfWHZvNlM4TGVjSUNLbmhDT1phRjJ2YVlKNU5ab0dUNzlZSDZ1SkN3UGFEczdpNHNWVHg1QzZPOWp2SEppU1BwMFBJSXpYY3ZqN1FqWWlMMTZ4QW05eG1FZ245UG5HbnI1MEpna0J3X1cwSWRsaDJfVnpDUmFXV3MyT29Ydw?oc=5" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxPUUJoZ2owWVMteUg4ZWhBTU1EMHdoUDlLUW5pZUFCMHAzS2pzakVrTHZienFFaFFycEFZY0k3Vm91cXRJRjNfWHZvNlM4TGVjSUNLbmhDT1phRjJ2YVlKNU5ab0dUNzlZSDZ1SkN3UGFEczdpNHNWVHg1QzZPOWp2SEppU1BwMFBJSXpYY3ZqN1FqWWlMMTZ4QW05eG1FZ245UG5HbnI1MEpna0J3X1cwSWRsaDJfVnpDUmFXV3MyT29Ydw?oc=5" rel="noopener" target="_blank">
                   Google News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_8">
-          <h2 class="article-headline">US Consumer Sentiment Rises for First Time in Three Months</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The University of Michigan's consumer sentiment index rose 9% in June to a preliminary reading of 48.9, the first increase since February, following months of decline linked to wartime price increases.</span></span>
-            <span class="summary-full"><span>US consumer sentiment increased for the first time since February, according to the University of Michigan's latest survey released Friday. The preliminary reading for June came in at 48.9, a 9 percent gain from the prior month. Sentiment had fallen to historically low levels over the preceding months, a period marked by significant price pressures tied to the US-Iran conflict and its disruption of global energy markets. While the uptick is notable, the absolute level of the index remains low by historical standards, suggesting consumer confidence has room to recover as the Iran deal takes shape and energy prices stabilize.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_8">
+<h2 class="article-headline">US Consumer Sentiment Rises for First Time in Three Months</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The University of Michigan's consumer sentiment index rose 9% in June to a preliminary reading of 48.9, the first increase since February, following months of decline linked to wartime price increases.</span></span>
+<span class="summary-full"><span>US consumer sentiment increased for the first time since February, according to the University of Michigan's latest survey released Friday. The preliminary reading for June came in at 48.9, a 9 percent gain from the prior month. Sentiment had fallen to historically low levels over the preceding months, a period marked by significant price pressures tied to the US-Iran conflict and its disruption of global energy markets. While the uptick is notable, the absolute level of the index remains low by historical standards, suggesting consumer confidence has room to recover as the Iran deal takes shape and energy prices stabilize.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://equity-insider.com/consumer-sentiment-rises-for-the-first-time-in-three-months/" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://equity-insider.com/consumer-sentiment-rises-for-the-first-time-in-three-months/" rel="noopener" target="_blank">
                   Equity Insider
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SCIENCE & HEALTH</div>
-        
-        <div class="article article-long" id="story_10">
-          <h2 class="article-headline">Ebola Outbreak Expands in Congo as Drug Trials Begin and US Quarantine Facility Draws Protests in Kenya</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Congo recorded 72 new Ebola cases in a single day, one of the largest daily totals since the outbreak began. Drug trials are underway, while a proposed US-only quarantine facility in Kenya has prompted public protests.</span></span>
-            <span class="summary-full"><span>The Ebola outbreak centered in Congo continues to grow, with the country reporting 72 new cases in a single day — one of the largest daily increases since the outbreak was declared. The affected region has been further complicated by the displacement of nearly one million people due to years of armed conflict, which has made containment efforts significantly more difficult.
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SCIENCE &amp; HEALTH</div>
+<div class="article article-long" id="story_10">
+<h2 class="article-headline">Ebola Outbreak Expands in Congo as Drug Trials Begin and US Quarantine Facility Draws Protests in Kenya</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Congo recorded 72 new Ebola cases in a single day, one of the largest daily totals since the outbreak began. Drug trials are underway, while a proposed US-only quarantine facility in Kenya has prompted public protests.</span></span>
+<span class="summary-full"><span>The Ebola outbreak centered in Congo continues to grow, with the country reporting 72 new cases in a single day — one of the largest daily increases since the outbreak was declared. The affected region has been further complicated by the displacement of nearly one million people due to years of armed conflict, which has made containment efforts significantly more difficult.
 
 Scientists are racing to test several drug treatments that have shown preliminary promise against the specific virus strain driving the current outbreak, with formal trials now beginning. The strain involved is the Bundibugyo virus, a less common variant of Ebola.
 
 A separate diplomatic and public health controversy has emerged in Kenya, where the United States proposed establishing a quarantine facility that would be reserved exclusively for American patients. Hundreds of Kenyans have demonstrated in the streets against the plan, calling it inequitable, and the proposal has triggered a political dispute within the country. The US State Department has not publicly commented in detail on the protests.
 
 The outbreak carries direct relevance for American readers given the US government's involvement in treatment infrastructure, the diplomatic friction in Kenya, and the potential for international spread given the scale of displacement in the region.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/12/health/ebola-treatment-bundibugyo-virus.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/12/health/ebola-treatment-bundibugyo-virus.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/10/world/africa/ebola-kenya-us-protests.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/10/world/africa/ebola-kenya-us-protests.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/congo-reports-72-new-ebola-cases-sunday-one-of-the-largest-daily-jumps-since-outbreak-was-declared" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/world/congo-reports-72-new-ebola-cases-sunday-one-of-the-largest-daily-jumps-since-outbreak-was-declared" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_11">
-          <h2 class="article-headline">State PFAS Bans Have Reduced Forever Chemicals in Clothing, Though Some Companies Remain Non-Compliant</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A new report finds that state laws banning PFAS chemicals in clothing and textiles have significantly reduced their presence in tested products, with about 80% of 115 items meeting compliance standards. Some companies continue to exceed legal limits.</span></span>
-            <span class="summary-full"><span>State-level laws banning per- and polyfluoroalkyl substances — commonly called PFAS or forever chemicals — from clothing and textiles have produced measurable results, according to a new report. Testing of 115 products found that approximately 80 percent had PFAS levels that complied with state regulations, a finding public health advocates describe as evidence that protective policy can drive industry change.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_11">
+<h2 class="article-headline">State PFAS Bans Have Reduced Forever Chemicals in Clothing, Though Some Companies Remain Non-Compliant</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A new report finds that state laws banning PFAS chemicals in clothing and textiles have significantly reduced their presence in tested products, with about 80% of 115 items meeting compliance standards. Some companies continue to exceed legal limits.</span></span>
+<span class="summary-full"><span>State-level laws banning per- and polyfluoroalkyl substances — commonly called PFAS or forever chemicals — from clothing and textiles have produced measurable results, according to a new report. Testing of 115 products found that approximately 80 percent had PFAS levels that complied with state regulations, a finding public health advocates describe as evidence that protective policy can drive industry change.
 
 However, the report also found that some companies appear to have ignored the new rules, with a portion of tested products still exceeding legal PFAS limits. PFAS compounds are called forever chemicals because they do not break down in the environment or in the human body, and have been linked to a range of health effects. The findings are relevant at the federal level, where the Environmental Protection Agency's approach to PFAS regulation has been under review. The patchwork of state bans has effectively acted as a national floor for some manufacturers.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/jun/15/pfas-clothing-textiles-report" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/environment/2026/jun/15/pfas-clothing-textiles-report" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/jun/15/pfas-clothing-textiles-report" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/environment/2026/jun/15/pfas-clothing-textiles-report" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">DOMESTIC POLICY</div>
-        
-        <div class="article article-medium" id="story_9">
-          <h2 class="article-headline">Colorado River States Face Water Shortage Tensions as Reservoirs Decline</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A prolonged drought is shrinking the nation's largest reservoirs fed by the Colorado River, intensifying disputes among the seven states that depend on it and raising the prospect of litigation over water rights.</span></span>
-            <span class="summary-full"><span>Sustained drought conditions are depleting the major reservoirs along the Colorado River system, including Lake Mead and Lake Powell, the nation's two largest reservoirs. As water levels decline, tensions are rising among the seven US states that rely on the river — Arizona, California, Colorado, Nevada, New Mexico, Utah, and Wyoming — as well as tribal nations and Mexico, which also holds treaty rights to a share of the flow.
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">DOMESTIC POLICY</div>
+<div class="article article-medium" id="story_9">
+<h2 class="article-headline">Colorado River States Face Water Shortage Tensions as Reservoirs Decline</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A prolonged drought is shrinking the nation's largest reservoirs fed by the Colorado River, intensifying disputes among the seven states that depend on it and raising the prospect of litigation over water rights.</span></span>
+<span class="summary-full"><span>Sustained drought conditions are depleting the major reservoirs along the Colorado River system, including Lake Mead and Lake Powell, the nation's two largest reservoirs. As water levels decline, tensions are rising among the seven US states that rely on the river — Arizona, California, Colorado, Nevada, New Mexico, Utah, and Wyoming — as well as tribal nations and Mexico, which also holds treaty rights to a share of the flow.
 
 The current agreements governing water allocation along the Colorado River were negotiated in a wetter era and have been a source of ongoing dispute as the climate has shifted. Experts warn that legal battles over access to diminishing water supplies are increasingly likely. The Colorado River supports agriculture, municipal water systems, and energy production across the American Southwest, making the outcome of any renegotiation or litigation consequential for millions of residents.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/15/climate/colorado-river-drought-states.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/15/climate/colorado-river-drought-states.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">TECHNOLOGY</div>
-        
-        <div class="article article-long" id="story_12">
-          <h2 class="article-headline">UK to Ban Children Under 16 from Social Media Platforms Starting in 2027</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>UK Prime Minister Keir Starmer announced that children under 16 will be barred from social media platforms including TikTok, Instagram, YouTube, Snapchat, Facebook, and X, with the ban set to take effect by spring 2027.</span></span>
-            <span class="summary-full"><span>The United Kingdom will prohibit children under the age of 16 from accessing major social media platforms, Prime Minister Keir Starmer announced Monday. The ban is expected to be in place by spring 2027 and will cover platforms including TikTok, Instagram, YouTube, Snapchat, Facebook, and X. The government plans to require age verification systems, with the technology regulator tasked with designing the verification framework by October.
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">TECHNOLOGY</div>
+<div class="article article-long" id="story_12">
+<h2 class="article-headline">UK to Ban Children Under 16 from Social Media Platforms Starting in 2027</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>UK Prime Minister Keir Starmer announced that children under 16 will be barred from social media platforms including TikTok, Instagram, YouTube, Snapchat, Facebook, and X, with the ban set to take effect by spring 2027.</span></span>
+<span class="summary-full"><span>The United Kingdom will prohibit children under the age of 16 from accessing major social media platforms, Prime Minister Keir Starmer announced Monday. The ban is expected to be in place by spring 2027 and will cover platforms including TikTok, Instagram, YouTube, Snapchat, Facebook, and X. The government plans to require age verification systems, with the technology regulator tasked with designing the verification framework by October.
 
 The announcement makes the UK part of a growing international movement. Australia enacted a similar ban, and several other countries are introducing comparable measures. Starmer acknowledged that some teenagers may attempt to bypass the ban, but emphasized child safety as the primary concern.
 
 The proposal has drawn both support and criticism. Some parents and child advocacy organizations back the restrictions. Technology companies warned the ban could push younger users toward less regulated and potentially more harmful platforms. Privacy advocates raised concerns about the age verification methods that would be required to enforce the policy. The UK government's approach is described as going further than Australia's existing restrictions.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://abcnews.com/Technology/wireStory/british-leader-expected-impose-teen-social-media-ban-133878229" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://abcnews.com/Technology/wireStory/british-leader-expected-impose-teen-social-media-ban-133878229" rel="noopener" target="_blank">
                   Abc News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/politics/live/2026/jun/15/keir-starmer-social-media-ban-under-16s-tik-tok-instagram-snapchat-twitter-x-meta-uk-politics-latest-news-updates" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/politics/live/2026/jun/15/keir-starmer-social-media-ban-under-16s-tik-tok-instagram-snapchat-twitter-x-meta-uk-politics-latest-news-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/15/world/europe/uk-social-media-children.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/15/world/europe/uk-social-media-children.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/15/world/europe/social-media-bans-worldwide.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/15/world/europe/social-media-bans-worldwide.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c2kydl0zqeko?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c2kydl0zqeko?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cddl65dp0rdo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cddl65dp0rdo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/15/nx-s1-5858644/britain-social-media-ban" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/15/nx-s1-5858644/britain-social-media-ban" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/britain-is-banning-children-from-using-social-media-heres-what-other-countries-are-doing" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/world/britain-is-banning-children-from-using-social-media-heres-what-other-countries-are-doing" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/uk-bans-children-younger-than-16-from-using-social-media-apps-including-tiktok-and-youtube" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/world/uk-bans-children-younger-than-16-from-using-social-media-apps-including-tiktok-and-youtube" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SPORTS</div>
-        
-        <div class="article article-medium" id="story_13">
-          <h2 class="article-headline">Carolina Hurricanes Win Stanley Cup for First Time Since 2006</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Carolina Hurricanes won the Stanley Cup, defeating the Vegas Golden Knights in Game 6 to claim the franchise's second championship and complete a dominant 16-3 playoff run.</span></span>
-            <span class="summary-full"><span>The Carolina Hurricanes claimed the Stanley Cup on Sunday, defeating the Vegas Golden Knights in Game 6 with a shutout performance from rookie goaltender Brandon Bussi. The victory gives the franchise its second championship overall and its first since 2006. Carolina finished the playoffs with a 16-3 record, one of the more dominant postseason runs in recent memory. The Hurricanes overcame early deficits in the series, relying on their defense-first identity to close out the title.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SPORTS</div>
+<div class="article article-medium" id="story_13">
+<h2 class="article-headline">Carolina Hurricanes Win Stanley Cup for First Time Since 2006</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Carolina Hurricanes won the Stanley Cup, defeating the Vegas Golden Knights in Game 6 to claim the franchise's second championship and complete a dominant 16-3 playoff run.</span></span>
+<span class="summary-full"><span>The Carolina Hurricanes claimed the Stanley Cup on Sunday, defeating the Vegas Golden Knights in Game 6 with a shutout performance from rookie goaltender Brandon Bussi. The victory gives the franchise its second championship overall and its first since 2006. Carolina finished the playoffs with a 16-3 record, one of the more dominant postseason runs in recent memory. The Hurricanes overcame early deficits in the series, relying on their defense-first identity to close out the title.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.newser.com/story/391029/stanley-cup-champs-won-last-title-in-2006.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.newser.com/story/391029/stanley-cup-champs-won-last-title-in-2006.html" rel="noopener" target="_blank">
                   Newser
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxQVEFmZk5sdnNNM0pLYWpsRFIzb0xNOVdTTlppd29RcEQtQXJ2OUlibW91V25YcWN6dzhQdXVMR0FScUItU0gycWxKdnYyQm1HWnhXTjd1OW5lSTZYQnp4UWxadGktYnVuc3A1QnRudU9WbHJocG1OWXAxeEx0SU53VzRXSC1GbHJLdVJGdG9qdFltY3lVNGhMMDlhekV5bDdRcXB5cXBZcHBmbWk1S0NYdDh1RUJYY3JFYjIzMkVtdFYzWEtD?oc=5" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxQVEFmZk5sdnNNM0pLYWpsRFIzb0xNOVdTTlppd29RcEQtQXJ2OUlibW91V25YcWN6dzhQdXVMR0FScUItU0gycWxKdnYyQm1HWnhXTjd1OW5lSTZYQnp4UWxadGktYnVuc3A1QnRudU9WbHJocG1OWXAxeEx0SU53VzRXSC1GbHJLdVJGdG9qdFltY3lVNGhMMDlhekV5bDdRcXB5cXBZcHBmbWk1S0NYdDh1RUJYY3JFYjIzMkVtdFYzWEtD?oc=5" rel="noopener" target="_blank">
                   Google News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="difficult-section">
-          <details>
-            <summary class="difficult-toggle">
-              <span class="difficult-caret">&#9658;</span>
-              <span class="difficult-label">Difficult News</span>
-            </summary>
-            <p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
-            <div class="difficult-content">
-              
-              <div class="article article-medium" id="story_14">
-                <h2 class="article-headline">Russian Strikes Hit Kyiv Cathedral and Kharkiv; Casualty Figures Vary by Source</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-1-diff">
-                  <span class="summary-brief"><span>A large-scale Russian attack on Ukraine set fire to a centuries-old Orthodox cathedral at the Pechersk monastery site in Kyiv and caused casualties in Kharkiv. Sources report between 5 and 11 fatalities; a Ukrainian drone strike on the Russian city of Tula killed three people.</span></span>
-                  <span class="summary-full"><span>Russia launched a large-scale attack on Ukraine that struck Kyiv and Kharkiv simultaneously. In Kyiv, a historic Orthodox cathedral associated with the Pechersk monastery — a site of religious significance to both Ukrainian and Russian Orthodox traditions — was set ablaze. A bishop at the site reported that many holy items were recovered before the fire consumed them. At least 20 people were wounded in Kyiv. In Kharkiv, the attack killed rescue workers responding to the strikes; casualty figures vary across sources, with reports ranging from 5 to 11 fatalities across both cities. Separately, a Ukrainian drone strike on Tula, a Russian city south of Moscow, killed three people. The Pechersk monastery complex is one of the oldest and most revered religious sites in the region.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="difficult-section">
+<details>
+<summary class="difficult-toggle">
+<span class="difficult-caret">►</span>
+<span class="difficult-label">Difficult News</span>
+</summary>
+<p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
+<div class="difficult-content">
+<div class="article article-medium" id="story_14">
+<h2 class="article-headline">Russian Strikes Hit Kyiv Cathedral and Kharkiv; Casualty Figures Vary by Source</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-1-diff">
+<span class="summary-brief"><span>A large-scale Russian attack on Ukraine set fire to a centuries-old Orthodox cathedral at the Pechersk monastery site in Kyiv and caused casualties in Kharkiv. Sources report between 5 and 11 fatalities; a Ukrainian drone strike on the Russian city of Tula killed three people.</span></span>
+<span class="summary-full"><span>Russia launched a large-scale attack on Ukraine that struck Kyiv and Kharkiv simultaneously. In Kyiv, a historic Orthodox cathedral associated with the Pechersk monastery — a site of religious significance to both Ukrainian and Russian Orthodox traditions — was set ablaze. A bishop at the site reported that many holy items were recovered before the fire consumed them. At least 20 people were wounded in Kyiv. In Kharkiv, the attack killed rescue workers responding to the strikes; casualty figures vary across sources, with reports ranging from 5 to 11 fatalities across both cities. Separately, a Ukrainian drone strike on Tula, a Russian city south of Moscow, killed three people. The Pechersk monastery complex is one of the oldest and most revered religious sites in the region.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://abcnews.com/International/wireStory/russian-attack-sets-fire-centuries-religious-site-kyiv-133876592" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://abcnews.com/International/wireStory/russian-attack-sets-fire-centuries-religious-site-kyiv-133876592" rel="noopener" target="_blank">
                         Abc News
                       </a>
-                    </li>
-                    
-                    <li>
-                      <a href="https://www.nytimes.com/2026/06/15/world/europe/ukraine-kyiv-russia-attack-orthodox-cathedral.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/15/world/europe/ukraine-kyiv-russia-attack-orthodox-cathedral.html" rel="noopener" target="_blank">
                         The New York Times
                       </a>
-                    </li>
-                    
-                    <li>
-                      <a href="https://www.bbc.com/news/articles/c4gy037gjz3o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c4gy037gjz3o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                         BBC World
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-              <div class="article article-short" id="story_15">
-                <h2 class="article-headline">Plane Crash Near Kansas City Kills 11 Skydivers and Pilot</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-2-diff">
-                  <span class="summary-brief"><span>A plane supporting skydiving operations crashed in Butler, Missouri, killing 11 skydivers and the pilot. The aircraft was taking off when the crash occurred around midday Sunday.</span></span>
-                  <span class="summary-full"><span>A plane crash south of Kansas City killed 11 skydivers and a pilot on Sunday in Butler, Missouri. The aircraft was operated in support of Skydive Kansas City and went down around noon while taking off. The incident has deeply affected the regional skydiving community. Authorities are investigating the cause of the crash.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-short" id="story_15">
+<h2 class="article-headline">Plane Crash Near Kansas City Kills 11 Skydivers and Pilot</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-2-diff">
+<span class="summary-brief"><span>A plane supporting skydiving operations crashed in Butler, Missouri, killing 11 skydivers and the pilot. The aircraft was taking off when the crash occurred around midday Sunday.</span></span>
+<span class="summary-full"><span>A plane crash south of Kansas City killed 11 skydivers and a pilot on Sunday in Butler, Missouri. The aircraft was operated in support of Skydive Kansas City and went down around noon while taking off. The incident has deeply affected the regional skydiving community. Authorities are investigating the cause of the crash.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.theguardian.com/us-news/2026/jun/15/missouri-skydivers-plane-crash" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/15/missouri-skydivers-plane-crash" rel="noopener" target="_blank">
                         The Guardian
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-            </div>
-          </details>
-        </div>
-      
-    
+</li>
+</ul>
+</div>
+</div>
+</div>
+</details>
+</div>
+<!-- Footer -->
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+<div class="archive-link-section"><a class="archive-link" href="/archive.html">Browse past editions →</a></div>
+<footer class="footer">
+<p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
-      <p style="margin-top:0.75rem;"><a href="2026-06-15-am-sources.html">Sources for this digest →</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<p style="margin-top:0.75rem;"><a href="2026-06-15-am-sources.html">Sources for this digest →</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-
 <script>
   // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
@@ -1359,34 +1170,6 @@ The proposal has drawn both support and criticism. Some parents and child advoca
     btn.setAttribute('aria-expanded', String(!expanded));
   });
 
-  function toggleMobileArchive() {
-    var panel = document.getElementById('mobile-archive-panel');
-    var toggle = document.getElementById('mobile-toggle');
-    var isOpen = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  }
-
-  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
-  // always show all editions regardless of which page was generated.
-  (function() {
-    var current = '2026-06-15-am.html';
-    fetch('archive.json?v=' + Date.now())
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-        var mob = document.getElementById('mobile-archive-panel');
-        if (mob) mob.innerHTML = '<div class="mobile-archive-title">Past Editions</div>' + html;
-      })
-      .catch(function() {});
-  })();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');

@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Friday, June 26, 2026 PM</title>
-  <meta name="description" content="Balm news digest for Friday, June 26, 2026 — topical, anti-inflammatory news.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/png" href="/icons/icon-32.png">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm — Friday, June 26, 2026 PM</title>
+<meta content="Balm news digest for Friday, June 26, 2026 — topical, anti-inflammatory news." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/icons/icon-32.png" rel="icon" type="image/png"/>
+<link href="/icons/icon-192.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -42,10 +43,9 @@
 
     /* Layout */
     .page-wrapper {
-      display: flex;
-      max-width: 1100px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.25rem;
     }
 
     .sidebar {
@@ -501,814 +501,626 @@
   </style>
 </head>
 <body>
-
 <!-- Mobile archive toggle (shown only on mobile) -->
-<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
-  <span class="mobile-archive-caret">›</span> Archive
-</div>
-<div class="mobile-archive-panel" id="mobile-archive-panel">
-  <div class="mobile-archive-title">Past Editions</div>
-  <!-- populated by archive.json fetch on page load — never server-rendered -->
-</div>
+
 
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    <!-- populated by archive.json fetch on page load — never server-rendered -->
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-              <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-              <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-            </filter>
-          </defs>
-          <text x="90" y="44"
-                font-family="Caveat, cursive"
-                font-size="52"
-                font-weight="700"
-                fill="#6b82a8"
-                text-anchor="middle"
-                letter-spacing="8"
-                filter="url(#balm-spread)">Balm</text>
-        </svg>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Friday, June 26, 2026 &middot; PM Edition</p>
-    </header>
-
-    <!-- Audio player -->
-    
-
-    <!-- Top stories navigation -->
-    
-    <div class="top-stories">
-      <div class="top-stories-heading">Today's Top Stories</div>
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_0">US Strikes Iranian Military Sites After Drone Attack on Cargo Ship in Strait of Hormuz</a>
-        <span class="top-story-reason">US military strikes on Iranian sites risk significant escalation in a critical global shipping corridor affecting energy markets worldwide.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_1">Israel and Lebanon Sign US-Brokered Framework Agreement</a>
-        <span class="top-story-reason">A US-brokered Israel-Lebanon framework agreement marks a major diplomatic development in one of the world's most volatile regions.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_13">Historic Heatwave Shatters Records Across Europe, Causing Deaths and Power Strain</a>
-        <span class="top-story-reason">A historic European heatwave causing deaths and power grid stress has broad humanitarian and infrastructure implications across multiple nations.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_8">Trump Administration Reports Removing Nearly 3 Million People from ACA Enrollment Amid Fraud Investigation</a>
-        <span class="top-story-reason">Removing nearly 3 million people from ACA enrollment is a sweeping domestic health policy action affecting millions of Americans' insurance coverage.</span>
-      </div>
-      
-      
-    </div>
-    
-
-    <!-- Stories -->
-    
-      
-        <div class="section-header">GEOPOLITICS</div>
-        
-        <div class="article article-long" id="story_0">
-          <h2 class="article-headline">US Strikes Iranian Military Sites After Drone Attack on Cargo Ship in Strait of Hormuz</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>US Central Command conducted strikes on Iranian missile storage, drone facilities, and coastal radar positions after a drone attack on a cargo ship transiting the Strait of Hormuz, which the Trump administration called a ceasefire violation.</span></span>
-            <span class="summary-full"><span>The United States military carried out strikes against Iranian military infrastructure following a drone attack on a cargo ship in the Strait of Hormuz. US Central Command confirmed the targets included missile and drone storage facilities and coastal radar positions inside Iran. President Trump described Iran's attack on the vessel as a 'foolish' act and said it violated a ceasefire. The strikes came hours after Trump told reporters he would respond, though he declined to specify when or how. The Strait of Hormuz is one of the world's most critical maritime chokepoints, through which a significant share of global oil shipments transit. The incident marks a significant escalation in US-Iran tensions, coming alongside broader diplomatic activity in the region. Gulf Arab states, anticipating a possible US-Iran nuclear or diplomatic framework, have reportedly begun reshaping their own defense strategies and trade routes in response to the shifting regional landscape. The situation remains fluid, with the status of any ceasefire arrangement between the two countries in question following the exchange.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news"><svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg></a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Friday, June 26, 2026 · PM Edition</p>
+</header>
+<!-- Audio player -->
+<!-- Top stories navigation -->
+<div class="top-stories">
+<div class="top-stories-heading">Today's Top Stories</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_0">US Strikes Iranian Military Sites After Drone Attack on Cargo Ship in Strait of Hormuz</a>
+<span class="top-story-reason">US military strikes on Iranian sites risk significant escalation in a critical global shipping corridor affecting energy markets worldwide.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_1">Israel and Lebanon Sign US-Brokered Framework Agreement</a>
+<span class="top-story-reason">A US-brokered Israel-Lebanon framework agreement marks a major diplomatic development in one of the world's most volatile regions.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_13">Historic Heatwave Shatters Records Across Europe, Causing Deaths and Power Strain</a>
+<span class="top-story-reason">A historic European heatwave causing deaths and power grid stress has broad humanitarian and infrastructure implications across multiple nations.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_8">Trump Administration Reports Removing Nearly 3 Million People from ACA Enrollment Amid Fraud Investigation</a>
+<span class="top-story-reason">Removing nearly 3 million people from ACA enrollment is a sweeping domestic health policy action affecting millions of Americans' insurance coverage.</span>
+</div>
+</div>
+<!-- Stories -->
+<div class="section-header">GEOPOLITICS</div>
+<div class="article article-long" id="story_0">
+<h2 class="article-headline">US Strikes Iranian Military Sites After Drone Attack on Cargo Ship in Strait of Hormuz</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>US Central Command conducted strikes on Iranian missile storage, drone facilities, and coastal radar positions after a drone attack on a cargo ship transiting the Strait of Hormuz, which the Trump administration called a ceasefire violation.</span></span>
+<span class="summary-full"><span>The United States military carried out strikes against Iranian military infrastructure following a drone attack on a cargo ship in the Strait of Hormuz. US Central Command confirmed the targets included missile and drone storage facilities and coastal radar positions inside Iran. President Trump described Iran's attack on the vessel as a 'foolish' act and said it violated a ceasefire. The strikes came hours after Trump told reporters he would respond, though he declined to specify when or how. The Strait of Hormuz is one of the world's most critical maritime chokepoints, through which a significant share of global oil shipments transit. The incident marks a significant escalation in US-Iran tensions, coming alongside broader diplomatic activity in the region. Gulf Arab states, anticipating a possible US-Iran nuclear or diplomatic framework, have reportedly begun reshaping their own defense strategies and trade routes in response to the shifting regional landscape. The situation remains fluid, with the status of any ceasefire arrangement between the two countries in question following the exchange.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/live/2026/jun/26/trump-news-john-bolton-updates-today" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/live/2026/jun/26/trump-news-john-bolton-updates-today" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/26/world/middleeast/strait-of-hormuz-iran-attack.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/26/world/middleeast/strait-of-hormuz-iran-attack.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/26/world/middleeast/gulf-changed-forever-iran-war.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/26/world/middleeast/gulf-changed-forever-iran-war.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/ckg590wqxwpo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/ckg590wqxwpo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/ckg590wqxwpo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/ckg590wqxwpo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/u-s-strikes-iran-in-response-to-drone-attack-on-cargo-ship-that-trump-says-violated-ceasefire" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/world/u-s-strikes-iran-in-response-to-drone-attack-on-cargo-ship-that-trump-says-violated-ceasefire" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_1">
-          <h2 class="article-headline">Israel and Lebanon Sign US-Brokered Framework Agreement</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Israel and Lebanon signed a framework agreement following US-brokered talks, with Secretary of State Rubio and Prime Minister Netanyahu welcoming the deal. Prior ceasefires between Israel and Hezbollah have not prevented cross-border strikes.</span></span>
-            <span class="summary-full"><span>Israel and Lebanon signed a framework agreement following negotiations facilitated by the United States. Secretary of State Marco Rubio and Israeli Prime Minister Benjamin Netanyahu both expressed support for the agreement, describing it as a step toward lasting peace. The agreement follows a period of sustained conflict, and analysts noted that prior ceasefires between Israel and Hezbollah have historically not prevented ongoing cross-border strikes. Experts cited in reporting cautioned that Iran would likely work to undermine any durable agreement between the two countries. The broader regional context includes active US-Iran diplomatic and military tensions, which could affect the framework's durability. For American readers, the agreement is significant given ongoing US military and diplomatic involvement in the Middle East and the potential implications for regional stability and energy markets.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_1">
+<h2 class="article-headline">Israel and Lebanon Sign US-Brokered Framework Agreement</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Israel and Lebanon signed a framework agreement following US-brokered talks, with Secretary of State Rubio and Prime Minister Netanyahu welcoming the deal. Prior ceasefires between Israel and Hezbollah have not prevented cross-border strikes.</span></span>
+<span class="summary-full"><span>Israel and Lebanon signed a framework agreement following negotiations facilitated by the United States. Secretary of State Marco Rubio and Israeli Prime Minister Benjamin Netanyahu both expressed support for the agreement, describing it as a step toward lasting peace. The agreement follows a period of sustained conflict, and analysts noted that prior ceasefires between Israel and Hezbollah have historically not prevented ongoing cross-border strikes. Experts cited in reporting cautioned that Iran would likely work to undermine any durable agreement between the two countries. The broader regional context includes active US-Iran diplomatic and military tensions, which could affect the framework's durability. For American readers, the agreement is significant given ongoing US military and diplomatic involvement in the Middle East and the potential implications for regional stability and energy markets.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/world/rubio-announces-framework-deal-between-israel-lebanon-experts-warn-iran-fight-sabotage" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/rubio-announces-framework-deal-between-israel-lebanon-experts-warn-iran-fight-sabotage" rel="noopener" target="_blank">
                   Fox News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/rubio-announces-framework-deal-between-israel-lebanon-experts-warn-iran-fight-sabotage" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/world/rubio-announces-framework-deal-between-israel-lebanon-experts-warn-iran-fight-sabotage" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/cg5315n1v5go?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/cg5315n1v5go?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_2">
-          <h2 class="article-headline">Ukraine Launches One of Its Largest Drone Attacks Against Russia as Both Sides Strike</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Ukraine launched a large-scale nighttime drone attack against more than a dozen Russian regions and Russian-held Crimea, while Russia conducted strikes against multiple Ukrainian regions in an exchange described as among the largest of the conflict.</span></span>
-            <span class="summary-full"><span>Ukraine conducted what military observers described as one of its heaviest drone bombardments of the war, targeting more than a dozen Russian regions, Russian-held Crimea, and surrounding maritime areas overnight. Russia simultaneously launched strikes against various regions of Ukraine. The exchange represents a significant escalation in the air campaign dimension of a conflict now in its fourth year. The war continues to affect global energy markets, European security arrangements, and US foreign policy commitments, all of which are of direct relevance to American readers. No immediate figures on casualties or infrastructure damage were independently verified at the time of reporting.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_2">
+<h2 class="article-headline">Ukraine Launches One of Its Largest Drone Attacks Against Russia as Both Sides Strike</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Ukraine launched a large-scale nighttime drone attack against more than a dozen Russian regions and Russian-held Crimea, while Russia conducted strikes against multiple Ukrainian regions in an exchange described as among the largest of the conflict.</span></span>
+<span class="summary-full"><span>Ukraine conducted what military observers described as one of its heaviest drone bombardments of the war, targeting more than a dozen Russian regions, Russian-held Crimea, and surrounding maritime areas overnight. Russia simultaneously launched strikes against various regions of Ukraine. The exchange represents a significant escalation in the air campaign dimension of a conflict now in its fourth year. The war continues to affect global energy markets, European security arrangements, and US foreign policy commitments, all of which are of direct relevance to American readers. No immediate figures on casualties or infrastructure damage were independently verified at the time of reporting.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/world/ukraine-launches-largest-drone-attacks-russia-report" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/ukraine-launches-largest-drone-attacks-russia-report" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/26/nx-s1-5872256/russia-ukraine-war-drone-strikes" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/26/nx-s1-5872256/russia-ukraine-war-drone-strikes" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">DOMESTIC POLICY</div>
-        
-        <div class="article article-long" id="story_4">
-          <h2 class="article-headline">Former National Security Adviser John Bolton Pleads Guilty to Retaining Classified Documents</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>John Bolton, who served as national security adviser during President Trump's first term, pleaded guilty to one count of unlawfully retaining national defense information. He faces up to five years in prison and agreed to pay $2.25 million in fines.</span></span>
-            <span class="summary-full"><span>John Bolton, who served as national security adviser to President Trump during his first term, entered a guilty plea to one count of retaining national defense information. Bolton acknowledged the conduct and said publicly, 'I am sorry for it.' Under the terms of the agreement with prosecutors, Bolton faces a potential prison sentence of up to five years and has agreed to pay $2.25 million in fines. The case involves classified documents Bolton retained from his time in government. Bolton has been a prominent and at times vocal critic of Trump since leaving the administration, making his prosecution under a Trump-era Justice Department a notable development. The case is separate from other classified documents matters that have drawn public attention in recent years, but adds to a broader pattern of senior government officials facing legal scrutiny over the handling of sensitive national security material.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">DOMESTIC POLICY</div>
+<div class="article article-long" id="story_4">
+<h2 class="article-headline">Former National Security Adviser John Bolton Pleads Guilty to Retaining Classified Documents</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>John Bolton, who served as national security adviser during President Trump's first term, pleaded guilty to one count of unlawfully retaining national defense information. He faces up to five years in prison and agreed to pay $2.25 million in fines.</span></span>
+<span class="summary-full"><span>John Bolton, who served as national security adviser to President Trump during his first term, entered a guilty plea to one count of retaining national defense information. Bolton acknowledged the conduct and said publicly, 'I am sorry for it.' Under the terms of the agreement with prosecutors, Bolton faces a potential prison sentence of up to five years and has agreed to pay $2.25 million in fines. The case involves classified documents Bolton retained from his time in government. Bolton has been a prominent and at times vocal critic of Trump since leaving the administration, making his prosecution under a Trump-era Justice Department a notable development. The case is separate from other classified documents matters that have drawn public attention in recent years, but adds to a broader pattern of senior government officials facing legal scrutiny over the handling of sensitive national security material.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/czxqwg4nrvlo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.co.uk/news/articles/czxqwg4nrvlo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/26/nx-s1-5871292/john-bolton-national-security-classified-documents" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/26/nx-s1-5871292/john-bolton-national-security-classified-documents" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_5">
-          <h2 class="article-headline">Supreme Court Rules in Favor of Roundup Maker, Blocking Thousands of Pesticide Warning Label Lawsuits</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Supreme Court ruled in favor of the former Monsanto company in a pesticide labeling case, a decision expected to block thousands of lawsuits from people who claimed the company failed to warn users of health risks associated with its Roundup herbicide.</span></span>
-            <span class="summary-full"><span>The US Supreme Court issued a ruling in Monsanto v. Durnell finding in favor of the former Monsanto company, now owned by Bayer, in a dispute over warning labels on its Roundup herbicide. The decision is expected to block thousands of pending lawsuits filed by individuals who alleged the company did not adequately warn consumers about potential health risks linked to glyphosate, the active ingredient in Roundup. The central legal question involved whether federal pesticide labeling law, which is administered by the Environmental Protection Agency, preempts state-level tort claims requiring different or additional warnings. Roundup is one of the most widely used herbicides in the United States and globally. The ruling has significant implications for agricultural workers, home gardeners, and others who have used the product, as well as for the broader legal framework governing when federal regulatory approval shields companies from state-level liability claims. Thousands of cases had been working through the courts, with earlier juries in some instances awarding large damages to plaintiffs.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_5">
+<h2 class="article-headline">Supreme Court Rules in Favor of Roundup Maker, Blocking Thousands of Pesticide Warning Label Lawsuits</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Supreme Court ruled in favor of the former Monsanto company in a pesticide labeling case, a decision expected to block thousands of lawsuits from people who claimed the company failed to warn users of health risks associated with its Roundup herbicide.</span></span>
+<span class="summary-full"><span>The US Supreme Court issued a ruling in Monsanto v. Durnell finding in favor of the former Monsanto company, now owned by Bayer, in a dispute over warning labels on its Roundup herbicide. The decision is expected to block thousands of pending lawsuits filed by individuals who alleged the company did not adequately warn consumers about potential health risks linked to glyphosate, the active ingredient in Roundup. The central legal question involved whether federal pesticide labeling law, which is administered by the Environmental Protection Agency, preempts state-level tort claims requiring different or additional warnings. Roundup is one of the most widely used herbicides in the United States and globally. The ruling has significant implications for agricultural workers, home gardeners, and others who have used the product, as well as for the broader legal framework governing when federal regulatory approval shields companies from state-level liability claims. Thousands of cases had been working through the courts, with earlier juries in some instances awarding large damages to plaintiffs.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/business/2026/jun/25/monsanto-supreme-court-pesticide-case" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/business/2026/jun/25/monsanto-supreme-court-pesticide-case" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.scotusblog.com/2026/06/court-rules-on-gun-rights-immigration-and-pesticide-labels/" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.scotusblog.com/2026/06/court-rules-on-gun-rights-immigration-and-pesticide-labels/" rel="noopener" target="_blank">
                   SCOTUSblog
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.scotusblog.com/2026/06/court-rules-for-roundup-maker-in-dispute-over-cancer-warnings-on-pesticide-labels/" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.scotusblog.com/2026/06/court-rules-for-roundup-maker-in-dispute-over-cancer-warnings-on-pesticide-labels/" rel="noopener" target="_blank">
                   SCOTUSblog
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_6">
-          <h2 class="article-headline">Supreme Court Allows Trump Administration to End Temporary Protected Status for Syrian and Haitian Nationals</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Supreme Court allowed the Trump administration to proceed with ending Temporary Protected Status for Syrian and Haitian nationals, a move that could affect hundreds of thousands of people currently living legally in the United States.</span></span>
-            <span class="summary-full"><span>The Supreme Court issued an order permitting the Trump administration to end Temporary Protected Status, known as TPS, for nationals of Syria and Haiti. TPS is a humanitarian designation that allows people from designated countries experiencing ongoing armed conflict, environmental disasters, or other extraordinary conditions to live and work legally in the United States without fear of deportation. The administration had moved to terminate these designations, affecting a significant number of people who had been living in the US under the program. Lower courts had blocked the terminations, but the Supreme Court's action allows the administration to proceed while legal challenges continue. The decision affects two of the largest TPS populations in the country. Haitians and Syrians with TPS authorization have in many cases been in the United States for years or decades, with US-citizen children and established community ties. The ruling represents a significant development in the administration's immigration enforcement priorities.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_6">
+<h2 class="article-headline">Supreme Court Allows Trump Administration to End Temporary Protected Status for Syrian and Haitian Nationals</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Supreme Court allowed the Trump administration to proceed with ending Temporary Protected Status for Syrian and Haitian nationals, a move that could affect hundreds of thousands of people currently living legally in the United States.</span></span>
+<span class="summary-full"><span>The Supreme Court issued an order permitting the Trump administration to end Temporary Protected Status, known as TPS, for nationals of Syria and Haiti. TPS is a humanitarian designation that allows people from designated countries experiencing ongoing armed conflict, environmental disasters, or other extraordinary conditions to live and work legally in the United States without fear of deportation. The administration had moved to terminate these designations, affecting a significant number of people who had been living in the US under the program. Lower courts had blocked the terminations, but the Supreme Court's action allows the administration to proceed while legal challenges continue. The decision affects two of the largest TPS populations in the country. Haitians and Syrians with TPS authorization have in many cases been in the United States for years or decades, with US-citizen children and established community ties. The ruling represents a significant development in the administration's immigration enforcement priorities.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.scotusblog.com/2026/06/supreme-court-allows-trump-administration-to-end-removal-protections-for-syrian-and-haitian-nati/" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.scotusblog.com/2026/06/supreme-court-allows-trump-administration-to-end-removal-protections-for-syrian-and-haitian-nati/" rel="noopener" target="_blank">
                   SCOTUSblog
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_7">
-          <h2 class="article-headline">Supreme Court Sides with Trump Administration in Asylum Policy Dispute</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Supreme Court ruled in favor of the Trump administration in a case involving border asylum procedures, limiting the ability of asylum seekers to challenge certain aspects of their processing at the US border.</span></span>
-            <span class="summary-full"><span>The Supreme Court issued a ruling siding with the Trump administration in a case concerning asylum seekers at the US border. The decision limits the legal avenues available to certain asylum seekers to challenge aspects of their detention or processing under current border policies. The ruling follows a period of significant tension between the judiciary and the executive branch over immigration enforcement, with multiple lower court decisions having previously blocked or modified Trump administration border policies. The specific procedural question involved how and when asylum seekers may seek judicial review of their cases. The decision is likely to affect a large number of people seeking protection at the southern border and contributes to a broader reshaping of immigration law taking place through the current Supreme Court term.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_7">
+<h2 class="article-headline">Supreme Court Sides with Trump Administration in Asylum Policy Dispute</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Supreme Court ruled in favor of the Trump administration in a case involving border asylum procedures, limiting the ability of asylum seekers to challenge certain aspects of their processing at the US border.</span></span>
+<span class="summary-full"><span>The Supreme Court issued a ruling siding with the Trump administration in a case concerning asylum seekers at the US border. The decision limits the legal avenues available to certain asylum seekers to challenge aspects of their detention or processing under current border policies. The ruling follows a period of significant tension between the judiciary and the executive branch over immigration enforcement, with multiple lower court decisions having previously blocked or modified Trump administration border policies. The specific procedural question involved how and when asylum seekers may seek judicial review of their cases. The decision is likely to affect a large number of people seeking protection at the southern border and contributes to a broader reshaping of immigration law taking place through the current Supreme Court term.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.scotusblog.com/2026/06/justices-side-with-trump-administration-in-border-dispute-over-asylum-seekers/" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.scotusblog.com/2026/06/justices-side-with-trump-administration-in-border-dispute-over-asylum-seekers/" rel="noopener" target="_blank">
                   SCOTUSblog
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_8">
-          <h2 class="article-headline">Trump Administration Reports Removing Nearly 3 Million People from ACA Enrollment Amid Fraud Investigation</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Trump administration said it removed nearly 3 million people from Affordable Care Act health insurance rolls as part of an investigation it describes as targeting approximately $10 billion in alleged fraud, with plans to remove an additional 2.6 million enrollees.</span></span>
-            <span class="summary-full"><span>The Trump administration announced it had removed close to 3 million people from Affordable Care Act marketplace enrollment, describing the action as part of an effort to address what it characterizes as roughly $10 billion in fraudulent enrollment. Officials said an additional 2.6 million people are slated for removal. The ACA marketplace expanded significantly in recent years following policy changes that reduced income verification requirements for subsidized plans, which critics argued created conditions for fraudulent sign-ups by brokers and others acting without enrollees' knowledge. Supporters of the ACA raised concerns that eligible enrollees could be incorrectly removed and lose access to health coverage. The administration has framed the removals as a correction to improper enrollment. Independent verification of the fraud figures and the accuracy of the removal process was not available at the time of reporting. The outcome could affect the coverage status of millions of Americans.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_8">
+<h2 class="article-headline">Trump Administration Reports Removing Nearly 3 Million People from ACA Enrollment Amid Fraud Investigation</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Trump administration said it removed nearly 3 million people from Affordable Care Act health insurance rolls as part of an investigation it describes as targeting approximately $10 billion in alleged fraud, with plans to remove an additional 2.6 million enrollees.</span></span>
+<span class="summary-full"><span>The Trump administration announced it had removed close to 3 million people from Affordable Care Act marketplace enrollment, describing the action as part of an effort to address what it characterizes as roughly $10 billion in fraudulent enrollment. Officials said an additional 2.6 million people are slated for removal. The ACA marketplace expanded significantly in recent years following policy changes that reduced income verification requirements for subsidized plans, which critics argued created conditions for fraudulent sign-ups by brokers and others acting without enrollees' knowledge. Supporters of the ACA raised concerns that eligible enrollees could be incorrectly removed and lose access to health coverage. The administration has framed the removals as a correction to improper enrollment. Independent verification of the fraud figures and the accuracy of the removal process was not available at the time of reporting. The outcome could affect the coverage status of millions of Americans.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/trump-admin-cracks-estimated-10-billion-obamacare-from-fraud-boots-3-million-rolls" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/politics/trump-admin-cracks-estimated-10-billion-obamacare-from-fraud-boots-3-million-rolls" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_9">
-          <h2 class="article-headline">Uber Tightens Driver Background Check Requirements</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Uber announced stricter background check standards for drivers, following reporting that revealed the company had previously approved drivers with serious criminal convictions, including violent felonies.</span></span>
-            <span class="summary-full"><span>Uber announced changes to its driver background check policies, implementing stricter standards for who may be approved to drive on the platform. The changes follow investigative reporting that found the ride-hailing company had approved drivers with various types of criminal convictions, including violent felonies. The updated checks are intended to screen out a broader range of applicants with serious criminal histories. Uber operates in hundreds of US cities and provides transportation to millions of passengers regularly, making driver screening a matter of broad public safety relevance. The company did not immediately specify the full scope of the new disqualifying offenses or the timeline for applying new standards to existing drivers.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_9">
+<h2 class="article-headline">Uber Tightens Driver Background Check Requirements</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Uber announced stricter background check standards for drivers, following reporting that revealed the company had previously approved drivers with serious criminal convictions, including violent felonies.</span></span>
+<span class="summary-full"><span>Uber announced changes to its driver background check policies, implementing stricter standards for who may be approved to drive on the platform. The changes follow investigative reporting that found the ride-hailing company had approved drivers with various types of criminal convictions, including violent felonies. The updated checks are intended to screen out a broader range of applicants with serious criminal histories. Uber operates in hundreds of US cities and provides transportation to millions of passengers regularly, making driver screening a matter of broad public safety relevance. The company did not immediately specify the full scope of the new disqualifying offenses or the timeline for applying new standards to existing drivers.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/26/business/uber-background-checks.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/26/business/uber-background-checks.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_10">
-          <h2 class="article-headline">Texas Education Board Approves Bible Passages as Required Reading in Public Schools</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Texas State Board of Education approved a curriculum that includes Bible passages as required reading for more than 5 million public school students, part of a broader national effort to incorporate Christian texts into public education.</span></span>
-            <span class="summary-full"><span>The Texas State Board of Education voted to approve a required reading list for public school students that includes passages from the Bible. The curriculum applies to more than 5 million students across the state. Supporters of the measure described it as exposing students to historically significant literature, while critics argued it crosses constitutional boundaries separating government and religion. Texas is the second-largest state by population and one of the largest school textbook markets in the country, meaning its curriculum decisions can have influence on educational materials developed for use nationally. The approval is part of a broader pattern of state-level actions seeking to incorporate religious content into public school instruction, which has prompted ongoing legal debate over the Establishment Clause of the First Amendment.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_10">
+<h2 class="article-headline">Texas Education Board Approves Bible Passages as Required Reading in Public Schools</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Texas State Board of Education approved a curriculum that includes Bible passages as required reading for more than 5 million public school students, part of a broader national effort to incorporate Christian texts into public education.</span></span>
+<span class="summary-full"><span>The Texas State Board of Education voted to approve a required reading list for public school students that includes passages from the Bible. The curriculum applies to more than 5 million students across the state. Supporters of the measure described it as exposing students to historically significant literature, while critics argued it crosses constitutional boundaries separating government and religion. Texas is the second-largest state by population and one of the largest school textbook markets in the country, meaning its curriculum decisions can have influence on educational materials developed for use nationally. The approval is part of a broader pattern of state-level actions seeking to incorporate religious content into public school instruction, which has prompted ongoing legal debate over the Establishment Clause of the First Amendment.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/education/texas-education-board-approves-bible-stories-as-required-reading-in-public-schools" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.pbs.org/newshour/education/texas-education-board-approves-bible-stories-as-required-reading-in-public-schools" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">ECONOMY</div>
-        
-        <div class="article article-long" id="story_3">
-          <h2 class="article-headline">Trump Threatens 100% Tariffs on European Nations That Tax US Digital Services</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>President Trump threatened to impose 100% tariffs on imports from any European country that enacts a digital services tax targeting US technology companies, saying the threat would override a recently finalized EU-US trade deal.</span></span>
-            <span class="summary-full"><span>President Trump announced via social media that any European nation implementing a digital services tax would face a 100% tariff on all goods exported to the United States. He wrote that 'any Country that imposes such a Tax will immediately be met with a 100% TARIFF on any and all Goods sent to the United States of America.' The announcement came days after European officials said they had finalized a trade agreement with the United States, with Trump now claiming his tariff threat would override that deal. Digital services taxes are levied by some countries on the revenues of large technology companies, many of which are American. European officials had previously paused or scaled back such taxes during trade negotiations. The threat introduces new uncertainty into US-EU trade relations and could affect a broad range of European goods imported by American consumers and businesses. It also puts pressure on European governments that have been considering or debating digital tax measures.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">ECONOMY</div>
+<div class="article article-long" id="story_3">
+<h2 class="article-headline">Trump Threatens 100% Tariffs on European Nations That Tax US Digital Services</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>President Trump threatened to impose 100% tariffs on imports from any European country that enacts a digital services tax targeting US technology companies, saying the threat would override a recently finalized EU-US trade deal.</span></span>
+<span class="summary-full"><span>President Trump announced via social media that any European nation implementing a digital services tax would face a 100% tariff on all goods exported to the United States. He wrote that 'any Country that imposes such a Tax will immediately be met with a 100% TARIFF on any and all Goods sent to the United States of America.' The announcement came days after European officials said they had finalized a trade agreement with the United States, with Trump now claiming his tariff threat would override that deal. Digital services taxes are levied by some countries on the revenues of large technology companies, many of which are American. European officials had previously paused or scaled back such taxes during trade negotiations. The threat introduces new uncertainty into US-EU trade relations and could affect a broad range of European goods imported by American consumers and businesses. It also puts pressure on European governments that have been considering or debating digital tax measures.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/26/business/economy/trump-tariffs-europe.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/26/business/economy/trump-tariffs-europe.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/cn4rd71411ko?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/cn4rd71411ko?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/politics/trump-threatens-100-tax-on-european-imports-if-countries-impose-tax-on-digital-services" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/politics/trump-threatens-100-tax-on-european-imports-if-countries-impose-tax-on-digital-services" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">NATURAL EVENTS</div>
-        
-        <div class="article article-long" id="story_12">
-          <h2 class="article-headline">Venezuela Earthquake Death Toll Reaches 920; US Dispatches Military Relief</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Two powerful earthquakes struck northern Venezuela, killing at least 920 people and injuring nearly 3,000. The US dispatched military ships, aircraft, and rescue personnel, while Venezuela's acting president pledged an aggressive rescue response.</span></span>
-            <span class="summary-full"><span>A pair of earthquakes measuring 7.2 and 7.5 in magnitude struck Venezuela's northern coastal region within approximately one minute of each other, producing what seismologists described as among the strongest earthquakes to hit the country in more than a century. The official death toll climbed to 920, with nearly 3,000 people reported injured and hundreds still believed trapped under rubble as of the latest reporting. Figures varied across sources during the fast-moving situation, with earlier tallies as low as 589 confirmed dead. Venezuela's acting president, Delcy Rodríguez, vowed to rescue 'as many people as possible,' though frustration was reported over the pace of the government's response. International rescue teams, including from the United States, began arriving to assist. The US response included two Navy ships, transport aircraft, and helicopters, along with hundreds of search-and-rescue personnel. A senior US Marine Corps officer traveled to Caracas to coordinate relief efforts, and Secretary of State Marco Rubio described a 'whole-of-government response.' The quakes caused severe damage along Venezuela's Caribbean coastline, an area of dense residential and resort construction. The disaster carries particular significance for the United States given the large Venezuelan diaspora community in the US, ongoing diplomatic tensions with the Venezuelan government, and the scale of American military and humanitarian resources being deployed.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">NATURAL EVENTS</div>
+<div class="article article-long" id="story_12">
+<h2 class="article-headline">Venezuela Earthquake Death Toll Reaches 920; US Dispatches Military Relief</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Two powerful earthquakes struck northern Venezuela, killing at least 920 people and injuring nearly 3,000. The US dispatched military ships, aircraft, and rescue personnel, while Venezuela's acting president pledged an aggressive rescue response.</span></span>
+<span class="summary-full"><span>A pair of earthquakes measuring 7.2 and 7.5 in magnitude struck Venezuela's northern coastal region within approximately one minute of each other, producing what seismologists described as among the strongest earthquakes to hit the country in more than a century. The official death toll climbed to 920, with nearly 3,000 people reported injured and hundreds still believed trapped under rubble as of the latest reporting. Figures varied across sources during the fast-moving situation, with earlier tallies as low as 589 confirmed dead. Venezuela's acting president, Delcy Rodríguez, vowed to rescue 'as many people as possible,' though frustration was reported over the pace of the government's response. International rescue teams, including from the United States, began arriving to assist. The US response included two Navy ships, transport aircraft, and helicopters, along with hundreds of search-and-rescue personnel. A senior US Marine Corps officer traveled to Caracas to coordinate relief efforts, and Secretary of State Marco Rubio described a 'whole-of-government response.' The quakes caused severe damage along Venezuela's Caribbean coastline, an area of dense residential and resort construction. The disaster carries particular significance for the United States given the large Venezuelan diaspora community in the US, ongoing diplomatic tensions with the Venezuelan government, and the scale of American military and humanitarian resources being deployed.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.newswise.com/articles/ualbany-disaster-response-experts-available-to-discuss-aftermath-of-venezuela-earthquakes/?sc=rssn" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.newswise.com/articles/ualbany-disaster-response-experts-available-to-discuss-aftermath-of-venezuela-earthquakes/?sc=rssn" rel="noopener" target="_blank">
                   Newswise
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/26/delcy-rodriguez-interim-president-venezuela-earthquake-death-toll" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/26/delcy-rodriguez-interim-president-venezuela-earthquake-death-toll" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/26/hunt-survivors-brutal-venezuela-earthquake" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/26/hunt-survivors-brutal-venezuela-earthquake" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/live/2026/jun/26/venezuela-earthquakes-search-survivors-death-toll-rodriguez-rubio-latest-news-updates" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/live/2026/jun/26/venezuela-earthquakes-search-survivors-death-toll-rodriguez-rubio-latest-news-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/live/2026/06/26/world/venezuela-earthquake" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/live/2026/06/26/world/venezuela-earthquake" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/death-toll-venezuela-earthquakes-rises-least-235-thousands-reported-missing" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/world/death-toll-venezuela-earthquakes-rises-least-235-thousands-reported-missing" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/c39y79g7gzko?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/c39y79g7gzko?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/c0jydyz8z6jo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/c0jydyz8z6jo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/c39y79g7gzko?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/c39y79g7gzko?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/c0jydyz8z6jo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/c0jydyz8z6jo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/26/nx-s1-5870652/venezuela-earthquake-usaid-u-s-aid" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/26/nx-s1-5870652/venezuela-earthquake-usaid-u-s-aid" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_13">
-          <h2 class="article-headline">Historic Heatwave Shatters Records Across Europe, Causing Deaths and Power Strain</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A severe heatwave broke temperature records across Europe for multiple consecutive days, with the UK reaching 37.3°C and Germany provisionally recording its highest-ever temperature of 41.3°C. At least four toddlers and more than 55 people drowned in France as the heat shifted east.</span></span>
-            <span class="summary-full"><span>A historic heatwave pushed temperatures to record levels across Europe this week, with the UK breaking its all-time June temperature record for three consecutive days. A provisional high of 37.3°C was recorded in Suffolk, England, while Germany's weather service reported a provisional national record of 41.3°C in Saarbrücken. France also recorded its hottest day and night ever measured. Scientists described the event as the worst heatwave ever recorded in western Europe, with nearly half of the continent's 850 largest cities experiencing unprecedented heat stress. At least four toddlers and more than 55 people died by drowning in France during the event, with heat-related deaths also reported elsewhere. Wildfires broke out in parts of the UK, including a large blaze in Derbyshire that firefighters were still working to contain. Great Britain's national energy system operator issued two separate notices this week asking electricity generators to supply additional power to meet demand from fans and air-conditioning units. France postponed its Paris Pride event, and public events across several countries were canceled or modified. The heatwave was expected to shift eastward over the weekend. While this story is centered in Europe, it has direct relevance to American readers as scientists note the event is consistent with global warming trends that affect climate patterns and extreme weather frequency in the United States as well. European governments faced political pressure over whether to prioritize adaptation measures, such as wider air-conditioning access, over longer-term climate action.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_13">
+<h2 class="article-headline">Historic Heatwave Shatters Records Across Europe, Causing Deaths and Power Strain</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A severe heatwave broke temperature records across Europe for multiple consecutive days, with the UK reaching 37.3°C and Germany provisionally recording its highest-ever temperature of 41.3°C. At least four toddlers and more than 55 people drowned in France as the heat shifted east.</span></span>
+<span class="summary-full"><span>A historic heatwave pushed temperatures to record levels across Europe this week, with the UK breaking its all-time June temperature record for three consecutive days. A provisional high of 37.3°C was recorded in Suffolk, England, while Germany's weather service reported a provisional national record of 41.3°C in Saarbrücken. France also recorded its hottest day and night ever measured. Scientists described the event as the worst heatwave ever recorded in western Europe, with nearly half of the continent's 850 largest cities experiencing unprecedented heat stress. At least four toddlers and more than 55 people died by drowning in France during the event, with heat-related deaths also reported elsewhere. Wildfires broke out in parts of the UK, including a large blaze in Derbyshire that firefighters were still working to contain. Great Britain's national energy system operator issued two separate notices this week asking electricity generators to supply additional power to meet demand from fans and air-conditioning units. France postponed its Paris Pride event, and public events across several countries were canceled or modified. The heatwave was expected to shift eastward over the weekend. While this story is centered in Europe, it has direct relevance to American readers as scientists note the event is consistent with global warming trends that affect climate patterns and extreme weather frequency in the United States as well. European governments faced political pressure over whether to prioritize adaptation measures, such as wider air-conditioning access, over longer-term climate action.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/live/2026/jun/26/europe-heatwave-extreme-heat-red-alert-weather-uk-england-france-climate-crisis-latest-news-updates" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/environment/live/2026/jun/26/europe-heatwave-extreme-heat-red-alert-weather-uk-england-france-climate-crisis-latest-news-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/jun/26/desperate-measures-in-the-uk-heatwave" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/environment/2026/jun/26/desperate-measures-in-the-uk-heatwave" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/jun/26/uk-government-urged-to-act-on-devastating-impact-of-heatwaves" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/environment/2026/jun/26/uk-government-urged-to-act-on-devastating-impact-of-heatwaves" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/jun/26/adapting-heat-ideas-from-european-cities" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/environment/2026/jun/26/adapting-heat-ideas-from-european-cities" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/26/world/europe/europe-heat-climate-change-politics.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/26/world/europe/europe-heat-climate-change-politics.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/cn4d0n1l8zno?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/cn4d0n1l8zno?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.co.uk/news/articles/cx2knzzwprgo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.co.uk/news/articles/cx2knzzwprgo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/heat-catches-europes-fashion-industry-unprepared-as-models-face-the-sun-in-fur-and-wool" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/world/heat-catches-europes-fashion-industry-unprepared-as-models-face-the-sun-in-fur-and-wool" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/live/2026/jun/26/europe-heatwave-extreme-heat-red-alert-weather-uk-england-france-climate-crisis-latest-news-updates" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/environment/live/2026/jun/26/europe-heatwave-extreme-heat-red-alert-weather-uk-england-france-climate-crisis-latest-news-updates" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/jun/26/europe-heatwave-shift-east-child-deaths-france-cities-heat-stress" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/environment/2026/jun/26/europe-heatwave-shift-east-child-deaths-france-cities-heat-stress" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/business/2026/jun/26/great-britain-grid-operator-power-supplies-heatwave-neso-electricity" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/business/2026/jun/26/great-britain-grid-operator-power-supplies-heatwave-neso-electricity" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SCIENCE & HEALTH</div>
-        
-        <div class="article article-long" id="story_11">
-          <h2 class="article-headline">Ebola Outbreak in Congo Could Become Largest on Record as Contact Tracing Lags</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Africa's CDC has warned that the current Ebola outbreak in the Democratic Republic of Congo, caused by the Bundibugyo strain, could become the largest ever recorded. Most new cases are not being identified through contact tracing, indicating the outbreak is spreading beyond health authorities' visibility.</span></span>
-            <span class="summary-full"><span>Africa's Centers for Disease Control and Prevention has warned that the Ebola outbreak currently underway in the Democratic Republic of Congo has the potential to become the largest in recorded history. Health officials report that a significant proportion of people testing positive for Ebola are not appearing on contact-tracing lists, meaning transmission chains are outpacing the surveillance system designed to contain them. The outbreak involves the Bundibugyo strain of the Ebola virus, a variant distinct from the better-known Zaire strain responsible for previous large outbreaks. Scientists believe the Bundibugyo virus persists in an animal species and occasionally spreads to humans, but the specific animal reservoir has not yet been identified, complicating prevention efforts at the source. The failure to identify the origin makes it difficult to stop spillover events from recurring. Previous large Ebola outbreaks have required extensive international coordination and resources to contain. The situation is of relevance to global health authorities including in the United States, where public health agencies monitor outbreak trajectories and may become involved in international response efforts.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SCIENCE &amp; HEALTH</div>
+<div class="article article-long" id="story_11">
+<h2 class="article-headline">Ebola Outbreak in Congo Could Become Largest on Record as Contact Tracing Lags</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Africa's CDC has warned that the current Ebola outbreak in the Democratic Republic of Congo, caused by the Bundibugyo strain, could become the largest ever recorded. Most new cases are not being identified through contact tracing, indicating the outbreak is spreading beyond health authorities' visibility.</span></span>
+<span class="summary-full"><span>Africa's Centers for Disease Control and Prevention has warned that the Ebola outbreak currently underway in the Democratic Republic of Congo has the potential to become the largest in recorded history. Health officials report that a significant proportion of people testing positive for Ebola are not appearing on contact-tracing lists, meaning transmission chains are outpacing the surveillance system designed to contain them. The outbreak involves the Bundibugyo strain of the Ebola virus, a variant distinct from the better-known Zaire strain responsible for previous large outbreaks. Scientists believe the Bundibugyo virus persists in an animal species and occasionally spreads to humans, but the specific animal reservoir has not yet been identified, complicating prevention efforts at the source. The failure to identify the origin makes it difficult to stop spillover events from recurring. Previous large Ebola outbreaks have required extensive international coordination and resources to contain. The situation is of relevance to global health authorities including in the United States, where public health agencies monitor outbreak trajectories and may become involved in international response efforts.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/25/world/africa/africa-cdc-congo-ebola.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/25/world/africa/africa-cdc-congo-ebola.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/24/science/ebola-bundibugyo-animal-reservoir.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/24/science/ebola-bundibugyo-animal-reservoir.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SPORTS</div>
-        
-        <div class="article article-medium" id="story_14">
-          <h2 class="article-headline">Serena Williams Returns to Singles Competition at Wimbledon, Drawing 20-Year-Old Australian in First Round</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Serena Williams, 44, will play Australian Maja Joint in her first singles match in nearly four years after accepting a Wimbledon wild-card entry. Williams also plans to compete in doubles with her sister Venus.</span></span>
-            <span class="summary-full"><span>Serena Williams will make her return to professional singles tennis at Wimbledon, where she has won the title seven times. She accepted a wild-card entry to the tournament and was drawn against 20-year-old Australian Maja Joint in the first round. The match will take place between players born nearly 25 years apart. Williams last competed in singles at the 2022 US Open, where she indicated she was moving away from tennis. Joint won the Eastbourne tournament last year but has had a more difficult 2026 season. Williams is also entered in doubles competition alongside her sister Venus. The return is expected to draw significant global attention to the tournament.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SPORTS</div>
+<div class="article article-medium" id="story_14">
+<h2 class="article-headline">Serena Williams Returns to Singles Competition at Wimbledon, Drawing 20-Year-Old Australian in First Round</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Serena Williams, 44, will play Australian Maja Joint in her first singles match in nearly four years after accepting a Wimbledon wild-card entry. Williams also plans to compete in doubles with her sister Venus.</span></span>
+<span class="summary-full"><span>Serena Williams will make her return to professional singles tennis at Wimbledon, where she has won the title seven times. She accepted a wild-card entry to the tournament and was drawn against 20-year-old Australian Maja Joint in the first round. The match will take place between players born nearly 25 years apart. Williams last competed in singles at the 2022 US Open, where she indicated she was moving away from tennis. Joint won the Eastbourne tournament last year but has had a more difficult 2026 season. Williams is also entered in doubles competition alongside her sister Venus. The return is expected to draw significant global attention to the tournament.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://us.headtopics.com/news/serena-williams-to-face-young-aussie-in-wimbledon-singles-84945323" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://us.headtopics.com/news/serena-williams-to-face-young-aussie-in-wimbledon-singles-84945323" rel="noopener" target="_blank">
                   Headtopics
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/sport/2026/jun/26/serena-williams-wimbledon-draw-raducanu-djokovic-sinner-tennis" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/sport/2026/jun/26/serena-williams-wimbledon-draw-raducanu-djokovic-sinner-tennis" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="difficult-section">
-          <details>
-            <summary class="difficult-toggle">
-              <span class="difficult-caret">&#9658;</span>
-              <span class="difficult-label">Difficult News</span>
-            </summary>
-            <p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
-            <div class="difficult-content">
-              
-              <div class="article article-short" id="story_15">
-                <h2 class="article-headline">Small Plane Strikes Beijing's Tallest Building, Cause Under Investigation</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-1-diff">
-                  <span class="summary-brief"><span>A small aircraft struck Beijing's tallest building, causing damage. Chinese authorities did not immediately issue a statement, and the cause could not be independently verified.</span></span>
-                  <span class="summary-full"><span>A small airplane struck Beijing's tallest building, causing visible damage to the structure. Chinese authorities did not immediately issue a public statement on the incident, and the circumstances and cause of the crash could not be independently verified at the time of reporting. Details including whether there were casualties were not confirmed. The incident occurred in a densely populated urban center. Further information was expected as authorities investigated.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="difficult-section">
+<details>
+<summary class="difficult-toggle">
+<span class="difficult-caret">►</span>
+<span class="difficult-label">Difficult News</span>
+</summary>
+<p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
+<div class="difficult-content">
+<div class="article article-short" id="story_15">
+<h2 class="article-headline">Small Plane Strikes Beijing's Tallest Building, Cause Under Investigation</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-1-diff">
+<span class="summary-brief"><span>A small aircraft struck Beijing's tallest building, causing damage. Chinese authorities did not immediately issue a statement, and the cause could not be independently verified.</span></span>
+<span class="summary-full"><span>A small airplane struck Beijing's tallest building, causing visible damage to the structure. Chinese authorities did not immediately issue a public statement on the incident, and the circumstances and cause of the crash could not be independently verified at the time of reporting. Details including whether there were casualties were not confirmed. The incident occurred in a densely populated urban center. Further information was expected as authorities investigated.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.npr.org/2026/06/26/g-s1-130388/beijings-tallest-building-is-damaged-after-small-airplane-reportedly-crashed-into-it" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.npr.org/2026/06/26/g-s1-130388/beijings-tallest-building-is-damaged-after-small-airplane-reportedly-crashed-into-it" rel="noopener" target="_blank">
                         NPR News
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-            </div>
-          </details>
-        </div>
-      
-    
+</li>
+</ul>
+</div>
+</div>
+</div>
+</details>
+</div>
+<!-- Footer -->
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+<div class="archive-link-section"><a class="archive-link" href="/archive.html">Browse past editions →</a></div>
+<footer class="footer">
+<p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
-      <p style="margin-top:0.75rem;"><a href="2026-06-26-pm-sources.html">Sources for this digest →</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<p style="margin-top:0.75rem;"><a href="2026-06-26-pm-sources.html">Sources for this digest →</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-
 <script>
   // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
@@ -1327,34 +1139,6 @@
     btn.setAttribute('aria-expanded', String(!expanded));
   });
 
-  function toggleMobileArchive() {
-    var panel = document.getElementById('mobile-archive-panel');
-    var toggle = document.getElementById('mobile-toggle');
-    var isOpen = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  }
-
-  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
-  // always show all editions regardless of which page was generated.
-  (function() {
-    var current = '2026-06-26-pm.html';
-    fetch('archive.json?v=' + Date.now())
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-        var mob = document.getElementById('mobile-archive-panel');
-        if (mob) mob.innerHTML = '<div class="mobile-archive-title">Past Editions</div>' + html;
-      })
-      .catch(function() {});
-  })();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');

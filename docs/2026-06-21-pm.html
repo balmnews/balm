@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Sunday, June 21, 2026 PM</title>
-  <meta name="description" content="Balm news digest for Sunday, June 21, 2026 — topical, anti-inflammatory news.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/png" href="/icons/icon-32.png">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm — Sunday, June 21, 2026 PM</title>
+<meta content="Balm news digest for Sunday, June 21, 2026 — topical, anti-inflammatory news." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/icons/icon-32.png" rel="icon" type="image/png"/>
+<link href="/icons/icon-192.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -42,10 +43,9 @@
 
     /* Layout */
     .page-wrapper {
-      display: flex;
-      max-width: 1100px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.25rem;
     }
 
     .sidebar {
@@ -501,109 +501,63 @@
   </style>
 </head>
 <body>
-
 <!-- Mobile archive toggle (shown only on mobile) -->
-<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
-  <span class="mobile-archive-caret">›</span> Archive
-</div>
-<div class="mobile-archive-panel" id="mobile-archive-panel">
-  <div class="mobile-archive-title">Past Editions</div>
-  <!-- populated by archive.json fetch on page load — never server-rendered -->
-</div>
+
 
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    <!-- populated by archive.json fetch on page load — never server-rendered -->
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-              <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-              <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-            </filter>
-          </defs>
-          <text x="90" y="44"
-                font-family="Caveat, cursive"
-                font-size="52"
-                font-weight="700"
-                fill="#6b82a8"
-                text-anchor="middle"
-                letter-spacing="8"
-                filter="url(#balm-spread)">Balm</text>
-        </svg>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Sunday, June 21, 2026 &middot; PM Edition</p>
-    </header>
-
-    <!-- Audio player -->
-    
-
-    <!-- Top stories navigation -->
-    
-    <div class="top-stories">
-      <div class="top-stories-heading">Today's Top Stories</div>
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_0">US and Iran Hold First Direct Nuclear Talks in Switzerland as Contradictory Signals Complicate Negotiations</a>
-        <span class="top-story-reason">Direct US-Iran nuclear talks are a rare and significant diplomatic development with major implications for regional stability and nuclear nonproliferation.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_7">State Department Takes Over Key Global Health Programs from the CDC</a>
-        <span class="top-story-reason">The State Department taking over CDC global health programs represents a major structural shift in how the US manages international public health, affecting programs that reach millions worldwide.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_10">Severe Heat Wave Across Europe Prompts Public Health Restrictions in France and the UK</a>
-        <span class="top-story-reason">A severe Europe-wide heat wave prompting government-level public health restrictions signals a broad, immediate impact on millions of people across multiple countries.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_2">Colombia Holds Presidential Runoff Between Outsider Candidate and Progressive Lawmaker</a>
-        <span class="top-story-reason">Colombia's presidential runoff could reshape the political direction of a major Latin American nation, with implications for regional stability and US-Latin America relations.</span>
-      </div>
-      
-      
-    </div>
-    
-
-    <!-- Stories -->
-    
-      
-        <div class="section-header">GEOPOLITICS</div>
-        
-        <div class="article article-long" id="story_0">
-          <h2 class="article-headline">US and Iran Hold First Direct Nuclear Talks in Switzerland as Contradictory Signals Complicate Negotiations</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Vice President JD Vance met with senior Iranian officials in Switzerland to begin a new round of nuclear negotiations, while President Trump simultaneously issued threats against Iran on social media, prompting Iranian negotiators to temporarily withdraw from direct talks.</span></span>
-            <span class="summary-full"><span>The United States and Iran opened a new round of nuclear negotiations at a Swiss mountain resort near Lake Lucerne on Sunday, with Vice President JD Vance leading the American delegation alongside envoys Steve Witkoff and Jared Kushner. Iran's parliamentary speaker Mohammad Bagher Qalibaf and Foreign Minister Abbas Araghchi represented Tehran. Qatar and Pakistan served as mediators.
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news"><svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg></a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Sunday, June 21, 2026 · PM Edition</p>
+</header>
+<!-- Audio player -->
+<!-- Top stories navigation -->
+<div class="top-stories">
+<div class="top-stories-heading">Today's Top Stories</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_0">US and Iran Hold First Direct Nuclear Talks in Switzerland as Contradictory Signals Complicate Negotiations</a>
+<span class="top-story-reason">Direct US-Iran nuclear talks are a rare and significant diplomatic development with major implications for regional stability and nuclear nonproliferation.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_7">State Department Takes Over Key Global Health Programs from the CDC</a>
+<span class="top-story-reason">The State Department taking over CDC global health programs represents a major structural shift in how the US manages international public health, affecting programs that reach millions worldwide.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_10">Severe Heat Wave Across Europe Prompts Public Health Restrictions in France and the UK</a>
+<span class="top-story-reason">A severe Europe-wide heat wave prompting government-level public health restrictions signals a broad, immediate impact on millions of people across multiple countries.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_2">Colombia Holds Presidential Runoff Between Outsider Candidate and Progressive Lawmaker</a>
+<span class="top-story-reason">Colombia's presidential runoff could reshape the political direction of a major Latin American nation, with implications for regional stability and US-Latin America relations.</span>
+</div>
+</div>
+<!-- Stories -->
+<div class="section-header">GEOPOLITICS</div>
+<div class="article article-long" id="story_0">
+<h2 class="article-headline">US and Iran Hold First Direct Nuclear Talks in Switzerland as Contradictory Signals Complicate Negotiations</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Vice President JD Vance met with senior Iranian officials in Switzerland to begin a new round of nuclear negotiations, while President Trump simultaneously issued threats against Iran on social media, prompting Iranian negotiators to temporarily withdraw from direct talks.</span></span>
+<span class="summary-full"><span>The United States and Iran opened a new round of nuclear negotiations at a Swiss mountain resort near Lake Lucerne on Sunday, with Vice President JD Vance leading the American delegation alongside envoys Steve Witkoff and Jared Kushner. Iran's parliamentary speaker Mohammad Bagher Qalibaf and Foreign Minister Abbas Araghchi represented Tehran. Qatar and Pakistan served as mediators.
 
 The talks aim to convert a recently signed interim memorandum of understanding into a durable agreement addressing Iran's nuclear program and formally ending the war in Iran. Iran's delegation was described as unusually broad, including its central bank governor and oil officials — a composition analysts interpreted as signaling Iranian priorities around sanctions relief and economic access.
 
@@ -614,154 +568,129 @@ Adding to the complexity, fighting between Israel and Hezbollah in Lebanon conti
 The talks carry significant economic weight. Oil markets have remained unsettled, with prices rising modestly on uncertainty over the Strait of Hormuz, through which a substantial share of global oil exports pass. The prospect of reopening the strait has not immediately altered purchasing patterns for major buyers such as China, which accumulated oil reserves during the conflict period.
 
 The Trump administration's provisional deal with Iran has drawn criticism from both parties in the United States. Some Republican lawmakers argue the deal concedes too much leverage; others in the president's orbit have supported the diplomatic approach. The next round of negotiations is expected to determine whether the interim agreement can be formalized.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.washingtonpost.com/world/2026/06/21/us-iranian-meet-switzerland-hash-out-peace-plan/" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.washingtonpost.com/world/2026/06/21/us-iranian-meet-switzerland-hash-out-peace-plan/" rel="noopener" target="_blank">
                   The Washington Post
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.wsj.com/world/middle-east/war-in-lebanon-casts-shadow-over-renewed-iran-u-s-nuclear-talks-f457c7e9" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.wsj.com/world/middle-east/war-in-lebanon-casts-shadow-over-renewed-iran-u-s-nuclear-talks-f457c7e9" rel="noopener" target="_blank">
                   Wsj
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.idahostatejournal.com/news/world/vance-and-iranian-officials-arrive-in-switzerland-to-launch-talks-on-tehran-s-nuclear-program/article_51b80cd8-e8ff-5c96-9213-75a29dcbd6c9.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.idahostatejournal.com/news/world/vance-and-iranian-officials-arrive-in-switzerland-to-launch-talks-on-tehran-s-nuclear-program/article_51b80cd8-e8ff-5c96-9213-75a29dcbd6c9.html" rel="noopener" target="_blank">
                   Idahostatejournal
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://kdhnews.com/news/world/vance-and-iranian-officials-arrive-in-switzerland-to-launch-talks-on-tehran-s-nuclear-program/article_c7cc9894-a4e5-5d46-afbf-4bea4610ee8a.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://kdhnews.com/news/world/vance-and-iranian-officials-arrive-in-switzerland-to-launch-talks-on-tehran-s-nuclear-program/article_c7cc9894-a4e5-5d46-afbf-4bea4610ee8a.html" rel="noopener" target="_blank">
                   Killeen Daily Herald
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/21/us-iran-talks-jd-vance-switzerland-strait-of-hormuz-lebanon" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/21/us-iran-talks-jd-vance-switzerland-strait-of-hormuz-lebanon" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/21/trump-iran-deal-bipartisan-criticism" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/21/trump-iran-deal-bipartisan-criticism" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/live/2026/jun/21/iran-us-israel-war-middle-east-lebanon-peace-talks-switzerland-vance-trump-strait-of-hormuz-latest-news-updates" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/live/2026/jun/21/iran-us-israel-war-middle-east-lebanon-peace-talks-switzerland-vance-trump-strait-of-hormuz-latest-news-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/21/secret-correspondence-iranian-government-tensions-supreme-leader" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/21/secret-correspondence-iranian-government-tensions-supreme-leader" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/business/2026/jun/21/trump-iran-deal-long-shadow-global-economy" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/business/2026/jun/21/trump-iran-deal-long-shadow-global-economy" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/live/2026/06/21/world/iran-us-trump-lebanon" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/live/2026/06/21/world/iran-us-trump-lebanon" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/21/world/middleeast/vance-iran-talks-trump.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/21/world/middleeast/vance-iran-talks-trump.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/21/business/oil-rises-amid-uncertainty-over-strait-of-hormuz.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/21/business/oil-rises-amid-uncertainty-over-strait-of-hormuz.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/21/business/china-oil-iran.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/21/business/china-oil-iran.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/irans-unprecedented-whole-regime-delegation-us-deal-talks-signals-one-goal-expert" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/world/irans-unprecedented-whole-regime-delegation-us-deal-talks-signals-one-goal-expert" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/trumps-iran-gamble-divides-gop-hawks-america-first-conservatives-victory-looks-like" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/politics/trumps-iran-gamble-divides-gop-hawks-america-first-conservatives-victory-looks-like" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/jd-vance-arrives-switzerland-join-kushner-witkoff-new-round-iran-negotiations" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/politics/jd-vance-arrives-switzerland-join-kushner-witkoff-new-round-iran-negotiations" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cwy0q41v1lzo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cwy0q41v1lzo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cwy0q41v1lzo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cwy0q41v1lzo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/21/g-s1-129222/us-iran-deal-lebanon-israel-strait-hormuz-jd-vance" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/21/g-s1-129222/us-iran-deal-lebanon-israel-strait-hormuz-jd-vance" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/21/nx-s1-5864237/week-in-politics-continued-negotiations-with-iran-g7-summit-reflecting-pool-issues" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/21/nx-s1-5864237/week-in-politics-continued-negotiations-with-iran-g7-summit-reflecting-pool-issues" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/as-vance-meets-top-iranian-officials-in-switzerland-trump-threatens-tehran-from-afar" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/world/as-vance-meets-top-iranian-officials-in-switzerland-trump-threatens-tehran-from-afar" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_1">
-          <h2 class="article-headline">UK Prime Minister Starmer Expected to Announce Departure Timetable, Clearing Path for Burnham</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>UK Prime Minister Keir Starmer is expected to announce a timetable for his departure from office as early as Monday, following pressure from within the Labour Party after Andy Burnham's significant byelection victory in Makerfield.</span></span>
-            <span class="summary-full"><span>Keir Starmer, the United Kingdom's prime minister, is expected to announce a scheduled departure from office on Monday, according to multiple senior Labour figures. The anticipated announcement would set a timeline for transition rather than an immediate resignation, with the handover expected to be completed by autumn.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_1">
+<h2 class="article-headline">UK Prime Minister Starmer Expected to Announce Departure Timetable, Clearing Path for Burnham</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>UK Prime Minister Keir Starmer is expected to announce a timetable for his departure from office as early as Monday, following pressure from within the Labour Party after Andy Burnham's significant byelection victory in Makerfield.</span></span>
+<span class="summary-full"><span>Keir Starmer, the United Kingdom's prime minister, is expected to announce a scheduled departure from office on Monday, according to multiple senior Labour figures. The anticipated announcement would set a timeline for transition rather than an immediate resignation, with the handover expected to be completed by autumn.
 
 The decision follows Andy Burnham's substantial victory in the Makerfield byelection, which significantly strengthened his position as Labour's preferred successor. Burnham, the mayor of Greater Manchester, has been widely seen as the frontrunner to become prime minister without a formal leadership contest. Cabinet ministers described Starmer as spending the weekend assessing what one ally called the changed political realities since the byelection result.
 
@@ -770,640 +699,523 @@ Starmer had publicly insisted as recently as Friday that he would not walk away.
 A UK transition of this kind, while less common than in many democracies, would involve a period in which Starmer remains in office while Labour confirms a successor through its internal processes. Burnham has not formally declared a candidacy. Allies associated with Burnham's broader political agenda published a policy paper on Sunday outlining proposals to reverse privatization of key utilities — a sign of preparations for a potential government program.
 
 US President Trump commented on the situation on social media, stating that Starmer would resign and offering brief well-wishes alongside criticism. The episode represents a notable development for a government that came to power less than two years ago with a large parliamentary majority.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/politics/2026/jun/21/keir-starmer-faces-music-weekend-of-reflection-resignation-burnham" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/politics/2026/jun/21/keir-starmer-faces-music-weekend-of-reflection-resignation-burnham" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/politics/2026/jun/21/keir-starmer-expected-exit-plan-clear-way-andy-burnham-become-pm" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/politics/2026/jun/21/keir-starmer-expected-exit-plan-clear-way-andy-burnham-become-pm" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/politics/live/2026/jun/21/keir-starmer-expected-resign-resignation-monday--andy-burnham-makerfield-labour-uk-politics-latest-news-updates" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/politics/live/2026/jun/21/keir-starmer-expected-resign-resignation-monday--andy-burnham-makerfield-labour-uk-politics-latest-news-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/politics/2026/jun/21/keir-starmer-autumn-handover-labour" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/politics/2026/jun/21/keir-starmer-autumn-handover-labour" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/politics/2026/jun/21/burnham-ally-to-unveil-ambitious-plan-to-reverse-decades-of-privatisation" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/politics/2026/jun/21/burnham-ally-to-unveil-ambitious-plan-to-reverse-decades-of-privatisation" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/21/world/europe/keir-starmer-andy-burnham-uk.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/21/world/europe/keir-starmer-andy-burnham-uk.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/trump-says-uks-starmer-will-resign-wishes-well-reports-pms-political-future" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/world/trump-says-uks-starmer-will-resign-wishes-well-reports-pms-political-future" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/keir-starmer-reportedly-considering-stepping-pm-could-announce-timetable-departure" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/world/keir-starmer-reportedly-considering-stepping-pm-could-announce-timetable-departure" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cn8k1my75gno?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cn8k1my75gno?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cql10wwy69zo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cql10wwy69zo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_2">
-          <h2 class="article-headline">Colombia Holds Presidential Runoff Between Outsider Candidate and Progressive Lawmaker</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Colombian voters cast ballots Sunday in a presidential runoff between business owner Abelardo de la Espriella, who has called for intensified military action against armed groups, and Senator Iván Cepeda, who favors negotiated settlements with those groups.</span></span>
-            <span class="summary-full"><span>Colombia held a presidential runoff election Sunday, presenting voters with a choice between two candidates offering fundamentally different approaches to the country's longstanding internal conflict with armed groups and cartels.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_2">
+<h2 class="article-headline">Colombia Holds Presidential Runoff Between Outsider Candidate and Progressive Lawmaker</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Colombian voters cast ballots Sunday in a presidential runoff between business owner Abelardo de la Espriella, who has called for intensified military action against armed groups, and Senator Iván Cepeda, who favors negotiated settlements with those groups.</span></span>
+<span class="summary-full"><span>Colombia held a presidential runoff election Sunday, presenting voters with a choice between two candidates offering fundamentally different approaches to the country's longstanding internal conflict with armed groups and cartels.
 
 Abelardo de la Espriella, a business owner and lawyer known by the nickname El Tigre, ran on a platform of stronger military action against criminal and guerrilla organizations. He received public support from US President Trump. His opponent, Iván Cepeda, is a senator and political heir to outgoing President Gustavo Petro, Colombia's first leftist leader, who has pursued peace negotiations with armed groups.
 
 The election has been shaped heavily by security concerns. Colombia has experienced an escalation in violence from multiple armed factions, and polling suggested that public frustration over crime and instability had become a dominant factor for voters. De la Espriella entered the runoff as the frontrunner according to pre-election surveys.
 
 The outcome carries significance for US interests, given Colombia's role as a major drug transit country and a longstanding partner in regional security cooperation. A change in approach to armed groups could affect both narcotics flows and regional stability in South America.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/world/trump-backed-el-tigre-looks-crush-cartels-end-colombias-socialist-era-pivotal-election" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/world/trump-backed-el-tigre-looks-crush-cartels-end-colombias-socialist-era-pivotal-election" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cvgqv8q1ndpo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cvgqv8q1ndpo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/21/nx-s1-5862783/colombia-election-conflict" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/21/nx-s1-5862783/colombia-election-conflict" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/colombians-vote-in-a-presidential-runoff-that-pits-an-outsider-against-a-progressive" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/world/colombians-vote-in-a-presidential-runoff-that-pits-an-outsider-against-a-progressive" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_3">
-          <h2 class="article-headline">Civilian Gasoline Sales Suspended in Russian-Occupied Crimea Following Ukrainian Strikes on Fuel Infrastructure</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Authorities in Russian-occupied Crimea suspended civilian gasoline sales Sunday after Ukrainian forces intensified attacks on fuel supply facilities across the peninsula.</span></span>
-            <span class="summary-full"><span>Officials in Russian-occupied Crimea halted civilian gasoline sales on Sunday following a series of Ukrainian strikes targeting fuel storage and supply infrastructure on the Black Sea peninsula. The suspension followed a period of rationing that had already been in place due to earlier disruptions to supply routes caused by Ukrainian military action.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_3">
+<h2 class="article-headline">Civilian Gasoline Sales Suspended in Russian-Occupied Crimea Following Ukrainian Strikes on Fuel Infrastructure</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Authorities in Russian-occupied Crimea suspended civilian gasoline sales Sunday after Ukrainian forces intensified attacks on fuel supply facilities across the peninsula.</span></span>
+<span class="summary-full"><span>Officials in Russian-occupied Crimea halted civilian gasoline sales on Sunday following a series of Ukrainian strikes targeting fuel storage and supply infrastructure on the Black Sea peninsula. The suspension followed a period of rationing that had already been in place due to earlier disruptions to supply routes caused by Ukrainian military action.
 
 Ukraine has consistently targeted logistics and energy infrastructure in occupied territories as part of its broader military strategy. Crimea, which Russia annexed in 2014, serves as a significant logistical hub for Russian military operations in southern Ukraine. Disrupting fuel supplies there has been a recurring objective of Ukrainian long-range attacks.
 
 The halt in civilian sales reflects the degree to which Ukrainian operations have degraded available fuel reserves on the peninsula. No timeline for restoring civilian access was announced.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/clyx2lk9d15o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.com/news/articles/clyx2lk9d15o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/21/g-s1-129200/ukrainian-attacks-russia-crimea-halt-gas-sales" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/21/g-s1-129200/ukrainian-attacks-russia-crimea-halt-gas-sales" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_4">
-          <h2 class="article-headline">Ukraine-Poland Relations Strained by Zelensky Decree Honoring Wartime Partisans</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Ukrainian President Volodymyr Zelensky signed a decree honoring World War II partisan fighters, a move that has heightened tensions with Poland, which regards the same fighters as responsible for wartime atrocities against Polish civilians.</span></span>
-            <span class="summary-full"><span>A decree signed by Ukrainian President Volodymyr Zelensky honoring a group of World War II partisan fighters has reopened a longstanding historical dispute with Poland, at a moment when the two countries have otherwise maintained close cooperation in the face of Russian aggression.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_4">
+<h2 class="article-headline">Ukraine-Poland Relations Strained by Zelensky Decree Honoring Wartime Partisans</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Ukrainian President Volodymyr Zelensky signed a decree honoring World War II partisan fighters, a move that has heightened tensions with Poland, which regards the same fighters as responsible for wartime atrocities against Polish civilians.</span></span>
+<span class="summary-full"><span>A decree signed by Ukrainian President Volodymyr Zelensky honoring a group of World War II partisan fighters has reopened a longstanding historical dispute with Poland, at a moment when the two countries have otherwise maintained close cooperation in the face of Russian aggression.
 
 The partisan organization in question is viewed in Ukraine as a symbol of national resistance against Nazi and Soviet occupation. In Poland, the same group is associated with the massacre of tens of thousands of Polish civilians in Volhynia during the 1940s — an event that remains a sensitive and unresolved point of historical memory between the two nations.
 
 Poland has been one of Ukraine's most important military and political allies since Russia's full-scale invasion in 2022, providing weapons, hosting millions of Ukrainian refugees, and advocating strongly for Ukrainian interests within the European Union and NATO. The historical tension has periodically surfaced throughout the war but has not previously derailed the relationship. Whether this latest episode leads to a substantive diplomatic rupture or is managed through existing channels remains to be seen.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/21/world/europe/ukraine-poland-alliance-russia.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/21/world/europe/ukraine-poland-alliance-russia.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_5">
-          <h2 class="article-headline">Cambodia's Crackdown on Scam Operations Leaves Thousands of Trafficking Victims Stranded</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A Cambodian government crackdown on criminal scam compounds — operations that have defrauded Americans and others of billions of dollars — has produced a secondary problem: thousands of foreign workers, many of them trafficking victims, are now stranded in Phnom Penh with no clear path to return home.</span></span>
-            <span class="summary-full"><span>Cambodia's government-led effort to shut down large-scale online scam operations has disrupted criminal networks that have targeted people in the United States and other countries through fraudulent investment and romance schemes, costing victims an estimated billions of dollars annually. However, the crackdown has created a significant secondary problem.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_5">
+<h2 class="article-headline">Cambodia's Crackdown on Scam Operations Leaves Thousands of Trafficking Victims Stranded</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A Cambodian government crackdown on criminal scam compounds — operations that have defrauded Americans and others of billions of dollars — has produced a secondary problem: thousands of foreign workers, many of them trafficking victims, are now stranded in Phnom Penh with no clear path to return home.</span></span>
+<span class="summary-full"><span>Cambodia's government-led effort to shut down large-scale online scam operations has disrupted criminal networks that have targeted people in the United States and other countries through fraudulent investment and romance schemes, costing victims an estimated billions of dollars annually. However, the crackdown has created a significant secondary problem.
 
 Many of the workers inside the scam compounds were themselves victims of human trafficking, lured to Cambodia under false pretenses and forced to conduct fraudulent communications. As the compounds have been raided and dismantled, thousands of these foreign nationals have been released but lack the documentation, resources, or official support to return to their home countries. Many are now living on the streets of Phnom Penh.
 
 The situation highlights the dual nature of the scam compound problem: while the operations harm overseas victims financially, they also rely on the exploitation of trafficked labor from across Southeast Asia and beyond. Humanitarian organizations and governments of affected countries are facing pressure to coordinate repatriation and support efforts.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/21/g-s1-128624/freed-from-cambodias-scam-compounds-trafficking-victims-face-a-new-crisis" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.npr.org/2026/06/21/g-s1-128624/freed-from-cambodias-scam-compounds-trafficking-victims-face-a-new-crisis" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">DOMESTIC POLICY</div>
-        
-        <div class="article article-medium" id="story_7">
-          <h2 class="article-headline">State Department Takes Over Key Global Health Programs from the CDC</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The US State Department is assuming control of significant global health initiatives previously run by the Centers for Disease Control and Prevention, including programs related to HIV and AIDS treatment abroad. Critics say the State Department lacks the technical expertise to manage these programs.</span></span>
-            <span class="summary-full"><span>A new organizational plan shifts much of the management of US government global health programs — including major HIV and AIDS treatment initiatives — from the Centers for Disease Control and Prevention to the State Department. The CDC has historically held primary responsibility for these programs due to its specialized public health workforce and technical capacity.
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">DOMESTIC POLICY</div>
+<div class="article article-medium" id="story_7">
+<h2 class="article-headline">State Department Takes Over Key Global Health Programs from the CDC</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The US State Department is assuming control of significant global health initiatives previously run by the Centers for Disease Control and Prevention, including programs related to HIV and AIDS treatment abroad. Critics say the State Department lacks the technical expertise to manage these programs.</span></span>
+<span class="summary-full"><span>A new organizational plan shifts much of the management of US government global health programs — including major HIV and AIDS treatment initiatives — from the Centers for Disease Control and Prevention to the State Department. The CDC has historically held primary responsibility for these programs due to its specialized public health workforce and technical capacity.
 
 Critics of the change, including global health experts and former officials, argue that the State Department does not have the specialized medical and epidemiological expertise required to effectively administer these programs. The initiatives involved affect millions of people in lower-income countries who depend on US-funded treatment and prevention services.
 
 The restructuring is part of broader changes to how the federal government organizes and funds international health work. The full operational impact on programs in the field has not yet been determined.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/17/health/pepfar-cdc-cuts.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/17/health/pepfar-cdc-cuts.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_8">
-          <h2 class="article-headline">FTC Probe May Affect Treatment Guidelines Used in Transgender Youth Care</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Federal Trade Commission has opened an investigation into the World Professional Association for Transgender Health, alleging that its treatment guidelines for minors were built on evidence that its own leaders privately acknowledged was limited. The probe could affect how those guidelines are applied.</span></span>
-            <span class="summary-full"><span>The Federal Trade Commission has launched an investigation into the World Professional Association for Transgender Health, known as WPATH, over allegations that the organization developed clinical guidelines for gender-related care in minors based on evidence that association leaders privately recognized as limited and uncertain.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_8">
+<h2 class="article-headline">FTC Probe May Affect Treatment Guidelines Used in Transgender Youth Care</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Federal Trade Commission has opened an investigation into the World Professional Association for Transgender Health, alleging that its treatment guidelines for minors were built on evidence that its own leaders privately acknowledged was limited. The probe could affect how those guidelines are applied.</span></span>
+<span class="summary-full"><span>The Federal Trade Commission has launched an investigation into the World Professional Association for Transgender Health, known as WPATH, over allegations that the organization developed clinical guidelines for gender-related care in minors based on evidence that association leaders privately recognized as limited and uncertain.
 
 WPATH's guidelines are widely referenced by clinicians in the United States and other countries when making decisions about care for transgender youth, including puberty-blocking medications and other interventions. The FTC's inquiry focuses on whether the public presentation of the evidentiary basis for those guidelines was accurate.
 
 The investigation could have significant practical effects on how providers approach these treatments, and on ongoing legal and legislative debates over gender-related medical care for minors. The outcome of the probe and any resulting regulatory or legal action remain to be determined.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/trump-administration-probe-could-upend-widely-used-transgender-youth-treatment-guidelines" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/politics/trump-administration-probe-could-upend-widely-used-transgender-youth-treatment-guidelines" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_9">
-          <h2 class="article-headline">Lincoln Memorial Reflecting Pool to Be Repaired After Algae and Damage Problems</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>President Trump announced that repair work on the Lincoln Memorial Reflecting Pool in Washington DC will begin immediately, after the pool experienced algae blooms and paint peeling issues. An arrest has been made in connection with alleged damage, though the accused denies wrongdoing.</span></span>
-            <span class="summary-full"><span>President Trump announced on Sunday that repairs to the Lincoln Memorial Reflecting Pool in Washington DC will begin immediately, describing plans to drain the pool as part of the remediation process. The reflecting pool has experienced recurring problems including algae blooms and peeling paint on its newly renovated surfaces.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_9">
+<h2 class="article-headline">Lincoln Memorial Reflecting Pool to Be Repaired After Algae and Damage Problems</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>President Trump announced that repair work on the Lincoln Memorial Reflecting Pool in Washington DC will begin immediately, after the pool experienced algae blooms and paint peeling issues. An arrest has been made in connection with alleged damage, though the accused denies wrongdoing.</span></span>
+<span class="summary-full"><span>President Trump announced on Sunday that repairs to the Lincoln Memorial Reflecting Pool in Washington DC will begin immediately, describing plans to drain the pool as part of the remediation process. The reflecting pool has experienced recurring problems including algae blooms and peeling paint on its newly renovated surfaces.
 
 Trump attributed the problems in part to alleged vandalism, stating on social media that the pool's lining had been slashed and chemicals poured into the water. He said arrests had been made but did not provide supporting evidence for those specific claims.
 
 A former Olympic athlete who was arrested in connection with the alleged damage denied any wrongdoing, stating he had only touched the fresh paint at the site out of curiosity and had not damaged or altered it. The individual's account and the administration's account of events diverge on the nature of the contact.
 
 The reflecting pool, which stretches between the Lincoln Memorial and the Washington Monument, underwent a prior renovation before the current problems emerged. It is one of the most visited landmarks in the US capital.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/21/trump-lincoln-memorial-reflecting-pool" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/21/trump-lincoln-memorial-reflecting-pool" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c8d26051vv2o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c8d26051vv2o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/21/nx-s1-5865636/trump-reflecting-pool-dc-vandals-drain-green" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/21/nx-s1-5865636/trump-reflecting-pool-dc-vandals-drain-green" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">NATURAL EVENTS</div>
-        
-        <div class="article article-long" id="story_10">
-          <h2 class="article-headline">Severe Heat Wave Across Europe Prompts Public Health Restrictions in France and the UK</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A major heat wave affecting much of Europe is expected to bring temperatures as high as 42°C in parts of France, where authorities have placed more than a third of the country under a red heat alert, canceled outdoor events, and restricted alcohol at public festivals. The UK has issued a four-day amber heat warning beginning Monday.</span></span>
-            <span class="summary-full"><span>A significant heat wave is sweeping across western and central Europe, prompting governments to issue high-level health warnings and restrict public activities. In France, authorities placed more than a third of the country under a red heat alert — the highest level — and canceled some outdoor sports events and restricted alcohol consumption at the Fête de la Musique, France's nationwide street music festival. Temperatures in some areas were forecast to reach 42°C by Monday, with forecasters warning levels could approach historic records.
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">NATURAL EVENTS</div>
+<div class="article article-long" id="story_10">
+<h2 class="article-headline">Severe Heat Wave Across Europe Prompts Public Health Restrictions in France and the UK</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A major heat wave affecting much of Europe is expected to bring temperatures as high as 42°C in parts of France, where authorities have placed more than a third of the country under a red heat alert, canceled outdoor events, and restricted alcohol at public festivals. The UK has issued a four-day amber heat warning beginning Monday.</span></span>
+<span class="summary-full"><span>A significant heat wave is sweeping across western and central Europe, prompting governments to issue high-level health warnings and restrict public activities. In France, authorities placed more than a third of the country under a red heat alert — the highest level — and canceled some outdoor sports events and restricted alcohol consumption at the Fête de la Musique, France's nationwide street music festival. Temperatures in some areas were forecast to reach 42°C by Monday, with forecasters warning levels could approach historic records.
 
 In Paris, the Eiffel Tower and other major venues set up cooling mist stations. Authorities in Rome reported people cooling themselves in public fountains. Spain's Basque region canceled a number of sports and cultural events as a precaution.
 
 In the United Kingdom, the Met Office issued a four-day amber heat warning running from Monday through Thursday, with temperatures potentially reaching 38°C in parts of England. Heat-related illness and disruption to transport infrastructure are among the concerns flagged by officials.
 
 Heat waves of this intensity in Europe have become more frequent over recent decades and carry significant public health consequences, particularly for elderly populations and those with existing health conditions. Authorities across affected countries urged residents to stay hydrated, limit outdoor activity during peak afternoon heat, and check on vulnerable neighbors.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.bbc.com/weather/articles/c932k0lewygo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.bbc.com/weather/articles/c932k0lewygo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cgmdw4vn7y2o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cgmdw4vn7y2o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/world/france-restricts-public-drinking-and-outdoor-sports-as-heat-wave-bakes-parts-of-europe" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/world/france-restricts-public-drinking-and-outdoor-sports-as-heat-wave-bakes-parts-of-europe" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/world/2026/jun/21/france-cancels-events-restricts-alcohol-consumption-music-festival-heatwave" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/world/2026/jun/21/france-cancels-events-restricts-alcohol-consumption-music-festival-heatwave" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_11">
-          <h2 class="article-headline">California Governor Declares Emergency as Multi-Day Warehouse Fire Continues Burning in Los Angeles</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>California Governor Gavin Newsom declared a state of emergency for Los Angeles as firefighters continued to battle a warehouse blaze that has burned for multiple days and spread smoke across the metropolitan area.</span></span>
-            <span class="summary-full"><span>California Governor Gavin Newsom declared a state of emergency for the city of Los Angeles on Saturday as a warehouse fire that had burned for several days remained uncontained, producing heavy smoke across the wider metropolitan region.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_11">
+<h2 class="article-headline">California Governor Declares Emergency as Multi-Day Warehouse Fire Continues Burning in Los Angeles</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>California Governor Gavin Newsom declared a state of emergency for Los Angeles as firefighters continued to battle a warehouse blaze that has burned for multiple days and spread smoke across the metropolitan area.</span></span>
+<span class="summary-full"><span>California Governor Gavin Newsom declared a state of emergency for the city of Los Angeles on Saturday as a warehouse fire that had burned for several days remained uncontained, producing heavy smoke across the wider metropolitan region.
 
 The emergency declaration enables the state to deploy additional resources to support local firefighting efforts and access additional funding for the response. Firefighters had struggled to extinguish the blaze due to the nature of the warehouse structure and its contents, which have not been fully specified in available reports.
 
 The fire's multi-day duration and the scale of smoke emissions prompted ongoing public health concerns for residents across a large section of the Los Angeles area. Authorities had not announced full containment as of the time of reporting.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/21/los-angeles-warehouse-fire" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/21/los-angeles-warehouse-fire" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_12">
-          <h2 class="article-headline">Wildfires Spread in the US West Under Hot and Dry Conditions</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A wildfire in Utah's Juab County burned approximately 34 square miles and forced the evacuation of the town of Eureka, as dry and windy conditions fueled fire activity across parts of the western United States.</span></span>
-            <span class="summary-full"><span>Dry heat and high winds contributed to rapidly growing wildfire activity in the western United States over the weekend. In Utah's Juab County, the Iron Fire — first detected Saturday — had burned roughly 34 square miles and prompted the evacuation of Eureka, a town of approximately 1,000 residents located about 70 miles southwest of Salt Lake City, as well as people at a nearby ranch.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_12">
+<h2 class="article-headline">Wildfires Spread in the US West Under Hot and Dry Conditions</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A wildfire in Utah's Juab County burned approximately 34 square miles and forced the evacuation of the town of Eureka, as dry and windy conditions fueled fire activity across parts of the western United States.</span></span>
+<span class="summary-full"><span>Dry heat and high winds contributed to rapidly growing wildfire activity in the western United States over the weekend. In Utah's Juab County, the Iron Fire — first detected Saturday — had burned roughly 34 square miles and prompted the evacuation of Eureka, a town of approximately 1,000 residents located about 70 miles southwest of Salt Lake City, as well as people at a nearby ranch.
 
 The combination of drought conditions, elevated temperatures, and wind has created elevated fire risk across much of the region, consistent with seasonal patterns that have grown more pronounced in recent years. No details on containment levels or structural damage were available at the time of reporting.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/nation/heat-wind-and-drought-conditions-spark-wildfires-in-the-u-s-west" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.pbs.org/newshour/nation/heat-wind-and-drought-conditions-spark-wildfires-in-the-u-s-west" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">ECONOMY</div>
-        
-        <div class="article article-medium" id="story_6">
-          <h2 class="article-headline">Trump Says Apple Will Purchase Computer Chips from Intel</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>President Trump stated that Apple will buy computer chips from Intel, a development that would be significant for Intel, which sold a 10 percent stake to the US government last year. Neither company has publicly confirmed the arrangement.</span></span>
-            <span class="summary-full"><span>President Trump announced that Apple will purchase computer chips from Intel, though neither company has issued a public statement confirming the deal. If finalized, the arrangement would represent a meaningful new revenue source for Intel, which has faced competitive and financial pressures in recent years.
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">ECONOMY</div>
+<div class="article article-medium" id="story_6">
+<h2 class="article-headline">Trump Says Apple Will Purchase Computer Chips from Intel</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>President Trump stated that Apple will buy computer chips from Intel, a development that would be significant for Intel, which sold a 10 percent stake to the US government last year. Neither company has publicly confirmed the arrangement.</span></span>
+<span class="summary-full"><span>President Trump announced that Apple will purchase computer chips from Intel, though neither company has issued a public statement confirming the deal. If finalized, the arrangement would represent a meaningful new revenue source for Intel, which has faced competitive and financial pressures in recent years.
 
 Intel's relationship with the US government deepened last year when it sold a 10 percent equity stake to the federal government, as part of broader efforts to strengthen domestic semiconductor manufacturing capacity under the CHIPS Act framework. A supply agreement with Apple — one of the world's largest technology companies — would mark a significant shift, as Apple has largely moved away from Intel processors in recent years in favor of its own custom-designed chips.
 
 The announcement was made by the president rather than the companies involved, and the terms, timeline, and scope of any potential agreement have not been publicly detailed.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/18/technology/apple-intel-trump-chips.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/18/technology/apple-intel-trump-chips.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SPORTS</div>
-        
-        <div class="article article-medium" id="story_13">
-          <h2 class="article-headline">Serena Williams Receives Wimbledon Wildcard for First Singles Appearance Since 2022 Retirement</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Serena Williams has been granted a wildcard entry to compete in singles at Wimbledon, marking her first singles appearance since she retired following the 2022 US Open.</span></span>
-            <span class="summary-full"><span>Serena Williams will return to singles competition at Wimbledon after receiving a wildcard entry, tournament organizers announced Sunday. The appearance will be Williams's first in singles play in nearly four years, following her retirement from professional tennis after the 2022 US Open.
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SPORTS</div>
+<div class="article article-medium" id="story_13">
+<h2 class="article-headline">Serena Williams Receives Wimbledon Wildcard for First Singles Appearance Since 2022 Retirement</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Serena Williams has been granted a wildcard entry to compete in singles at Wimbledon, marking her first singles appearance since she retired following the 2022 US Open.</span></span>
+<span class="summary-full"><span>Serena Williams will return to singles competition at Wimbledon after receiving a wildcard entry, tournament organizers announced Sunday. The appearance will be Williams's first in singles play in nearly four years, following her retirement from professional tennis after the 2022 US Open.
 
 Williams, who holds 23 Grand Slam singles titles, is widely considered one of the most accomplished players in the history of the sport. She won Wimbledon seven times during her career. Her return to the tournament where she achieved much of her success is expected to draw considerable attention to the event, which begins later in June.
 
 The nature of a wildcard entry means Williams did not qualify through the standard ranking system, which would reflect her years away from competitive play. Wildcards are allocated at the discretion of tournament organizers and are frequently used to include high-profile players returning from injury or absence.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/sport/2026/jun/21/serena-williams-wimbledon-singles-comeback-handed-wildcard-tennis" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/sport/2026/jun/21/serena-williams-wimbledon-singles-comeback-handed-wildcard-tennis" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/sport/tennis/articles/cn8kz0vm4d2o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/sport/tennis/articles/cn8kz0vm4d2o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="difficult-section">
-          <details>
-            <summary class="difficult-toggle">
-              <span class="difficult-caret">&#9658;</span>
-              <span class="difficult-label">Difficult News</span>
-            </summary>
-            <p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
-            <div class="difficult-content">
-              
-              <div class="article article-medium" id="story_14">
-                <h2 class="article-headline">Fatal Crash in Texas Involves Vehicle Reported to Be Using Automated Driving System</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-1-diff">
-                  <span class="summary-brief"><span>A woman was killed when a Tesla traveling in Harris County, Texas, left the roadway and struck a house. The driver told investigators the vehicle's automated driving system was active at the time.</span></span>
-                  <span class="summary-full"><span>A woman died after a Tesla vehicle left a roadway and crashed into a house in Harris County, Texas. The driver reported to investigators that the vehicle's automated driving assistance system was engaged at the time of the crash.
+</li>
+</ul>
+</div>
+</div>
+<div class="difficult-section">
+<details>
+<summary class="difficult-toggle">
+<span class="difficult-caret">►</span>
+<span class="difficult-label">Difficult News</span>
+</summary>
+<p class="difficult-subtext">Stories of tragedy and violence — expand only if you choose to</p>
+<div class="difficult-content">
+<div class="article article-medium" id="story_14">
+<h2 class="article-headline">Fatal Crash in Texas Involves Vehicle Reported to Be Using Automated Driving System</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-1-diff">
+<span class="summary-brief"><span>A woman was killed when a Tesla traveling in Harris County, Texas, left the roadway and struck a house. The driver told investigators the vehicle's automated driving system was active at the time.</span></span>
+<span class="summary-full"><span>A woman died after a Tesla vehicle left a roadway and crashed into a house in Harris County, Texas. The driver reported to investigators that the vehicle's automated driving assistance system was engaged at the time of the crash.
 
 The incident adds to an ongoing record of crashes involving automated or partially automated driving systems that are under scrutiny by federal safety regulators. The National Highway Traffic Safety Administration has previously examined multiple incidents involving Tesla's driver-assistance technology, which requires the driver to remain attentive and in control despite its name.
 
 Authorities have not specified what caused the vehicle to leave the road, and the investigation is continuing.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.nytimes.com/2026/06/21/us/tesla-autopilot-crash-texas.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/21/us/tesla-autopilot-crash-texas.html" rel="noopener" target="_blank">
                         The New York Times
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-              <div class="article article-short" id="story_15">
-                <h2 class="article-headline">Seven People Killed in Series of Shootings Across Chicago Over the Weekend</h2>
-                <div class="summary-toggle">
-                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
-                </div>
-                <div class="summary-text" id="summary-2-diff">
-                  <span class="summary-brief"><span>Seven people were killed and dozens more were injured in at least two dozen shooting incidents across Chicago between Friday evening and Sunday, according to preliminary information from Chicago police.</span></span>
-                  <span class="summary-full"><span>Chicago police reported that at least seven people were killed and dozens injured in a series of shootings that occurred across the city beginning Friday evening. Preliminary information indicated at least 24 separate shooting incidents took place over the weekend period.
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-short" id="story_15">
+<h2 class="article-headline">Seven People Killed in Series of Shootings Across Chicago Over the Weekend</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text" id="summary-2-diff">
+<span class="summary-brief"><span>Seven people were killed and dozens more were injured in at least two dozen shooting incidents across Chicago between Friday evening and Sunday, according to preliminary information from Chicago police.</span></span>
+<span class="summary-full"><span>Chicago police reported that at least seven people were killed and dozens injured in a series of shootings that occurred across the city beginning Friday evening. Preliminary information indicated at least 24 separate shooting incidents took place over the weekend period.
 
 Weekend gun violence in Chicago has been a persistent pattern, with elevated incident counts typically occurring during warmer months. The city has been a focal point of national policy discussions about urban gun violence, policing strategies, and community intervention programs. No specific incidents or locations were detailed in the available reporting.</span></span>
-                </div>
-                
-                <div class="sources-toggle">
-                  <button class="sources-toggle-btn" aria-expanded="false">
-                    <span class="sources-caret">›</span> Sources
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
                   </button>
-                  <ul class="sources-list">
-                    
-                    <li>
-                      <a href="https://www.pbs.org/newshour/nation/7-killed-and-dozens-injured-following-series-of-weekend-shootings-in-chicago" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.pbs.org/newshour/nation/7-killed-and-dozens-injured-following-series-of-weekend-shootings-in-chicago" rel="noopener" target="_blank">
                         PBS NewsHour
                       </a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-            </div>
-          </details>
-        </div>
-      
-    
+</li>
+</ul>
+</div>
+</div>
+</div>
+</details>
+</div>
+<!-- Footer -->
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+<div class="archive-link-section"><a class="archive-link" href="/archive.html">Browse past editions →</a></div>
+<footer class="footer">
+<p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
-      <p style="margin-top:0.75rem;"><a href="2026-06-21-pm-sources.html">Sources for this digest →</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<p style="margin-top:0.75rem;"><a href="2026-06-21-pm-sources.html">Sources for this digest →</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-
 <script>
   // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
@@ -1422,34 +1234,6 @@ Weekend gun violence in Chicago has been a persistent pattern, with elevated inc
     btn.setAttribute('aria-expanded', String(!expanded));
   });
 
-  function toggleMobileArchive() {
-    var panel = document.getElementById('mobile-archive-panel');
-    var toggle = document.getElementById('mobile-toggle');
-    var isOpen = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  }
-
-  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
-  // always show all editions regardless of which page was generated.
-  (function() {
-    var current = '2026-06-21-pm.html';
-    fetch('archive.json?v=' + Date.now())
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-        var mob = document.getElementById('mobile-archive-panel');
-        if (mob) mob.innerHTML = '<div class="mobile-archive-title">Past Editions</div>' + html;
-      })
-      .catch(function() {});
-  })();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');

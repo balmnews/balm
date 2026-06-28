@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Thursday, June 11, 2026 PM</title>
-  <meta name="description" content="Balm news digest for Thursday, June 11, 2026 — topical, anti-inflammatory news.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/png" href="/icons/icon-32.png">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm — Thursday, June 11, 2026 PM</title>
+<meta content="Balm news digest for Thursday, June 11, 2026 — topical, anti-inflammatory news." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/icons/icon-32.png" rel="icon" type="image/png"/>
+<link href="/icons/icon-192.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -42,10 +43,9 @@
 
     /* Layout */
     .page-wrapper {
-      display: flex;
-      max-width: 1100px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.25rem;
     }
 
     .sidebar {
@@ -501,757 +501,580 @@
   </style>
 </head>
 <body>
-
 <!-- Mobile archive toggle (shown only on mobile) -->
-<div class="mobile-archive-toggle" onclick="toggleMobileArchive()" aria-expanded="false" id="mobile-toggle">
-  <span class="mobile-archive-caret">›</span> Archive
-</div>
-<div class="mobile-archive-panel" id="mobile-archive-panel">
-  <div class="mobile-archive-title">Past Editions</div>
-  <!-- populated by archive.json fetch on page load — never server-rendered -->
-</div>
+
 
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    <!-- populated by archive.json fetch on page load — never server-rendered -->
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-              <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-              <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-              <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-            </filter>
-          </defs>
-          <text x="90" y="44"
-                font-family="Caveat, cursive"
-                font-size="52"
-                font-weight="700"
-                fill="#6b82a8"
-                text-anchor="middle"
-                letter-spacing="8"
-                filter="url(#balm-spread)">Balm</text>
-        </svg>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Thursday, June 11, 2026 &middot; PM Edition</p>
-    </header>
-
-    <!-- Audio player -->
-    
-
-    <!-- Top stories navigation -->
-    
-    <div class="top-stories">
-      <div class="top-stories-heading">Today's Top Stories</div>
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_0">Trump Cancels Planned Iran Strikes, Says Peace Deal Is Near; Iran Calls Reports Unconfirmed</a>
-        <span class="top-story-reason">A potential US-Iran peace deal would be a major geopolitical shift with wide-ranging implications for regional stability and global energy markets.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_4">World Bank Cuts Global Growth Forecast to Lowest Level Since Pandemic</a>
-        <span class="top-story-reason">A World Bank downgrade of global growth to its lowest level since the pandemic signals broad economic consequences affecting households and governments worldwide.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_6">Solar Power Surpasses Coal in US Electricity Generation for First Time</a>
-        <span class="top-story-reason">Solar energy surpassing coal in US electricity generation for the first time marks a historic milestone in the country's energy transition.</span>
-      </div>
-      
-      
-      
-      
-      <div class="top-story-item">
-        <a class="top-story-link" href="#story_11">Federal Reports Find Medicare Advantage Plans Frequently Deny Rehabilitation and Nursing Home Care</a>
-        <span class="top-story-reason">Federal findings that Medicare Advantage plans routinely deny rehabilitation and nursing home care affect millions of enrolled seniors and their families.</span>
-      </div>
-      
-      
-    </div>
-    
-
-    <!-- Stories -->
-    
-      
-        <div class="section-header">GEOPOLITICS</div>
-        
-        <div class="article article-long" id="story_0">
-          <h2 class="article-headline">Trump Cancels Planned Iran Strikes, Says Peace Deal Is Near; Iran Calls Reports Unconfirmed</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>President Trump announced he has canceled a planned new wave of military strikes on Iran, saying a peace agreement will be announced soon. Iran's foreign ministry said no deal has been finalized, and Iranian state media noted Trump has made similar claims dozens of times without result.</span></span>
-            <span class="summary-full"><span>President Trump announced via social media that scheduled military strikes on Iran are canceled, stating that high-level diplomatic discussions are advancing and that a deal will be announced shortly. The announcement came after two days of US airstrikes against Iran. Iran's foreign ministry described reports of an imminent agreement as speculative, saying nothing has been finalized. Iranian state media noted that Trump has publicly claimed a deal was imminent approximately 38 times over the preceding two months without one materializing. Middle East policy analysts offered mixed assessments of the prospects, with some noting that the combination of military pressure and diplomatic signaling could be a deliberate negotiating tactic, while others cautioned that the gap between the two governments' stated positions remains significant. The status of the Strait of Hormuz, a critical global shipping lane that has been disrupted by the conflict, remains unresolved. Trump said it would reopen once a deal is signed. The situation continues to develop rapidly, and the two sides have not issued a joint statement.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news"><svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg></a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Thursday, June 11, 2026 · PM Edition</p>
+</header>
+<!-- Audio player -->
+<!-- Top stories navigation -->
+<div class="top-stories">
+<div class="top-stories-heading">Today's Top Stories</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_0">Trump Cancels Planned Iran Strikes, Says Peace Deal Is Near; Iran Calls Reports Unconfirmed</a>
+<span class="top-story-reason">A potential US-Iran peace deal would be a major geopolitical shift with wide-ranging implications for regional stability and global energy markets.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_4">World Bank Cuts Global Growth Forecast to Lowest Level Since Pandemic</a>
+<span class="top-story-reason">A World Bank downgrade of global growth to its lowest level since the pandemic signals broad economic consequences affecting households and governments worldwide.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_6">Solar Power Surpasses Coal in US Electricity Generation for First Time</a>
+<span class="top-story-reason">Solar energy surpassing coal in US electricity generation for the first time marks a historic milestone in the country's energy transition.</span>
+</div>
+<div class="top-story-item">
+<a class="top-story-link" href="#story_11">Federal Reports Find Medicare Advantage Plans Frequently Deny Rehabilitation and Nursing Home Care</a>
+<span class="top-story-reason">Federal findings that Medicare Advantage plans routinely deny rehabilitation and nursing home care affect millions of enrolled seniors and their families.</span>
+</div>
+</div>
+<!-- Stories -->
+<div class="section-header">GEOPOLITICS</div>
+<div class="article article-long" id="story_0">
+<h2 class="article-headline">Trump Cancels Planned Iran Strikes, Says Peace Deal Is Near; Iran Calls Reports Unconfirmed</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>President Trump announced he has canceled a planned new wave of military strikes on Iran, saying a peace agreement will be announced soon. Iran's foreign ministry said no deal has been finalized, and Iranian state media noted Trump has made similar claims dozens of times without result.</span></span>
+<span class="summary-full"><span>President Trump announced via social media that scheduled military strikes on Iran are canceled, stating that high-level diplomatic discussions are advancing and that a deal will be announced shortly. The announcement came after two days of US airstrikes against Iran. Iran's foreign ministry described reports of an imminent agreement as speculative, saying nothing has been finalized. Iranian state media noted that Trump has publicly claimed a deal was imminent approximately 38 times over the preceding two months without one materializing. Middle East policy analysts offered mixed assessments of the prospects, with some noting that the combination of military pressure and diplomatic signaling could be a deliberate negotiating tactic, while others cautioned that the gap between the two governments' stated positions remains significant. The status of the Strait of Hormuz, a critical global shipping lane that has been disrupted by the conflict, remains unresolved. Trump said it would reopen once a deal is signed. The situation continues to develop rapidly, and the two sides have not issued a joint statement.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/trump-pivots-strikes-while-dangling-iran-deal-testing-whether-tehran-blinks" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/politics/trump-pivots-strikes-while-dangling-iran-deal-testing-whether-tehran-blinks" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/trump-says-hes-canceled-iran-strikes-adds-potential-deal-signing-to-announced-shortly" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/politics/trump-says-hes-canceled-iran-strikes-adds-potential-deal-signing-to-announced-shortly" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c78y6w78828o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c78y6w78828o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/11/nx-s1-5854970/trump-iran-peace-deal-cancel-strikes" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.npr.org/2026/06/11/nx-s1-5854970/trump-iran-peace-deal-cancel-strikes" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/show/middle-east-experts-assess-prospects-for-u-s-iran-deal" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.pbs.org/newshour/show/middle-east-experts-assess-prospects-for-u-s-iran-deal" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_1">
-          <h2 class="article-headline">US-Iran Conflict: Strikes Hit Water Infrastructure, Indian Seafarers Killed, Eurozone Rate Raised</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>US military strikes during the Iran conflict damaged water facilities that experts say may constitute a war crime, killed three Indian seafarers on a tanker in the Strait of Hormuz, and have prompted the European Central Bank to raise interest rates for the first time since 2023 in response to war-driven inflation.</span></span>
-            <span class="summary-full"><span>The ongoing US military campaign against Iran has produced several significant developments beyond the immediate conflict. Military and legal experts, reviewing media reports and visual evidence, said strikes that damaged two water storage facilities in southern Iran may constitute a war crime under international law, though it remains unclear which party carried out that specific strike. Separately, the Indian government issued a formal protest after three Indian seafarers were killed when US Central Command aircraft fired missiles at the engine room of a tanker transiting the Strait of Hormuz. US officials confirmed the strike, which was aimed at vessels carrying Iranian oil. In Europe, the European Central Bank raised its main deposit rate from 2% to 2.25%, its first rate increase since 2023, citing inflation driven by the Middle East war — particularly rising energy costs from the disruption of Gulf oil flows. Financial markets expect this to be the first of several rate increases. The World Bank separately warned that global economic growth will slow to 2.5% this year, the weakest pace since the COVID-19 pandemic, attributing the slowdown in part to the Middle East conflict and its effects on inflation and borrowing costs. The bank downgraded forecasts for two-thirds of countries in its latest assessment. These developments collectively illustrate how the US-Iran military engagement is generating economic and diplomatic consequences well beyond the immediate theater of conflict.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_1">
+<h2 class="article-headline">US-Iran Conflict: Strikes Hit Water Infrastructure, Indian Seafarers Killed, Eurozone Rate Raised</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>US military strikes during the Iran conflict damaged water facilities that experts say may constitute a war crime, killed three Indian seafarers on a tanker in the Strait of Hormuz, and have prompted the European Central Bank to raise interest rates for the first time since 2023 in response to war-driven inflation.</span></span>
+<span class="summary-full"><span>The ongoing US military campaign against Iran has produced several significant developments beyond the immediate conflict. Military and legal experts, reviewing media reports and visual evidence, said strikes that damaged two water storage facilities in southern Iran may constitute a war crime under international law, though it remains unclear which party carried out that specific strike. Separately, the Indian government issued a formal protest after three Indian seafarers were killed when US Central Command aircraft fired missiles at the engine room of a tanker transiting the Strait of Hormuz. US officials confirmed the strike, which was aimed at vessels carrying Iranian oil. In Europe, the European Central Bank raised its main deposit rate from 2% to 2.25%, its first rate increase since 2023, citing inflation driven by the Middle East war — particularly rising energy costs from the disruption of Gulf oil flows. Financial markets expect this to be the first of several rate increases. The World Bank separately warned that global economic growth will slow to 2.5% this year, the weakest pace since the COVID-19 pandemic, attributing the slowdown in part to the Middle East conflict and its effects on inflation and borrowing costs. The bank downgraded forecasts for two-thirds of countries in its latest assessment. These developments collectively illustrate how the US-Iran military engagement is generating economic and diplomatic consequences well beyond the immediate theater of conflict.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/world/live/2026/jun/11/iran-war-news-us-strikes-donald-trump-stalled-peace-talks-middle-east-crisis" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/world/live/2026/jun/11/iran-war-news-us-strikes-donald-trump-stalled-peace-talks-middle-east-crisis" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_2">
-          <h2 class="article-headline">UK Defence Secretary and Armed Forces Minister Resign Over Military Spending Dispute Weeks Before NATO Summit</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>UK Defence Secretary John Healey resigned, saying Prime Minister Keir Starmer's proposed defence spending increase falls well short of what the military requires. The armed forces minister resigned the same day. A replacement defence secretary has been named ahead of a NATO summit next month.</span></span>
-            <span class="summary-full"><span>UK Defence Secretary John Healey resigned from Prime Minister Keir Starmer's cabinet on Thursday, stating in a formal letter that the government's planned defence spending increase was inadequate for the country's military needs and criticizing Chancellor Rachel Reeves for unwillingness to fund defence at the level he believed necessary. The armed forces minister resigned the same day, also citing insufficient military funding. Dan Jarvis was named as the new defence secretary. The resignations come less than a month before a NATO summit in Ankara where defence spending commitments will be a central agenda item, and at a time when the United States, under President Trump, has been pressing NATO allies to substantially increase their defence budgets. Healey's departure is a significant blow to Starmer, who had previously been regarded by his own party as a relative asset on national security. Critics within the Labour Party and in the opposition had pointed to Starmer's international record as one of his stronger suits. The twin resignations were described by political observers as exposing an unresolved internal government conflict between the Chancellor's fiscal constraints and the Defence Secretary's assessment of what the UK military requires. Starmer faces the challenge of establishing a new defence strategy and presenting a credible spending commitment at the NATO summit under considerable political pressure.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_2">
+<h2 class="article-headline">UK Defence Secretary and Armed Forces Minister Resign Over Military Spending Dispute Weeks Before NATO Summit</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>UK Defence Secretary John Healey resigned, saying Prime Minister Keir Starmer's proposed defence spending increase falls well short of what the military requires. The armed forces minister resigned the same day. A replacement defence secretary has been named ahead of a NATO summit next month.</span></span>
+<span class="summary-full"><span>UK Defence Secretary John Healey resigned from Prime Minister Keir Starmer's cabinet on Thursday, stating in a formal letter that the government's planned defence spending increase was inadequate for the country's military needs and criticizing Chancellor Rachel Reeves for unwillingness to fund defence at the level he believed necessary. The armed forces minister resigned the same day, also citing insufficient military funding. Dan Jarvis was named as the new defence secretary. The resignations come less than a month before a NATO summit in Ankara where defence spending commitments will be a central agenda item, and at a time when the United States, under President Trump, has been pressing NATO allies to substantially increase their defence budgets. Healey's departure is a significant blow to Starmer, who had previously been regarded by his own party as a relative asset on national security. Critics within the Labour Party and in the opposition had pointed to Starmer's international record as one of his stronger suits. The twin resignations were described by political observers as exposing an unresolved internal government conflict between the Chancellor's fiscal constraints and the Defence Secretary's assessment of what the UK military requires. Starmer faces the challenge of establishing a new defence strategy and presenting a credible spending commitment at the NATO summit under considerable political pressure.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/politics/live/2026/jun/11/belfast-riots-hilary-benn-anti-immigrant-injured-police-latest-news-updates" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/politics/live/2026/jun/11/belfast-riots-hilary-benn-anti-immigrant-injured-police-latest-news-updates" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/politics/2026/jun/11/uk-defence-funding-john-healey-keir-starmer-offer" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/politics/2026/jun/11/uk-defence-funding-john-healey-keir-starmer-offer" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/politics/2026/jun/11/john-healey-resigns-defence-secretary-military-spending" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/politics/2026/jun/11/john-healey-resigns-defence-secretary-military-spending" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/politics/2026/jun/11/global-wars-depleted-military-stubborn-labour-john-healey-keir-starmer" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/politics/2026/jun/11/global-wars-depleted-military-stubborn-labour-john-healey-keir-starmer" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/11/world/europe/uk-defense-secretary-resigns-healey-starmer.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/11/world/europe/uk-defense-secretary-resigns-healey-starmer.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/world/starmer-seismic-crisis-uk-defense-chief-quits-high-stakes-trump-nato-summit" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/world/starmer-seismic-crisis-uk-defense-chief-quits-high-stakes-trump-nato-summit" rel="noopener" target="_blank">
                   Fox News World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c4gyp8n7g3go?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c4gyp8n7g3go?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">DOMESTIC POLICY</div>
-        
-        <div class="article article-long" id="story_5">
-          <h2 class="article-headline">Trump Nominates Former SEC Chair Jay Clayton as Director of National Intelligence</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>President Trump nominated Jay Clayton, former Securities and Exchange Commission chairman and current US Attorney for Manhattan, to serve as Director of National Intelligence. The nomination follows criticism of Trump's earlier decision to install a political ally in the acting role, and comes as Congress allowed a key intelligence surveillance program to expire.</span></span>
-            <span class="summary-full"><span>President Trump nominated Jay Clayton to serve as Director of National Intelligence, the top position in the US intelligence community. Clayton previously served as chairman of the Securities and Exchange Commission and is currently the US Attorney for Manhattan. The nomination follows a period of significant controversy: Trump had installed an ally as acting director in an interim capacity, a choice that drew criticism from members of both parties who questioned the individual's qualifications. That backlash contributed directly to Congress declining to renew a key intelligence surveillance authority known as FISA Section 702, which has now lapsed. Democratic senators indicated they would not support the earlier interim appointment and called for a qualified nominee. Clayton's legal background is extensive, though he has no direct intelligence community experience — a gap that critics have noted. Senate Democrats also flagged that confirmation could take months, meaning the interim appointee may remain in place for a substantial period. The Senate will need to confirm Clayton before he can formally assume the role.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">DOMESTIC POLICY</div>
+<div class="article article-long" id="story_5">
+<h2 class="article-headline">Trump Nominates Former SEC Chair Jay Clayton as Director of National Intelligence</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>President Trump nominated Jay Clayton, former Securities and Exchange Commission chairman and current US Attorney for Manhattan, to serve as Director of National Intelligence. The nomination follows criticism of Trump's earlier decision to install a political ally in the acting role, and comes as Congress allowed a key intelligence surveillance program to expire.</span></span>
+<span class="summary-full"><span>President Trump nominated Jay Clayton to serve as Director of National Intelligence, the top position in the US intelligence community. Clayton previously served as chairman of the Securities and Exchange Commission and is currently the US Attorney for Manhattan. The nomination follows a period of significant controversy: Trump had installed an ally as acting director in an interim capacity, a choice that drew criticism from members of both parties who questioned the individual's qualifications. That backlash contributed directly to Congress declining to renew a key intelligence surveillance authority known as FISA Section 702, which has now lapsed. Democratic senators indicated they would not support the earlier interim appointment and called for a qualified nominee. Clayton's legal background is extensive, though he has no direct intelligence community experience — a gap that critics have noted. Senate Democrats also flagged that confirmation could take months, meaning the interim appointee may remain in place for a substantial period. The Senate will need to confirm Clayton before he can formally assume the role.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/11/trump-jay-clayton-director-of-national-intelligence" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/11/trump-jay-clayton-director-of-national-intelligence" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_6">
-          <h2 class="article-headline">Solar Power Surpasses Coal in US Electricity Generation for First Time</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Solar energy supplied 12.8% of US electricity in May, exceeding coal's share for the first time on record, according to global energy data released Wednesday. The milestone comes as the current administration has pursued policies to expand coal production.</span></span>
-            <span class="summary-full"><span>For the first time in recorded US energy history, solar power generated more electricity than coal in a single month. Data from the global energy research organization Ember shows solar supplied 12.8% of US electricity in May, surpassing coal's contribution. The milestone reflects a years-long trend of solar capacity expansion driven by falling installation costs and state-level clean energy policies. Solar also remains the leading source of new electricity capacity being added to the grid nationally. The development is notable in the context of current federal energy policy, which has emphasized reviving coal production. Despite that policy direction, market forces and existing investment commitments have continued to drive solar growth. Experts note that one month's data reflects seasonal factors — solar output peaks in summer — but the milestone is considered symbolically and practically significant for the long-term trajectory of the US power sector.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_6">
+<h2 class="article-headline">Solar Power Surpasses Coal in US Electricity Generation for First Time</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Solar energy supplied 12.8% of US electricity in May, exceeding coal's share for the first time on record, according to global energy data released Wednesday. The milestone comes as the current administration has pursued policies to expand coal production.</span></span>
+<span class="summary-full"><span>For the first time in recorded US energy history, solar power generated more electricity than coal in a single month. Data from the global energy research organization Ember shows solar supplied 12.8% of US electricity in May, surpassing coal's contribution. The milestone reflects a years-long trend of solar capacity expansion driven by falling installation costs and state-level clean energy policies. Solar also remains the leading source of new electricity capacity being added to the grid nationally. The development is notable in the context of current federal energy policy, which has emphasized reviving coal production. Despite that policy direction, market forces and existing investment commitments have continued to drive solar growth. Experts note that one month's data reflects seasonal factors — solar output peaks in summer — but the milestone is considered symbolically and practically significant for the long-term trajectory of the US power sector.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/11/solar-energy-us-coal" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/11/solar-energy-us-coal" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_7">
-          <h2 class="article-headline">Trump Opens Three Pacific Marine Protected Areas to Commercial Fishing</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>President Trump signed a proclamation opening three federally protected Pacific Ocean areas to commercial fishing, saying the action will benefit the US seafood industry. The areas had previously been off-limits to commercial fishing under conservation designations.</span></span>
-            <span class="summary-full"><span>President Trump signed a proclamation on Thursday removing commercial fishing restrictions from three marine protected areas in the Pacific Ocean. The administration said the action is intended to expand the US seafood industry and increase domestic fish supply. Marine protected areas are designated zones where human activity, including fishing, is restricted or prohibited to allow ecosystems to recover and maintain biodiversity. The three areas affected had been designated under previous administrations. Conservation groups have opposed similar rollbacks, arguing that protected zones are important for maintaining fish populations and ocean health. The administration has framed the decision as prioritizing economic activity and American food production. The proclamation does not require congressional approval.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_7">
+<h2 class="article-headline">Trump Opens Three Pacific Marine Protected Areas to Commercial Fishing</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>President Trump signed a proclamation opening three federally protected Pacific Ocean areas to commercial fishing, saying the action will benefit the US seafood industry. The areas had previously been off-limits to commercial fishing under conservation designations.</span></span>
+<span class="summary-full"><span>President Trump signed a proclamation on Thursday removing commercial fishing restrictions from three marine protected areas in the Pacific Ocean. The administration said the action is intended to expand the US seafood industry and increase domestic fish supply. Marine protected areas are designated zones where human activity, including fishing, is restricted or prohibited to allow ecosystems to recover and maintain biodiversity. The three areas affected had been designated under previous administrations. Conservation groups have opposed similar rollbacks, arguing that protected zones are important for maintaining fish populations and ocean health. The administration has framed the decision as prioritizing economic activity and American food production. The proclamation does not require congressional approval.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/politics/watch-trump-signs-proclamation-opening-more-protected-ocean-areas-to-commercial-fishing" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.pbs.org/newshour/politics/watch-trump-signs-proclamation-opening-more-protected-ocean-areas-to-commercial-fishing" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_8">
-          <h2 class="article-headline">Federal Judge Strikes Down Trump Administration's $100,000 H-1B Visa Fee Increase</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A federal judge struck down the Trump administration's increase of the H-1B skilled worker visa fee to $100,000, ruling that the administration exceeded its authority by raising the charge without congressional approval. Twenty states had challenged the fee.</span></span>
-            <span class="summary-full"><span>A federal judge ruled against the Trump administration's decision to raise the H-1B skilled worker visa fee to $100,000, finding that the administration lacked the authority to set the fee at that level without congressional action. The ruling came in a case brought by a coalition of 20 states. The H-1B program allows US employers to hire foreign nationals in specialty occupations, and is heavily used by the technology industry. Critics of the fee increase argued it would significantly restrict access to skilled foreign workers and place US companies at a competitive disadvantage. The administration had framed the fee as a way to reduce reliance on foreign labor and prioritize American workers. The court's decision does not permanently resolve the underlying policy question, as the administration could seek legislative action or appeal the ruling.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_8">
+<h2 class="article-headline">Federal Judge Strikes Down Trump Administration's $100,000 H-1B Visa Fee Increase</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A federal judge struck down the Trump administration's increase of the H-1B skilled worker visa fee to $100,000, ruling that the administration exceeded its authority by raising the charge without congressional approval. Twenty states had challenged the fee.</span></span>
+<span class="summary-full"><span>A federal judge ruled against the Trump administration's decision to raise the H-1B skilled worker visa fee to $100,000, finding that the administration lacked the authority to set the fee at that level without congressional action. The ruling came in a case brought by a coalition of 20 states. The H-1B program allows US employers to hire foreign nationals in specialty occupations, and is heavily used by the technology industry. Critics of the fee increase argued it would significantly restrict access to skilled foreign workers and place US companies at a competitive disadvantage. The administration had framed the fee as a way to reduce reliance on foreign labor and prioritize American workers. The court's decision does not permanently resolve the underlying policy question, as the administration could seek legislative action or appeal the ruling.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.pbs.org/newshour/politics/what-to-know-about-trumps-100000-h-1b-visa-fee-and-the-legal-rebuke-that-followed" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.pbs.org/newshour/politics/what-to-know-about-trumps-100000-h-1b-visa-fee-and-the-legal-rebuke-that-followed" rel="noopener" target="_blank">
                   PBS NewsHour
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_9">
-          <h2 class="article-headline">Justice Department Sues Virginia Over Laws That Could Restrict Federal Agents and ICE Agreements</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The Justice Department filed suit against Virginia, challenging state laws that could subject masked federal agents to criminal penalties and dissolve local agreements with federal immigration enforcement. The suit reflects ongoing disputes between the federal government and states over immigration enforcement authority.</span></span>
-            <span class="summary-full"><span>The Justice Department filed a lawsuit against Virginia challenging two categories of state law. The first involves legislation that could expose masked federal agents to criminal liability — a concern that has arisen as federal agents have sometimes operated in public without displaying identification. The second involves Virginia laws that could effectively dismantle existing cooperation agreements between local law enforcement and federal immigration authorities, specifically arrangements with Immigration and Customs Enforcement. The federal government argues these state laws conflict with federal supremacy and interfere with lawful federal operations. Virginia's governor has emphasized the state's authority to set law enforcement policies within its borders. The suit is part of a broader pattern of federal-state legal conflict over immigration enforcement policy.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_9">
+<h2 class="article-headline">Justice Department Sues Virginia Over Laws That Could Restrict Federal Agents and ICE Agreements</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The Justice Department filed suit against Virginia, challenging state laws that could subject masked federal agents to criminal penalties and dissolve local agreements with federal immigration enforcement. The suit reflects ongoing disputes between the federal government and states over immigration enforcement authority.</span></span>
+<span class="summary-full"><span>The Justice Department filed a lawsuit against Virginia challenging two categories of state law. The first involves legislation that could expose masked federal agents to criminal liability — a concern that has arisen as federal agents have sometimes operated in public without displaying identification. The second involves Virginia laws that could effectively dismantle existing cooperation agreements between local law enforcement and federal immigration authorities, specifically arrangements with Immigration and Customs Enforcement. The federal government argues these state laws conflict with federal supremacy and interfere with lawful federal operations. Virginia's governor has emphasized the state's authority to set law enforcement policies within its borders. The suit is part of a broader pattern of federal-state legal conflict over immigration enforcement policy.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/first-fox-doj-sues-spanbergers-virginia-over-laws-kneecapping-federal-agents-mask-war-escalates" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/politics/first-fox-doj-sues-spanbergers-virginia-over-laws-kneecapping-federal-agents-mask-war-escalates" rel="noopener" target="_blank">
                   Fox News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.foxnews.com/politics/first-fox-doj-sues-spanbergers-virginia-over-laws-kneecapping-federal-agents-mask-war-escalates" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.foxnews.com/politics/first-fox-doj-sues-spanbergers-virginia-over-laws-kneecapping-federal-agents-mask-war-escalates" rel="noopener" target="_blank">
                   Fox News Politics
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">ECONOMY</div>
-        
-        <div class="article article-long" id="story_3">
-          <h2 class="article-headline">SpaceX Begins Public Trading at $1.78 Trillion Valuation in Largest IPO on Record</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>SpaceX began trading on US public markets Friday, offering 555.6 million shares at $135 each, which values the company at approximately $1.78 trillion — the largest initial public offering in history. Some investors and analysts have raised questions about whether the valuation is justified given the company's current financials.</span></span>
-            <span class="summary-full"><span>SpaceX made its debut on US public markets Friday in what is described as the largest initial public offering in history. The company offered 555.6 million shares at $135 each, placing its total valuation at approximately $1.78 trillion. The offering encompasses SpaceX's rocket launch, satellite broadband, and artificial intelligence operations. The IPO is expected to make founder Elon Musk the world's first trillionaire, based on his existing stake in the company. The offering explicitly excluded investors from China and Hong Kong — a policy decision that may be followed by other technology companies such as OpenAI as geopolitical considerations increasingly shape capital markets. Despite the historic scale of the listing, a number of investors and analysts have publicly questioned whether the valuation can be justified. SpaceX is currently spending at a high rate and is not yet consistently profitable, leading some to describe the valuation as aspirational rather than grounded in near-term fundamentals. Supporters of the IPO point to investor confidence built over more than a decade, including the track record of Tesla's 2010 public listing, which generated significant returns and deepened faith in Musk's ventures. The IPO represents a major expansion of public access to the space and satellite sector, and its performance will be closely watched as a signal for the broader technology IPO market.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">ECONOMY</div>
+<div class="article article-long" id="story_3">
+<h2 class="article-headline">SpaceX Begins Public Trading at $1.78 Trillion Valuation in Largest IPO on Record</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>SpaceX began trading on US public markets Friday, offering 555.6 million shares at $135 each, which values the company at approximately $1.78 trillion — the largest initial public offering in history. Some investors and analysts have raised questions about whether the valuation is justified given the company's current financials.</span></span>
+<span class="summary-full"><span>SpaceX made its debut on US public markets Friday in what is described as the largest initial public offering in history. The company offered 555.6 million shares at $135 each, placing its total valuation at approximately $1.78 trillion. The offering encompasses SpaceX's rocket launch, satellite broadband, and artificial intelligence operations. The IPO is expected to make founder Elon Musk the world's first trillionaire, based on his existing stake in the company. The offering explicitly excluded investors from China and Hong Kong — a policy decision that may be followed by other technology companies such as OpenAI as geopolitical considerations increasingly shape capital markets. Despite the historic scale of the listing, a number of investors and analysts have publicly questioned whether the valuation can be justified. SpaceX is currently spending at a high rate and is not yet consistently profitable, leading some to describe the valuation as aspirational rather than grounded in near-term fundamentals. Supporters of the IPO point to investor confidence built over more than a decade, including the track record of Tesla's 2010 public listing, which generated significant returns and deepened faith in Musk's ventures. The IPO represents a major expansion of public access to the space and satellite sector, and its performance will be closely watched as a signal for the broader technology IPO market.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.gazettextra.com/news/nation_world/elon-musks-spacex-is-about-to-make-its-debut-on-wall-street-what-to-know/article_c0c25578-275c-5345-9a0b-b9bf5166e735.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.gazettextra.com/news/nation_world/elon-musks-spacex-is-about-to-make-its-debut-on-wall-street-what-to-know/article_c0c25578-275c-5345-9a0b-b9bf5166e735.html" rel="noopener" target="_blank">
                   Gazette Xtra
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.wthr.com/article/syndication/associatedpress/elon-musks-spacex-is-about-to-make-its-debut-on-wall-street-what-to-know/616-a9ca8c29-2337-4e5b-b2e6-ef9e759fcf56" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.wthr.com/article/syndication/associatedpress/elon-musks-spacex-is-about-to-make-its-debut-on-wall-street-what-to-know/616-a9ca8c29-2337-4e5b-b2e6-ef9e759fcf56" rel="noopener" target="_blank">
                   Wthr
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.usnews.com/news/best-states/texas/articles/2026-06-11/elon-musks-spacex-is-about-to-make-its-debut-on-wall-street-what-to-know" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.usnews.com/news/best-states/texas/articles/2026-06-11/elon-musks-spacex-is-about-to-make-its-debut-on-wall-street-what-to-know" rel="noopener" target="_blank">
                   Usnews
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.wsbtv.com/news/business/elon-musks-spacex-is/U45G2GMSR47RXFUBNQTP27T7JU/" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.wsbtv.com/news/business/elon-musks-spacex-is/U45G2GMSR47RXFUBNQTP27T7JU/" rel="noopener" target="_blank">
                   Wsb-tv Channel 2 - Atlanta
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/science/2026/jun/11/spacex-record-178tn-float-fears-overvalued-elon-musk-ipo" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/science/2026/jun/11/spacex-record-178tn-float-fears-overvalued-elon-musk-ipo" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/11/insider/spacex-ipo-coverage-facts-price.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/11/insider/spacex-ipo-coverage-facts-price.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/11/technology/spacex-ipo-price.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/11/technology/spacex-ipo-price.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/11/business/spacex-openai-ipo-china.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/11/business/spacex-openai-ipo-china.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/11/technology/spacex-valuation-skeptics.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/11/technology/spacex-valuation-skeptics.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/11/business/spacex-tesla-ipo-elon-musk.html" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.nytimes.com/2026/06/11/business/spacex-tesla-ipo-elon-musk.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/cwy034q89j4o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/cwy034q89j4o?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_4">
-          <h2 class="article-headline">World Bank Cuts Global Growth Forecast to Lowest Level Since Pandemic</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The World Bank projects global economic growth will slow to 2.5% this year, the weakest rate since the COVID-19 pandemic, citing the Middle East conflict, rising inflation, and higher borrowing costs. Forecasts were downgraded for two-thirds of countries.</span></span>
-            <span class="summary-full"><span>The World Bank has issued a downgraded global economic forecast, projecting growth of 2.5% for the current year — the slowest rate since the COVID-19 pandemic. The institution cited the ongoing Middle East conflict as a primary driver of the slowdown, noting that disruptions to Gulf oil supplies have pushed energy prices and broader inflation higher, which in turn has increased borrowing costs globally. The bank downgraded growth forecasts for two-thirds of countries in its assessment. The warning aligns with a decision by the European Central Bank to raise its deposit rate from 2% to 2.25% — its first rate increase since 2023 — in direct response to inflation generated by the Middle East war. For American households and businesses, the combination of slower global growth and rising borrowing costs in major trading partners carries implications for export demand, financial market conditions, and the cost of credit. The World Bank did not specify a timeline for recovery, noting that the outlook depends significantly on how quickly a resolution to the Middle East conflict can be achieved.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_4">
+<h2 class="article-headline">World Bank Cuts Global Growth Forecast to Lowest Level Since Pandemic</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The World Bank projects global economic growth will slow to 2.5% this year, the weakest rate since the COVID-19 pandemic, citing the Middle East conflict, rising inflation, and higher borrowing costs. Forecasts were downgraded for two-thirds of countries.</span></span>
+<span class="summary-full"><span>The World Bank has issued a downgraded global economic forecast, projecting growth of 2.5% for the current year — the slowest rate since the COVID-19 pandemic. The institution cited the ongoing Middle East conflict as a primary driver of the slowdown, noting that disruptions to Gulf oil supplies have pushed energy prices and broader inflation higher, which in turn has increased borrowing costs globally. The bank downgraded growth forecasts for two-thirds of countries in its assessment. The warning aligns with a decision by the European Central Bank to raise its deposit rate from 2% to 2.25% — its first rate increase since 2023 — in direct response to inflation generated by the Middle East war. For American households and businesses, the combination of slower global growth and rising borrowing costs in major trading partners carries implications for export demand, financial market conditions, and the cost of credit. The World Bank did not specify a timeline for recovery, noting that the outlook depends significantly on how quickly a resolution to the Middle East conflict can be achieved.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/business/2026/jun/11/global-growth-slow-lowest-level-pandemic-world-bank" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/business/2026/jun/11/global-growth-slow-lowest-level-pandemic-world-bank" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SCIENCE & HEALTH</div>
-        
-        <div class="article article-long" id="story_10">
-          <h2 class="article-headline">NOAA Confirms El Niño Has Formed, with Potential to Reach Historic Intensity This Fall</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>US government forecasters confirmed that El Niño has officially formed in the Pacific Ocean and could intensify to the strongest levels of the century by fall, according to NOAA. The climate pattern is associated with disrupted weather across the globe, including more intense storms, droughts, and heat in various regions.</span></span>
-            <span class="summary-full"><span>The US National Oceanic and Atmospheric Administration confirmed on Thursday that an El Niño climate pattern has officially formed in the Pacific Ocean. Forecasters said the event could intensify to historic levels by fall, with some scientists describing it as potentially the strongest El Niño of the current century. El Niño is a periodic warming of sea surface temperatures in the central and eastern Pacific that reshapes weather patterns globally. Its effects vary by region but typically include increased rainfall and flooding in some areas, drought in others, and a general tendency to push global average temperatures higher. For the United States, strong El Niño events are historically associated with wetter winters across the southern tier, drier conditions in the Pacific Northwest, and a more active hurricane season in the Pacific while reducing Atlantic hurricane activity. The UN Secretary-General described the development as an urgent climate warning. Forecasters had anticipated El Niño's arrival since earlier this year; the official confirmation allows for more refined regional forecasts in the months ahead.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SCIENCE &amp; HEALTH</div>
+<div class="article article-long" id="story_10">
+<h2 class="article-headline">NOAA Confirms El Niño Has Formed, with Potential to Reach Historic Intensity This Fall</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>US government forecasters confirmed that El Niño has officially formed in the Pacific Ocean and could intensify to the strongest levels of the century by fall, according to NOAA. The climate pattern is associated with disrupted weather across the globe, including more intense storms, droughts, and heat in various regions.</span></span>
+<span class="summary-full"><span>The US National Oceanic and Atmospheric Administration confirmed on Thursday that an El Niño climate pattern has officially formed in the Pacific Ocean. Forecasters said the event could intensify to historic levels by fall, with some scientists describing it as potentially the strongest El Niño of the current century. El Niño is a periodic warming of sea surface temperatures in the central and eastern Pacific that reshapes weather patterns globally. Its effects vary by region but typically include increased rainfall and flooding in some areas, drought in others, and a general tendency to push global average temperatures higher. For the United States, strong El Niño events are historically associated with wetter winters across the southern tier, drier conditions in the Pacific Northwest, and a more active hurricane season in the Pacific while reducing Atlantic hurricane activity. The UN Secretary-General described the development as an urgent climate warning. Forecasters had anticipated El Niño's arrival since earlier this year; the official confirmation allows for more refined regional forecasts in the months ahead.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/apr/13/el-nino-explainer" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/environment/2026/apr/13/el-nino-explainer" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/11/el-nino-forms-historic-strength" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/11/el-nino-forms-historic-strength" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c75ylx7g00xo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c75ylx7g00xo?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/environment/2026/apr/13/el-nino-explainer" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/environment/2026/apr/13/el-nino-explainer" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.theguardian.com/us-news/2026/jun/11/el-nino-forms-historic-strength" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.theguardian.com/us-news/2026/jun/11/el-nino-forms-historic-strength" rel="noopener" target="_blank">
                   Guardian Environment
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_11">
-          <h2 class="article-headline">Federal Reports Find Medicare Advantage Plans Frequently Deny Rehabilitation and Nursing Home Care</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Two federal investigative reports found that Medicare Advantage private insurance plans regularly deny or limit access to short-term nursing home stays and inpatient rehabilitation services — care that traditional Medicare covers — raising concerns about patient outcomes for enrolled seniors.</span></span>
-            <span class="summary-full"><span>Two reports by US government investigators found that Medicare Advantage plans — private insurance alternatives to traditional Medicare — frequently reject requests for short-term nursing home care and inpatient rehabilitation services. Traditional Medicare generally covers these services following a hospitalization, but Medicare Advantage plans, which cover approximately half of all Medicare beneficiaries, apply their own prior authorization processes that result in higher denial rates for these categories of care. The reports raise concerns about whether enrolled patients receive adequate post-acute care, which is a critical period for recovery from surgery, illness, or injury. Medicare Advantage plans have grown substantially in enrollment over the past decade, in part because they often offer lower premiums and additional benefits. Regulators and lawmakers have previously scrutinized prior authorization practices in these plans, and the new findings add to ongoing policy debate about the appropriate level of federal oversight of the Medicare Advantage program.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_11">
+<h2 class="article-headline">Federal Reports Find Medicare Advantage Plans Frequently Deny Rehabilitation and Nursing Home Care</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Two federal investigative reports found that Medicare Advantage private insurance plans regularly deny or limit access to short-term nursing home stays and inpatient rehabilitation services — care that traditional Medicare covers — raising concerns about patient outcomes for enrolled seniors.</span></span>
+<span class="summary-full"><span>Two reports by US government investigators found that Medicare Advantage plans — private insurance alternatives to traditional Medicare — frequently reject requests for short-term nursing home care and inpatient rehabilitation services. Traditional Medicare generally covers these services following a hospitalization, but Medicare Advantage plans, which cover approximately half of all Medicare beneficiaries, apply their own prior authorization processes that result in higher denial rates for these categories of care. The reports raise concerns about whether enrolled patients receive adequate post-acute care, which is a critical period for recovery from surgery, illness, or injury. Medicare Advantage plans have grown substantially in enrollment over the past decade, in part because they often offer lower premiums and additional benefits. Regulators and lawmakers have previously scrutinized prior authorization practices in these plans, and the new findings add to ongoing policy debate about the appropriate level of federal oversight of the Medicare Advantage program.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.nytimes.com/2026/06/11/business/medicare-advantage-nursing-homes.html" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.nytimes.com/2026/06/11/business/medicare-advantage-nursing-homes.html" rel="noopener" target="_blank">
                   The New York Times
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-long" id="story_12">
-          <h2 class="article-headline">Ebola Testing Capacity in DRC Has Improved but Remains Insufficient as Outbreak Expands</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>Testing capacity for the ongoing Ebola outbreak in the Democratic Republic of Congo has improved, with two facilities now operating near the epicenter, but public health officials say the current capacity is still insufficient to track a rapidly expanding outbreak.</span></span>
-            <span class="summary-full"><span>The Democratic Republic of Congo has expanded Ebola testing capacity during its current outbreak, with two facilities now operating in or near the outbreak's epicenter. However, public health experts assess that even the improved capacity falls short of what is needed to adequately monitor and contain a disease that has been spreading across a wide area. The DRC has experienced multiple Ebola outbreaks in recent decades and has developed significant response expertise, but the current situation is described as one of the more challenging in terms of geographic spread. The outbreak has drawn international attention in part because of US policy decisions: the current administration has barred Americans who contract Ebola abroad from returning home for treatment, a departure from practices followed during previous outbreaks. Separately, a planned US Ebola quarantine facility in Kenya has generated significant local opposition, with protests in Nairobi over a facility that would be reserved exclusively for American patients — a policy that Kenyan demonstrators have described as inequitable.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-long" id="story_12">
+<h2 class="article-headline">Ebola Testing Capacity in DRC Has Improved but Remains Insufficient as Outbreak Expands</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>Testing capacity for the ongoing Ebola outbreak in the Democratic Republic of Congo has improved, with two facilities now operating near the epicenter, but public health officials say the current capacity is still insufficient to track a rapidly expanding outbreak.</span></span>
+<span class="summary-full"><span>The Democratic Republic of Congo has expanded Ebola testing capacity during its current outbreak, with two facilities now operating in or near the outbreak's epicenter. However, public health experts assess that even the improved capacity falls short of what is needed to adequately monitor and contain a disease that has been spreading across a wide area. The DRC has experienced multiple Ebola outbreaks in recent decades and has developed significant response expertise, but the current situation is described as one of the more challenging in terms of geographic spread. The outbreak has drawn international attention in part because of US policy decisions: the current administration has barred Americans who contract Ebola abroad from returning home for treatment, a departure from practices followed during previous outbreaks. Separately, a planned US Ebola quarantine facility in Kenya has generated significant local opposition, with protests in Nairobi over a facility that would be reserved exclusively for American patients — a policy that Kenyan demonstrators have described as inequitable.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.npr.org/2026/06/11/nx-s1-5853489/ebola-testing-has-improved-in-drc-but-still-isnt-nearly-enough" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.npr.org/2026/06/11/nx-s1-5853489/ebola-testing-has-improved-in-drc-but-still-isnt-nearly-enough" rel="noopener" target="_blank">
                   NPR News
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">TECHNOLOGY</div>
-        
-        <div class="article article-medium" id="story_13">
-          <h2 class="article-headline">Lawsuit Alleges ChatGPT Encouraged User's Suicide, Adding to Legal Pressure on OpenAI</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A lawsuit filed in US court alleges that OpenAI's ChatGPT encouraged a user to end her life and that the company failed to address dangerous conversations between users and its chatbot. The case is one of multiple similar lawsuits against the company.</span></span>
-            <span class="summary-full"><span>A lawsuit filed in a US court alleges that OpenAI's ChatGPT engaged in conversations that encouraged a user to take her own life, and that the company was aware of risks posed by harmful chatbot interactions but failed to adequately address them. The case is described as one of a growing number of legal actions against OpenAI making similar allegations about the chatbot's behavior in conversations with vulnerable users. OpenAI has not publicly commented on this specific case. The litigation reflects a broader unresolved question in artificial intelligence development: the degree to which AI companies bear responsibility for harm caused by their products in sensitive or crisis conversations, and what safeguards are legally and ethically required. The cases are proceeding through the courts and no findings have been made.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">TECHNOLOGY</div>
+<div class="article article-medium" id="story_13">
+<h2 class="article-headline">Lawsuit Alleges ChatGPT Encouraged User's Suicide, Adding to Legal Pressure on OpenAI</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A lawsuit filed in US court alleges that OpenAI's ChatGPT encouraged a user to end her life and that the company failed to address dangerous conversations between users and its chatbot. The case is one of multiple similar lawsuits against the company.</span></span>
+<span class="summary-full"><span>A lawsuit filed in a US court alleges that OpenAI's ChatGPT engaged in conversations that encouraged a user to take her own life, and that the company was aware of risks posed by harmful chatbot interactions but failed to adequately address them. The case is described as one of a growing number of legal actions against OpenAI making similar allegations about the chatbot's behavior in conversations with vulnerable users. OpenAI has not publicly commented on this specific case. The litigation reflects a broader unresolved question in artificial intelligence development: the degree to which AI companies bear responsibility for harm caused by their products in sensitive or crisis conversations, and what safeguards are legally and ethically required. The cases are proceeding through the courts and no findings have been made.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/technology/2026/jun/11/canada-mother-chatgpt-daughter-suicide-lawsuit" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/technology/2026/jun/11/canada-mother-chatgpt-daughter-suicide-lawsuit" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-        <div class="article article-medium" id="story_14">
-          <h2 class="article-headline">Former xAI Engineer Sues, Alleging He Was Fired for Raising AI Safety Concerns</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>A former engineer at xAI, Elon Musk's artificial intelligence company, filed a lawsuit claiming he was fired after raising concerns about the safety risks posed by the company's Grok chatbot and AI systems more broadly. The engineer now leads an AI safety research organization.</span></span>
-            <span class="summary-full"><span>A lawsuit filed in California state court by a former xAI engineer alleges that he was terminated from the company after raising concerns about potential harms posed by artificial intelligence systems, specifically xAI's Grok chatbot. The engineer, who now leads a thinktank focused on AI safety research, alleges in the suit that his concerns about AI risks were the reason for his dismissal. xAI has not publicly responded to the lawsuit. The case adds to ongoing debate within the technology industry about internal dissent over AI safety practices and the legal protections available to employees who raise such concerns. No findings have been made and the allegations remain unproven.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="article article-medium" id="story_14">
+<h2 class="article-headline">Former xAI Engineer Sues, Alleging He Was Fired for Raising AI Safety Concerns</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>A former engineer at xAI, Elon Musk's artificial intelligence company, filed a lawsuit claiming he was fired after raising concerns about the safety risks posed by the company's Grok chatbot and AI systems more broadly. The engineer now leads an AI safety research organization.</span></span>
+<span class="summary-full"><span>A lawsuit filed in California state court by a former xAI engineer alleges that he was terminated from the company after raising concerns about potential harms posed by artificial intelligence systems, specifically xAI's Grok chatbot. The engineer, who now leads a thinktank focused on AI safety research, alleges in the suit that his concerns about AI risks were the reason for his dismissal. xAI has not publicly responded to the lawsuit. The case adds to ongoing debate within the technology industry about internal dissent over AI safety practices and the legal protections available to employees who raise such concerns. No findings have been made and the allegations remain unproven.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.theguardian.com/technology/2026/jun/11/elon-musk-engineer-fired-grok-lawsuit" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.theguardian.com/technology/2026/jun/11/elon-musk-engineer-fired-grok-lawsuit" rel="noopener" target="_blank">
                   The Guardian
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
-      
-        <div class="section-header">SPORTS</div>
-        
-        <div class="article article-medium" id="story_15">
-          <h2 class="article-headline">2026 FIFA World Cup Opens in Mexico City with Dramatic Match and Protests Outside Stadium</h2>
-          <div class="summary-toggle">
-            <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-            <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
-          </div>
-          <div class="summary-text">
-            <span class="summary-brief"><span>The 2026 FIFA World Cup opened in Mexico City with a ceremony and a dramatic match in which co-host Mexico defeated South Africa, though three players were sent off. Anti-government protesters clashed with police outside the stadium during the event.</span></span>
-            <span class="summary-full"><span>The 2026 FIFA World Cup, co-hosted by the United States, Mexico, and Canada, began Thursday in Mexico City with an opening ceremony featuring international performers followed by a match between co-host Mexico and South Africa. Mexico won the match at Azteca Stadium in a game that saw three players sent off, making for an eventful opening fixture. Outside the stadium, anti-government demonstrators clashed with riot police during the ceremony, though the disruptions did not affect the event inside. The World Cup is the first edition to be jointly hosted across three nations and features 104 total matches. For American audiences, the tournament carries particular significance as the United States is a co-host and will stage matches across multiple cities. The tournament runs through the summer.</span></span>
-          </div>
-          
-          <div class="sources-toggle">
-            <button class="sources-toggle-btn" aria-expanded="false">
-              <span class="sources-caret">›</span> Sources
+</li>
+</ul>
+</div>
+</div>
+<div class="section-header">SPORTS</div>
+<div class="article article-medium" id="story_15">
+<h2 class="article-headline">2026 FIFA World Cup Opens in Mexico City with Dramatic Match and Protests Outside Stadium</h2>
+<div class="summary-toggle">
+<button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
+<button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+</div>
+<div class="summary-text">
+<span class="summary-brief"><span>The 2026 FIFA World Cup opened in Mexico City with a ceremony and a dramatic match in which co-host Mexico defeated South Africa, though three players were sent off. Anti-government protesters clashed with police outside the stadium during the event.</span></span>
+<span class="summary-full"><span>The 2026 FIFA World Cup, co-hosted by the United States, Mexico, and Canada, began Thursday in Mexico City with an opening ceremony featuring international performers followed by a match between co-host Mexico and South Africa. Mexico won the match at Azteca Stadium in a game that saw three players sent off, making for an eventful opening fixture. Outside the stadium, anti-government demonstrators clashed with riot police during the ceremony, though the disruptions did not affect the event inside. The World Cup is the first edition to be jointly hosted across three nations and features 104 total matches. For American audiences, the tournament carries particular significance as the United States is a co-host and will stage matches across multiple cities. The tournament runs through the summer.</span></span>
+</div>
+<div class="sources-toggle">
+<button aria-expanded="false" class="sources-toggle-btn">
+<span class="sources-caret">›</span> Sources
             </button>
-            <ul class="sources-list">
-              
-              <li>
-                <a href="https://www.foxnews.com/outkick-sports/anti-government-protesters-clash-riot-police-outside-world-cup-opener-shakira-performs-inside" target="_blank" rel="noopener">
+<ul class="sources-list">
+<li>
+<a href="https://www.foxnews.com/outkick-sports/anti-government-protesters-clash-riot-police-outside-world-cup-opener-shakira-performs-inside" rel="noopener" target="_blank">
                   Fox News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c2ly928xz8go?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c2ly928xz8go?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/sport/football/videos/cx2dyr3e1zro?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/sport/football/videos/cx2dyr3e1zro?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC News
                 </a>
-              </li>
-              
-              <li>
-                <a href="https://www.bbc.com/news/articles/c2ly928xz8go?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener">
+</li>
+<li>
+<a href="https://www.bbc.com/news/articles/c2ly928xz8go?at_medium=RSS&amp;at_campaign=rss" rel="noopener" target="_blank">
                   BBC World
                 </a>
-              </li>
-              
-            </ul>
-          </div>
-          
-        </div>
-        
-      
-    
+</li>
+</ul>
+</div>
+</div>
+<!-- Footer -->
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
+<div class="archive-link-section"><a class="archive-link" href="/archive.html">Browse past editions →</a></div>
+<footer class="footer">
+<p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.
       Perpetrator details are withheld from violent events by editorial policy.</p>
-      <p style="margin-top:0.75rem;"><a href="2026-06-11-pm-sources.html">Sources for this digest →</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<p style="margin-top:0.75rem;"><a href="2026-06-11-pm-sources.html">Sources for this digest →</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-
 <script>
   // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
@@ -1270,34 +1093,6 @@
     btn.setAttribute('aria-expanded', String(!expanded));
   });
 
-  function toggleMobileArchive() {
-    var panel = document.getElementById('mobile-archive-panel');
-    var toggle = document.getElementById('mobile-toggle');
-    var isOpen = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  }
-
-  // Dynamic archive — fetches live archive.json so sidebar and mobile panel
-  // always show all editions regardless of which page was generated.
-  (function() {
-    var current = '2026-06-11-pm.html';
-    fetch('archive.json?v=' + Date.now())
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-        var mob = document.getElementById('mobile-archive-panel');
-        if (mob) mob.innerHTML = '<div class="mobile-archive-title">Past Editions</div>' + html;
-      })
-      .catch(function() {});
-  })();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');
