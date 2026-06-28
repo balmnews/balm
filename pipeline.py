@@ -1370,7 +1370,7 @@ def ensure_static_icons(docs_dir: Path) -> None:
                     return img
 
                 if not icon_32.exists():
-                    _make_icon(32, "B", 22).save(str(icon_32), "PNG")
+                    _make_icon(32, "B", 28).save(str(icon_32), "PNG")
                     print("[OK] icons/icon-32.png created")
 
                 if not icon_192.exists():
@@ -1378,7 +1378,7 @@ def ensure_static_icons(docs_dir: Path) -> None:
                     print("[OK] icons/icon-192.png created")
 
                 if not icon_512.exists():
-                    _make_icon(512, "Balm", 214).save(str(icon_512), "PNG")
+                    _make_icon(512, "Balm", 210).save(str(icon_512), "PNG")
                     print("[OK] icons/icon-512.png created")
 
             finally:
