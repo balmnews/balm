@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Sunday, June 28, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Sunday, June 28, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -153,7 +149,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -168,6 +166,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -206,13 +208,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -320,8 +322,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1167,10 +1174,10 @@ Going into the final matchday of group play, eight teams were competing for four
               <div class="article article-long" id="story_14">
                 <h2 class="article-headline">Venezuela Earthquake Death Toll Reaches 1,430 as Rescue Efforts Continue</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>Twin 7.2 and 7.5 magnitude earthquakes that struck Venezuela's coast have killed at least 1,430 people, injured roughly 3,200, and left an estimated 68,900 unaccounted for, according to government figures. American rescue teams remain on the ground.</span></span>
                   <span class="summary-full"><span>Twin earthquakes measuring 7.2 and 7.5 magnitude struck Venezuela's coastline earlier this week, and the death toll has climbed to at least 1,430, according to National Assembly president Jorge Rodríguez. Approximately 3,200 people were reported injured and 3,100 left homeless. The government separately said families had reported roughly 68,900 people missing, though the basis for that figure was not independently verified.
 
@@ -1261,10 +1268,10 @@ The earthquakes represent one of the most destructive natural disasters in Venez
               <div class="article article-medium" id="story_15">
                 <h2 class="article-headline">Small Plane Crashes Into Beijing's Tallest Skyscraper, Killing Pilot and Injuring 13</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>A small aircraft crashed into the CITIC Tower, Beijing's tallest building at 108 stories, killing the pilot and injuring 13 others. Chinese authorities initially limited public information about the incident.</span></span>
                   <span class="summary-full"><span>A small aircraft struck the CITIC Tower in Beijing — the city's tallest building at 108 stories — killing the pilot and injuring 13 other people. The incident occurred approximately five miles from Communist Party headquarters. Chinese authorities confirmed the pilot's death a day after images of falling debris and plane parts circulated online. Initial official information about the crash was limited.</span></span>
                 </div>
@@ -1317,6 +1324,7 @@ The earthquakes represent one of the most destructive natural disasters in Venez
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1334,7 +1342,7 @@ The earthquakes represent one of the most destructive natural disasters in Venez
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
