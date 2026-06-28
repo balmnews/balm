@@ -1288,117 +1288,80 @@ def _group_by_category(articles: list[dict],
 def ensure_static_icons(docs_dir: Path) -> None:
     """Generate PNG icon files for docs/ using Pillow with Caveat Bold font.
 
-    Downloads the Caveat Bold TTF from GitHub on first run and renders three
-    PNG icons with the correct palette (parchment background, dusty-slate text).
-    Falls back to writing SVG reference files if Pillow or the font download
-    fails. Acts as a self-healing safety net if docs/ is re-initialized without
-    the static assets.
+    Always regenerates all three icons on every call. Uses font.getbbox() for
+    precise centering. No SVG fallback — if the font download fails, icon
+    generation is skipped and an error is printed.
     """
     import tempfile
+    import os as _os
 
     _PARCHMENT = "#f2ede4"
-    _SLATE = "#6b82a8"
+    _SLATE     = "#6b82a8"
     _CAVEAT_TTF_URL = (
         "https://github.com/googlefonts/caveat/raw/main/fonts/ttf/Caveat-Bold.ttf"
-    )
-
-    # SVG reference files — kept for completeness; not used for display.
-    _FAVICON_SVG = (
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">\n'
-        '  <defs>\n'
-        '    <style>@import url(\'https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;display=swap\');</style>\n'
-        '  </defs>\n'
-        '  <rect width="32" height="32" fill="#f2ede4" rx="4"/>\n'
-        '  <text x="16" y="24"\n'
-        '    font-family="Caveat, cursive"\n'
-        '    font-weight="700"\n'
-        '    font-size="24"\n'
-        '    fill="#6b82a8"\n'
-        '    text-anchor="middle">B</text>\n'
-        '</svg>\n'
-    )
-    _ICON_SVG = (
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">\n'
-        '  <defs>\n'
-        '    <style>@import url(\'https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;display=swap\');</style>\n'
-        '  </defs>\n'
-        '  <rect width="192" height="192" fill="#f2ede4"/>\n'
-        '  <text x="96" y="118"\n'
-        '    font-family="Caveat, cursive"\n'
-        '    font-weight="700"\n'
-        '    font-size="72"\n'
-        '    fill="#6b82a8"\n'
-        '    text-anchor="middle"\n'
-        '    letter-spacing="4">Balm</text>\n'
-        '</svg>\n'
     )
 
     icons_dir = docs_dir / "icons"
     icons_dir.mkdir(parents=True, exist_ok=True)
 
-    icon_32  = icons_dir / "icon-32.png"
-    icon_192 = icons_dir / "icon-192.png"
-    icon_512 = icons_dir / "icon-512.png"
+    # Download Caveat Bold TTF.
+    try:
+        resp = requests.get(_CAVEAT_TTF_URL, timeout=15)
+        resp.raise_for_status()
+    except Exception as exc:
+        print(f"[ERROR] ensure_static_icons: font download failed ({exc}); skipping icon generation")
+        return
 
-    png_missing = not (icon_32.exists() and icon_192.exists() and icon_512.exists())
+    ttf_path = None
+    try:
+        from PIL import Image, ImageDraw, ImageFont
 
-    if png_missing:
-        try:
-            from PIL import Image, ImageDraw, ImageFont
+        with tempfile.NamedTemporaryFile(suffix=".ttf", delete=False) as tmp:
+            tmp.write(resp.content)
+            ttf_path = tmp.name
 
-            # Download Caveat Bold TTF to a temporary file.
-            resp = requests.get(_CAVEAT_TTF_URL, timeout=15)
-            resp.raise_for_status()
+        # (canvas_size, text, font_size, output_path)
+        specs = [
+            (32,  "B",    28,  icons_dir / "icon-32.png"),
+            (192, "Balm", 100, icons_dir / "icon-192.png"),
+            (512, "Balm", 260, icons_dir / "icon-512.png"),
+        ]
 
-            with tempfile.NamedTemporaryFile(suffix=".ttf", delete=False) as tmp:
-                tmp.write(resp.content)
-                ttf_path = tmp.name
+        for size, text, font_size, out_path in specs:
+            font = ImageFont.truetype(ttf_path, font_size)
 
+            # font.getbbox returns (left, top, right, bottom) relative to the
+            # draw origin; left/top are non-zero due to font ascent/descent.
+            bbox   = font.getbbox(text)
+            text_w = bbox[2] - bbox[0]
+            text_h = bbox[3] - bbox[1]
+
+            # Shift draw origin so the ink bounding box is centred on canvas.
+            x = (size - text_w) / 2 - bbox[0]
+            y = (size - text_h) / 2 - bbox[1]
+
+            img  = Image.new("RGB", (size, size), _PARCHMENT)
+            draw = ImageDraw.Draw(img)
+            draw.text((x, y), text, fill=_SLATE, font=font)
+            img.save(str(out_path), "PNG")
+
+            cx = x + bbox[0] + text_w / 2
+            cy = y + bbox[1] + text_h / 2
+            print(
+                f"[OK] {out_path.name} ({size}×{size}, {font_size}pt): "
+                f"bbox={bbox} size={text_w}×{text_h} "
+                f"draw_at=({x:.1f},{y:.1f}) "
+                f"ink_center=({cx:.1f},{cy:.1f}) canvas_mid=({size/2},{size/2})"
+            )
+
+    except Exception as exc:
+        print(f"[ERROR] ensure_static_icons: PNG generation failed ({exc})")
+    finally:
+        if ttf_path:
             try:
-                def _make_icon(size: int, text: str, font_size: int) -> "Image.Image":
-                    img = Image.new("RGB", (size, size), _PARCHMENT)
-                    draw = ImageDraw.Draw(img)
-                    font = ImageFont.truetype(ttf_path, font_size)
-                    # textbbox at (0,0) gives (left, top, right, bottom);
-                    # left/top may be non-zero due to font metrics.
-                    bbox = draw.textbbox((0, 0), text, font=font)
-                    text_w = bbox[2] - bbox[0]
-                    text_h = bbox[3] - bbox[1]
-                    x = (size - text_w) / 2 - bbox[0]
-                    y = (size - text_h) / 2 - bbox[1]
-                    draw.text((x, y), text, fill=_SLATE, font=font)
-                    return img
-
-                if not icon_32.exists():
-                    _make_icon(32, "B", 28).save(str(icon_32), "PNG")
-                    print("[OK] icons/icon-32.png created")
-
-                if not icon_192.exists():
-                    _make_icon(192, "Balm", 80).save(str(icon_192), "PNG")
-                    print("[OK] icons/icon-192.png created")
-
-                if not icon_512.exists():
-                    _make_icon(512, "Balm", 210).save(str(icon_512), "PNG")
-                    print("[OK] icons/icon-512.png created")
-
-            finally:
-                import os as _os
-                try:
-                    _os.unlink(ttf_path)
-                except Exception:
-                    pass
-
-        except Exception as exc:
-            print(f"[WARN] PNG icon generation failed ({exc}); browser will use SVG reference files")
-
-    # Always keep SVG reference files present (not used for display).
-    favicon = docs_dir / "favicon.svg"
-    if not favicon.exists():
-        favicon.write_text(_FAVICON_SVG, encoding="utf-8")
-
-    icon_svg = icons_dir / "icon.svg"
-    if not icon_svg.exists():
-        icon_svg.write_text(_ICON_SVG, encoding="utf-8")
+                _os.unlink(ttf_path)
+            except Exception:
+                pass
 
 
 def render_digest(articles: list[dict], date_str: str, run: str, metadata: dict,
