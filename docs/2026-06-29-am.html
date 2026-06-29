@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Monday, June 29, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Monday, June 29, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -153,7 +149,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -168,6 +166,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -206,13 +208,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -320,8 +322,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1311,10 +1318,10 @@ The report adds to a growing body of research suggesting that the gap between ad
               <div class="article article-short" id="story_15">
                 <h2 class="article-headline">Six People Killed in Shooting at Youth Welfare Facility in Northern Germany</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>Six people were killed in a shooting at a youth welfare facility in Stade, a town in northern Germany. Four women and one man were killed at the scene; a sixth person died later in hospital.</span></span>
                   <span class="summary-full"><span>A shooting at a youth welfare facility in the northern German town of Stade resulted in six deaths. Four women and one man were killed at the scene, and a sixth person died subsequently at a hospital. German police are investigating the incident. The facility's nature as a youth welfare center adds particular concern to the event. German authorities have not publicly released information on a suspect or motive in the available reporting.</span></span>
                 </div>
@@ -1345,10 +1352,10 @@ The report adds to a growing body of research suggesting that the gap between ad
               <div class="article article-short" id="story_16">
                 <h2 class="article-headline">Russian Strikes Kill 11 and Wound at Least 40 in Ukraine</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>Russian strikes killed 11 people and wounded at least 40 others in Ukraine. President Zelenskyy renewed calls for European nations to accelerate development of air defenses capable of intercepting ballistic missiles.</span></span>
                   <span class="summary-full"><span>Russian strikes killed 11 people and wounded at least 40 others in Ukraine, according to Ukrainian officials. President Volodymyr Zelenskyy condemned the attacks and used the occasion to renew his appeal to European governments to increase their investment in and deployment of air defense systems capable of intercepting ballistic missiles. The strikes are part of an ongoing pattern of Russian aerial attacks on Ukrainian civilian and infrastructure targets. Zelenskyy has argued that greater European air defense capacity is essential to reducing Ukrainian casualties from ballistic missile strikes, which current systems have limited ability to intercept.</span></span>
                 </div>
@@ -1395,6 +1402,7 @@ The report adds to a growing body of research suggesting that the gap between ad
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1412,7 +1420,7 @@ The report adds to a growing body of research suggesting that the gap between ad
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
