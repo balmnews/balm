@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Tuesday, June 30, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Tuesday, June 30, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -153,7 +149,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -168,6 +166,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -206,13 +208,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -320,8 +322,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1043,10 +1050,10 @@ While the outbreak is centered in Central Africa, its trajectory carries implica
               <div class="article article-medium" id="story_13">
                 <h2 class="article-headline">Parcel Bomb Injures Three in Monaco Residential Area; Authorities Launch Manhunt</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>A parcel bomb exploded in a residential area of Monaco on Monday evening, seriously injuring three people including a child. Prosecutors have described the incident as an attempted assassination rather than a terrorist attack, and a manhunt is underway.</span></span>
                   <span class="summary-full"><span>A bomb exploded in a residential building in Monaco on Monday night, seriously injuring three people including a child. Authorities recovered evidence that the explosive device contained bolts and metal pellets consistent with a fragmentation weapon. Surveillance footage reportedly shows an individual leaving a backpack near the site shortly before the blast.
 
@@ -1099,10 +1106,10 @@ No group claimed responsibility, and no motive has been publicly confirmed by au
               <div class="article article-short" id="story_14">
                 <h2 class="article-headline">Six People Killed in Shooting at German Youth Welfare Facility</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>Six people were killed in a shooting at a facility housing mothers and children in Germany. Authorities believe the attack was connected to a child custody dispute.</span></span>
                   <span class="summary-full"><span>Six people were killed in a shooting at a youth welfare facility in Germany that housed mothers and children. German authorities said they believe the attack was motivated by a child custody dispute, though an investigation remains ongoing. German President Frank-Walter Steinmeier expressed condolences and described the event as deeply shocking. No further details about the perpetrator or victims are included in this summary in keeping with editorial standards for coverage of violent events.</span></span>
                 </div>
@@ -1127,10 +1134,10 @@ No group claimed responsibility, and no motive has been publicly confirmed by au
               <div class="article article-short" id="story_15">
                 <h2 class="article-headline">Skydiving Plane Crashes in Northeastern France, Killing All 11 Aboard</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-3-diff">
                   <span class="summary-brief"><span>A skydiving plane carrying a pilot and ten parachutists crashed shortly after takeoff in northeastern France, killing everyone on board. Investigators are examining a reported malfunction of the aircraft, a Pilatus PC-6.</span></span>
                   <span class="summary-full"><span>A Pilatus PC-6 aircraft carrying a pilot and ten parachutists crashed shortly after takeoff at a skydiving facility in northeastern France, killing all eleven people aboard. Witnesses, including family members of those on board, observed the crash. French aviation investigators have opened an inquiry and are examining reports of a mechanical malfunction, though the cause has not been determined. The Pilatus PC-6 is a widely used single-engine turboprop aircraft common in skydiving operations.</span></span>
                 </div>
@@ -1183,6 +1190,7 @@ No group claimed responsibility, and no motive has been publicly confirmed by au
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1200,7 +1208,7 @@ No group claimed responsibility, and no motive has been publicly confirmed by au
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
