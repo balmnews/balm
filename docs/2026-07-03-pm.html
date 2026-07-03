@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Friday, July 3, 2026 PM</title>
+  <meta name="description" content="Balm news digest for Friday, July 3, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -153,7 +149,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -168,6 +166,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -206,13 +208,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -320,8 +322,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1161,10 +1168,10 @@
               <div class="article article-medium" id="story_19">
                 <h2 class="article-headline">Venezuela Earthquake Aftermath: Survivor Rescued After Eight Days; Makeshift Morgues Overwhelmed</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>A man was rescued alive after eight days trapped beneath a collapsed shopping center in La Guaira following earthquakes in Venezuela. Local services have been overwhelmed, with families identifying victims at makeshift outdoor morgues.</span></span>
                   <span class="summary-full"><span>A security guard identified as Hernán Alberto Gil Flores was rescued after spending eight days trapped beneath the rubble of a collapsed shopping center in La Guaira, Venezuela, following earthquakes that struck the region. Video of his rescue showed him being carried through crowds. The disaster has overwhelmed local emergency and mortuary services, with the bodies of victims being placed outside or in tents for identification by families. The scale of the disaster and the collapse of local capacity to manage it points to the severity of the structural damage and the limitations of Venezuela's emergency infrastructure. The earthquake's full death toll and the extent of damage have not been fully established in the available reporting.</span></span>
                 </div>
@@ -1201,10 +1208,10 @@
               <div class="article article-medium" id="story_20">
                 <h2 class="article-headline">Interpol Issues Alert for Suspect Wanted in Monaco Apartment Bombing Targeting Oligarch</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>Interpol has issued an international alert for a 39-year-old woman suspected of planting an explosive device in a Monaco apartment building in an attack targeting a sanctioned oligarch. The bomb was detonated remotely, and authorities believe the suspect did not act alone.</span></span>
                   <span class="summary-full"><span>Interpol has issued a red notice — its highest-level international alert — for a 39-year-old woman suspected of involvement in a bomb attack in Monaco targeting sanctioned oligarch Vadym Yermolaiev. According to Monaco authorities, the device was planted in an apartment building and detonated remotely. Investigators believe the suspect spent several days surveilling the location before the attack and may have used a disguise. Authorities also believe she did not act alone. The incident reflects ongoing patterns of targeted violence connected to sanctioned Ukrainian and Russian business figures operating in western Europe, a phenomenon that has received increased attention during the Russia-Ukraine conflict and its associated financial and political dimensions.</span></span>
                 </div>
@@ -1263,6 +1270,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1280,7 +1288,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
