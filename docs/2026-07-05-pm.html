@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Sunday, July 5, 2026 PM</title>
+  <meta name="description" content="Balm news digest for Sunday, July 5, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -153,7 +149,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -168,6 +166,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -206,13 +208,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -320,8 +322,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -995,10 +1002,10 @@
               <div class="article article-long" id="story_12">
                 <h2 class="article-headline">At Least 25 Deaths Reported Across US During Extreme Heat Event</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>At least 25 people died across the United States during a heat event that brought temperatures above 100 degrees Fahrenheit to more than 20 states. New Jersey alone reported 19 suspected heat-related deaths, with most occurring in the central and northern parts of the state.</span></span>
                   <span class="summary-full"><span>At least 25 deaths have been reported across the United States in connection with an extended period of extreme heat that affected more than 20 states. A heat dome over the eastern half of the country produced temperatures exceeding 100 degrees Fahrenheit across a wide area during and around the Fourth of July holiday weekend. New Jersey reported 19 suspected heat-related deaths, with officials saying fatalities began appearing as early as Thursday, concentrated in the central and northern regions of the state. Heat events disproportionately affect older adults, people without access to air conditioning, outdoor workers, and those with certain medical conditions. Public health agencies and local governments have opened cooling centers and issued warnings throughout the affected region. Extreme heat is the leading weather-related cause of death in the United States in most years, and events of this scale underscore ongoing public health infrastructure challenges around heat preparedness.</span></span>
                 </div>
@@ -1035,10 +1042,10 @@
               <div class="article article-medium" id="story_13">
                 <h2 class="article-headline">Delta Aircraft Struck by Firework Mortar While Landing at Chicago Midway; FAA Investigating</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>A Delta Air Lines Airbus A319 carrying 52 passengers and six crew was struck by a fireworks mortar as it descended into Chicago Midway Airport on the Fourth of July. No injuries were reported. The FAA has opened an investigation.</span></span>
                   <span class="summary-full"><span>A Delta Air Lines Airbus A319 was struck by a fireworks mortar while on approach to Chicago Midway Airport on the evening of July 4. The aircraft was carrying 52 passengers and six crew members. No injuries were reported among those on board. The Federal Aviation Administration has opened an investigation into the incident. Fireworks mortars can reach significant altitudes, and the strike on a commercial aircraft during an active approach is being treated as a serious aviation safety matter. The FAA prohibits the operation of fireworks within certain distances of airports and controlled airspace.</span></span>
                 </div>
@@ -1069,10 +1076,10 @@
               <div class="article article-long" id="story_14">
                 <h2 class="article-headline">National Guard Soldiers Fatally Shoot Man During Pursuit in Memphis</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-3-diff">
                   <span class="summary-brief"><span>National Guard troops on patrol in Memphis fatally shot a man in the early morning hours of July 5 during a foot pursuit. Police said the man was armed with a handgun. State investigators will oversee the case.</span></span>
                   <span class="summary-full"><span>National Guard soldiers conducting patrol operations in downtown Memphis fatally shot a man in the early morning hours of July 5. According to Memphis police, soldiers were responding alongside local police to reports of gunshots at approximately 4 a.m. when they pursued an armed man fleeing on foot. The man was armed with a handgun at the time he was shot, police said. No soldiers or officers were reported injured. State investigators have been assigned to handle the case, consistent with standard practice when law enforcement personnel are involved in a fatal shooting. National Guard troops have been deployed in Memphis as part of efforts to address elevated violent crime in the city. The use of military personnel in domestic law enforcement roles and their rules of engagement in such situations have been subjects of ongoing public and policy discussion.</span></span>
                 </div>
@@ -1103,10 +1110,10 @@
               <div class="article article-long" id="story_15">
                 <h2 class="article-headline">Public Health Officials Report Higher-Than-Usual Cyclospora Cases Across the US</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-4-diff">
                   <span class="summary-brief"><span>Public health experts have identified a higher-than-typical number of cyclospora infections across the United States. The illness is caused by a parasite spread through contaminated food and water and produces severe stomach symptoms.</span></span>
                   <span class="summary-full"><span>Public health officials are tracking an above-average number of cyclospora infections across the United States. Cyclospora cayetanensis is a microscopic parasite that causes a gastrointestinal illness characterized by prolonged diarrhea, stomach cramps, nausea, fatigue, and weight loss. The illness is spread through consumption of food or water contaminated with the parasite, which is not visible to the naked eye and is not killed by standard sanitizing methods. Fresh produce — particularly items like raspberries, basil, and salad greens — has been linked to past outbreaks. The source of the current clusters had not been identified in available reporting. People who develop severe or prolonged stomach illness, particularly after consuming fresh produce, are advised to contact a healthcare provider, as cyclospora requires specific antibiotic treatment and does not resolve on its own in many cases.</span></span>
                 </div>
@@ -1153,6 +1160,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1170,7 +1178,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
