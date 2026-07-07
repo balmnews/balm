@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balm Sources — Tuesday, July 7, 2026 PM</title>
+  <meta name="description" content="Source attribution for the Balm digest of Tuesday, July 7, 2026.">
+  <meta name="theme-color" content="#6b82a8">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f2ede4;
+      --ink: #2a2520;
+      --secondary: #6a6058;
+      --muted: #9a9288;
+      --rule: #c8c0b4;
+      --accent: #6b82a8;
+      --ink-light: #5a5048;
+      --difficult: #5a4a3a;
+    }
+
+    html { font-size: 18px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Layout — single column */
+    .page-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .main-content {
+      padding: 0 0 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .main-content { padding: 0 0 3rem; }
+    }
+
+    /* Masthead */
+    .masthead {
+      text-align: center;
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 3px double var(--rule);
+      margin-bottom: 1.5rem;
+    }
+
+    .masthead-logo svg {
+      display: block;
+      margin: 0 auto 0.5rem;
+    }
+
+    .masthead-link {
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .masthead-tagline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--secondary);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .masthead-dateline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    /* Section header */
+    .section-header {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-top: 1px solid var(--rule);
+      padding-top: 1.25rem;
+      margin: 2rem 0 1.5rem;
+    }
+
+    /* Source entries */
+    .source-entry {
+      display: flex;
+      gap: 1.25rem;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .source-entry:last-child {
+      border-bottom: none;
+    }
+
+    .source-num {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--muted);
+      min-width: 1.5rem;
+      padding-top: 0.2rem;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .source-body {
+      flex: 1;
+    }
+
+    .source-balm-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .source-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .source-list li {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--secondary);
+      padding: 0.15rem 0;
+    }
+
+    .source-list li::before {
+      content: "· ";
+      color: var(--muted);
+    }
+
+    .source-outlet {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .source-original-headline {
+      font-style: italic;
+      color: var(--secondary);
+    }
+
+    /* Archive link */
+    .archive-link-section {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+    }
+
+    .archive-link {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: color 0.15s;
+    }
+
+    .archive-link:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 3rem;
+      padding: 2rem 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .footer a { color: var(--muted); text-decoration: underline; }
+    .footer a:hover { color: var(--secondary); }
+
+    .footer .footer-kofi {
+      font-size: 0.92rem;
+      color: var(--accent);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+
+    .footer .footer-kofi:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .footer .footer-contact {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s;
+    }
+
+    .footer .footer-contact:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+  <div class="main-content">
+
+    <!-- Masthead -->
+    <header class="masthead">
+      <div class="masthead-logo">
+        <a href="https://balm.news" class="masthead-link">
+          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
+                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
+                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
+                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
+              </filter>
+            </defs>
+            <text x="90" y="44"
+                  font-family="Caveat, cursive"
+                  font-size="52"
+                  font-weight="700"
+                  fill="#6b82a8"
+                  text-anchor="middle"
+                  letter-spacing="8"
+                  filter="url(#balm-spread)">Balm</text>
+          </svg>
+        </a>
+      </div>
+      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
+      <p class="masthead-dateline">Tuesday, July 7, 2026 &middot; PM Edition &middot; Sources</p>
+    </header>
+
+    <!-- Sources list -->
+    <div class="section-header">Sources for this digest</div>
+
+    
+    <div class="source-entry">
+      <div class="source-num">1</div>
+      <div class="source-body">
+        <div class="source-balm-headline">U.S. Military Launches Strikes Against Iran Following Attacks on Commercial Ships in Strait of Hormuz</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jul/07/us-military-strikes-iran-war-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;US military launches strikes against Iran in retaliation over attacks on commercial vessels – Middle East crisis live&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">2</div>
+      <div class="source-body">
+        <div class="source-balm-headline">NATO Summit Opens in Ankara as Alliance Debates Europe's Defense Role and U.S. Commitment</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.rawstory.com/trump-nato-fears/" target="_blank" rel="noopener noreferrer">Raw Story</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Fear of Trump 'blow-up' has NATO officials on edge as talks set to begin&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jul/07/trump-renews-call-us-take-over-greenland-nato" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump renews call for US to take over Greenland as he arrives for Nato summit&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/07/world/europe/nato-trump-rutte-ankara-turkey.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;In NATO’s Next Act, Can Europe Lead?&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/ckg06d3dgnlo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump looms large as Nato grapples with challenge of rearming Europe&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/ckg06d3dgnlo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump looms large as Nato grapples with challenge of rearming Europe&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/world/trump-again-demands-greenland-as-nato-unveils-military-projects-worth-billions-to-prove-its-firepower" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump again demands Greenland as NATO unveils military projects worth billions to prove its firepower&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/watch-trump-arrives-at-nato-summit-in-turkey-with-ceremonial-welcome-from-erdogan" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;WATCH: Trump arrives at NATO summit in Turkey, with ceremonial welcome from Erdogan&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">3</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Hamas Announces Dissolution of Gaza Governing Body; Israel Disputes Significance of Move</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/world/hamas-says-dissolve-gaza-government-israel-warns-group-still-seeks-hezbollah-style-control" target="_blank" rel="noopener noreferrer">Fox News World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Hamas says it will dissolve Gaza government, but Israel warns group still seeks Hezbollah-style control&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">4</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Lawsuit Alleges U.S. Agencies Shared Iranian Asylum Seekers' Confidential Information with Iran</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/07/07/g-s1-132294/lawsuit-asylum-iran" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;New lawsuit alleges U.S. shared asylum application details with Iran&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/world/lawsuit-says-u-s-immigratoin-agencies-illegally-shared-confidential-information-on-iranian-asylum-seekers-with-iran" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Lawsuit says U.S. immigratoin agencies illegally shared confidential information on Iranian asylum seekers with Iran&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">5</div>
+      <div class="source-body">
+        <div class="source-balm-headline">U.S. Trade Deficit Reaches Highest Level in Over a Year as Goods Imports Set Record in May</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/07/business/economy/us-trade-deficit-may.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;U.S. Trade Deficit Widens in May on Record Goods Imports&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">6</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Foreign Investment Into the U.S. Faces Mixed Signals Despite Administration's Pledges</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/07/business/economy/trump-foreign-investment.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump Promised a Foreign Investment Boom. It’s Getting Harder to Deliver.&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">7</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Supreme Court Ruling Allowing Presidential Removal of Independent Regulators Adds Uncertainty for Businesses</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/07/technology/scotus-agencies-companies-regulation.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Businesses Fear Politicization as Trump Gains More Power Over U.S. Agencies&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">8</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Federal Government Threatens to Withhold Antiterrorism Funds Unless States Change Voting Rules</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/07/climate/fema-grants-states-election-changes.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Administration Demands States Change Voting Rules or Lose Antiterrorism Funds&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">9</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Federal Gun Violence Prevention Programs Cut, Reports Removed from Government Websites</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/07/us/politics/trump-gun-violence-cdc-dhs-justice.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump Administration Guts Efforts to Prevent Gun Violence, Suppressing Reports&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">10</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Judge Rejects Justice Department Subpoena Seeking Names of 2020 Fulton County Election Workers</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/judge-rejects-justice-departments-unreasonable-attempt-to-get-names-of-2020-election-workers-in-fulton-county" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Judge rejects Justice Department's 'unreasonable' attempt to get names of 2020 election workers in Fulton County&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">11</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Supreme Court Allows Texas App Age Verification Law to Take Effect as Justices End Term</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.scotusblog.com/2026/07/the-supreme-courts-disturbing-approach-to-federal-spending/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;The Supreme Court’s disturbing approach to federal spending&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.scotusblog.com/2026/07/justice-jackson-reignites-the-interpretation-wars-adding-to-textualisms-emerging-cracks/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Justice Jackson reignites the interpretation wars, adding to textualism’s emerging cracks&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.scotusblog.com/2026/07/is-chief-justice-roberts-moderating-from-the-front/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Is Chief Justice Roberts moderating from the front?&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.scotusblog.com/2026/07/the-latest-emergency-docket-ruling/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;The latest emergency docket ruling&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.scotusblog.com/2026/07/supreme-court-allows-texas-to-enforce-law-requiring-age-verification-and-parental-consent-on-app/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Supreme Court allows Texas to enforce law requiring age verification and parental consent on apps&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.scotusblog.com/2026/07/the-justices-remained-busy-last-summer-this-year-will-they-actually-get-a-break/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;The justices remained busy last summer. This year, will they actually get a break?&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.scotusblog.com/2026/07/the-powerful-resilient-independent-supreme-court/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;The powerful, resilient, independent Supreme Court&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.scotusblog.com/2026/07/is-the-roberts-court-hyperopic-or-willfully-blind/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Is the Roberts court hyperopic or willfully blind?&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">12</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Cyclospora Stomach Illness Cases Reported at Higher-Than-Usual Levels Across the U.S.</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/02/well/cyclospora-infection-united-states.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Clusters of Severe Stomach Illness Reported Across the U.S.&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">13</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Three Clinical Trials Underway to Find Treatments for Ebola Strain Driving Current DRC Outbreak</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/07/07/g-s1-132218/theres-no-treatment-designed-for-the-ebola-strain-ravaging-drc-but-now-theres-hope" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;There's no treatment designed for the Ebola strain ravaging DRC. But now there's hope&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">14</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Microsoft Cuts Approximately 4,800 Jobs Across Company, with Xbox Division Most Affected</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.tweaktown.com/news/112511/microsofts-job-cuts-go-beyond-xbox-with-2-1-percent-of-its-global-workforce-affected/index.html" target="_blank" rel="noopener noreferrer">Tweak Town</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Microsoft's job cuts go beyond Xbox, with 2.1% of its global workforce affected&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/06/technology/microsoft-xbox-layoffs-ai.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Xbox Hits Reset Button, Laying Off Thousands and Dropping Game Studios&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">15</div>
+      <div class="source-body">
+        <div class="source-balm-headline">International Olympic Committee Lifts Russia Suspension Ahead of 2028 Los Angeles Olympics</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/07/07/nx-s1-5884868/russia-olympics-ban-lifted-ioc-2028-los-angeles-games" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;International Olympic Committee lifts Russia suspension ahead of 2028 LA Games&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">16</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Maine Senate Democratic Nominee Faces Sexual Assault Allegations; Prominent Democrats Call for Withdrawal</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jul/07/bernie-sanders-graham-platner-maine-senate-race" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Bernie Sanders calls on Graham Platner to withdraw from Senate race amid sexual assault claims&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/media/graham-platners-most-prominent-press-allies-abandon-him-rape-allegation-rocks-maine-senate-race" target="_blank" rel="noopener noreferrer">Fox News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Graham Platner's most prominent press allies abandon him as rape allegation rocks Maine Senate race&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/idiots-top-female-operatives-torch-platner-enablers-rape-allegation-rocks-dem-senate-race" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;'F---ING IDIOTS': Top female operatives torch Platner enablers as rape allegation rocks Dem campaign&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/platners-three-day-vetting-job-comes-back-haunt-dems-rape-allegation-rocks-senate-bid" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Platner’s three-day vetting job comes back to haunt Dems as rape allegation rocks Senate bid&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/dems-uphill-climb-senate-majority-steeper-latest-platner-allegation" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Dems uphill climb for Senate majority just got a lot steeper with latest Platner allegation&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/07/07/g-s1-132281/up-first-newsletter-graham-platner-nato-trump-climate-change-us-roads" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Woman accuses Graham Platner of sexual assault. And, NATO summit begins&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/07/07/nx-s1-5884020/graham-platner-faces-calls-to-leave-maine-senate-race-after-sexual-assault-allegation" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Graham Platner faces calls to leave Maine Senate race after sexual assault allegation&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/07/07/nx-s1-5884097/democrats-graham-platner-new-sexual-assault-allegation" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Democratic strategist says transparency is Platner's 'only path forward'&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+
+    <!-- Archive link -->
+    <div class="archive-link-section">
+      <a href="/archive.html" class="archive-link">Browse past editions &#8594;</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p><a href="2026-07-07-pm.html">← Return to digest</a></p>
+      <p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
+      <p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
+    </footer>
+
+  </div><!-- /.main-content -->
+</div><!-- /.page-wrapper -->
+</body>
+</html>
