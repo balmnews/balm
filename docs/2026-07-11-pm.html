@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Saturday, July 11, 2026 PM</title>
+  <meta name="description" content="Balm news digest for Saturday, July 11, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -153,7 +149,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -168,6 +166,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -206,13 +208,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -320,8 +322,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1043,10 +1050,10 @@
               <div class="article article-medium" id="story_14">
                 <h2 class="article-headline">Wildfire in Southern Spain Kills at Least 12, Including Several British Nationals</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>A wildfire in southern Spain has killed at least 12 people and left more than 20 others missing, in one of the deadliest fires in the country's recorded history. Several British nationals are reported among the dead.</span></span>
                   <span class="summary-full"><span>A wildfire burning in southern Spain has killed at least 12 people and left more than 20 others unaccounted for, making it one of the deadliest fires in Spain's history. Hundreds of firefighters have been deployed to contain the blaze. The majority of confirmed fatalities are reported to be nationals of Belgium or Britain, with at least four British citizens believed to be among the dead. Authorities have not released a final accounting of all missing persons. The fire comes amid a broader pattern of increasingly severe wildfire seasons across southern Europe, linked to higher temperatures and prolonged dry periods.</span></span>
                 </div>
@@ -1083,10 +1090,10 @@
               <div class="article article-medium" id="story_15">
                 <h2 class="article-headline">Former UK Politician Ann Widdecombe Found Dead; Initial Arrest Made and Released</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>Former British politician Ann Widdecombe, 78, was found dead at her home in Devon. Police believe she was attacked approximately 24 hours before her body was discovered. A 26-year-old man arrested on suspicion of murder has since been released and is no longer part of the investigation.</span></span>
                   <span class="summary-full"><span>Ann Widdecombe, the 78-year-old former Conservative member of Parliament and public figure, was found dead at her home on Dartmoor in Devon, England. Police believe she was attacked at approximately 12:30pm on Wednesday, roughly 24 hours before her body was discovered. A 26-year-old man was arrested on suspicion of murder following the discovery of her body, but was subsequently released and is no longer considered part of the investigation. Devon and Cornwall Police stated that detectives are working at a significant pace and do not believe there is a broader risk to the public. Widdecombe served as a Member of Parliament for many years and later appeared on television programmes and ran for elected office with other parties. The investigation remains active.</span></span>
                 </div>
@@ -1141,10 +1148,10 @@
               <div class="article article-medium" id="story_16">
                 <h2 class="article-headline">Venezuela Earthquake Death Toll Exceeds 4,300</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-3-diff">
                   <span class="summary-brief"><span>The death toll from twin earthquakes that struck Venezuela's coastal La Guaira state on June 24 has passed 4,300, with more than 16,700 people reported injured. Entire districts were flattened by the back-to-back quakes.</span></span>
                   <span class="summary-full"><span>The confirmed death toll from the twin earthquakes that struck Venezuela's La Guaira state on June 24 has risen above 4,300, according to government figures reported to parliament. More than 16,740 people were injured in the twin quakes, which struck the coastal state in rapid succession and leveled entire districts. The scale of the recovery effort remains substantial, and international attention to the disaster has continued to grow as the true extent of destruction becomes clearer. La Guaira is a densely populated coastal region and serves as the gateway to the capital, Caracas. Venezuela's government has been coordinating recovery operations, though the country's ongoing economic and institutional difficulties present significant challenges to the relief effort.</span></span>
                 </div>
@@ -1169,10 +1176,10 @@
               <div class="article article-short" id="story_17">
                 <h2 class="article-headline">15 Indian Tourists Killed After Speedboat Capsizes Off Vietnam's Phu Quoc Island</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-4-diff">
                   <span class="summary-brief"><span>At least 15 Indian tourists died when a speedboat capsized off Phu Quoc, a southern Vietnamese island, on Saturday. Authorities are investigating the cause.</span></span>
                   <span class="summary-full"><span>At least 15 Indian tourists were killed when their speedboat capsized off Phu Quoc, a popular tourist island in southern Vietnam. Vietnamese authorities confirmed the deaths and are investigating the cause of the capsizing. Phu Quoc has become a major international tourism destination in recent years. The incident is among the deadliest maritime accidents involving tourists in the region in recent memory.</span></span>
                 </div>
@@ -1231,6 +1238,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1248,7 +1256,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
