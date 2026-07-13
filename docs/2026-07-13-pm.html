@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Monday, July 13, 2026 PM</title>
+  <meta name="description" content="Balm news digest for Monday, July 13, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -153,7 +149,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -168,6 +166,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -206,13 +208,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -320,8 +322,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1131,10 +1138,10 @@
               <div class="article article-medium" id="story_16">
                 <h2 class="article-headline">Fire at Bangkok Nightlife Venue Kills at Least 27, Injures Dozens</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>A fire broke out around midnight at a bar in Bangkok's Chatuchak district, killing at least 27 people and injuring dozens more. Figures across sources range from 27 to 28 fatalities, with at least 25 people critically injured. Thai authorities are investigating.</span></span>
                   <span class="summary-full"><span>A fire that broke out around midnight at a bar in Bangkok's Chatuchak district killed at least 27 people and critically injured 25 more, with fatality figures varying slightly across sources. Thick smoke filled the venue, and witnesses described patrons running through flames in attempts to escape. Firefighters arrived to find the building engulfed. Thai authorities have opened an investigation into the cause. The incident is the latest in a documented pattern of catastrophic fires at nightlife venues globally, with experts noting that such venues often present elevated risk due to factors including crowd density, limited exits, and flammable construction and interior materials. Investigators have not yet publicly identified a cause.</span></span>
                 </div>
@@ -1171,10 +1178,10 @@
               <div class="article article-long" id="story_17">
                 <h2 class="article-headline">ICE Uses Deadly Force Twice in One Week; Federal Evidence Released in Earlier Minnesota Shootings</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>An ICE agent fatally shot a 26-year-old Colombian man in Biddeford, Maine during an immigration operation — the second time in a week the agency used deadly force. Separately, federal authorities released previously withheld evidence to Minnesota prosecutors investigating two earlier fatal shootings during immigration enforcement actions.</span></span>
                   <span class="summary-full"><span>Immigration and Customs Enforcement agents shot and killed a 26-year-old Colombian man in Biddeford, Maine, during an immigration enforcement operation, marking the second use of deadly force by the agency within a week. Bystander video taken after the shooting showed agents attempting to stop a white sedan driving in circles at an intersection. The Department of Homeland Security's Office of Inspector General Boston field office will take over the investigation, according to Senator Susan Collins. Separately, federal authorities released to Minnesota prosecutors evidence that had previously been withheld in the investigation into the fatal shootings of Renée Good and Alex Pretti, who died earlier this year during protests against federal immigration enforcement. The evidence transferred includes hard drives containing witness statements, police body camera footage, and other materials. The Hennepin County Attorney's office said the release of that evidence will help clarify the circumstances of those deaths. The pattern of incidents is receiving increased scrutiny from lawmakers and civil rights organizations.</span></span>
                 </div>
@@ -1211,10 +1218,10 @@
               <div class="article article-medium" id="story_18">
                 <h2 class="article-headline">Counter-Terrorism Police Take Over Investigation into Death of Former British MP Ann Widdecombe</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-3-diff">
                   <span class="summary-brief"><span>British counter-terrorism police assumed lead responsibility for the investigation into the death of former MP and Reform UK spokesperson Ann Widdecombe, citing new information and evidence. The Home Secretary confirmed the suspect was not previously known to the government's Prevent counter-extremism program.</span></span>
                   <span class="summary-full"><span>British counter-terrorism police took over the investigation into the death of former Member of Parliament Ann Widdecombe following what authorities described as new information and evidence coming to light. Home Secretary Shabana Mahmood informed the House of Commons that the suspect in the case was not previously known to the government's Prevent counter-extremism program. Mahmood also offered Reform UK leader Nigel Farage a direct meeting with the Home Office unit that coordinates security for high-profile politicians, stating that all MPs receive equal treatment in security provisions. Widdecombe had been serving as a spokesperson for Reform UK at the time of her death. The killing is the third fatal attack on a sitting or former MP in the United Kingdom in approximately a decade. Authorities have not publicly released details about the suspect or the circumstances of the death beyond confirming the counter-terrorism investigation.</span></span>
                 </div>
@@ -1273,6 +1280,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1290,7 +1298,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
