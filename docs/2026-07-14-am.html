@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Tuesday, July 14, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Tuesday, July 14, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -153,7 +149,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -168,6 +166,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -206,13 +208,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -320,8 +322,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1089,10 +1096,10 @@ Native American tribes and environmental groups have indicated they intend to ch
               <div class="article article-medium" id="story_15">
                 <h2 class="article-headline">Bangkok Bar Fire Kills 30; Investigation Finds Locked Exits and Flammable Materials</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>A fire at a bar in northern Bangkok has killed at least 30 people in what authorities describe as the city's deadliest blaze in 17 years. Investigators found locked exit doors, inadequate emergency signage, and flammable interior materials. Authorities are treating negligence as the primary theory.</span></span>
                   <span class="summary-full"><span>At least 30 people have died following a fire that broke out around midnight at a bar in northern Bangkok, making it the deadliest such incident in the city in 17 years. Three additional people died in the days following the initial fire, raising the toll to 30. Thai investigators found evidence of locked exit doors and a lack of emergency exit signage, conditions that likely impeded patrons' ability to escape the smoke-filled venue. Flammable interior decor has also been identified as a contributing factor. The bar's operator said it would cooperate with the investigation. Local authorities identified negligence as their primary working theory. The event has prompted discussion in Thailand about enforcement of fire safety regulations at entertainment venues.</span></span>
                 </div>
@@ -1129,10 +1136,10 @@ Native American tribes and environmental groups have indicated they intend to ch
               <div class="article article-long" id="story_16">
                 <h2 class="article-headline">Senator Lindsey Graham Dies of Aortic Dissection; Sister Appointed to Fill Senate Seat</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>US Senator Lindsey Graham of South Carolina died of an aortic dissection and cardiovascular disease. He served more than 30 years in Congress. His sister, Darline Graham Nordone, has been appointed to serve the remaining months of his Senate term.</span></span>
                   <span class="summary-full"><span>Senator Lindsey Graham of South Carolina died over the weekend from an aortic dissection and cardiovascular disease. He was among the longest-serving members of Congress, with more than 30 years in the House and Senate. An aortic dissection occurs when a tear develops in the inner layer of the aorta, the body's largest artery, allowing blood to flow between the arterial walls. The condition is typically sudden, extremely serious, and difficult to treat even with emergency intervention. Senator Graham was 70 years old. He is survived by his sister, Darline Graham Nordone, who has been appointed to serve the remaining months of his Senate term. Nordone has not previously held elected office. Senator Graham was known for his long career on the Senate Armed Services Committee and for shifting from a prominent critic of President Trump to one of his close foreign policy allies. His passing reduces the Republican Senate majority by one seat until a special election or successor appointment is finalized.</span></span>
                 </div>
@@ -1193,10 +1200,10 @@ Native American tribes and environmental groups have indicated they intend to ch
               <div class="article article-medium" id="story_17">
                 <h2 class="article-headline">ICE Agent Fatally Shoots Colombian National During Enforcement Operation in Maine</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-3-diff">
                   <span class="summary-brief"><span>An ICE agent shot and killed a Colombian national during an immigration enforcement operation in Maine. The incident occurred less than a week after a separate fatal shooting by an immigration agent in Houston.</span></span>
                   <span class="summary-full"><span>A Colombian national was shot and killed by an Immigration and Customs Enforcement agent during an enforcement operation in Maine. The incident is the second fatal shooting by a federal immigration agent in less than a week, following a separate incident in Houston, Texas in which an undocumented migrant was fatally shot. Maine lawmakers have called for an investigation into the Maine incident. The two shootings in rapid succession have drawn significant attention to the use of lethal force during immigration enforcement operations, which have intensified under the current administration. ICE did not immediately provide detailed public accounts of the circumstances in either incident, according to available reporting.</span></span>
                 </div>
@@ -1243,6 +1250,7 @@ Native American tribes and environmental groups have indicated they intend to ch
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1260,7 +1268,7 @@ Native American tribes and environmental groups have indicated they intend to ch
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
