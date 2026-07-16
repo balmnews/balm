@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balm Sources — Thursday, July 16, 2026 PM</title>
+  <meta name="description" content="Source attribution for the Balm digest of Thursday, July 16, 2026.">
+  <meta name="theme-color" content="#6b82a8">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f2ede4;
+      --ink: #2a2520;
+      --secondary: #6a6058;
+      --muted: #9a9288;
+      --rule: #c8c0b4;
+      --accent: #6b82a8;
+      --ink-light: #5a5048;
+      --difficult: #5a4a3a;
+    }
+
+    html { font-size: 18px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Layout — single column */
+    .page-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .main-content {
+      padding: 0 0 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .main-content { padding: 0 0 3rem; }
+    }
+
+    /* Masthead */
+    .masthead {
+      text-align: center;
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 3px double var(--rule);
+      margin-bottom: 1.5rem;
+    }
+
+    .masthead-logo svg {
+      display: block;
+      margin: 0 auto 0.5rem;
+    }
+
+    .masthead-link {
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .masthead-tagline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--secondary);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .masthead-dateline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    /* Section header */
+    .section-header {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-top: 1px solid var(--rule);
+      padding-top: 1.25rem;
+      margin: 2rem 0 1.5rem;
+    }
+
+    /* Source entries */
+    .source-entry {
+      display: flex;
+      gap: 1.25rem;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .source-entry:last-child {
+      border-bottom: none;
+    }
+
+    .source-num {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--muted);
+      min-width: 1.5rem;
+      padding-top: 0.2rem;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .source-body {
+      flex: 1;
+    }
+
+    .source-balm-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .source-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .source-list li {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--secondary);
+      padding: 0.15rem 0;
+    }
+
+    .source-list li::before {
+      content: "· ";
+      color: var(--muted);
+    }
+
+    .source-outlet {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .source-original-headline {
+      font-style: italic;
+      color: var(--secondary);
+    }
+
+    /* Archive link */
+    .archive-link-section {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+    }
+
+    .archive-link {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: color 0.15s;
+    }
+
+    .archive-link:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 3rem;
+      padding: 2rem 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .footer a { color: var(--muted); text-decoration: underline; }
+    .footer a:hover { color: var(--secondary); }
+
+    .footer .footer-kofi {
+      font-size: 0.92rem;
+      color: var(--accent);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+
+    .footer .footer-kofi:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .footer .footer-contact {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s;
+    }
+
+    .footer .footer-contact:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+  <div class="main-content">
+
+    <!-- Masthead -->
+    <header class="masthead">
+      <div class="masthead-logo">
+        <a href="https://balm.news" class="masthead-link">
+          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
+                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
+                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
+                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
+              </filter>
+            </defs>
+            <text x="90" y="44"
+                  font-family="Caveat, cursive"
+                  font-size="52"
+                  font-weight="700"
+                  fill="#6b82a8"
+                  text-anchor="middle"
+                  letter-spacing="8"
+                  filter="url(#balm-spread)">Balm</text>
+          </svg>
+        </a>
+      </div>
+      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
+      <p class="masthead-dateline">Thursday, July 16, 2026 &middot; PM Edition &middot; Sources</p>
+    </header>
+
+    <!-- Sources list -->
+    <div class="section-header">Sources for this digest</div>
+
+    
+    <div class="source-entry">
+      <div class="source-num">1</div>
+      <div class="source-body">
+        <div class="source-balm-headline">US and Iran Exchange Strikes for Sixth Consecutive Day Near Strait of Hormuz</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jul/16/iran-us-donald-trump-war-strait-hormuz-oil-israel-lebanon-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Iran reports fresh strikes near Qeshm Island and accuses US over ‘barbaric’ hospital attack – as it happened&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jul/16/us-intensifies-attacks-on-iran-as-tehran-hits-back-at-gulf-states" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;US intensifies attacks on Iran as Tehran hits back at Gulf states&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/business/live/2026/jul/16/uk-government-british-steel-public-ownership-gdp-economy-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo; Government brings British Steel under public ownership; oil price rises to $85 as US-Iran tensions escalate – as it happened&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/live/2026/07/16/world/iran-war-trump-hormuz" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Iran War Live Updates: U.S. and Iran Trade Strikes, Escalating Tensions Over Strait of Hormuz&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/16/world/middleeast/forever-war-trump-iran.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;In Iran, Trump Risks Another American ‘Forever War’&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/16/business/maker-of-drone-boats-used-in-iran-war-to-open-new-texas-shipyard.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Maker of Drone Boats Used in Iran War Will Open New Texas Shipyard&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">2</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Ukraine's Defense Minister Dismissed Amid Military Dispute; Protests Follow</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.usnews.com/news/world/articles/2026-07-16/factbox-who-is-ukraines-new-prime-minister-sergii-koretskyi" target="_blank" rel="noopener noreferrer">Usnews</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Factbox-Who Is Ukraine's New Prime Minister, Sergii Koretskyi?&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jul/16/zelenskyy-defends-sacking-ukraine-defence-minister-mykhailo-federov" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Political crisis and protests in Ukraine as Zelenskyy defends sacking defence minister&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/16/world/europe/ukraine-fedorov-protests.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Ukraine’s Ousted Defense Minister Attacks the Military’s Old Guard&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/15/world/europe/ukraine-minister-of-defense-mykhailo-fedorov-zelensky-war-russia.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Ukraine’s Minister of Defense, a Proponent of Drone Warfare, Is Forced Out&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cdx76069n3do?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Zelensky's removal of popular defence minister sparks protests in Ukraine&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/07/16/g-s1-133920/ukraine-defense-minister-fired" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Zelenskyy fires Ukraine's tech-savvy defense minister in government reshuffle&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/world/ukrainians-protest-zelenskyys-ouster-of-his-popular-defense-minister" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Ukrainians protest Zelenskyy's ouster of his popular defense minister&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">3</div>
+      <div class="source-body">
+        <div class="source-balm-headline">TSMC Adds $100 Billion to US Investment Plan, Bringing Arizona Commitment to $265 Billion</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/16/business/tsmc-chips-investment-arizona.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;TSMC Adds $100 Billion to Its U.S. Spending Plan&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">4</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Uber Agrees to Acquire Germany's Delivery Hero for $14.8 Billion</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/technology/2026/jul/16/uber-buy-germany-delivery-hero-148bn-global-deal" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Uber to buy Germany’s Delivery Hero in $14.8bn global deal&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">5</div>
+      <div class="source-body">
+        <div class="source-balm-headline">US Consumer Spending Rises, Including on Non-Essential Goods</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/16/business/consumers-spending-retail-sales.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Americans Are Spending, and Not Just on Necessities&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">6</div>
+      <div class="source-body">
+        <div class="source-balm-headline">White House Teleprompter Operator Placed on Leave After Alleged Bets on Trump Speeches</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jul/16/trump-tv-address-thursday" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump to deliver TV address amid speculation over elections announcement&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jul/16/trump-teleprompter-operator-kalshi-bets" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;White House teleprompter operator put on leave over alleged bets on Trump speeches&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/16/technology/teleprompter-operator-kalshi-trump-speeches.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;White House Teleprompter Operator Bet on Trump Speeches, Kalshi Says&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cjrvdqyr5d5o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;White House teleprompter operator accused of making $100k off Trump speech bets&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/07/16/nx-s1-5896223/kalshi-trump-white-house-teleprompter-operator-bet" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Officials probe whether White House teleprompter operator profited off Trump's words&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/trumps-teleprompter-operator-on-unpaid-leave-over-alleged-kalshi-bets-on-trump-speeches" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump's teleprompter operator on unpaid leave over alleged Kalshi bets on Trump speeches&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/watch-trump-believes-his-kalshi-betting-teleprompter-operator-is-a-disgrace-leavitt-says" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;WATCH: Trump believes his Kalshi-betting teleprompter operator is a 'disgrace,' Leavitt says&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">7</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Trump Delivers Primetime Address on Election Integrity</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/07/16/nx-s1-5896448/trump-election-address" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;After years of false claims on voting, Trump to give an address on election integrity&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/politifact-live-fact-checking-trumps-address-from-the-white-house" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;PolitiFact: Live fact-checking Trump's address from the White House&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/watch-live-trump-to-address-nation-from-white-house" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;WATCH LIVE: Trump to address nation from White House&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/trumps-address-may-focus-on-the-2020-election-heres-what-to-know-about-foreign-interference-voting-security" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump's address may focus on the 2020 election. Here's what to know about foreign interference, voting security&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">8</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Trump Administration Asks Supreme Court to Have Lower Court Reconsider Protected Status for Venezuelan and Haitian Nationals</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.scotusblog.com/2026/07/trump-administration-asks-justices-to-have-lower-court-reconsider-protected-status-for-venezuela/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump administration asks justices to have lower court reconsider protected status for Venezuelan and Haitian nationals&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">9</div>
+      <div class="source-body">
+        <div class="source-balm-headline">FDA Approves New Oral Pill That Reduces Cholesterol Beyond Statin Levels</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/16/science/the-fda-approves-a-new-pill-to-slash-cholesterol-levels.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;The F.D.A. Approves a New Pill to Slash Cholesterol Levels&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">10</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Brain Implant Enables Paralyzed Man to Feed Himself Using Thought-Controlled Arm Movement</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/science/2026/jul/16/neural-bypass-brain-implant-paralysed-man-feed-himself-drink-from-cup" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Brain implant helps paralysed man to feed himself and drink from cup&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">11</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Earth-Like Exoplanet 49 Light Years Away Found to Have Atmosphere with Potential for Liquid Water</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/science/2026/jul/16/atmosphere-lhs-1140b-exoplanet-could-water-scientists" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Earth-like exoplanet found to have an atmosphere&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">12</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Developing El Niño Could Make 2027 the Hottest Year on Record, Scientists Say</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/jul/17/record-el-nino-forecast-2027-hottest-year-on-record-bom-says" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;‘We are waiting with bated breath’: Super El Niño forecast could make 2027 hottest year on record, BoM says&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/jul/17/record-el-nino-forecast-2027-hottest-year-on-record-bom-says" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;‘We are waiting with bated breath’: Super El Niño forecast could make 2027 hottest year on record, BoM says&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">13</div>
+      <div class="source-body">
+        <div class="source-balm-headline">EU Regulators Order Google to Give AI Competitors Greater Access on Android Devices</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/16/technology/google-android-ai.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Google Ordered to Give A.I. Rivals More Access on Android Smartphones&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">14</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Smoke from Hundreds of Canadian Wildfires Spreads to US Northeast and Midwest</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jul/16/tell-us-how-have-you-been-affected-by-the-spread-of-wildfire-smoke-in-the-us-and-canada" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Tell us: have you been affected by the spread of wildfire smoke in the US and Canada?&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c0m7n427xd8o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Hundreds of Canada wildfires prompt US air quality alerts as smoke spreads south&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">15</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Texas Rivers Rise Rapidly After Heavy Rainfall; Flood Warnings Issued in Southcentral Region</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/07/16/nx-s1-5896458/flood-sirens-texas-rivers-reach-dangerous-heights" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Flood sirens blare in southcentral Texas as rivers reach perilous heights&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">16</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Thirty-Two Convicted in Italy Over 2018 Genoa Bridge Collapse That Killed 43</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jul/16/genoa-bridge-tragedy-former-italian-motorways-boss-sentenced-12-years" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Former boss of Italian motorways sentenced to 12 years over Genoa bridge tragedy&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c36dnz1zez5o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Italian officials handed jail terms for Genoa bridge disaster that killed 43&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+
+    <!-- Archive link -->
+    <div class="archive-link-section">
+      <a href="/archive.html" class="archive-link">Browse past editions &#8594;</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p><a href="2026-07-16-pm.html">← Return to digest</a></p>
+      <p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
+      <p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
+    </footer>
+
+  </div><!-- /.main-content -->
+</div><!-- /.page-wrapper -->
+</body>
+</html>
