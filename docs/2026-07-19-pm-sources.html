@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balm Sources — Sunday, July 19, 2026 PM</title>
+  <meta name="description" content="Source attribution for the Balm digest of Sunday, July 19, 2026.">
+  <meta name="theme-color" content="#6b82a8">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f2ede4;
+      --ink: #2a2520;
+      --secondary: #6a6058;
+      --muted: #9a9288;
+      --rule: #c8c0b4;
+      --accent: #6b82a8;
+      --ink-light: #5a5048;
+      --difficult: #5a4a3a;
+    }
+
+    html { font-size: 18px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Layout — single column */
+    .page-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .main-content {
+      padding: 0 0 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .main-content { padding: 0 0 3rem; }
+    }
+
+    /* Masthead */
+    .masthead {
+      text-align: center;
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 3px double var(--rule);
+      margin-bottom: 1.5rem;
+    }
+
+    .masthead-logo svg {
+      display: block;
+      margin: 0 auto 0.5rem;
+    }
+
+    .masthead-link {
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .masthead-tagline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--secondary);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .masthead-dateline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    /* Section header */
+    .section-header {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-top: 1px solid var(--rule);
+      padding-top: 1.25rem;
+      margin: 2rem 0 1.5rem;
+    }
+
+    /* Source entries */
+    .source-entry {
+      display: flex;
+      gap: 1.25rem;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .source-entry:last-child {
+      border-bottom: none;
+    }
+
+    .source-num {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--muted);
+      min-width: 1.5rem;
+      padding-top: 0.2rem;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .source-body {
+      flex: 1;
+    }
+
+    .source-balm-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .source-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .source-list li {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--secondary);
+      padding: 0.15rem 0;
+    }
+
+    .source-list li::before {
+      content: "· ";
+      color: var(--muted);
+    }
+
+    .source-outlet {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .source-original-headline {
+      font-style: italic;
+      color: var(--secondary);
+    }
+
+    /* Archive link */
+    .archive-link-section {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+    }
+
+    .archive-link {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: color 0.15s;
+    }
+
+    .archive-link:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 3rem;
+      padding: 2rem 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .footer a { color: var(--muted); text-decoration: underline; }
+    .footer a:hover { color: var(--secondary); }
+
+    .footer .footer-kofi {
+      font-size: 0.92rem;
+      color: var(--accent);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+
+    .footer .footer-kofi:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .footer .footer-contact {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s;
+    }
+
+    .footer .footer-contact:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+  <div class="main-content">
+
+    <!-- Masthead -->
+    <header class="masthead">
+      <div class="masthead-logo">
+        <a href="https://balm.news" class="masthead-link">
+          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
+                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
+                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
+                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
+              </filter>
+            </defs>
+            <text x="90" y="44"
+                  font-family="Caveat, cursive"
+                  font-size="52"
+                  font-weight="700"
+                  fill="#6b82a8"
+                  text-anchor="middle"
+                  letter-spacing="8"
+                  filter="url(#balm-spread)">Balm</text>
+          </svg>
+        </a>
+      </div>
+      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
+      <p class="masthead-dateline">Sunday, July 19, 2026 &middot; PM Edition &middot; Sources</p>
+    </header>
+
+    <!-- Sources list -->
+    <div class="section-header">Sources for this digest</div>
+
+    
+    <div class="source-entry">
+      <div class="source-num">1</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Iran Launches New Missile Strikes as US-Iran Conflict Expands; Israel Warns of Retaliation</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jul/19/israel-threatens-full-force-response-iran-fires-missiles" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Israel threatens ‘full force’ response if Iran fires missiles towards it&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jul/19/trump-official-iran-war-oil-flow-strait-hormuz" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Mission in Iran war has pivoted toward ensuring oil flow, Trump official says &rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">2</div>
+      <div class="source-body">
+        <div class="source-balm-headline">US Service Member Killed in Iraq During Drone Disposal; Unidentified Remains Found in Jordan</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jul/19/middle-east-crisis-live-us-launches-new-round-of-airstrikes-to-swiftly-punish-iran-after-american-troops-killed" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Middle East crisis: US military says service member killed during ‘controlled detonation’ of downed Iranian drone – as it happened&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/live/2026/07/19/world/iran-war-strikes-trump-hormuz" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Iran War Live Updates: Another U.S. Service Member Is Killed as Two Sides Edge Toward Wider War&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/world/us-service-member-killed-iraq-troops-recover-unidentified-remains-jordan-centcom" target="_blank" rel="noopener noreferrer">Fox News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;US service member killed in Iraq as troops recover unidentified remains in Jordan: CENTCOM&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/world/us-service-member-killed-iraq-troops-recover-unidentified-remains-jordan-centcom" target="_blank" rel="noopener noreferrer">Fox News World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;US service member killed in Iraq as troops recover unidentified remains in Jordan: CENTCOM&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/keep-low-profile-state-department-warns-americans-overseas-targeted" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;'Keep a low profile': State Department warns Americans overseas they could be targeted&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cgk417jp83po?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;US soldier killed and one injured after Iranian attack in Iraq&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cgk417jp83po?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;US soldier killed and one injured after Iranian attack in Iraq&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">3</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Russia Launches Large-Scale Missile and Drone Attack on Ukrainian Cities</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/19/world/europe/russia-ukraine-strikes.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Russia Batters Kyiv in One of the Largest Missile Assaults of the War&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c2el7xpnzrpo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Russia launches major ballistic missile attack on Ukrainian cities&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c2el7xpnzrpo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Russia launches major ballistic missile attack on Ukrainian cities&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/07/19/nx-s1-5899518/russia-attack-kyiv" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Deadly overnight Russian attack on Ukraine targets the capital&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">4</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Andy Burnham Becomes UK Prime Minister, Promising Economic Reform and Public Ownership</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/business/2026/jul/19/andy-burnham-economy-defence-housing-and-living-costs" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;‘Good growth in every postcode’: Burnham’s economic to-do list in seven charts &rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/politics/2026/jul/19/burnham-warn-uk-honest-challenges-prepares-become-pm" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Burnham to say UK must be honest about its challenges as he prepares to become PM&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/politics/2026/jul/19/burnham-vow-end-labour-briefing-wars-test" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Burnham’s vow to end Labour briefing wars will test his grip on the party&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/politics/2026/jul/19/no-10-north-utilities-north-sea-drilling-andy-burnham-plans-government" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Fossil fuels, utilities and housing: what we know about Andy Burnham’s plans&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/politics/2026/jul/19/andy-burnham-must-raise-the-spirits-of-a-disillusioned-public" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Andy Burnham must raise the spirits of a disillusioned public&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/politics/2026/jul/19/andy-burnham-no-10-steve-rotheram" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;As Andy Burnham enters No 10, what of his ‘bezzie mate’ Steve Rotheram? &rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/world/incoming-uk-pm-andy-burnham-rejects-thatcher-era-policies-signals-leftward-shift" target="_blank" rel="noopener noreferrer">Fox News World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Incoming UK PM Andy Burnham rejects Thatcher-era policies, signals leftward shift&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cy8m7k98p3no?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Burnham to promise 'more breathing room' for people in first speech as PM&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cx278ed09nzo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Thames Water lenders preparing legal challenge in event of Burnham nationalisation&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/07/19/g-s1-134001/andy-burnham-new-british-prime-minister" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Who is Andy Burnham, the U.K.'s new prime minister?&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">5</div>
+      <div class="source-body">
+        <div class="source-balm-headline">US Inflation Cooled in June as Gas, Clothing, and Used Car Prices Fell</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.times-news.com/news/america-in-focus-us-inflation-cooled-in-june-but-ai-build-out-poses-latest-threat/article_f5d5f297-6ade-5f9e-b4b6-31474d7611a1.html" target="_blank" rel="noopener noreferrer">The Cumberland Times-news</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;America In Focus: US inflation cooled in June, but AI build-out poses latest threat&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">6</div>
+      <div class="source-body">
+        <div class="source-balm-headline">2.6 Million Americans Lost Health Insurance After ACA Subsidy Expiration</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.salon.com/2026/07/19/2-6-million-lost-health-insurance-after-aca-subsidies-expired-that-has-real-consequences-partner/" target="_blank" rel="noopener noreferrer">Salon</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;2.6 million lost health insurance after ACA subsidies expired. That has real consequences&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">7</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Teamsters Union Urges Trump to Impose Tariffs as High as 75% on Mexican Beer Imports</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/lets-brew-united-states-teamsters-target-modelo-corona-push-mexican-beer-tariffs" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;'Let's brew it in the United States': Teamsters target Modelo and Corona in push for Mexican beer tariffs&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">8</div>
+      <div class="source-body">
+        <div class="source-balm-headline">New York City Makes Syringe Buyback Program Permanent at $3 Million Annual Cost</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/controversial-program-paying-drug-users-used-syringes-becomes-permanent-nyc" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Controversial program paying drug users for used syringes becomes permanent in NYC&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">9</div>
+      <div class="source-body">
+        <div class="source-balm-headline">FDA Traces Cyclospora Outbreak to Taylor Farms Iceberg Lettuce Sold at Taco Bell and Walmart</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/16/well/cyclospora-taylor-farms-lettuce-taco-bell.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Cyclospora Linked to Taylor Farms Lettuce Sent to Taco Bell&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/18/health/taylor-farms-iceberg-lettuce-recall.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Retailers Remove More Taylor Farms Lettuce After Recall in 27 States&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c4gw9n1kx9do?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Health officials identify source of US explosive diarrhoea outbreak&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">10</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Legionnaires' Disease Outbreak on NYC's Upper East Side Kills Second Person, Infects 72</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/health/second-death-reported-in-legionnaires-disease-outbreak-in-new-york-city" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Second death reported in Legionnaires' disease outbreak in New York City&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">11</div>
+      <div class="source-body">
+        <div class="source-balm-headline">FDA Approves New Oral Pill That Can Lower Cholesterol Below Levels Achievable by Statins</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/16/science/the-fda-approves-a-new-pill-to-slash-cholesterol-levels.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;The F.D.A. Approves a New Pill to Slash Cholesterol Levels&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">12</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Investigation Finds Repeated Violence in Dementia Care Facilities Despite Prior Warnings</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/07/19/nx-s1-5894692/dementia-violence-warning-supervision-nursing-homes-assisted-living-facility" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Violence repeatedly erupts in dementia care despite warnings, inspections show&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">13</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Argentina Faces Spain in 2026 FIFA World Cup Final at MetLife Stadium</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.gazettextra.com/news/nation_world/the-world-cup-final-is-here-with-argentina-taking-on-spain-in-soccers-showdown/article_6091ddcd-c7ea-593a-87ab-24c48b521957.html" target="_blank" rel="noopener noreferrer">Gazette Xtra</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;The World Cup final is here, with Argentina taking on Spain in soccer's showdown&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.record-eagle.com/ap/sports/the-world-cup-final-is-here-with-argentina-taking-on-spain-in-soccers-showdown/article_024d320b-cc0d-5166-a7bb-2bc3187cbd3b.html" target="_blank" rel="noopener noreferrer">Record Eagle</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;The World Cup final is here, with Argentina taking on Spain in soccer's showdown&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.wthr.com/article/syndication/associatedpress/if-history-is-any-indication-expect-some-goals-in-the-world-cup-final-between-argentina-and-spain/616-1a4e5ee1-2c4f-4850-aefd-fa66cc0d709f" target="_blank" rel="noopener noreferrer">Wthr</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;If history is any indication, expect some goals in the World Cup final between Argentina and Spain&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://sports.yahoo.com/articles/messi-argentina-legacy-secure-no-100927460.html" target="_blank" rel="noopener noreferrer">Yahoo! News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Messi, Argentina have legacy secure no matter what happens in World Cup final&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.usatoday.com/story/sports/soccer/worldcup/2026/07/19/lionel-messi-world-cup-final-argentina-legacy/90969974007/" target="_blank" rel="noopener noreferrer">Usa Today</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Messi, Argentina have legacy secure no matter what happens in World Cup final&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://sports.yahoo.com/articles/gaza-cheers-spain-world-cup-100925907.html" target="_blank" rel="noopener noreferrer">Yahoo! News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Gaza cheers for Spain as World Cup final anticipation mounts&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.aljazeera.com/news/2026/7/19/gaza-cheers-for-spain-as-world-cup-final-anticipation-mounts" target="_blank" rel="noopener noreferrer">Al Jazeera</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Gaza cheers for Spain as World Cup final anticipation mounts&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/19/world/americas/argentines-already-losing-their-minds-brace-for-world-cup-final.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Argentines, Already ‘Losing Their Minds,’ Brace for World Cup Final&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/19/world/europe/us-world-cup-trump-boston-kansas.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;America Braced for the World Cup. It Fell in Love Instead.&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/18/business/adidas-world-cup-bjorn-gulden.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Adidas Hopes Its World Cup Moment Can Drive U.S. Sales&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/18/sports/soccer/world-cup-live-tv-delay.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Spoiler Alert: That ‘Live’ World Cup Broadcast Is Not Really Live&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">14</div>
+      <div class="source-body">
+        <div class="source-balm-headline">New Zealand's Ryan Fox Wins the 154th Open Championship at Royal Birkdale</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/sport/2026/jul/19/ryan-fox-the-open-championship-2026-golf-new-zealand" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;My hands were all over the place for ‘surreal’ Open-winning putt, says Ryan Fox&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/sport/2026/jul/19/glory-eludes-hometown-hero-tommy-fleetwood-in-his-dream-made-reality" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Glory eludes hometown hero Tommy Fleetwood in his dream made reality&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/sport/2026/jul/19/pantomime-villain-bryson-dechambeau-ends-his-open-with-a-whimper" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Pantomime villain Bryson DeChambeau ends his Open with a whimper&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/sport/live/2026/jul/19/the-open-golf-2026-fourth-and-final-round-at-royal-birkdale-live" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;The Open 2026: Ryan Fox wins the Open – as it happened&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">15</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Andrew and Tristan Tate Arrested in Miami; UK Adds New Charges Bringing Total to 59</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cwymly9yd33o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Tate brothers arrested in US as further UK charges take total to 59&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cwymly9yd33o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Tate brothers arrested in US as further UK charges take total to 59&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/world/andrew-and-tristan-tate-arrested-in-miami-on-rape-and-sex-trafficking-charges-heres-what-to-know" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Andrew and Tristan Tate arrested in Miami on rape and sex trafficking charges. Here's what to know&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">16</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Nigeria's Children Face Rising Malnutrition Linked to Economic Fallout from Iran War</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/world/nigerian-children-pay-the-price-for-the-iran-war-as-malnutrition-and-poverty-surge" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Nigerian children pay the price for the Iran war as malnutrition and poverty surge&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+
+    <!-- Archive link -->
+    <div class="archive-link-section">
+      <a href="/archive.html" class="archive-link">Browse past editions &#8594;</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p><a href="2026-07-19-pm.html">← Return to digest</a></p>
+      <p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
+      <p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
+    </footer>
+
+  </div><!-- /.main-content -->
+</div><!-- /.page-wrapper -->
+</body>
+</html>

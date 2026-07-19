@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Sunday, July 19, 2026 PM</title>
+  <meta name="description" content="Balm news digest for Sunday, July 19, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -153,7 +149,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -168,6 +166,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -206,13 +208,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -320,8 +322,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1165,10 +1172,10 @@
               <div class="article article-medium" id="story_14">
                 <h2 class="article-headline">Andrew and Tristan Tate Arrested in Miami; UK Adds New Charges Bringing Total to 59</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>Andrew and Tristan Tate were arrested in Miami. The UK's Crown Prosecution Service has filed additional charges relating to four further alleged victims, bringing the total number of UK charges against the brothers to 59. The CPS has requested their extradition from the US. Their lawyer has said they are innocent.</span></span>
                   <span class="summary-full"><span>Andrew and Tristan Tate were arrested in Miami, and the UK's Crown Prosecution Service simultaneously announced additional charges relating to four further alleged victims. The new charges bring the total number of UK criminal counts facing the brothers to 59. The charges include rape and sex trafficking allegations. The Crown Prosecution Service said it has formally requested the brothers' extradition from the United States to face trial in the UK. The additional charges were brought after authorities received new evidence from Bedfordshire Police. A lawyer for the brothers stated they are innocent of all charges. The case has attracted significant international attention given the brothers' public profiles and their large social media following, which has raised broader discussions about online influence and the dissemination of attitudes toward women.</span></span>
                 </div>
@@ -1205,10 +1212,10 @@
               <div class="article article-medium" id="story_15">
                 <h2 class="article-headline">Nigeria's Children Face Rising Malnutrition Linked to Economic Fallout from Iran War</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>Health and aid workers in northern Nigeria report that children are experiencing increased rates of malnutrition and relapse into malnutrition, which they link to economic disruptions caused by the ongoing US-Iran conflict and its effects on global food and fuel prices.</span></span>
                   <span class="summary-full"><span>Aid workers and health officials in northern Nigeria are reporting a rise in child malnutrition cases, including children who had previously recovered relapsing into malnourishment. Local health workers attribute the worsening conditions in part to the economic fallout from the ongoing US-Iran conflict, which has affected global commodity prices, fuel costs, and humanitarian aid logistics. Nigeria was already contending with significant food insecurity before the conflict, particularly in its northern regions, where poverty rates are high and access to food and health services is limited. The Iran war's disruption to oil markets and international supply chains has amplified existing vulnerabilities, according to the aid workers cited. The situation illustrates how a conflict with a direct US military dimension is generating humanitarian consequences well beyond the immediate theater of operations.</span></span>
                 </div>
@@ -1255,6 +1262,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1272,7 +1280,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
