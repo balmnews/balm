@@ -26,14 +26,15 @@ Balm is a **fully static site**. There is no backend, no server, and no database
 
 A Python script (`pipeline.py`) runs twice daily via GitHub Actions:
 
-- **AM run**: 4am PT / 7am ET → outputs `YYYY-MM-DD-am.html`, `YYYY-MM-DD-am-sources.html`, `YYYY-MM-DD-am.json`, `YYYY-MM-DD-am.mp3`
-- **PM run**: 2pm PT / 5pm ET → outputs `YYYY-MM-DD-pm.html`, `YYYY-MM-DD-pm-sources.html`, `YYYY-MM-DD-pm.json`, `YYYY-MM-DD-pm.mp3`
+- **AM run**: 4:15am PDT / 5:15am PST → outputs `YYYY-MM-DD-am.html`, `YYYY-MM-DD-am-sources.html`, `YYYY-MM-DD-am.json`
+- **PM run**: 2:15pm PDT / 1:15pm PST → outputs `YYYY-MM-DD-pm.html`, `YYYY-MM-DD-pm-sources.html`, `YYYY-MM-DD-pm.json`
+- **Watchdog**: 6:30am PDT — checks whether the AM run completed; triggers recovery if missed
 
 After each run, `index.html` is regenerated to point to the latest digest and refresh the archive navigation.
 
 ### Pipeline steps
 
-1. **Fetch** — NewsAPI, The Guardian, NYT (via API keys) + Fox News, BBC, WSJ, Reuters, NPR, PBS, Guardian Environment, SCOTUSblog (public RSS via feedparser)
+1. **Fetch** — NewsData.io, The Guardian, NYT (via API keys) + Fox News, BBC, WSJ, Reuters, NPR, PBS, Guardian Environment, SCOTUSblog (public RSS via feedparser)
 2. **Remove exact duplicates** — `remove_exact_duplicates()` discards only articles where title, source name, AND URL are all identical; cross-outlet near-duplicates are intentionally kept (see clustering architecture below)
 3. **Cluster** — Single Claude API call groups all articles by story identity; each inner array of indices becomes a cluster (see clustering architecture below)
 4. **Editorial review** — Second lightweight Claude call reviews cluster structure; can approve, split into singletons, or merge pairs; non-blocking
@@ -453,8 +454,11 @@ Font sizes were calibrated to fill ~75% of each canvas width with proper centeri
 ### Ongoing operation
 
 GitHub Actions handles everything. The workflow runs at:
-- `0 12 * * *` UTC → 4am PT / 7am ET (AM edition)
-- `0 21 * * *` UTC → 2pm PT / 5pm ET (PM edition)
+- `15 11 * * *` UTC → 4:15am PDT / 5:15am PST (AM edition)
+- `15 21 * * *` UTC → 2:15pm PDT / 1:15pm PST (PM edition)
+- `30 13 * * *` UTC → 6:30am PDT (watchdog: triggers AM recovery if the AM run was missed)
+
+The `:15` offset reduces GitHub Actions queue congestion at the top of the hour. One-hour seasonal drift (PDT↔PST) is accepted; no separate DST schedule.
 
 If a run fails, the site continues serving the last successful digest. No reader-facing breakage occurs.
 
@@ -462,7 +466,7 @@ If a run fails, the site continues serving the last successful digest. No reader
 
 ```bash
 pip install -r requirements.txt
-export NEWS_API_KEY=...
+export NEWSDATA_API_KEY=...
 export GUARDIAN_API_KEY=...
 export NYT_API_KEY=...
 export ANTHROPIC_API_KEY=...
@@ -596,6 +600,55 @@ These features are intended but not yet implemented. Preserve the metadata schem
 4. **Multi-voice podcast** — a two-voice format using ElevenLabs where stories are read by alternating voices to improve listener engagement on longer runs.
 
 5. **Subscriber newsletter via Beehiiv** — weekly digest format sent to email subscribers. Would reuse the `full_summary` content from the week's runs, formatted for email layout.
+
+---
+
+## Identity & Infrastructure
+
+- **Builder:** Brian James Funk, Santa Cruz, California. Reddit: u/brianjfunk (6-year account).
+- **GitHub org:** `balmnews` — separate from the builder's personal GitHub account.
+- **Repo:** `github.com/balmnews/balm` — currently **public** (the editorial system prompt is visible). Options to make private: GitHub Pro ($4/mo) enables private repo with Pages, or move the prompt to a `.gitignore`'d file. Decision pending.
+- **Domain:** `balm.news` — registered, live, Cloudflare DNS.
+- **Email:** `contact@balm.news` — Cloudflare email routing, forwards to builder's personal email.
+- **Monetization:** Ko-fi primary (`ko-fi.com/balmnews`), GitHub Sponsors secondary. No ads. No paywall. The no-ads stance is core to the product identity — do not suggest advertising.
+
+---
+
+## Open Questions
+
+- **GitHub repo privacy:** Repo is public; editorial system prompt is visible. Options: GitHub Pro private repo, move prompt out of the repo, or accept visibility as a transparency signal. Not yet resolved.
+- **SPORTS category:** The pipeline includes SPORTS as a valid category. Not explicitly confirmed whether sports coverage is wanted. If kept, limit to genuinely significant stories (championships, Game 7, etc.).
+
+---
+
+## Do Not Re-Suggest
+
+These were explicitly evaluated and rejected. Do not propose them.
+
+**Sources:**
+- **NewsAPI** — removed June 2026; free tier prohibits production use (TOS violation). Replaced by NewsData.io.
+- **AP News RSS** — AP discontinued their official RSS feeds.
+- **Apple News** — no programmatic access outside the Apple ecosystem.
+- **Google News RSS** — Google aggregates third-party content under legally murky terms.
+- **Reuters RSS** — three feeds remain in the code but return 0 articles; feeds appear dead.
+- **Scraping paywalled sources** using a personal subscription to feed a public product — legal gray area.
+
+**Design & editorial:**
+- **Images, photography, or illustrations** in the digest — image-free is intentional.
+- **Font stack changes** — Caveat / Playfair Display / Source Serif 4 is locked in.
+- **Blur/lotion-spread filter on icons or favicon** — removed; illegible at small sizes. Clean sharp Caveat letterforms only. (The filter remains on the masthead SVG wordmark only.)
+- **Real-time stock ticker or price numbers** — plain-language weekly trend is intentional; numbers provoke anxiety.
+- **Market data outside the Economy section** — discussed and rejected for masthead placement.
+- **Archive sidebar** — removed after multiple bug cycles; replaced with `/archive.html`.
+- **Removing the brief/full toggle** — considered and kept; provides meaningful reading depth choice.
+- **Advertising of any kind** — core to the product identity.
+- **Subscription paywall** — not at this stage; audience must be built first.
+- **Individual tragedies with thin "public safety" framing** — systemic relevance must be the genuine primary news value, not a post-hoc justification.
+- **Instagram Reels** — too absorbing; antithetical to Balm's philosophy.
+
+**Technical:**
+- **cairosvg for icon generation** — unreliable in GitHub Actions. Pillow is the correct approach.
+- **Four-entry DST cron schedule** — caused double PM runs. Two entries only, one-hour seasonal drift accepted.
 
 ---
 
