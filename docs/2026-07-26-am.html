@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Sunday, July 26, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Sunday, July 26, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -153,7 +149,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -168,6 +166,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -206,13 +208,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -320,8 +322,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1065,10 +1072,10 @@
               <div class="article article-long" id="story_16">
                 <h2 class="article-headline">One Person Killed, 16 Injured in Vehicle Attack at Berlin Pride Event; Suspect Identified and Being Sought</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>A van drove into a crowd attending a Pride festival in Berlin, killing one person and injuring at least 16 others. German police have identified a 21-year-old suspect described as known to authorities and linked to Islamist groups, and are conducting a manhunt.</span></span>
                   <span class="summary-full"><span>One person was killed and at least 16 others were injured when a van drove into a crowd gathered near Berlin's Christopher Street Day Pride festival. German police and prosecutors identified a suspect — a 21-year-old referred to publicly as Abdul B. — who was described as previously known to police and believed to have links to Islamist groups. Authorities issued a wanted notice and launched an intensive search effort after the suspect fled the scene. Police said they are investigating the attack as a possible act of terrorism. The Pride march was called off following the incident. Germany has experienced a series of vehicle-ramming and other attacks in recent years, and the country's security services have continued to monitor both Islamist and other extremist networks. The investigation is ongoing.</span></span>
                 </div>
@@ -1123,10 +1130,10 @@
               <div class="article article-long" id="story_17">
                 <h2 class="article-headline">Wildfires Force More Than 330,000 Evacuations Across France and Spain as New Heat Wave Approaches</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>Wildfires burning across France and Spain have forced the evacuation of more than 330,000 people, with at least one death reported in Spain. A new heat wave forecast for Europe is expected to worsen conditions.</span></span>
                   <span class="summary-full"><span>Wildfires driven by extreme heat and strong winds swept through parts of France and Spain, forcing more than 330,000 people from their homes — one of the largest wildfire evacuation totals in recent European history. At least one person died in a fire in Spain, according to officials. Firefighters in both countries were battling multiple simultaneous blazes, with significant fires reported near Bordeaux in France and in the Madrid region and northeastern Spain. The French prime minister requested military transport aircraft to support firefighting operations. A new heat wave forecast to arrive in the coming days is expected to create more dangerous conditions before any relief. Separately, a fire in Scotland's Cairngorms national park was described as a serious incident by Scotland's first minister. Figures on total evacuations varied somewhat across sources, with reports ranging from more than 250,000 to more than 330,000 — the higher number reflects the most current available estimates. The fires are the latest in a pattern of increasingly severe wildfire seasons across southern and western Europe.</span></span>
                 </div>
@@ -1181,10 +1188,10 @@
               <div class="article article-medium" id="story_18">
                 <h2 class="article-headline">Russian Ballistic Missile Strike on Drone Exhibition Near Kyiv Kills Ten People</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-3-diff">
                   <span class="summary-brief"><span>A Russian ballistic missile attack on a drone exhibition near Kyiv killed ten people. The event was attended by prominent figures from Ukraine's defence industry.</span></span>
                   <span class="summary-full"><span>A Russian ballistic missile strike on a drone exhibition taking place near Kyiv killed ten people, Ukrainian officials reported. The attack occurred in the middle of the day. The event had drawn prominent members of Ukraine's defence industry, which has grown substantially during the ongoing war and has become a significant part of Ukraine's military strategy. The targeting of a defence industry gathering marks a deliberate strike on a sector that Ukraine has relied on heavily for battlefield capability, particularly through the development and deployment of unmanned aerial systems. The attack follows a pattern of Russian strikes on civilian and industrial infrastructure in Ukraine.</span></span>
                 </div>
@@ -1209,10 +1216,10 @@
               <div class="article article-medium" id="story_19">
                 <h2 class="article-headline">Third Major Heat Dome in a Month to Bring Dangerous Temperatures to 70 Million Americans</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-4-diff">
                   <span class="summary-brief"><span>About 70 million people across the US Gulf Coast, Great Plains, and Midwest are under excessive heat advisories as the third significant heat dome in a month brings temperatures of 95 to 105 degrees Fahrenheit to the region.</span></span>
                   <span class="summary-full"><span>Approximately 70 million Americans across the Gulf Coast, Great Plains, and Midwest are facing excessive heat advisories as a third major heat dome within a single month pushes temperatures to between 95 and 105 degrees Fahrenheit across a broad stretch of southern and central states. Public health officials have noted that repeated heat events without sufficient cooling intervals between them increase health risks, particularly for older adults, outdoor workers, and people without access to air conditioning. Heat is consistently among the leading weather-related causes of death in the United States. Local health departments in affected areas have opened cooling centers and issued guidance on recognizing and responding to heat exhaustion and heat stroke. The pattern of multiple intense heat events occurring in close succession within a single summer season is consistent with trends researchers have documented in warming climate conditions.</span></span>
                 </div>
@@ -1259,6 +1266,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1276,7 +1284,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
