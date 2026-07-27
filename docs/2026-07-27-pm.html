@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Monday, July 27, 2026 PM</title>
+  <meta name="description" content="Balm news digest for Monday, July 27, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -153,7 +149,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -168,6 +166,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -206,13 +208,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -320,8 +322,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1135,10 +1142,10 @@
               <div class="article article-medium" id="story_14">
                 <h2 class="article-headline">Berlin Pride Attack Raises Questions About Suspect's Release Weeks Earlier</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>A fatal attack near Berlin's Pride festival, which authorities have characterized as an act of Islamist terrorism, has prompted scrutiny of why the suspect had been released from custody weeks before the attack despite alleged ties to ISIS. The suspect was killed in a confrontation with police following the attack.</span></span>
                   <span class="summary-full"><span>German officials and the public are questioning why the individual suspected of carrying out a deadly attack near Berlin's Pride festival had been freed from custody weeks prior, despite alleged connections to Islamist networks. Authorities have described the attack as an act of Islamist terrorism. A woman was killed in the attack. The suspect, identified by authorities as Abdul Ballout, who was linked to Berlin's Islamist scene, was shot and killed by police in a nearby suburb following the attack. The incident has intensified a broader debate in Germany about the monitoring and detention of individuals assessed as security risks. Members of Berlin's LGBTQ community, which had already reported a rise in threats from multiple directions including the far right, described the attack as compounding an existing sense of vulnerability. German officials have called for an investigation into the security assessment failures that preceded the attack.</span></span>
                 </div>
@@ -1181,10 +1188,10 @@
               <div class="article article-short" id="story_15">
                 <h2 class="article-headline">Three People Killed in Shooting at Seattle Festival</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>A shooting at a festival in Seattle left three people dead. The incident occurred as the US and Iran were exchanging diplomatic messages following nearly two weeks of intense military conflict.</span></span>
                   <span class="summary-full"><span>Three people were killed in a mass shooting at a festival in Seattle. Details about the circumstances of the attack, including the number of injured and the status of any suspect, were not fully established at the time of initial reporting. The shooting adds to a series of mass casualty events at public gatherings in recent years, prompting ongoing debate about public safety measures at large events.</span></span>
                 </div>
@@ -1231,6 +1238,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1248,7 +1256,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
