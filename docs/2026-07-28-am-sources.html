@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balm Sources — Tuesday, July 28, 2026 AM</title>
+  <meta name="description" content="Source attribution for the Balm digest of Tuesday, July 28, 2026.">
+  <meta name="theme-color" content="#6b82a8">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f2ede4;
+      --ink: #2a2520;
+      --secondary: #6a6058;
+      --muted: #9a9288;
+      --rule: #c8c0b4;
+      --accent: #6b82a8;
+      --ink-light: #5a5048;
+      --difficult: #5a4a3a;
+    }
+
+    html { font-size: 18px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Layout — single column */
+    .page-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .main-content {
+      padding: 0 0 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .main-content { padding: 0 0 3rem; }
+    }
+
+    /* Masthead */
+    .masthead {
+      text-align: center;
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 3px double var(--rule);
+      margin-bottom: 1.5rem;
+    }
+
+    .masthead-logo svg {
+      display: block;
+      margin: 0 auto 0.5rem;
+    }
+
+    .masthead-link {
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .masthead-tagline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--secondary);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .masthead-dateline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    /* Section header */
+    .section-header {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-top: 1px solid var(--rule);
+      padding-top: 1.25rem;
+      margin: 2rem 0 1.5rem;
+    }
+
+    /* Source entries */
+    .source-entry {
+      display: flex;
+      gap: 1.25rem;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .source-entry:last-child {
+      border-bottom: none;
+    }
+
+    .source-num {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--muted);
+      min-width: 1.5rem;
+      padding-top: 0.2rem;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .source-body {
+      flex: 1;
+    }
+
+    .source-balm-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .source-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .source-list li {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--secondary);
+      padding: 0.15rem 0;
+    }
+
+    .source-list li::before {
+      content: "· ";
+      color: var(--muted);
+    }
+
+    .source-outlet {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .source-original-headline {
+      font-style: italic;
+      color: var(--secondary);
+    }
+
+    /* Archive link */
+    .archive-link-section {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+    }
+
+    .archive-link {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: color 0.15s;
+    }
+
+    .archive-link:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 3rem;
+      padding: 2rem 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .footer a { color: var(--muted); text-decoration: underline; }
+    .footer a:hover { color: var(--secondary); }
+
+    .footer .footer-kofi {
+      font-size: 0.92rem;
+      color: var(--accent);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+
+    .footer .footer-kofi:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .footer .footer-contact {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s;
+    }
+
+    .footer .footer-contact:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+  <div class="main-content">
+
+    <!-- Masthead -->
+    <header class="masthead">
+      <div class="masthead-logo">
+        <a href="https://balm.news" class="masthead-link">
+          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
+                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
+                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
+                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
+              </filter>
+            </defs>
+            <text x="90" y="44"
+                  font-family="Caveat, cursive"
+                  font-size="52"
+                  font-weight="700"
+                  fill="#6b82a8"
+                  text-anchor="middle"
+                  letter-spacing="8"
+                  filter="url(#balm-spread)">Balm</text>
+          </svg>
+        </a>
+      </div>
+      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
+      <p class="masthead-dateline">Tuesday, July 28, 2026 &middot; AM Edition &middot; Sources</p>
+    </header>
+
+    <!-- Sources list -->
+    <div class="section-header">Sources for this digest</div>
+
+    
+    <div class="source-entry">
+      <div class="source-num">1</div>
+      <div class="source-body">
+        <div class="source-balm-headline">US and France Exchange Sharp Words After US Votes Against Extending UN Human Rights Chief's Term</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/world/waltz-slams-france-after-stunning-social-media-attack-us-after-un-vote" target="_blank" rel="noopener noreferrer">Fox News World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Waltz slams France after stunning social media attack on US after UN vote&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c87nj3w9gxjo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;US walks out of UN Security Council meeting during France's remarks&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c87nj3w9gxjo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;US walks out of UN Security Council meeting during France's remarks&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">2</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Zelensky and Netanyahu Both Set to Meet With Trump in Washington</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c9v4g7e047zo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Zelensky to press Trump on air defences while in Washington&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/07/28/g-s1-135845/up-first-newsletter-trump-zelenskyy-netanyahu-lindsey-graham-tps-political-corruption" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump to meet with Zelenskyy, Netanyahu. And, TPS holders could soon face deportation&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/07/28/g-s1-135833/trump-netanyahu-iran-war" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Netanyahu to meet Trump in a first encounter since the Iran war began&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">3</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Iran and Oman Work Toward Agreement on Strait of Hormuz to Enable Peace Talks</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.wsj.com/world/middle-east/iran-and-oman-seek-agreement-on-the-hormuz-in-bid-to-jumpstart-peace-talks-d4c442ac" target="_blank" rel="noopener noreferrer">Wsj</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Iran and Oman Seek Agreement on the Hormuz in Bid to Jumpstart Peace Talks&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">4</div>
+      <div class="source-body">
+        <div class="source-balm-headline">US Air Defense Inventory Strained by Iran Conflict, Defense Analysts Say</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/show/u-s-air-defense-supply-shrinks-during-iran-war-leaving-experts-concerned" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;U.S. air defense supply shrinks during Iran war, leaving experts concerned&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">5</div>
+      <div class="source-body">
+        <div class="source-balm-headline">South Korean and Japanese Stock Markets Fall Sharply as Semiconductor Stocks Decline</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://biztoc.com/x/051058dbbb680416" target="_blank" rel="noopener noreferrer">Biztoc</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Kospi drop briefly halts trading&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://biztoc.com/x/8925d20757fde460" target="_blank" rel="noopener noreferrer">Biztoc</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Japanese, Korean Stocks Tumble as Chip Selloff Intensifies&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://biztoc.com/x/d3598b9da8ee5901" target="_blank" rel="noopener noreferrer">Biztoc</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Korean Stocks Sink as Chipmakers Plunge on Deepening AI Fatigue&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/business/2026/jul/28/ai-sell-off-chip-stocks-sk-hynix-samsung" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;AI sell-off intensifies as investors ditch chip stocks&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/28/business/dealbook/chips-market-rout-ai.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;The Chips Rout Goes Global&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">6</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Johnson & Johnson Offers Up to $5.5 Billion to Settle Baby Powder Cancer Lawsuits</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/clyqnz52rp6o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Johnson & Johnson offers up to $5.5bn to settle baby powder lawsuits&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">7</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Senate Republicans Release Anthony Fauci's Pandemic-Era Diary; Fauci to Testify Before Committee</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/27/us/politics/fauci-in-private-diary-reflected-on-covids-origins-and-his-own-fame.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Fauci, in Private Diary, Reflected on Covid’s Origins and His Own Fame&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/media/sen-ron-johnson-talks-fauci-emails-new-senate-filibuster-strategy-ruthless" target="_blank" rel="noopener noreferrer">Fox News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Sen Ron Johnson talks Fauci emails, new Senate filibuster strategy on 'Ruthless'&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/fauci-privately-took-credit-covid-19-lockdowns-despite-public-denial-newly-exposed-diary-entries-reveal" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Fauci privately took credit for COVID-19 lockdowns despite public denial, newly exposed diary entries reveal&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/07/27/nx-s1-5909531/rand-paul-anthony-fauci-coronavirus-diary-lab-leak-origin" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Rand Paul releases Anthony Fauci's pandemic-era diary notes. Here's what they tell us&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">8</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Trump Administration Asks Supreme Court to Allow New Mail-In Voting Restrictions</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.scotusblog.com/2026/07/trump-administration-asks-supreme-court-to-clear-the-way-for-new-mail-in-voting-restrictions/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump administration asks Supreme Court to clear the way for new mail-in voting restrictions&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">9</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Research Indicates Most Cases Diagnosed as Ovarian Cancer Originate in the Fallopian Tubes</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/28/health/ovarian-cancer-fallopian-tubes.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Most ‘Ovarian Cancer’ Isn’t. And That Fact Can Save Lives.&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">10</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Tennessee Trial Against Meta Opens With Allegations Company Ignored Internal Teen Safety Research</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/technology/2026/jul/27/meta-tennessee-trial-jury" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Meta disregarded its own research on teen harm, Tennessee lawyers tell jury&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">11</div>
+      <div class="source-body">
+        <div class="source-balm-headline">OpenAI in Talks for $500 Billion Data Center Project With Nvidia Financial Backing</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/27/technology/openai-data-center-nvidia.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;OpenAI Close to Landing $500 Billion Data Center With Nvidia’s Backing&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">12</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Apple Regains Standing as World's Most Valuable Publicly Traded Company</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/27/technology/apple-valuation.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Apple Reclaims Title as the World’s Most Valuable Public Company&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">13</div>
+      <div class="source-body">
+        <div class="source-balm-headline">France and Spain Race to Contain Large Wildfires Before Returning Heat Arrives</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.wmar2news.com/science-and-tech/natural-disasters/crews-in-france-race-against-looming-heatwave-as-they-battle-completely-unprecedented-fire" target="_blank" rel="noopener noreferrer">Wmar 2 News Baltimore</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Crews in France race against looming heatwave as they battle 'completely unprecedented fire'&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jul/28/europe-wildfires-fires-heatwave-bordeaux-france-spain-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;​France and Spain race to control wildfires as fresh heatwave hits, as UN warns ‘the climate alarm is blaring’ – Europe live&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/28/world/europe/wildfires-france-spain.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;France and Spain Race to Tamp Down Wildfires Before Heat Wave Hits&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/07/28/world/europe/spain-wildfires-madrid.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;‘A Wake-Up Call’: Massive Wildfires Pierce Madrid’s Bubble&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/07/28/g-s1-135828/europe-wildfires" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;With wildfires raging in France and Spain, fire crews race against next heat wave&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/show/news-wrap-french-firefighters-battle-massive-wildfire" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;News Wrap: French firefighters battle massive wildfire&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jul/27/france-and-spain-race-to-contain-huge-wildfires-before-fresh-heatwave-begins" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;France and Spain race to contain huge wildfires before fresh heatwave begins&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jul/27/europe-wildfires-france-spain-emmanuel-macron-crisis-meeting-pedro-sanchez-castillon-latest-news-updates" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Europe wildfires: Officials warn that wildfires could still be burning in November – as it happened&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">14</div>
+      <div class="source-body">
+        <div class="source-balm-headline">6.8-Magnitude Earthquake Strikes Kumamoto, Japan; People Feared Trapped in Mall Collapse</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jul/28/people-trapped-japan-earthquake-kumamoto-aeon-shopping-centre-mall-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Multiple people trapped inside shopping centre in Japan after earthquake – live updates&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/live/2026/07/28/world/japan-earthquake-kumamoto-tsunami" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Live Updates: Many Feared Trapped in Mall Collapse After Japan Earthquake, Officials Say&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/07/28/nx-s1-5910498/japan-earthquake" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;A strong earthquake shakes part of southern Japan but no tsunami detected&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">15</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Extreme Rainfall Causes Flash Floods Across Multiple Asian Countries</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/jul/28/extreme-rainfall-asia-flash-floods-typhoons-climate-change" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;‘We have lost everything’: extreme rainfall across Asia brings flash floods and typhoons&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/jul/28/extreme-rainfall-asia-flash-floods-typhoons-climate-change" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;‘We have lost everything’: extreme rainfall across Asia brings flash floods and typhoons&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">16</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Three People Killed in Shooting at Food Festival in Seattle</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cvgv7m5z4n0o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;'A lover of life' - Seattle pays tribute to food festival shooting victims&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/show/3-killed-in-shooting-at-crowded-festival-in-seattle" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;3 killed in shooting at crowded festival in Seattle&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+
+    <!-- Archive link -->
+    <div class="archive-link-section">
+      <a href="/archive.html" class="archive-link">Browse past editions &#8594;</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p><a href="2026-07-28-am.html">← Return to digest</a></p>
+      <p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
+      <p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
+    </footer>
+
+  </div><!-- /.main-content -->
+</div><!-- /.page-wrapper -->
+</body>
+</html>
