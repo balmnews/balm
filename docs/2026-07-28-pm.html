@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Tuesday, July 28, 2026 PM</title>
+  <meta name="description" content="Balm news digest for Tuesday, July 28, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -153,7 +149,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -168,6 +166,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -206,13 +208,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -320,8 +322,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1081,10 +1088,10 @@
               <div class="article article-long" id="story_14">
                 <h2 class="article-headline">Three Killed in Shooting at Seattle Food Festival; Teen Arrested, Ghost Gun Recovered</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>Three people were killed and at least five wounded in a shooting at a food festival near Seattle's Space Needle over the weekend. A 15-year-old was arrested in connection with the incident, and investigators said the shooting may be gang-related.</span></span>
                   <span class="summary-full"><span>Three people were killed and at least five others wounded in a shooting that occurred at a crowded food festival near Seattle's Space Needle over the weekend. Police said at least three suspects were involved in what investigators described as a shootout, and one of the individuals killed was among the suspected shooters. A 15-year-old was subsequently arrested in connection with the incident. Police Chief Shon Barnes said the arrested individual was found to be in possession of a ghost gun — a 9mm firearm assembled from parts manufactured by Polymer80, a now-defunct company that was once a leading supplier of ghost gun components. A modified machine gun was also recovered from the scene. Investigators said the shooting may be gang-related. The incident reignited discussion about ghost guns, which are privately assembled firearms without serial numbers that are difficult to trace, and their role in urban gun violence. Ghost gun regulations have been the subject of ongoing legal and policy debate at both the federal and state levels.</span></span>
                 </div>
@@ -1121,10 +1128,10 @@
               <div class="article article-medium" id="story_15">
                 <h2 class="article-headline">Teen Sentenced to Life Without Parole in 2024 Apalachee High School Shooting</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>A judge in Georgia sentenced the perpetrator of the September 2024 Apalachee High School shooting to life without parole for the killing of four people at the school.</span></span>
                   <span class="summary-full"><span>A Barrow County Superior Court judge in Georgia sentenced the individual convicted in the September 2024 shooting at Apalachee High School to life in prison without the possibility of parole. Four people were killed in that attack, which occurred at the school in Winder, Georgia. The sentencing followed a hearing in which testimony and evidence were presented by both sides. The case drew national attention at the time of the shooting and renewed discussion about school safety measures, firearms access by minors, and the legal treatment of juvenile perpetrators of mass violence. The life-without-parole sentence represents one of the most severe outcomes available under Georgia law for this category of offense.</span></span>
                 </div>
@@ -1171,6 +1178,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1188,7 +1196,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
