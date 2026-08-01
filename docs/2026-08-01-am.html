@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Saturday, August 1, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Saturday, August 1, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -153,7 +149,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -168,6 +166,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -206,13 +208,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -320,8 +322,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1117,10 +1124,10 @@ Sargassum is a naturally occurring brown seaweed, but the scale of recent blooms
               <div class="article article-long" id="story_14">
                 <h2 class="article-headline">Nine People Killed in Russian Missile Strike on Kyiv</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>A Russian missile strike on Kyiv killed nine people. The attack came as Ukraine's supply of Patriot air defense interceptors continues to decline and President Trump indicated the US would not proceed with a plan to allow Ukraine to manufacture Patriot missiles domestically.</span></span>
                   <span class="summary-full"><span>Nine people were killed in a Russian ballistic missile strike on Kyiv. The attack is part of an escalating pattern of Russian strikes on the Ukrainian capital. Ukraine's stock of Patriot missile interceptors, used to defend against incoming missiles, is diminishing, limiting the country's ability to intercept such attacks.
 
@@ -1153,10 +1160,10 @@ President Trump this week stepped back from an earlier commitment to allow Ukrai
               <div class="article article-medium" id="story_15">
                 <h2 class="article-headline">Avalanche on Broad Peak in Pakistan Kills Multiple Mountaineers Including Nirmal Purja; Search Continues for Missing</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>An avalanche on Broad Peak in Pakistan killed multiple mountaineers, including Nirmal Purja, the Nepali-born climber known for summiting all 14 of the world's highest peaks in just over six months in 2019. An American climber's remains were also recovered. Seven others remain missing as poor weather hampers rescue operations.</span></span>
                   <span class="summary-full"><span>An avalanche on Broad Peak, one of Pakistan's highest mountains, struck a group of at least ten mountaineers on Thursday. Nirmal Purja, a Nepali-born climber widely recognized for completing ascents of all 14 peaks above 8,000 meters in a record time of just over six months in 2019, was among those killed, according to his company. The remains of an American climber were also recovered. Seven other mountaineers remain missing as of the latest available reporting, with rescue efforts hampered by poor weather conditions.</span></span>
                 </div>
@@ -1215,6 +1222,7 @@ President Trump this week stepped back from an earlier commitment to allow Ukrai
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1232,7 +1240,7 @@ President Trump this week stepped back from an earlier commitment to allow Ukrai
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
