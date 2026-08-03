@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Monday, August 3, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Monday, August 3, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -153,7 +149,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -168,6 +166,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -206,13 +208,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -320,8 +322,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1075,10 +1082,10 @@ For context: the western US fire season has intensified over the past decade as 
               <div class="article article-long" id="story_12">
                 <h2 class="article-headline">At Least 72 People Killed During Mass Border Crossing Into Spanish Territory of Ceuta</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>At least 72 people died during a large-scale crossing into Ceuta, a Spanish territory bordering Morocco. Most of the approximately 60,000 migrants who entered had returned to Morocco within days; the event has renewed political debate in Europe over border and migration policy.</span></span>
                   <span class="summary-full"><span>At least 72 people died in connection with a mass border crossing into Ceuta, a small Spanish territory on the northern coast of Africa that borders Morocco. Approximately 60,000 people crossed into the enclave during the surge, making it one of the largest border crossings in the territory's recent history. Spanish authorities were searching for additional victims as of the weekend.
 
@@ -1113,10 +1120,10 @@ The event has intensified political debate in Spain and across Europe over immig
               <div class="article article-short" id="story_13">
                 <h2 class="article-headline">Ten Climbers Including Noted Mountaineer Nirmal Purja Killed in Avalanche on Broad Peak, Pakistan</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>An avalanche on Broad Peak in Pakistan's Karakoram range killed all ten members of a climbing expedition, including Nirmal Purja, 43, a mountaineer known for a record-setting ascent of the world's 14 highest peaks.</span></span>
                   <span class="summary-full"><span>Ten climbers were killed when an avalanche struck an expedition on Broad Peak, a mountain in the Karakoram range in Pakistan. All members of the group died in the incident. Among those killed was Nirmal Purja, 43, a mountaineer of Nepali and British background who gained international recognition for completing ascents of all 14 peaks over 8,000 meters in record time. Purja was leading the expedition at the time of the avalanche. No survivor accounts are available from the group.</span></span>
                 </div>
@@ -1141,10 +1148,10 @@ The event has intensified political debate in Spain and across Europe over immig
               <div class="article article-short" id="story_14">
                 <h2 class="article-headline">Bombing at Moscow Restaurant Kills Three and Injures More Than Twenty</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-3-diff">
                   <span class="summary-brief"><span>An explosion at an upscale restaurant in Moscow killed three people and injured at least 21 others on Saturday. The city's mayor described the incident as a terrorist act.</span></span>
                   <span class="summary-full"><span>An explosion at a restaurant in Moscow on Saturday killed three people and injured at least 21 others. Moscow's mayor condemned the attack and stated authorities would pursue those responsible. No group has been confirmed as responsible in the available source material. The incident occurs against the backdrop of the ongoing conflict in Ukraine and heightened security conditions across Russia, though a direct connection to that conflict has not been established in available reporting.</span></span>
                 </div>
@@ -1169,10 +1176,10 @@ The event has intensified political debate in Spain and across Europe over immig
               <div class="article article-short" id="story_15">
                 <h2 class="article-headline">Two Firefighters Killed When Helicopters Collide Near Athens During Wildfire Operations</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-4-diff">
                   <span class="summary-brief"><span>Two firefighting helicopters collided west of Athens while battling a major wildfire, killing the two-person crew of one aircraft. The collision occurred during gale-force winds as the fire approached the outskirts of the Greek capital.</span></span>
                   <span class="summary-full"><span>Two members of a firefighting helicopter crew were killed when their aircraft collided with another helicopter west of Athens during efforts to contain a large wildfire threatening the city's outskirts. The collision occurred in gale-force wind conditions that were also driving the fire's spread toward residential areas. Hundreds of people were evacuated from communities in the fire's path. Greece has experienced severe wildfire conditions this summer as part of a broader pattern of extreme heat and drought across southern and central Europe.</span></span>
                 </div>
@@ -1219,6 +1226,7 @@ The event has intensified political debate in Spain and across Europe over immig
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1236,7 +1244,7 @@ The event has intensified political debate in Spain and across Europe over immig
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
