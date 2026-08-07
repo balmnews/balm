@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Friday, August 7, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Friday, August 7, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -153,7 +149,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -168,6 +166,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -206,13 +208,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -320,8 +322,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1033,10 +1040,10 @@
               <div class="article article-medium" id="story_14">
                 <h2 class="article-headline">School Shooting in Thailand Kills at Least Seven, Prompts Legislative Response</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>A shooting at a high school near Bangkok killed at least seven people, including the student responsible, who also killed two family members beforehand. Thailand's prime minister has pledged to introduce legislation restricting public firearm carrying.</span></span>
                   <span class="summary-full"><span>A shooting at a high school near Bangkok, Thailand resulted in at least seven deaths, according to authorities, with sources diverging slightly on the exact total. The student responsible also killed two family members at a separate location before arriving at the school, then died at the scene. More than 30 additional people were injured. Thailand's prime minister subsequently stated an intention to introduce legislation that would limit the carrying of firearms to government officials on active duty, though no specific legislative timeline or details were provided. The incident has renewed debate in Thailand about gun access and school safety. The event is significant for American readers given its parallel policy debates around school safety and firearm regulation, and because it represents one of the deadliest school shootings in Southeast Asia in recent years.</span></span>
                 </div>
@@ -1073,10 +1080,10 @@
               <div class="article article-medium" id="story_15">
                 <h2 class="article-headline">At Least 100 People Died in Mass Border Crossing Into Spanish Territory of Ceuta</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>The local leader of Ceuta, a Spanish territory bordering Morocco, told the European Parliament that approximately 100 people died during a mass border crossing in which roughly 78,000 migrants entered from Morocco, with thousands still present in the territory.</span></span>
                   <span class="summary-full"><span>The president of Ceuta, the Spanish enclave bordering Morocco, told the European Parliament this week that at least 100 people died during a recent mass crossing event in which an estimated 78,000 migrants entered the territory from Morocco. Thousands of those who crossed remain in Ceuta. The event represents one of the largest recorded single border crossing incidents in European history and has placed significant strain on Spanish authorities managing the territory. The deaths occurred during the crossing itself, according to the local official. The incident has broader implications for European migration policy and for US readers reflects ongoing dynamics around global migration pressure, the humanitarian consequences of large-scale movements, and the geopolitical relationships between North African countries and Europe that affect US foreign policy interests.</span></span>
                 </div>
@@ -1129,6 +1136,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1146,7 +1154,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
