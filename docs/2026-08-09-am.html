@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Sunday, August 9, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Sunday, August 9, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation.">
-  <meta property="og:type" content="website">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="alternate" type="application/rss+xml" title="Balm Podcast" href="podcast.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -153,7 +149,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -168,6 +166,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -206,13 +208,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -320,8 +322,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1083,10 +1090,10 @@
               <div class="article article-medium" id="story_16">
                 <h2 class="article-headline">Two Helicopter Pilots Die After Aircraft Crashes During Utah Wildfire Operations</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>Two pilots were killed when their Sikorsky Skycrane helicopter went down Friday while fighting a wildfire in Sevier County, Utah. Officials confirmed the deaths on Saturday.</span></span>
                   <span class="summary-full"><span>Two helicopter pilots died after their Sikorsky Skycrane aircraft crashed Friday morning while engaged in firefighting operations in Sevier County, Utah. The Sevier County Sheriff's Office confirmed the deaths on Saturday. The helicopter was one of several aircraft assigned to suppress an active wildfire in the area. Sikorsky Skycrane helicopters are large-capacity aircraft commonly used for aerial firefighting due to their ability to carry significant water loads. The cause of the crash is under investigation. Aerial firefighting operations carry elevated risk, and pilot fatalities occur periodically during wildfire suppression efforts, particularly as the scale and intensity of fire seasons in the western United States has increased.</span></span>
                 </div>
@@ -1111,10 +1118,10 @@
               <div class="article article-medium" id="story_17">
                 <h2 class="article-headline">At Least 8 Dead After School Shooting in Thailand</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>At least eight people died in a shooting at Debsirin Nonthaburi School in Nonthaburi province, Thailand. A 12-year-old girl was among the victims. The incident occurred on Friday morning.</span></span>
                   <span class="summary-full"><span>At least eight people were killed in a shooting at Debsirin Nonthaburi School, located in Nonthaburi province northwest of Bangkok, Thailand. A 12-year-old girl was among those who died, with her death raising the death toll to at least eight. The shooting occurred around 10 a.m. local time on Friday. Thai authorities said the perpetrator was 14 years old and apparently died at the scene. School shootings are uncommon in Thailand, and the incident prompted significant public response and calls for review of school safety measures. Thai officials have not yet publicly addressed policy changes under consideration.</span></span>
                 </div>
@@ -1161,6 +1168,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1178,7 +1186,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
