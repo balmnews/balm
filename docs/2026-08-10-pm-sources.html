@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balm Sources — Monday, August 10, 2026 PM</title>
+  <meta name="description" content="Source attribution for the Balm digest of Monday, August 10, 2026.">
+  <meta name="theme-color" content="#6b82a8">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f2ede4;
+      --ink: #2a2520;
+      --secondary: #6a6058;
+      --muted: #9a9288;
+      --rule: #c8c0b4;
+      --accent: #6b82a8;
+      --ink-light: #5a5048;
+      --difficult: #5a4a3a;
+    }
+
+    html { font-size: 18px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Layout — single column */
+    .page-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .main-content {
+      padding: 0 0 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .main-content { padding: 0 0 3rem; }
+    }
+
+    /* Masthead */
+    .masthead {
+      text-align: center;
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 3px double var(--rule);
+      margin-bottom: 1.5rem;
+    }
+
+    .masthead-logo svg {
+      display: block;
+      margin: 0 auto 0.5rem;
+    }
+
+    .masthead-link {
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .masthead-tagline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--secondary);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .masthead-dateline {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    /* Section header */
+    .section-header {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-top: 1px solid var(--rule);
+      padding-top: 1.25rem;
+      margin: 2rem 0 1.5rem;
+    }
+
+    /* Source entries */
+    .source-entry {
+      display: flex;
+      gap: 1.25rem;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .source-entry:last-child {
+      border-bottom: none;
+    }
+
+    .source-num {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--muted);
+      min-width: 1.5rem;
+      padding-top: 0.2rem;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .source-body {
+      flex: 1;
+    }
+
+    .source-balm-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .source-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .source-list li {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--secondary);
+      padding: 0.15rem 0;
+    }
+
+    .source-list li::before {
+      content: "· ";
+      color: var(--muted);
+    }
+
+    .source-outlet {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .source-original-headline {
+      font-style: italic;
+      color: var(--secondary);
+    }
+
+    /* Archive link */
+    .archive-link-section {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+    }
+
+    .archive-link {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: color 0.15s;
+    }
+
+    .archive-link:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 3rem;
+      padding: 2rem 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .footer a { color: var(--muted); text-decoration: underline; }
+    .footer a:hover { color: var(--secondary); }
+
+    .footer .footer-kofi {
+      font-size: 0.92rem;
+      color: var(--accent);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+
+    .footer .footer-kofi:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .footer .footer-contact {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s;
+    }
+
+    .footer .footer-contact:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+  <div class="main-content">
+
+    <!-- Masthead -->
+    <header class="masthead">
+      <div class="masthead-logo">
+        <a href="https://balm.news" class="masthead-link">
+          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
+                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
+                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
+                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
+              </filter>
+            </defs>
+            <text x="90" y="44"
+                  font-family="Caveat, cursive"
+                  font-size="52"
+                  font-weight="700"
+                  fill="#6b82a8"
+                  text-anchor="middle"
+                  letter-spacing="8"
+                  filter="url(#balm-spread)">Balm</text>
+          </svg>
+        </a>
+      </div>
+      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
+      <p class="masthead-dateline">Monday, August 10, 2026 &middot; PM Edition &middot; Sources</p>
+    </header>
+
+    <!-- Sources list -->
+    <div class="section-header">Sources for this digest</div>
+
+    
+    <div class="source-entry">
+      <div class="source-num">1</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Netanyahu Publicly Rejects US-Backed Gaza Disarmament Proposal Ahead of Israeli Election</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/aug/10/benjamin-netanyahu-rejection-us-deal-gaza-risky-gamble" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Flip-flopping Netanyahu rejects Gaza plan but cannot placate all his allies&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/08/10/world/middleeast/netanyahu-trump-israel-gaza-disarmament.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Netanyahu Walks ‘Political Tightrope’ on Trump’s Gaza Disarmament Deal&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/world/netanyahu-rejects-board-peace-gaza-plan-no-withdrawal-until-hamas-genuinely-disarmed" target="_blank" rel="noopener noreferrer">Fox News World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Netanyahu rejects Board of Peace's Gaza plan: No 'withdrawal until Hamas is genuinely disarmed'&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/ce3q5282ep3o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Netanyahu's rejection of Trump's 15-point Gaza plan unlikely to be final word&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">2</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Trump Demands Iran Pay Compensation for US Soldier Deaths as Hormuz Negotiations Stall</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/aug/10/trump-demands-iran-pay-compensation-for-decades-of-us-soldier-deaths" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump demands Iran pay compensation for decades of US soldier deaths&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/world/trump-bets-economic-pressure-can-squeeze-iran-regimes-own-failures-deepen-pain" target="_blank" rel="noopener noreferrer">Fox News World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump bets economic pressure can squeeze Iran as regime’s own failures deepen the pain&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/trump-demands-iran-compensate-americans-protesters-after-tehran-seeks-war-reparations" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump demands Iran compensate Americans and protesters after Tehran seeks war reparations&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">3</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Ukrainian Drone Strike on Russian Industrial City Kills at Least 13 in One of War's Deadliest Attacks</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/08/10/world/europe/ukraine-drone-attack-russia.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Ukrainian Drone Attack Deep Into Russia Is Among Its Deadliest of the War&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cvgjvgv926po?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;At least 13 killed in Ukrainian drone strike deep into Russia&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/world/ukrainian-drone-attack-on-oil-hub-deep-inside-russia-kills-13-official-says" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Ukrainian drone attack on oil hub deep inside Russia kills 13, official says&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">4</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Turkey's Parliament Debates Bill That Could Suspend Cases Against Kurdish Militants</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://abcnews.com/International/wireStory/turkeys-parliament-opens-debate-pardon-bill-thousands-pkk-135510235" target="_blank" rel="noopener noreferrer">Abc News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Turkey’s parliament opens debate on a pardon-like bill for thousands of PKK militants&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.timesargus.com/news/world/turkey-s-parliament-opens-debate-on-a-pardon-like-bill-for-thousands-of-pkk-militants/article_0fba7ca1-a0a2-5308-b237-5d96bb1f1085.html" target="_blank" rel="noopener noreferrer">Times Argus</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Turkey’s parliament opens debate on a pardon-like bill for thousands of PKK militants&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.wthr.com/article/syndication/associatedpress/turkeys-parliament-opens-debate-on-a-pardon-like-bill-for-thousands-of-pkk-militants/616-511465f7-e5a3-4914-a3db-05308f882142" target="_blank" rel="noopener noreferrer">Wthr</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Turkey’s parliament opens debate on a pardon-like bill for thousands of PKK militants&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">5</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Trump Signs Executive Order to Reduce Childhood Vaccine Recommendations and Split the MMR Shot</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/us-news/live/2026/aug/10/ohio-republicans-max-miller-domestic-abuse-allegations-us-politics-live-latest-news" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump signs executive order to split measles, mumps and rubella vaccine into separate jabs in sweeping change – live&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/aug/10/trump-vaccines-executive-order-measles" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump signs order attempting to override CDC vaccine schedule and break up MMR shots&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/politics/child-vaccine-schedule-reduced-trump-moves-dramatically-shift-medical-power-parents" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Child vaccine schedule reduced as Trump moves to dramatically shift medical power to parents&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/ce3q5vl581wo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump signs order to limit childhood vaccines and split MMR shots&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/ce3q5vl581wo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump signs order to limit childhood vaccines and split MMR shots&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/08/10/nx-s1-5927313/trump-rfk-jr-vaccines-autism-executive-order" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Trump and RFK Jr. try again to upend vaccines for kids&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/watch-trump-signs-executive-order-on-childhood-vaccine-recommendations" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;WATCH: Trump signs executive order on childhood vaccine recommendations&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">6</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Todd Blanche Sworn In as US Attorney General After Senate Confirmation</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/aug/10/todd-blanche-attorney-general-sworn-in" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Todd Blanche, Trump’s former personal lawyer, sworn in as US attorney general&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/todd-blanche-sworn-in-as-attorney-general-after-bruising-confirmation-battle" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Todd Blanche sworn in as attorney general after bruising confirmation battle&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">7</div>
+      <div class="source-body">
+        <div class="source-balm-headline">National Academies of Sciences Removes Climate Chapter From Federal Judges' Reference Manual</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/08/10/climate/national-academies-climate-chapter-judges.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Top Science Body Deletes Climate Chapter From Judges’ Manual&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">8</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Some People With Disabilities Say Medicaid Earnings Caps Prevent Career Advancement</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/08/10/nx-s1-5910791/disabilities-people-work-requirements-medicaid-income-caps-buy-in" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Some disabled people want to advance their careers. They say Medicaid rules stop them&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">9</div>
+      <div class="source-body">
+        <div class="source-balm-headline">WHO Says Congo Ebola Outbreak Began Months Earlier Than Declared, With Containment Efforts Falling Behind</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.saratogian.com/2026/08/10/congo-ebola-outbreak-started-february/" target="_blank" rel="noopener noreferrer">Saratogian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;WHO says Congo’s fast-moving Ebola outbreak started months before it was declared&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.standardspeaker.com/2026/08/10/congo-ebola-outbreak-started-february/" target="_blank" rel="noopener noreferrer">Standardspeaker</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;WHO says Congo’s fast-moving Ebola outbreak started months before it was declared&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c5ydx7m8gzeo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;We are chasing Ebola virus - it is ahead of us, WHO warns&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/health/congos-fast-moving-ebola-outbreak-started-month-before-it-was-declared-who-says" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Congo's fast-moving Ebola outbreak started month before it was declared, WHO says&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">10</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Taylor Farms Voluntarily Recalls Fresh Jalapeños Sold Across 26 States Over Salmonella Risk</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/08/09/business/taylor-farms-jalapenos-salmonella.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Taylor Farms Voluntarily Recalls Fresh Jalapeños Over Salmonella Concerns&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">11</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Meta Releases Its Most Powerful AI Model as an Open-Source Download</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.nbcbayarea.com/news/local/zuckerberg-meta-open-source-ai/4126008/" target="_blank" rel="noopener noreferrer">Nbc Bay Area</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Zuckerberg manifesto pushes an open-source approach on AI as Meta releases its latest model&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/08/10/business/dealbook/meta-open-ai.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Why Meta Is Betting Big on Open A.I.&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/2026/08/10/technology/meta-ai-open-source.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Meta Unveils an Open Version of Its Most Powerful A.I. Model&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">12</div>
+      <div class="source-body">
+        <div class="source-balm-headline">7.4-Magnitude Earthquake Strikes Western Colombia, Killing More Than 100</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/aug/10/74-magnitude-earthquake-shakes-colombia-causing-serious-damage-latest-news" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;More than 100 dead and buildings collapsed after 7.4-magnitude earthquake shakes Colombia – latest news&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/world/2026/aug/10/colombia-earthquake-cali-pereira-choco" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Scores dead after powerful earthquake strikes western Colombia&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.nytimes.com/live/2026/08/10/world/colombia-earthquake-bogota-cali" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Live Updates: Powerful 7.4 Earthquake Strikes Colombia, Killing More Than 100&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.foxnews.com/world/colombia-building-collapses-camera-earthquake-brings-death-destruction" target="_blank" rel="noopener noreferrer">Fox News World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Colombia building collapses on camera as earthquake brings death, destruction&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">13</div>
+      <div class="source-body">
+        <div class="source-balm-headline">July Was the Hottest Month Ever Recorded in the US; Global Oceans Also Set July Temperature Records</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/aug/10/weather-tracker-europe-break-heat-records-temperatures-drought-wildfires" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Weather tracker: Europe breaks more heat records as temperatures soar&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/aug/10/global-seas-hottest-temperature-july-scientists" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;World’s seas have hit hottest temperature on record for July, say scientists&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/aug/10/july-hottest-month-ever-recorded-heatwaves" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;July was hottest month ever recorded in US as heatwaves scorched country&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cpvw8vmmgrwo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;World's oceans hit record-high July temperatures&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/science/noaa-says-contiguous-u-s-set-record-in-july-for-hottest-month-ever" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;NOAA says contiguous U.S. set record in July for hottest month ever&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/aug/10/july-hottest-month-ever-recorded-heatwaves" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;July was hottest month ever recorded in US as heatwaves scorched country&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">14</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Wildfires Force Thousands of Evacuations Across US Pacific Northwest and Canada's Okanagan Region</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cx2lwv032j9o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;'We've had a lot of close calls': Canada wildfire evacuees wonder if they still have homes&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.pbs.org/newshour/nation/thousands-evacuated-as-wildfires-burn-across-western-u-s-and-canada" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Thousands evacuated as wildfires burn across western U.S. and Canada&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/aug/10/us-wildfires-pacific-north-west" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;‘Unprecedented, dangerous territory’: US north-west reckons with a summer of historic wildfires&rdquo;</span>
+            
+          </li>
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/aug/09/us-wildfire-smoke-clean-air-clubs" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;How clean air clubs are protecting Americans from wildfire smoke&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">15</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Lake Mead Drops to Lowest Level on Record as Western Water Shortage Deepens</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/aug/09/lake-mead-record-low-water-level-colorado-river" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Lake Mead plummets to historic low water level as Colorado River struggles&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="source-entry">
+      <div class="source-num">16</div>
+      <div class="source-body">
+        <div class="source-balm-headline">Flooding in India's Assam State Kills 100 People as Brahmaputra River Overflows</div>
+        <ul class="source-list">
+          
+          <li>
+            <a class="source-outlet" href="https://www.npr.org/2026/08/10/g-s1-138015/flood-death-toll-in-indias-assam-reaches-100-as-thousands-lose-their-homes" target="_blank" rel="noopener noreferrer">NPR News</a>
+            
+            &mdash; <span class="source-original-headline">&ldquo;Flood death toll in India's Assam reaches 100 as thousands lose their homes&rdquo;</span>
+            
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+
+    <!-- Archive link -->
+    <div class="archive-link-section">
+      <a href="/archive.html" class="archive-link">Browse past editions &#8594;</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p><a href="2026-08-10-pm.html">← Return to digest</a></p>
+      <p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
+      <p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
+    </footer>
+
+  </div><!-- /.main-content -->
+</div><!-- /.page-wrapper -->
+</body>
+</html>
