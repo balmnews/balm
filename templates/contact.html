@@ -238,7 +238,15 @@
 
       <p>For questions, feedback, story suggestions, or press inquiries:</p>
 
+      <!-- Cloudflare's Email Address Obfuscation rewrites addresses into a
+           JS-decoded blob, so readers with JavaScript off see the literal string
+           "[email protected]" — which looks like a broken template, to exactly the
+           privacy-minded audience most likely to have JS disabled. This comment
+           pair is Cloudflare's documented opt-out and keeps obfuscation enabled
+           everywhere else. Do not remove it. -->
+      <!--email_off-->
       <p><a class="contact-email" href="mailto:contact@balm.news">contact@balm.news</a></p>
+      <!--/email_off-->
 
       <p>You can also <a href="/feed.xml">subscribe by RSS</a> or
       <a href="/archive.html">browse past editions</a>.</p>
