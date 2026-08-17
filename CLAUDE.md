@@ -1,6 +1,8 @@
 # Balm — Developer & Agent Reference
 
-> "The topical anti-inflammatory"
+> "Topical, anti-inflammatory news"
+
+The tagline is a pun — *topical* meaning both current and applied to the surface. It is locked in; do not propose alternatives.
 
 This document is the authoritative reference for any developer or AI agent maintaining or extending Balm. It is written to be self-sufficient: no external context should be required.
 
@@ -15,6 +17,10 @@ The aggravation people feel from reading news is not accidental — it is the bu
 Every editorial decision flows from a single question: *would a well-informed adult who doesn't follow news daily need to know this happened?* If yes, include it. If it only matters to people already following the story closely, or has no relevance beyond the immediate event, exclude it.
 
 Balm is not a neutral aggregator — it is an editorial product with a point of view about *how* information should be delivered, not *which* information to deliver. The selection criteria are relevance and importance. The rewriting criteria are calm and accuracy.
+
+**Difficult News is informed consent, not censorship.** The section is collapsed at the bottom of every digest so the reader actively opts in. War coverage and policy responses to tragedies belong in the regular sections (GEOPOLITICS, DOMESTIC POLICY) — Difficult News is for the events themselves.
+
+**Content licensing posture.** Guardian permits full body text; NYT is used for headlines/snippets; NewsData.io's free tier permits production use; RSS is used under fair use with attribution links. No lawyer has reviewed the aggregation boundary. Until one does, stay conservative: paraphrase, attribute, link back.
 
 ---
 
@@ -57,11 +63,18 @@ Each digest has a companion sources page (`YYYY-MM-DD-am-sources.html`). It list
 
 ```
 /
-├── pipeline.py              # Main pipeline script
+├── pipeline.py              # Main pipeline script — all production logic
+├── pipeline_hybrid.py       # Experimental two-pass pipeline — not in production
+├── backfill.py              # Regenerates digests for a date range
+├── patch_old_digests.py     # Patches existing HTML in place without regenerating content
+├── patch_sources.py         # One-off sources-page patcher
+├── generate_icons.py        # Legacy — superseded by ensure_static_icons() in pipeline.py
 ├── templates/
 │   ├── digest.html          # Jinja2 template for individual digest pages
 │   ├── index.html           # Jinja2 template for the landing page
-│   └── sources.html         # Jinja2 template for the companion sources page
+│   ├── sources.html         # Jinja2 template for the companion sources page
+│   ├── archive.html         # Archive listing page
+│   └── contact.html         # Contact page
 ├── docs/                    # All output goes here (GitHub Pages root)
 │   ├── index.html           # Regenerated each run — always shows latest digest
 │   ├── manifest.json        # PWA manifest
@@ -77,7 +90,9 @@ Each digest has a companion sources page (`YYYY-MM-DD-am-sources.html`). It list
 │   └── YYYY-MM-DD-pm.mp3
 ├── .github/
 │   └── workflows/
-│       └── balm.yml         # GitHub Actions CI/CD
+│       ├── balm.yml         # Main digest schedule
+│       ├── balm_watchdog.yml # Missed-AM-run recovery, 6:30am PDT
+│       └── balm_hybrid.yml  # Hybrid pipeline — manual dispatch only
 ├── manifest.json            # Source manifest (copied to docs/)
 ├── service-worker.js        # Source service worker (copied to docs/)
 ├── requirements.txt
@@ -407,7 +422,21 @@ The digest and index templates have no sidebar. Navigation to past editions is p
 
 A "Browse past editions →" link appears on every digest page below the Difficult News section and above the footer, styled as italic Source Serif 4 text with a hover accent color.
 
-`archive.json` is still written each run (for backwards compatibility) but is no longer used to populate any sidebar.
+`archive.json` is still written each run (for backwards compatibility) but is no longer used to populate any sidebar. Fetches of it are cache-busted with `?v=Date.now()`.
+
+The archive deliberately starts **June 3, 2026** — all earlier digests were deleted because they predate the current pipeline (NewsData.io, Guardian full text, official-source feeds) and are not representative of current quality.
+
+### Known drift in older digests
+
+`patch_old_digests.py` retrofitted the current layout onto digests published before 2026-06-27 PM, but it inserted **markup without the matching CSS**. On those 49 pages (2026-06-03 through 2026-06-27 AM) the classes exist and are unstyled, so they inherit defaults:
+
+| Element | Older pages | Current template |
+|---|---|---|
+| `.footer-kofi` | `#9a9288`, 14.0px | `#6b82a8`, 16.6px |
+| `.footer-contact` | `#9a9288`, 14.0px | `#5a5048`, 15.8px |
+| `.archive-link` | `#6a6058`, 13.5px, left-aligned, roman | `#9a9288`, 15.3px, centered, italic |
+
+The same files also carry dead `.mobile-archive-*` CSS rules whose elements were removed — harmless, but they should go when the CSS is fixed. Separately, those digests have no market-trend line, because the feature postdates them; adding it requires regenerating content via `backfill.py`, not a CSS patch.
 
 ## Market Trend Line
 
@@ -419,25 +448,33 @@ A "Browse past editions →" link appears on every digest page below the Difficu
 
 The result is passed as `market_trend` to `render_digest()` and `render_index()`. Templates insert it as `<p class="market-trend">` immediately after the ECONOMY section header, before the first Economy story. Non-blocking — failure returns `""` and the line is silently omitted.
 
+The rationale: daily stock numbers cause anxiety; a plain-language weekly direction informs without triggering.
+
+The sentence must name a **concrete period on the order of 5–10 days** — "over the past week", "in the last few days", "over the past several days". `MARKET_TREND_PROMPT` explicitly bans vague alternatives ("recently", "lately", "in recent sessions", "of late"), and the directional fallback strings obey the same rule. Do not reintroduce open-ended phrasing.
+
 ---
 
 ## Icons and Favicon
 
 Icons are PNG files generated by `ensure_static_icons()` using Pillow and the Caveat Bold TTF (downloaded from `github.com/googlefonts/caveat` on first run). SVG files are kept as reference only and are not referenced in HTML or the manifest.
 
-- **`docs/icons/icon-32.png`** — 32×32px, parchment background `#f2ede4`, "B" lettermark in dusty slate `#6b82a8`, Caveat Bold 22px
-- **`docs/icons/icon-192.png`** — 192×192px, same palette, "Balm" wordmark, Caveat Bold 80px
-- **`docs/icons/icon-512.png`** — 512×512px, same palette, "Balm" wordmark, Caveat Bold 214px
-- **`docs/favicon.svg`** and **`docs/icons/icon.svg`** — reference files only, not used for display
+- **`docs/icons/icon-32.png`** — 32×32px, parchment `#f2ede4`, "B" lettermark in dusty slate `#6b82a8`, sized to 72% of canvas **height** (Caveat's B is tall and narrow, so height is the binding dimension)
+- **`docs/icons/icon-192.png`** — 192×192px, same palette, "Balm" wordmark, 78% of canvas width
+- **`docs/icons/icon-512.png`** — 512×512px, same palette, "Balm" wordmark, 78% of canvas width
+- **`docs/favicon.svg`** and **`docs/icons/icon.svg`** — stale reference files, not linked from any page or the manifest
 
-Font sizes were calibrated to fill ~75% of each canvas width with proper centering via `textbbox()`. The manifest references only the PNG icons. Templates link:
+**The icons must match the masthead wordmark, not merely share its font.** The masthead draws Caveat 700 at `font-size 52` in a 180×56 viewBox with `letter-spacing 8` and an `feMorphology` dilate of radius 0.6. `ensure_static_icons()` derives both from the font size — tracking `8/52`, stroke `0.6/52` — and reproduces the dilate with Pillow's `stroke_width`. The masthead's companion `feGaussianBlur` is deliberately **not** reproduced: dilate thickens the letterforms, blur destroys them at icon sizes.
+
+Pillow has no letter-spacing option, so glyphs are positioned individually and the ink bounding box is measured as the union of their boxes. Font size is solved iteratively against the target fill fraction. Everything renders at 4× supersample and is LANCZOS-downsampled so fractional tracking and stroke width survive to 32px.
+
+Before this, the icons used bare `draw.text()` with no tracking and no stroke — visibly finer and differently spaced than the masthead. Do not "simplify" back to a single `draw.text()` call. The manifest references only the PNG icons. Templates link:
 
 ```html
 <link rel="icon" type="image/png" href="/icons/icon-32.png">
 <link rel="apple-touch-icon" href="/icons/icon-192.png">
 ```
 
-`ensure_static_icons(docs_dir)` in `pipeline.py` recreates the SVG files on any run where they are absent — a self-healing safety net in case `docs/` is re-initialized without the static assets.
+`ensure_static_icons(docs_dir)` regenerates all three PNGs on every run, so `docs/icons/` is self-healing if re-initialized. It has no SVG fallback: if the Caveat TTF download fails it logs an error and skips, leaving the previous PNGs in place.
 
 ---
 
@@ -583,7 +620,11 @@ Neither approach is definitively better. The hybrid exists to make differences v
 - **Playfair Display 400 / 400 italic** — headlines, section headers
 
 ### Logo
-The masthead "Balm" is rendered as inline SVG using Caveat 700, color `#6b82a8`, with a soft lotion-spread SVG filter: `feMorphology` dilate radius 1.5, `feGaussianBlur` stdDeviation 0.9, `feComposite` over. Capital B, lowercase alm.
+The masthead "Balm" is rendered as inline SVG using Caveat 700, color `#6b82a8`, with a soft lotion-spread SVG filter: `feMorphology` dilate radius 1.5, `feGaussianBlur` stdDeviation 0.9, `feComposite` over. Capital B, lowercase alm. The filter is on the masthead wordmark only — never on icons.
+
+### Layout rules
+- **Top Stories panel** — subtle `#ede9e2` background, left accent border per item. Headlines must be at least as large as the story-card headlines below. A previous version made them smaller; that hierarchy inversion was a bug and must not return.
+- **Footer** — Ko-fi link in accent `#6b82a8` and slightly larger than its neighbors, Contact in regular weight, GitHub least prominent. Ko-fi is the primary revenue mechanism and the ordering is intentional.
 
 ---
 
@@ -610,7 +651,9 @@ These features are intended but not yet implemented. Preserve the metadata schem
 - **Repo:** `github.com/balmnews/balm` — currently **public** (the editorial system prompt is visible). Options to make private: GitHub Pro ($4/mo) enables private repo with Pages, or move the prompt to a `.gitignore`'d file. Decision pending.
 - **Domain:** `balm.news` — registered, live, Cloudflare DNS.
 - **Email:** `contact@balm.news` — Cloudflare email routing, forwards to builder's personal email.
-- **Monetization:** Ko-fi primary (`ko-fi.com/balmnews`), GitHub Sponsors secondary. No ads. No paywall. The no-ads stance is core to the product identity — do not suggest advertising.
+- **Monetization:** Ko-fi primary (`ko-fi.com/balmnews`), GitHub Sponsors secondary. No ads. No paywall. No investors. The no-ads stance is core to the product identity — do not suggest advertising.
+- **API billing:** Anthropic console has a $20/month alert threshold. Raising it to $50–100 has been discussed but not done.
+- **Trademark:** "Balm" + tagline in the media/news category is recommended but **not filed**.
 
 ---
 
@@ -618,6 +661,9 @@ These features are intended but not yet implemented. Preserve the metadata schem
 
 - **GitHub repo privacy:** Repo is public; editorial system prompt is visible. Options: GitHub Pro private repo, move prompt out of the repo, or accept visibility as a transparency signal. Not yet resolved.
 - **SPORTS category:** The pipeline includes SPORTS as a valid category. Not explicitly confirmed whether sports coverage is wanted. If kept, limit to genuinely significant stories (championships, Game 7, etc.).
+- **Cloudflare Pages migration:** Discussed as a way to keep free hosting with a private GitHub repo. Pipeline timing is unaffected either way (Actions runs regardless of host). Not implemented; blocked on the repo-privacy decision.
+- **Instagram:** Considered for text-card distribution in Balm's typography, deferred until a Reddit audience exists. Tension acknowledged: using an anxiety-producing platform to distribute anxiety-reducing content. Reels are rejected outright; static posts or Stories remain open.
+- **Audio/podcast:** `AUDIO_ENABLED = False`. ElevenLabs was wired up and then disabled — likely needs a refreshed key or credits before it can be turned back on.
 
 ---
 
@@ -648,6 +694,7 @@ These were explicitly evaluated and rejected. Do not propose them.
 
 **Technical:**
 - **cairosvg for icon generation** — unreliable in GitHub Actions. Pillow is the correct approach.
+- **Georgia italic as an icon typeface** — icons must use the real Caveat Bold TTF via Pillow, not a system-font substitute.
 - **Four-entry DST cron schedule** — caused double PM runs. Two entries only, one-hour seasonal drift accepted.
 
 ---

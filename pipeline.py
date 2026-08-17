@@ -271,15 +271,16 @@ RULES:
 - No alarm language — avoid "plunged", "surged", "crashed", "soared"
 - Calm directional language only: "trended upward", "declined modestly", "remained relatively flat", "been mixed with no clear direction", "recovered after earlier losses"
 - If the trend is genuinely ambiguous or volatile, say so calmly: "Markets have been volatile with no clear trend over the past week"
-- Write in past tense, referring to "the past week" or "recent sessions"
+- Write in past tense, and name a CONCRETE time period on the order of 5 to 10 days — for example "over the past week", "in the last few days", "over the past several days", "for the past week and a half"
+- Never use vague time references. Do not write "recently", "lately", "in recent sessions", "of late", or any phrase that leaves the period unspecified
 - The sentence will appear below the Economy section heading in a news digest
 - Maximum 20 words
 
 Examples of correct output:
 "Markets have trended modestly higher over the past week."
-"Stocks have declined gradually over recent sessions."
+"Stocks have declined gradually over the past several days."
 "Markets have been relatively flat with no clear direction this week."
-"Stocks have recovered after declining earlier in the week."
+"Stocks have recovered over the last few days after declining earlier."
 
 Return ONLY the sentence. No preamble, no quotation marks."""
 
@@ -1164,7 +1165,7 @@ def calculate_market_trend(docs_dir: Path, anthropic_key: str) -> str:
         if recent > avg_older * 1.005:
             fallback = "Markets have trended modestly higher over the past week."
         elif recent < avg_older * 0.995:
-            fallback = "Stocks have declined gradually over recent sessions."
+            fallback = "Stocks have declined gradually over the past several days."
         else:
             fallback = "Markets have been relatively flat with no clear direction this week."
 
@@ -1286,11 +1287,22 @@ def _group_by_category(articles: list[dict],
 
 
 def ensure_static_icons(docs_dir: Path) -> None:
-    """Generate PNG icon files for docs/ using Pillow with Caveat Bold font.
+    """Generate PNG icon files for docs/ that match the masthead SVG wordmark.
 
-    Always regenerates all three icons on every call. Uses font.getbbox() for
-    precise centering. No SVG fallback — if the font download fails, icon
-    generation is skipped and an error is printed.
+    The icons reproduce the masthead's letterforms rather than merely reusing
+    its font. The masthead (templates/*.html) draws Caveat 700 at font-size 52
+    inside a 180×56 viewBox with letter-spacing 8 and an feMorphology dilate of
+    radius 0.6, so both tracking and stroke weight are scaled off the font size
+    using the ratios below. The dilate is reproduced with Pillow's stroke_width,
+    which thickens the letterforms without softening them — the masthead's
+    accompanying feGaussianBlur is deliberately NOT reproduced, since blur is
+    illegible at icon sizes.
+
+    Rendering is supersampled 4× and LANCZOS-downsampled so the fractional
+    tracking and stroke width survive down to 32px.
+
+    Always regenerates all three icons on every call. No SVG fallback — if the
+    font download fails, icon generation is skipped and an error is printed.
     """
     import tempfile
     import os as _os
@@ -1300,6 +1312,11 @@ def ensure_static_icons(docs_dir: Path) -> None:
     _CAVEAT_TTF_URL = (
         "https://github.com/googlefonts/caveat/raw/main/fonts/ttf/Caveat-Bold.ttf"
     )
+
+    # Masthead geometry, expressed as fractions of the font size.
+    _LETTER_SPACING_RATIO = 8 / 52
+    _STROKE_RATIO         = 0.6 / 52
+    _SUPERSAMPLE          = 4
 
     icons_dir = docs_dir / "icons"
     icons_dir.mkdir(parents=True, exist_ok=True)
@@ -1320,38 +1337,73 @@ def ensure_static_icons(docs_dir: Path) -> None:
             tmp.write(resp.content)
             ttf_path = tmp.name
 
-        # (canvas_size, text, font_size, output_path)
+        def _ink_bbox(font, text, letter_spacing):
+            """Bounding box of `text` laid out char-by-char with extra tracking.
+
+            Pillow has no letter-spacing option, so glyphs are positioned
+            manually and the union of their boxes is measured. Returns
+            (left, top, right, bottom) relative to the draw origin.
+            """
+            pen = 0.0
+            left = top = right = bottom = None
+            for ch in text:
+                cl, ct, cr, cb = font.getbbox(ch)
+                cl, cr = cl + pen, cr + pen
+                left   = cl if left   is None else min(left, cl)
+                top    = ct if top    is None else min(top, ct)
+                right  = cr if right  is None else max(right, cr)
+                bottom = cb if bottom is None else max(bottom, cb)
+                pen += font.getlength(ch) + letter_spacing
+            return left, top, right, bottom
+
+        # (canvas_size, text, fit_axis, fraction_of_canvas, output_path)
+        # "B" alone is height-bound (Caveat's B is tall and narrow); the "Balm"
+        # wordmark is width-bound.
         specs = [
-            (32,  "B",    28,  icons_dir / "icon-32.png"),
-            (192, "Balm", 100, icons_dir / "icon-192.png"),
-            (512, "Balm", 260, icons_dir / "icon-512.png"),
+            (32,  "B",    "height", 0.72, icons_dir / "icon-32.png"),
+            (192, "Balm", "width",  0.78, icons_dir / "icon-192.png"),
+            (512, "Balm", "width",  0.78, icons_dir / "icon-512.png"),
         ]
 
-        for size, text, font_size, out_path in specs:
-            font = ImageFont.truetype(ttf_path, font_size)
+        for size, text, axis, fraction, out_path in specs:
+            canvas = size * _SUPERSAMPLE
+            target = canvas * fraction
 
-            # font.getbbox returns (left, top, right, bottom) relative to the
-            # draw origin; left/top are non-zero due to font ascent/descent.
-            bbox   = font.getbbox(text)
-            text_w = bbox[2] - bbox[0]
-            text_h = bbox[3] - bbox[1]
+            # Iterate to the font size whose ink hits `target` on `axis`.
+            # Ink extent is very nearly linear in font size, so this converges
+            # in a handful of passes; the cap is only a safety net.
+            font_size = canvas * 0.5
+            for _ in range(40):
+                font = ImageFont.truetype(ttf_path, max(1, int(round(font_size))))
+                l, t, r, b = _ink_bbox(font, text, font_size * _LETTER_SPACING_RATIO)
+                extent = (r - l) if axis == "width" else (b - t)
+                if abs(extent - target) < 0.5:
+                    break
+                font_size *= target / extent
 
-            # Shift draw origin so the ink bounding box is centred on canvas.
-            x = (size - text_w) / 2 - bbox[0]
-            y = (size - text_h) / 2 - bbox[1]
+            font_size      = max(1, int(round(font_size)))
+            font           = ImageFont.truetype(ttf_path, font_size)
+            letter_spacing = font_size * _LETTER_SPACING_RATIO
+            stroke         = int(round(font_size * _STROKE_RATIO))
+            l, t, r, b     = _ink_bbox(font, text, letter_spacing)
 
-            img  = Image.new("RGB", (size, size), _PARCHMENT)
+            img  = Image.new("RGB", (canvas, canvas), _PARCHMENT)
             draw = ImageDraw.Draw(img)
-            draw.text((x, y), text, fill=_SLATE, font=font)
-            img.save(str(out_path), "PNG")
 
-            cx = x + bbox[0] + text_w / 2
-            cy = y + bbox[1] + text_h / 2
+            # Offset the pen so the ink bounding box lands centred on canvas.
+            pen = (canvas - (r - l)) / 2 - l
+            y   = (canvas - (b - t)) / 2 - t
+            for ch in text:
+                draw.text((pen, y), ch, font=font, fill=_SLATE,
+                          stroke_width=stroke, stroke_fill=_SLATE)
+                pen += font.getlength(ch) + letter_spacing
+
+            img.resize((size, size), Image.LANCZOS).save(str(out_path), "PNG")
+
             print(
-                f"[OK] {out_path.name} ({size}×{size}, {font_size}pt): "
-                f"bbox={bbox} size={text_w}×{text_h} "
-                f"draw_at=({x:.1f},{y:.1f}) "
-                f"ink_center=({cx:.1f},{cy:.1f}) canvas_mid=({size/2},{size/2})"
+                f"[OK] {out_path.name} ({size}×{size}): font={font_size}pt "
+                f"tracking={letter_spacing:.1f} stroke={stroke} "
+                f"ink={r - l:.0f}×{b - t:.0f} of {canvas} ({axis} {fraction:.0%})"
             )
 
     except Exception as exc:
