@@ -1,16 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm Sources — Thursday, June 4, 2026 PM</title>
-  <meta name="description" content="Source attribution for the Balm digest of Thursday, June 4, 2026.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="manifest.json">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm Sources — Thursday, June 4, 2026 PM</title>
+<meta content="Source attribution for the Balm digest of Thursday, June 4, 2026." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="manifest.json" rel="manifest"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -45,14 +46,6 @@
       padding: 0 1rem;
     }
 
-    .sidebar {
-      width: 220px;
-      flex-shrink: 0;
-      padding: 2rem 1.5rem 2rem 0;
-      border-right: 1px solid var(--rule);
-      min-height: 100vh;
-    }
-
     .main-content {
       flex: 1;
       max-width: 860px;
@@ -61,7 +54,6 @@
 
     @media (max-width: 768px) {
       .page-wrapper { display: block; padding: 0; }
-      .sidebar { display: none; }
       .main-content { padding: 0 1.25rem 3rem; }
     }
 
@@ -175,39 +167,6 @@
       color: var(--secondary);
     }
 
-    /* Sidebar */
-    .sidebar-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-top: 2rem;
-    }
-
-    .archive-month { margin-bottom: 1rem; }
-
-    .archive-month-label {
-      font-size: 0.68rem;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      color: var(--secondary);
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
-
-    .archive-link {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--secondary);
-      padding: 0.1rem 0;
-      line-height: 1.6;
-    }
-
-    .archive-link:hover { color: var(--accent); text-decoration: none; }
-    .archive-link.current { color: var(--accent); font-style: italic; }
-
     /* Footer */
     .footer {
       border-top: 1px solid var(--rule);
@@ -221,491 +180,321 @@
 
     .footer a { color: var(--muted); text-decoration: underline; }
     .footer a:hover { color: var(--secondary); }
-  </style>
+
+    .page-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .main-content {
+      padding: 0 0 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .main-content { padding: 0 0 3rem; }
+    }
+
+    :root { --ink-light: #5a5048; }
+
+    /* --- patched to current template --- */
+    .masthead-link {
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .archive-link-section {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+    }
+
+    .archive-link {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .archive-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer .footer-kofi {
+      font-size: 0.92rem;
+      color: var(--accent);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+
+    .footer .footer-kofi:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .footer .footer-contact {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s;
+    }
+
+    .footer .footer-contact:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+</style>
 </head>
 <body>
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">June 2026</div>
-      
-      <a class="archive-link current"
-         href="2026-06-04-pm.html">
-        06-04 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-04-am.html">
-        06-04 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-03-pm.html">
-        06-03 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-03-am.html">
-        06-03 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-02-pm.html">
-        06-02 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-01-pm.html">
-        06-01 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-01-am.html">
-        06-01 AM
-      </a>
-      
-    </div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">May 2026</div>
-      
-      <a class="archive-link"
-         href="2026-05-31-pm.html">
-        05-31 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-31-am.html">
-        05-31 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-30-pm.html">
-        05-30 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-30-am.html">
-        05-30 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-29-pm.html">
-        05-29 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-29-am.html">
-        05-29 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-28-pm.html">
-        05-28 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-28-am.html">
-        05-28 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-27-pm.html">
-        05-27 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-27-am.html">
-        05-27 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-26-pm.html">
-        05-26 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-26-am.html">
-        05-26 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-25-pm.html">
-        05-25 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-24-pm.html">
-        05-24 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-24-am.html">
-        05-24 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-23-pm.html">
-        05-23 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-23-am.html">
-        05-23 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-22-pm.html">
-        05-22 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-22-am.html">
-        05-22 AM
-      </a>
-      
-    </div>
-    
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <a href="2026-06-04-pm.html" style="text-decoration:none;">
-          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-              </filter>
-            </defs>
-            <text x="90" y="44"
-                  font-family="Caveat, cursive"
-                  font-size="52"
-                  font-weight="700"
-                  fill="#6b82a8"
-                  text-anchor="middle"
-                  letter-spacing="8"
-                  filter="url(#balm-spread)">Balm</text>
-          </svg>
-        </a>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Thursday, June 4, 2026 &middot; PM Edition &middot; Sources</p>
-    </header>
-
-    <!-- Sources list -->
-    <div class="section-header">Sources for this digest</div>
-
-    
-    <div class="source-entry">
-      <div class="source-num">1</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Zelenskyy Publishes Open Letter to Putin Proposing Direct Talks to End War</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/05/volodymyr-zelenskyy-open-letter-to-putin-full-text-russia-ukraine-war" target="_blank" rel="noopener noreferrer">The Guardian</a>
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news">
+<svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg>
+</a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Thursday, June 4, 2026 · PM Edition · Sources</p>
+</header>
+<!-- Sources list -->
+<div class="section-header">Sources for this digest</div>
+<div class="source-entry">
+<div class="source-num">1</div>
+<div class="source-body">
+<div class="source-balm-headline">Zelenskyy Publishes Open Letter to Putin Proposing Direct Talks to End War</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/05/volodymyr-zelenskyy-open-letter-to-putin-full-text-russia-ukraine-war" rel="noopener noreferrer" target="_blank">The Guardian</a>
             
-            &mdash; <span class="source-original-headline">&ldquo;‘You can stop your war’: Zelenskyy’s open letter to Putin – in full&rdquo;</span>
+            — <span class="source-original-headline">“‘You can stop your war’: Zelenskyy’s open letter to Putin – in full”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/05/ukraine-war-briefing-ukrainian-men-should-be-turned-back-from-eu-to-fight" rel="noopener noreferrer" target="_blank">The Guardian</a>
             
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/05/ukraine-war-briefing-ukrainian-men-should-be-turned-back-from-eu-to-fight" target="_blank" rel="noopener noreferrer">The Guardian</a>
+            — <span class="source-original-headline">“Ukraine war briefing: Ukrainian men should be turned back from EU to fight, says Swedish minister”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cwy2ypyp4x4o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
             
-            &mdash; <span class="source-original-headline">&ldquo;Ukraine war briefing: Ukrainian men should be turned back from EU to fight, says Swedish minister&rdquo;</span>
+            — <span class="source-original-headline">“Zelensky proposes face-to-face talks in open letter to Putin”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cwy2ypyp4x4o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
             
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cwy2ypyp4x4o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
+            — <span class="source-original-headline">“Zelensky proposes face-to-face talks in open letter to Putin”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">2</div>
+<div class="source-body">
+<div class="source-balm-headline">Russia and US Continue Bilateral Economic and Energy Talks Despite Pause in Ukraine Peace Negotiations</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.usnews.com/news/world/articles/2026-06-04/putin-envoy-says-russia-us-talks-on-energy-economy-continue" rel="noopener noreferrer" target="_blank">Usnews</a>
             
-            &mdash; <span class="source-original-headline">&ldquo;Zelensky proposes face-to-face talks in open letter to Putin&rdquo;</span>
+            — <span class="source-original-headline">“Putin Envoy Says Russia-US Talks on Energy, Economy Continue”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">3</div>
+<div class="source-body">
+<div class="source-balm-headline">North Korea Reveals New Facility for Producing Weapons-Grade Uranium</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/04/g-s1-126041/north-korea-unveils-a-new-plant-to-produce-fuel-for-nuclear-weapons" rel="noopener noreferrer" target="_blank">NPR News</a>
             
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cwy2ypyp4x4o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
+            — <span class="source-original-headline">“North Korea unveils a new plant to produce fuel for nuclear weapons”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">4</div>
+<div class="source-body">
+<div class="source-balm-headline">House Passes Ukraine Aid and Russia Sanctions Package Over White House Opposition</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/politics/house-republicans-defy-trump-pass-ukraine-aid-package-headed-veto-fight" rel="noopener noreferrer" target="_blank">Fox News Politics</a>
             
-            &mdash; <span class="source-original-headline">&ldquo;Zelensky proposes face-to-face talks in open letter to Putin&rdquo;</span>
+            — <span class="source-original-headline">“18 House Republicans defy Trump to pass Ukraine aid package headed for veto fight”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/politics/house-passes-bill-to-provide-more-ukraine-aid-and-impose-new-sanctions-on-russia" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
             
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">2</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Russia and US Continue Bilateral Economic and Energy Talks Despite Pause in Ukraine Peace Negotiations</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.usnews.com/news/world/articles/2026-06-04/putin-envoy-says-russia-us-talks-on-energy-economy-continue" target="_blank" rel="noopener noreferrer">Usnews</a>
+            — <span class="source-original-headline">“House passes bill to provide more Ukraine aid and impose new sanctions on Russia”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">5</div>
+<div class="source-body">
+<div class="source-balm-headline">Trump Allocates $700 Million for New Coal Plants Using Wartime Authority</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/04/climate/trump-coal-plants-funding.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
             
-            &mdash; <span class="source-original-headline">&ldquo;Putin Envoy Says Russia-US Talks on Energy, Economy Continue&rdquo;</span>
+            — <span class="source-original-headline">“Trump Offers Funds for First New U.S. Coal Plants in 13 Years”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/04/trump-coal-defense-production-act" rel="noopener noreferrer" target="_blank">Guardian Environment</a>
             
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">3</div>
-      <div class="source-body">
-        <div class="source-balm-headline">North Korea Reveals New Facility for Producing Weapons-Grade Uranium</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/04/g-s1-126041/north-korea-unveils-a-new-plant-to-produce-fuel-for-nuclear-weapons" target="_blank" rel="noopener noreferrer">NPR News</a>
+            — <span class="source-original-headline">“Trump uses wartime powers to dole out $700m to ‘clean, beautiful’ coal”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">6</div>
+<div class="source-body">
+<div class="source-balm-headline">SAVE Act Voter ID Legislation Fails in Senate for Second Time</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/politics/four-senate-republicans-unite-dems-block-trumps-save-america-act" rel="noopener noreferrer" target="_blank">Fox News Politics</a>
             
-            &mdash; <span class="source-original-headline">&ldquo;North Korea unveils a new plant to produce fuel for nuclear weapons&rdquo;</span>
+            — <span class="source-original-headline">“Four Senate Republicans again unite with Dems to block Trump's SAVE America Act”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/04/nx-s1-5751145/save-act-senate-vote-trump" rel="noopener noreferrer" target="_blank">NPR News</a>
             
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">4</div>
-      <div class="source-body">
-        <div class="source-balm-headline">House Passes Ukraine Aid and Russia Sanctions Package Over White House Opposition</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/politics/house-republicans-defy-trump-pass-ukraine-aid-package-headed-veto-fight" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
+            — <span class="source-original-headline">“Republicans' sweeping election overhaul fails in the Senate”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">7</div>
+<div class="source-body">
+<div class="source-balm-headline">Supreme Court Unanimously Upholds SEC Authority to Recover Illegal Financial Gains</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/04/us/politics/supreme-court-sec-disgorgement.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
             
-            &mdash; <span class="source-original-headline">&ldquo;18 House Republicans defy Trump to pass Ukraine aid package headed for veto fight&rdquo;</span>
+            — <span class="source-original-headline">“Supreme Court Finds S.E.C. Can Strip Wrongdoers of Illegal Financial Gains, Even Without Proof of Victim Loss”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">8</div>
+<div class="source-body">
+<div class="source-balm-headline">Colorado Court Reverses Homicide Convictions for Paramedics in Elijah McClain Case</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/nation/homicide-convictions-reversed-for-paramedics-who-injected-elijah-mcclain-with-ketamine" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
             
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/house-passes-bill-to-provide-more-ukraine-aid-and-impose-new-sanctions-on-russia" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
+            — <span class="source-original-headline">“Homicide convictions reversed for paramedics who injected Elijah McClain with ketamine”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">9</div>
+<div class="source-body">
+<div class="source-balm-headline">Scientists Perform First Precise Gene Edits in Human Embryos</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/04/science/embryos-gene-editing-crispr.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
             
-            &mdash; <span class="source-original-headline">&ldquo;House passes bill to provide more Ukraine aid and impose new sanctions on Russia&rdquo;</span>
+            — <span class="source-original-headline">“In a First, Scientists Precisely Edit Human Embryo Genes”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">10</div>
+<div class="source-body">
+<div class="source-balm-headline">Cambridge Scientists Test First Vaccine Designed by Artificial Intelligence</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/crrpggegwe0o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
             
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">5</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Trump Allocates $700 Million for New Coal Plants Using Wartime Authority</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/04/climate/trump-coal-plants-funding.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
+            — <span class="source-original-headline">“'World-first' vaccine designed by artificial intelligence”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">11</div>
+<div class="source-body">
+<div class="source-balm-headline">Flesh-Eating Screwworm Parasite Detected in Texas Livestock for First Time in Six Decades</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/c7v9vz1gd76o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
             
-            &mdash; <span class="source-original-headline">&ldquo;Trump Offers Funds for First New U.S. Coal Plants in 13 Years&rdquo;</span>
+            — <span class="source-original-headline">“US plans to fight flesh-eating screwworm outbreak with flies and dogs”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/04/new-world-screwworm-texas-cattle-industry" rel="noopener noreferrer" target="_blank">Guardian Environment</a>
             
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/04/trump-coal-defense-production-act" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
+            — <span class="source-original-headline">“Alarm as once-eradicated flesh-eating parasite found in calf in Texas”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">12</div>
+<div class="source-body">
+<div class="source-balm-headline">Hurricanes Rally from Two-Goal Deficit in Overtime to Even Stanley Cup Final</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/sports/seth-jarvis-scores-overtime-game-winner-hurricanes-storm-back-2-0-deficit-even-stanley-cup-final" rel="noopener noreferrer" target="_blank">Fox News</a>
             
-            &mdash; <span class="source-original-headline">&ldquo;Trump uses wartime powers to dole out $700m to ‘clean, beautiful’ coal&rdquo;</span>
+            — <span class="source-original-headline">“Seth Jarvis scores overtime game-winner as Hurricanes storm back from 2-0 deficit to even Stanley Cup Final”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">13</div>
+<div class="source-body">
+<div class="source-balm-headline">Aaron Judge Diagnosed with Stress Fracture, Expected to Miss Four to Six Weeks</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/sports/aaron-judge-officially-indefinitely-stress-fracture-huge-blow-yankees-title-hopes" rel="noopener noreferrer" target="_blank">Fox News</a>
             
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">6</div>
-      <div class="source-body">
-        <div class="source-balm-headline">SAVE Act Voter ID Legislation Fails in Senate for Second Time</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/politics/four-senate-republicans-unite-dems-block-trumps-save-america-act" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Four Senate Republicans again unite with Dems to block Trump's SAVE America Act&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/04/nx-s1-5751145/save-act-senate-vote-trump" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Republicans' sweeping election overhaul fails in the Senate&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">7</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Supreme Court Unanimously Upholds SEC Authority to Recover Illegal Financial Gains</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/04/us/politics/supreme-court-sec-disgorgement.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Supreme Court Finds S.E.C. Can Strip Wrongdoers of Illegal Financial Gains, Even Without Proof of Victim Loss&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">8</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Colorado Court Reverses Homicide Convictions for Paramedics in Elijah McClain Case</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/nation/homicide-convictions-reversed-for-paramedics-who-injected-elijah-mcclain-with-ketamine" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Homicide convictions reversed for paramedics who injected Elijah McClain with ketamine&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">9</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Scientists Perform First Precise Gene Edits in Human Embryos</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/04/science/embryos-gene-editing-crispr.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;In a First, Scientists Precisely Edit Human Embryo Genes&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">10</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Cambridge Scientists Test First Vaccine Designed by Artificial Intelligence</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/crrpggegwe0o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;'World-first' vaccine designed by artificial intelligence&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">11</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Flesh-Eating Screwworm Parasite Detected in Texas Livestock for First Time in Six Decades</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/c7v9vz1gd76o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;US plans to fight flesh-eating screwworm outbreak with flies and dogs&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/04/new-world-screwworm-texas-cattle-industry" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Alarm as once-eradicated flesh-eating parasite found in calf in Texas&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">12</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Hurricanes Rally from Two-Goal Deficit in Overtime to Even Stanley Cup Final</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/sports/seth-jarvis-scores-overtime-game-winner-hurricanes-storm-back-2-0-deficit-even-stanley-cup-final" target="_blank" rel="noopener noreferrer">Fox News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Seth Jarvis scores overtime game-winner as Hurricanes storm back from 2-0 deficit to even Stanley Cup Final&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">13</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Aaron Judge Diagnosed with Stress Fracture, Expected to Miss Four to Six Weeks</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/sports/aaron-judge-officially-indefinitely-stress-fracture-huge-blow-yankees-title-hopes" target="_blank" rel="noopener noreferrer">Fox News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Aaron Judge officially out indefinitely with stress fracture in huge blow to Yankees' title hopes&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p><a href="2026-06-04-pm.html">← Return to digest</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+            — <span class="source-original-headline">“Aaron Judge officially out indefinitely with stress fracture in huge blow to Yankees' title hopes”</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p><a href="2026-06-04-pm.html">← Return to digest</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-<script>
-  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
-  (function() {
-    var current = '2026-06-04-pm.html';
-    fetch('archive.json')
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-      })
-      .catch(function() {});
-  })();
-</script>
+
 </body>
 </html>

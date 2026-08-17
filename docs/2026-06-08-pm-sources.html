@@ -1,16 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm Sources — Monday, June 8, 2026 PM</title>
-  <meta name="description" content="Source attribution for the Balm digest of Monday, June 8, 2026.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="manifest.json">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm Sources — Monday, June 8, 2026 PM</title>
+<meta content="Source attribution for the Balm digest of Monday, June 8, 2026." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="manifest.json" rel="manifest"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -45,14 +46,6 @@
       padding: 0 1rem;
     }
 
-    .sidebar {
-      width: 220px;
-      flex-shrink: 0;
-      padding: 2rem 1.5rem 2rem 0;
-      border-right: 1px solid var(--rule);
-      min-height: 100vh;
-    }
-
     .main-content {
       flex: 1;
       max-width: 860px;
@@ -61,7 +54,6 @@
 
     @media (max-width: 768px) {
       .page-wrapper { display: block; padding: 0; }
-      .sidebar { display: none; }
       .main-content { padding: 0 1.25rem 3rem; }
     }
 
@@ -175,39 +167,6 @@
       color: var(--secondary);
     }
 
-    /* Sidebar */
-    .sidebar-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-top: 2rem;
-    }
-
-    .archive-month { margin-bottom: 1rem; }
-
-    .archive-month-label {
-      font-size: 0.68rem;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      color: var(--secondary);
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
-
-    .archive-link {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--secondary);
-      padding: 0.1rem 0;
-      line-height: 1.6;
-    }
-
-    .archive-link:hover { color: var(--accent); text-decoration: none; }
-    .archive-link.current { color: var(--accent); font-style: italic; }
-
     /* Footer */
     .footer {
       border-top: 1px solid var(--rule);
@@ -221,680 +180,430 @@
 
     .footer a { color: var(--muted); text-decoration: underline; }
     .footer a:hover { color: var(--secondary); }
-  </style>
+
+    .page-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .main-content {
+      padding: 0 0 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .main-content { padding: 0 0 3rem; }
+    }
+
+    :root { --ink-light: #5a5048; }
+
+    /* --- patched to current template --- */
+    .masthead-link {
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .archive-link-section {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+    }
+
+    .archive-link {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .archive-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer .footer-kofi {
+      font-size: 0.92rem;
+      color: var(--accent);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+
+    .footer .footer-kofi:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .footer .footer-contact {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s;
+    }
+
+    .footer .footer-contact:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+</style>
 </head>
 <body>
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">June 2026</div>
-      
-      <a class="archive-link current"
-         href="2026-06-08-pm.html">
-        06-08 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-08-am.html">
-        06-08 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-07-pm.html">
-        06-07 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-07-am.html">
-        06-07 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-06-pm.html">
-        06-06 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-06-am.html">
-        06-06 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-05-pm.html">
-        06-05 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-05-am.html">
-        06-05 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-04-pm.html">
-        06-04 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-04-am.html">
-        06-04 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-03-pm.html">
-        06-03 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-03-am.html">
-        06-03 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-02-pm.html">
-        06-02 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-01-pm.html">
-        06-01 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-01-am.html">
-        06-01 AM
-      </a>
-      
-    </div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">May 2026</div>
-      
-      <a class="archive-link"
-         href="2026-05-31-pm.html">
-        05-31 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-31-am.html">
-        05-31 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-30-pm.html">
-        05-30 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-30-am.html">
-        05-30 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-29-pm.html">
-        05-29 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-29-am.html">
-        05-29 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-28-pm.html">
-        05-28 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-28-am.html">
-        05-28 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-27-pm.html">
-        05-27 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-27-am.html">
-        05-27 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-26-pm.html">
-        05-26 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-26-am.html">
-        05-26 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-25-pm.html">
-        05-25 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-24-pm.html">
-        05-24 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-24-am.html">
-        05-24 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-23-pm.html">
-        05-23 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-23-am.html">
-        05-23 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-22-pm.html">
-        05-22 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-22-am.html">
-        05-22 AM
-      </a>
-      
-    </div>
-    
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <a href="2026-06-08-pm.html" style="text-decoration:none;">
-          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-              </filter>
-            </defs>
-            <text x="90" y="44"
-                  font-family="Caveat, cursive"
-                  font-size="52"
-                  font-weight="700"
-                  fill="#6b82a8"
-                  text-anchor="middle"
-                  letter-spacing="8"
-                  filter="url(#balm-spread)">Balm</text>
-          </svg>
-        </a>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Monday, June 8, 2026 &middot; PM Edition &middot; Sources</p>
-    </header>
-
-    <!-- Sources list -->
-    <div class="section-header">Sources for this digest</div>
-
-    
-    <div class="source-entry">
-      <div class="source-num">1</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Israel and Iran Halt Strikes After Trump Calls for Ceasefire, Both Warn of Readiness to Resume</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/world/iran-admits-extraordinary-new-detail-khamenei-strike-trump-offered-way-expert" target="_blank" rel="noopener noreferrer">Fox News World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Iran admits extraordinary new detail in Khamenei strike, Trump offered 'way out': expert&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cj6ge150z5go?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Iran and Israel say they will pause strikes but warn of retaliation if ceasefire breached again&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cj6ge150z5go?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Iran and Israel say they will pause strikes but warn of retaliation if ceasefire breached again&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cly72ryrd1jo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Iran's strike on Israel suggests the regime's sense of resilience is growing&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">2</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Lebanon's President Declines to Meet Netanyahu While Fighting Continues; Hezbollah Strikes Prompt Israeli Response</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/08/iran-israel-news-live-updates-strikes-attacks-intensify-trump-netanyahu" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Lebanon’s president refuses to meet Netanyahu until war ends – as it happened&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">3</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Armenian Prime Minister Pashinyan's Party Wins Parliamentary Election With Nearly 50% of the Vote</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.idahostatejournal.com/news/world/armenian-pm-nikol-pashinyan-claims-victory-in-election-seen-as-test-of-russias-influence/article_ff1eebfd-37f7-554d-a64f-84643d73dd13.html" target="_blank" rel="noopener noreferrer">Idahostatejournal</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Armenian PM Nikol Pashinyan claims victory in election seen as test of Russia's influence&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.hjnews.com/world/armenian-pm-nikol-pashinyan-claims-victory-in-election-seen-as-test-of-russias-influence/article_6dc38b3b-60fe-5a39-a008-d6314af03ccb.html" target="_blank" rel="noopener noreferrer">Hjnews</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Armenian PM Nikol Pashinyan claims victory in election seen as test of Russia's influence&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/08/world/europe/armenia-election-results.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Armenia’s Prime Minister Declares Victory in Race Shadowed by Russia&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cvgel990n51o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Armenia's pro-West government wins election despite Russian pressure&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">4</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Chinese President Xi Visits Pyongyang for Talks With North Korean Leader Kim Jong Un</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/world/xi-jinping-north-korea-kim-jong-un-talks" target="_blank" rel="noopener noreferrer">Fox News World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;US adversaries China, North Korea strengthening ties as Xi, Kim set to begin talks&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/08/g-s1-126863/xi-and-kim-express-hopes-for-greater-ties-between-china-and-north-korea" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Xi and Kim express hopes for greater ties between China and North Korea&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">5</div>
-      <div class="source-body">
-        <div class="source-balm-headline">France and Germany Drop Joint Fighter Jet Project, Dealing a Setback to European Defense Cooperation</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/08/france-and-germany-abandon-joint-project-to-build-european-fighter-jet" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;France and Germany abandon joint project to build European fighter jet&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">6</div>
-      <div class="source-body">
-        <div class="source-balm-headline">NATO's Eastern European Members Are Leading Alliance Defense Spending as Western Europe Faces Pressure to Catch Up</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/world/natos-eastern-flank-races-rearm-trump-pressure-exposes-western-europes-defense-gap" target="_blank" rel="noopener noreferrer">Fox News World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;NATO's eastern flank races to rearm as Trump pressure exposes Western Europe's defense gap&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">7</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Iran War Pushes Countries to Prioritize Domestic Energy as Oil Market Volatility Persists</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/08/business/energy-environment/iran-war-energy-oil.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Welcome to the Era of Me-First Energy&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">8</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Federal Judge Strikes Down $100,000 H-1B Visa Fee as Exceeding Executive Authority</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/politics/obama-appointed-judge-blocked-trump-birthright-citizenship-order-strikes-throws-visa-overhaul" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Obama-appointed judge who blocked Trump birthright citizenship order strikes again, throws out visa overhaul&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/politics/federal-judge-strikes-trumps-100k-h-1b-visa-fee-ruling-unconstitutional-tax" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Federal judge strikes down Trump’s $100K H-1B visa fee, ruling it an unconstitutional tax&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/federal-judge-strikes-down-trumps-100000-fee-on-new-h-1b-visas-for-high-skilled-workers" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Federal judge strikes down Trump's $100,000 fee on new H-1B visas for high-skilled workers&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">9</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Trump Nominates Former Personal Lawyer Todd Blanche as Permanent Attorney General</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/live/2026/jun/08/us-politics-latest-news-updates-trump-california-governor-midterm-elections" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Adam Schiff calls for Senate to ‘vigorously oppose’ Trump’s effort to make Todd Blanche his permanent attorney general – live&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/08/who-is-todd-blanche-trump-attorney-general-pick" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;‘I love you, sir’: Todd Blanche, devoted Trump enforcer, tapped to do his bidding full time&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/08/trump-nominates-todd-blanche-attorney-general" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump nominates his ex-lawyer Todd Blanche to serve as attorney general&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">10</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Senate Faces Lapse of Key Surveillance Authority as Renewal Deal Falters</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/watch-live-senate-meets-after-deal-to-renew-expiring-surveillance-program-falters" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;WATCH LIVE: Senate meets after deal to renew expiring surveillance program falters&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">11</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Sam Bankman-Fried, Serving 25-Year Fraud Sentence, Applies for Presidential Pardon</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/08/technology/sam-bankman-fried-pardon-trump.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Sam Bankman-Fried Has Applied for a Pardon From Trump&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cjwgd6jqd5do?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Jailed crypto founder Sam Bankman-Fried seeks Trump pardon&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">12</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Ebola Outbreak in Congo Expanding at Unprecedented Rate; U.S. Response Approach Remains Unclear</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/03/us/politics/trump-administration-ebola-response.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;As Ebola Outbreak Widens, Trump Has Yet to Outline a Plan&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/08/g-s1-126858/up-first-newsletter-iran-lebanon-israel-trump-meet-the-press-interview-congo-ebola" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Israel-Iran strikes threaten truce. And, Ebola is spreading at an unprecedented rate&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/08/g-s1-125269/ebola-usaid-outbreak-trump-musk-woodchipper-nicholas-enrich" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;In his book, self-described USAID 'whistleblower' talks about the agency and Ebola&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">13</div>
-      <div class="source-body">
-        <div class="source-balm-headline">OpenAI Files Confidential IPO Paperwork, Signaling Potential Wall Street Debut</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/technology/2026/jun/08/openai-ipo-files-for-public-stock-market" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;OpenAI confidentially files for initial public offering on US stock market&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/08/technology/openai-ipo.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;OpenAI Files to Go Public as A.I. Companies Rush to Wall St.&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/nation/openai-files-preliminary-sec-paperwork-for-ipo-opening-the-door-to-a-wall-street-debut" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;OpenAI files preliminary SEC paperwork for IPO, opening the door to a Wall Street debut&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">14</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Apple Announces Redesigned AI-Powered Siri and New Child Safety Features at Annual Developer Conference</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/08/technology/apple-ai-siri.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Apple Reveals New A.I.-Powered Version of Its Siri Digital Assistant&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/08/nx-s1-5847937/apple-wwdc-2026-siri-ai-tim-cook" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Hey, Siri: Apple just announced a long-awaited AI update&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/economy/apple-unveils-new-ai-features-with-privacy-focus-at-last-developers-conference-with-ceo-tim-cook" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Apple unveils new AI features with privacy focus at last developers conference with CEO Tim Cook&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">15</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Magnitude 7.8 Earthquake Strikes Southern Philippines, Killing at Least 32 and Displacing Tens of Thousands</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/07/world/asia/philippines-earthquake-tsunami-warning.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;At Least 32 Dead After Earthquake and Landslide in the Philippines&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/clyel78e6p5o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;At least 35 dead after major earthquake strikes southern Philippines&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">16</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Trump Attends NBA Finals Game 3 at Madison Square Garden, Becoming First Sitting President to Attend an NBA Finals Game</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/sports/secret-service-tsa-nypd-transform-madison-square-garden-fortress-trumps-nba-finals-visit" target="_blank" rel="noopener noreferrer">Fox News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Secret Service, TSA and NYPD transform Madison Square Garden into fortress for Trump's NBA Finals visit&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/ceqd5jgded8o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;'City's gonna be crazy:' Knicks run electrifies NYC, as Trump's attendance locks down arena&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/nation/nyc-imposes-stringent-security-as-trump-becomes-1st-sitting-u-s-president-to-attend-nba-finals-game" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;NYC imposes stringent security as Trump becomes 1st sitting U.S. president to attend NBA Finals game&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p><a href="2026-06-08-pm.html">← Return to digest</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news">
+<svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg>
+</a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Monday, June 8, 2026 · PM Edition · Sources</p>
+</header>
+<!-- Sources list -->
+<div class="section-header">Sources for this digest</div>
+<div class="source-entry">
+<div class="source-num">1</div>
+<div class="source-body">
+<div class="source-balm-headline">Israel and Iran Halt Strikes After Trump Calls for Ceasefire, Both Warn of Readiness to Resume</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/world/iran-admits-extraordinary-new-detail-khamenei-strike-trump-offered-way-expert" rel="noopener noreferrer" target="_blank">Fox News World</a>
+            
+            — <span class="source-original-headline">“Iran admits extraordinary new detail in Khamenei strike, Trump offered 'way out': expert”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cj6ge150z5go?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“Iran and Israel say they will pause strikes but warn of retaliation if ceasefire breached again”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cj6ge150z5go?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Iran and Israel say they will pause strikes but warn of retaliation if ceasefire breached again”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cly72ryrd1jo?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Iran's strike on Israel suggests the regime's sense of resilience is growing”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">2</div>
+<div class="source-body">
+<div class="source-balm-headline">Lebanon's President Declines to Meet Netanyahu While Fighting Continues; Hezbollah Strikes Prompt Israeli Response</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/08/iran-israel-news-live-updates-strikes-attacks-intensify-trump-netanyahu" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Lebanon’s president refuses to meet Netanyahu until war ends – as it happened”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">3</div>
+<div class="source-body">
+<div class="source-balm-headline">Armenian Prime Minister Pashinyan's Party Wins Parliamentary Election With Nearly 50% of the Vote</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.idahostatejournal.com/news/world/armenian-pm-nikol-pashinyan-claims-victory-in-election-seen-as-test-of-russias-influence/article_ff1eebfd-37f7-554d-a64f-84643d73dd13.html" rel="noopener noreferrer" target="_blank">Idahostatejournal</a>
+            
+            — <span class="source-original-headline">“Armenian PM Nikol Pashinyan claims victory in election seen as test of Russia's influence”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.hjnews.com/world/armenian-pm-nikol-pashinyan-claims-victory-in-election-seen-as-test-of-russias-influence/article_6dc38b3b-60fe-5a39-a008-d6314af03ccb.html" rel="noopener noreferrer" target="_blank">Hjnews</a>
+            
+            — <span class="source-original-headline">“Armenian PM Nikol Pashinyan claims victory in election seen as test of Russia's influence”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/08/world/europe/armenia-election-results.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Armenia’s Prime Minister Declares Victory in Race Shadowed by Russia”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cvgel990n51o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Armenia's pro-West government wins election despite Russian pressure”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">4</div>
+<div class="source-body">
+<div class="source-balm-headline">Chinese President Xi Visits Pyongyang for Talks With North Korean Leader Kim Jong Un</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/world/xi-jinping-north-korea-kim-jong-un-talks" rel="noopener noreferrer" target="_blank">Fox News World</a>
+            
+            — <span class="source-original-headline">“US adversaries China, North Korea strengthening ties as Xi, Kim set to begin talks”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/08/g-s1-126863/xi-and-kim-express-hopes-for-greater-ties-between-china-and-north-korea" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Xi and Kim express hopes for greater ties between China and North Korea”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">5</div>
+<div class="source-body">
+<div class="source-balm-headline">France and Germany Drop Joint Fighter Jet Project, Dealing a Setback to European Defense Cooperation</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/08/france-and-germany-abandon-joint-project-to-build-european-fighter-jet" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“France and Germany abandon joint project to build European fighter jet”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">6</div>
+<div class="source-body">
+<div class="source-balm-headline">NATO's Eastern European Members Are Leading Alliance Defense Spending as Western Europe Faces Pressure to Catch Up</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/world/natos-eastern-flank-races-rearm-trump-pressure-exposes-western-europes-defense-gap" rel="noopener noreferrer" target="_blank">Fox News World</a>
+            
+            — <span class="source-original-headline">“NATO's eastern flank races to rearm as Trump pressure exposes Western Europe's defense gap”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">7</div>
+<div class="source-body">
+<div class="source-balm-headline">Iran War Pushes Countries to Prioritize Domestic Energy as Oil Market Volatility Persists</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/08/business/energy-environment/iran-war-energy-oil.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Welcome to the Era of Me-First Energy”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">8</div>
+<div class="source-body">
+<div class="source-balm-headline">Federal Judge Strikes Down $100,000 H-1B Visa Fee as Exceeding Executive Authority</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/politics/obama-appointed-judge-blocked-trump-birthright-citizenship-order-strikes-throws-visa-overhaul" rel="noopener noreferrer" target="_blank">Fox News Politics</a>
+            
+            — <span class="source-original-headline">“Obama-appointed judge who blocked Trump birthright citizenship order strikes again, throws out visa overhaul”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/politics/federal-judge-strikes-trumps-100k-h-1b-visa-fee-ruling-unconstitutional-tax" rel="noopener noreferrer" target="_blank">Fox News Politics</a>
+            
+            — <span class="source-original-headline">“Federal judge strikes down Trump’s $100K H-1B visa fee, ruling it an unconstitutional tax”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/politics/federal-judge-strikes-down-trumps-100000-fee-on-new-h-1b-visas-for-high-skilled-workers" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Federal judge strikes down Trump's $100,000 fee on new H-1B visas for high-skilled workers”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">9</div>
+<div class="source-body">
+<div class="source-balm-headline">Trump Nominates Former Personal Lawyer Todd Blanche as Permanent Attorney General</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/live/2026/jun/08/us-politics-latest-news-updates-trump-california-governor-midterm-elections" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Adam Schiff calls for Senate to ‘vigorously oppose’ Trump’s effort to make Todd Blanche his permanent attorney general – live”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/08/who-is-todd-blanche-trump-attorney-general-pick" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“‘I love you, sir’: Todd Blanche, devoted Trump enforcer, tapped to do his bidding full time”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/08/trump-nominates-todd-blanche-attorney-general" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Trump nominates his ex-lawyer Todd Blanche to serve as attorney general”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">10</div>
+<div class="source-body">
+<div class="source-balm-headline">Senate Faces Lapse of Key Surveillance Authority as Renewal Deal Falters</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/politics/watch-live-senate-meets-after-deal-to-renew-expiring-surveillance-program-falters" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“WATCH LIVE: Senate meets after deal to renew expiring surveillance program falters”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">11</div>
+<div class="source-body">
+<div class="source-balm-headline">Sam Bankman-Fried, Serving 25-Year Fraud Sentence, Applies for Presidential Pardon</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/08/technology/sam-bankman-fried-pardon-trump.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Sam Bankman-Fried Has Applied for a Pardon From Trump”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cjwgd6jqd5do?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Jailed crypto founder Sam Bankman-Fried seeks Trump pardon”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">12</div>
+<div class="source-body">
+<div class="source-balm-headline">Ebola Outbreak in Congo Expanding at Unprecedented Rate; U.S. Response Approach Remains Unclear</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/03/us/politics/trump-administration-ebola-response.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“As Ebola Outbreak Widens, Trump Has Yet to Outline a Plan”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/08/g-s1-126858/up-first-newsletter-iran-lebanon-israel-trump-meet-the-press-interview-congo-ebola" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Israel-Iran strikes threaten truce. And, Ebola is spreading at an unprecedented rate”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/08/g-s1-125269/ebola-usaid-outbreak-trump-musk-woodchipper-nicholas-enrich" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“In his book, self-described USAID 'whistleblower' talks about the agency and Ebola”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">13</div>
+<div class="source-body">
+<div class="source-balm-headline">OpenAI Files Confidential IPO Paperwork, Signaling Potential Wall Street Debut</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/technology/2026/jun/08/openai-ipo-files-for-public-stock-market" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“OpenAI confidentially files for initial public offering on US stock market”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/08/technology/openai-ipo.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“OpenAI Files to Go Public as A.I. Companies Rush to Wall St.”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/nation/openai-files-preliminary-sec-paperwork-for-ipo-opening-the-door-to-a-wall-street-debut" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“OpenAI files preliminary SEC paperwork for IPO, opening the door to a Wall Street debut”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">14</div>
+<div class="source-body">
+<div class="source-balm-headline">Apple Announces Redesigned AI-Powered Siri and New Child Safety Features at Annual Developer Conference</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/08/technology/apple-ai-siri.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Apple Reveals New A.I.-Powered Version of Its Siri Digital Assistant”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/08/nx-s1-5847937/apple-wwdc-2026-siri-ai-tim-cook" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Hey, Siri: Apple just announced a long-awaited AI update”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/economy/apple-unveils-new-ai-features-with-privacy-focus-at-last-developers-conference-with-ceo-tim-cook" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Apple unveils new AI features with privacy focus at last developers conference with CEO Tim Cook”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">15</div>
+<div class="source-body">
+<div class="source-balm-headline">Magnitude 7.8 Earthquake Strikes Southern Philippines, Killing at Least 32 and Displacing Tens of Thousands</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/07/world/asia/philippines-earthquake-tsunami-warning.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“At Least 32 Dead After Earthquake and Landslide in the Philippines”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/clyel78e6p5o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“At least 35 dead after major earthquake strikes southern Philippines”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">16</div>
+<div class="source-body">
+<div class="source-balm-headline">Trump Attends NBA Finals Game 3 at Madison Square Garden, Becoming First Sitting President to Attend an NBA Finals Game</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/sports/secret-service-tsa-nypd-transform-madison-square-garden-fortress-trumps-nba-finals-visit" rel="noopener noreferrer" target="_blank">Fox News</a>
+            
+            — <span class="source-original-headline">“Secret Service, TSA and NYPD transform Madison Square Garden into fortress for Trump's NBA Finals visit”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/ceqd5jgded8o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“'City's gonna be crazy:' Knicks run electrifies NYC, as Trump's attendance locks down arena”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/nation/nyc-imposes-stringent-security-as-trump-becomes-1st-sitting-u-s-president-to-attend-nba-finals-game" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“NYC imposes stringent security as Trump becomes 1st sitting U.S. president to attend NBA Finals game”</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p><a href="2026-06-08-pm.html">← Return to digest</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-<script>
-  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
-  (function() {
-    var current = '2026-06-08-pm.html';
-    fetch('archive.json')
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-      })
-      .catch(function() {});
-  })();
-</script>
+
 </body>
 </html>

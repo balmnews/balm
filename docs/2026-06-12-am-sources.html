@@ -1,16 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm Sources — Friday, June 12, 2026 AM</title>
-  <meta name="description" content="Source attribution for the Balm digest of Friday, June 12, 2026.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="manifest.json">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm Sources — Friday, June 12, 2026 AM</title>
+<meta content="Source attribution for the Balm digest of Friday, June 12, 2026." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="manifest.json" rel="manifest"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -45,14 +46,6 @@
       padding: 0 1rem;
     }
 
-    .sidebar {
-      width: 220px;
-      flex-shrink: 0;
-      padding: 2rem 1.5rem 2rem 0;
-      border-right: 1px solid var(--rule);
-      min-height: 100vh;
-    }
-
     .main-content {
       flex: 1;
       max-width: 860px;
@@ -61,7 +54,6 @@
 
     @media (max-width: 768px) {
       .page-wrapper { display: block; padding: 0; }
-      .sidebar { display: none; }
       .main-content { padding: 0 1.25rem 3rem; }
     }
 
@@ -175,39 +167,6 @@
       color: var(--secondary);
     }
 
-    /* Sidebar */
-    .sidebar-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-top: 2rem;
-    }
-
-    .archive-month { margin-bottom: 1rem; }
-
-    .archive-month-label {
-      font-size: 0.68rem;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      color: var(--secondary);
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
-
-    .archive-link {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--secondary);
-      padding: 0.1rem 0;
-      line-height: 1.6;
-    }
-
-    .archive-link:hover { color: var(--accent); text-decoration: none; }
-    .archive-link.current { color: var(--accent); font-style: italic; }
-
     /* Footer */
     .footer {
       border-top: 1px solid var(--rule);
@@ -221,825 +180,505 @@
 
     .footer a { color: var(--muted); text-decoration: underline; }
     .footer a:hover { color: var(--secondary); }
-  </style>
+
+    .page-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .main-content {
+      padding: 0 0 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .main-content { padding: 0 0 3rem; }
+    }
+
+    :root { --ink-light: #5a5048; }
+
+    /* --- patched to current template --- */
+    .masthead-link {
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .archive-link-section {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+    }
+
+    .archive-link {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .archive-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer .footer-kofi {
+      font-size: 0.92rem;
+      color: var(--accent);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+
+    .footer .footer-kofi:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .footer .footer-contact {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s;
+    }
+
+    .footer .footer-contact:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+</style>
 </head>
 <body>
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">June 2026</div>
-      
-      <a class="archive-link"
-         href="2026-06-12-pm.html">
-        06-12 PM
-      </a>
-      
-      <a class="archive-link current"
-         href="2026-06-12-am.html">
-        06-12 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-11-pm.html">
-        06-11 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-11-am.html">
-        06-11 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-10-pm.html">
-        06-10 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-10-am.html">
-        06-10 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-09-pm.html">
-        06-09 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-09-am.html">
-        06-09 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-08-pm.html">
-        06-08 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-08-am.html">
-        06-08 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-07-pm.html">
-        06-07 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-07-am.html">
-        06-07 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-06-pm.html">
-        06-06 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-06-am.html">
-        06-06 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-05-pm.html">
-        06-05 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-05-am.html">
-        06-05 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-04-pm.html">
-        06-04 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-04-am.html">
-        06-04 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-03-pm.html">
-        06-03 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-03-am.html">
-        06-03 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-02-pm.html">
-        06-02 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-01-pm.html">
-        06-01 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-01-am.html">
-        06-01 AM
-      </a>
-      
-    </div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">May 2026</div>
-      
-      <a class="archive-link"
-         href="2026-05-31-pm.html">
-        05-31 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-31-am.html">
-        05-31 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-30-pm.html">
-        05-30 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-30-am.html">
-        05-30 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-29-pm.html">
-        05-29 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-29-am.html">
-        05-29 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-28-pm.html">
-        05-28 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-28-am.html">
-        05-28 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-27-pm.html">
-        05-27 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-27-am.html">
-        05-27 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-26-pm.html">
-        05-26 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-26-am.html">
-        05-26 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-25-pm.html">
-        05-25 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-24-pm.html">
-        05-24 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-24-am.html">
-        05-24 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-23-pm.html">
-        05-23 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-23-am.html">
-        05-23 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-22-pm.html">
-        05-22 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-22-am.html">
-        05-22 AM
-      </a>
-      
-    </div>
-    
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <a href="2026-06-12-am.html" style="text-decoration:none;">
-          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-              </filter>
-            </defs>
-            <text x="90" y="44"
-                  font-family="Caveat, cursive"
-                  font-size="52"
-                  font-weight="700"
-                  fill="#6b82a8"
-                  text-anchor="middle"
-                  letter-spacing="8"
-                  filter="url(#balm-spread)">Balm</text>
-          </svg>
-        </a>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Friday, June 12, 2026 &middot; AM Edition &middot; Sources</p>
-    </header>
-
-    <!-- Sources list -->
-    <div class="section-header">Sources for this digest</div>
-
-    
-    <div class="source-entry">
-      <div class="source-num">1</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Trump Halts Further Iran Strikes, Signals Peace Deal Possible This Weekend; Tehran Says Nothing Finalized</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/12/middle-east-crisis-live-us-iran-israel-lebanon-trump-hormuz-oil-peace-deal-doubt-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Middle East crisis live: Trump reposts Iranian foreign minister’s message saying memorandum to end Iran war has ‘never been closer’&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/business/2026/jun/12/global-oil-prices-trump-us-iran-deal-brent-crude-strait-of-hormuz" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Oil prices plummet as Trump claims he is close to US-Iran deal&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/live/2026/06/12/world/iran-war-trump-us-israel" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Iran War Live Updates: Conflicting Accounts Emerge of Possible Peace Deal&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/12/world/middleeast/iran-war-limbo.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;A Dangerous Limbo Leaves Iran, and the World, Between Peace and War&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/c78y6w78828o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Tehran says 'nothing' finalised after Trump claims deal to end Iran war near&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/12/g-s1-127711/up-first-newsletter-iran-peace-national-intelligence-director-world-cup" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump cancels further Iran strikes. And, U.S. men's soccer takes on Paraguay&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/world/trump-is-raising-expectations-that-this-time-he-really-will-close-deal-with-iran-to-wind-down-war" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump is raising expectations that this time he really will close deal with Iran to wind down war&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/show/trump-calls-off-threatened-strikes-says-deal-with-iran-is-close" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump calls off threatened strikes, says deal with Iran is close&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">2</div>
-      <div class="source-body">
-        <div class="source-balm-headline">UK Defence Secretary Resigns Over Funding Dispute Weeks Before NATO Summit</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/politics/live/2026/jun/12/keir-starmer-defence-investment-plan-spending-dan-jarvis-al-cairns-john-healey-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Starmer defends investment on defence as he vows to fight any leadership challenge – UK politics live&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/politics/2026/jun/12/keir-starmer-john-healey-defence-secretary-exit" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;‘I’m not walking away,’ says Starmer despite defence secretary’s exit&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/politics/2026/jun/12/john-healey-rachel-reeves-keir-starmer-uk-politics" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Healey showdown raises fresh questions over Starmer-Reeves power dynamic&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/politics/2026/jun/12/rachel-reeves-departmental-salami-slicing-uk-defence-budget-keir-starmer" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Reeves grudgingly resorts to departmental salami slicing to fund UK defence budget&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/politics/2026/jun/12/uk-defence-plan-underfunded-outdated-al-carns-resignation" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;UK’s defence plan is underfunded and outdated, says Al Carns after resignation&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/world/starmer-seismic-crisis-uk-defense-chief-quits-high-stakes-trump-nato-summit" target="_blank" rel="noopener noreferrer">Fox News World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Starmer in 'seismic' crisis, UK defense chief quits before high-stakes Trump NATO summit&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/politics/top-us-allys-defense-chief-quits-warns-military-lacks-resources-rising-threats" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Top US ally's defense chief quits, warns military lacks resources for rising threats&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/c8d2q84y1gno?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Defence row exposes tensions over how to keep UK safe&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">3</div>
-      <div class="source-body">
-        <div class="source-balm-headline">U.S. Plans to Pull Roughly a Third of Fighter Jets It Provides to NATO in Europe</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/12/world/europe/us-nato-cuts-drawdown-jets.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;U.S. Plan Is Said to Pull a Third of Fighter Jets It Provides NATO for Europe&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">4</div>
-      <div class="source-body">
-        <div class="source-balm-headline">SpaceX Goes Public in Largest IPO on Record; Musk's Net Worth Crosses $1 Trillion</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/business/live/2026/jun/12/spacex-float-us-stock-market-share-elon-musk-trillionaire-largest-ipo-ever-live-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Elon Musk becomes world’s first trillionaire after SpaceX shares jump on stock market debut – business live&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/science/2026/jun/12/spacex-stock-price-ipo-spcx" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;SpaceX makes largest ever stock market debut with multi-trillion-dollar valuation&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/12/technology/elon-musk-trillionaire.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Elon Musk Becomes the World’s First Trillionaire&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/12/technology/spacex-ipo-elon-musk.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;SpaceX Rises 11% in Largest I.P.O. Ever&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/live/2026/06/12/business/spacex-ipo-elon-musk/is-spacex-worth-1-77-trillion-its-a-pie-in-the-sky-some-investors-say" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Is SpaceX worth $1.77 trillion? It’s a pie in the sky, some investors say.&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/live/2026/06/12/business/spacex-ipo-elon-musk/when-will-spacex-start-trading" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;When will SpaceX start trading?&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/11/technology/spacex-valuation-skeptics.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Is SpaceX Worth $1.77 Trillion? It’s a Pie in the Sky, Some Investors Say&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/11/business/spacex-tesla-ipo-elon-musk.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;How Tesla’s Stock Listing in 2010 Enabled SpaceX’s I.P.O.&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/12/nx-s1-5855004/stock-ai-spacex-ipo-elon-musk" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;SpaceX stock lifts off, rising above its IPO price&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/economy/elon-musk-could-become-the-worlds-first-trillionaire-with-spacexs-ipo" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Elon Musk could become the world's first trillionaire with SpaceX's IPO&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">5</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Key U.S. Surveillance Authority FISA Section 702 Set to Lapse as Congress Fails to Renew It</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/12/nx-s1-5856291/fisa-702-surveillance-expiration-bill-pulte" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;A key U.S. spy tool is set to lapse on Friday — now what?&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">6</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Federal Judge Extends Block on Trump's $1.8 Billion Anti-Weaponization Fund</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/live/2026/jun/12/donald-trump-fisa-kennedy-center-iran-ufc-white-house-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Federal judge extends court-ordered block on Trump’s $1.8bn anti-weaponization fund – US politics live&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/judge-extends-block-on-trumps-1-8-billion-anti-weaponization-fund" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Judge extends block on Trump's $1.8 billion 'Anti-Weaponization Fund'&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">7</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Trump Administration Waives Environmental Laws to Allow Border Wall Construction Through Big Bend National Park</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/13/texas-border-wall-big-bend-national-park" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;‘It’s massive destruction’: outcry in Texas over waivers to allow border wall in Big Bend national park&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/13/texas-border-wall-big-bend-national-park" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;‘It’s massive destruction’: outcry in Texas over waivers to allow border wall in Big Bend national park&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">8</div>
-      <div class="source-body">
-        <div class="source-balm-headline">SBA Ends Small Business Loan Access for Legal Permanent Residents</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/12/nx-s1-5853375/changes-loans-trump-small-business-immigrants-entrepreneurs-green-card" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Door shuts on some immigrant entrepreneurs as U.S. restricts small-business loans&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">9</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Supreme Court Blocks Alabama from Carrying Out Nitrogen Gas Execution Ruled Unconstitutional</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/nation/supreme-court-nixes-alabama-request-for-nitrogen-execution-which-lower-court-ruled-unconstitutional" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Supreme Court nixes Alabama request for nitrogen execution, which lower court ruled unconstitutional&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/court-considers-nitrogen-gas-execution/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Court considers nitrogen gas execution&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/court-denies-alabamas-request-to-allow-execution-using-nitrogen-gas/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Court denies Alabama's request to allow execution using nitrogen gas&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">10</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Supreme Court Rules Private Investors Cannot Sue to Enforce Certain Protections Against Investment Companies</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/justices-reject-private-suits-to-enforce-investor-protections-against-investment-companies/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Justices reject private suits to enforce investor protections against investment companies&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">11</div>
-      <div class="source-body">
-        <div class="source-balm-headline">British Artist David Hockney Dies at 88</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cvgjxdr27z4o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Celebrated British artist David Hockney dies aged 88&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cvgjxdr27z4o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Tributes paid to David Hockney, a 'giant' and 'true icon' of British art&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/world/david-hockney-iconic-british-artist-known-for-his-colorful-landscapes-and-pool-scenes-dies-at-88" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;David Hockney, iconic British artist known for his colorful landscapes and pool scenes, dies at 88&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">12</div>
-      <div class="source-body">
-        <div class="source-balm-headline">NOAA Declares El Niño Has Arrived; Scientists Say It Could Be Strongest of the Century</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/apr/13/el-nino-explainer" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;‘Super El Niño’ is officially here, scientists say. What can we expect?&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/11/el-nino-forms-historic-strength" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;El Niño forms in Pacific as experts say it will likely turbocharge extreme weather&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">13</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Antarctic Sea Ice in Bellingshausen Sea Missing an Area the Size of France</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/13/antarcticas-west-coast-missing-an-area-of-sea-ice-the-size-of-france-as-temperatures-peak-20c-above-average" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Antarctica’s west coast missing an area of sea ice the size of France as temperatures peak 20C above average&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/13/antarcticas-west-coast-missing-an-area-of-sea-ice-the-size-of-france-as-temperatures-peak-20c-above-average" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Antarctica’s west coast missing an area of sea ice the size of France as temperatures peak 20C above average&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">14</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Solar Power Surpassed Coal in U.S. Electricity Generation for First Time in May</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/11/solar-energy-us-coal" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Solar generates more energy in US than coal for first time&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">15</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Mexico Opens 2026 World Cup with 2-0 Win; U.S. and Canada Prepare for Tournament Openers</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.thetimestribune.com/news/national_news/world-cup-what-to-know-mexico-starts-with-big-win-while-u-s-canada-prepare/article_5d0eeff9-dd94-5574-9264-692d092e8126.html" target="_blank" rel="noopener noreferrer">Thetimestribune</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;World Cup what to know: Mexico starts with big win while U.S., Canada prepare for openers&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://santamariatimes.com/ap/sports/world-cup-what-to-know-mexico-starts-with-big-win-while-u-s-canada-prepare/article_0c51e6bb-06a5-5231-a8c4-7cccce3bf947.html" target="_blank" rel="noopener noreferrer">Santa Maria Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;World Cup what to know: Mexico starts with big win while U.S., Canada prepare for openers&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.register-herald.com/apnewsflow/apsportsrss/world-cup-what-to-know-mexico-starts-with-big-win-while-u-s-canada-prepare/article_4c6b4705-ddf1-5651-a4a8-a099f406697b.html" target="_blank" rel="noopener noreferrer">Register-herald</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;World Cup what to know: Mexico starts with big win while U.S., Canada prepare for openers&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.dailysentinel.com/anpa/sports/world-cup-what-to-know-mexico-starts-with-big-win-while-u-s-canada-prepare/article_03dccc88-a37f-5ff2-b265-00fb0276e8c0.html" target="_blank" rel="noopener noreferrer">Dailysentinel</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;World Cup what to know: Mexico starts with big win while U.S., Canada prepare for openers&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bhpioneer.com/sports/national_sports/world-cup-what-to-know-mexico-starts-with-big-win-while-u-s-canada-prepare/article_8963e8a5-bc06-5810-bb35-00bda209bffb.html" target="_blank" rel="noopener noreferrer">Bhpioneer</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;World Cup what to know: Mexico starts with big win while U.S., Canada prepare for openers&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/world/world-cup-what-to-know-mexico-starts-with-big-win-while-the-us-and-canada-prepare-for-openers" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;World Cup what to know: Mexico starts with big win while the US and Canada prepare for openers&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">16</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Two Nights of Unrest in Belfast Follow Stabbing; Targets Described as Racially Motivated</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/12/world/europe/belfast-stabbing-riots-anti-immigrant.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Anti-Immigrant Riots Leave Belfast on Edge: ‘Everyone Is Afraid’&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p><a href="2026-06-12-am.html">← Return to digest</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news">
+<svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg>
+</a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Friday, June 12, 2026 · AM Edition · Sources</p>
+</header>
+<!-- Sources list -->
+<div class="section-header">Sources for this digest</div>
+<div class="source-entry">
+<div class="source-num">1</div>
+<div class="source-body">
+<div class="source-balm-headline">Trump Halts Further Iran Strikes, Signals Peace Deal Possible This Weekend; Tehran Says Nothing Finalized</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/12/middle-east-crisis-live-us-iran-israel-lebanon-trump-hormuz-oil-peace-deal-doubt-latest-news-updates" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Middle East crisis live: Trump reposts Iranian foreign minister’s message saying memorandum to end Iran war has ‘never been closer’”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/business/2026/jun/12/global-oil-prices-trump-us-iran-deal-brent-crude-strait-of-hormuz" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Oil prices plummet as Trump claims he is close to US-Iran deal”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/live/2026/06/12/world/iran-war-trump-us-israel" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Iran War Live Updates: Conflicting Accounts Emerge of Possible Peace Deal”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/12/world/middleeast/iran-war-limbo.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“A Dangerous Limbo Leaves Iran, and the World, Between Peace and War”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/c78y6w78828o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Tehran says 'nothing' finalised after Trump claims deal to end Iran war near”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/12/g-s1-127711/up-first-newsletter-iran-peace-national-intelligence-director-world-cup" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Trump cancels further Iran strikes. And, U.S. men's soccer takes on Paraguay”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/world/trump-is-raising-expectations-that-this-time-he-really-will-close-deal-with-iran-to-wind-down-war" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Trump is raising expectations that this time he really will close deal with Iran to wind down war”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/show/trump-calls-off-threatened-strikes-says-deal-with-iran-is-close" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Trump calls off threatened strikes, says deal with Iran is close”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">2</div>
+<div class="source-body">
+<div class="source-balm-headline">UK Defence Secretary Resigns Over Funding Dispute Weeks Before NATO Summit</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/politics/live/2026/jun/12/keir-starmer-defence-investment-plan-spending-dan-jarvis-al-cairns-john-healey-latest-news-updates" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Starmer defends investment on defence as he vows to fight any leadership challenge – UK politics live”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/politics/2026/jun/12/keir-starmer-john-healey-defence-secretary-exit" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“‘I’m not walking away,’ says Starmer despite defence secretary’s exit”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/politics/2026/jun/12/john-healey-rachel-reeves-keir-starmer-uk-politics" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Healey showdown raises fresh questions over Starmer-Reeves power dynamic”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/politics/2026/jun/12/rachel-reeves-departmental-salami-slicing-uk-defence-budget-keir-starmer" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Reeves grudgingly resorts to departmental salami slicing to fund UK defence budget”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/politics/2026/jun/12/uk-defence-plan-underfunded-outdated-al-carns-resignation" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“UK’s defence plan is underfunded and outdated, says Al Carns after resignation”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/world/starmer-seismic-crisis-uk-defense-chief-quits-high-stakes-trump-nato-summit" rel="noopener noreferrer" target="_blank">Fox News World</a>
+            
+            — <span class="source-original-headline">“Starmer in 'seismic' crisis, UK defense chief quits before high-stakes Trump NATO summit”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/politics/top-us-allys-defense-chief-quits-warns-military-lacks-resources-rising-threats" rel="noopener noreferrer" target="_blank">Fox News Politics</a>
+            
+            — <span class="source-original-headline">“Top US ally's defense chief quits, warns military lacks resources for rising threats”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/c8d2q84y1gno?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“Defence row exposes tensions over how to keep UK safe”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">3</div>
+<div class="source-body">
+<div class="source-balm-headline">U.S. Plans to Pull Roughly a Third of Fighter Jets It Provides to NATO in Europe</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/12/world/europe/us-nato-cuts-drawdown-jets.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“U.S. Plan Is Said to Pull a Third of Fighter Jets It Provides NATO for Europe”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">4</div>
+<div class="source-body">
+<div class="source-balm-headline">SpaceX Goes Public in Largest IPO on Record; Musk's Net Worth Crosses $1 Trillion</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/business/live/2026/jun/12/spacex-float-us-stock-market-share-elon-musk-trillionaire-largest-ipo-ever-live-news-updates" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Elon Musk becomes world’s first trillionaire after SpaceX shares jump on stock market debut – business live”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/science/2026/jun/12/spacex-stock-price-ipo-spcx" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“SpaceX makes largest ever stock market debut with multi-trillion-dollar valuation”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/12/technology/elon-musk-trillionaire.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Elon Musk Becomes the World’s First Trillionaire”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/12/technology/spacex-ipo-elon-musk.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“SpaceX Rises 11% in Largest I.P.O. Ever”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/live/2026/06/12/business/spacex-ipo-elon-musk/is-spacex-worth-1-77-trillion-its-a-pie-in-the-sky-some-investors-say" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Is SpaceX worth $1.77 trillion? It’s a pie in the sky, some investors say.”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/live/2026/06/12/business/spacex-ipo-elon-musk/when-will-spacex-start-trading" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“When will SpaceX start trading?”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/11/technology/spacex-valuation-skeptics.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Is SpaceX Worth $1.77 Trillion? It’s a Pie in the Sky, Some Investors Say”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/11/business/spacex-tesla-ipo-elon-musk.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“How Tesla’s Stock Listing in 2010 Enabled SpaceX’s I.P.O.”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/12/nx-s1-5855004/stock-ai-spacex-ipo-elon-musk" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“SpaceX stock lifts off, rising above its IPO price”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/economy/elon-musk-could-become-the-worlds-first-trillionaire-with-spacexs-ipo" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Elon Musk could become the world's first trillionaire with SpaceX's IPO”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">5</div>
+<div class="source-body">
+<div class="source-balm-headline">Key U.S. Surveillance Authority FISA Section 702 Set to Lapse as Congress Fails to Renew It</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/12/nx-s1-5856291/fisa-702-surveillance-expiration-bill-pulte" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“A key U.S. spy tool is set to lapse on Friday — now what?”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">6</div>
+<div class="source-body">
+<div class="source-balm-headline">Federal Judge Extends Block on Trump's $1.8 Billion Anti-Weaponization Fund</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/live/2026/jun/12/donald-trump-fisa-kennedy-center-iran-ufc-white-house-latest-news-updates" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Federal judge extends court-ordered block on Trump’s $1.8bn anti-weaponization fund – US politics live”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/politics/judge-extends-block-on-trumps-1-8-billion-anti-weaponization-fund" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Judge extends block on Trump's $1.8 billion 'Anti-Weaponization Fund'”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">7</div>
+<div class="source-body">
+<div class="source-balm-headline">Trump Administration Waives Environmental Laws to Allow Border Wall Construction Through Big Bend National Park</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/13/texas-border-wall-big-bend-national-park" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“‘It’s massive destruction’: outcry in Texas over waivers to allow border wall in Big Bend national park”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/13/texas-border-wall-big-bend-national-park" rel="noopener noreferrer" target="_blank">Guardian Environment</a>
+            
+            — <span class="source-original-headline">“‘It’s massive destruction’: outcry in Texas over waivers to allow border wall in Big Bend national park”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">8</div>
+<div class="source-body">
+<div class="source-balm-headline">SBA Ends Small Business Loan Access for Legal Permanent Residents</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/12/nx-s1-5853375/changes-loans-trump-small-business-immigrants-entrepreneurs-green-card" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Door shuts on some immigrant entrepreneurs as U.S. restricts small-business loans”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">9</div>
+<div class="source-body">
+<div class="source-balm-headline">Supreme Court Blocks Alabama from Carrying Out Nitrogen Gas Execution Ruled Unconstitutional</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/nation/supreme-court-nixes-alabama-request-for-nitrogen-execution-which-lower-court-ruled-unconstitutional" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Supreme Court nixes Alabama request for nitrogen execution, which lower court ruled unconstitutional”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/court-considers-nitrogen-gas-execution/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“Court considers nitrogen gas execution”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/court-denies-alabamas-request-to-allow-execution-using-nitrogen-gas/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“Court denies Alabama's request to allow execution using nitrogen gas”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">10</div>
+<div class="source-body">
+<div class="source-balm-headline">Supreme Court Rules Private Investors Cannot Sue to Enforce Certain Protections Against Investment Companies</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/justices-reject-private-suits-to-enforce-investor-protections-against-investment-companies/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“Justices reject private suits to enforce investor protections against investment companies”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">11</div>
+<div class="source-body">
+<div class="source-balm-headline">British Artist David Hockney Dies at 88</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cvgjxdr27z4o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“Celebrated British artist David Hockney dies aged 88”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cvgjxdr27z4o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Tributes paid to David Hockney, a 'giant' and 'true icon' of British art”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/world/david-hockney-iconic-british-artist-known-for-his-colorful-landscapes-and-pool-scenes-dies-at-88" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“David Hockney, iconic British artist known for his colorful landscapes and pool scenes, dies at 88”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">12</div>
+<div class="source-body">
+<div class="source-balm-headline">NOAA Declares El Niño Has Arrived; Scientists Say It Could Be Strongest of the Century</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/environment/2026/apr/13/el-nino-explainer" rel="noopener noreferrer" target="_blank">Guardian Environment</a>
+            
+            — <span class="source-original-headline">“‘Super El Niño’ is officially here, scientists say. What can we expect?”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/11/el-nino-forms-historic-strength" rel="noopener noreferrer" target="_blank">Guardian Environment</a>
+            
+            — <span class="source-original-headline">“El Niño forms in Pacific as experts say it will likely turbocharge extreme weather”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">13</div>
+<div class="source-body">
+<div class="source-balm-headline">Antarctic Sea Ice in Bellingshausen Sea Missing an Area the Size of France</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/13/antarcticas-west-coast-missing-an-area-of-sea-ice-the-size-of-france-as-temperatures-peak-20c-above-average" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Antarctica’s west coast missing an area of sea ice the size of France as temperatures peak 20C above average”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/13/antarcticas-west-coast-missing-an-area-of-sea-ice-the-size-of-france-as-temperatures-peak-20c-above-average" rel="noopener noreferrer" target="_blank">Guardian Environment</a>
+            
+            — <span class="source-original-headline">“Antarctica’s west coast missing an area of sea ice the size of France as temperatures peak 20C above average”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">14</div>
+<div class="source-body">
+<div class="source-balm-headline">Solar Power Surpassed Coal in U.S. Electricity Generation for First Time in May</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/11/solar-energy-us-coal" rel="noopener noreferrer" target="_blank">Guardian Environment</a>
+            
+            — <span class="source-original-headline">“Solar generates more energy in US than coal for first time”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">15</div>
+<div class="source-body">
+<div class="source-balm-headline">Mexico Opens 2026 World Cup with 2-0 Win; U.S. and Canada Prepare for Tournament Openers</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.thetimestribune.com/news/national_news/world-cup-what-to-know-mexico-starts-with-big-win-while-u-s-canada-prepare/article_5d0eeff9-dd94-5574-9264-692d092e8126.html" rel="noopener noreferrer" target="_blank">Thetimestribune</a>
+            
+            — <span class="source-original-headline">“World Cup what to know: Mexico starts with big win while U.S., Canada prepare for openers”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://santamariatimes.com/ap/sports/world-cup-what-to-know-mexico-starts-with-big-win-while-u-s-canada-prepare/article_0c51e6bb-06a5-5231-a8c4-7cccce3bf947.html" rel="noopener noreferrer" target="_blank">Santa Maria Times</a>
+            
+            — <span class="source-original-headline">“World Cup what to know: Mexico starts with big win while U.S., Canada prepare for openers”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.register-herald.com/apnewsflow/apsportsrss/world-cup-what-to-know-mexico-starts-with-big-win-while-u-s-canada-prepare/article_4c6b4705-ddf1-5651-a4a8-a099f406697b.html" rel="noopener noreferrer" target="_blank">Register-herald</a>
+            
+            — <span class="source-original-headline">“World Cup what to know: Mexico starts with big win while U.S., Canada prepare for openers”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.dailysentinel.com/anpa/sports/world-cup-what-to-know-mexico-starts-with-big-win-while-u-s-canada-prepare/article_03dccc88-a37f-5ff2-b265-00fb0276e8c0.html" rel="noopener noreferrer" target="_blank">Dailysentinel</a>
+            
+            — <span class="source-original-headline">“World Cup what to know: Mexico starts with big win while U.S., Canada prepare for openers”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bhpioneer.com/sports/national_sports/world-cup-what-to-know-mexico-starts-with-big-win-while-u-s-canada-prepare/article_8963e8a5-bc06-5810-bb35-00bda209bffb.html" rel="noopener noreferrer" target="_blank">Bhpioneer</a>
+            
+            — <span class="source-original-headline">“World Cup what to know: Mexico starts with big win while U.S., Canada prepare for openers”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/world/world-cup-what-to-know-mexico-starts-with-big-win-while-the-us-and-canada-prepare-for-openers" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“World Cup what to know: Mexico starts with big win while the US and Canada prepare for openers”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">16</div>
+<div class="source-body">
+<div class="source-balm-headline">Two Nights of Unrest in Belfast Follow Stabbing; Targets Described as Racially Motivated</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/12/world/europe/belfast-stabbing-riots-anti-immigrant.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Anti-Immigrant Riots Leave Belfast on Edge: ‘Everyone Is Afraid’”</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p><a href="2026-06-12-am.html">← Return to digest</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-<script>
-  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
-  (function() {
-    var current = '2026-06-12-am.html';
-    fetch('archive.json')
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-      })
-      .catch(function() {});
-  })();
-</script>
+
 </body>
 </html>

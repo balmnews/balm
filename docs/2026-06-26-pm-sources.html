@@ -1,16 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm Sources — Friday, June 26, 2026 PM</title>
-  <meta name="description" content="Source attribution for the Balm digest of Friday, June 26, 2026.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="manifest.json">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm Sources — Friday, June 26, 2026 PM</title>
+<meta content="Source attribution for the Balm digest of Friday, June 26, 2026." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="manifest.json" rel="manifest"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -45,14 +46,6 @@
       padding: 0 1rem;
     }
 
-    .sidebar {
-      width: 220px;
-      flex-shrink: 0;
-      padding: 2rem 1.5rem 2rem 0;
-      border-right: 1px solid var(--rule);
-      min-height: 100vh;
-    }
-
     .main-content {
       flex: 1;
       max-width: 860px;
@@ -61,7 +54,6 @@
 
     @media (max-width: 768px) {
       .page-wrapper { display: block; padding: 0; }
-      .sidebar { display: none; }
       .main-content { padding: 0 1.25rem 3rem; }
     }
 
@@ -175,39 +167,6 @@
       color: var(--secondary);
     }
 
-    /* Sidebar */
-    .sidebar-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-top: 2rem;
-    }
-
-    .archive-month { margin-bottom: 1rem; }
-
-    .archive-month-label {
-      font-size: 0.68rem;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      color: var(--secondary);
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
-
-    .archive-link {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--secondary);
-      padding: 0.1rem 0;
-      line-height: 1.6;
-    }
-
-    .archive-link:hover { color: var(--accent); text-decoration: none; }
-    .archive-link.current { color: var(--accent); font-style: italic; }
-
     /* Footer */
     .footer {
       border-top: 1px solid var(--rule);
@@ -221,958 +180,500 @@
 
     .footer a { color: var(--muted); text-decoration: underline; }
     .footer a:hover { color: var(--secondary); }
-  </style>
+
+    .page-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .main-content {
+      padding: 0 0 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .main-content { padding: 0 0 3rem; }
+    }
+
+    :root { --ink-light: #5a5048; }
+
+    /* --- patched to current template --- */
+    .masthead-link {
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .archive-link-section {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+    }
+
+    .archive-link {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .archive-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer .footer-kofi {
+      font-size: 0.92rem;
+      color: var(--accent);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+
+    .footer .footer-kofi:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .footer .footer-contact {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s;
+    }
+
+    .footer .footer-contact:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+</style>
 </head>
 <body>
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">June 2026</div>
-      
-      <a class="archive-link current"
-         href="2026-06-26-pm.html">
-        06-26 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-26-am.html">
-        06-26 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-25-pm.html">
-        06-25 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-25-am.html">
-        06-25 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-24-pm.html">
-        06-24 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-24-am.html">
-        06-24 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-23-pm.html">
-        06-23 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-23-am.html">
-        06-23 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-22-pm.html">
-        06-22 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-22-am.html">
-        06-22 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-21-pm.html">
-        06-21 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-21-am.html">
-        06-21 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-20-pm.html">
-        06-20 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-20-am.html">
-        06-20 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-19-pm.html">
-        06-19 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-19-am.html">
-        06-19 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-18-pm.html">
-        06-18 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-18-am.html">
-        06-18 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-17-pm.html">
-        06-17 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-17-am.html">
-        06-17 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-16-pm.html">
-        06-16 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-16-am.html">
-        06-16 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-15-pm.html">
-        06-15 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-15-am.html">
-        06-15 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-14-pm.html">
-        06-14 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-14-am.html">
-        06-14 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-13-pm.html">
-        06-13 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-13-am.html">
-        06-13 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-12-pm.html">
-        06-12 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-12-am.html">
-        06-12 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-11-pm.html">
-        06-11 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-11-am.html">
-        06-11 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-10-pm.html">
-        06-10 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-10-am.html">
-        06-10 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-09-pm.html">
-        06-09 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-09-am.html">
-        06-09 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-08-pm.html">
-        06-08 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-08-am.html">
-        06-08 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-07-pm.html">
-        06-07 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-07-am.html">
-        06-07 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-06-pm.html">
-        06-06 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-06-am.html">
-        06-06 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-05-pm.html">
-        06-05 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-05-am.html">
-        06-05 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-04-pm.html">
-        06-04 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-04-am.html">
-        06-04 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-03-pm.html">
-        06-03 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-03-am.html">
-        06-03 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-02-pm.html">
-        06-02 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-01-pm.html">
-        06-01 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-01-am.html">
-        06-01 AM
-      </a>
-      
-    </div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">May 2026</div>
-      
-      <a class="archive-link"
-         href="2026-05-31-pm.html">
-        05-31 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-31-am.html">
-        05-31 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-30-pm.html">
-        05-30 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-30-am.html">
-        05-30 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-29-pm.html">
-        05-29 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-29-am.html">
-        05-29 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-28-pm.html">
-        05-28 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-28-am.html">
-        05-28 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-27-pm.html">
-        05-27 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-27-am.html">
-        05-27 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-26-pm.html">
-        05-26 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-26-am.html">
-        05-26 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-25-pm.html">
-        05-25 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-24-pm.html">
-        05-24 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-24-am.html">
-        05-24 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-23-pm.html">
-        05-23 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-23-am.html">
-        05-23 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-22-pm.html">
-        05-22 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-22-am.html">
-        05-22 AM
-      </a>
-      
-    </div>
-    
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <a href="2026-06-26-pm.html" style="text-decoration:none;">
-          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-              </filter>
-            </defs>
-            <text x="90" y="44"
-                  font-family="Caveat, cursive"
-                  font-size="52"
-                  font-weight="700"
-                  fill="#6b82a8"
-                  text-anchor="middle"
-                  letter-spacing="8"
-                  filter="url(#balm-spread)">Balm</text>
-          </svg>
-        </a>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Friday, June 26, 2026 &middot; PM Edition &middot; Sources</p>
-    </header>
-
-    <!-- Sources list -->
-    <div class="section-header">Sources for this digest</div>
-
-    
-    <div class="source-entry">
-      <div class="source-num">1</div>
-      <div class="source-body">
-        <div class="source-balm-headline">US Strikes Iranian Military Sites After Drone Attack on Cargo Ship in Strait of Hormuz</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/live/2026/jun/26/trump-news-john-bolton-updates-today" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;US military strikes Iran in response to attack on cargo ship, Pentagon says – live&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/26/world/middleeast/strait-of-hormuz-iran-attack.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;U.S. Strikes Iran in Retaliation for Attack on Vessel in Strait of Hormuz&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/26/world/middleeast/gulf-changed-forever-iran-war.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;How Three Months of War Changed the Gulf Forever&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/ckg590wqxwpo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;US conducts strikes on Iran after attack on cargo ship&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/ckg590wqxwpo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;US conducts strikes on Iran after attack on cargo ship&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/world/u-s-strikes-iran-in-response-to-drone-attack-on-cargo-ship-that-trump-says-violated-ceasefire" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;U.S. strikes Iran in response to drone attack on cargo ship that Trump says violated ceasefire&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">2</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Israel and Lebanon Sign US-Brokered Framework Agreement</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/world/rubio-announces-framework-deal-between-israel-lebanon-experts-warn-iran-fight-sabotage" target="_blank" rel="noopener noreferrer">Fox News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Rubio announces framework deal between Israel and Lebanon as experts warn Iran will fight to sabotage it&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/world/rubio-announces-framework-deal-between-israel-lebanon-experts-warn-iran-fight-sabotage" target="_blank" rel="noopener noreferrer">Fox News World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Rubio announces framework deal between Israel and Lebanon as experts warn Iran will fight to sabotage it&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cg5315n1v5go?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Israel and Lebanon sign framework agreement after US-brokered talks&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">3</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Ukraine Launches One of Its Largest Drone Attacks Against Russia as Both Sides Strike</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/world/ukraine-launches-largest-drone-attacks-russia-report" target="_blank" rel="noopener noreferrer">Fox News World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Ukraine launches what appears to be one of its largest drone attacks against Russia: report&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/26/nx-s1-5872256/russia-ukraine-war-drone-strikes" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Ukraine unleashes one of its heaviest drone bombardments, as Russia strikes Ukraine&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">4</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Trump Threatens 100% Tariffs on European Nations That Tax US Digital Services</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/26/business/economy/trump-tariffs-europe.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump Threatens to Impose 100% Tariff on European Countries Over Tech Taxes&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cn4rd71411ko?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump threatens 100% tariff on European nations over tech tax&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/trump-threatens-100-tax-on-european-imports-if-countries-impose-tax-on-digital-services" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump threatens 100% tax on European imports if countries impose tax on digital services&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">5</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Former National Security Adviser John Bolton Pleads Guilty to Retaining Classified Documents</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/czxqwg4nrvlo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Ex-Trump adviser John Bolton pleads guilty to mishandling classified documents&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/26/nx-s1-5871292/john-bolton-national-security-classified-documents" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;John Bolton, former Trump national security adviser, pleads guilty in classified documents case&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">6</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Supreme Court Rules in Favor of Roundup Maker, Blocking Thousands of Pesticide Warning Label Lawsuits</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/business/2026/jun/25/monsanto-supreme-court-pesticide-case" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;US supreme court blocks thousands of lawsuits over Roundup maker’s pesticide warning labels&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/court-rules-on-gun-rights-immigration-and-pesticide-labels/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Court rules on gun rights, immigration, and pesticide labels&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/court-rules-for-roundup-maker-in-dispute-over-cancer-warnings-on-pesticide-labels/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Court rules for Roundup maker in dispute over cancer warnings on pesticide labels&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">7</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Supreme Court Allows Trump Administration to End Temporary Protected Status for Syrian and Haitian Nationals</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/supreme-court-allows-trump-administration-to-end-removal-protections-for-syrian-and-haitian-nati/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Court allows Trump administration to end removal protections for Syrian and Haitian nationals&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">8</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Supreme Court Sides with Trump Administration in Asylum Policy Dispute</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/justices-side-with-trump-administration-in-border-dispute-over-asylum-seekers/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Justices side with Trump administration in border dispute over asylum seekers&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">9</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Trump Administration Reports Removing Nearly 3 Million People from ACA Enrollment Amid Fraud Investigation</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/politics/trump-admin-cracks-estimated-10-billion-obamacare-from-fraud-boots-3-million-rolls" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump admin cracks down on estimated $10 billion in Obamacare fraud, boots millions from rolls&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">10</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Uber Tightens Driver Background Check Requirements</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/26/business/uber-background-checks.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Uber Enacts Stricter Background Checks for Drivers&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">11</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Texas Education Board Approves Bible Passages as Required Reading in Public Schools</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/education/texas-education-board-approves-bible-stories-as-required-reading-in-public-schools" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Texas education board approves Bible stories as required reading in public schools&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">12</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Ebola Outbreak in Congo Could Become Largest on Record as Contact Tracing Lags</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/25/world/africa/africa-cdc-congo-ebola.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Ebola Outbreak Could Become Largest Ever, Africa’s C.D.C. Warns&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/24/science/ebola-bundibugyo-animal-reservoir.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;The Ebola Outbreak’s Central Mystery: Where Did This Virus Come From?&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">13</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Venezuela Earthquake Death Toll Reaches 920; US Dispatches Military Relief</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.newswise.com/articles/ualbany-disaster-response-experts-available-to-discuss-aftermath-of-venezuela-earthquakes/?sc=rssn" target="_blank" rel="noopener noreferrer">Newswise</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;UAlbany Disaster Response Experts Available to Discuss Aftermath of Venezuela Earthquakes&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/26/delcy-rodriguez-interim-president-venezuela-earthquake-death-toll" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Venezuela quake death toll reaches 920 as interim president vows to save ‘as many as possible’&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/26/hunt-survivors-brutal-venezuela-earthquake" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Survivors tell of ‘brutal and fast’ Venezuela quake as hunt for survivors goes on&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/26/venezuela-earthquakes-search-survivors-death-toll-rodriguez-rubio-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Venezuela earthquakes: 589 confirmed dead so far as international rescue teams arrive – as it happened&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/live/2026/06/26/world/venezuela-earthquake" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Venezuela Live Updates: Trump’s Vow to ‘Run’ Venezuela Is Tested After Quakes&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/world/death-toll-venezuela-earthquakes-rises-least-235-thousands-reported-missing" target="_blank" rel="noopener noreferrer">Fox News World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Death toll from Venezuela earthquakes rises to at least 589, with thousands reported missing&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c39y79g7gzko?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Venezuela earthquakes kill 920 people as families desperate for news&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c0jydyz8z6jo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Mother dies saving daughter in Venezuela earthquakes&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c39y79g7gzko?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Venezuela earthquakes kill 920 people as families desperate for news&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c0jydyz8z6jo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Mother dies saving daughter in Venezuela earthquakes&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/26/nx-s1-5870652/venezuela-earthquake-usaid-u-s-aid" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;U.S. pledges generous earthquake relief to Venezuela&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">14</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Historic Heatwave Shatters Records Across Europe, Causing Deaths and Power Strain</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/environment/live/2026/jun/26/europe-heatwave-extreme-heat-red-alert-weather-uk-england-france-climate-crisis-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;UK June heat record broken again, France postpones Pride and Poland warns of wildfires as heatwave grips Europe – as it happened&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/26/desperate-measures-in-the-uk-heatwave" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Desperate measures in the UK heatwave&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/26/uk-government-urged-to-act-on-devastating-impact-of-heatwaves" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;UK June heat record broken for third day in a row as ministers urged to act&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/26/adapting-heat-ideas-from-european-cities" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Adapting to the heat: four ideas from European cities&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/26/world/europe/europe-heat-climate-change-politics.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;As Europe Sweats, Some Politicians Talk of Air-Conditioning, Not Climate Action&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cn4d0n1l8zno?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Hottest June day record broken for third day in row as temperature hits 37.3C&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cx2knzzwprgo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Europe's deadly heatwave breaks German record and halts public events&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/world/heat-catches-europes-fashion-industry-unprepared-as-models-face-the-sun-in-fur-and-wool" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Heat catches Europe's fashion industry unprepared as models face the sun in fur and wool&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/environment/live/2026/jun/26/europe-heatwave-extreme-heat-red-alert-weather-uk-england-france-climate-crisis-latest-news-updates" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;UK June heat record broken again, France postpones Pride and Poland warns of wildfires as heatwave grips Europe – as it happened&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/26/europe-heatwave-shift-east-child-deaths-france-cities-heat-stress" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Fourth toddler dies in France as Europe’s brutal heatwave forecast to shift east&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/business/2026/jun/26/great-britain-grid-operator-power-supplies-heatwave-neso-electricity" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Great Britain’s grid operator warns again over power supplies in heatwave&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">15</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Serena Williams Returns to Singles Competition at Wimbledon, Drawing 20-Year-Old Australian in First Round</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://us.headtopics.com/news/serena-williams-to-face-young-aussie-in-wimbledon-singles-84945323" target="_blank" rel="noopener noreferrer">Headtopics</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Serena Williams to Face Young Aussie in Wimbledon Singles Return&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/sport/2026/jun/26/serena-williams-wimbledon-draw-raducanu-djokovic-sinner-tennis" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Serena Williams faces Maya Joint in Wimbledon opener as Draper and Raducanu dealt tough draw&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">16</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Small Plane Strikes Beijing's Tallest Building, Cause Under Investigation</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/26/g-s1-130388/beijings-tallest-building-is-damaged-after-small-airplane-reportedly-crashed-into-it" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Plane crashes into Beijing's tallest building; damage reported&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p><a href="2026-06-26-pm.html">← Return to digest</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news">
+<svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg>
+</a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Friday, June 26, 2026 · PM Edition · Sources</p>
+</header>
+<!-- Sources list -->
+<div class="section-header">Sources for this digest</div>
+<div class="source-entry">
+<div class="source-num">1</div>
+<div class="source-body">
+<div class="source-balm-headline">US Strikes Iranian Military Sites After Drone Attack on Cargo Ship in Strait of Hormuz</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/live/2026/jun/26/trump-news-john-bolton-updates-today" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“US military strikes Iran in response to attack on cargo ship, Pentagon says – live”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/26/world/middleeast/strait-of-hormuz-iran-attack.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“U.S. Strikes Iran in Retaliation for Attack on Vessel in Strait of Hormuz”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/26/world/middleeast/gulf-changed-forever-iran-war.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“How Three Months of War Changed the Gulf Forever”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/news/articles/ckg590wqxwpo?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“US conducts strikes on Iran after attack on cargo ship”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/news/articles/ckg590wqxwpo?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“US conducts strikes on Iran after attack on cargo ship”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/world/u-s-strikes-iran-in-response-to-drone-attack-on-cargo-ship-that-trump-says-violated-ceasefire" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“U.S. strikes Iran in response to drone attack on cargo ship that Trump says violated ceasefire”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">2</div>
+<div class="source-body">
+<div class="source-balm-headline">Israel and Lebanon Sign US-Brokered Framework Agreement</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/world/rubio-announces-framework-deal-between-israel-lebanon-experts-warn-iran-fight-sabotage" rel="noopener noreferrer" target="_blank">Fox News</a>
+            
+            — <span class="source-original-headline">“Rubio announces framework deal between Israel and Lebanon as experts warn Iran will fight to sabotage it”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/world/rubio-announces-framework-deal-between-israel-lebanon-experts-warn-iran-fight-sabotage" rel="noopener noreferrer" target="_blank">Fox News World</a>
+            
+            — <span class="source-original-headline">“Rubio announces framework deal between Israel and Lebanon as experts warn Iran will fight to sabotage it”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cg5315n1v5go?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Israel and Lebanon sign framework agreement after US-brokered talks”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">3</div>
+<div class="source-body">
+<div class="source-balm-headline">Ukraine Launches One of Its Largest Drone Attacks Against Russia as Both Sides Strike</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/world/ukraine-launches-largest-drone-attacks-russia-report" rel="noopener noreferrer" target="_blank">Fox News World</a>
+            
+            — <span class="source-original-headline">“Ukraine launches what appears to be one of its largest drone attacks against Russia: report”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/26/nx-s1-5872256/russia-ukraine-war-drone-strikes" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Ukraine unleashes one of its heaviest drone bombardments, as Russia strikes Ukraine”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">4</div>
+<div class="source-body">
+<div class="source-balm-headline">Trump Threatens 100% Tariffs on European Nations That Tax US Digital Services</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/26/business/economy/trump-tariffs-europe.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Trump Threatens to Impose 100% Tariff on European Countries Over Tech Taxes”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cn4rd71411ko?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“Trump threatens 100% tariff on European nations over tech tax”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/politics/trump-threatens-100-tax-on-european-imports-if-countries-impose-tax-on-digital-services" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Trump threatens 100% tax on European imports if countries impose tax on digital services”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">5</div>
+<div class="source-body">
+<div class="source-balm-headline">Former National Security Adviser John Bolton Pleads Guilty to Retaining Classified Documents</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/news/articles/czxqwg4nrvlo?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Ex-Trump adviser John Bolton pleads guilty to mishandling classified documents”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/26/nx-s1-5871292/john-bolton-national-security-classified-documents" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“John Bolton, former Trump national security adviser, pleads guilty in classified documents case”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">6</div>
+<div class="source-body">
+<div class="source-balm-headline">Supreme Court Rules in Favor of Roundup Maker, Blocking Thousands of Pesticide Warning Label Lawsuits</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/business/2026/jun/25/monsanto-supreme-court-pesticide-case" rel="noopener noreferrer" target="_blank">Guardian Environment</a>
+            
+            — <span class="source-original-headline">“US supreme court blocks thousands of lawsuits over Roundup maker’s pesticide warning labels”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/court-rules-on-gun-rights-immigration-and-pesticide-labels/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“Court rules on gun rights, immigration, and pesticide labels”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/court-rules-for-roundup-maker-in-dispute-over-cancer-warnings-on-pesticide-labels/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“Court rules for Roundup maker in dispute over cancer warnings on pesticide labels”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">7</div>
+<div class="source-body">
+<div class="source-balm-headline">Supreme Court Allows Trump Administration to End Temporary Protected Status for Syrian and Haitian Nationals</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/supreme-court-allows-trump-administration-to-end-removal-protections-for-syrian-and-haitian-nati/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“Court allows Trump administration to end removal protections for Syrian and Haitian nationals”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">8</div>
+<div class="source-body">
+<div class="source-balm-headline">Supreme Court Sides with Trump Administration in Asylum Policy Dispute</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/justices-side-with-trump-administration-in-border-dispute-over-asylum-seekers/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“Justices side with Trump administration in border dispute over asylum seekers”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">9</div>
+<div class="source-body">
+<div class="source-balm-headline">Trump Administration Reports Removing Nearly 3 Million People from ACA Enrollment Amid Fraud Investigation</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/politics/trump-admin-cracks-estimated-10-billion-obamacare-from-fraud-boots-3-million-rolls" rel="noopener noreferrer" target="_blank">Fox News Politics</a>
+            
+            — <span class="source-original-headline">“Trump admin cracks down on estimated $10 billion in Obamacare fraud, boots millions from rolls”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">10</div>
+<div class="source-body">
+<div class="source-balm-headline">Uber Tightens Driver Background Check Requirements</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/26/business/uber-background-checks.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Uber Enacts Stricter Background Checks for Drivers”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">11</div>
+<div class="source-body">
+<div class="source-balm-headline">Texas Education Board Approves Bible Passages as Required Reading in Public Schools</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/education/texas-education-board-approves-bible-stories-as-required-reading-in-public-schools" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Texas education board approves Bible stories as required reading in public schools”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">12</div>
+<div class="source-body">
+<div class="source-balm-headline">Ebola Outbreak in Congo Could Become Largest on Record as Contact Tracing Lags</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/25/world/africa/africa-cdc-congo-ebola.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Ebola Outbreak Could Become Largest Ever, Africa’s C.D.C. Warns”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/24/science/ebola-bundibugyo-animal-reservoir.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“The Ebola Outbreak’s Central Mystery: Where Did This Virus Come From?”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">13</div>
+<div class="source-body">
+<div class="source-balm-headline">Venezuela Earthquake Death Toll Reaches 920; US Dispatches Military Relief</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.newswise.com/articles/ualbany-disaster-response-experts-available-to-discuss-aftermath-of-venezuela-earthquakes/?sc=rssn" rel="noopener noreferrer" target="_blank">Newswise</a>
+            
+            — <span class="source-original-headline">“UAlbany Disaster Response Experts Available to Discuss Aftermath of Venezuela Earthquakes”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/26/delcy-rodriguez-interim-president-venezuela-earthquake-death-toll" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Venezuela quake death toll reaches 920 as interim president vows to save ‘as many as possible’”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/26/hunt-survivors-brutal-venezuela-earthquake" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Survivors tell of ‘brutal and fast’ Venezuela quake as hunt for survivors goes on”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/26/venezuela-earthquakes-search-survivors-death-toll-rodriguez-rubio-latest-news-updates" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Venezuela earthquakes: 589 confirmed dead so far as international rescue teams arrive – as it happened”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/live/2026/06/26/world/venezuela-earthquake" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Venezuela Live Updates: Trump’s Vow to ‘Run’ Venezuela Is Tested After Quakes”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/world/death-toll-venezuela-earthquakes-rises-least-235-thousands-reported-missing" rel="noopener noreferrer" target="_blank">Fox News World</a>
+            
+            — <span class="source-original-headline">“Death toll from Venezuela earthquakes rises to at least 589, with thousands reported missing”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c39y79g7gzko?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“Venezuela earthquakes kill 920 people as families desperate for news”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c0jydyz8z6jo?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“Mother dies saving daughter in Venezuela earthquakes”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c39y79g7gzko?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Venezuela earthquakes kill 920 people as families desperate for news”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c0jydyz8z6jo?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Mother dies saving daughter in Venezuela earthquakes”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/26/nx-s1-5870652/venezuela-earthquake-usaid-u-s-aid" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“U.S. pledges generous earthquake relief to Venezuela”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">14</div>
+<div class="source-body">
+<div class="source-balm-headline">Historic Heatwave Shatters Records Across Europe, Causing Deaths and Power Strain</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/environment/live/2026/jun/26/europe-heatwave-extreme-heat-red-alert-weather-uk-england-france-climate-crisis-latest-news-updates" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“UK June heat record broken again, France postpones Pride and Poland warns of wildfires as heatwave grips Europe – as it happened”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/26/desperate-measures-in-the-uk-heatwave" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Desperate measures in the UK heatwave”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/26/uk-government-urged-to-act-on-devastating-impact-of-heatwaves" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“UK June heat record broken for third day in a row as ministers urged to act”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/26/adapting-heat-ideas-from-european-cities" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Adapting to the heat: four ideas from European cities”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/26/world/europe/europe-heat-climate-change-politics.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“As Europe Sweats, Some Politicians Talk of Air-Conditioning, Not Climate Action”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cn4d0n1l8zno?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“Hottest June day record broken for third day in row as temperature hits 37.3C”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cx2knzzwprgo?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Europe's deadly heatwave breaks German record and halts public events”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/world/heat-catches-europes-fashion-industry-unprepared-as-models-face-the-sun-in-fur-and-wool" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Heat catches Europe's fashion industry unprepared as models face the sun in fur and wool”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/environment/live/2026/jun/26/europe-heatwave-extreme-heat-red-alert-weather-uk-england-france-climate-crisis-latest-news-updates" rel="noopener noreferrer" target="_blank">Guardian Environment</a>
+            
+            — <span class="source-original-headline">“UK June heat record broken again, France postpones Pride and Poland warns of wildfires as heatwave grips Europe – as it happened”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/26/europe-heatwave-shift-east-child-deaths-france-cities-heat-stress" rel="noopener noreferrer" target="_blank">Guardian Environment</a>
+            
+            — <span class="source-original-headline">“Fourth toddler dies in France as Europe’s brutal heatwave forecast to shift east”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/business/2026/jun/26/great-britain-grid-operator-power-supplies-heatwave-neso-electricity" rel="noopener noreferrer" target="_blank">Guardian Environment</a>
+            
+            — <span class="source-original-headline">“Great Britain’s grid operator warns again over power supplies in heatwave”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">15</div>
+<div class="source-body">
+<div class="source-balm-headline">Serena Williams Returns to Singles Competition at Wimbledon, Drawing 20-Year-Old Australian in First Round</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://us.headtopics.com/news/serena-williams-to-face-young-aussie-in-wimbledon-singles-84945323" rel="noopener noreferrer" target="_blank">Headtopics</a>
+            
+            — <span class="source-original-headline">“Serena Williams to Face Young Aussie in Wimbledon Singles Return”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/sport/2026/jun/26/serena-williams-wimbledon-draw-raducanu-djokovic-sinner-tennis" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Serena Williams faces Maya Joint in Wimbledon opener as Draper and Raducanu dealt tough draw”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">16</div>
+<div class="source-body">
+<div class="source-balm-headline">Small Plane Strikes Beijing's Tallest Building, Cause Under Investigation</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/26/g-s1-130388/beijings-tallest-building-is-damaged-after-small-airplane-reportedly-crashed-into-it" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Plane crashes into Beijing's tallest building; damage reported”</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p><a href="2026-06-26-pm.html">← Return to digest</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-<script>
-  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
-  (function() {
-    var current = '2026-06-26-pm.html';
-    fetch('archive.json')
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-      })
-      .catch(function() {});
-  })();
-</script>
+
 </body>
 </html>

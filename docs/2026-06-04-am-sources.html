@@ -1,16 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm Sources — Thursday, June 4, 2026 AM</title>
-  <meta name="description" content="Source attribution for the Balm digest of Thursday, June 4, 2026.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="manifest.json">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm Sources — Thursday, June 4, 2026 AM</title>
+<meta content="Source attribution for the Balm digest of Thursday, June 4, 2026." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="manifest.json" rel="manifest"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -45,14 +46,6 @@
       padding: 0 1rem;
     }
 
-    .sidebar {
-      width: 220px;
-      flex-shrink: 0;
-      padding: 2rem 1.5rem 2rem 0;
-      border-right: 1px solid var(--rule);
-      min-height: 100vh;
-    }
-
     .main-content {
       flex: 1;
       max-width: 860px;
@@ -61,7 +54,6 @@
 
     @media (max-width: 768px) {
       .page-wrapper { display: block; padding: 0; }
-      .sidebar { display: none; }
       .main-content { padding: 0 1.25rem 3rem; }
     }
 
@@ -175,39 +167,6 @@
       color: var(--secondary);
     }
 
-    /* Sidebar */
-    .sidebar-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-top: 2rem;
-    }
-
-    .archive-month { margin-bottom: 1rem; }
-
-    .archive-month-label {
-      font-size: 0.68rem;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      color: var(--secondary);
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
-
-    .archive-link {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--secondary);
-      padding: 0.1rem 0;
-      line-height: 1.6;
-    }
-
-    .archive-link:hover { color: var(--accent); text-decoration: none; }
-    .archive-link.current { color: var(--accent); font-style: italic; }
-
     /* Footer */
     .footer {
       border-top: 1px solid var(--rule);
@@ -221,710 +180,480 @@
 
     .footer a { color: var(--muted); text-decoration: underline; }
     .footer a:hover { color: var(--secondary); }
-  </style>
+
+    .page-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .main-content {
+      padding: 0 0 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .main-content { padding: 0 0 3rem; }
+    }
+
+    :root { --ink-light: #5a5048; }
+
+    /* --- patched to current template --- */
+    .masthead-link {
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .archive-link-section {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+    }
+
+    .archive-link {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .archive-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer .footer-kofi {
+      font-size: 0.92rem;
+      color: var(--accent);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+
+    .footer .footer-kofi:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .footer .footer-contact {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s;
+    }
+
+    .footer .footer-contact:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+</style>
 </head>
 <body>
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">June 2026</div>
-      
-      <a class="archive-link"
-         href="2026-06-04-pm.html">
-        06-04 PM
-      </a>
-      
-      <a class="archive-link current"
-         href="2026-06-04-am.html">
-        06-04 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-03-pm.html">
-        06-03 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-03-am.html">
-        06-03 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-02-pm.html">
-        06-02 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-01-pm.html">
-        06-01 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-01-am.html">
-        06-01 AM
-      </a>
-      
-    </div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">May 2026</div>
-      
-      <a class="archive-link"
-         href="2026-05-31-pm.html">
-        05-31 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-31-am.html">
-        05-31 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-30-pm.html">
-        05-30 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-30-am.html">
-        05-30 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-29-pm.html">
-        05-29 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-29-am.html">
-        05-29 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-28-pm.html">
-        05-28 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-28-am.html">
-        05-28 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-27-pm.html">
-        05-27 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-27-am.html">
-        05-27 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-26-pm.html">
-        05-26 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-26-am.html">
-        05-26 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-25-pm.html">
-        05-25 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-24-pm.html">
-        05-24 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-24-am.html">
-        05-24 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-23-pm.html">
-        05-23 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-23-am.html">
-        05-23 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-22-pm.html">
-        05-22 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-22-am.html">
-        05-22 AM
-      </a>
-      
-    </div>
-    
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <a href="2026-06-04-am.html" style="text-decoration:none;">
-          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-              </filter>
-            </defs>
-            <text x="90" y="44"
-                  font-family="Caveat, cursive"
-                  font-size="52"
-                  font-weight="700"
-                  fill="#6b82a8"
-                  text-anchor="middle"
-                  letter-spacing="8"
-                  filter="url(#balm-spread)">Balm</text>
-          </svg>
-        </a>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Thursday, June 4, 2026 &middot; AM Edition &middot; Sources</p>
-    </header>
-
-    <!-- Sources list -->
-    <div class="section-header">Sources for this digest</div>
-
-    
-    <div class="source-entry">
-      <div class="source-num">1</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Hezbollah Rejects US-Brokered Lebanon Ceasefire as Israel Continues Operations</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/04/middle-east-crisis-israel-lebanon-hezbolllah-us-ceasefire-southern-military-attacks-continue-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Middle East crisis live: Israel to continue ground operation in southern Lebanon despite agreed ceasefire&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/04/israel-lebanon-renew-ceasefire-hezbollah-trump-iran-deal-middle-east-us" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Hezbollah rejects Israel-Lebanon truce as Trump scrambles to end Iran war&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/04/trump-iran-war-messaging-americans-congress" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump’s Iran war messaging is not winning over Americans – or their representatives&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/live/2026/06/04/world/iran-war-trump-israel-lebanon" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Iran War Live Updates: Israel Trades Strikes With Hezbollah, Leaving New Cease-Fire With Lebanon in Doubt&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/04/world/middleeast/hezbollah-fiber-optic-drones-israel.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Hezbollah’s Fiber-Optic Drones Expose Cracks in Israeli Defenses&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/c052343r812o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Hezbollah rejects renewed ceasefire agreed by Israel and Lebanon&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/c052343r812o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Hezbollah rejects renewed ceasefire agreed by Israel and Lebanon&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/04/g-s1-125942/israel-lebanon-ceasefire" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Israel and Lebanon reach an agreement, but ceasefire stalls&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/world/israel-and-lebanon-agree-to-renew-fragile-ceasefire-create-lebanese-security-zones" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Israel and Lebanon agree to renew fragile ceasefire, create Lebanese security zones&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">2</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Iran Strikes Kuwait's Main Airport Amid Fragile Regional Ceasefire</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/world/us-ally-kuwait-condemns-brutal-ongoing-iranian-attacks-airport-hit" target="_blank" rel="noopener noreferrer">Fox News World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;US ally Kuwait condemns 'brutal and ongoing Iranian attacks' after airport was hit&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/show/iranian-strikes-set-kuwaits-largest-airport-ablaze-amid-fragile-ceasefire-with-the-u-s" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Iranian strikes set Kuwait's largest airport ablaze amid fragile ceasefire with the U.S.&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">3</div>
-      <div class="source-body">
-        <div class="source-balm-headline">SpaceX Sets Price for IPO, Aiming to Surpass Saudi Aramco as Largest Public Offering on Record</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/science/2026/jun/03/spacex-ipo-stock-musk" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;SpaceX targets biggest ever stock market debut, putting Musk on course to be trillionaire&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/04/technology/gwynne-shotwell-spacex.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;The Steady Hand at SpaceX Is Not Elon Musk&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/04/business/dealbook/spacex-ipo-record.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Inside SpaceX’s Rockets-to-Riches I.P.O. Plan&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/04/technology/space-nerds-spacex-ipo.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Space Nerds, Rejoice! SpaceX’s I.P.O. Lifts Dreams of the Cosmos.&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/03/technology/spacex-ipo-pricing.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;SpaceX Sets Price for the World’s Largest I.P.O.&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">4</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Federal Reserve Chair Says September Rate Cut Is Possible, Cites Reduced Inflation Pressure</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.marketwatch.com/story/powell-says-labor-market-not-a-source-of-significant-inflation-pressure-cc3b1297?mod=mw_rss_realtimeheadlines" target="_blank" rel="noopener noreferrer">WSJ Markets</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Powell says labor market not a source of significant inflation pressure&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.marketwatch.com/story/feds-powell-says-rate-cut-on-the-table-as-soon-as-september-f3f7c8f2?mod=mw_rss_realtimeheadlines" target="_blank" rel="noopener noreferrer">WSJ Markets</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Fed’s Powell says rate cut ‘on the table’ as soon as September&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">5</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Kevin Warsh Sworn In as Federal Reserve Chair</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm" target="_blank" rel="noopener noreferrer">Federal Reserve</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">6</div>
-      <div class="source-body">
-        <div class="source-balm-headline">House Passes War Powers Resolution on Iran; Trump Criticizes Republicans Who Voted for It</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/live/2026/jun/04/us-politics-latest-news-midterm-elections-california-governor-results" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Donald Trump attacks his own party members as ‘unpatriotic’ after war powers resolution vote in House – US politics live&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cn0pl0wvvz0o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump hits back at 'unpatriotic' vote after House rebukes him over Iran&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cn0pl0wvvz0o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump hits back at 'unpatriotic' vote after House rebukes him over Iran&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">7</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Senate Advances ICE Funding Bill After Stripping Contested Provisions</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/politics/both-parties-target-trumps-2b-fund-ice-funding-package-enters-danger-zone" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Both parties target Trump's $2B fund as ICE funding package enters danger zone&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/04/g-s1-125937/up-first-newsletter-ice-funding-package-trump-netanyahu-federal-workers-world-cup-weather" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Senate to start debate on ICE funding. And, Israel and Lebanon agree to ceasefire&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/watch-live-senate-holds-ice-funding-vote-a-rama" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;WATCH LIVE: Senate holds ICE funding vote-a-rama&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">8</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Consumer Financial Protection Bureau Removes Over 2,000 Webpages from Its Website</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/ng-interactive/2026/jun/04/trump-administration-consumer-financial-protection-bureau" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Consumer protection agency deletes thousands of pages as Trump administration seeks to dismantle it&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">9</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Trump Announces Plan to Nominate Todd Blanche as Permanent Attorney General</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/trump-says-he-will-nominate-todd-blanche-to-serve-as-attorney-general" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump says he will nominate Todd Blanche to serve as attorney general&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">10</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Supreme Court Allows Alabama to Use Congressional Map a Lower Court Found Racially Discriminatory</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/the-supreme-courts-long-history-of-shaping-race/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;The Supreme Court’s long history of shaping race&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/opinions-expected/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Opinions expected&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/a-random-assortment-of-relists-prolonged-detention-confessions-of-error-small-juries-and-new-rul/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;A random assortment of relists: prolonged detention, confessions of error, small juries, and new rules on habeas&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/when-and-why-did-complying-with-the-voting-rights-act-become-unconstitutional/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;When and why did complying with the Voting Rights Act become unconstitutional?&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/the-two-roberts-courts/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;The two Roberts courts&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/court-clears-the-way-for-alabama-to-use-its-preferred-congressional-map/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Court clears the way for Alabama to use its preferred congressional map&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/supreme-court-permits-alabama-to-use-congressional-map-struck-by-lower-court-as-racially-discrim/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Supreme Court permits Alabama to use congressional map struck by lower court as racially discriminatory&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/the-radical-justice-thomas/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;The radical Justice Thomas&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">11</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Dozens of Children Previously Separated at the Border Have Been Separated Again, Investigation Finds</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.yakimaherald.com/news/nation_and_world/nation/trump-administration-has-separated-dozens-of-children-from-their-parents-for-a-second-time-ap/article_901d2c64-2d5f-54b1-bceb-da4a5464fd1b.html" target="_blank" rel="noopener noreferrer">Yakima Herald-republic</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump administration has separated dozens of children from their parents for a second time, AP finds&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.hastingstribune.com/ap/state/trump-administration-has-separated-dozens-of-children-from-their-parents-for-a-second-time-ap/article_65422f0a-ff65-57a8-a808-0f6b516b338b.html" target="_blank" rel="noopener noreferrer">Hastingstribune</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump administration has separated dozens of children from their parents for a second time, AP finds&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">12</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Arizona and Nevada Reach Agreement to Receive Desalinated Pacific Ocean Water</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/03/climate/arizona-nevada-san-diego-water.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Arizona and Nevada Agree to Trade for Desalinated Pacific Ocean Water&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">13</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Former National Security Adviser John Bolton to Plead Guilty in Classified Documents Case</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/04/john-bolton-pleads-guilty-classified-documents" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;John Bolton will reportedly plead guilty over mishandling classified documents&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/politics/former-national-security-advisor-john-bolton-plead-guilty-retaining-classified-information-sources" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Former National Security Advisor John Bolton to plead guilty to retaining classified information: sources&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/ap-report-ex-national-security-adviser-john-bolton-will-plead-guilty-in-classified-information-case" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;AP report: Ex-national security adviser John Bolton will plead guilty in classified information case&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">14</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Study Finds National Guard Deployment Has Not Reduced Violent Crime in Washington, DC</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/04/nx-s1-5845073/national-guard-washington-dc-crime" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;National Guard has done little to reduce violent crime in D.C., a new study finds&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">15</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Ebola Outbreak Widens in Congo as US Response Plan Remains Unclear and Vaccine Gaps Persist</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/04/experts-criticise-plan-for-american-only-ebola-quarantine-centre-in-kenya" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Experts criticise plan for American-only Ebola quarantine centre in Kenya&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/03/us/politics/trump-administration-ebola-response.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;As Ebola Outbreak Widens, Trump Has Yet to Outline a Plan&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/02/health/ebola-tests-congo.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Only the Right Tests Can Stop This Ebola Outbreak. Congo Has Hardly Any.&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/01/science/ebola-vaccines-treatments.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;As Ebola Spreads, Scientists Race to Find Vaccines and Treatments&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">16</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Studies Suggest GLP-1 Weight-Loss Drugs May Reduce Cancer Risk by Up to 30%</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/science/2026/jun/02/weight-loss-drugs-cut-cancer-risk-studies" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Weight-loss drugs can cut breast cancer risk by up to 30%, studies suggest&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p><a href="2026-06-04-am.html">← Return to digest</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news">
+<svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg>
+</a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Thursday, June 4, 2026 · AM Edition · Sources</p>
+</header>
+<!-- Sources list -->
+<div class="section-header">Sources for this digest</div>
+<div class="source-entry">
+<div class="source-num">1</div>
+<div class="source-body">
+<div class="source-balm-headline">Hezbollah Rejects US-Brokered Lebanon Ceasefire as Israel Continues Operations</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/04/middle-east-crisis-israel-lebanon-hezbolllah-us-ceasefire-southern-military-attacks-continue-latest-news-updates" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Middle East crisis live: Israel to continue ground operation in southern Lebanon despite agreed ceasefire”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/04/israel-lebanon-renew-ceasefire-hezbollah-trump-iran-deal-middle-east-us" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Hezbollah rejects Israel-Lebanon truce as Trump scrambles to end Iran war”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/04/trump-iran-war-messaging-americans-congress" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Trump’s Iran war messaging is not winning over Americans – or their representatives”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/live/2026/06/04/world/iran-war-trump-israel-lebanon" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Iran War Live Updates: Israel Trades Strikes With Hezbollah, Leaving New Cease-Fire With Lebanon in Doubt”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/04/world/middleeast/hezbollah-fiber-optic-drones-israel.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Hezbollah’s Fiber-Optic Drones Expose Cracks in Israeli Defenses”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/c052343r812o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“Hezbollah rejects renewed ceasefire agreed by Israel and Lebanon”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/c052343r812o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Hezbollah rejects renewed ceasefire agreed by Israel and Lebanon”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/04/g-s1-125942/israel-lebanon-ceasefire" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Israel and Lebanon reach an agreement, but ceasefire stalls”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/world/israel-and-lebanon-agree-to-renew-fragile-ceasefire-create-lebanese-security-zones" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Israel and Lebanon agree to renew fragile ceasefire, create Lebanese security zones”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">2</div>
+<div class="source-body">
+<div class="source-balm-headline">Iran Strikes Kuwait's Main Airport Amid Fragile Regional Ceasefire</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/world/us-ally-kuwait-condemns-brutal-ongoing-iranian-attacks-airport-hit" rel="noopener noreferrer" target="_blank">Fox News World</a>
+            
+            — <span class="source-original-headline">“US ally Kuwait condemns 'brutal and ongoing Iranian attacks' after airport was hit”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/show/iranian-strikes-set-kuwaits-largest-airport-ablaze-amid-fragile-ceasefire-with-the-u-s" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Iranian strikes set Kuwait's largest airport ablaze amid fragile ceasefire with the U.S.”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">3</div>
+<div class="source-body">
+<div class="source-balm-headline">SpaceX Sets Price for IPO, Aiming to Surpass Saudi Aramco as Largest Public Offering on Record</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/science/2026/jun/03/spacex-ipo-stock-musk" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“SpaceX targets biggest ever stock market debut, putting Musk on course to be trillionaire”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/04/technology/gwynne-shotwell-spacex.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“The Steady Hand at SpaceX Is Not Elon Musk”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/04/business/dealbook/spacex-ipo-record.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Inside SpaceX’s Rockets-to-Riches I.P.O. Plan”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/04/technology/space-nerds-spacex-ipo.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Space Nerds, Rejoice! SpaceX’s I.P.O. Lifts Dreams of the Cosmos.”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/03/technology/spacex-ipo-pricing.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“SpaceX Sets Price for the World’s Largest I.P.O.”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">4</div>
+<div class="source-body">
+<div class="source-balm-headline">Federal Reserve Chair Says September Rate Cut Is Possible, Cites Reduced Inflation Pressure</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.marketwatch.com/story/powell-says-labor-market-not-a-source-of-significant-inflation-pressure-cc3b1297?mod=mw_rss_realtimeheadlines" rel="noopener noreferrer" target="_blank">WSJ Markets</a>
+            
+            — <span class="source-original-headline">“Powell says labor market not a source of significant inflation pressure”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.marketwatch.com/story/feds-powell-says-rate-cut-on-the-table-as-soon-as-september-f3f7c8f2?mod=mw_rss_realtimeheadlines" rel="noopener noreferrer" target="_blank">WSJ Markets</a>
+            
+            — <span class="source-original-headline">“Fed’s Powell says rate cut ‘on the table’ as soon as September”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">5</div>
+<div class="source-body">
+<div class="source-balm-headline">Kevin Warsh Sworn In as Federal Reserve Chair</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm" rel="noopener noreferrer" target="_blank">Federal Reserve</a>
+            
+            — <span class="source-original-headline">“Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">6</div>
+<div class="source-body">
+<div class="source-balm-headline">House Passes War Powers Resolution on Iran; Trump Criticizes Republicans Who Voted for It</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/live/2026/jun/04/us-politics-latest-news-midterm-elections-california-governor-results" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Donald Trump attacks his own party members as ‘unpatriotic’ after war powers resolution vote in House – US politics live”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cn0pl0wvvz0o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“Trump hits back at 'unpatriotic' vote after House rebukes him over Iran”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cn0pl0wvvz0o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Trump hits back at 'unpatriotic' vote after House rebukes him over Iran”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">7</div>
+<div class="source-body">
+<div class="source-balm-headline">Senate Advances ICE Funding Bill After Stripping Contested Provisions</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/politics/both-parties-target-trumps-2b-fund-ice-funding-package-enters-danger-zone" rel="noopener noreferrer" target="_blank">Fox News Politics</a>
+            
+            — <span class="source-original-headline">“Both parties target Trump's $2B fund as ICE funding package enters danger zone”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/04/g-s1-125937/up-first-newsletter-ice-funding-package-trump-netanyahu-federal-workers-world-cup-weather" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Senate to start debate on ICE funding. And, Israel and Lebanon agree to ceasefire”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/politics/watch-live-senate-holds-ice-funding-vote-a-rama" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“WATCH LIVE: Senate holds ICE funding vote-a-rama”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">8</div>
+<div class="source-body">
+<div class="source-balm-headline">Consumer Financial Protection Bureau Removes Over 2,000 Webpages from Its Website</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/ng-interactive/2026/jun/04/trump-administration-consumer-financial-protection-bureau" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Consumer protection agency deletes thousands of pages as Trump administration seeks to dismantle it”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">9</div>
+<div class="source-body">
+<div class="source-balm-headline">Trump Announces Plan to Nominate Todd Blanche as Permanent Attorney General</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/politics/trump-says-he-will-nominate-todd-blanche-to-serve-as-attorney-general" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Trump says he will nominate Todd Blanche to serve as attorney general”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">10</div>
+<div class="source-body">
+<div class="source-balm-headline">Supreme Court Allows Alabama to Use Congressional Map a Lower Court Found Racially Discriminatory</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/the-supreme-courts-long-history-of-shaping-race/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“The Supreme Court’s long history of shaping race”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/opinions-expected/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“Opinions expected”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/a-random-assortment-of-relists-prolonged-detention-confessions-of-error-small-juries-and-new-rul/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“A random assortment of relists: prolonged detention, confessions of error, small juries, and new rules on habeas”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/when-and-why-did-complying-with-the-voting-rights-act-become-unconstitutional/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“When and why did complying with the Voting Rights Act become unconstitutional?”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/the-two-roberts-courts/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“The two Roberts courts”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/court-clears-the-way-for-alabama-to-use-its-preferred-congressional-map/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“Court clears the way for Alabama to use its preferred congressional map”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/supreme-court-permits-alabama-to-use-congressional-map-struck-by-lower-court-as-racially-discrim/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“Supreme Court permits Alabama to use congressional map struck by lower court as racially discriminatory”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/the-radical-justice-thomas/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“The radical Justice Thomas”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">11</div>
+<div class="source-body">
+<div class="source-balm-headline">Dozens of Children Previously Separated at the Border Have Been Separated Again, Investigation Finds</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.yakimaherald.com/news/nation_and_world/nation/trump-administration-has-separated-dozens-of-children-from-their-parents-for-a-second-time-ap/article_901d2c64-2d5f-54b1-bceb-da4a5464fd1b.html" rel="noopener noreferrer" target="_blank">Yakima Herald-republic</a>
+            
+            — <span class="source-original-headline">“Trump administration has separated dozens of children from their parents for a second time, AP finds”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.hastingstribune.com/ap/state/trump-administration-has-separated-dozens-of-children-from-their-parents-for-a-second-time-ap/article_65422f0a-ff65-57a8-a808-0f6b516b338b.html" rel="noopener noreferrer" target="_blank">Hastingstribune</a>
+            
+            — <span class="source-original-headline">“Trump administration has separated dozens of children from their parents for a second time, AP finds”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">12</div>
+<div class="source-body">
+<div class="source-balm-headline">Arizona and Nevada Reach Agreement to Receive Desalinated Pacific Ocean Water</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/03/climate/arizona-nevada-san-diego-water.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Arizona and Nevada Agree to Trade for Desalinated Pacific Ocean Water”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">13</div>
+<div class="source-body">
+<div class="source-balm-headline">Former National Security Adviser John Bolton to Plead Guilty in Classified Documents Case</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/04/john-bolton-pleads-guilty-classified-documents" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“John Bolton will reportedly plead guilty over mishandling classified documents”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/politics/former-national-security-advisor-john-bolton-plead-guilty-retaining-classified-information-sources" rel="noopener noreferrer" target="_blank">Fox News Politics</a>
+            
+            — <span class="source-original-headline">“Former National Security Advisor John Bolton to plead guilty to retaining classified information: sources”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/politics/ap-report-ex-national-security-adviser-john-bolton-will-plead-guilty-in-classified-information-case" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“AP report: Ex-national security adviser John Bolton will plead guilty in classified information case”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">14</div>
+<div class="source-body">
+<div class="source-balm-headline">Study Finds National Guard Deployment Has Not Reduced Violent Crime in Washington, DC</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/04/nx-s1-5845073/national-guard-washington-dc-crime" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“National Guard has done little to reduce violent crime in D.C., a new study finds”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">15</div>
+<div class="source-body">
+<div class="source-balm-headline">Ebola Outbreak Widens in Congo as US Response Plan Remains Unclear and Vaccine Gaps Persist</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/04/experts-criticise-plan-for-american-only-ebola-quarantine-centre-in-kenya" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Experts criticise plan for American-only Ebola quarantine centre in Kenya”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/03/us/politics/trump-administration-ebola-response.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“As Ebola Outbreak Widens, Trump Has Yet to Outline a Plan”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/02/health/ebola-tests-congo.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Only the Right Tests Can Stop This Ebola Outbreak. Congo Has Hardly Any.”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/01/science/ebola-vaccines-treatments.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“As Ebola Spreads, Scientists Race to Find Vaccines and Treatments”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">16</div>
+<div class="source-body">
+<div class="source-balm-headline">Studies Suggest GLP-1 Weight-Loss Drugs May Reduce Cancer Risk by Up to 30%</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/science/2026/jun/02/weight-loss-drugs-cut-cancer-risk-studies" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Weight-loss drugs can cut breast cancer risk by up to 30%, studies suggest”</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p><a href="2026-06-04-am.html">← Return to digest</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-<script>
-  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
-  (function() {
-    var current = '2026-06-04-am.html';
-    fetch('archive.json')
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-      })
-      .catch(function() {});
-  })();
-</script>
+
 </body>
 </html>

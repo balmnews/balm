@@ -1,16 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm Sources — Saturday, June 6, 2026 PM</title>
-  <meta name="description" content="Source attribution for the Balm digest of Saturday, June 6, 2026.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="manifest.json">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm Sources — Saturday, June 6, 2026 PM</title>
+<meta content="Source attribution for the Balm digest of Saturday, June 6, 2026." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="manifest.json" rel="manifest"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -45,14 +46,6 @@
       padding: 0 1rem;
     }
 
-    .sidebar {
-      width: 220px;
-      flex-shrink: 0;
-      padding: 2rem 1.5rem 2rem 0;
-      border-right: 1px solid var(--rule);
-      min-height: 100vh;
-    }
-
     .main-content {
       flex: 1;
       max-width: 860px;
@@ -61,7 +54,6 @@
 
     @media (max-width: 768px) {
       .page-wrapper { display: block; padding: 0; }
-      .sidebar { display: none; }
       .main-content { padding: 0 1.25rem 3rem; }
     }
 
@@ -175,39 +167,6 @@
       color: var(--secondary);
     }
 
-    /* Sidebar */
-    .sidebar-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-top: 2rem;
-    }
-
-    .archive-month { margin-bottom: 1rem; }
-
-    .archive-month-label {
-      font-size: 0.68rem;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      color: var(--secondary);
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
-
-    .archive-link {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--secondary);
-      padding: 0.1rem 0;
-      line-height: 1.6;
-    }
-
-    .archive-link:hover { color: var(--accent); text-decoration: none; }
-    .archive-link.current { color: var(--accent); font-style: italic; }
-
     /* Footer */
     .footer {
       border-top: 1px solid var(--rule);
@@ -221,865 +180,585 @@
 
     .footer a { color: var(--muted); text-decoration: underline; }
     .footer a:hover { color: var(--secondary); }
-  </style>
+
+    .page-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .main-content {
+      padding: 0 0 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .main-content { padding: 0 0 3rem; }
+    }
+
+    :root { --ink-light: #5a5048; }
+
+    /* --- patched to current template --- */
+    .masthead-link {
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .archive-link-section {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+    }
+
+    .archive-link {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .archive-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer .footer-kofi {
+      font-size: 0.92rem;
+      color: var(--accent);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+
+    .footer .footer-kofi:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .footer .footer-contact {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s;
+    }
+
+    .footer .footer-contact:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+</style>
 </head>
 <body>
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">June 2026</div>
-      
-      <a class="archive-link current"
-         href="2026-06-06-pm.html">
-        06-06 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-06-am.html">
-        06-06 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-05-pm.html">
-        06-05 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-05-am.html">
-        06-05 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-04-pm.html">
-        06-04 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-04-am.html">
-        06-04 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-03-pm.html">
-        06-03 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-03-am.html">
-        06-03 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-02-pm.html">
-        06-02 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-01-pm.html">
-        06-01 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-01-am.html">
-        06-01 AM
-      </a>
-      
-    </div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">May 2026</div>
-      
-      <a class="archive-link"
-         href="2026-05-31-pm.html">
-        05-31 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-31-am.html">
-        05-31 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-30-pm.html">
-        05-30 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-30-am.html">
-        05-30 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-29-pm.html">
-        05-29 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-29-am.html">
-        05-29 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-28-pm.html">
-        05-28 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-28-am.html">
-        05-28 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-27-pm.html">
-        05-27 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-27-am.html">
-        05-27 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-26-pm.html">
-        05-26 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-26-am.html">
-        05-26 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-25-pm.html">
-        05-25 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-24-pm.html">
-        05-24 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-24-am.html">
-        05-24 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-23-pm.html">
-        05-23 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-23-am.html">
-        05-23 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-22-pm.html">
-        05-22 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-22-am.html">
-        05-22 AM
-      </a>
-      
-    </div>
-    
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <a href="2026-06-06-pm.html" style="text-decoration:none;">
-          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-              </filter>
-            </defs>
-            <text x="90" y="44"
-                  font-family="Caveat, cursive"
-                  font-size="52"
-                  font-weight="700"
-                  fill="#6b82a8"
-                  text-anchor="middle"
-                  letter-spacing="8"
-                  filter="url(#balm-spread)">Balm</text>
-          </svg>
-        </a>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Saturday, June 6, 2026 &middot; PM Edition &middot; Sources</p>
-    </header>
-
-    <!-- Sources list -->
-    <div class="section-header">Sources for this digest</div>
-
-    
-    <div class="source-entry">
-      <div class="source-num">1</div>
-      <div class="source-body">
-        <div class="source-balm-headline">US and Iran Exchange Strikes in Gulf as Bahrain and Kuwait Come Under Fire</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/06/us-says-iran-radar-sites-struck-and-drones-intercepted-in-latest-threat-to-fragile-ceasefire" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Kuwait and Bahrain targeted by Iran after exchange of fire with US&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cvgzgyjk2weo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;US and Iran exchange strikes in Gulf in latest test of ceasefire&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/world/u-s-iran-exchange-of-fire-in-gulf-tests-fragile-ceasefire" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;U.S.-Iran exchange of fire in Gulf tests fragile ceasefire&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">2</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Congress Advances War Powers Resolutions to Limit US Military Action Against Iran</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/whats-next-for-the-war-powers-resolution-on-iran-politifact-explains" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;What's next for the War Powers Resolution on Iran? PolitiFact explains&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">3</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Ukraine Launches Second Drone Strike on St. Petersburg in Days</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/06/world/europe/ukraine-drone-strike-st-petersburg.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Ukraine Strikes St. Petersburg in Long-Range Drone Attack&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cg7498kz808o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Ukrainian drones target St Petersburg in attack Russia calls 'unprecedented'&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cg7498kz808o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Ukrainian drones target St Petersburg in attack Russia calls 'unprecedented'&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">4</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Zelensky Proposes Direct Talks with Putin as US Attention Shifts to Iran</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/world/zelenskyy-issues-open-letter-putin-proposing-meeting-us-fully-focused-iran" target="_blank" rel="noopener noreferrer">Fox News World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Zelenskyy issues open letter to Putin proposing meeting as US 'fully focused' on Iran&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">5</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Seven-Month-Old Palestinian Infant Killed After Israeli Troops Fire on Car in West Bank</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/06/palestinian-baby-shot-dead-israeli-troops-occupied-west-bank" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Palestinian baby shot dead by Israeli troops in occupied West Bank&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/06/world/middleeast/israel-west-bank-infant.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Infant Killed as Israeli Military Fires on Car in West Bank, Palestinian Officials Say&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cly8lgn0x30o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Funeral held for baby shot dead by Israeli troops in occupied West Bank&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/world/7-month-old-baby-killed-after-israeli-troops-open-fire-on-a-car-palestinian-health-officials-say" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;7-month-old baby killed after Israeli troops open fire on a car, Palestinian health officials say&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">6</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Israeli Strike Kills Lebanese Army Officers; White Phosphorus Use Reported Near Lebanese Towns</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cj0g8jymg92o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Lebanese general among three soldiers killed in Israeli attack on car&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/06/nx-s1-5848668/israel-lebanon-white-phosphorus" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Israel has reportedly used white phosphorus near Lebanese cities and towns. What is it?&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/06/nx-s1-5848595/israeli-airstrikes-kill-lebanese-army-officers" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Israeli airstrikes kill 9 including Lebanese army officers after ceasefire deal&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">7</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Pope Leo XIV Begins Seven-Day Spain Visit, Calls for Political Unity and Opposes Iran War</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/06/pope-leo-xiv-spain-tour-madrid-catholic-church" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Pope Leo calls for leaders to reject polarisation as he begins Spanish tour&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/06/world/europe/leo-spain-visit.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Pope Leo, After Taking on Trump and A.I., Prepares for New Duels in Spain&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/c8d2pgjy4qgo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Pope begins Spain visit with praise for country's opposition to war and support for migrants&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/c8d2pgjy4qgo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Pope begins Spain visit with praise for country's opposition to war and support for migrants&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/world/pope-leo-xiv-warns-against-fanning-the-flames-of-polarization-on-first-papal-visit-to-spain-in-15-years" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Pope Leo XIV warns against 'fanning the flames of polarization' on first papal visit to Spain in 15 years&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">8</div>
-      <div class="source-body">
-        <div class="source-balm-headline">SpaceX IPO Set for June 12 at $135 Per Share, Expected to Enter Index Funds and 401(k)s</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/science/2026/jun/06/spacex-ipo-buy-shares-elon-musk-stock-market-launch-risks" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;SpaceX IPO: how can I buy shares, and what are the risks?&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/05/technology/spacex-indexes-401k.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;SpaceX Is About to Be in Your 401(k) Whether You Like It or Not&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/04/technology/gwynne-shotwell-spacex.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;The Steady Hand at SpaceX Is Not Elon Musk&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/04/technology/space-nerds-spacex-ipo.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Space Nerds, Rejoice! SpaceX’s I.P.O. Lifts Dreams of the Cosmos.&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/05/podcasts/hardfork-ipo-math.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Hot I.P.O. Summer + What Is A.I. Doing to Math? + HatGPT&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">9</div>
-      <div class="source-body">
-        <div class="source-balm-headline">US Mortgage Rates Remain Elevated, With Limited Ability for the Fed to Intervene</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/economy/u-s-mortgage-rates-are-staying-high-and-the-federal-reserve-can-do-little-about-it" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;U.S. mortgage rates are staying high &ndash; and the Federal Reserve can do little about it&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">10</div>
-      <div class="source-body">
-        <div class="source-balm-headline">New World Screwworm Border Closure Creates Diverging Conditions for US and Mexican Cattle Industries</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.usnews.com/news/world/articles/2026-06-06/screwworm-border-closure-fuels-beef-boom-in-mexico-gloom-in-texas" target="_blank" rel="noopener noreferrer">Usnews</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Screwworm Border Closure Fuels Beef Boom in Mexico, Gloom in Texas&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/06/business/screwworm-flies-drought-cattle.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Screwworm Flies and Drought Spell Tougher Times for Cattle Ranchers&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">11</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Trump Pardons Former Republican Congressman Convicted of Insider Trading</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/politics/former-indiana-rep-stephen-buyer-receives-full-pardon-trump-2023-insider-trading-conviction" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Former Indiana Rep Stephen Buyer receives full pardon from Trump for 2023 insider trading conviction&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/trump-pardons-former-republican-congressman-convicted-of-insider-trading" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump pardons former Republican congressman convicted of insider trading&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">12</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Trump Directs Acting Intelligence Chief to Begin Reducing the Office of the Director of National Intelligence</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/politics/trump-moves-slash-intelligence-office-ahead-permanent-chiefs-arrival" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump moves to slash intelligence office ahead of permanent chief's arrival&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">13</div>
-      <div class="source-body">
-        <div class="source-balm-headline">US Forest Service Plans to Open Millions of Acres of National Forests to Off-Road Vehicles</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/05/climate/national-forests-off-road-vehicles-public-lands-trump.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;U.S. Forest Service to Open Millions of Acres to Off-Road Vehicles, Memo Shows&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/commentisfree/2026/jun/05/trump-roadless-rule-national-forests-protection" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;The Trump administration is trying to kill a rule that protects millions of acres of national forests | Charles F Sams III&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">14</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Arctic National Wildlife Refuge Oil Auction Draws Minimal Interest Despite Federal Push</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/05/climate/anwr-lease-sale-alaska.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Arctic Refuge Oil Draws Few Bids, Despite Trump’s Push for ‘Liquid Gold’&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">15</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Supreme Court Rules Generic Drug Makers Not Liable for Pharmacist Prescribing Decisions</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/justices-reject-holding-generic-pharmaceutical-manufacturers-liable-for-decisions-of-pharmacists/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Justices reject holding generic pharmaceutical manufacturers liable for decisions of pharmacists about prescribing their products&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">16</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Supreme Court Upholds SEC's Authority to Seek Disgorgement in Securities Enforcement Cases</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/justices-validate-secs-use-of-disgorgement-in-securities-enforcement/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Justices validate SEC’s use of disgorgement in securities enforcement&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">17</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Defense Secretary Hegseth Uses D-Day Ceremony to Link Migration to Military Readiness</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/c802e7jk458o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Hegseth attacks Europe over 'invasion' of migrants on its beaches in D-Day speech&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/c802e7jk458o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Hegseth attacks Europe over 'invasion' of migrants on its beaches in D-Day speech&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/hegseth-warns-of-invasion-and-dangerous-ideologies-in-d-day-anniversary-speech" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Hegseth warns of 'invasion' and 'dangerous ideologies' in D-Day anniversary speech&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">18</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Planned Parenthood to Offer Advance Abortion Medication at Clinics in Washington and Hawaii</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/06/advance-abortion-pill-planned-parenthood" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Planned Parenthood to offer ‘just in case’ abortion pills at some US clinics&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">19</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Trump Administration Offers $700 Million to Support Construction of First New US Coal Plants in Over a Decade</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/04/climate/trump-coal-plants-funding.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump Offers Funds for First New U.S. Coal Plants in 13 Years&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">20</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Researchers Demonstrate Precise Gene Editing of Human Embryos Using New Technique</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/04/science/embryos-gene-editing-crispr.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Scientists Edit Human Embryo Genes With Startling Precision&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">21</div>
-      <div class="source-body">
-        <div class="source-balm-headline">New Cancer Research Presented at ASCO Conference Includes Advances in Immunotherapy and Chemotherapy Reduction</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/science/2026/jun/06/new-weapons-war-on-cancer-asco-conference-takeaways" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Removing ‘invisibility cloaks’ and safely skipping chemo: new weapons in war on cancer shared at US conference&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">22</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Scientists Warn That Trump Plan to Dismantle Ocean Monitoring System Would Harm Weather Forecasting</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/05/trump-plan-ocean-monitoring-system-concern-scientists" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Scientists warn Trump plan to axe US ocean monitoring system will leave world ‘flying blind’&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/05/trump-plan-ocean-monitoring-system-concern-scientists" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Scientists warn Trump plan to axe US ocean monitoring system will leave world ‘flying blind’&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">23</div>
-      <div class="source-body">
-        <div class="source-balm-headline">NASA Orders ISS Crew to Shelter in Dragon Spacecraft Amid Air Leak Repair Pause</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/science/live/2026/jun/05/international-space-station-astronauts-evacuation-air-leak-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Nasa tells astronauts to return to International Space Station as air leak repair paused – as it happened&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">24</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Ebola Outbreak in Congo Widens as Testing Shortfalls and US Response Questions Mount</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/03/us/politics/trump-administration-ebola-response.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;As Ebola Outbreak Widens, Trump Has Yet to Outline a Plan&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/02/health/ebola-tests-congo.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Only the Right Tests Can Stop This Ebola Outbreak. Congo Has Hardly Any.&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/01/science/ebola-vaccines-treatments.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;As Ebola Spreads, Scientists Race to Find Vaccines and Treatments&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/06/g-s1-126287/ebola-gorillas-democratic-republic-congo" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;A park famed for rare gorillas gears up to fight Ebola and protect its primates&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">25</div>
-      <div class="source-body">
-        <div class="source-balm-headline">More Than 150 Mathematicians Urge Governments to Approach AI Capability Claims With Skepticism</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://futurism.com/artificial-intelligence/mathematicians-warn-governments-hype-ai" target="_blank" rel="noopener noreferrer">Futurism</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Over 150 Mathematicians Warn Governments Not to “Believe the Hype” About AI&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">26</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Mirra Andreeva Wins French Open Women's Title</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/sport/tennis/articles/c1dy7grv4y3o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Andreeva wins French Open as Chwalinska fairytale ends&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p><a href="2026-06-06-pm.html">← Return to digest</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news">
+<svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg>
+</a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Saturday, June 6, 2026 · PM Edition · Sources</p>
+</header>
+<!-- Sources list -->
+<div class="section-header">Sources for this digest</div>
+<div class="source-entry">
+<div class="source-num">1</div>
+<div class="source-body">
+<div class="source-balm-headline">US and Iran Exchange Strikes in Gulf as Bahrain and Kuwait Come Under Fire</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/06/us-says-iran-radar-sites-struck-and-drones-intercepted-in-latest-threat-to-fragile-ceasefire" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Kuwait and Bahrain targeted by Iran after exchange of fire with US”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cvgzgyjk2weo?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“US and Iran exchange strikes in Gulf in latest test of ceasefire”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/world/u-s-iran-exchange-of-fire-in-gulf-tests-fragile-ceasefire" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“U.S.-Iran exchange of fire in Gulf tests fragile ceasefire”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">2</div>
+<div class="source-body">
+<div class="source-balm-headline">Congress Advances War Powers Resolutions to Limit US Military Action Against Iran</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/politics/whats-next-for-the-war-powers-resolution-on-iran-politifact-explains" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“What's next for the War Powers Resolution on Iran? PolitiFact explains”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">3</div>
+<div class="source-body">
+<div class="source-balm-headline">Ukraine Launches Second Drone Strike on St. Petersburg in Days</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/06/world/europe/ukraine-drone-strike-st-petersburg.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Ukraine Strikes St. Petersburg in Long-Range Drone Attack”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cg7498kz808o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“Ukrainian drones target St Petersburg in attack Russia calls 'unprecedented'”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cg7498kz808o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Ukrainian drones target St Petersburg in attack Russia calls 'unprecedented'”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">4</div>
+<div class="source-body">
+<div class="source-balm-headline">Zelensky Proposes Direct Talks with Putin as US Attention Shifts to Iran</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/world/zelenskyy-issues-open-letter-putin-proposing-meeting-us-fully-focused-iran" rel="noopener noreferrer" target="_blank">Fox News World</a>
+            
+            — <span class="source-original-headline">“Zelenskyy issues open letter to Putin proposing meeting as US 'fully focused' on Iran”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">5</div>
+<div class="source-body">
+<div class="source-balm-headline">Seven-Month-Old Palestinian Infant Killed After Israeli Troops Fire on Car in West Bank</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/06/palestinian-baby-shot-dead-israeli-troops-occupied-west-bank" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Palestinian baby shot dead by Israeli troops in occupied West Bank”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/06/world/middleeast/israel-west-bank-infant.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Infant Killed as Israeli Military Fires on Car in West Bank, Palestinian Officials Say”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cly8lgn0x30o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Funeral held for baby shot dead by Israeli troops in occupied West Bank”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/world/7-month-old-baby-killed-after-israeli-troops-open-fire-on-a-car-palestinian-health-officials-say" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“7-month-old baby killed after Israeli troops open fire on a car, Palestinian health officials say”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">6</div>
+<div class="source-body">
+<div class="source-balm-headline">Israeli Strike Kills Lebanese Army Officers; White Phosphorus Use Reported Near Lebanese Towns</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cj0g8jymg92o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Lebanese general among three soldiers killed in Israeli attack on car”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/06/nx-s1-5848668/israel-lebanon-white-phosphorus" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Israel has reportedly used white phosphorus near Lebanese cities and towns. What is it?”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/06/nx-s1-5848595/israeli-airstrikes-kill-lebanese-army-officers" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Israeli airstrikes kill 9 including Lebanese army officers after ceasefire deal”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">7</div>
+<div class="source-body">
+<div class="source-balm-headline">Pope Leo XIV Begins Seven-Day Spain Visit, Calls for Political Unity and Opposes Iran War</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/06/pope-leo-xiv-spain-tour-madrid-catholic-church" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Pope Leo calls for leaders to reject polarisation as he begins Spanish tour”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/06/world/europe/leo-spain-visit.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Pope Leo, After Taking on Trump and A.I., Prepares for New Duels in Spain”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/c8d2pgjy4qgo?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“Pope begins Spain visit with praise for country's opposition to war and support for migrants”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/c8d2pgjy4qgo?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Pope begins Spain visit with praise for country's opposition to war and support for migrants”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/world/pope-leo-xiv-warns-against-fanning-the-flames-of-polarization-on-first-papal-visit-to-spain-in-15-years" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Pope Leo XIV warns against 'fanning the flames of polarization' on first papal visit to Spain in 15 years”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">8</div>
+<div class="source-body">
+<div class="source-balm-headline">SpaceX IPO Set for June 12 at $135 Per Share, Expected to Enter Index Funds and 401(k)s</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/science/2026/jun/06/spacex-ipo-buy-shares-elon-musk-stock-market-launch-risks" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“SpaceX IPO: how can I buy shares, and what are the risks?”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/05/technology/spacex-indexes-401k.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“SpaceX Is About to Be in Your 401(k) Whether You Like It or Not”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/04/technology/gwynne-shotwell-spacex.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“The Steady Hand at SpaceX Is Not Elon Musk”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/04/technology/space-nerds-spacex-ipo.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Space Nerds, Rejoice! SpaceX’s I.P.O. Lifts Dreams of the Cosmos.”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/05/podcasts/hardfork-ipo-math.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Hot I.P.O. Summer + What Is A.I. Doing to Math? + HatGPT”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">9</div>
+<div class="source-body">
+<div class="source-balm-headline">US Mortgage Rates Remain Elevated, With Limited Ability for the Fed to Intervene</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/economy/u-s-mortgage-rates-are-staying-high-and-the-federal-reserve-can-do-little-about-it" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“U.S. mortgage rates are staying high – and the Federal Reserve can do little about it”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">10</div>
+<div class="source-body">
+<div class="source-balm-headline">New World Screwworm Border Closure Creates Diverging Conditions for US and Mexican Cattle Industries</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.usnews.com/news/world/articles/2026-06-06/screwworm-border-closure-fuels-beef-boom-in-mexico-gloom-in-texas" rel="noopener noreferrer" target="_blank">Usnews</a>
+            
+            — <span class="source-original-headline">“Screwworm Border Closure Fuels Beef Boom in Mexico, Gloom in Texas”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/06/business/screwworm-flies-drought-cattle.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Screwworm Flies and Drought Spell Tougher Times for Cattle Ranchers”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">11</div>
+<div class="source-body">
+<div class="source-balm-headline">Trump Pardons Former Republican Congressman Convicted of Insider Trading</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/politics/former-indiana-rep-stephen-buyer-receives-full-pardon-trump-2023-insider-trading-conviction" rel="noopener noreferrer" target="_blank">Fox News Politics</a>
+            
+            — <span class="source-original-headline">“Former Indiana Rep Stephen Buyer receives full pardon from Trump for 2023 insider trading conviction”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/politics/trump-pardons-former-republican-congressman-convicted-of-insider-trading" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Trump pardons former Republican congressman convicted of insider trading”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">12</div>
+<div class="source-body">
+<div class="source-balm-headline">Trump Directs Acting Intelligence Chief to Begin Reducing the Office of the Director of National Intelligence</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/politics/trump-moves-slash-intelligence-office-ahead-permanent-chiefs-arrival" rel="noopener noreferrer" target="_blank">Fox News Politics</a>
+            
+            — <span class="source-original-headline">“Trump moves to slash intelligence office ahead of permanent chief's arrival”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">13</div>
+<div class="source-body">
+<div class="source-balm-headline">US Forest Service Plans to Open Millions of Acres of National Forests to Off-Road Vehicles</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/05/climate/national-forests-off-road-vehicles-public-lands-trump.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“U.S. Forest Service to Open Millions of Acres to Off-Road Vehicles, Memo Shows”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/commentisfree/2026/jun/05/trump-roadless-rule-national-forests-protection" rel="noopener noreferrer" target="_blank">Guardian Environment</a>
+            
+            — <span class="source-original-headline">“The Trump administration is trying to kill a rule that protects millions of acres of national forests | Charles F Sams III”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">14</div>
+<div class="source-body">
+<div class="source-balm-headline">Arctic National Wildlife Refuge Oil Auction Draws Minimal Interest Despite Federal Push</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/05/climate/anwr-lease-sale-alaska.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Arctic Refuge Oil Draws Few Bids, Despite Trump’s Push for ‘Liquid Gold’”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">15</div>
+<div class="source-body">
+<div class="source-balm-headline">Supreme Court Rules Generic Drug Makers Not Liable for Pharmacist Prescribing Decisions</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/justices-reject-holding-generic-pharmaceutical-manufacturers-liable-for-decisions-of-pharmacists/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“Justices reject holding generic pharmaceutical manufacturers liable for decisions of pharmacists about prescribing their products”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">16</div>
+<div class="source-body">
+<div class="source-balm-headline">Supreme Court Upholds SEC's Authority to Seek Disgorgement in Securities Enforcement Cases</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/justices-validate-secs-use-of-disgorgement-in-securities-enforcement/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“Justices validate SEC’s use of disgorgement in securities enforcement”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">17</div>
+<div class="source-body">
+<div class="source-balm-headline">Defense Secretary Hegseth Uses D-Day Ceremony to Link Migration to Military Readiness</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/c802e7jk458o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“Hegseth attacks Europe over 'invasion' of migrants on its beaches in D-Day speech”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/c802e7jk458o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Hegseth attacks Europe over 'invasion' of migrants on its beaches in D-Day speech”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/politics/hegseth-warns-of-invasion-and-dangerous-ideologies-in-d-day-anniversary-speech" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Hegseth warns of 'invasion' and 'dangerous ideologies' in D-Day anniversary speech”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">18</div>
+<div class="source-body">
+<div class="source-balm-headline">Planned Parenthood to Offer Advance Abortion Medication at Clinics in Washington and Hawaii</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/06/advance-abortion-pill-planned-parenthood" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Planned Parenthood to offer ‘just in case’ abortion pills at some US clinics”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">19</div>
+<div class="source-body">
+<div class="source-balm-headline">Trump Administration Offers $700 Million to Support Construction of First New US Coal Plants in Over a Decade</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/04/climate/trump-coal-plants-funding.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Trump Offers Funds for First New U.S. Coal Plants in 13 Years”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">20</div>
+<div class="source-body">
+<div class="source-balm-headline">Researchers Demonstrate Precise Gene Editing of Human Embryos Using New Technique</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/04/science/embryos-gene-editing-crispr.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Scientists Edit Human Embryo Genes With Startling Precision”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">21</div>
+<div class="source-body">
+<div class="source-balm-headline">New Cancer Research Presented at ASCO Conference Includes Advances in Immunotherapy and Chemotherapy Reduction</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/science/2026/jun/06/new-weapons-war-on-cancer-asco-conference-takeaways" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Removing ‘invisibility cloaks’ and safely skipping chemo: new weapons in war on cancer shared at US conference”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">22</div>
+<div class="source-body">
+<div class="source-balm-headline">Scientists Warn That Trump Plan to Dismantle Ocean Monitoring System Would Harm Weather Forecasting</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/05/trump-plan-ocean-monitoring-system-concern-scientists" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Scientists warn Trump plan to axe US ocean monitoring system will leave world ‘flying blind’”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/05/trump-plan-ocean-monitoring-system-concern-scientists" rel="noopener noreferrer" target="_blank">Guardian Environment</a>
+            
+            — <span class="source-original-headline">“Scientists warn Trump plan to axe US ocean monitoring system will leave world ‘flying blind’”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">23</div>
+<div class="source-body">
+<div class="source-balm-headline">NASA Orders ISS Crew to Shelter in Dragon Spacecraft Amid Air Leak Repair Pause</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/science/live/2026/jun/05/international-space-station-astronauts-evacuation-air-leak-latest-news-updates" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Nasa tells astronauts to return to International Space Station as air leak repair paused – as it happened”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">24</div>
+<div class="source-body">
+<div class="source-balm-headline">Ebola Outbreak in Congo Widens as Testing Shortfalls and US Response Questions Mount</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/03/us/politics/trump-administration-ebola-response.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“As Ebola Outbreak Widens, Trump Has Yet to Outline a Plan”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/02/health/ebola-tests-congo.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Only the Right Tests Can Stop This Ebola Outbreak. Congo Has Hardly Any.”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/01/science/ebola-vaccines-treatments.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“As Ebola Spreads, Scientists Race to Find Vaccines and Treatments”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/06/g-s1-126287/ebola-gorillas-democratic-republic-congo" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“A park famed for rare gorillas gears up to fight Ebola and protect its primates”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">25</div>
+<div class="source-body">
+<div class="source-balm-headline">More Than 150 Mathematicians Urge Governments to Approach AI Capability Claims With Skepticism</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://futurism.com/artificial-intelligence/mathematicians-warn-governments-hype-ai" rel="noopener noreferrer" target="_blank">Futurism</a>
+            
+            — <span class="source-original-headline">“Over 150 Mathematicians Warn Governments Not to “Believe the Hype” About AI”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">26</div>
+<div class="source-body">
+<div class="source-balm-headline">Mirra Andreeva Wins French Open Women's Title</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.bbc.com/sport/tennis/articles/c1dy7grv4y3o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Andreeva wins French Open as Chwalinska fairytale ends”</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p><a href="2026-06-06-pm.html">← Return to digest</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-<script>
-  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
-  (function() {
-    var current = '2026-06-06-pm.html';
-    fetch('archive.json')
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-      })
-      .catch(function() {});
-  })();
-</script>
+
 </body>
 </html>

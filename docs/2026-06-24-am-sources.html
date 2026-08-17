@@ -1,16 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm Sources — Wednesday, June 24, 2026 AM</title>
-  <meta name="description" content="Source attribution for the Balm digest of Wednesday, June 24, 2026.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="manifest.json">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm Sources — Wednesday, June 24, 2026 AM</title>
+<meta content="Source attribution for the Balm digest of Wednesday, June 24, 2026." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="manifest.json" rel="manifest"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -45,14 +46,6 @@
       padding: 0 1rem;
     }
 
-    .sidebar {
-      width: 220px;
-      flex-shrink: 0;
-      padding: 2rem 1.5rem 2rem 0;
-      border-right: 1px solid var(--rule);
-      min-height: 100vh;
-    }
-
     .main-content {
       flex: 1;
       max-width: 860px;
@@ -61,7 +54,6 @@
 
     @media (max-width: 768px) {
       .page-wrapper { display: block; padding: 0; }
-      .sidebar { display: none; }
       .main-content { padding: 0 1.25rem 3rem; }
     }
 
@@ -175,39 +167,6 @@
       color: var(--secondary);
     }
 
-    /* Sidebar */
-    .sidebar-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-top: 2rem;
-    }
-
-    .archive-month { margin-bottom: 1rem; }
-
-    .archive-month-label {
-      font-size: 0.68rem;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      color: var(--secondary);
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
-
-    .archive-link {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--secondary);
-      padding: 0.1rem 0;
-      line-height: 1.6;
-    }
-
-    .archive-link:hover { color: var(--accent); text-decoration: none; }
-    .archive-link.current { color: var(--accent); font-style: italic; }
-
     /* Footer */
     .footer {
       border-top: 1px solid var(--rule);
@@ -221,907 +180,484 @@
 
     .footer a { color: var(--muted); text-decoration: underline; }
     .footer a:hover { color: var(--secondary); }
-  </style>
+
+    .page-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .main-content {
+      padding: 0 0 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .main-content { padding: 0 0 3rem; }
+    }
+
+    :root { --ink-light: #5a5048; }
+
+    /* --- patched to current template --- */
+    .masthead-link {
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .archive-link-section {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+    }
+
+    .archive-link {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .archive-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer .footer-kofi {
+      font-size: 0.92rem;
+      color: var(--accent);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+
+    .footer .footer-kofi:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .footer .footer-contact {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s;
+    }
+
+    .footer .footer-contact:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+</style>
 </head>
 <body>
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">June 2026</div>
-      
-      <a class="archive-link current"
-         href="2026-06-24-am.html">
-        06-24 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-23-pm.html">
-        06-23 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-23-am.html">
-        06-23 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-22-pm.html">
-        06-22 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-22-am.html">
-        06-22 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-21-pm.html">
-        06-21 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-21-am.html">
-        06-21 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-20-pm.html">
-        06-20 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-20-am.html">
-        06-20 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-19-pm.html">
-        06-19 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-19-am.html">
-        06-19 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-18-pm.html">
-        06-18 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-18-am.html">
-        06-18 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-17-pm.html">
-        06-17 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-17-am.html">
-        06-17 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-16-pm.html">
-        06-16 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-16-am.html">
-        06-16 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-15-pm.html">
-        06-15 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-15-am.html">
-        06-15 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-14-pm.html">
-        06-14 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-14-am.html">
-        06-14 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-13-pm.html">
-        06-13 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-13-am.html">
-        06-13 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-12-pm.html">
-        06-12 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-12-am.html">
-        06-12 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-11-pm.html">
-        06-11 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-11-am.html">
-        06-11 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-10-pm.html">
-        06-10 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-10-am.html">
-        06-10 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-09-pm.html">
-        06-09 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-09-am.html">
-        06-09 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-08-pm.html">
-        06-08 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-08-am.html">
-        06-08 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-07-pm.html">
-        06-07 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-07-am.html">
-        06-07 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-06-pm.html">
-        06-06 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-06-am.html">
-        06-06 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-05-pm.html">
-        06-05 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-05-am.html">
-        06-05 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-04-pm.html">
-        06-04 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-04-am.html">
-        06-04 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-03-pm.html">
-        06-03 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-03-am.html">
-        06-03 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-02-pm.html">
-        06-02 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-01-pm.html">
-        06-01 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-01-am.html">
-        06-01 AM
-      </a>
-      
-    </div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">May 2026</div>
-      
-      <a class="archive-link"
-         href="2026-05-31-pm.html">
-        05-31 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-31-am.html">
-        05-31 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-30-pm.html">
-        05-30 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-30-am.html">
-        05-30 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-29-pm.html">
-        05-29 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-29-am.html">
-        05-29 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-28-pm.html">
-        05-28 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-28-am.html">
-        05-28 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-27-pm.html">
-        05-27 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-27-am.html">
-        05-27 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-26-pm.html">
-        05-26 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-26-am.html">
-        05-26 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-25-pm.html">
-        05-25 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-24-pm.html">
-        05-24 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-24-am.html">
-        05-24 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-23-pm.html">
-        05-23 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-23-am.html">
-        05-23 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-22-pm.html">
-        05-22 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-22-am.html">
-        05-22 AM
-      </a>
-      
-    </div>
-    
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <a href="2026-06-24-am.html" style="text-decoration:none;">
-          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-              </filter>
-            </defs>
-            <text x="90" y="44"
-                  font-family="Caveat, cursive"
-                  font-size="52"
-                  font-weight="700"
-                  fill="#6b82a8"
-                  text-anchor="middle"
-                  letter-spacing="8"
-                  filter="url(#balm-spread)">Balm</text>
-          </svg>
-        </a>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Wednesday, June 24, 2026 &middot; AM Edition &middot; Sources</p>
-    </header>
-
-    <!-- Sources list -->
-    <div class="section-header">Sources for this digest</div>
-
-    
-    <div class="source-entry">
-      <div class="source-num">1</div>
-      <div class="source-body">
-        <div class="source-balm-headline">IAEA Chief Says Nuclear Inspectors Will Visit Iran Sites Under Interim Deal</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cpd395zv81vo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;UN nuclear chief says inspectors will visit Iran sites as part of war deal&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cpd395zv81vo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;UN nuclear chief says inspectors will visit Iran sites as part of war deal&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/24/g-s1-129770/iran-nuclear-inspection" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;IAEA chief says inspectors will visit nuclear sites under Iran-U.S. interim deal&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">2</div>
-      <div class="source-body">
-        <div class="source-balm-headline">US and Iran Offer Conflicting Descriptions of Nuclear Talks</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/live/2026/06/23/world/iran-us-trump-lebanon" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;U.S. and Iran Offer Conflicting Accounts of Nuclear Discussions&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">3</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Iran Moves to Charge Transit Fees in Strait of Hormuz as US Warns Against Tolls</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/23/world/middleeast/iran-control-strait-of-hormuz.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Iran Makes Moves to Assert Control Over the Strait of Hormuz&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">4</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Ukraine Strikes Leave Sevastopol, Crimea's Largest City, Without Power</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c3ryv72pjqno?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Biggest city in Crimea without power after Ukraine strikes&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c3ryv72pjqno?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Biggest city in Crimea without power after Ukraine strikes&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">5</div>
-      <div class="source-body">
-        <div class="source-balm-headline">US Forces Kill Senior ISIS Leader in Syria</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/politics/us-forces-kill-senior-isis-leader-syria-centcom" target="_blank" rel="noopener noreferrer">Fox News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;US forces kill senior ISIS leader in Syria: CENTCOM&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/politics/us-forces-kill-senior-isis-leader-syria-centcom" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;US forces kill senior ISIS leader in Syria: CENTCOM&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">6</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Candidates Backed by NYC Mayor Mamdani Win Democratic Primaries, Unseating Two Incumbents</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.wmar2news.com/politics/midterm-elections/mamdani-ally-brad-lander-upsets-rep-daniel-goldman-in-a-ny-democratic-primary" target="_blank" rel="noopener noreferrer">Wmar 2 News Baltimore</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Mamdani ally Brad Lander upsets Rep. Daniel Goldman in a NY Democratic primary&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/live/2026/jun/24/mamdani-new-york-primaries-midterms-democrats-republicans-trump-250-anniversary-politics-latest-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Mamdani-backed candidates win big in New York Democratic primaries – US politics live&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/24/zohran-mamdani-new-york-elections" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Zohran Mamdani has lost none of his political magic&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/24/darializa-avila-chevalier-win-new-york" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Darializa Avila Chevalier: pro-Palestinian doctoral student steps into politics with ‘faith in the future’&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/clye652m41po?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Clean sweep for Mamdani-backed candidates in New York's Democratic primary&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/24/g-s1-129769/up-first-newsletter-trump-john-thune-housing-act-new-york-primaries" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Congress passes major housing bill. And, Mamdani-backed candidates sweep NYC primaries&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/mamdani-slate-sweeps-democratic-primaries-in-new-york-ousts-2-incumbents-from-congress" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Mamdani slate sweeps Democratic primaries in New York, ousts 2 incumbents from Congress&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">7</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Congress Passes Major Housing Legislation Aimed at Increasing Supply and Reducing Costs</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/house-gives-final-approval-to-landmark-housing-bill-aimed-at-lowering-costs" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;House gives final approval to landmark housing bill aimed at lowering costs&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">8</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Congress Passes War Powers Measure on Iran Conflict, Breaking with White House</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/ce8j6g3v3r4o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Congress passes war powers measure for first time, breaking with Trump over Iran&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">9</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Trump Visits Senate Republicans as Party Works Toward Unity on SAVE America Act</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/politics/trump-heads-capitol-hill-pivotal-meeting-senate-gop-divisions-deepen" target="_blank" rel="noopener noreferrer">Fox News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump heads to Capitol Hill for pivotal meeting as Senate GOP divisions deepen&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/politics/trump-heads-capitol-hill-pivotal-meeting-senate-gop-divisions-deepen" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump heads to Capitol Hill for pivotal meeting as Senate GOP divisions deepen&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">10</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Supreme Court Rules Against Green Card Holders in Criminal Accusation Case</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/court-sides-with-government-in-dispute-over-rights-of-green-card-holders-accused-of-committing-a/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Court sides with government in dispute over rights of green card holders accused of committing a crime&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">11</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Supreme Court Limits Foreigners' Ability to Sue in US Courts Over International Law Violations</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/supreme-court-limits-ability-of-foreigners-to-bring-lawsuits-for-violations-of-international-law/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Supreme Court limits ability of foreigners to bring lawsuits for violations of international law&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">12</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Customs and Border Protection Reaches Record Agent Count, Targets Further Growth</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/politics/cbp-historic-milestone-pushes-larger-workforce-we-arent-stopping-here" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;CBP touts historic milestone, pushes for even larger workforce: 'We aren’t stopping here'&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">13</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Justice Department Charges Dozens in Medicare Fraud Scheme Involving Skin Treatments</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/23/us/skin-substitutes-medicare-fraud.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Ferraris and Shell Companies: Justice Dept. Unveils Medicare Fraud Charges&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">14</div>
-      <div class="source-body">
-        <div class="source-balm-headline">ICE Steps Back from Plan to Use Warehouses as Large-Scale Detention Facilities</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/federal-officials-plan-to-offload-some-warehouses-purchased-for-immigrant-detention" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Federal officials plan to offload some warehouses purchased for immigrant detention&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">15</div>
-      <div class="source-body">
-        <div class="source-balm-headline">France Confirms First Ebola Case as Outbreak in DRC Continues to Expand</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/24/france-ebola-first-case-doctor-drc" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;France confirms first Ebola case in doctor who had worked in DRC&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/interactive/2026/06/23/world/africa/ebola-virus-outbreak-update.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;How Bad Could the Ebola Outbreak Get? Here Are 5 Key Factors.&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/23/health/ebola-symptoms-death-rate.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Ebola Symptoms in Current Outbreak May Be Milder Than in Previous Ones&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/24/world/europe/ebola-france.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;France Identifies First Case of Ebola&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cj9gzr9rdjlo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;France confirms first Ebola case&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/24/nx-s1-5863157/ebola-outbreak-democratic-republic-congo-health-crisis" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Inside the gold-mining town where the Ebola outbreak likely started&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">16</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Crisis Pregnancy Centers Accused of Misleading Patients About Detecting Ectopic Pregnancies</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/24/nx-s1-5860744/crisis-pregnancy-centers-ectopic-abortion" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Why are crisis pregnancy centers saying they can 'rule out' ectopic pregnancy?&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">17</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Chinese Supercomputer Ranked World's Fastest, First Time Since 2017</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/technology/2026/jun/24/china-supercomputer-world-fastest-top500-ranking-lineshine" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Chinese supercomputer leapfrogs best US machines to be ranked world’s fastest&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/23/technology/china-supercomputer-crown-us.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;China Takes Supercomputer Crown From U.S. for First Time Since 2017&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">18</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Severe Heatwave Across Europe Strains Power Grids, Closes Schools, and Breaks Records</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/24/europe-heatwave-live-news-updates-uk-record-breaking-temperatures-italy-red-alert" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Europe heatwave live: estimated 94 million people to experience temperatures above 35C today&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/business/2026/jun/24/heatwave-great-britain-grid-operator-extra-electricity-power-plants" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Heatwave pushes Great Britain’s grid operator to call for extra electricity from power plants&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/24/as-temperatures-soar-in-baking-britain-how-are-workers-coping-in-the-heat" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;‘It’s dangerous’: how UK schools, care homes and other workplaces are coping in soaring heat&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/23/climate/europe-heat-wave-climate-change.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;As Europe Warms, Scientists Ask: How Much Hotter Could Summers Get?&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/weather/articles/c3vyzly206no?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Why this heatwave feels worse than the last one&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c78y4102n1zo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Power outages hit France as record heatwave set to peak&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/24/europe-heatwave-live-news-updates-uk-record-breaking-temperatures-italy-red-alert" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Europe heatwave live: estimated 94 million people to experience temperatures above 35C today&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/24/wednesday-briefing-how-can-the-uk-protect-its-landscape-in-an-increasingly-hot-world" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Wednesday briefing: How can the UK protect its landscape in an increasingly hot world?&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">19</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Camp Mystic Files for Bankruptcy Following Deaths in 2025 Texas Floods</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/24/camp-mystic-files-bankruptcy-texas-floods" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Camp Mystic files for bankruptcy after 28 people died in 2025 Texas floods&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p><a href="2026-06-24-am.html">← Return to digest</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news">
+<svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg>
+</a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Wednesday, June 24, 2026 · AM Edition · Sources</p>
+</header>
+<!-- Sources list -->
+<div class="section-header">Sources for this digest</div>
+<div class="source-entry">
+<div class="source-num">1</div>
+<div class="source-body">
+<div class="source-balm-headline">IAEA Chief Says Nuclear Inspectors Will Visit Iran Sites Under Interim Deal</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cpd395zv81vo?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“UN nuclear chief says inspectors will visit Iran sites as part of war deal”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cpd395zv81vo?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“UN nuclear chief says inspectors will visit Iran sites as part of war deal”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/24/g-s1-129770/iran-nuclear-inspection" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“IAEA chief says inspectors will visit nuclear sites under Iran-U.S. interim deal”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">2</div>
+<div class="source-body">
+<div class="source-balm-headline">US and Iran Offer Conflicting Descriptions of Nuclear Talks</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/live/2026/06/23/world/iran-us-trump-lebanon" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“U.S. and Iran Offer Conflicting Accounts of Nuclear Discussions”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">3</div>
+<div class="source-body">
+<div class="source-balm-headline">Iran Moves to Charge Transit Fees in Strait of Hormuz as US Warns Against Tolls</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/23/world/middleeast/iran-control-strait-of-hormuz.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Iran Makes Moves to Assert Control Over the Strait of Hormuz”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">4</div>
+<div class="source-body">
+<div class="source-balm-headline">Ukraine Strikes Leave Sevastopol, Crimea's Largest City, Without Power</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c3ryv72pjqno?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“Biggest city in Crimea without power after Ukraine strikes”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c3ryv72pjqno?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Biggest city in Crimea without power after Ukraine strikes”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">5</div>
+<div class="source-body">
+<div class="source-balm-headline">US Forces Kill Senior ISIS Leader in Syria</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/politics/us-forces-kill-senior-isis-leader-syria-centcom" rel="noopener noreferrer" target="_blank">Fox News</a>
+            
+            — <span class="source-original-headline">“US forces kill senior ISIS leader in Syria: CENTCOM”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/politics/us-forces-kill-senior-isis-leader-syria-centcom" rel="noopener noreferrer" target="_blank">Fox News Politics</a>
+            
+            — <span class="source-original-headline">“US forces kill senior ISIS leader in Syria: CENTCOM”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">6</div>
+<div class="source-body">
+<div class="source-balm-headline">Candidates Backed by NYC Mayor Mamdani Win Democratic Primaries, Unseating Two Incumbents</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.wmar2news.com/politics/midterm-elections/mamdani-ally-brad-lander-upsets-rep-daniel-goldman-in-a-ny-democratic-primary" rel="noopener noreferrer" target="_blank">Wmar 2 News Baltimore</a>
+            
+            — <span class="source-original-headline">“Mamdani ally Brad Lander upsets Rep. Daniel Goldman in a NY Democratic primary”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/live/2026/jun/24/mamdani-new-york-primaries-midterms-democrats-republicans-trump-250-anniversary-politics-latest-updates" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Mamdani-backed candidates win big in New York Democratic primaries – US politics live”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/24/zohran-mamdani-new-york-elections" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Zohran Mamdani has lost none of his political magic”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/24/darializa-avila-chevalier-win-new-york" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Darializa Avila Chevalier: pro-Palestinian doctoral student steps into politics with ‘faith in the future’”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/news/articles/clye652m41po?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Clean sweep for Mamdani-backed candidates in New York's Democratic primary”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/24/g-s1-129769/up-first-newsletter-trump-john-thune-housing-act-new-york-primaries" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Congress passes major housing bill. And, Mamdani-backed candidates sweep NYC primaries”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/politics/mamdani-slate-sweeps-democratic-primaries-in-new-york-ousts-2-incumbents-from-congress" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Mamdani slate sweeps Democratic primaries in New York, ousts 2 incumbents from Congress”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">7</div>
+<div class="source-body">
+<div class="source-balm-headline">Congress Passes Major Housing Legislation Aimed at Increasing Supply and Reducing Costs</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/politics/house-gives-final-approval-to-landmark-housing-bill-aimed-at-lowering-costs" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“House gives final approval to landmark housing bill aimed at lowering costs”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">8</div>
+<div class="source-body">
+<div class="source-balm-headline">Congress Passes War Powers Measure on Iran Conflict, Breaking with White House</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/news/articles/ce8j6g3v3r4o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Congress passes war powers measure for first time, breaking with Trump over Iran”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">9</div>
+<div class="source-body">
+<div class="source-balm-headline">Trump Visits Senate Republicans as Party Works Toward Unity on SAVE America Act</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/politics/trump-heads-capitol-hill-pivotal-meeting-senate-gop-divisions-deepen" rel="noopener noreferrer" target="_blank">Fox News</a>
+            
+            — <span class="source-original-headline">“Trump heads to Capitol Hill for pivotal meeting as Senate GOP divisions deepen”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/politics/trump-heads-capitol-hill-pivotal-meeting-senate-gop-divisions-deepen" rel="noopener noreferrer" target="_blank">Fox News Politics</a>
+            
+            — <span class="source-original-headline">“Trump heads to Capitol Hill for pivotal meeting as Senate GOP divisions deepen”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">10</div>
+<div class="source-body">
+<div class="source-balm-headline">Supreme Court Rules Against Green Card Holders in Criminal Accusation Case</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/court-sides-with-government-in-dispute-over-rights-of-green-card-holders-accused-of-committing-a/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“Court sides with government in dispute over rights of green card holders accused of committing a crime”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">11</div>
+<div class="source-body">
+<div class="source-balm-headline">Supreme Court Limits Foreigners' Ability to Sue in US Courts Over International Law Violations</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/supreme-court-limits-ability-of-foreigners-to-bring-lawsuits-for-violations-of-international-law/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“Supreme Court limits ability of foreigners to bring lawsuits for violations of international law”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">12</div>
+<div class="source-body">
+<div class="source-balm-headline">Customs and Border Protection Reaches Record Agent Count, Targets Further Growth</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/politics/cbp-historic-milestone-pushes-larger-workforce-we-arent-stopping-here" rel="noopener noreferrer" target="_blank">Fox News Politics</a>
+            
+            — <span class="source-original-headline">“CBP touts historic milestone, pushes for even larger workforce: 'We aren’t stopping here'”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">13</div>
+<div class="source-body">
+<div class="source-balm-headline">Justice Department Charges Dozens in Medicare Fraud Scheme Involving Skin Treatments</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/23/us/skin-substitutes-medicare-fraud.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Ferraris and Shell Companies: Justice Dept. Unveils Medicare Fraud Charges”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">14</div>
+<div class="source-body">
+<div class="source-balm-headline">ICE Steps Back from Plan to Use Warehouses as Large-Scale Detention Facilities</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/politics/federal-officials-plan-to-offload-some-warehouses-purchased-for-immigrant-detention" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Federal officials plan to offload some warehouses purchased for immigrant detention”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">15</div>
+<div class="source-body">
+<div class="source-balm-headline">France Confirms First Ebola Case as Outbreak in DRC Continues to Expand</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/24/france-ebola-first-case-doctor-drc" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“France confirms first Ebola case in doctor who had worked in DRC”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/interactive/2026/06/23/world/africa/ebola-virus-outbreak-update.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“How Bad Could the Ebola Outbreak Get? Here Are 5 Key Factors.”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/23/health/ebola-symptoms-death-rate.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Ebola Symptoms in Current Outbreak May Be Milder Than in Previous Ones”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/24/world/europe/ebola-france.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“France Identifies First Case of Ebola”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/news/articles/cj9gzr9rdjlo?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“France confirms first Ebola case”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/24/nx-s1-5863157/ebola-outbreak-democratic-republic-congo-health-crisis" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Inside the gold-mining town where the Ebola outbreak likely started”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">16</div>
+<div class="source-body">
+<div class="source-balm-headline">Crisis Pregnancy Centers Accused of Misleading Patients About Detecting Ectopic Pregnancies</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/24/nx-s1-5860744/crisis-pregnancy-centers-ectopic-abortion" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Why are crisis pregnancy centers saying they can 'rule out' ectopic pregnancy?”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">17</div>
+<div class="source-body">
+<div class="source-balm-headline">Chinese Supercomputer Ranked World's Fastest, First Time Since 2017</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/technology/2026/jun/24/china-supercomputer-world-fastest-top500-ranking-lineshine" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Chinese supercomputer leapfrogs best US machines to be ranked world’s fastest”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/23/technology/china-supercomputer-crown-us.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“China Takes Supercomputer Crown From U.S. for First Time Since 2017”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">18</div>
+<div class="source-body">
+<div class="source-balm-headline">Severe Heatwave Across Europe Strains Power Grids, Closes Schools, and Breaks Records</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/24/europe-heatwave-live-news-updates-uk-record-breaking-temperatures-italy-red-alert" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Europe heatwave live: estimated 94 million people to experience temperatures above 35C today”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/business/2026/jun/24/heatwave-great-britain-grid-operator-extra-electricity-power-plants" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Heatwave pushes Great Britain’s grid operator to call for extra electricity from power plants”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/environment/2026/jun/24/as-temperatures-soar-in-baking-britain-how-are-workers-coping-in-the-heat" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“‘It’s dangerous’: how UK schools, care homes and other workplaces are coping in soaring heat”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/23/climate/europe-heat-wave-climate-change.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“As Europe Warms, Scientists Ask: How Much Hotter Could Summers Get?”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/weather/articles/c3vyzly206no?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“Why this heatwave feels worse than the last one”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.co.uk/news/articles/c78y4102n1zo?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Power outages hit France as record heatwave set to peak”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/24/europe-heatwave-live-news-updates-uk-record-breaking-temperatures-italy-red-alert" rel="noopener noreferrer" target="_blank">Guardian Environment</a>
+            
+            — <span class="source-original-headline">“Europe heatwave live: estimated 94 million people to experience temperatures above 35C today”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/24/wednesday-briefing-how-can-the-uk-protect-its-landscape-in-an-increasingly-hot-world" rel="noopener noreferrer" target="_blank">Guardian Environment</a>
+            
+            — <span class="source-original-headline">“Wednesday briefing: How can the UK protect its landscape in an increasingly hot world?”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">19</div>
+<div class="source-body">
+<div class="source-balm-headline">Camp Mystic Files for Bankruptcy Following Deaths in 2025 Texas Floods</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/24/camp-mystic-files-bankruptcy-texas-floods" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Camp Mystic files for bankruptcy after 28 people died in 2025 Texas floods”</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p><a href="2026-06-24-am.html">← Return to digest</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-<script>
-  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
-  (function() {
-    var current = '2026-06-24-am.html';
-    fetch('archive.json')
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-      })
-      .catch(function() {});
-  })();
-</script>
+
 </body>
 </html>

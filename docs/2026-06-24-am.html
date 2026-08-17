@@ -48,14 +48,6 @@
       padding: 0 1.25rem;
     }
 
-    .sidebar {
-      width: 220px;
-      flex-shrink: 0;
-      padding: 2rem 1.5rem 2rem 0;
-      border-right: 1px solid var(--rule);
-      min-height: 100vh;
-    }
-
     .main-content {
       flex: 1;
       max-width: 860px;
@@ -64,57 +56,7 @@
 
     @media (max-width: 768px) {
       .page-wrapper { display: block; padding: 0; }
-      .sidebar { display: none; }
       .main-content { padding: 0 1.25rem 3rem; }
-
-      .mobile-archive-toggle {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.75rem 1.25rem;
-        border-bottom: 1px solid var(--rule);
-        font-size: 0.72rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--muted);
-        cursor: pointer;
-        background: var(--bg);
-        user-select: none;
-      }
-
-      .mobile-archive-panel {
-        display: none;
-        padding: 1rem 1.25rem;
-        border-bottom: 1px solid var(--rule);
-        background: #ebe5db;
-      }
-
-      .mobile-archive-panel.open { display: block; }
-
-      .mobile-archive-title {
-        font-size: 0.68rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 0.75rem;
-      }
-    }
-
-    @media (min-width: 769px) {
-      .mobile-archive-toggle { display: none; }
-      .mobile-archive-panel { display: none !important; }
-    }
-
-    /* Mobile archive caret — CSS rotation, no character substitution */
-    .mobile-archive-caret {
-      display: inline-block;
-      font-size: 1rem;
-      line-height: 1;
-      transition: transform 0.2s ease;
-    }
-
-    .mobile-archive-toggle[aria-expanded="true"] .mobile-archive-caret {
-      transform: rotate(90deg);
     }
 
     /* Masthead */
@@ -376,41 +318,6 @@
       color: var(--difficult);
     }
 
-    /* Sidebar archive */
-    .sidebar-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-top: 2rem;
-    }
-
-    .archive-month {
-      margin-bottom: 1rem;
-    }
-
-    .archive-month-label {
-      font-size: 0.68rem;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      color: var(--secondary);
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
-
-    .archive-link {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--secondary);
-      padding: 0.1rem 0;
-      line-height: 1.6;
-    }
-
-    .archive-link:hover { color: var(--accent); text-decoration: none; }
-    .archive-link.current { color: var(--accent); font-style: italic; }
-
     /* Footer */
     .footer {
       border-top: 1px solid var(--rule);
@@ -498,15 +405,69 @@
       margin-top: 0.3rem;
       line-height: 1.6;
     }
-  </style>
+
+    /* --- patched to current template --- */
+    .masthead-link {
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .archive-link-section {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+    }
+
+    .archive-link {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .archive-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer .footer-kofi {
+      font-size: 0.92rem;
+      color: var(--accent);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+
+    .footer .footer-kofi:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .footer .footer-contact {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s;
+    }
+
+    .footer .footer-contact:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+</style>
 </head>
 <body>
 <!-- Mobile archive toggle (shown only on mobile) -->
-
-
 <div class="page-wrapper">
 <!-- Sidebar archive nav -->
-
 <!-- Main content -->
 <div class="main-content">
 <!-- Masthead -->
@@ -1122,7 +1083,6 @@
 </details>
 </div>
 <!-- Footer -->
-
 <div class="archive-link-section"><a class="archive-link" href="/archive.html">Browse past editions →</a></div>
 <footer class="footer">
 <p>Balm surfaces factual information stripped of inflammatory language, clickbait, and emotional manipulation.

@@ -1,16 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm Sources — Friday, June 19, 2026 PM</title>
-  <meta name="description" content="Source attribution for the Balm digest of Friday, June 19, 2026.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="manifest.json">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm Sources — Friday, June 19, 2026 PM</title>
+<meta content="Source attribution for the Balm digest of Friday, June 19, 2026." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="manifest.json" rel="manifest"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -45,14 +46,6 @@
       padding: 0 1rem;
     }
 
-    .sidebar {
-      width: 220px;
-      flex-shrink: 0;
-      padding: 2rem 1.5rem 2rem 0;
-      border-right: 1px solid var(--rule);
-      min-height: 100vh;
-    }
-
     .main-content {
       flex: 1;
       max-width: 860px;
@@ -61,7 +54,6 @@
 
     @media (max-width: 768px) {
       .page-wrapper { display: block; padding: 0; }
-      .sidebar { display: none; }
       .main-content { padding: 0 1.25rem 3rem; }
     }
 
@@ -175,39 +167,6 @@
       color: var(--secondary);
     }
 
-    /* Sidebar */
-    .sidebar-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-top: 2rem;
-    }
-
-    .archive-month { margin-bottom: 1rem; }
-
-    .archive-month-label {
-      font-size: 0.68rem;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      color: var(--secondary);
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
-
-    .archive-link {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--secondary);
-      padding: 0.1rem 0;
-      line-height: 1.6;
-    }
-
-    .archive-link:hover { color: var(--accent); text-decoration: none; }
-    .archive-link.current { color: var(--accent); font-style: italic; }
-
     /* Footer */
     .footer {
       border-top: 1px solid var(--rule);
@@ -221,895 +180,505 @@
 
     .footer a { color: var(--muted); text-decoration: underline; }
     .footer a:hover { color: var(--secondary); }
-  </style>
+
+    .page-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .main-content {
+      padding: 0 0 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .main-content { padding: 0 0 3rem; }
+    }
+
+    :root { --ink-light: #5a5048; }
+
+    /* --- patched to current template --- */
+    .masthead-link {
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .archive-link-section {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+    }
+
+    .archive-link {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .archive-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer .footer-kofi {
+      font-size: 0.92rem;
+      color: var(--accent);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+
+    .footer .footer-kofi:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .footer .footer-contact {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s;
+    }
+
+    .footer .footer-contact:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+</style>
 </head>
 <body>
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">June 2026</div>
-      
-      <a class="archive-link current"
-         href="2026-06-19-pm.html">
-        06-19 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-19-am.html">
-        06-19 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-18-pm.html">
-        06-18 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-18-am.html">
-        06-18 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-17-pm.html">
-        06-17 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-17-am.html">
-        06-17 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-16-pm.html">
-        06-16 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-16-am.html">
-        06-16 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-15-pm.html">
-        06-15 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-15-am.html">
-        06-15 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-14-pm.html">
-        06-14 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-14-am.html">
-        06-14 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-13-pm.html">
-        06-13 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-13-am.html">
-        06-13 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-12-pm.html">
-        06-12 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-12-am.html">
-        06-12 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-11-pm.html">
-        06-11 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-11-am.html">
-        06-11 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-10-pm.html">
-        06-10 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-10-am.html">
-        06-10 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-09-pm.html">
-        06-09 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-09-am.html">
-        06-09 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-08-pm.html">
-        06-08 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-08-am.html">
-        06-08 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-07-pm.html">
-        06-07 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-07-am.html">
-        06-07 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-06-pm.html">
-        06-06 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-06-am.html">
-        06-06 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-05-pm.html">
-        06-05 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-05-am.html">
-        06-05 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-04-pm.html">
-        06-04 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-04-am.html">
-        06-04 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-03-pm.html">
-        06-03 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-03-am.html">
-        06-03 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-02-pm.html">
-        06-02 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-01-pm.html">
-        06-01 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-01-am.html">
-        06-01 AM
-      </a>
-      
-    </div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">May 2026</div>
-      
-      <a class="archive-link"
-         href="2026-05-31-pm.html">
-        05-31 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-31-am.html">
-        05-31 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-30-pm.html">
-        05-30 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-30-am.html">
-        05-30 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-29-pm.html">
-        05-29 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-29-am.html">
-        05-29 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-28-pm.html">
-        05-28 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-28-am.html">
-        05-28 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-27-pm.html">
-        05-27 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-27-am.html">
-        05-27 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-26-pm.html">
-        05-26 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-26-am.html">
-        05-26 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-25-pm.html">
-        05-25 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-24-pm.html">
-        05-24 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-24-am.html">
-        05-24 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-23-pm.html">
-        05-23 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-23-am.html">
-        05-23 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-22-pm.html">
-        05-22 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-22-am.html">
-        05-22 AM
-      </a>
-      
-    </div>
-    
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <a href="2026-06-19-pm.html" style="text-decoration:none;">
-          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-              </filter>
-            </defs>
-            <text x="90" y="44"
-                  font-family="Caveat, cursive"
-                  font-size="52"
-                  font-weight="700"
-                  fill="#6b82a8"
-                  text-anchor="middle"
-                  letter-spacing="8"
-                  filter="url(#balm-spread)">Balm</text>
-          </svg>
-        </a>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Friday, June 19, 2026 &middot; PM Edition &middot; Sources</p>
-    </header>
-
-    <!-- Sources list -->
-    <div class="section-header">Sources for this digest</div>
-
-    
-    <div class="source-entry">
-      <div class="source-num">1</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Israel and Hezbollah Agree to Renew Ceasefire After Day of Strikes in Lebanon</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/19/world/middleeast/lebanon-israel-attacks.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Israel Launches Airstrikes in Lebanon After 4 Soldiers Are Killed&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/19/middle-east-crisis-live-israel-strikes-targets-in-lebanon-as-us-iran-talks-in-switzerland-called-off" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;‘You just gotta calm down’: Trump says he told Israel to agree ceasefire with Hezbollah – as it happened&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/19/israel-hezbollah-renew-ceasefire-lebanon-us-iran-agreement" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Israel and Hezbollah agree to renew ceasefire after flareup of violence&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/live/2026/06/19/world/iran-trump-deal" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Mideast Live Updates: Israel Commits to New Lebanon Cease-Fire, Ambassador Says, but Troops Will Remain&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cwyk7kkygj5o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Israel and Hezbollah agree ceasefire, US says, as more Lebanon strikes reported&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cwyk7kkygj5o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Israel and Hezbollah agree ceasefire, US says, as more Lebanon strikes reported&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">2</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Norway to Open Consulate in Greenland as Arctic Competition Intensifies</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.usnews.com/news/world/articles/2026-06-19/norway-to-open-a-consulate-in-greenland-supporting-arctic-strategy" target="_blank" rel="noopener noreferrer">Usnews</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Norway to Open a Consulate in Greenland, Supporting Arctic Strategy&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">3</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Italy Declines to Participate in NATO Mechanism That Purchases U.S. Weapons for Ukraine</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.defensenews.com/global/europe/2026/06/19/italy-rejects-aid-scheme-that-buys-us-weapons-for-ukraines-defense/" target="_blank" rel="noopener noreferrer">Defense News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Italy rejects aid scheme that buys US weapons for Ukraine’s defense&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">4</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Italian Prime Minister Denies Trump's Account of Encounter at G7, Cancels Diplomatic Visit</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/19/eu-leaders-ukraine-russia-ukraine-magyar-von-der-leyen-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Italian PM Meloni says she was ‘astonished’ by Trump claims that she ‘begged’ him for a photo - as it happened&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/c20y1ygn707o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;'Neither I nor Italy ever beg': Meloni says Trump made up story about photo&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/c20y1ygn707o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Italy's Meloni says Trump 'made up' story that she 'begged' him for photo at G7&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/19/nx-s1-5864264/meloni-trump-fight-beg" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Italy's Meloni, once Trump's closest ally in Europe, says he made up a story about her&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">5</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Andy Burnham Wins U.K. By-Election, Intensifying Pressure on Prime Minister Starmer</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/politics/2026/jun/19/andy-burnham-could-king-north-become-britain-new-prime-minister" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Could ‘king in the north’ become Britain’s new prime minister?&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/politics/live/2026/jun/18/makerfield-byelection-keir-starmer-andy-burnham-robert-kenyon-labour-leadership-reform-aberdeen-arbroath-uk-politics-latest-news-updates" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Burnham calls for ‘new path for Britain’ as Starmer vows to fight any leadership challenge – as it happened&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/politics/2026/jun/19/andy-burnham-avoids-press-queries-staff-no-doubts-makerfield" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Celebrations and a swift exit after a Burnham win ‘beyond our wildest dreams’&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/politics/2026/jun/19/keir-starmer-pressure-andy-burnham-wes-streeting-allies-not-fight-leadership-challenge" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Cabinet loyalists tell Starmer he has the weekend to set out timetable for exit&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/politics/2026/jun/19/relief-mackerfield-left-right-centre-vote" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;‘I’m not a Labour fan but I like Burnham’: relief in Makerfield among left, right and centre &rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/19/world/europe/andy-burnham-election-uk-starmer-makerfield.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;In Britain, a Rival’s Stunning Victory May Force Starmer’s Last Stand&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/world/british-prime-minister-keir-starmer-faces-potential-leadership-challenge-newly-elected-andy-burnham" target="_blank" rel="noopener noreferrer">Fox News World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;British Prime Minister Keir Starmer faces potential leadership challenge from newly-elected Andy Burnham&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cqx1ev0wn87o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;PM under pressure from Labour MPs and ministers to set timetable for exit&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">6</div>
-      <div class="source-body">
-        <div class="source-balm-headline">U.S.-Iran Peace Framework Faces Legal and Political Obstacles as Next Round of Talks Is Canceled</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/world/trumps-300b-iran-investment-fund-may-close-impossible-due-irgc-sanctions-law-expert-warns" target="_blank" rel="noopener noreferrer">Fox News World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump's $300B Iran investment fund may be 'close to impossible' due to IRGC sanctions law, expert warns&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/world/iran-hardliner-behind-us-deal-warns-tehran-wont-honor-agreement-trump-fails-deliver" target="_blank" rel="noopener noreferrer">Fox News World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Iran hardliner behind US deal warns Tehran won’t honor agreement if Trump fails to deliver&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/19/g-s1-129076/up-first-newsletter-vice-president-vance-iran-agreement-obama-presidential-center-judicial-system-dhs-facial-recognition" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;US-Iran talks in Switzerland canceled. And, DHS to give police facial recognition app&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/19/nx-s1-5863544/trump-us-iran-agreement" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;What you need to know about the preliminary U.S.-Iran agreement signed by Trump&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">7</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Finland's Parliament Votes to Lift Decades-Long Ban on Nuclear Weapons on Its Territory</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/world/finlands-parliament-votes-lift-decades-old-ban-nuclear-weapons-historic-nato-defense-shift" target="_blank" rel="noopener noreferrer">Fox News World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Finland's parliament votes to lift decades-old ban on nuclear weapons in historic NATO defense shift&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">8</div>
-      <div class="source-body">
-        <div class="source-balm-headline">U.S.-Iran Deal Reshapes Global Oil Markets as India Seeks to Restore Energy Ties and Shipping Faces Uncertainty</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/19/business/india-iran-oil-imports.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;For India, the Return of Iranian Oil Cannot Come Soon Enough&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/19/business/oil-gas-prices-iran.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Oil Prices Rise as U.S.-Iran Deal Faces Tests&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/19/business/iran-us-hormuz-shipping.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Stranded Ships Hoping for Escape Find a Turbulent Strait of Hormuz&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/19/business/economy/iran-sanctions-oil.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;How Deal With U.S. Could Reconnect Iran to the Global Economy&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">9</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Federal Student Loan Interest Rates Set to Rise on July 1</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/19/your-money/student-loans-interest-rates-changes.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;New Student Loans Are About to Get Pricier&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">10</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Book Claims Trump Told Advisers He Would Not Go to War with Iran; Obama Says U.S. Is 'Worse Off' After Conflict</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/19/trump-musk-carlson-iran-war" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Trump assured Musk and Carlson he wouldn’t go to war with Iran, new book claims&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/19/barack-obama-us-is-worse-off-war-with-iran" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Barack Obama says US is ‘worse off’ than before war with Iran&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">11</div>
-      <div class="source-body">
-        <div class="source-balm-headline">U.S. to Phase Out AIDS Funding for South Africa, Citing Concerns Over Treatment of Afrikaner Community</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/19/world/africa/southafrica-aids-pepfar.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;U.S. Plans to End AIDS Funding for South Africa&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cdr457lxr71o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;US to end funding of South Africa's HIV programmes over claims of Afrikaner persecution&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">12</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Qatar-Gifted Boeing 747 Arrives at Joint Base Andrews as New Presidential Aircraft</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/politics/new-air-force-one-takes-flight-trump-unveils-revamped-presidential-aircraft" target="_blank" rel="noopener noreferrer">Fox News Politics</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;New Air Force One takes flight as Trump unveils revamped presidential aircraft&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/19/nx-s1-5864503/air-force-one-trump-qatar" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Air Force One, gifted to Trump from Qatar, arrives at Joint Base Andrews&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/politics/watch-trump-unveils-new-air-force-one-plane-gifted-by-qatar-at-joint-base-andrews" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;WATCH: Trump unveils new Air Force One plane gifted by Qatar at Joint Base Andrews&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">13</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Supreme Court Rules Against Federal Law Barring Drug Users from Possessing Firearms</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/court-sides-with-challenger-to-law-banning-drug-users-from-possessing-guns/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Court sides with challenger to law banning drug users from possessing guns&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">14</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Federal Health Initiative Promotes Autism Treatments That Professional Bodies Describe as Unvalidated</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.themorningsun.com/2026/06/19/maha-treatments-autism-spelling-therapy/" target="_blank" rel="noopener noreferrer">The Morning Sun</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;MAHA’s treatments for autism: Camel’s milk, stem cell injections — and spelling therapy&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.oneidadispatch.com/2026/06/19/maha-treatments-autism-spelling-therapy/" target="_blank" rel="noopener noreferrer">Oneida Dispatch</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;MAHA’s treatments for autism: Camel’s milk, stem cell injections — and spelling therapy&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.news-herald.com/2026/06/19/maha-treatments-autism-spelling-therapy/" target="_blank" rel="noopener noreferrer">News-herald</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;MAHA’s treatments for autism: Camel’s milk, stem cell injections — and spelling therapy&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.dailypress.com/2026/06/19/maha-treatments-autism-spelling-therapy/" target="_blank" rel="noopener noreferrer">Daily Press</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;MAHA’s treatments for autism: Camel’s milk, stem cell injections — and spelling therapy&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.thetimes-tribune.com/2026/06/19/maha-treatments-autism-spelling-therapy/" target="_blank" rel="noopener noreferrer">Scranton Times-tribune</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;MAHA’s treatments for autism: Camel’s milk, stem cell injections — and spelling therapy&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">15</div>
-      <div class="source-body">
-        <div class="source-balm-headline">U.S. Men's Soccer Team Advances to World Cup Knockout Round with 2-0 Win Over Australia</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/outkick-sports/city-seattle-proves-liberal-newspaper-wrong-patriotic-display-us-mens-national-team" target="_blank" rel="noopener noreferrer">Fox News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;City of Seattle proves liberal newspaper wrong in patriotic display for US Men's National Team&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/sports/usa-world-cup-team-clinches-spot-knockout-stage-another-historic-performance-vs-australia" target="_blank" rel="noopener noreferrer">Fox News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;USA World Cup team clinches spot in knockout stage after another historic performance vs Australia&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/world/u-s-defeats-australia-2-0-to-advance-to-world-cup-knockout-round" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;U.S. defeats Australia 2-0 to advance to World Cup knockout round&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">16</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Two Trains Collide Near Bedford, England, Killing at Least One and Injuring Dozens</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/world/two-train-crash-leaves-victims-bloodied-emergency-crews-rush-chaotic-scene" target="_blank" rel="noopener noreferrer">Fox News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Two-train crash leaves 1 dead, 89 injured as emergency crews rush to chaotic scene&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/world/two-train-crash-leaves-victims-bloodied-emergency-crews-rush-chaotic-scene" target="_blank" rel="noopener noreferrer">Fox News World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Two-train crash leaves 1 dead, 89 injured as emergency crews rush to chaotic scene&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cx2j700l5jlo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;'People flew from their seats': Passengers describe how Bedford train crash unfolded&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/videos/c8d21z2q77do?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Video shows scene of Bedford train crash as passenger describes aftermath&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cn75z3nl048o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;What we know so far about Bedford train crash&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/world/emergency-crews-respond-to-train-collision-north-of-london" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Train collision north of London kills at least 1 person, authorities say&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p><a href="2026-06-19-pm.html">← Return to digest</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news">
+<svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg>
+</a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Friday, June 19, 2026 · PM Edition · Sources</p>
+</header>
+<!-- Sources list -->
+<div class="section-header">Sources for this digest</div>
+<div class="source-entry">
+<div class="source-num">1</div>
+<div class="source-body">
+<div class="source-balm-headline">Israel and Hezbollah Agree to Renew Ceasefire After Day of Strikes in Lebanon</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/19/world/middleeast/lebanon-israel-attacks.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Israel Launches Airstrikes in Lebanon After 4 Soldiers Are Killed”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/19/middle-east-crisis-live-israel-strikes-targets-in-lebanon-as-us-iran-talks-in-switzerland-called-off" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“‘You just gotta calm down’: Trump says he told Israel to agree ceasefire with Hezbollah – as it happened”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/19/israel-hezbollah-renew-ceasefire-lebanon-us-iran-agreement" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Israel and Hezbollah agree to renew ceasefire after flareup of violence”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/live/2026/06/19/world/iran-trump-deal" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Mideast Live Updates: Israel Commits to New Lebanon Cease-Fire, Ambassador Says, but Troops Will Remain”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cwyk7kkygj5o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“Israel and Hezbollah agree ceasefire, US says, as more Lebanon strikes reported”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cwyk7kkygj5o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Israel and Hezbollah agree ceasefire, US says, as more Lebanon strikes reported”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">2</div>
+<div class="source-body">
+<div class="source-balm-headline">Norway to Open Consulate in Greenland as Arctic Competition Intensifies</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.usnews.com/news/world/articles/2026-06-19/norway-to-open-a-consulate-in-greenland-supporting-arctic-strategy" rel="noopener noreferrer" target="_blank">Usnews</a>
+            
+            — <span class="source-original-headline">“Norway to Open a Consulate in Greenland, Supporting Arctic Strategy”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">3</div>
+<div class="source-body">
+<div class="source-balm-headline">Italy Declines to Participate in NATO Mechanism That Purchases U.S. Weapons for Ukraine</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.defensenews.com/global/europe/2026/06/19/italy-rejects-aid-scheme-that-buys-us-weapons-for-ukraines-defense/" rel="noopener noreferrer" target="_blank">Defense News</a>
+            
+            — <span class="source-original-headline">“Italy rejects aid scheme that buys US weapons for Ukraine’s defense”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">4</div>
+<div class="source-body">
+<div class="source-balm-headline">Italian Prime Minister Denies Trump's Account of Encounter at G7, Cancels Diplomatic Visit</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/19/eu-leaders-ukraine-russia-ukraine-magyar-von-der-leyen-latest-news-updates" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Italian PM Meloni says she was ‘astonished’ by Trump claims that she ‘begged’ him for a photo - as it happened”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/c20y1ygn707o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“'Neither I nor Italy ever beg': Meloni says Trump made up story about photo”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/c20y1ygn707o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Italy's Meloni says Trump 'made up' story that she 'begged' him for photo at G7”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/19/nx-s1-5864264/meloni-trump-fight-beg" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Italy's Meloni, once Trump's closest ally in Europe, says he made up a story about her”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">5</div>
+<div class="source-body">
+<div class="source-balm-headline">Andy Burnham Wins U.K. By-Election, Intensifying Pressure on Prime Minister Starmer</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/politics/2026/jun/19/andy-burnham-could-king-north-become-britain-new-prime-minister" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Could ‘king in the north’ become Britain’s new prime minister?”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/politics/live/2026/jun/18/makerfield-byelection-keir-starmer-andy-burnham-robert-kenyon-labour-leadership-reform-aberdeen-arbroath-uk-politics-latest-news-updates" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Burnham calls for ‘new path for Britain’ as Starmer vows to fight any leadership challenge – as it happened”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/politics/2026/jun/19/andy-burnham-avoids-press-queries-staff-no-doubts-makerfield" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Celebrations and a swift exit after a Burnham win ‘beyond our wildest dreams’”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/politics/2026/jun/19/keir-starmer-pressure-andy-burnham-wes-streeting-allies-not-fight-leadership-challenge" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Cabinet loyalists tell Starmer he has the weekend to set out timetable for exit”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/politics/2026/jun/19/relief-mackerfield-left-right-centre-vote" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“‘I’m not a Labour fan but I like Burnham’: relief in Makerfield among left, right and centre ”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/19/world/europe/andy-burnham-election-uk-starmer-makerfield.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“In Britain, a Rival’s Stunning Victory May Force Starmer’s Last Stand”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/world/british-prime-minister-keir-starmer-faces-potential-leadership-challenge-newly-elected-andy-burnham" rel="noopener noreferrer" target="_blank">Fox News World</a>
+            
+            — <span class="source-original-headline">“British Prime Minister Keir Starmer faces potential leadership challenge from newly-elected Andy Burnham”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cqx1ev0wn87o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“PM under pressure from Labour MPs and ministers to set timetable for exit”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">6</div>
+<div class="source-body">
+<div class="source-balm-headline">U.S.-Iran Peace Framework Faces Legal and Political Obstacles as Next Round of Talks Is Canceled</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/world/trumps-300b-iran-investment-fund-may-close-impossible-due-irgc-sanctions-law-expert-warns" rel="noopener noreferrer" target="_blank">Fox News World</a>
+            
+            — <span class="source-original-headline">“Trump's $300B Iran investment fund may be 'close to impossible' due to IRGC sanctions law, expert warns”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/world/iran-hardliner-behind-us-deal-warns-tehran-wont-honor-agreement-trump-fails-deliver" rel="noopener noreferrer" target="_blank">Fox News World</a>
+            
+            — <span class="source-original-headline">“Iran hardliner behind US deal warns Tehran won’t honor agreement if Trump fails to deliver”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/19/g-s1-129076/up-first-newsletter-vice-president-vance-iran-agreement-obama-presidential-center-judicial-system-dhs-facial-recognition" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“US-Iran talks in Switzerland canceled. And, DHS to give police facial recognition app”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/19/nx-s1-5863544/trump-us-iran-agreement" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“What you need to know about the preliminary U.S.-Iran agreement signed by Trump”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">7</div>
+<div class="source-body">
+<div class="source-balm-headline">Finland's Parliament Votes to Lift Decades-Long Ban on Nuclear Weapons on Its Territory</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/world/finlands-parliament-votes-lift-decades-old-ban-nuclear-weapons-historic-nato-defense-shift" rel="noopener noreferrer" target="_blank">Fox News World</a>
+            
+            — <span class="source-original-headline">“Finland's parliament votes to lift decades-old ban on nuclear weapons in historic NATO defense shift”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">8</div>
+<div class="source-body">
+<div class="source-balm-headline">U.S.-Iran Deal Reshapes Global Oil Markets as India Seeks to Restore Energy Ties and Shipping Faces Uncertainty</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/19/business/india-iran-oil-imports.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“For India, the Return of Iranian Oil Cannot Come Soon Enough”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/19/business/oil-gas-prices-iran.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Oil Prices Rise as U.S.-Iran Deal Faces Tests”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/19/business/iran-us-hormuz-shipping.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Stranded Ships Hoping for Escape Find a Turbulent Strait of Hormuz”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/19/business/economy/iran-sanctions-oil.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“How Deal With U.S. Could Reconnect Iran to the Global Economy”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">9</div>
+<div class="source-body">
+<div class="source-balm-headline">Federal Student Loan Interest Rates Set to Rise on July 1</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/19/your-money/student-loans-interest-rates-changes.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“New Student Loans Are About to Get Pricier”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">10</div>
+<div class="source-body">
+<div class="source-balm-headline">Book Claims Trump Told Advisers He Would Not Go to War with Iran; Obama Says U.S. Is 'Worse Off' After Conflict</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/19/trump-musk-carlson-iran-war" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Trump assured Musk and Carlson he wouldn’t go to war with Iran, new book claims”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/19/barack-obama-us-is-worse-off-war-with-iran" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Barack Obama says US is ‘worse off’ than before war with Iran”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">11</div>
+<div class="source-body">
+<div class="source-balm-headline">U.S. to Phase Out AIDS Funding for South Africa, Citing Concerns Over Treatment of Afrikaner Community</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/19/world/africa/southafrica-aids-pepfar.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“U.S. Plans to End AIDS Funding for South Africa”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cdr457lxr71o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“US to end funding of South Africa's HIV programmes over claims of Afrikaner persecution”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">12</div>
+<div class="source-body">
+<div class="source-balm-headline">Qatar-Gifted Boeing 747 Arrives at Joint Base Andrews as New Presidential Aircraft</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/politics/new-air-force-one-takes-flight-trump-unveils-revamped-presidential-aircraft" rel="noopener noreferrer" target="_blank">Fox News Politics</a>
+            
+            — <span class="source-original-headline">“New Air Force One takes flight as Trump unveils revamped presidential aircraft”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/19/nx-s1-5864503/air-force-one-trump-qatar" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Air Force One, gifted to Trump from Qatar, arrives at Joint Base Andrews”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/politics/watch-trump-unveils-new-air-force-one-plane-gifted-by-qatar-at-joint-base-andrews" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“WATCH: Trump unveils new Air Force One plane gifted by Qatar at Joint Base Andrews”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">13</div>
+<div class="source-body">
+<div class="source-balm-headline">Supreme Court Rules Against Federal Law Barring Drug Users from Possessing Firearms</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/court-sides-with-challenger-to-law-banning-drug-users-from-possessing-guns/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“Court sides with challenger to law banning drug users from possessing guns”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">14</div>
+<div class="source-body">
+<div class="source-balm-headline">Federal Health Initiative Promotes Autism Treatments That Professional Bodies Describe as Unvalidated</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.themorningsun.com/2026/06/19/maha-treatments-autism-spelling-therapy/" rel="noopener noreferrer" target="_blank">The Morning Sun</a>
+            
+            — <span class="source-original-headline">“MAHA’s treatments for autism: Camel’s milk, stem cell injections — and spelling therapy”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.oneidadispatch.com/2026/06/19/maha-treatments-autism-spelling-therapy/" rel="noopener noreferrer" target="_blank">Oneida Dispatch</a>
+            
+            — <span class="source-original-headline">“MAHA’s treatments for autism: Camel’s milk, stem cell injections — and spelling therapy”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.news-herald.com/2026/06/19/maha-treatments-autism-spelling-therapy/" rel="noopener noreferrer" target="_blank">News-herald</a>
+            
+            — <span class="source-original-headline">“MAHA’s treatments for autism: Camel’s milk, stem cell injections — and spelling therapy”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.dailypress.com/2026/06/19/maha-treatments-autism-spelling-therapy/" rel="noopener noreferrer" target="_blank">Daily Press</a>
+            
+            — <span class="source-original-headline">“MAHA’s treatments for autism: Camel’s milk, stem cell injections — and spelling therapy”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.thetimes-tribune.com/2026/06/19/maha-treatments-autism-spelling-therapy/" rel="noopener noreferrer" target="_blank">Scranton Times-tribune</a>
+            
+            — <span class="source-original-headline">“MAHA’s treatments for autism: Camel’s milk, stem cell injections — and spelling therapy”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">15</div>
+<div class="source-body">
+<div class="source-balm-headline">U.S. Men's Soccer Team Advances to World Cup Knockout Round with 2-0 Win Over Australia</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/outkick-sports/city-seattle-proves-liberal-newspaper-wrong-patriotic-display-us-mens-national-team" rel="noopener noreferrer" target="_blank">Fox News</a>
+            
+            — <span class="source-original-headline">“City of Seattle proves liberal newspaper wrong in patriotic display for US Men's National Team”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/sports/usa-world-cup-team-clinches-spot-knockout-stage-another-historic-performance-vs-australia" rel="noopener noreferrer" target="_blank">Fox News</a>
+            
+            — <span class="source-original-headline">“USA World Cup team clinches spot in knockout stage after another historic performance vs Australia”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/world/u-s-defeats-australia-2-0-to-advance-to-world-cup-knockout-round" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“U.S. defeats Australia 2-0 to advance to World Cup knockout round”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">16</div>
+<div class="source-body">
+<div class="source-balm-headline">Two Trains Collide Near Bedford, England, Killing at Least One and Injuring Dozens</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/world/two-train-crash-leaves-victims-bloodied-emergency-crews-rush-chaotic-scene" rel="noopener noreferrer" target="_blank">Fox News</a>
+            
+            — <span class="source-original-headline">“Two-train crash leaves 1 dead, 89 injured as emergency crews rush to chaotic scene”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/world/two-train-crash-leaves-victims-bloodied-emergency-crews-rush-chaotic-scene" rel="noopener noreferrer" target="_blank">Fox News World</a>
+            
+            — <span class="source-original-headline">“Two-train crash leaves 1 dead, 89 injured as emergency crews rush to chaotic scene”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cx2j700l5jlo?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“'People flew from their seats': Passengers describe how Bedford train crash unfolded”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/videos/c8d21z2q77do?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“Video shows scene of Bedford train crash as passenger describes aftermath”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cn75z3nl048o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“What we know so far about Bedford train crash”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/world/emergency-crews-respond-to-train-collision-north-of-london" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Train collision north of London kills at least 1 person, authorities say”</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p><a href="2026-06-19-pm.html">← Return to digest</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-<script>
-  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
-  (function() {
-    var current = '2026-06-19-pm.html';
-    fetch('archive.json')
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-      })
-      .catch(function() {});
-  })();
-</script>
+
 </body>
 </html>

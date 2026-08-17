@@ -68,6 +68,7 @@ Each digest has a companion sources page (`YYYY-MM-DD-am-sources.html`). It list
 ├── backfill.py              # Regenerates digests for a date range
 ├── patch_old_digests.py     # Patches existing HTML in place without regenerating content
 ├── patch_sources.py         # One-off sources-page patcher
+├── patch_archive_alignment.py # Aligns pre-2026-06-28 pages with current templates (idempotent)
 ├── generate_icons.py        # Legacy — superseded by ensure_static_icons() in pipeline.py
 ├── templates/
 │   ├── digest.html          # Jinja2 template for individual digest pages
@@ -426,17 +427,18 @@ A "Browse past editions →" link appears on every digest page below the Difficu
 
 The archive deliberately starts **June 3, 2026** — all earlier digests were deleted because they predate the current pipeline (NewsData.io, Guardian full text, official-source feeds) and are not representative of current quality.
 
-### Known drift in older digests
+### Archive alignment (resolved 2026-08-17)
 
-`patch_old_digests.py` retrofitted the current layout onto digests published before 2026-06-27 PM, but it inserted **markup without the matching CSS**. On those 49 pages (2026-06-03 through 2026-06-27 AM) the classes exist and are unstyled, so they inherit defaults:
+`patch_old_digests.py` retrofitted the single-column layout onto digest pages but inserted **markup without the matching CSS**, and never touched the companion sources pages at all. `patch_archive_alignment.py` fixed both across 100 files (49 digests, 51 sources pages, all dated 2026-06-03 → 2026-06-28):
 
-| Element | Older pages | Current template |
-|---|---|---|
-| `.footer-kofi` | `#9a9288`, 14.0px | `#6b82a8`, 16.6px |
-| `.footer-contact` | `#9a9288`, 14.0px | `#5a5048`, 15.8px |
-| `.archive-link` | `#6a6058`, 13.5px, left-aligned, roman | `#9a9288`, 15.3px, centered, italic |
+- Digests: dead `.mobile-archive-*` and sidebar `.archive-link` rules removed; canonical `.footer-kofi` / `.footer-contact` / `.archive-link` / `.masthead-link` rules appended.
+- Sources pages: the whole archive sidebar removed — `<nav class="sidebar">`, its CSS, the two-column `.page-wrapper`, and the dead `archive.json` fetch that populated it. Footer links tagged, `--ink-light` declared (it was never defined there), masthead retargeted from that day's digest to the site root.
 
-The same files also carry dead `.mobile-archive-*` CSS rules whose elements were removed — harmless, but they should go when the CSS is fixed. Separately, those digests have no market-trend line, because the feature postdates them; adding it requires regenerating content via `backfill.py`, not a CSS patch.
+The script is idempotent and gated on markers of pre-current pages (`mobile-archive`, `class="sidebar"`, or a missing `.footer .footer-kofi` rule) — it must not key off the dead-rule sweep, since current pages legitimately carry an `.archive-link` rule.
+
+`templates/contact.html` had the same sidebar, still live and populated on desktop, and was fixed at the template level in the same pass.
+
+**Still outstanding:** digests before 2026-06-27 have no market-trend line, because the feature postdates them. Adding it means regenerating editorial content via `backfill.py` — API spend, and the source articles may no longer be retrievable — not a CSS patch. Left alone deliberately.
 
 ## Market Trend Line
 

@@ -1,16 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm Sources — Thursday, June 18, 2026 PM</title>
-  <meta name="description" content="Source attribution for the Balm digest of Thursday, June 18, 2026.">
-  <meta name="theme-color" content="#6b82a8">
-  <link rel="manifest" href="manifest.json">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balm Sources — Thursday, June 18, 2026 PM</title>
+<meta content="Source attribution for the Balm digest of Thursday, June 18, 2026." name="description"/>
+<meta content="#6b82a8" name="theme-color"/>
+<link href="manifest.json" rel="manifest"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Source+Serif+4:ital,wght@0,300;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -45,14 +46,6 @@
       padding: 0 1rem;
     }
 
-    .sidebar {
-      width: 220px;
-      flex-shrink: 0;
-      padding: 2rem 1.5rem 2rem 0;
-      border-right: 1px solid var(--rule);
-      min-height: 100vh;
-    }
-
     .main-content {
       flex: 1;
       max-width: 860px;
@@ -61,7 +54,6 @@
 
     @media (max-width: 768px) {
       .page-wrapper { display: block; padding: 0; }
-      .sidebar { display: none; }
       .main-content { padding: 0 1.25rem 3rem; }
     }
 
@@ -175,39 +167,6 @@
       color: var(--secondary);
     }
 
-    /* Sidebar */
-    .sidebar-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-top: 2rem;
-    }
-
-    .archive-month { margin-bottom: 1rem; }
-
-    .archive-month-label {
-      font-size: 0.68rem;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      color: var(--secondary);
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
-
-    .archive-link {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--secondary);
-      padding: 0.1rem 0;
-      line-height: 1.6;
-    }
-
-    .archive-link:hover { color: var(--accent); text-decoration: none; }
-    .archive-link.current { color: var(--accent); font-style: italic; }
-
     /* Footer */
     .footer {
       border-top: 1px solid var(--rule);
@@ -221,895 +180,513 @@
 
     .footer a { color: var(--muted); text-decoration: underline; }
     .footer a:hover { color: var(--secondary); }
-  </style>
+
+    .page-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .main-content {
+      padding: 0 0 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .main-content { padding: 0 0 3rem; }
+    }
+
+    :root { --ink-light: #5a5048; }
+
+    /* --- patched to current template --- */
+    .masthead-link {
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .archive-link-section {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+    }
+
+    .archive-link {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .archive-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer .footer-kofi {
+      font-size: 0.92rem;
+      color: var(--accent);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+
+    .footer .footer-kofi:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .footer .footer-contact {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s;
+    }
+
+    .footer .footer-contact:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+</style>
 </head>
 <body>
 <div class="page-wrapper">
+<!-- Sidebar archive nav -->
 
-  <!-- Sidebar archive nav -->
-  <nav class="sidebar" aria-label="Archive">
-    <div class="sidebar-title">Archive</div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">June 2026</div>
-      
-      <a class="archive-link current"
-         href="2026-06-18-pm.html">
-        06-18 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-18-am.html">
-        06-18 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-17-pm.html">
-        06-17 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-17-am.html">
-        06-17 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-16-pm.html">
-        06-16 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-16-am.html">
-        06-16 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-15-pm.html">
-        06-15 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-15-am.html">
-        06-15 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-14-pm.html">
-        06-14 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-14-am.html">
-        06-14 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-13-pm.html">
-        06-13 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-13-am.html">
-        06-13 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-12-pm.html">
-        06-12 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-12-am.html">
-        06-12 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-11-pm.html">
-        06-11 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-11-am.html">
-        06-11 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-10-pm.html">
-        06-10 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-10-am.html">
-        06-10 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-09-pm.html">
-        06-09 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-09-am.html">
-        06-09 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-08-pm.html">
-        06-08 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-08-am.html">
-        06-08 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-07-pm.html">
-        06-07 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-07-am.html">
-        06-07 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-06-pm.html">
-        06-06 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-06-am.html">
-        06-06 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-05-pm.html">
-        06-05 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-05-am.html">
-        06-05 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-04-pm.html">
-        06-04 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-04-am.html">
-        06-04 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-03-pm.html">
-        06-03 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-03-am.html">
-        06-03 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-02-pm.html">
-        06-02 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-01-pm.html">
-        06-01 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-06-01-am.html">
-        06-01 AM
-      </a>
-      
-    </div>
-    
-    <div class="archive-month">
-      <div class="archive-month-label">May 2026</div>
-      
-      <a class="archive-link"
-         href="2026-05-31-pm.html">
-        05-31 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-31-am.html">
-        05-31 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-30-pm.html">
-        05-30 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-30-am.html">
-        05-30 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-29-pm.html">
-        05-29 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-29-am.html">
-        05-29 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-28-pm.html">
-        05-28 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-28-am.html">
-        05-28 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-27-pm.html">
-        05-27 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-27-am.html">
-        05-27 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-26-pm.html">
-        05-26 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-26-am.html">
-        05-26 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-25-pm.html">
-        05-25 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-24-pm.html">
-        05-24 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-24-am.html">
-        05-24 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-23-pm.html">
-        05-23 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-23-am.html">
-        05-23 AM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-22-pm.html">
-        05-22 PM
-      </a>
-      
-      <a class="archive-link"
-         href="2026-05-22-am.html">
-        05-22 AM
-      </a>
-      
-    </div>
-    
-  </nav>
-
-  <!-- Main content -->
-  <div class="main-content">
-
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-logo">
-        <a href="2026-06-18-pm.html" style="text-decoration:none;">
-          <svg width="180" height="56" viewBox="0 0 180 56" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <filter id="balm-spread" x="-3%" y="-3%" width="106%" height="106%">
-                <feMorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"/>
-                <feGaussianBlur in="dilated" stdDeviation="0.3" result="blurred"/>
-                <feComposite in="SourceGraphic" in2="blurred" operator="over"/>
-              </filter>
-            </defs>
-            <text x="90" y="44"
-                  font-family="Caveat, cursive"
-                  font-size="52"
-                  font-weight="700"
-                  fill="#6b82a8"
-                  text-anchor="middle"
-                  letter-spacing="8"
-                  filter="url(#balm-spread)">Balm</text>
-          </svg>
-        </a>
-      </div>
-      <p class="masthead-tagline">Topical, anti-inflammatory news</p>
-      <p class="masthead-dateline">Thursday, June 18, 2026 &middot; PM Edition &middot; Sources</p>
-    </header>
-
-    <!-- Sources list -->
-    <div class="section-header">Sources for this digest</div>
-
-    
-    <div class="source-entry">
-      <div class="source-num">1</div>
-      <div class="source-body">
-        <div class="source-balm-headline">US Lifts Strait of Hormuz Blockade as Iran-US Ceasefire Agreement Takes Effect</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/c8r2eejdd35o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;US lifts naval blockade as Iran's supreme leader says Trump made deal 'out of desperation'&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/clyegr2mp8jo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Bowen: US-Iran deal raises inescapable question of what the war was for&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/c8r2eejdd35o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;US lifts naval blockade as Iran's supreme leader says Trump made deal 'out of desperation'&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/clyegr2mp8jo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Bowen: US-Iran deal raises inescapable question of what the war was for&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/c932yqz8lggo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;What Iran and US get from deal and why both could struggle to keep it&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/18/nx-s1-5863517/trump-iran-deal-blockade-strait-hormuz" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;U.S. lifts blockade on Iranian ports as 60-day clock for a final deal starts ticking&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/18/nx-s1-5863027/us-iran-trump-memorandum-of-understanding-full-text" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Read the full text of Trump's preliminary U.S.-Iran agreement to end the war&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/show/white-house-defends-iran-agreement-as-u-s-lifts-strait-of-hormuz-blockade" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;White House defends Iran agreement as U.S. lifts Strait of Hormuz blockade&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/show/markets-munitions-and-midterms-pushed-trump-to-iran-deal-michael-doran-says" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;'Markets, munitions and midterms' pushed Trump to Iran deal, Michael Doran says&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/show/injured-israeli-soldier-recounts-experience-on-frontlines-against-hezbollah" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Injured Israeli soldier recounts experience on frontlines against Hezbollah&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">2</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Vance Warns Israel Not to Alienate US as Fighting Continues Despite Iran-US Agreement</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/18/middle-east-crisis-live-us-iran-presidents-sign-peace-deal-mou-trump-tehran-strait-of-hormuz-toll-lebanon-israel" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Middle East crisis: Trump says US expects ‘complete ceasefire on all fronts, including Lebanon, Hezbollah and Israel’ – as it happened&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/live/2026/06/18/world/iran-war-trump-us-deal" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Iran War Live Updates: Vance Issues Blunt Warning to Israel as He Defends Trump’s Deal&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/18/world/europe/iran-united-states-deal-israel.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Iran and the U.S. Have an Understanding. Will It Lead to a Deal?&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">3</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Ukraine Launches Large-Scale Drone Strike on Moscow, Hitting Oil Refinery</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/18/what-did-ukraine-target-in-moscow-and-how-significant-was-the-drone-attack" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;What did Ukraine target in Moscow and how significant was the drone attack?&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/18/world/europe/moscow-ukraine-drone-attack-fire.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Ukraine Bombards Moscow With One of the Biggest Drone Attacks of the War&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/world/pure-hell-moscow-ukrainian-drones-strike-major-refinery-supplying-capitals-fuel-market" target="_blank" rel="noopener noreferrer">Fox News World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;'Pure hell' in Moscow as Ukrainian drones strike major refinery supplying capital's fuel market&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/c98291g5rr1o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Moscow residents complain of black rain after largest Ukrainian attack hits oil refinery&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/c98291g5rr1o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Moscow residents complain of black rain after largest Ukrainian attack hits oil refinery&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/18/g-s1-128782/moscow-ukraine-drone-attack-russia-oil-refinery" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Ukraine hits a Moscow oil refinery and other sites in a large-scale drone attack&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/show/news-wrap-ukraine-strikes-major-oil-refinery-near-moscow" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;News Wrap: Ukraine strikes major oil refinery near Moscow&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">4</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Hegseth Questions NATO Commitments and Says US Will Review European Military Presence</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/c3vy5l62622o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Hegseth renews Nato criticism and says US will review presence in Europe&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/c3vy5l62622o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Hegseth renews Nato criticism and says US will review presence in Europe&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">5</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Finland's Parliament Votes to Allow Nuclear Weapons on Its Territory for First Time</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/world/finlands-parliament-votes-lift-decades-old-ban-nuclear-weapons-historic-nato-defense-shift" target="_blank" rel="noopener noreferrer">Fox News World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Finland's parliament votes to lift decades-old ban on nuclear weapons in historic NATO defense shift&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">6</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Federal Reserve Holds Interest Rates Steady, Releases Updated Economic Projections</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm" target="_blank" rel="noopener noreferrer">Federal Reserve</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Federal Reserve issues FOMC statement&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617b.htm" target="_blank" rel="noopener noreferrer">Federal Reserve</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Federal Reserve Board and Federal Open Market Committee release economic projections from the June 16-17 FOMC meeting&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">7</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Education Department Offers Student Loan Borrowers Interest Rate Reduction for Auto Pay Enrollment</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/18/business/student-loans-interest-rate.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Education Dept. Lowers Student Loan Rates for Borrowers in Auto Pay&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/18/nx-s1-5863085/student-loan-auto-pay-discount" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Student loan borrowers will get an interest rate cut if they sign up for auto pay&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">8</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Supreme Court Rules Federal Law Barring Marijuana Users from Owning Guns Is Unconstitutionally Vague</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.npr.org/2026/06/18/nx-s1-5835232/supreme-court-marijuana-guns" target="_blank" rel="noopener noreferrer">NPR News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Supreme Court sides with a marijuana user who was barred from owning guns&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.scotusblog.com/2026/06/court-sides-with-challenger-to-law-banning-drug-users-from-possessing-guns/" target="_blank" rel="noopener noreferrer">SCOTUSblog</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Court sides with challenger to law banning drug users from possessing guns&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">9</div>
-      <div class="source-body">
-        <div class="source-balm-headline">California Wealth Tax on Billionaires Qualifies for November Ballot</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/18/california-billionaire-tax-ballot-tech-opposition" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;California ‘billionaire tax’ makes ballot despite opposition from tech moguls&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">10</div>
-      <div class="source-body">
-        <div class="source-balm-headline">FDA Advisory Panel Backs First mRNA-Based Influenza Vaccine for Older Adults</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.wthr.com/article/syndication/associatedpress/fda-panel-considers-a-first-of-its-kind-flu-vaccine-using-mrna-technology/616-86a68141-e58c-4235-aee7-a3f5173c4c71" target="_blank" rel="noopener noreferrer">Wthr</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;FDA panel considers a first-of-its-kind flu vaccine using mRNA technology&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.yakimaherald.com/news/nation_and_world/nation/fda-panel-considers-a-first-of-its-kind-flu-vaccine-using-mrna-technology/article_79d7eda6-de4c-584d-be11-a43a20dc2945.html" target="_blank" rel="noopener noreferrer">Yakima Herald-republic</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;FDA panel considers a first-of-its-kind flu vaccine using mRNA technology&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.usnews.com/news/health-news/articles/2026-06-18/fda-panel-considers-a-first-of-its-kind-flu-vaccine-using-mrna-technology" target="_blank" rel="noopener noreferrer">Usnews</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;FDA Panel Considers a First-Of-Its-Kind Flu Vaccine Using MRNA Technology&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.washingtontimes.com/news/2026/jun/18/first-kind-flu-vaccine-using-mrna-technology-considered-fda-panel/" target="_blank" rel="noopener noreferrer">The Washington Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;FDA panel considers a first-of-its-kind flu vaccine using mRNA technology&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.standard-democrat.com/world/fda-panel-considers-a-first-of-its-kind-flu-vaccine-using-mrna-technology-80ae460b" target="_blank" rel="noopener noreferrer">Standard Democrat</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;FDA panel considers a first-of-its-kind flu vaccine using mRNA technology&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.semissourian.com/world/fda-panel-considers-a-first-of-its-kind-flu-vaccine-using-mrna-technology-6a30c83f" target="_blank" rel="noopener noreferrer">Semissourian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;FDA panel considers a first-of-its-kind flu vaccine using mRNA technology&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.clickondetroit.com/health/2026/06/18/fda-panel-considers-a-first-of-its-kind-flu-vaccine-using-mrna-technology/" target="_blank" rel="noopener noreferrer">Clickondetroit</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;FDA panel considers a first-of-its-kind flu vaccine using mRNA technology&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.ottumwacourier.com/news/national_news/fda-panel-considers-a-first-of-its-kind-flu-vaccine-using-mrna-technology/article_286f1e58-7882-5c8d-99c0-511cb009e06d.html" target="_blank" rel="noopener noreferrer">Ottumwacourier</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;FDA panel considers a first-of-its-kind flu vaccine using mRNA technology&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.thesunchronicle.com/news/nation_world/fda-panel-considers-a-first-of-its-kind-flu-vaccine-using-mrna-technology/article_5747b32e-7bff-5b18-a9d0-d431f0d6f9f2.html" target="_blank" rel="noopener noreferrer">The Sun Chronicle</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;FDA panel considers a first-of-its-kind flu vaccine using mRNA technology&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.messenger-inquirer.com/ap/health/fda-panel-considers-a-first-of-its-kind-flu-vaccine-using-mrna-technology/article_808d3168-0c72-5d71-8ed4-e5ec7bf2c75a.html" target="_blank" rel="noopener noreferrer">Owensboro Messenger And Inquirer</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;FDA panel considers a first-of-its-kind flu vaccine using mRNA technology&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.pbs.org/newshour/health/fda-panel-backs-first-of-its-kind-flu-vaccine-using-mrna-technology" target="_blank" rel="noopener noreferrer">PBS NewsHour</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;FDA panel backs first-of-its-kind flu vaccine using mRNA technology&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">11</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Flu Outbreak Sickens Over 150 Recruits at Air Force Base Weeks After Military Ends Mandatory Flu Vaccination</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/18/lackland-air-force-base-flu-outbreak" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Nearly 160 sick with flu at US air force base after Hegseth ends mandatory vaccines&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">12</div>
-      <div class="source-body">
-        <div class="source-balm-headline">State Department to Take Control of CDC's Global Health Programs as Agency Scales Back International Work</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/17/health/pepfar-cdc-cuts.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;New Plan Scales Back C.D.C.’s Work on Diseases Abroad&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">13</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Federal Regulator Acts to Protect Consumers from Data Center Power Costs as Complaints of Worker Retaliation Emerge</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/18/business/data-centers-power-regulation.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Federal Energy Regulator Seeks to Limit Conflicts Over Data Centers&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/18/technology/amazon-worker-retaliation-data-center-complaints.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Amazon Retaliated Against Workers Who Supported Regulating Data Centers, Complaint Says&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/17/us/data-centers-noise-pollution.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;The Cloud Has Sound: The Unrelenting and Unseen Cost of A.I. Data Centers&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">14</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Trump Says Apple Will Purchase Computer Chips from Intel</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/18/technology/apple-intel-trump-chips.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Apple to Buy Computer Chips From Intel, Trump Says&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">15</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Tropical Storm Arthur Makes Landfall Along Texas Coast, Bringing Flood Risk</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/18/tropical-storm-arthur-downgraded" target="_blank" rel="noopener noreferrer">The Guardian</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Tropical Storm Arthur downgraded from cyclone as it makes landfall in Texas&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/17/tropical-storm-arthur-atlantic-hurricane-season" target="_blank" rel="noopener noreferrer">Guardian Environment</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Atlantic hurricane season opens with Tropical Storm Arthur inundating Gulf coast&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">16</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Armed Attack on Niger's Main Airport Kills Dozens in Second Such Incident This Year</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.nytimes.com/2026/06/18/world/africa/niger-armed-attack-airport.html" target="_blank" rel="noopener noreferrer">The New York Times</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Gunmen Attack a Major Airport in Niger&rdquo;</span>
-            
-          </li>
-          
-          <li>
-            <a class="source-outlet" href="https://www.bbc.com/news/articles/cdx7krkdqeno?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC World</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Thirty-five killed as gunmen attack Niger's biggest airport&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    <div class="source-entry">
-      <div class="source-num">17</div>
-      <div class="source-body">
-        <div class="source-balm-headline">Federal Indictment Charges Florida Man with Plotting Attack on Jewish Advocacy Group</div>
-        <ul class="source-list">
-          
-          <li>
-            <a class="source-outlet" href="https://www.foxnews.com/us/florida-man-indicted-allegedly-plotting-mass-shooting-targeting-jewish-employees-advocacy-organization" target="_blank" rel="noopener noreferrer">Fox News</a>
-            
-            &mdash; <span class="source-original-headline">&ldquo;Florida man indicted for allegedly plotting mass shooting targeting Jewish employees at advocacy organization&rdquo;</span>
-            
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p><a href="2026-06-18-pm.html">← Return to digest</a></p>
-      <p style="margin-top:0.75rem;"><a href="https://ko-fi.com/balmnews" target="_blank" rel="noopener noreferrer">Support Balm on Ko-fi</a></p>
-      <p style="margin-top:0.5rem;"><a href="/contact.html">Contact</a></p>
-      <p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" target="_blank" rel="noopener noreferrer">Balm is open source. View the code on GitHub.</a></p>
-    </footer>
-
-  </div><!-- /.main-content -->
+<!-- Main content -->
+<div class="main-content">
+<!-- Masthead -->
+<header class="masthead">
+<div class="masthead-logo">
+<a class="masthead-link" href="https://balm.news">
+<svg height="56" viewbox="0 0 180 56" width="180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="106%" id="balm-spread" width="106%" x="-3%" y="-3%">
+<femorphology in="SourceGraphic" operator="dilate" radius="0.6" result="dilated"></femorphology>
+<fegaussianblur in="dilated" result="blurred" stddeviation="0.3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blurred" operator="over"></fecomposite>
+</filter>
+</defs>
+<text fill="#6b82a8" filter="url(#balm-spread)" font-family="Caveat, cursive" font-size="52" font-weight="700" letter-spacing="8" text-anchor="middle" x="90" y="44">Balm</text>
+</svg>
+</a>
+</div>
+<p class="masthead-tagline">Topical, anti-inflammatory news</p>
+<p class="masthead-dateline">Thursday, June 18, 2026 · PM Edition · Sources</p>
+</header>
+<!-- Sources list -->
+<div class="section-header">Sources for this digest</div>
+<div class="source-entry">
+<div class="source-num">1</div>
+<div class="source-body">
+<div class="source-balm-headline">US Lifts Strait of Hormuz Blockade as Iran-US Ceasefire Agreement Takes Effect</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/c8r2eejdd35o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“US lifts naval blockade as Iran's supreme leader says Trump made deal 'out of desperation'”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/clyegr2mp8jo?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“Bowen: US-Iran deal raises inescapable question of what the war was for”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/c8r2eejdd35o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“US lifts naval blockade as Iran's supreme leader says Trump made deal 'out of desperation'”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/clyegr2mp8jo?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Bowen: US-Iran deal raises inescapable question of what the war was for”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/c932yqz8lggo?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“What Iran and US get from deal and why both could struggle to keep it”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/18/nx-s1-5863517/trump-iran-deal-blockade-strait-hormuz" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“U.S. lifts blockade on Iranian ports as 60-day clock for a final deal starts ticking”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/18/nx-s1-5863027/us-iran-trump-memorandum-of-understanding-full-text" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Read the full text of Trump's preliminary U.S.-Iran agreement to end the war”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/show/white-house-defends-iran-agreement-as-u-s-lifts-strait-of-hormuz-blockade" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“White House defends Iran agreement as U.S. lifts Strait of Hormuz blockade”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/show/markets-munitions-and-midterms-pushed-trump-to-iran-deal-michael-doran-says" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“'Markets, munitions and midterms' pushed Trump to Iran deal, Michael Doran says”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/show/injured-israeli-soldier-recounts-experience-on-frontlines-against-hezbollah" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“Injured Israeli soldier recounts experience on frontlines against Hezbollah”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">2</div>
+<div class="source-body">
+<div class="source-balm-headline">Vance Warns Israel Not to Alienate US as Fighting Continues Despite Iran-US Agreement</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/live/2026/jun/18/middle-east-crisis-live-us-iran-presidents-sign-peace-deal-mou-trump-tehran-strait-of-hormuz-toll-lebanon-israel" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Middle East crisis: Trump says US expects ‘complete ceasefire on all fronts, including Lebanon, Hezbollah and Israel’ – as it happened”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/live/2026/06/18/world/iran-war-trump-us-deal" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Iran War Live Updates: Vance Issues Blunt Warning to Israel as He Defends Trump’s Deal”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/18/world/europe/iran-united-states-deal-israel.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Iran and the U.S. Have an Understanding. Will It Lead to a Deal?”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">3</div>
+<div class="source-body">
+<div class="source-balm-headline">Ukraine Launches Large-Scale Drone Strike on Moscow, Hitting Oil Refinery</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/world/2026/jun/18/what-did-ukraine-target-in-moscow-and-how-significant-was-the-drone-attack" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“What did Ukraine target in Moscow and how significant was the drone attack?”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/18/world/europe/moscow-ukraine-drone-attack-fire.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Ukraine Bombards Moscow With One of the Biggest Drone Attacks of the War”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/world/pure-hell-moscow-ukrainian-drones-strike-major-refinery-supplying-capitals-fuel-market" rel="noopener noreferrer" target="_blank">Fox News World</a>
+            
+            — <span class="source-original-headline">“'Pure hell' in Moscow as Ukrainian drones strike major refinery supplying capital's fuel market”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/c98291g5rr1o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“Moscow residents complain of black rain after largest Ukrainian attack hits oil refinery”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/c98291g5rr1o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Moscow residents complain of black rain after largest Ukrainian attack hits oil refinery”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/18/g-s1-128782/moscow-ukraine-drone-attack-russia-oil-refinery" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Ukraine hits a Moscow oil refinery and other sites in a large-scale drone attack”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/show/news-wrap-ukraine-strikes-major-oil-refinery-near-moscow" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“News Wrap: Ukraine strikes major oil refinery near Moscow”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">4</div>
+<div class="source-body">
+<div class="source-balm-headline">Hegseth Questions NATO Commitments and Says US Will Review European Military Presence</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/c3vy5l62622o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC News</a>
+            
+            — <span class="source-original-headline">“Hegseth renews Nato criticism and says US will review presence in Europe”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/c3vy5l62622o?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Hegseth renews Nato criticism and says US will review presence in Europe”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">5</div>
+<div class="source-body">
+<div class="source-balm-headline">Finland's Parliament Votes to Allow Nuclear Weapons on Its Territory for First Time</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/world/finlands-parliament-votes-lift-decades-old-ban-nuclear-weapons-historic-nato-defense-shift" rel="noopener noreferrer" target="_blank">Fox News World</a>
+            
+            — <span class="source-original-headline">“Finland's parliament votes to lift decades-old ban on nuclear weapons in historic NATO defense shift”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">6</div>
+<div class="source-body">
+<div class="source-balm-headline">Federal Reserve Holds Interest Rates Steady, Releases Updated Economic Projections</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm" rel="noopener noreferrer" target="_blank">Federal Reserve</a>
+            
+            — <span class="source-original-headline">“Federal Reserve issues FOMC statement”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617b.htm" rel="noopener noreferrer" target="_blank">Federal Reserve</a>
+            
+            — <span class="source-original-headline">“Federal Reserve Board and Federal Open Market Committee release economic projections from the June 16-17 FOMC meeting”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">7</div>
+<div class="source-body">
+<div class="source-balm-headline">Education Department Offers Student Loan Borrowers Interest Rate Reduction for Auto Pay Enrollment</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/18/business/student-loans-interest-rate.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Education Dept. Lowers Student Loan Rates for Borrowers in Auto Pay”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/18/nx-s1-5863085/student-loan-auto-pay-discount" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Student loan borrowers will get an interest rate cut if they sign up for auto pay”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">8</div>
+<div class="source-body">
+<div class="source-balm-headline">Supreme Court Rules Federal Law Barring Marijuana Users from Owning Guns Is Unconstitutionally Vague</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.npr.org/2026/06/18/nx-s1-5835232/supreme-court-marijuana-guns" rel="noopener noreferrer" target="_blank">NPR News</a>
+            
+            — <span class="source-original-headline">“Supreme Court sides with a marijuana user who was barred from owning guns”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.scotusblog.com/2026/06/court-sides-with-challenger-to-law-banning-drug-users-from-possessing-guns/" rel="noopener noreferrer" target="_blank">SCOTUSblog</a>
+            
+            — <span class="source-original-headline">“Court sides with challenger to law banning drug users from possessing guns”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">9</div>
+<div class="source-body">
+<div class="source-balm-headline">California Wealth Tax on Billionaires Qualifies for November Ballot</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/18/california-billionaire-tax-ballot-tech-opposition" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“California ‘billionaire tax’ makes ballot despite opposition from tech moguls”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">10</div>
+<div class="source-body">
+<div class="source-balm-headline">FDA Advisory Panel Backs First mRNA-Based Influenza Vaccine for Older Adults</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.wthr.com/article/syndication/associatedpress/fda-panel-considers-a-first-of-its-kind-flu-vaccine-using-mrna-technology/616-86a68141-e58c-4235-aee7-a3f5173c4c71" rel="noopener noreferrer" target="_blank">Wthr</a>
+            
+            — <span class="source-original-headline">“FDA panel considers a first-of-its-kind flu vaccine using mRNA technology”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.yakimaherald.com/news/nation_and_world/nation/fda-panel-considers-a-first-of-its-kind-flu-vaccine-using-mrna-technology/article_79d7eda6-de4c-584d-be11-a43a20dc2945.html" rel="noopener noreferrer" target="_blank">Yakima Herald-republic</a>
+            
+            — <span class="source-original-headline">“FDA panel considers a first-of-its-kind flu vaccine using mRNA technology”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.usnews.com/news/health-news/articles/2026-06-18/fda-panel-considers-a-first-of-its-kind-flu-vaccine-using-mrna-technology" rel="noopener noreferrer" target="_blank">Usnews</a>
+            
+            — <span class="source-original-headline">“FDA Panel Considers a First-Of-Its-Kind Flu Vaccine Using MRNA Technology”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.washingtontimes.com/news/2026/jun/18/first-kind-flu-vaccine-using-mrna-technology-considered-fda-panel/" rel="noopener noreferrer" target="_blank">The Washington Times</a>
+            
+            — <span class="source-original-headline">“FDA panel considers a first-of-its-kind flu vaccine using mRNA technology”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.standard-democrat.com/world/fda-panel-considers-a-first-of-its-kind-flu-vaccine-using-mrna-technology-80ae460b" rel="noopener noreferrer" target="_blank">Standard Democrat</a>
+            
+            — <span class="source-original-headline">“FDA panel considers a first-of-its-kind flu vaccine using mRNA technology”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.semissourian.com/world/fda-panel-considers-a-first-of-its-kind-flu-vaccine-using-mrna-technology-6a30c83f" rel="noopener noreferrer" target="_blank">Semissourian</a>
+            
+            — <span class="source-original-headline">“FDA panel considers a first-of-its-kind flu vaccine using mRNA technology”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.clickondetroit.com/health/2026/06/18/fda-panel-considers-a-first-of-its-kind-flu-vaccine-using-mrna-technology/" rel="noopener noreferrer" target="_blank">Clickondetroit</a>
+            
+            — <span class="source-original-headline">“FDA panel considers a first-of-its-kind flu vaccine using mRNA technology”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.ottumwacourier.com/news/national_news/fda-panel-considers-a-first-of-its-kind-flu-vaccine-using-mrna-technology/article_286f1e58-7882-5c8d-99c0-511cb009e06d.html" rel="noopener noreferrer" target="_blank">Ottumwacourier</a>
+            
+            — <span class="source-original-headline">“FDA panel considers a first-of-its-kind flu vaccine using mRNA technology”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.thesunchronicle.com/news/nation_world/fda-panel-considers-a-first-of-its-kind-flu-vaccine-using-mrna-technology/article_5747b32e-7bff-5b18-a9d0-d431f0d6f9f2.html" rel="noopener noreferrer" target="_blank">The Sun Chronicle</a>
+            
+            — <span class="source-original-headline">“FDA panel considers a first-of-its-kind flu vaccine using mRNA technology”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.messenger-inquirer.com/ap/health/fda-panel-considers-a-first-of-its-kind-flu-vaccine-using-mrna-technology/article_808d3168-0c72-5d71-8ed4-e5ec7bf2c75a.html" rel="noopener noreferrer" target="_blank">Owensboro Messenger And Inquirer</a>
+            
+            — <span class="source-original-headline">“FDA panel considers a first-of-its-kind flu vaccine using mRNA technology”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.pbs.org/newshour/health/fda-panel-backs-first-of-its-kind-flu-vaccine-using-mrna-technology" rel="noopener noreferrer" target="_blank">PBS NewsHour</a>
+            
+            — <span class="source-original-headline">“FDA panel backs first-of-its-kind flu vaccine using mRNA technology”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">11</div>
+<div class="source-body">
+<div class="source-balm-headline">Flu Outbreak Sickens Over 150 Recruits at Air Force Base Weeks After Military Ends Mandatory Flu Vaccination</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/18/lackland-air-force-base-flu-outbreak" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Nearly 160 sick with flu at US air force base after Hegseth ends mandatory vaccines”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">12</div>
+<div class="source-body">
+<div class="source-balm-headline">State Department to Take Control of CDC's Global Health Programs as Agency Scales Back International Work</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/17/health/pepfar-cdc-cuts.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“New Plan Scales Back C.D.C.’s Work on Diseases Abroad”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">13</div>
+<div class="source-body">
+<div class="source-balm-headline">Federal Regulator Acts to Protect Consumers from Data Center Power Costs as Complaints of Worker Retaliation Emerge</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/18/business/data-centers-power-regulation.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Federal Energy Regulator Seeks to Limit Conflicts Over Data Centers”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/18/technology/amazon-worker-retaliation-data-center-complaints.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Amazon Retaliated Against Workers Who Supported Regulating Data Centers, Complaint Says”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/17/us/data-centers-noise-pollution.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“The Cloud Has Sound: The Unrelenting and Unseen Cost of A.I. Data Centers”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">14</div>
+<div class="source-body">
+<div class="source-balm-headline">Trump Says Apple Will Purchase Computer Chips from Intel</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/18/technology/apple-intel-trump-chips.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Apple to Buy Computer Chips From Intel, Trump Says”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">15</div>
+<div class="source-body">
+<div class="source-balm-headline">Tropical Storm Arthur Makes Landfall Along Texas Coast, Bringing Flood Risk</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/18/tropical-storm-arthur-downgraded" rel="noopener noreferrer" target="_blank">The Guardian</a>
+            
+            — <span class="source-original-headline">“Tropical Storm Arthur downgraded from cyclone as it makes landfall in Texas”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.theguardian.com/us-news/2026/jun/17/tropical-storm-arthur-atlantic-hurricane-season" rel="noopener noreferrer" target="_blank">Guardian Environment</a>
+            
+            — <span class="source-original-headline">“Atlantic hurricane season opens with Tropical Storm Arthur inundating Gulf coast”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">16</div>
+<div class="source-body">
+<div class="source-balm-headline">Armed Attack on Niger's Main Airport Kills Dozens in Second Such Incident This Year</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.nytimes.com/2026/06/18/world/africa/niger-armed-attack-airport.html" rel="noopener noreferrer" target="_blank">The New York Times</a>
+            
+            — <span class="source-original-headline">“Gunmen Attack a Major Airport in Niger”</span>
+</li>
+<li>
+<a class="source-outlet" href="https://www.bbc.com/news/articles/cdx7krkdqeno?at_medium=RSS&amp;at_campaign=rss" rel="noopener noreferrer" target="_blank">BBC World</a>
+            
+            — <span class="source-original-headline">“Thirty-five killed as gunmen attack Niger's biggest airport”</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="source-entry">
+<div class="source-num">17</div>
+<div class="source-body">
+<div class="source-balm-headline">Federal Indictment Charges Florida Man with Plotting Attack on Jewish Advocacy Group</div>
+<ul class="source-list">
+<li>
+<a class="source-outlet" href="https://www.foxnews.com/us/florida-man-indicted-allegedly-plotting-mass-shooting-targeting-jewish-employees-advocacy-organization" rel="noopener noreferrer" target="_blank">Fox News</a>
+            
+            — <span class="source-original-headline">“Florida man indicted for allegedly plotting mass shooting targeting Jewish employees at advocacy organization”</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p><a href="2026-06-18-pm.html">← Return to digest</a></p>
+<p style="margin-top:0.75rem;"><a class="footer-kofi" href="https://ko-fi.com/balmnews" rel="noopener noreferrer" target="_blank">Support Balm on Ko-fi</a></p>
+<p style="margin-top:0.5rem;"><a class="footer-contact" href="/contact.html">Contact</a></p>
+<p style="margin-top:0.5rem;"><a href="https://github.com/balmnews/balm" rel="noopener noreferrer" target="_blank">Balm is open source. View the code on GitHub.</a></p>
+</footer>
+</div><!-- /.main-content -->
 </div><!-- /.page-wrapper -->
-<script>
-  // Dynamic archive — fetches live archive.json so sidebar always shows all editions
-  (function() {
-    var current = '2026-06-18-pm.html';
-    fetch('archive.json')
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var html = data.months.map(function(m) {
-          var links = m.entries.map(function(e) {
-            var cls = 'archive-link' + (e.file === current ? ' current' : '');
-            return '<a class="' + cls + '" href="' + e.file + '">' + e.date.slice(5) + ' ' + e.run.toUpperCase() + '</a>';
-          }).join('');
-          return '<div class="archive-month"><div class="archive-month-label">' + m.month + '</div>' + links + '</div>';
-        }).join('');
-        var nav = document.querySelector('nav.sidebar');
-        if (nav) nav.innerHTML = '<div class="sidebar-title">Archive</div>' + html;
-      })
-      .catch(function() {});
-  })();
-</script>
+
 </body>
 </html>
