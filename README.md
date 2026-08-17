@@ -137,4 +137,12 @@ See [CLAUDE.md](CLAUDE.md) for the complete technical and editorial reference.
 
 ---
 
-*Balm is open source. MIT License.*
+## License
+
+The Balm software — pipeline, templates, and scripts — is released under the
+[MIT License](LICENSE).
+
+Published digest content under `docs/` is **not** covered by that license. Those
+editions summarise reporting by third-party news organisations, which retain all
+rights in their underlying work; Balm publishes them under fair use with
+attribution and links back to every original source.

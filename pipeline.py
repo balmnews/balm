@@ -289,6 +289,40 @@ Return ONLY the sentence. No preamble, no quotation marks."""
 # Article fetching — API sources
 # ---------------------------------------------------------------------------
 
+# NewsData.io returns `source_name` title-cased from its internal slug, so
+# acronym outlets arrive as "Wsj", "Npr", "Bbc". These are reader-facing in the
+# sources list under every story, so map the known ones back to real casing.
+# Anything unlisted passes through unchanged.
+_SOURCE_DISPLAY_NAMES = {
+    "wsj":            "WSJ",
+    "npr":            "NPR",
+    "bbc":            "BBC",
+    "bbc news":       "BBC News",
+    "cnn":            "CNN",
+    "cnbc":           "CNBC",
+    "pbs":            "PBS",
+    "pbs newshour":   "PBS NewsHour",
+    "abc news":       "ABC News",
+    "cbs news":       "CBS News",
+    "nbc news":       "NBC News",
+    "upi":            "UPI",
+    "nyt":            "The New York Times",
+    "ap":             "The Associated Press",
+    "usa today":      "USA Today",
+    "us news":        "U.S. News & World Report",
+    "espn":           "ESPN",
+    "nypost":         "New York Post",
+    "scotusblog":     "SCOTUSblog",
+}
+
+
+def normalize_source_name(name: str) -> str:
+    """Return an outlet's display name with correct casing."""
+    if not name:
+        return name
+    return _SOURCE_DISPLAY_NAMES.get(name.strip().lower(), name.strip())
+
+
 def is_fresh(date_str: str, max_age_hours: int = 48) -> bool:
     """Return True if the article date is within max_age_hours of now.
 
@@ -345,7 +379,7 @@ def fetch_newsdata(api_key: str) -> list[dict]:
                     "title": item.get("title", ""),
                     "description": (item.get("description") or item.get("content", ""))[:300],
                     "url": item.get("link", ""),
-                    "source": item.get("source_name", "NewsData"),
+                    "source": normalize_source_name(item.get("source_name", "NewsData")),
                     "published_at": pub_str,
                 })
             time.sleep(0.5)
@@ -1286,6 +1320,187 @@ def _group_by_category(articles: list[dict],
     ]
 
 
+def ensure_og_image(docs_dir: Path) -> None:
+    """Generate docs/og-image.png, the 1200x630 social share card.
+
+    Posting a Balm link to Reddit, Bluesky, LinkedIn or iMessage renders this
+    card. It is a static asset — the design never changes — so this returns
+    immediately once the file exists, and the two font downloads only ever run
+    on a fresh checkout. Non-blocking: on any failure the card is skipped and
+    the pages simply fall back to a text-only preview.
+
+    Note this does not conflict with the image-free digest rule: the card is a
+    link preview, never rendered on the site itself. It reproduces the masthead
+    wordmark using the same tracking and stroke ratios as ensure_static_icons().
+    """
+    out_path = docs_dir / "og-image.png"
+    if out_path.exists():
+        return
+
+    import tempfile
+    import os as _os
+
+    _PARCHMENT, _SLATE = "#f2ede4", "#6b82a8"
+    _SECONDARY, _RULE, _MUTED = "#6a6058", "#c8c0b4", "#9a9288"
+    _FONTS = {
+        "caveat": "https://github.com/googlefonts/caveat/raw/main/fonts/ttf/Caveat-Bold.ttf",
+        "serif":  "https://github.com/google/fonts/raw/main/ofl/sourceserif4/SourceSerif4%5Bopsz,wght%5D.ttf",
+        "italic": "https://github.com/google/fonts/raw/main/ofl/sourceserif4/SourceSerif4-Italic%5Bopsz,wght%5D.ttf",
+    }
+    _LS_RATIO, _STROKE_RATIO, _SS = 8 / 52, 0.6 / 52, 2
+    W, H = 1200, 630
+
+    paths: dict[str, str] = {}
+    try:
+        from PIL import Image, ImageDraw, ImageFont
+
+        for key, url in _FONTS.items():
+            resp = requests.get(url, timeout=20)
+            resp.raise_for_status()
+            with tempfile.NamedTemporaryFile(suffix=".ttf", delete=False) as tmp:
+                tmp.write(resp.content)
+                paths[key] = tmp.name
+
+        def ink_bbox(font, text, ls):
+            pen = 0.0
+            l = t = r = b = None
+            for ch in text:
+                cl, ct, cr, cb = font.getbbox(ch)
+                cl, cr = cl + pen, cr + pen
+                l = cl if l is None else min(l, cl)
+                t = ct if t is None else min(t, ct)
+                r = cr if r is None else max(r, cr)
+                b = cb if b is None else max(b, cb)
+                pen += font.getlength(ch) + ls
+            return l, t, r, b
+
+        def draw_tracked(draw, xy, text, font, ls, fill, stroke=0):
+            x, y = xy
+            for ch in text:
+                draw.text((x, y), ch, font=font, fill=fill,
+                          stroke_width=stroke, stroke_fill=fill if stroke else None)
+                x += font.getlength(ch) + ls
+
+        img = Image.new("RGB", (W * _SS, H * _SS), _PARCHMENT)
+        draw = ImageDraw.Draw(img)
+
+        # Wordmark, solved to 46% of card width.
+        target = W * _SS * 0.46
+        fs = target * 0.5
+        for _ in range(40):
+            f = ImageFont.truetype(paths["caveat"], max(1, int(round(fs))))
+            l, t, r, b = ink_bbox(f, "Balm", fs * _LS_RATIO)
+            if abs((r - l) - target) < 1:
+                break
+            fs *= target / (r - l)
+        fs = max(1, int(round(fs)))
+        wf = ImageFont.truetype(paths["caveat"], fs)
+        ls, stroke = fs * _LS_RATIO, int(round(fs * _STROKE_RATIO))
+        l, t, r, b = ink_bbox(wf, "Balm", ls)
+        wy = H * _SS * 0.30 - t
+        draw_tracked(draw, ((W * _SS - (r - l)) / 2 - l, wy), "Balm", wf, ls, _SLATE, stroke)
+        word_bottom = wy + b
+
+        # Tagline, in the site's italic serif.
+        tf = ImageFont.truetype(paths["italic"], int(38 * _SS))
+        tag, tls = "Topical, anti-inflammatory news", 1.2 * _SS
+        tl, tt, tr, tb = ink_bbox(tf, tag, tls)
+        ty = word_bottom + 46 * _SS
+        draw_tracked(draw, ((W * _SS - (tr - tl)) / 2 - tl, ty), tag, tf, tls, _SECONDARY)
+
+        ry = ty + (tb - tt) + 52 * _SS
+        draw.line([(W * _SS * 0.34, ry), (W * _SS * 0.66, ry)], fill=_RULE, width=2 * _SS)
+
+        sf = ImageFont.truetype(paths["serif"], int(27 * _SS))
+        sub, sls = "A calm news digest, twice daily", 1.0 * _SS
+        sl, st, sr, sb = ink_bbox(sf, sub, sls)
+        draw_tracked(draw, ((W * _SS - (sr - sl)) / 2 - sl, ry + 44 * _SS - st),
+                     sub, sf, sls, _MUTED)
+
+        img.resize((W, H), Image.LANCZOS).save(str(out_path), "PNG")
+        print(f"[OK] og-image.png ({W}x{H})")
+
+    except Exception as exc:
+        print(f"[WARN] ensure_og_image: skipped ({exc})", file=sys.stderr)
+    finally:
+        for p in paths.values():
+            try:
+                _os.unlink(p)
+            except Exception:
+                pass
+
+
+def write_feed_xml(archive: list[dict], docs_dir: Path) -> None:
+    """Write docs/feed.xml — a reader-facing RSS feed of recent editions.
+
+    Distinct from podcast.xml, which is an audio feed and is gated on
+    AUDIO_ENABLED. This one is text and always published: feed readers are how
+    a meaningful share of Balm's audience prefers to read, precisely because it
+    avoids apps and notifications.
+    """
+    from xml.sax.saxutils import escape
+
+    items = []
+    for entry in archive[:50]:
+        date_str, run = entry["date"], entry["run"]
+        try:
+            dt = datetime.strptime(date_str, "%Y-%m-%d")
+        except ValueError:
+            continue
+        # RSS wants RFC 822; approximate publish times to the run windows.
+        hour = "12:00:00" if run == "am" else "21:00:00"
+        pub = f"{dt.strftime('%a, %d %b %Y')} {hour} GMT"
+        label = f"{dt.strftime('%B %-d, %Y')} — {run.upper()} Edition"
+        link = f"{BASE_URL}/{date_str}-{run}.html"
+        items.append(
+            "    <item>\n"
+            f"      <title>{escape(label)}</title>\n"
+            f"      <link>{escape(link)}</link>\n"
+            f"      <guid isPermaLink=\"true\">{escape(link)}</guid>\n"
+            f"      <pubDate>{pub}</pubDate>\n"
+            "      <description>Balm digest — the day's news, stripped of "
+            "inflammatory language and emotional framing.</description>\n"
+            "    </item>"
+        )
+
+    xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+        "  <channel>\n"
+        "    <title>Balm</title>\n"
+        f"    <link>{BASE_URL}/</link>\n"
+        "    <description>Topical, anti-inflammatory news. A calm news digest, "
+        "published twice daily.</description>\n"
+        "    <language>en-us</language>\n"
+        f'    <atom:link href="{BASE_URL}/feed.xml" rel="self" type="application/rss+xml"/>\n'
+        + "\n".join(items)
+        + "\n  </channel>\n</rss>\n"
+    )
+    (docs_dir / "feed.xml").write_text(xml, encoding="utf-8")
+    print(f"[OK] feed.xml updated ({len(items)} editions)")
+
+
+def write_sitemap(archive: list[dict], docs_dir: Path) -> None:
+    """Write docs/sitemap.xml covering the static pages and every edition."""
+    from xml.sax.saxutils import escape
+
+    urls = [(f"{BASE_URL}/", "daily"), (f"{BASE_URL}/archive.html", "daily"),
+            (f"{BASE_URL}/contact.html", "monthly")]
+    urls += [(f"{BASE_URL}/{e['date']}-{e['run']}.html", "never") for e in archive]
+
+    body = "\n".join(
+        f"  <url><loc>{escape(u)}</loc><changefreq>{f}</changefreq></url>"
+        for u, f in urls
+    )
+    xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"{body}\n</urlset>\n"
+    )
+    (docs_dir / "sitemap.xml").write_text(xml, encoding="utf-8")
+    print(f"[OK] sitemap.xml updated ({len(urls)} URLs)")
+
+
 def ensure_static_icons(docs_dir: Path) -> None:
     """Generate PNG icon files for docs/ that match the masthead SVG wordmark.
 
@@ -2062,7 +2277,10 @@ def main():
     print("\n[13/14] Building archive index and rendering output files...")
     archive = collect_archive(DOCS_DIR)
     write_archive_json(archive, DOCS_DIR)
+    write_feed_xml(archive, DOCS_DIR)
+    write_sitemap(archive, DOCS_DIR)
     ensure_static_icons(DOCS_DIR)
+    ensure_og_image(DOCS_DIR)
     render_digest(processed_articles, date_str, run, metadata, archive, DOCS_DIR,
                   top_stories=top_stories, category_order=category_order, market_trend=market_trend)
     render_sources(processed_articles, date_str, run, archive, DOCS_DIR)
