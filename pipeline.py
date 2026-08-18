@@ -1437,6 +1437,10 @@ def write_feed_xml(archive: list[dict], docs_dir: Path) -> None:
     AUDIO_ENABLED. This one is text and always published: feed readers are how
     a meaningful share of Balm's audience prefers to read, precisely because it
     avoids apps and notifications.
+
+    Also copies feed.xsl into docs/ and links it via an xml-stylesheet PI, so
+    a browser hitting the raw feed URL directly renders a normal-looking page
+    instead of dumping XML source. Feed readers ignore the stylesheet.
     """
     from xml.sax.saxutils import escape
 
@@ -1465,6 +1469,7 @@ def write_feed_xml(archive: list[dict], docs_dir: Path) -> None:
 
     xml = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<?xml-stylesheet type="text/xsl" href="/feed.xsl"?>\n'
         '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
         "  <channel>\n"
         "    <title>Balm</title>\n"
@@ -1478,6 +1483,15 @@ def write_feed_xml(archive: list[dict], docs_dir: Path) -> None:
     )
     (docs_dir / "feed.xml").write_text(xml, encoding="utf-8")
     print(f"[OK] feed.xml updated ({len(items)} editions)")
+
+    # feed.xsl makes the raw feed URL render as a normal page for anyone who
+    # clicks it directly instead of pointing a feed reader at it. Self-heals
+    # docs/ from the root copy on every run, same pattern as the PWA icons.
+    xsl_src = Path(__file__).parent / "feed.xsl"
+    if xsl_src.exists():
+        (docs_dir / "feed.xsl").write_text(
+            xsl_src.read_text(encoding="utf-8"), encoding="utf-8"
+        )
 
 
 def write_sitemap(archive: list[dict], docs_dir: Path) -> None:
