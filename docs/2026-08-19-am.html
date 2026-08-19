@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Wednesday, August 19, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Wednesday, August 19, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <link rel="canonical" href="https://balm.news/">
+  <link rel="canonical" href="https://balm.news/2026-08-19-am.html">
   <meta property="og:site_name" content="Balm">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation. A calm digest, published twice daily.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://balm.news/">
+  <meta property="og:title" content="Balm — Wednesday, August 19, 2026 AM Edition">
+  <meta property="og:description" content="The day's news, stripped of inflammatory language and emotional framing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://balm.news/2026-08-19-am.html">
   <meta property="og:image" content="https://balm.news/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Balm — topical, anti-inflammatory news">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Balm — Topical, anti-inflammatory news">
-  <meta name="twitter:description" content="The same news, without the agitation. A calm digest, published twice daily.">
+  <meta name="twitter:title" content="Balm — Wednesday, August 19, 2026 AM Edition">
+  <meta name="twitter:description" content="The day's news, stripped of inflammatory language and emotional framing.">
   <meta name="twitter:image" content="https://balm.news/og-image.png">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
   <link rel="alternate" type="application/rss+xml" title="Balm" href="/feed.xml">
@@ -174,7 +174,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -189,6 +191,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -227,13 +233,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Sources inline toggle */
@@ -341,8 +347,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -997,10 +1008,10 @@
               <div class="article article-long" id="story_13">
                 <h2 class="article-headline">Federal Trial Against Meta Begins as States Seek $200 Billion Over Child Harm Claims</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>A federal trial opened in Oakland as 29 US states sued Meta, alleging the company concealed internal research showing Instagram was addictive and harmful to children. Meta disputed the existence of social media addiction. States are seeking up to $200 billion in damages.</span></span>
                   <span class="summary-full"><span>A landmark federal trial against Meta Platforms began Tuesday in Oakland, California, with lawyers representing 29 states alleging the company knowingly designed its platforms to be addictive to teenagers and concealed internal research confirming this harm. The case centers on Instagram and Facebook and involves claims that Meta prioritized engagement metrics over child safety, with internal documents allegedly showing the company was aware of harmful effects on young users but did not disclose this publicly. States are seeking up to $200 billion in damages. Meta's defense team argued in opening statements that social media addiction does not exist as a defined condition and disputed the states' characterization of its internal research. The four states taking the lead in this bellwether federal case are California, Colorado, Kentucky, and New Jersey. Families who say their children were harmed gathered outside the courthouse. The case is being compared in scale to the 1994 multi-state tobacco litigation, which eventually produced a negotiated settlement worth hundreds of billions of dollars. A verdict here could set legal precedent affecting the entire social media industry's obligations to younger users.</span></span>
                 </div>
@@ -1061,10 +1072,10 @@
               <div class="article article-medium" id="story_14">
                 <h2 class="article-headline">US Criticizes Israeli Airstrikes on Syrian Airbase as Unnecessary Escalation</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>The US condemned Israeli airstrikes on a Syrian airbase as an unnecessary escalation. Syria's government called the strikes an unjustified act of aggression that threatened regional security.</span></span>
                   <span class="summary-full"><span>The United States publicly criticized Israeli airstrikes on a Syrian military airbase, describing them as unnecessary escalation. Syria's government characterized the attacks as an unjustified act of aggression and said they endangered regional security. The strikes mark a notable moment in which Washington has publicly distanced itself from Israeli military action in Syria, a country where multiple powers including the US, Russia, Israel, and Iran have maintained competing military and political interests. The specific targets and stated rationale for the strikes were not detailed in available reporting. The episode occurs against the backdrop of ongoing regional tensions involving Iran, Israeli operations in multiple theaters, and a fragile political transition in Syria.</span></span>
                 </div>
@@ -1111,6 +1122,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1128,7 +1140,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
