@@ -467,7 +467,23 @@ Four assets exist so Balm survives contact with link scrapers and feed readers. 
 
 `podcast.xml` is stale (last written May 2026, still pointing at the old `balmnews.github.io` URL) because audio has been off since. Templates no longer advertise it. Re-enabling audio must also fix its `<link>` to `balm.news`.
 
-**`feed.xsl` (resolved 2026-08-18).** Someone without a feed reader who clicked "subscribe by RSS" (`contact.html`) landed on raw XML source — browsers dropped native feed rendering years ago, so a bare `.xml` link just dumps tags. `feed.xsl` is a canonical source file at the repo root (same pattern as `manifest.json` / `service-worker.js`: root copy, `write_feed_xml()` copies it into `docs/` every run, self-healing like the icons). `write_feed_xml()` emits `<?xml-stylesheet type="text/xsl" href="/feed.xsl"?>` at the top of `feed.xml`, so a browser hitting the raw feed URL directly renders a normal Balm-styled page (masthead, tagline, a short explainer, the list of recent editions) instead of source. Feed readers ignore the stylesheet PI entirely and parse the RSS underneath unchanged — nothing about the feed's actual content changed. Edit `feed.xsl` at the repo root, not any copy under `docs/` or `templates/`.
+### The feed is never linked as a destination (resolved 2026-08-19)
+
+`contact.html` used to say "subscribe by RSS" hyperlinked to `/feed.xml`. Browsers dropped native feed rendering years ago, so anyone without a feed reader — the majority of readers — got a page of XML source and no idea what they were looking at. A reader who hit this read it as a broken email-signup page.
+
+**The fix is textual, not technical.** The About page no longer links to the feed at all. It explains in one sentence what a feed reader is, then shows the address as plain selectable text in a `.feed-url` span:
+
+```
+https://balm.news/feed.xml
+```
+
+followed by an explicit "if you don't use a feed reader, you don't need one" note. Nothing on the page navigates to `feed.xml`, so the raw-XML page is unreachable by accident. **Do not turn that address back into a link** — the link is the bug.
+
+`<link rel="alternate">` in every template still points at the feed. That is autodiscovery for feed readers, is not user-visible, and is correct.
+
+**`feed.xsl` is a bonus with an expiry date.** `write_feed_xml()` also copies `feed.xsl` (canonical copy at the repo root, same pattern as `manifest.json` / `service-worker.js`) into `docs/` and emits `<?xml-stylesheet type="text/xsl" href="/feed.xsl"?>` atop `feed.xml`, so someone who pastes the feed URL into a browser gets a styled page rather than source. This is belt-and-braces only, because **browsers are removing XSLT**: Chrome disabled it in Canary/Dev/Beta from Chrome 145 (Dec 2025) and removes it from stable in Chrome 158 on **17 November 2026**; Firefox and WebKit have signalled the same. libxslt's memory-safety record is the reason.
+
+When that lands, `feed.xml` silently reverts to displaying raw XML. Nothing breaks — the feed itself is untouched and feed readers never used the stylesheet — and no reader path depends on it, which is exactly why the textual fix above carries the weight. After November 2026 `feed.xsl` may simply be deleted along with the PI line in `write_feed_xml()`. Do not build anything else on XSLT.
 
 ## Icons and Favicon
 
