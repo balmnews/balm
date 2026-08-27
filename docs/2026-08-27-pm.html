@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Thursday, August 27, 2026 PM</title>
+  <meta name="description" content="Balm news digest for Thursday, August 27, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <link rel="canonical" href="https://balm.news/">
+  <link rel="canonical" href="https://balm.news/2026-08-27-pm.html">
   <meta property="og:site_name" content="Balm">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation. A calm digest, published twice daily.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://balm.news/">
+  <meta property="og:title" content="Balm — Thursday, August 27, 2026 PM Edition">
+  <meta property="og:description" content="The day's news, stripped of inflammatory language and emotional framing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://balm.news/2026-08-27-pm.html">
   <meta property="og:image" content="https://balm.news/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Balm — topical, anti-inflammatory news">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Balm — Topical, anti-inflammatory news">
-  <meta name="twitter:description" content="The same news, without the agitation. A calm digest, published twice daily.">
+  <meta name="twitter:title" content="Balm — Thursday, August 27, 2026 PM Edition">
+  <meta name="twitter:description" content="The day's news, stripped of inflammatory language and emotional framing.">
   <meta name="twitter:image" content="https://balm.news/og-image.png">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
   <link rel="alternate" type="application/rss+xml" title="Balm" href="/feed.xml">
@@ -174,7 +174,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -189,6 +191,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -227,13 +233,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Corrections — appended to a story after publication. Deliberately visible
@@ -363,8 +369,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1079,10 +1090,10 @@
               <div class="article article-long" id="story_13">
                 <h2 class="article-headline">Flash Floods Along Nepal-Tibet Border Kill Nearly 400, Leave Over 1,400 Missing Including Americans and Australians</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>Flash floods triggered by a probable glacier collapse in the Himalayas have killed nearly 400 people along the Nepal-Tibet border, with over 1,400 people — mostly tourists — still missing, including roughly 90 Americans and 39 Australians.</span></span>
                   <span class="summary-full"><span>A catastrophic flash flood swept through communities along the Nepal-Tibet border this week, killing at least 356 people and leaving more than 1,400 others unaccounted for. The majority of the missing are foreign tourists who were trekking or traveling on pilgrimage in the mountainous border region. Among them, U.S. officials have confirmed approximately 90 Americans are missing, while Australia's foreign affairs minister confirmed 39 Australian citizens are unaccounted for — a number that rose overnight from 35. Rescue teams are searching remote valleys, with survivors describing entire villages being swept away within minutes by a torrent of water and debris. Scientists investigating the cause have pointed to a glacier collapse high in the Himalayas as the likely trigger. A magnitude 5.2 seismic event was recorded near the area, and satellite imagery suggests glacial instability preceded the flood. Experts note that rising temperatures have accelerated glacial melt and permafrost thaw across the Himalayas, destabilizing terrain that millions of people depend on. Scientists caution that the precise causal chain is still under investigation. The disaster has prompted humanitarian response efforts from multiple governments. Australia's foreign affairs ministry said consular support was being rapidly mobilized. Nepal's interior is difficult to access, and the full scale of casualties may not be known for days. Scientists and climate researchers warn that such events could become more frequent as global temperatures continue to rise, putting mountain-adjacent populations and visiting tourists at increasing risk.</span></span>
                 </div>
@@ -1185,10 +1196,10 @@
               <div class="article article-long" id="story_14">
                 <h2 class="article-headline">Ratko Mladic, Convicted of Genocide During Bosnian War, Dies in Prison at 84</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>Ratko Mladic, the Bosnian Serb military commander convicted of genocide and crimes against humanity for atrocities committed during the 1990s Balkan wars, has died while serving a life sentence. He was 84.</span></span>
                   <span class="summary-full"><span>Ratko Mladic, who commanded Bosnian Serb forces during the wars in the former Yugoslavia between 1992 and 1995, has died in prison at the age of 84, United Nations officials confirmed. He had been serving a life sentence handed down in 2017 by the International Criminal Tribunal for the former Yugoslavia, following convictions for genocide, war crimes, and crimes against humanity. The conflict Mladic commanded cost more than 100,000 lives. His forces conducted a years-long siege of Sarajevo using artillery and snipers, and oversaw the massacre at Srebrenica in 1995, in which more than 8,000 Bosnian Muslim men and boys were killed — the worst mass atrocity in Europe since the Second World War. Mladic evaded capture for nearly 16 years following the war before being apprehended in 2011. His death closes a chapter in the international legal accounting for the Balkan conflicts, though the broader work of reconciliation in the region remains unfinished.</span></span>
                 </div>
@@ -1231,10 +1242,10 @@
               <div class="article article-short" id="story_15">
                 <h2 class="article-headline">Fire at Pakistan Hospital Nursery Kills at Least 14 Newborns</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-3-diff">
                   <span class="summary-brief"><span>A fire at the Pakistan Institute of Medical Sciences killed at least 14 newborns after a compressor unit in the nursery ward exploded.</span></span>
                   <span class="summary-full"><span>At least 14 newborns were killed when a fire broke out in the nursery ward of the Pakistan Institute of Medical Sciences. Investigators identified a malfunctioning air conditioning compressor as the source of the blaze. Families gathered at the hospital in the aftermath of the incident. The event has prompted calls for a review of fire safety standards in Pakistani medical facilities.</span></span>
                 </div>
@@ -1281,6 +1292,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1298,7 +1310,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
