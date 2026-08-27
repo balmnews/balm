@@ -1,8 +1,21 @@
-name: Balm Watchdog — Morning Digest Recovery
+name: Balm Watchdog — Missed Edition Recovery
+
+# GitHub's scheduled triggers are best-effort. Observed on this repo: a ~30
+# minute baseline delay, one run 3h34m late (which is how a PM run came to
+# overwrite that morning's digest), and two triggers dropped outright in a
+# single day. This workflow turns a dropped trigger into a late edition rather
+# than a lost one, for BOTH editions — the previous version only covered AM,
+# which is why 2026-08-06 and 2026-08-26 lost their PM editions silently.
+#
+# Four checks a day, so a dropped watchdog trigger still leaves a second chance
+# inside each edition's window. Deciding what is due is watchdog_check.py's job.
 
 on:
   schedule:
-    - cron: '30 13 * * *'  # 6:30am PDT — after morning digest should have run
+    - cron: '30 13 * * *'  #  6:30am PDT — after the AM run should have landed
+    - cron: '0 17 * * *'   # 10:00am PDT — AM second chance
+    - cron: '30 23 * * *'  #  4:30pm PDT — after the PM run should have landed
+    - cron: '0 3 * * *'    #  8:00pm PDT — PM second chance
   workflow_dispatch:
 
 env:
@@ -18,50 +31,47 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Pacific, not UTC: editions are named for the Pacific day they cover, and
-      # pipeline.py resolves the date the same way. Checking a UTC date here
-      # would look for the wrong file whenever the two disagree.
-      - name: Check if AM digest exists for today
-        id: check
-        run: |
-          DATE=$(TZ=America/Los_Angeles date +"%Y-%m-%d")
-          echo "date=$DATE" >> $GITHUB_OUTPUT
-          FILE="docs/${DATE}-am.html"
-          if [ -f "$FILE" ]; then
-            echo "exists=true" >> $GITHUB_OUTPUT
-            echo "AM digest already exists for $DATE — no action needed"
-          else
-            echo "exists=false" >> $GITHUB_OUTPUT
-            echo "AM digest missing for $DATE — triggering recovery run"
-          fi
-
       - name: Set up Python
-        if: steps.check.outputs.exists == 'false'
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: 'pip'
 
       - name: Install dependencies
-        if: steps.check.outputs.exists == 'false'
         run: pip install -r requirements.txt
 
-      - name: Run AM pipeline
-        if: steps.check.outputs.exists == 'false'
-        run: python pipeline.py --run am --date ${{ steps.check.outputs.date }}
+      - name: Find missing editions
+        id: check
+        run: python watchdog_check.py
+
+      - name: Recover missing editions
+        if: steps.check.outputs.missing != ''
         env:
           NEWSDATA_API_KEY: ${{ secrets.NEWSDATA_API_KEY }}
           GUARDIAN_API_KEY: ${{ secrets.GUARDIAN_API_KEY }}
           NYT_API_KEY: ${{ secrets.NYT_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ELEVEN_LABS_API_KEY: ${{ secrets.ELEVEN_LABS_API_KEY }}
+        run: |
+          # Date and edition are both passed explicitly: the watchdog already
+          # decided which edition is missing, and re-deriving either inside the
+          # pipeline could pick a different one. pipeline.py's overwrite guard
+          # is the backstop if this is ever wrong.
+          IFS=',' read -ra ENTRIES <<< "${{ steps.check.outputs.missing }}"
+          for entry in "${ENTRIES[@]}"; do
+            DATE="${entry%%:*}"
+            RUN="${entry##*:}"
+            echo "::group::Recovering $DATE $RUN"
+            python pipeline.py --run "$RUN" --date "$DATE"
+            echo "::endgroup::"
+          done
 
-      - name: Commit and push if digest was generated
-        if: steps.check.outputs.exists == 'false'
+      - name: Commit and push recovered editions
+        if: steps.check.outputs.missing != ''
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add docs/
           git diff --cached --quiet && echo "No changes to commit" && exit 0
-          git commit -m "Watchdog recovery: AM digest ${{ steps.check.outputs.date }}"
+          git commit -m "Watchdog recovery: ${{ steps.check.outputs.missing }}"
           git push
