@@ -18,10 +18,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Pacific, not UTC: editions are named for the Pacific day they cover, and
+      # pipeline.py resolves the date the same way. Checking a UTC date here
+      # would look for the wrong file whenever the two disagree.
       - name: Check if AM digest exists for today
         id: check
         run: |
-          DATE=$(date -u +"%Y-%m-%d")
+          DATE=$(TZ=America/Los_Angeles date +"%Y-%m-%d")
+          echo "date=$DATE" >> $GITHUB_OUTPUT
           FILE="docs/${DATE}-am.html"
           if [ -f "$FILE" ]; then
             echo "exists=true" >> $GITHUB_OUTPUT
@@ -44,7 +48,7 @@ jobs:
 
       - name: Run AM pipeline
         if: steps.check.outputs.exists == 'false'
-        run: python pipeline.py --run am
+        run: python pipeline.py --run am --date ${{ steps.check.outputs.date }}
         env:
           NEWSDATA_API_KEY: ${{ secrets.NEWSDATA_API_KEY }}
           GUARDIAN_API_KEY: ${{ secrets.GUARDIAN_API_KEY }}
@@ -59,5 +63,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add docs/
           git diff --cached --quiet && echo "No changes to commit" && exit 0
-          git commit -m "Watchdog recovery: AM digest $(date -u +%Y-%m-%d)"
+          git commit -m "Watchdog recovery: AM digest ${{ steps.check.outputs.date }}"
           git push
