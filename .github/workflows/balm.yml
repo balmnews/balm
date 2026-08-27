@@ -44,21 +44,22 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Determine run edition
+      # The edition is resolved inside pipeline.py, from Pacific time. This step
+      # only forwards an explicit workflow_dispatch choice; it must never guess
+      # from the runner clock, which is UTC. A PM run delayed past 00:00 UTC used
+      # to be seen here as hour < 14, forced to "am", and written over that
+      # morning's published digest.
+      - name: Forward explicit edition override
         id: edition
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.run }}" != "auto" ]; then
             echo "run=${{ github.event.inputs.run }}" >> $GITHUB_OUTPUT
           else
-            HOUR=$(date -u +%H)
-            if [ "$HOUR" -lt 14 ]; then
-              echo "run=am" >> $GITHUB_OUTPUT
-            else
-              echo "run=pm" >> $GITHUB_OUTPUT
-            fi
+            echo "run=" >> $GITHUB_OUTPUT
           fi
 
       - name: Run Balm pipeline
+        id: pipeline
         env:
           NEWSDATA_API_KEY: ${{ secrets.NEWSDATA_API_KEY }}
           GUARDIAN_API_KEY: ${{ secrets.GUARDIAN_API_KEY }}
@@ -66,20 +67,23 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ELEVEN_LABS_API_KEY: ${{ secrets.ELEVEN_LABS_API_KEY }}
         run: |
-          ARGS="--run ${{ steps.edition.outputs.run }}"
+          ARGS=""
+          if [ -n "${{ steps.edition.outputs.run }}" ]; then
+            ARGS="--run ${{ steps.edition.outputs.run }}"
+          fi
           if [ -n "${{ github.event.inputs.date }}" ]; then
             ARGS="$ARGS --date ${{ github.event.inputs.date }}"
           fi
           python pipeline.py $ARGS
 
-      - name: Determine date for commit message
+      # Use the edition pipeline.py resolved, not the runner's UTC clock — those
+      # disagreed, which is how a commit came to say "2026-08-27 AM" while
+      # overwriting docs/2026-08-26-am.html.
+      - name: Determine commit message
         id: commitdate
         run: |
-          DATE=$(date -u +"%Y-%m-%d")
-          if [ -n "${{ github.event.inputs.date }}" ]; then
-            DATE="${{ github.event.inputs.date }}"
-          fi
-          RUN_UPPER=$(echo "${{ steps.edition.outputs.run }}" | tr '[:lower:]' '[:upper:]')
+          DATE="${{ steps.pipeline.outputs.resolved_date }}"
+          RUN_UPPER=$(echo "${{ steps.pipeline.outputs.resolved_run }}" | tr '[:lower:]' '[:upper:]')
           echo "msg=Balm digest $DATE $RUN_UPPER" >> $GITHUB_OUTPUT
 
       - name: Commit and push digest files

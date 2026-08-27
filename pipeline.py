@@ -2159,9 +2159,16 @@ def main():
                         help="Which edition to generate (default: auto-detect from current time)")
     parser.add_argument("--date", default=None,
                         help="Override date (YYYY-MM-DD). Default: today in PT.")
+    parser.add_argument("--force", action="store_true",
+                        help="Overwrite an edition that already exists (see guard below)")
     args = parser.parse_args()
 
-    # Resolve run and date
+    # Resolve run and date. Pacific is the ONLY clock that decides either one —
+    # Balm's editions are named for the Pacific day they cover. CI runs in UTC,
+    # so anything that re-derives the edition from a UTC clock disagrees with
+    # this for runs between 00:00-07:00 UTC (5pm-midnight PT). That disagreement
+    # destroyed two published editions: a PM run delayed past midnight UTC was
+    # classified "am" from the UTC hour and overwrote that morning's digest.
     pt_tz = tz.gettz("America/Los_Angeles")
     now_pt = datetime.now(pt_tz)
     date_str = args.date or now_pt.strftime("%Y-%m-%d")
@@ -2169,6 +2176,25 @@ def main():
 
     print(f"[START] Balm pipeline — {date_str} {run.upper()}")
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Publish the resolved values so CI labels the commit with the edition that
+    # was actually written, instead of re-deriving it from its own clock.
+    gh_output = os.environ.get("GITHUB_OUTPUT")
+    if gh_output:
+        with open(gh_output, "a", encoding="utf-8") as fh:
+            fh.write(f"resolved_date={date_str}\n")
+            fh.write(f"resolved_run={run}\n")
+
+    # Never silently replace a published edition. A correct run always writes a
+    # file that does not exist yet; if this trips, something upstream resolved
+    # the wrong edition and the right outcome is a loud failure, not a clobber.
+    # Deliberate regeneration passes --force.
+    existing = DOCS_DIR / f"{date_str}-{run}.html"
+    if existing.exists() and not args.force:
+        print(f"[ERROR] {existing.name} already exists — refusing to overwrite. "
+              f"Re-run with --force if this is a deliberate regeneration.",
+              file=sys.stderr)
+        sys.exit(1)
 
     # Read API keys
     newsdata_api_key  = os.environ.get("NEWSDATA_API_KEY", "")
