@@ -74,4 +74,20 @@ jobs:
           git add docs/
           git diff --cached --quiet && echo "No changes to commit" && exit 0
           git commit -m "Watchdog recovery: ${{ steps.check.outputs.missing }}"
-          git push
+          # Rebase-and-retry before pushing. The runner checked out main minutes
+          # ago; anything pushed since (a human commit, an overlapping run)
+          # makes a plain `git push` a non-fast-forward and the edition is lost
+          # even though the pipeline succeeded. Generated files touch only
+          # docs/, so replaying this commit on top is safe.
+          BRANCH="${{ github.ref_name }}"
+          for attempt in 1 2 3; do
+            if git push origin "HEAD:$BRANCH"; then
+              echo "pushed on attempt $attempt"
+              exit 0
+            fi
+            echo "push rejected — rebasing onto origin/$BRANCH and retrying"
+            git pull --rebase --autostash origin "$BRANCH" || exit 1
+            sleep $((attempt * 5))
+          done
+          echo "::error::could not push after 3 attempts"
+          exit 1
