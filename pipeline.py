@@ -2186,15 +2186,26 @@ def main():
             fh.write(f"resolved_run={run}\n")
 
     # Never silently replace a published edition. A correct run always writes a
-    # file that does not exist yet; if this trips, something upstream resolved
-    # the wrong edition and the right outcome is a loud failure, not a clobber.
+    # file that does not exist yet.
+    #
+    # This is not an error condition. GitHub routinely fires a straggler hours
+    # after a scheduled slot — on 2026-08-28 and 2026-08-29 late runs resolved
+    # to the previous evening's PM edition, which was already published. Under
+    # the old UTC-hour logic those same runs would have been labelled "am" and
+    # overwritten that morning's digest. Skipping is the whole point, so it
+    # exits successfully: failing here would put a red X on correct behaviour
+    # twice a week and train us to ignore genuine failures.
+    #
     # Deliberate regeneration passes --force.
     existing = DOCS_DIR / f"{date_str}-{run}.html"
     if existing.exists() and not args.force:
-        print(f"[ERROR] {existing.name} already exists — refusing to overwrite. "
-              f"Re-run with --force if this is a deliberate regeneration.",
-              file=sys.stderr)
-        sys.exit(1)
+        msg = (f"{existing.name} already exists — skipping to avoid overwriting a "
+               f"published edition. Pass --force to regenerate deliberately.")
+        print(f"[SKIP] {msg}")
+        if os.environ.get("GITHUB_ACTIONS"):
+            # Surfaced in the run summary without failing the job.
+            print(f"::warning title=Edition already published::{msg}")
+        sys.exit(0)
 
     # Read API keys
     newsdata_api_key  = os.environ.get("NEWSDATA_API_KEY", "")
