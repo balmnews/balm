@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Sunday, August 30, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Sunday, August 30, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <link rel="canonical" href="https://balm.news/">
+  <link rel="canonical" href="https://balm.news/2026-08-30-am.html">
   <meta property="og:site_name" content="Balm">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation. A calm digest, published twice daily.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://balm.news/">
+  <meta property="og:title" content="Balm — Sunday, August 30, 2026 AM Edition">
+  <meta property="og:description" content="The day's news, stripped of inflammatory language and emotional framing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://balm.news/2026-08-30-am.html">
   <meta property="og:image" content="https://balm.news/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Balm — topical, anti-inflammatory news">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Balm — Topical, anti-inflammatory news">
-  <meta name="twitter:description" content="The same news, without the agitation. A calm digest, published twice daily.">
+  <meta name="twitter:title" content="Balm — Sunday, August 30, 2026 AM Edition">
+  <meta name="twitter:description" content="The day's news, stripped of inflammatory language and emotional framing.">
   <meta name="twitter:image" content="https://balm.news/og-image.png">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
   <link rel="alternate" type="application/rss+xml" title="Balm" href="/feed.xml">
@@ -174,7 +174,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -189,6 +191,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -227,13 +233,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Corrections — appended to a story after publication. Deliberately visible
@@ -363,8 +369,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1133,10 +1144,10 @@
               <div class="article article-long" id="story_16">
                 <h2 class="article-headline">Death Toll in Nepal-Tibet Flooding Approaches 800; About 85 Americans Among Missing</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>Flooding and mudslides across Nepal and the Tibet region of China have killed nearly 800 people and left close to 3,000 missing. The U.S. State Department says approximately 85 American citizens remain unaccounted for.</span></span>
                   <span class="summary-full"><span>Flash flooding and mudslides along the Nepal-Tibet border have caused one of the deadliest Himalayan disasters in recent memory. The combined death toll across both sides of the border is approaching 800, with figures varying by source. Close to 3,000 people remain missing. The U.S. State Department has confirmed that approximately 85 American citizens are among those unaccounted for. On the Chinese side of the border in Tibet, authorities have released limited information, though Chinese officials acknowledged that 261 foreign nationals from 23 countries are missing. Independent coverage of conditions in Tibet has been restricted, and footage of the flooding there has largely been kept from public view within China. In Nepal, rescue operations have been hampered by rain and fog. Workers were successfully pulled from a flooded hydropower tunnel in the Rasuwa district after becoming trapped. Authorities issued warnings of possible additional flooding as water levels rose in the Bhotekoshi River. Scientists have noted that the disaster is consistent with patterns associated with glacial lake outburst floods, which are becoming more frequent as warming temperatures accelerate glacial melt in the Himalayas. Diaspora communities in the United States, including Nepali and Tibetan communities in New York City, have organized fundraising and relief efforts.</span></span>
                 </div>
@@ -1203,10 +1214,10 @@
               <div class="article article-medium" id="story_17">
                 <h2 class="article-headline">Ferry Capsizes Off Northern Cyprus; At Least Seven Dead, Hundreds Hospitalized</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>A passenger ferry carrying 267 people capsized off the coast of Northern Cyprus, killing at least seven people and sending 161 to hospital. The vessel sank to a depth of approximately 514 meters.</span></span>
                   <span class="summary-full"><span>A catamaran-type passenger ferry carrying approximately 267 people capsized after departing from the port of Kyrenia in Northern Cyprus. At least seven people died in the incident, and 161 were taken to hospital. Northern Cyprus transport authorities confirmed the vessel sank to a depth of roughly 514 meters. Seventy-six passengers were reported to have returned to their families. The cause of the capsizing was not immediately confirmed, though the vessel began taking on water shortly after departure. Search and rescue operations were conducted in the waters off the coast. The incident is one of the deadliest maritime accidents in the region in recent years.</span></span>
                 </div>
@@ -1237,10 +1248,10 @@
               <div class="article article-medium" id="story_18">
                 <h2 class="article-headline">Shooting at Swiss Rave Kills One, Injures Five; Police Launch Manhunt</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-3-diff">
                   <span class="summary-brief"><span>A 22-year-old woman was killed and five others in their twenties were injured in a shooting at a techno event near Zurich. Swiss police have launched a large-scale search for those responsible.</span></span>
                   <span class="summary-full"><span>A shooting at the Aarau Rave, a techno music event in northern Switzerland near Zurich, left one person dead and five others injured. The victim was a 22-year-old woman. The five injured individuals were also reported to be in their twenties. Swiss police launched a large-scale manhunt following the incident, and no arrests had been confirmed in initial reports. The motive for the shooting has not been established. The event is one of a series of violent incidents at European outdoor music festivals that have prompted renewed discussions about security measures at such gatherings.</span></span>
                 </div>
@@ -1293,6 +1304,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1310,7 +1322,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
