@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Saturday, September 5, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Saturday, September 5, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <link rel="canonical" href="https://balm.news/">
+  <link rel="canonical" href="https://balm.news/2026-09-05-am.html">
   <meta property="og:site_name" content="Balm">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation. A calm digest, published twice daily.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://balm.news/">
+  <meta property="og:title" content="Balm — Saturday, September 5, 2026 AM Edition">
+  <meta property="og:description" content="The day's news, stripped of inflammatory language and emotional framing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://balm.news/2026-09-05-am.html">
   <meta property="og:image" content="https://balm.news/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Balm — topical, anti-inflammatory news">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Balm — Topical, anti-inflammatory news">
-  <meta name="twitter:description" content="The same news, without the agitation. A calm digest, published twice daily.">
+  <meta name="twitter:title" content="Balm — Saturday, September 5, 2026 AM Edition">
+  <meta name="twitter:description" content="The day's news, stripped of inflammatory language and emotional framing.">
   <meta name="twitter:image" content="https://balm.news/og-image.png">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
   <link rel="alternate" type="application/rss+xml" title="Balm" href="/feed.xml">
@@ -174,7 +174,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -189,6 +191,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -227,13 +233,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Corrections — appended to a story after publication. Deliberately visible
@@ -363,8 +369,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1087,10 +1098,10 @@
               <div class="article article-long" id="story_15">
                 <h2 class="article-headline">Mistrial Declared in Lindsay Clancy Case After Jury Deadlocks; Retrial Decision Pending</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>A jury failed to reach a verdict after five weeks of testimony and seven days of deliberation in the trial of Lindsay Clancy, who was charged with killing her three children. A mistrial was declared, and prosecutors must now decide whether to pursue a second trial.</span></span>
                   <span class="summary-full"><span>A mistrial has been declared in the case of Lindsay Clancy, charged with the deaths of her three children, after jurors deliberated for seven days following a five-week trial and were unable to reach a unanimous verdict. The defense argued that Clancy was experiencing a severe postpartum psychiatric condition at the time of the deaths and should not be held criminally responsible. Prosecutors contested that characterization. With the hung jury, the case returns to its procedural starting point: prosecutors must decide whether to retry the case, negotiate a resolution, or decline further prosecution. Clancy's husband, Patrick Clancy, described the prospect of another trial as extraordinarily painful. The case drew widespread public attention for its intersection of maternal mental health, criminal responsibility, and the legal standards applied to psychiatric defenses. No retrial date has been announced.</span></span>
                 </div>
@@ -1133,10 +1144,10 @@
               <div class="article article-medium" id="story_16">
                 <h2 class="article-headline">Survivors Found in Nepal Flood Zone Ten Days After Disaster; More Than 1,300 Dead</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>Rescue teams pulled additional survivors from flood-affected areas of Nepal ten days after catastrophic floods struck Himalayan river valleys, including two people recovered from a buried hydropower tunnel. More than 1,300 people have died and thousands remain missing.</span></span>
                   <span class="summary-full"><span>Emergency responders in Nepal continued to find survivors more than a week after catastrophic flooding barreled through Himalayan river valleys, raising hopes for those still unaccounted for. Accounts across sources indicate that survivors were recovered both from a buried hydropower tunnel — where at least two workers were pulled alive after being trapped for nine days — and from separate operations involving a Chinese man and a Nepali woman. One of the rescued tunnel workers indicated that additional people remained trapped inside. More than 1,300 people have died in the disaster, and thousands more are missing, making it one of Nepal's deadliest flood events in recent memory. A joint rescue team including personnel from Nepal's military and a South Korean unit was involved in the operations. The flooding, which struck roughly ten days before the most recent rescues, affected steep river valleys where infrastructure damage has complicated access for emergency teams.</span></span>
                 </div>
@@ -1185,10 +1196,10 @@
               <div class="article article-medium" id="story_17">
                 <h2 class="article-headline">Fighting in Yemen Kills More Than 60, Including Civilians, as Western Coast Offensive Continues</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-3-diff">
                   <span class="summary-brief"><span>Clashes between Yemen's Saudi-backed government forces and Houthi fighters killed more than 60 people, including civilians, as the Houthi movement pushed forward with a military offensive along Yemen's western coast.</span></span>
                   <span class="summary-full"><span>Combat between Yemen's internationally recognized government forces, backed by Saudi Arabia, and the Iran-aligned Houthi movement killed at least 60 people, including civilians, as the Houthis advanced with a military offensive on Yemen's western coast. Available figures indicate 26 government troops and 31 Houthi fighters died in the clashes, with additional civilian casualties. The western coastal region has been a recurring site of conflict throughout Yemen's multi-year civil war. The Houthi movement, which controls large portions of Yemen's north including the capital Sanaa, has separately conducted attacks on commercial shipping in the Red Sea, drawing international military responses. The latest ground fighting represents an escalation in a conflict that has caused one of the world's most severe humanitarian situations, with millions of Yemenis dependent on international aid.</span></span>
                 </div>
@@ -1213,10 +1224,10 @@
               <div class="article article-medium" id="story_18">
                 <h2 class="article-headline">Leaked Documents Add to Evidence That Sudan's Military Used Chemical Weapons in Civil War</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-4-diff">
                   <span class="summary-brief"><span>A secret dossier has emerged containing documents that bolster allegations that the Sudanese military developed and deployed toxic bombs during the country's ongoing civil war.</span></span>
                   <span class="summary-full"><span>A newly disclosed set of documents described as a secret dossier adds to existing evidence that Sudan's military developed and used chemical weapons in the course of the country's devastating civil war. The documents support prior allegations that toxic bombs were deployed to gain a military advantage. Sudan has been engaged in a civil conflict since April 2023, when fighting broke out between the Sudanese Armed Forces and the paramilitary Rapid Support Forces, producing one of the world's largest displacement crises and widespread reports of atrocities. The use of chemical weapons, if confirmed, would represent a significant violation of international law and could intensify international pressure on the parties involved. The origin and chain of custody of the documents were not detailed in available sources. The conflict has received relatively limited international diplomatic attention despite its scale.</span></span>
                 </div>
@@ -1263,6 +1274,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1280,7 +1292,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
