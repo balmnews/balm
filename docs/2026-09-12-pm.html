@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Saturday, September 12, 2026 PM</title>
+  <meta name="description" content="Balm news digest for Saturday, September 12, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <link rel="canonical" href="https://balm.news/">
+  <link rel="canonical" href="https://balm.news/2026-09-12-pm.html">
   <meta property="og:site_name" content="Balm">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation. A calm digest, published twice daily.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://balm.news/">
+  <meta property="og:title" content="Balm — Saturday, September 12, 2026 PM Edition">
+  <meta property="og:description" content="The day's news, stripped of inflammatory language and emotional framing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://balm.news/2026-09-12-pm.html">
   <meta property="og:image" content="https://balm.news/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Balm — topical, anti-inflammatory news">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Balm — Topical, anti-inflammatory news">
-  <meta name="twitter:description" content="The same news, without the agitation. A calm digest, published twice daily.">
+  <meta name="twitter:title" content="Balm — Saturday, September 12, 2026 PM Edition">
+  <meta name="twitter:description" content="The day's news, stripped of inflammatory language and emotional framing.">
   <meta name="twitter:image" content="https://balm.news/og-image.png">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
   <link rel="alternate" type="application/rss+xml" title="Balm" href="/feed.xml">
@@ -174,7 +174,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -189,6 +191,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -227,13 +233,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Corrections — appended to a story after publication. Deliberately visible
@@ -363,8 +369,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1199,10 +1210,10 @@ Stocks have trended downward over the past two weeks before leveling off toward 
               <div class="article article-medium" id="story_15">
                 <h2 class="article-headline">Death Toll From Philippine Ferry Fire Rises to 76</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>At least 76 people died after a fire broke out aboard the ferry June Aster in the Philippines. At least 43 people survived. Recovery efforts were slowed by toxic fumes and residual heat from the vessel.</span></span>
                   <span class="summary-full"><span>The death toll from a fire that broke out on a Philippine passenger ferry has risen to 76, with additional victims still unaccounted for. The vessel, June Aster, was en route to a popular tourist destination when the fire began. At least 43 people are confirmed to have survived. Recovery operations have been complicated by toxic fumes and lingering heat inside the burned vessel, according to the Philippine coast guard. Investigations into the cause are ongoing.</span></span>
                 </div>
@@ -1233,10 +1244,10 @@ Stocks have trended downward over the past two weeks before leveling off toward 
               <div class="article article-medium" id="story_16">
                 <h2 class="article-headline">Miami Cargo Plane Crash Raises Safety Questions About Carrier Operating for Amazon</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>A cargo plane crash at Miami Airport has raised concerns about safety practices at 21 Air, one of the carriers that flies cargo for Amazon. Former pilots had raised concerns about the carrier's safety culture before the crash.</span></span>
                   <span class="summary-full"><span>A cargo aircraft operated by 21 Air crashed at Miami Airport, prompting scrutiny of the carrier's safety record and practices. 21 Air is among the carriers contracted to fly cargo for Amazon. Former pilots at the company had reportedly raised concerns about its safety culture before the crash occurred. Federal aviation investigators are examining the incident. The crash has renewed attention to the oversight of smaller regional cargo carriers operating under contracts for major logistics companies.</span></span>
                 </div>
@@ -1283,6 +1294,7 @@ Stocks have trended downward over the past two weeks before leveling off toward 
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1300,7 +1312,7 @@ Stocks have trended downward over the past two weeks before leveling off toward 
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
