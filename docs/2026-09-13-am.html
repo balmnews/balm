@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Sunday, September 13, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Sunday, September 13, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <link rel="canonical" href="https://balm.news/">
+  <link rel="canonical" href="https://balm.news/2026-09-13-am.html">
   <meta property="og:site_name" content="Balm">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation. A calm digest, published twice daily.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://balm.news/">
+  <meta property="og:title" content="Balm — Sunday, September 13, 2026 AM Edition">
+  <meta property="og:description" content="The day's news, stripped of inflammatory language and emotional framing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://balm.news/2026-09-13-am.html">
   <meta property="og:image" content="https://balm.news/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Balm — topical, anti-inflammatory news">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Balm — Topical, anti-inflammatory news">
-  <meta name="twitter:description" content="The same news, without the agitation. A calm digest, published twice daily.">
+  <meta name="twitter:title" content="Balm — Sunday, September 13, 2026 AM Edition">
+  <meta name="twitter:description" content="The day's news, stripped of inflammatory language and emotional framing.">
   <meta name="twitter:image" content="https://balm.news/og-image.png">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
   <link rel="alternate" type="application/rss+xml" title="Balm" href="/feed.xml">
@@ -174,7 +174,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -189,6 +191,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -227,13 +233,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Corrections — appended to a story after publication. Deliberately visible
@@ -363,8 +369,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1105,10 +1116,10 @@
               <div class="article article-long" id="story_15">
                 <h2 class="article-headline">Ferry Capsizes in Java Sea with More Than 240 Aboard; Multiple Dead, Dozens Missing</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>A ferry carrying more than 240 people capsized in the Java Sea during bad weather. Sources report between 6 and 8 confirmed deaths, with the number of missing passengers ranging from approximately 130 to 140 depending on the source. Ships and helicopters are conducting search and rescue operations.</span></span>
                   <span class="summary-full"><span>A passenger ferry capsized in Indonesia's Java Sea while carrying more than 240 people, triggering an active search and rescue operation involving ships and helicopters. The vessel, identified across multiple sources as the Virgo Transport 8, had been traveling from Surabaya to Banjarmasin when it encountered bad weather and overturned. The number of confirmed deaths and missing persons varies across sources: the BBC reported at least six dead and approximately 130 missing, while other outlets reported the missing figure at closer to 140. Indonesian authorities are conducting search operations. Indonesia's geography — an archipelago of more than 17,000 islands — makes ferry travel a primary mode of transportation for millions of people, and the country has a documented history of maritime accidents, particularly during periods of adverse weather. The exact cause of the capsizing and the final casualty figures remained uncertain as search operations continued.</span></span>
                 </div>
@@ -1157,10 +1168,10 @@
               <div class="article article-long" id="story_16">
                 <h2 class="article-headline">Florida Grand Jury Finds State Child and Adult Welfare Agency Has Failed to Protect Vulnerable Residents</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>A Florida grand jury has issued a report concluding that the state's Department of Children and Families has failed to adequately protect children and elderly adults in its care, citing multiple deaths and systemic oversight failures.</span></span>
                   <span class="summary-full"><span>A Florida grand jury has issued a report finding that the state's Department of Children and Families has been, in the jury's characterization, failing in its core responsibility to protect vulnerable residents, including children in the foster care system and elderly adults. The report cites documented cases in which people died under circumstances that the grand jury concluded reflect failures of oversight, vetting, and monitoring by the agency. Among the cases cited is a Central Florida foster family that was permitted to adopt eight children despite prior issues that the grand jury indicated should have disqualified them from foster placement. The findings raise systemic questions about how the agency screens caregivers, monitors placements, and responds to warning signs. Grand jury reports carry legal and political weight in Florida and can prompt legislative action or agency reform. The findings are relevant beyond Florida as a benchmark for evaluating child welfare systems in other states, and because federal funding flows to state child welfare agencies through programs subject to federal oversight.</span></span>
                 </div>
@@ -1207,6 +1218,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1224,7 +1236,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
