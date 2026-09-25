@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Friday, September 25, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Friday, September 25, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <link rel="canonical" href="https://balm.news/">
+  <link rel="canonical" href="https://balm.news/2026-09-25-am.html">
   <meta property="og:site_name" content="Balm">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation. A calm digest, published twice daily.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://balm.news/">
+  <meta property="og:title" content="Balm — Friday, September 25, 2026 AM Edition">
+  <meta property="og:description" content="The day's news, stripped of inflammatory language and emotional framing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://balm.news/2026-09-25-am.html">
   <meta property="og:image" content="https://balm.news/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Balm — topical, anti-inflammatory news">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Balm — Topical, anti-inflammatory news">
-  <meta name="twitter:description" content="The same news, without the agitation. A calm digest, published twice daily.">
+  <meta name="twitter:title" content="Balm — Friday, September 25, 2026 AM Edition">
+  <meta name="twitter:description" content="The day's news, stripped of inflammatory language and emotional framing.">
   <meta name="twitter:image" content="https://balm.news/og-image.png">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
   <link rel="alternate" type="application/rss+xml" title="Balm" href="/feed.xml">
@@ -174,7 +174,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -189,6 +191,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -227,13 +233,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Corrections — appended to a story after publication. Deliberately visible
@@ -363,8 +369,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1057,10 +1068,10 @@
               <div class="article article-medium" id="story_12">
                 <h2 class="article-headline">Man Wounded in 2024 Butler, Pennsylvania Assassination Attempt on Trump Has Died</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>James Copenhaver, 76, who was shot at a 2024 Trump campaign rally in Butler, Pennsylvania, has died in Pittsburgh. He was one of three attendees wounded in the shooting.</span></span>
                   <span class="summary-full"><span>James Copenhaver, 76, one of three people shot at a Trump campaign rally in Butler, Pennsylvania in 2024, has died in Pittsburgh, according to his lawyer. Copenhaver was struck twice during the attack, which also killed one other attendee and wounded a second. A bullet grazed then-candidate Donald Trump's ear in the same incident. Copenhaver had survived the initial shooting but died more than two years later. His death brings renewed attention to the lasting human toll of the attack.</span></span>
                 </div>
@@ -1091,10 +1102,10 @@
               <div class="article article-medium" id="story_13">
                 <h2 class="article-headline">Congo's Ebola Outbreak Grows as Health Worker Shortage Strains Response, WHO Says</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>The World Health Organization says Congo is experiencing a health worker shortage that is limiting its ability to staff Ebola treatment centers, as the outbreak in North Kivu province grew by 73% over three weeks in what the WHO describes as history's fastest-growing Ebola outbreak.</span></span>
                   <span class="summary-full"><span>The World Health Organization has warned that Congo faces a critical shortage of health workers to operate Ebola treatment facilities during what it describes as the fastest-growing Ebola outbreak in recorded history. Cases in the eastern province of North Kivu surged 73 percent over three weeks. Treatment centers are operating below necessary staffing levels at a time when the caseload is rising sharply. The outbreak's scale and rate of growth have raised concerns among international health organizations. The United States has historically been a significant contributor to global outbreak response funding and personnel, making the trajectory of this outbreak relevant to American public health and foreign assistance policy.</span></span>
                 </div>
@@ -1119,10 +1130,10 @@
               <div class="article article-medium" id="story_14">
                 <h2 class="article-headline">Russian Strikes Have Destroyed Millions of Books and Significant Cultural Infrastructure Across Ukraine</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-3-diff">
                   <span class="summary-brief"><span>Russian military strikes have destroyed millions of books and literary archives across Ukraine, with publishers and cultural institutions describing the targeting of cultural heritage as deliberate.</span></span>
                   <span class="summary-full"><span>Russian military strikes have destroyed millions of books and significant cultural infrastructure throughout Ukraine over the course of the ongoing war, according to reporting. Publishers, archivists, and cultural institutions describe repeated targeting of warehouses, libraries, and publishing facilities. One publisher whose warehouse was struck twice characterized the pattern as a deliberate effort to erase cultural memory, stating that Moscow appears to regard books as more threatening than military equipment. The destruction of cultural heritage during armed conflict is documented under international humanitarian law as a violation, though enforcement mechanisms remain limited. Ukraine's literary and publishing sector is among the civilian institutions most affected by the sustained aerial and missile campaign.</span></span>
                 </div>
@@ -1147,10 +1158,10 @@
               <div class="article article-medium" id="story_15">
                 <h2 class="article-headline">Netanyahu Defends Israeli Military Operations at UN General Assembly as Delegates Walk Out</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-4-diff">
                   <span class="summary-brief"><span>Israeli Prime Minister Benjamin Netanyahu addressed the UN General Assembly, defending Israeli military actions as numerous delegates left the hall. He criticized those who walked out as 'moral cowards' and delivered a defiant response to international pressure.</span></span>
                   <span class="summary-full"><span>Israeli Prime Minister Benjamin Netanyahu addressed the United Nations General Assembly, defending Israeli military operations and rejecting international criticism. A significant number of delegates left the hall before or during his speech. Netanyahu described those who walked out as 'moral cowards' and challenged the legitimacy of their objections. He also responded directly to criticism from Zohran Mamdani, the newly elected mayor of New York City, who has been a prominent critic of Israeli military conduct. Palestinian Authority representatives and Yemen's delegation also addressed the General Assembly during the same session, with the ongoing conflict in the Middle East dominating the week's proceedings. Netanyahu returned to Israel following the speech. The diplomatic dynamics at the UN reflect deep international divisions over Israeli military operations and the humanitarian situation in Gaza.</span></span>
                 </div>
@@ -1203,6 +1214,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1220,7 +1232,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
