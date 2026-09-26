@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Friday, September 25, 2026 PM</title>
+  <meta name="description" content="Balm news digest for Friday, September 25, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <link rel="canonical" href="https://balm.news/">
+  <link rel="canonical" href="https://balm.news/2026-09-25-pm.html">
   <meta property="og:site_name" content="Balm">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation. A calm digest, published twice daily.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://balm.news/">
+  <meta property="og:title" content="Balm — Friday, September 25, 2026 PM Edition">
+  <meta property="og:description" content="The day's news, stripped of inflammatory language and emotional framing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://balm.news/2026-09-25-pm.html">
   <meta property="og:image" content="https://balm.news/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Balm — topical, anti-inflammatory news">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Balm — Topical, anti-inflammatory news">
-  <meta name="twitter:description" content="The same news, without the agitation. A calm digest, published twice daily.">
+  <meta name="twitter:title" content="Balm — Friday, September 25, 2026 PM Edition">
+  <meta name="twitter:description" content="The day's news, stripped of inflammatory language and emotional framing.">
   <meta name="twitter:image" content="https://balm.news/og-image.png">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
   <link rel="alternate" type="application/rss+xml" title="Balm" href="/feed.xml">
@@ -174,7 +174,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -189,6 +191,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -227,13 +233,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Corrections — appended to a story after publication. Deliberately visible
@@ -363,8 +369,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1195,10 +1206,10 @@
               <div class="article article-medium" id="story_15">
                 <h2 class="article-headline">Current and Former FBI Agents Describe Impact of Data Breach on Personnel Safety</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>Current and former FBI agents have described the breach of sensitive FBI personnel data as 'dangerous,' expressing concern that exposed information could be used to target agents or compromise ongoing investigations.</span></span>
                   <span class="summary-full"><span>Current and former FBI agents have spoken publicly about the consequences of a significant data breach affecting the bureau, describing the incident as dangerous and expressing fear and frustration about its potential impact. Agents indicated that the compromised data could expose personnel to physical risk and potentially undermine active investigations. The breach is reported to have affected sensitive internal information about FBI employees. The full scope of what was accessed, who was responsible, and what steps have been taken to mitigate harm were not fully detailed in available reporting. The incident has drawn attention to the vulnerability of law enforcement data systems and the personal risks faced by agents whose identities or operational details may have been exposed.</span></span>
                 </div>
@@ -1245,6 +1256,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1262,7 +1274,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
