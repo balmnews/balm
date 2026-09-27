@@ -442,15 +442,19 @@ The script is idempotent and gated on markers of pre-current pages (`mobile-arch
 
 ## Market Trend Line
 
-`calculate_market_trend(docs_dir, anthropic_key)` scans all `????-??-??-??.json` metadata files, extracts `sp500_close` values, takes the most recent 10 (sorted newest first), and reverses to oldest-first order for the prompt.
+`calculate_market_trend(docs_dir, anthropic_key)` scans all `????-??-??-??.json` metadata files, extracts `sp500_close` values, keeps the latest value per date for the most recent 7 dates, and sends them oldest-first with their dates and the span in days.
 
 - If fewer than 3 non-null values exist, returns `""` and no line is rendered.
 - Computes a directional fallback by comparing the most recent close to the average of the oldest half.
-- Calls Claude with `MARKET_TREND_PROMPT` (max 60 tokens) requesting a single calm sentence with no numbers. Falls back to the directional string if the Claude call fails.
+- Calls Claude with `MARKET_TREND_PROMPT` (max 100 tokens) requesting a single calm sentence with no numbers. The response is published only if `_validate_market_trend()` passes it; otherwise one retry, then the directional fallback.
 
 The result is passed as `market_trend` to `render_digest()` and `render_index()`. Templates insert it as `<p class="market-trend">` immediately after the ECONOMY section header, before the first Economy story. Non-blocking — failure returns `""` and the line is silently omitted.
 
 The rationale: daily stock numbers cause anxiety; a plain-language weekly direction informs without triggering.
+
+**Model output is never published unchecked (resolved 2026-09-26).** On 2026-09-12 PM and 2026-09-26 PM the model wrote a sentence, noticed it broke the vague-time rule, and "corrected itself" *in its output* ("Wait, I need to check the rules… Let me redo."). It then hit the token cap mid-sentence, and all of it went live. `_validate_market_trend()` now rejects anything not ending in `end_turn`, not exactly one sentence ending in a period, containing digits, over 25 words, or matching reasoning or vague-time markers. One retry, then the deterministic fallback. Do not remove this gate, and do not trust prompt wording alone to prevent this.
+
+**One value per date.** AM and PM runs both record `sp500_close`, and weekend runs repeat Friday's close. Ten raw readings are therefore about five days, and the model, given no dates, called that "two weeks". The function now keeps the latest value per date, uses the last 7 dates, and tells the model the exact span in days. The fallback wording follows the same span.
 
 The sentence must name a **concrete period on the order of 5–10 days** — "over the past week", "in the last few days", "over the past several days". `MARKET_TREND_PROMPT` explicitly bans vague alternatives ("recently", "lately", "in recent sessions", "of late"), and the directional fallback strings obey the same rule. Do not reintroduce open-ended phrasing.
 

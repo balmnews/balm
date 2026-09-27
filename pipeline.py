@@ -262,9 +262,9 @@ Adjust the order (except DIFFICULT NEWS must be last) to reflect today's editori
 
 MARKET_TREND_PROMPT = """You are writing one calm, factual sentence about recent stock market performance for Balm, a neutral news digest.
 
-You will receive recent S&P 500 closing values in chronological order (oldest first).
+You will receive recent S&P 500 values, one per date, in chronological order (oldest first), along with the exact number of days they span.
 
-Write exactly one sentence characterizing the trend over this period.
+Write exactly one sentence characterizing the trend over this period. The time period you name must match the span you are given — do not describe a longer period than the data covers.
 
 RULES:
 - No specific numbers or percentages
@@ -272,7 +272,8 @@ RULES:
 - Calm directional language only: "trended upward", "declined modestly", "remained relatively flat", "been mixed with no clear direction", "recovered after earlier losses"
 - If the trend is genuinely ambiguous or volatile, say so calmly: "Markets have been volatile with no clear trend over the past week"
 - Write in past tense, and name a CONCRETE time period on the order of 5 to 10 days — for example "over the past week", "in the last few days", "over the past several days", "for the past week and a half"
-- Never use vague time references. Do not write "recently", "lately", "in recent sessions", "of late", or any phrase that leaves the period unspecified
+- Never use vague time references. Do not write "recently", "lately", "in recent sessions", "in recent days", "of late", or any phrase that leaves the period unspecified
+- Your entire response is published verbatim. Do not think aloud, revise, or comment on these rules in your response — decide first, then output only the final sentence
 - The sentence will appear below the Economy section heading in a news digest
 - Maximum 20 words
 
@@ -1164,60 +1165,120 @@ def fetch_sp500() -> float | None:
         return None
 
 
+MARKET_TREND_MAX_DATES = 7   # distinct dates → roughly one to one-and-a-half weeks
+MARKET_TREND_MAX_WORDS = 25  # prompt asks for 20; small margin before rejecting
+
+# Phrases that mean the model leaked reasoning, broke a rule, or went vague.
+# Matched case-insensitively against the whole response.
+_MARKET_TREND_REJECT = re.compile(
+    r"\b(wait|let me|redo|rules?|i need|i should|i'll|actually|sentence|"
+    r"recently|lately|of late|in recent (days|sessions|weeks))\b",
+    re.IGNORECASE,
+)
+
+
+def _validate_market_trend(text: str, stop_reason: str | None) -> str | None:
+    """Return the cleaned sentence if it is safe to publish verbatim, else None.
+
+    The market line goes straight into reader-facing HTML, so any doubt means
+    rejection — the caller has a deterministic fallback.
+    """
+    if stop_reason != "end_turn":
+        return None                       # truncated mid-output
+    s = text.strip().strip('"').strip("'").strip()
+    if not s or "\n" in s:
+        return None                       # empty, or multiple paragraphs
+    if not s.endswith("."):
+        return None
+    if re.search(r"[.!?]\s", s):
+        return None                       # more than one sentence
+    if re.search(r"\d", s):
+        return None                       # numbers are banned
+    if len(s.split()) > MARKET_TREND_MAX_WORDS:
+        return None
+    if _MARKET_TREND_REJECT.search(s):
+        return None
+    return s
+
+
 def calculate_market_trend(docs_dir: Path, anthropic_key: str) -> str:
     """Return a one-sentence S&P 500 trend description for the Economy section.
 
-    Reads sp500_close values from the last 10 metadata JSONs, calls Claude
-    with MARKET_TREND_PROMPT, and returns the sentence. Falls back to a
-    simple directional string if fewer than 3 values exist or Claude fails.
+    Reads sp500_close from metadata JSONs, keeps one value per date (the
+    latest edition's), and uses the most recent MARKET_TREND_MAX_DATES dates.
+    AM and PM runs on the same day, and weekend runs repeating Friday's close,
+    would otherwise make a few days of data look like two weeks.
+
+    Claude's sentence is published only if it passes _validate_market_trend;
+    otherwise one retry, then a deterministic directional fallback.
     Non-blocking — returns "" on any unexpected error.
     """
     try:
-        entries: list[tuple[str, float]] = []
+        by_date: dict[str, float] = {}
         for f in sorted(docs_dir.glob("????-??-??-??.json"), reverse=True):
             try:
                 meta = json.loads(f.read_text())
                 close = meta.get("sp500_close")
                 date = meta.get("date", f.stem[:10])
-                if close is not None:
-                    entries.append((date, float(close)))
+                # Newest-first scan: the first value seen for a date is the latest
+                if close is not None and date not in by_date:
+                    by_date[date] = float(close)
             except Exception:
                 continue
-            if len(entries) >= 10:
+            if len(by_date) >= MARKET_TREND_MAX_DATES:
                 break
 
+        # Chronological order (oldest first) for the prompt
+        entries = sorted(by_date.items())
         if len(entries) < 3:
             return ""
+        prices = [v for _, v in entries]
 
-        # Chronological order (oldest first) for the prompt
-        prices = [v for _, v in reversed(entries)]
+        first = datetime.strptime(entries[0][0], "%Y-%m-%d")
+        last = datetime.strptime(entries[-1][0], "%Y-%m-%d")
+        span_days = (last - first).days + 1
 
-        # Simple directional fallback: most recent vs. average of older half
+        # Deterministic fallback: most recent vs. average of older half.
+        # Period wording follows the actual span.
+        period = "over the past week" if span_days >= 6 else "over the past several days"
         midpoint = len(prices) // 2
         avg_older = sum(prices[:midpoint]) / midpoint
         recent = prices[-1]
         if recent > avg_older * 1.005:
-            fallback = "Markets have trended modestly higher over the past week."
+            fallback = f"Markets have trended modestly higher {period}."
         elif recent < avg_older * 0.995:
-            fallback = "Stocks have declined gradually over the past several days."
+            fallback = f"Stocks have declined gradually {period}."
         else:
-            fallback = "Markets have been relatively flat with no clear direction this week."
+            fallback = f"Markets have been relatively flat with no clear direction {period}."
+
+        data_str = "\n".join(f"{d}: {v}" for d, v in entries)
+        user_msg = (
+            f"These S&P 500 values span {span_days} calendar days "
+            f"({entries[0][0]} to {entries[-1][0]}), oldest first:\n{data_str}"
+        )
 
         try:
             client = Anthropic(api_key=anthropic_key)
-            prices_str = ", ".join(str(p) for p in prices)
-            msg = client.messages.create(
-                model=CLAUDE_MODEL,
-                max_tokens=60,
-                system=MARKET_TREND_PROMPT,
-                messages=[{"role": "user", "content": f"S&P 500 closing prices, oldest first: {prices_str}"}],
-            )
-            sentence = msg.content[0].text.strip().strip('"').strip("'")
-            if sentence:
-                return sentence
+            for attempt in (1, 2):
+                msg = client.messages.create(
+                    model=CLAUDE_MODEL,
+                    max_tokens=100,
+                    system=MARKET_TREND_PROMPT,
+                    messages=[{"role": "user", "content": user_msg}],
+                )
+                raw = "".join(b.text for b in msg.content if getattr(b, "type", "") == "text")
+                sentence = _validate_market_trend(raw, msg.stop_reason)
+                if sentence:
+                    return sentence
+                print(
+                    f"  [WARN] Market trend attempt {attempt} rejected "
+                    f"(stop_reason={msg.stop_reason}): {raw!r}",
+                    file=sys.stderr,
+                )
         except Exception as e:
             print(f"  [WARN] Market trend Claude call failed: {e}", file=sys.stderr)
 
+        print("  Market trend: using deterministic fallback", file=sys.stderr)
         return fallback
 
     except Exception as e:
