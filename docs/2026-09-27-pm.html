@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Sunday, September 27, 2026 PM</title>
+  <meta name="description" content="Balm news digest for Sunday, September 27, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <link rel="canonical" href="https://balm.news/">
+  <link rel="canonical" href="https://balm.news/2026-09-27-pm.html">
   <meta property="og:site_name" content="Balm">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation. A calm digest, published twice daily.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://balm.news/">
+  <meta property="og:title" content="Balm — Sunday, September 27, 2026 PM Edition">
+  <meta property="og:description" content="The day's news, stripped of inflammatory language and emotional framing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://balm.news/2026-09-27-pm.html">
   <meta property="og:image" content="https://balm.news/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Balm — topical, anti-inflammatory news">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Balm — Topical, anti-inflammatory news">
-  <meta name="twitter:description" content="The same news, without the agitation. A calm digest, published twice daily.">
+  <meta name="twitter:title" content="Balm — Sunday, September 27, 2026 PM Edition">
+  <meta name="twitter:description" content="The day's news, stripped of inflammatory language and emotional framing.">
   <meta name="twitter:image" content="https://balm.news/og-image.png">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
   <link rel="alternate" type="application/rss+xml" title="Balm" href="/feed.xml">
@@ -174,7 +174,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -189,6 +191,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -227,13 +233,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Corrections — appended to a story after publication. Deliberately visible
@@ -363,8 +369,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1029,10 +1040,10 @@
               <div class="article article-medium" id="story_13">
                 <h2 class="article-headline">Building Explosion Near Athens Acropolis Kills Six, Including Four American Tourists</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>A suspected gas leak caused an explosion that destroyed a residential building in Athens' Plaka district, killing four American tourists and two local residents.</span></span>
                   <span class="summary-full"><span>An explosion believed to have been caused by a gas leak destroyed a residential building in Athens' Plaka district, located near the Acropolis, killing six people. Four of the victims were American tourists; two were residents of the building. The explosion caused the structure to collapse, and emergency crews responded to the scene. Greek authorities were investigating the cause. The Plaka district is a densely populated historic neighborhood and a major tourist destination. The incident has prompted consular attention given the number of American casualties.</span></span>
                 </div>
@@ -1057,10 +1068,10 @@
               <div class="article article-medium" id="story_14">
                 <h2 class="article-headline">Mass Shootings in South Africa Kill at Least 27 in Single Weekend</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>Two separate mass shootings near Johannesburg and Cape Town on Saturday night killed at least 27 people, part of a broader pattern of gang-related armed violence across South Africa.</span></span>
                   <span class="summary-full"><span>Two mass shootings occurred within hours of each other near South Africa's two largest cities on Saturday night, killing at least 27 people. The attacks took place as the country continues to experience high levels of gang-related armed violence. Accounts differ across sources on the precise total: one source reported 27 dead from the two Saturday attacks, while another placed the week's overall toll at 38, suggesting additional incidents occurred earlier in the week. South Africa has long struggled with organized criminal violence, particularly in areas surrounding Johannesburg and Cape Town. Authorities were investigating the incidents, which drew national attention to the country's persistent gun violence problem.</span></span>
                 </div>
@@ -1091,10 +1102,10 @@
               <div class="article article-medium" id="story_15">
                 <h2 class="article-headline">Tenth Woman's Body Found Near Johannesburg Amid Ongoing Serial Killing Investigation</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-3-diff">
                   <span class="summary-brief"><span>South African police found the body of a tenth woman near Johannesburg, adding to a series of killings under investigation that began after three bodies were discovered in a small area in July and August.</span></span>
                   <span class="summary-full"><span>South African police announced the discovery of a tenth woman's body near Johannesburg, continuing an investigation into a series of killings that began earlier this year. Police opened the investigation after three women's bodies were found within approximately 4.3 miles of one another in July and August. The pattern of deaths has raised concerns about targeted violence against women in the region. Investigators have not publicly identified a suspect or confirmed whether all ten deaths are connected. The case has drawn attention to broader concerns about femicide in South Africa, which has among the highest recorded rates of violence against women globally.</span></span>
                 </div>
@@ -1141,6 +1152,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1158,7 +1170,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
