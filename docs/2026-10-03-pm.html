@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Saturday, October 3, 2026 PM</title>
+  <meta name="description" content="Balm news digest for Saturday, October 3, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <link rel="canonical" href="https://balm.news/">
+  <link rel="canonical" href="https://balm.news/2026-10-03-pm.html">
   <meta property="og:site_name" content="Balm">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation. A calm digest, published twice daily.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://balm.news/">
+  <meta property="og:title" content="Balm — Saturday, October 3, 2026 PM Edition">
+  <meta property="og:description" content="The day's news, stripped of inflammatory language and emotional framing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://balm.news/2026-10-03-pm.html">
   <meta property="og:image" content="https://balm.news/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Balm — topical, anti-inflammatory news">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Balm — Topical, anti-inflammatory news">
-  <meta name="twitter:description" content="The same news, without the agitation. A calm digest, published twice daily.">
+  <meta name="twitter:title" content="Balm — Saturday, October 3, 2026 PM Edition">
+  <meta name="twitter:description" content="The day's news, stripped of inflammatory language and emotional framing.">
   <meta name="twitter:image" content="https://balm.news/og-image.png">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
   <link rel="alternate" type="application/rss+xml" title="Balm" href="/feed.xml">
@@ -174,7 +174,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -189,6 +191,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -227,13 +233,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Corrections — appended to a story after publication. Deliberately visible
@@ -363,8 +369,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1099,10 +1110,10 @@
               <div class="article article-long" id="story_15">
                 <h2 class="article-headline">FlyDubai Co-Pilot Accused of Axe Attack on Captain During Tel Aviv-Bound Flight</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>A co-pilot on a FlyDubai flight bound for Tel Aviv allegedly attacked the captain with an axe, causing the aircraft to lose altitude. Passengers intervened and the wounded captain managed to land the plane. The co-pilot has been identified as a 29-year-old Omani national who had previously been grounded by another airline.</span></span>
                   <span class="summary-full"><span>A co-pilot on FlyDubai flight 1073, bound for Tel Aviv, is accused of attacking the captain with an axe during the flight, causing the aircraft to plunge in altitude before an emergency landing. UAE officials confirmed the nature of the weapon used. The captain, Smit Machchhar, who was badly wounded, managed to unlock the cockpit door and land the aircraft. Passengers intervened to restrain the attacker. A number of passengers assisted in subduing the co-pilot and averting further disaster. The accused co-pilot has been identified by multiple outlets as Hamam al-Hammami, a 29-year-old Omani national. Reporting indicates he had previously been grounded by Oman Air in 2024 amid concerns about his internet activity, and was subsequently hired by FlyDubai — reportedly without a background check that would have surfaced that history. It remains unclear what screening processes FlyDubai conducted. The incident has raised significant questions about aviation security protocols, inter-airline information sharing on personnel, and background check standards for flight crew in the region.</span></span>
                 </div>
@@ -1169,10 +1180,10 @@
               <div class="article article-medium" id="story_16">
                 <h2 class="article-headline">Two Iranian Nationals Charged in UK Court Over Alleged Synagogue Attack Plot</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>Two Iranian nationals appeared in a London court charged with plotting acts of terrorism, with prosecutors alleging they scouted a synagogue in Heaton Park for a potential chlorine bomb attack.</span></span>
                   <span class="summary-full"><span>Two Iranian nationals have appeared in a London court charged with plotting acts of terrorism. Prosecutors allege the men scouted the Heaton Park synagogue as a potential target for a chlorine bomb attack. The Heaton Park synagogue was previously the site of an attack on Yom Kippur, October 2, 2025, when a separate individual drove a car into the gates and carried out a knife attack. The new charges relate to an alleged separate, planned attack involving a chemical weapon. Both defendants appeared in court on Saturday. The case reflects ongoing concern among UK security services about organized threats targeting Jewish communities and places of worship.</span></span>
                 </div>
@@ -1203,10 +1214,10 @@
               <div class="article article-medium" id="story_17">
                 <h2 class="article-headline">Widespread Student Unrest Continues Across France with Arrests and School Closures</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-3-diff">
                   <span class="summary-brief"><span>Riot police clashed with teenagers across France as roughly 400 high schools closed and approximately 2,000 people were arrested amid sustained student unrest. The French government attributed some of the escalation to far-left political organizing.</span></span>
                   <span class="summary-full"><span>Unrest involving teenagers spread across multiple cities in France, leading to the closure of approximately 400 high schools and the arrest of around 2,000 people. Riot police were deployed at locations across the country as disturbances continued. The French government stated it believes far-left political groups played a role in escalating the protests. Student demonstrations in France have a long history and can quickly escalate into broader social unrest. The incidents have prompted debate about the underlying causes of youth discontent, the role of political organizations in shaping student protests, and law enforcement's response to juvenile participants. The government has not specified which groups it holds responsible beyond a general reference to the hard left.</span></span>
                 </div>
@@ -1253,6 +1264,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1270,7 +1282,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
