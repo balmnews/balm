@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Saturday, October 3, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Saturday, October 3, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <link rel="canonical" href="https://balm.news/">
+  <link rel="canonical" href="https://balm.news/2026-10-03-am.html">
   <meta property="og:site_name" content="Balm">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation. A calm digest, published twice daily.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://balm.news/">
+  <meta property="og:title" content="Balm — Saturday, October 3, 2026 AM Edition">
+  <meta property="og:description" content="The day's news, stripped of inflammatory language and emotional framing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://balm.news/2026-10-03-am.html">
   <meta property="og:image" content="https://balm.news/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Balm — topical, anti-inflammatory news">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Balm — Topical, anti-inflammatory news">
-  <meta name="twitter:description" content="The same news, without the agitation. A calm digest, published twice daily.">
+  <meta name="twitter:title" content="Balm — Saturday, October 3, 2026 AM Edition">
+  <meta name="twitter:description" content="The day's news, stripped of inflammatory language and emotional framing.">
   <meta name="twitter:image" content="https://balm.news/og-image.png">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
   <link rel="alternate" type="application/rss+xml" title="Balm" href="/feed.xml">
@@ -174,7 +174,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -189,6 +191,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -227,13 +233,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Corrections — appended to a story after publication. Deliberately visible
@@ -363,8 +369,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1093,10 +1104,10 @@
               <div class="article article-long" id="story_15">
                 <h2 class="article-headline">FlyDubai Co-Pilot Attacked Captain with Axe on Tel Aviv-Bound Flight; Passengers Subdued Attacker</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>A FlyDubai co-pilot attacked the aircraft's captain with an axe during a flight bound for Tel Aviv, causing the plane to plunge before the wounded captain managed to unlock the cockpit door and four passengers subdued the attacker.</span></span>
                   <span class="summary-full"><span>A co-pilot on a FlyDubai flight bound for Tel Aviv attacked the aircraft's captain with an axe in the cockpit, according to UAE officials and multiple accounts. The captain, who was badly wounded, managed to unlock the cockpit door before losing consciousness, allowing passengers to intervene. Four passengers subdued the attacker, preventing the aircraft from going down. The captain later described fighting for his life as the plane lost altitude. Reports across multiple outlets identify the co-pilot as a 29-year-old Omani national who had previously been grounded by another airline in 2024. It remains unclear what background checks were conducted before he was hired by FlyDubai. UAE officials confirmed the use of an axe in the attack. The incident is under active investigation. It has drawn scrutiny to aviation security screening processes and the procedures used to vet flight crew, particularly on routes involving sensitive destinations.</span></span>
                 </div>
@@ -1145,10 +1156,10 @@
               <div class="article article-medium" id="story_16">
                 <h2 class="article-headline">Car Strikes Crowd of Rugby Fans North of Sydney, Injuring 10</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>A car drove into a crowd of spectators gathered along a road to cheer for the Newcastle Knights rugby team north of Sydney, injuring 10 people, including a 5-year-old girl and a 67-year-old man who were among the most seriously hurt.</span></span>
                   <span class="summary-full"><span>Australian officials confirmed that a vehicle drove into a crowd gathered on a roadside to support the Newcastle Knights rugby team in an area north of Sydney, injuring 10 people. Two of the injured — a 5-year-old girl and a 67-year-old man — were reported to have suffered more significant injuries than others in the group. Authorities are investigating the circumstances of the incident. No further details about the driver or the nature of the event have been confirmed across the available sources.</span></span>
                 </div>
@@ -1185,10 +1196,10 @@
               <div class="article article-medium" id="story_17">
                 <h2 class="article-headline">Student Unrest Spreads Across France; Roughly 2,000 Arrested and 400 Schools Closed</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-3-diff">
                   <span class="summary-brief"><span>Widespread student protests have spread across France, resulting in approximately 2,000 arrests, the closure of around 400 high schools, and clashes between riot police and demonstrators in multiple cities.</span></span>
                   <span class="summary-full"><span>Student demonstrations have spread across France, with riot police clashing with protesters in multiple locations. Authorities reported approximately 2,000 arrests and around 400 high school closures as unrest continued. Government officials alleged the involvement of outside agitators, pointing to groups on the political left as having escalated the protests beyond student grievances. The specific triggers for the demonstrations were not fully detailed across the available sources, though the protests appear to reflect broader youth discontent. The scale of the arrests and school closures indicates the disruption has been significant. French authorities have not announced any resolution to the underlying disputes driving the unrest.</span></span>
                 </div>
@@ -1219,10 +1230,10 @@
               <div class="article article-medium" id="story_18">
                 <h2 class="article-headline">Teenagers in Arizona Selling Firearms to Mexican Cartels, Investigation Finds</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-4-diff">
                   <span class="summary-brief"><span>An investigation found that high school students in Arizona are acquiring and selling firearms that end up in the hands of Mexican criminal organizations, drawn by financial incentives and social status within peer networks.</span></span>
                   <span class="summary-full"><span>An investigative report found that teenagers in Arizona, some still in high school, are participating in the acquisition and resale of firearms that flow across the border to Mexican cartels. The weapons are obtained through purchase or theft and move through informal networks before reaching criminal groups in Mexico. Participants described financial gain and social standing within peer groups as primary motivations. The activity represents a systemic pipeline for illegal arms trafficking that exploits the relative ease of firearms access in the United States compared to Mexico, where gun ownership is heavily restricted. Law enforcement and policy researchers have identified youth recruitment into arms trafficking as a growing concern along the border, with significant public safety implications on both sides.</span></span>
                 </div>
@@ -1269,6 +1280,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1286,7 +1298,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
