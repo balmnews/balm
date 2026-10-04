@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Sunday, October 4, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Sunday, October 4, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <link rel="canonical" href="https://balm.news/">
+  <link rel="canonical" href="https://balm.news/2026-10-04-am.html">
   <meta property="og:site_name" content="Balm">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation. A calm digest, published twice daily.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://balm.news/">
+  <meta property="og:title" content="Balm — Sunday, October 4, 2026 AM Edition">
+  <meta property="og:description" content="The day's news, stripped of inflammatory language and emotional framing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://balm.news/2026-10-04-am.html">
   <meta property="og:image" content="https://balm.news/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Balm — topical, anti-inflammatory news">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Balm — Topical, anti-inflammatory news">
-  <meta name="twitter:description" content="The same news, without the agitation. A calm digest, published twice daily.">
+  <meta name="twitter:title" content="Balm — Sunday, October 4, 2026 AM Edition">
+  <meta name="twitter:description" content="The day's news, stripped of inflammatory language and emotional framing.">
   <meta name="twitter:image" content="https://balm.news/og-image.png">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
   <link rel="alternate" type="application/rss+xml" title="Balm" href="/feed.xml">
@@ -174,7 +174,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -189,6 +191,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -227,13 +233,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Corrections — appended to a story after publication. Deliberately visible
@@ -363,8 +369,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1073,10 +1084,10 @@
               <div class="article article-long" id="story_15">
                 <h2 class="article-headline">U.S. Marine Arrested in Okinawa in Connection With Death of Japanese Woman</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>A 20-year-old U.S. Marine was arrested in Okinawa, Japan, on suspicion of robbery and murder. Japan's government lodged a formal protest with the United States, calling on military officials to take action.</span></span>
                   <span class="summary-full"><span>Japanese authorities arrested a U.S. Marine stationed in Okinawa on suspicion of robbing and murdering a woman, Japanese police announced Sunday. The Marine, 20 years old, is accused of committing the crime in the Okinawa prefectural capital of Naha. Japan's government formally protested to the United States, demanding that military officials respond with concrete measures. The incident occurred on the island of Okinawa, which hosts the largest concentration of U.S. military personnel in Japan and has a long history of tensions between local residents and American forces over criminal incidents involving service members. Previous high-profile cases have led to renegotiations of the Status of Forces Agreement governing how U.S. military personnel are handled under Japanese law. The arrest is likely to renew those discussions and to strain the U.S.-Japan alliance at a sensitive moment for regional security in the Pacific.</span></span>
                 </div>
@@ -1119,10 +1130,10 @@
               <div class="article article-medium" id="story_16">
                 <h2 class="article-headline">Separate Weekend Shootings Leave Two Dead in Georgia and One Dead in Baltimore</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>Two people were killed and at least 25 injured in a shooting at a homecoming event in Vienna, Georgia. Separately, a 12-year-old girl was killed and three others were wounded in a shooting in Baltimore.</span></span>
                   <span class="summary-full"><span>Two mass shooting incidents over the weekend resulted in multiple casualties in different parts of the country. In Vienna, Georgia, two people were killed and at least 25 others were wounded when gunfire broke out at an outdoor homecoming celebration early Sunday, according to authorities. In Baltimore, Maryland, a 12-year-old girl was fatally shot and three other people were wounded in a separate incident. The weekend events add to a continuing pattern of mass casualty shootings in public and community settings across the United States. The Gun Violence Archive, a nonprofit that tracks such incidents, classifies a mass shooting as any event in which four or more people are shot. Both incidents remain under active investigation.</span></span>
                 </div>
@@ -1147,10 +1158,10 @@
               <div class="article article-long" id="story_17">
                 <h2 class="article-headline">Cornell University President Responds to Alleged Gang Rape at Fraternity House, Pledges Institutional Review</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-3-diff">
                   <span class="summary-brief"><span>Cornell University's president issued a public statement calling allegations that a student was drugged and gang raped at a fraternity house 'deeply disturbing,' and said the university must do better. He pledged greater transparency and an institutional review.</span></span>
                   <span class="summary-full"><span>Cornell University President Michael Kotlikoff issued a video statement describing allegations made by a student who says she was drugged with ketamine and gang raped at an on-campus fraternity house as deeply disturbing, calling the situation a defining moment in Cornell's history and pledging that the university must do better. The university's response comes as a lawsuit related to the allegations draws national attention to campus sexual assault policies, fraternity culture, and university accountability. Legal experts have noted that universities carry independent obligations to respond to reported sexual assaults regardless of whether criminal charges are filed. The case has prompted broader public discussion about the availability and misuse of ketamine — a short-acting anesthetic with hallucinogenic effects — as a drug used to incapacitate victims. Many survivors of sexual assault have described the case as resonating with their own experiences. Kotlikoff pledged increased transparency about how Cornell handles such reports. The allegations remain under investigation.</span></span>
                 </div>
@@ -1187,10 +1198,10 @@
               <div class="article article-medium" id="story_18">
                 <h2 class="article-headline">UK Prosecutors Say Two Men Scouted Synagogue for Chlorine Bomb Attack</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-4-diff">
                   <span class="summary-brief"><span>Prosecutors in the United Kingdom alleged that two men conducted surveillance on a synagogue in Heaton Park with the intent to carry out a chlorine bomb attack. The site was the location of a vehicle and knife attack on Yom Kippur in 2025.</span></span>
                   <span class="summary-full"><span>British prosecutors alleged in court that two men surveilled a synagogue in the Heaton Park area of England as part of a plot to carry out a chlorine bomb attack on the site. The Heaton Park synagogue was previously the target of an attack on Yom Kippur — October 2, 2025 — when an individual drove a vehicle into the gates and then carried out a knife attack. Prosecutors did not specify a connection between the two incidents in the material available. The case is being treated as a terrorism matter. The alleged plot is part of a broader pattern of incidents targeting Jewish sites in the United Kingdom that authorities have been monitoring. The case carries relevance for American readers given U.S. concerns about Iran-linked plots and the broader security environment for Jewish communities internationally.</span></span>
                 </div>
@@ -1237,6 +1248,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1254,7 +1266,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
