@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balm — Topical, anti-inflammatory news</title>
-  <meta name="description" content="Balm: a daily news digest stripped of inflammatory language, clickbait, and emotional manipulation.">
+  <title>Balm — Wednesday, October 7, 2026 AM</title>
+  <meta name="description" content="Balm news digest for Wednesday, October 7, 2026 — topical, anti-inflammatory news.">
   <meta name="theme-color" content="#6b82a8">
-  <link rel="canonical" href="https://balm.news/">
+  <link rel="canonical" href="https://balm.news/2026-10-07-am.html">
   <meta property="og:site_name" content="Balm">
-  <meta property="og:title" content="Balm — Topical, anti-inflammatory news">
-  <meta property="og:description" content="The same news, without the agitation. A calm digest, published twice daily.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://balm.news/">
+  <meta property="og:title" content="Balm — Wednesday, October 7, 2026 AM Edition">
+  <meta property="og:description" content="The day's news, stripped of inflammatory language and emotional framing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://balm.news/2026-10-07-am.html">
   <meta property="og:image" content="https://balm.news/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Balm — topical, anti-inflammatory news">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Balm — Topical, anti-inflammatory news">
-  <meta name="twitter:description" content="The same news, without the agitation. A calm digest, published twice daily.">
+  <meta name="twitter:title" content="Balm — Wednesday, October 7, 2026 AM Edition">
+  <meta name="twitter:description" content="The day's news, stripped of inflammatory language and emotional framing.">
   <meta name="twitter:image" content="https://balm.news/og-image.png">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/icons/icon-32.png">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
   <link rel="alternate" type="application/rss+xml" title="Balm" href="/feed.xml">
@@ -174,7 +174,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .article:last-child { border-bottom: none; }
+    .article:last-child {
+      border-bottom: none;
+    }
 
     .article-headline {
       font-family: 'Playfair Display', serif;
@@ -189,6 +191,10 @@
       display: flex;
       gap: 0;
       margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       user-select: none;
     }
 
@@ -227,13 +233,13 @@
     .summary-text.full-visible .summary-brief { display: none; }
     .summary-text.full-visible .summary-full  { display: block; }
 
+    .summary-brief span, .summary-full span {
+      animation: fadeIn 0.25s ease;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
-    }
-
-    .summary-brief span, .summary-full span {
-      animation: fadeIn 0.25s ease;
     }
 
     /* Corrections — appended to a story after publication. Deliberately visible
@@ -363,8 +369,13 @@
 
     details[open] .difficult-subtext { display: none; }
 
-    .difficult-content { margin-top: 1.25rem; }
-    .difficult-content .article-headline { color: var(--difficult); }
+    .difficult-content {
+      margin-top: 1.25rem;
+    }
+
+    .difficult-content .article-headline {
+      color: var(--difficult);
+    }
 
     /* Archive link — below Difficult News, above footer */
     .archive-link-section {
@@ -1043,10 +1054,10 @@
               <div class="article article-medium" id="story_13">
                 <h2 class="article-headline">Minnesota Man Arrested on Charges of Plotting Attack on Mall of America, Alleged ISIS Affiliation</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-1-diff">
                   <span class="summary-brief"><span>Federal authorities have charged a Minnesota man with plotting an attack on the Mall of America. The FBI alleges he pledged allegiance to ISIS.</span></span>
                   <span class="summary-full"><span>Federal authorities have arrested a man in Minnesota on charges related to an alleged plot to attack the Mall of America, one of the largest shopping centers in the United States. The FBI alleges the individual pledged allegiance to ISIS. Charges related to material support for terrorism carry severe federal penalties. The case is part of a continuing pattern of domestic terror investigations involving alleged ISIS-inspired individuals that federal law enforcement has monitored since the rise of the organization in the mid-2010s. No attack occurred. Authorities have not released additional details about the alleged plot's planning stage or timeline.</span></span>
                 </div>
@@ -1071,10 +1082,10 @@
               <div class="article article-medium" id="story_14">
                 <h2 class="article-headline">U.S. Military Restricts Off-Base Movement in Okinawa After Marine Arrested in Connection with Woman's Death</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-2-diff">
                   <span class="summary-brief"><span>The U.S. military has placed off-base liberty restrictions on troops in Okinawa, Japan, after a Marine was arrested on suspicion of killing a woman at a hotel in Naha.</span></span>
                   <span class="summary-full"><span>The U.S. military command in Okinawa has restricted troops from leaving their bases following the arrest of a Marine in connection with the death of a woman at a hotel in Naha on Saturday. Off-base liberty restrictions are a standard command response used to signal accountability and prevent further incidents in the immediate aftermath of serious alleged crimes involving military personnel. Crimes by U.S. military personnel in Okinawa have historically been a source of significant friction between the U.S. military presence and local Japanese communities. Okinawa hosts the largest concentration of U.S. military bases in Japan, and incidents involving service members have fueled long-standing public debate in Japan about the terms of the U.S. military presence under the Status of Forces Agreement.</span></span>
                 </div>
@@ -1099,10 +1110,10 @@
               <div class="article article-long" id="story_15">
                 <h2 class="article-headline">France Suspends Stun Grenades at Student Protests After Teenager Loses Hand</h2>
                 <div class="summary-toggle">
-                  <button class="toggle-btn active" onclick="toggleSummary(this, 'brief')">Brief</button>
-                  <button class="toggle-btn" onclick="toggleSummary(this, 'full')">Full</button>
+                  <button class="toggle-btn active" data-mode="brief" onclick="toggleSummary(this, 'brief')">Brief</button>
+                  <button class="toggle-btn" data-mode="full" onclick="toggleSummary(this, 'full')">Full</button>
                 </div>
-                <div class="summary-text">
+                <div class="summary-text" id="summary-3-diff">
                   <span class="summary-brief"><span>French authorities have suspended police use of stun grenades at student demonstrations after a 15-year-old lost his hand during protests over school conditions. A second student was also reported to have been blinded. France's interior minister rejected broader allegations of police brutality.</span></span>
                   <span class="summary-full"><span>French authorities have suspended the use of stun grenades by police at high school demonstrations following serious injuries to student protesters, including a 15-year-old who lost his hand and another who was reported to have been blinded. The decision was announced by the interior minister, who rejected wider accusations of police brutality while acknowledging the suspensions. The protests began over deteriorating school conditions — including building maintenance and teacher availability — and have continued for approximately two weeks. Clashes between students and police have resulted in hundreds of injuries and a significant number of arrests. The French government has pledged to review student demands and present proposals by the end of October. Separately, U.S. officials including President Trump and National Security Adviser Waltz have publicly connected the protests to immigration policy, a characterization that diverges from the stated focus of student organizers on school conditions. The injuries to minors have drawn significant public attention to the question of proportionate force in managing protests involving teenagers.</span></span>
                 </div>
@@ -1185,6 +1196,7 @@
 </div><!-- /.page-wrapper -->
 
 <script>
+  // Brief / Full toggle (per-button onclick)
   function toggleSummary(btn, mode) {
     const toggleGroup = btn.closest('.summary-toggle');
     const summaryEl = toggleGroup.nextElementSibling;
@@ -1202,7 +1214,7 @@
   });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
   }
 </script>
 </body>
