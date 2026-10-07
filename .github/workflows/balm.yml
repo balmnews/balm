@@ -90,14 +90,14 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/
+          git add docs/ reviews/
           git diff --cached --quiet && echo "No changes to commit" && exit 0
           git commit -m "${{ steps.commitdate.outputs.msg }}"
           # Rebase-and-retry before pushing. The runner checked out main minutes
           # ago; anything pushed since (a human commit, an overlapping run)
           # makes a plain `git push` a non-fast-forward and the edition is lost
           # even though the pipeline succeeded. Generated files touch only
-          # docs/, so replaying this commit on top is safe.
+          # docs/ and reviews/, so replaying this commit on top is safe.
           BRANCH="${{ github.ref_name }}"
           for attempt in 1 2 3; do
             if git push origin "HEAD:$BRANCH"; then

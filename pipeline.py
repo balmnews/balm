@@ -9,6 +9,7 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlsplit, urlunsplit
 
 import feedparser
 import requests
@@ -23,6 +24,9 @@ from jinja2 import Environment, FileSystemLoader
 
 DOCS_DIR = Path(__file__).parent / "docs"
 TEMPLATES_DIR = Path(__file__).parent / "templates"
+# Edition review logs. Deliberately outside docs/ so the site never serves
+# them (the repo is public, so they are still readable on GitHub).
+REVIEWS_DIR = Path(__file__).parent / "reviews"
 BASE_URL = "https://balm.news"
 
 CLAUDE_MODEL = "claude-sonnet-4-6"
@@ -209,8 +213,8 @@ Return ONLY valid JSON — an array of booleans, one per cluster, in the same or
 
 
 TOP_STORIES_PROMPT = """You are the editorial director for Balm, a calm news digest. Your task is to
-identify 2-4 stories from today's digest that are the most broadly significant — stories that a
-well-informed adult would most want to know about first.
+identify the most broadly significant stories from today's digest — stories that a well-informed
+adult would most want to know about first. The user message states how many to select.
 
 Selection criteria:
 - Broad significance: affects many people or has major implications
@@ -226,7 +230,8 @@ Return ONLY valid JSON:
   ]
 }
 
-story_id must exactly match a story_id from the input list. Select 2-4 stories."""
+story_id must exactly match a story_id from the input list. Never select more than the maximum
+stated in the user message."""
 
 
 PM_DEDUP_PROMPT = """You are an editorial assistant for Balm, a twice-daily news digest. The AM edition
@@ -1058,7 +1063,7 @@ def build_cluster_prompt(clusters: list[list[dict]],
             lines.append(f"  Title: {a['title']}")
             lines.append(f"  URL: {a['url']}")
             if a.get("description"):
-                lines.append(f"  Description: {a['description'][:300]}")
+                lines.append(f"  Description: {a['description']}")
         else:
             lines.append(f"[CLUSTER {ci}] — {len(cluster)} sources covering the same story{difficult_tag}")
             for si, a in enumerate(cluster, 1):
@@ -1066,7 +1071,7 @@ def build_cluster_prompt(clusters: list[list[dict]],
                 lines.append(f"    Title: {a['title']}")
                 lines.append(f"    URL: {a['url']}")
                 if a.get("description"):
-                    lines.append(f"    Description: {a['description'][:300]}")
+                    lines.append(f"    Description: {a['description']}")
         lines.append("")
     return "\n".join(lines)
 
@@ -1084,6 +1089,13 @@ def call_claude(clusters: list[list[dict]], anthropic_key: str,
                 system=EDITORIAL_SYSTEM_PROMPT,
                 messages=[{"role": "user", "content": user_prompt}],
             )
+            usage = response.usage
+            print(f"  Synthesis tokens: {usage.input_tokens} in, {usage.output_tokens} out "
+                  f"(max {CLAUDE_MAX_TOKENS})")
+            if response.stop_reason == "max_tokens":
+                print(f"  [WARN] Synthesis output was TRUNCATED at max_tokens "
+                      f"({CLAUDE_MAX_TOKENS}) for {len(clusters)} clusters — "
+                      f"the JSON is likely incomplete", file=sys.stderr)
             raw = response.content[0].text.strip()
             # Strip markdown code fences if present
             raw = re.sub(r"^```(?:json)?\s*", "", raw)
@@ -1105,24 +1117,60 @@ def call_claude(clusters: list[list[dict]], anthropic_key: str,
     return []
 
 
+def outlet_family(source_name: str) -> str:
+    """Collapse sibling feeds of one outlet into a single family name.
+
+    Fox News / Fox News World / Fox News Politics are one outlet, as are the
+    BBC feeds and The Guardian API + Guardian Environment RSS. Counting them
+    separately would let one newsroom look like independent corroboration.
+    """
+    name = (source_name or "").strip()
+    lower = name.lower()
+    if lower.startswith("fox news"):
+        return "Fox News"
+    if lower.startswith("bbc"):
+        return "BBC"
+    if lower in ("the guardian", "guardian environment"):
+        return "The Guardian"
+    return name
+
+
+def _url_key(url: str) -> str:
+    """URL without query string or fragment, so tracking parameters don't hide a repeat."""
+    parts = urlsplit((url or "").strip())
+    return urlunsplit((parts.scheme, parts.netloc, parts.path, "", ""))
+
+
 def attach_sources(articles: list[dict], clusters: list[list[dict]]) -> None:
     """Attach source attribution to each Claude-processed article using cluster_id.
 
-    Modifies articles in place. Each article gains a 'sources' field:
-      [{"source": "Outlet Name", "url": "...", "original_headline": "..."}]
+    Modifies articles in place. Each article gains:
+      sources             [{"source": "Outlet Name", "url": "...", "original_headline": "..."}],
+                          with repeated URLs (ignoring query strings) dropped, first kept
+      outlet_count        distinct outlet families among those sources
+      has_official_source True if any source is an official primary-source feed
     """
     cluster_map = {i + 1: cluster for i, cluster in enumerate(clusters)}
     for article in articles:
         cid = article.get("cluster_id")
         cluster = cluster_map.get(cid, [])
-        article["sources"] = [
-            {
+        seen_urls: set[str] = set()
+        sources = []
+        for a in cluster:
+            key = _url_key(a["url"])
+            if key in seen_urls:
+                continue
+            seen_urls.add(key)
+            sources.append({
                 "source": a["source"],
                 "url": a["url"],
                 "original_headline": a["title"],
-            }
-            for a in cluster
-        ]
+            })
+        article["sources"] = sources
+        article["outlet_count"] = len({outlet_family(s["source"]) for s in sources})
+        article["has_official_source"] = any(
+            s["source"] in _OFFICIAL_RSS_SOURCES for s in sources
+        )
         # Convenience field for audio/RSS (primary source)
         if article["sources"]:
             article["primary_source"] = article["sources"][0]["source"]
@@ -2002,6 +2050,9 @@ def classify_difficult_news(clusters: list[list[dict]], anthropic_key: str) -> l
     for ci, cluster in enumerate(clusters, 1):
         titles = " | ".join(a["title"][:80] for a in cluster[:3])
         lines.append(f"[{ci}] {titles}")
+        desc = (cluster[0].get("description") or "").strip() if cluster else ""
+        if desc:
+            lines.append(f"    {desc[:200]}")
 
     client = Anthropic(api_key=anthropic_key)
     try:
@@ -2029,8 +2080,30 @@ def classify_difficult_news(clusters: list[list[dict]], anthropic_key: str) -> l
         return [False] * len(clusters)
 
 
+def top_story_cap(visible_count: int) -> int:
+    """Maximum Top Stories for an edition with this many non-Difficult stories.
+
+    Below a cap of 2 the panel is hidden: in a small edition it would only
+    repeat most of the page.
+    """
+    return min(4, max(0, visible_count) // 4)
+
+
+def is_top_story_eligible(article: dict) -> bool:
+    """A Top Story must not be Difficult News and must be corroborated:
+    two or more distinct outlets, or an official primary source."""
+    if article.get("isDifficult"):
+        return False
+    return article.get("outlet_count", 0) >= 2 or bool(article.get("has_official_source"))
+
+
 def select_top_stories(articles: list[dict], anthropic_key: str) -> list[dict]:
-    """Ask Claude to select 2-4 broadly significant stories as top stories.
+    """Ask Claude to select the edition's broadly significant top stories.
+
+    How many is decided in code, not by the prompt: top_story_cap() of the
+    visible (non-Difficult) story count, and only is_top_story_eligible()
+    stories are offered. Returns [] (panel hidden) when the cap or the
+    eligible pool is below 2, or when Claude returns fewer than 2 valid picks.
 
     Each top story includes a story_id (matching an article's story_id field)
     and a one-sentence reason. Non-blocking: returns empty list on failure.
@@ -2038,14 +2111,25 @@ def select_top_stories(articles: list[dict], anthropic_key: str) -> list[dict]:
     if not articles:
         return []
 
-    lines = [f"Select 2-4 top stories from this digest of {len(articles)} articles:\n"]
-    for a in articles:
-        if a.get("isDifficult"):
-            continue  # Difficult news is never a top story
+    visible_count = sum(1 for a in articles if not a.get("isDifficult"))
+    cap = top_story_cap(visible_count)
+    eligible = [a for a in articles if is_top_story_eligible(a)]
+    max_n = min(cap, len(eligible))
+    if max_n < 2:
+        print(f"  Top stories: panel hidden ({visible_count} visible stories → cap {cap}, "
+              f"{len(eligible)} eligible)")
+        return []
+
+    lines = [f"Select between 2 and {max_n} top stories (never more than {max_n}) "
+             f"from these {len(eligible)} candidates:\n"]
+    for a in eligible:
         sid = a.get("story_id", "")
         cat = a.get("category", "")
         headline = a.get("headline", "")
-        lines.append(f"{sid} [{cat}] {headline}")
+        n = a.get("outlet_count", 0)
+        lines.append(f"{sid} [{cat}] {headline} ({n} outlet{'s' if n != 1 else ''})")
+        if a.get("brief_summary"):
+            lines.append(f"    {a['brief_summary']}")
 
     client = Anthropic(api_key=anthropic_key)
     try:
@@ -2060,12 +2144,21 @@ def select_top_stories(articles: list[dict], anthropic_key: str) -> list[dict]:
         raw = re.sub(r"\s*```$", "", raw).strip()
         data = json.loads(raw)
         top = data.get("top_stories", [])
-        # Validate story_ids
-        valid_ids = {a.get("story_id") for a in articles}
-        top = [t for t in top if t.get("story_id") in valid_ids]
-        top = top[:4]  # Hard cap
-        print(f"  Top stories selected: {len(top)}")
-        return top
+        # Only eligible story_ids, each once, truncated to the cap
+        valid_ids = {a.get("story_id") for a in eligible}
+        seen: set[str] = set()
+        picked = []
+        for t in top:
+            sid = t.get("story_id")
+            if sid in valid_ids and sid not in seen:
+                seen.add(sid)
+                picked.append(t)
+        picked = picked[:max_n]
+        if len(picked) < 2:
+            print(f"  Top stories: only {len(picked)} valid pick(s) — panel hidden")
+            return []
+        print(f"  Top stories selected: {len(picked)} (cap {cap}, {len(eligible)} eligible)")
+        return picked
     except Exception as e:
         print(f"  [WARN] Top stories selection failed ({e}) — skipping", file=sys.stderr)
         return []
@@ -2184,6 +2277,146 @@ def order_categories(articles: list[dict], anthropic_key: str) -> list[str]:
 
 
 # ---------------------------------------------------------------------------
+# Edition review (log only — never changes the edition)
+# ---------------------------------------------------------------------------
+
+EDITION_REVIEW_PROMPT = """You are a careful reader checking a finished edition of Balm, a calm news digest,
+against Balm's own published standards. Every other editorial step saw only a fragment of this
+edition; you are seeing the whole page as a reader would, in reading order.
+
+Balm's standards: inform without agitating. Calm, neutral, factual. No loaded or alarm language. Stories
+are never attributed to a named outlet in the text. Perpetrator details are omitted. The DIFFICULT NEWS
+section (collapsed, so readers opt in) holds mass-casualty events, violent crimes and large-scale
+tragedies themselves; policy responses to them and war coverage belong in the regular sections.
+Individual tragedies are included only when systemic relevance is the genuine primary news value.
+
+Check the edition for these problems:
+1. difficult_news_consistency — a distressing story left open while a comparable one is collapsed, or a
+   policy-response story collapsed.
+2. headline_framing — a headline that leads with an injury, death or violent detail when the story is
+   about something broader.
+3. category_fit — a story in a category that does not describe it.
+4. unsupported_significance — sentences claiming implications or importance that the reported facts do
+   not establish.
+5. loaded_language — loaded or alarm language remaining in any headline, brief or summary.
+6. outlet_attribution — a named outlet cited in story text.
+7. top_story_reason — a Top Story reason that restates the headline or overstates it.
+8. thin_tragedy — an individual tragedy included with only a thin policy rationale.
+9. other — anything else a reader would take for a mistake.
+
+Report only real problems you can point to in the text. An empty list is a valid and common answer;
+do not invent findings to fill it. Use the story_id shown for each story ("edition" for a problem not
+tied to one story).
+
+Return ONLY valid JSON, no markdown, no preamble:
+{"findings": [{"story_id": "story_3", "check": "headline_framing", "severity": "low|medium|high", "note": "One sentence."}]}"""
+
+EDITION_REVIEW_MAX_TOKENS = 2000
+BRIEF_MAX_WORDS = 40
+
+
+def edition_review_stats(articles: list[dict], top_stories: list[dict]) -> dict:
+    """Deterministic edition stats stored beside the review findings."""
+    visible = [a for a in articles if not a.get("isDifficult")]
+    category_counts: dict[str, int] = {}
+    for a in articles:
+        cat = a.get("category", "")
+        category_counts[cat] = category_counts.get(cat, 0) + 1
+    return {
+        "story_count": len(articles),
+        "visible_count": len(visible),
+        "difficult_count": len(articles) - len(visible),
+        "top_story_count": len(top_stories),
+        "top_story_cap": top_story_cap(len(visible)),
+        "single_outlet_count": sum(1 for a in articles if a.get("outlet_count") == 1),
+        "long_briefs": {
+            a.get("story_id", ""): n
+            for a in articles
+            if (n := len((a.get("brief_summary") or "").split())) > BRIEF_MAX_WORDS
+        },
+        "single_story_categories": sorted(c for c, n in category_counts.items() if n == 1),
+    }
+
+
+def render_edition_text(articles: list[dict], top_stories: list[dict],
+                        category_order: list[str] | None, date_str: str, run: str) -> str:
+    """Plain-text rendering of the edition in reading order, for the reviewer."""
+    by_id = {a.get("story_id"): a for a in articles}
+    lines = [f"BALM — {date_str} {run.upper()} edition", ""]
+    if top_stories:
+        lines.append("== TODAY'S TOP STORIES ==")
+        for ts in top_stories:
+            art = by_id.get(ts.get("story_id"), {})
+            lines.append(f"- {ts.get('story_id')}: {art.get('headline', '')}")
+            if ts.get("reason"):
+                lines.append(f"  Reason: {ts['reason']}")
+        lines.append("")
+    for group in _group_by_category(articles, category_order):
+        collapsed = " (COLLAPSED — reader must open it)" if group["name"] == "DIFFICULT NEWS" else ""
+        lines.append(f"== {group['name']}{collapsed} ==")
+        lines.append("")
+        for a in group["articles"]:
+            lines.append(f"[{a.get('story_id', '')}] {a.get('headline', '')}")
+            lines.append(f"Brief: {a.get('brief_summary', '')}")
+            lines.append(f"Full: {a.get('full_summary', '')}")
+            names = ", ".join(s["source"] for s in a.get("sources", []))
+            lines.append(f"Sources: {names or 'none'}")
+            lines.append("")
+    return "\n".join(lines)
+
+
+def review_edition(articles: list[dict], top_stories: list[dict],
+                   category_order: list[str] | None, date_str: str, run: str,
+                   anthropic_key: str) -> Path:
+    """Have Claude read the finished edition and log findings to reviews/.
+
+    Changes nothing in the edition. Stats are always written; if the Claude
+    call fails, findings is null and the error is recorded.
+    """
+    record = {
+        "date": date_str,
+        "run": run,
+        "model": CLAUDE_MODEL,
+        "stats": edition_review_stats(articles, top_stories),
+        "findings": None,
+    }
+    try:
+        client = Anthropic(api_key=anthropic_key)
+        response = client.messages.create(
+            model=CLAUDE_MODEL,
+            max_tokens=EDITION_REVIEW_MAX_TOKENS,
+            system=EDITION_REVIEW_PROMPT,
+            messages=[{"role": "user", "content": render_edition_text(
+                articles, top_stories, category_order, date_str, run)}],
+        )
+        raw = response.content[0].text.strip()
+        raw = re.sub(r"^```(?:json)?\s*", "", raw)
+        raw = re.sub(r"\s*```$", "", raw).strip()
+        findings = json.loads(raw).get("findings", [])
+        if not isinstance(findings, list):
+            raise ValueError("findings is not a list")
+        record["findings"] = findings
+    except Exception as e:
+        record["error"] = f"{type(e).__name__}: {e}"
+        print(f"  [WARN] Edition review call failed ({e}) — writing stats only", file=sys.stderr)
+
+    REVIEWS_DIR.mkdir(parents=True, exist_ok=True)
+    out_path = REVIEWS_DIR / f"{date_str}-{run}.json"
+    out_path.write_text(json.dumps(record, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    n = len(record["findings"]) if record["findings"] is not None else "no"
+    print(f"  Edition review: {n} finding(s) → {out_path.relative_to(REVIEWS_DIR.parent)}")
+    return out_path
+
+
+def run_edition_review(*args, **kwargs) -> None:
+    """review_edition(), but it can never fail the run."""
+    try:
+        review_edition(*args, **kwargs)
+    except Exception as e:
+        print(f"  [WARN] Edition review failed ({e}) — continuing without it", file=sys.stderr)
+
+
+# ---------------------------------------------------------------------------
 # Metadata
 # ---------------------------------------------------------------------------
 
@@ -2284,7 +2517,7 @@ def main():
         sys.exit(1)
 
     # ── Step 1: Fetch articles ────────────────────────────────────────────
-    print("\n[1/14] Fetching articles from all sources...")
+    print("\n[1/15] Fetching articles from all sources...")
     raw_articles: list[dict] = []
 
     raw_articles.extend(fetch_newsdata(newsdata_api_key))
@@ -2307,7 +2540,7 @@ def main():
     print(f"  Total raw: {len(raw_articles)}")
 
     # ── Step 2: Remove exact duplicates ──────────────────────────────────
-    print("\n[2/14] Removing exact duplicates (same title + source + URL)...")
+    print("\n[2/15] Removing exact duplicates (same title + source + URL)...")
     deduped_articles = remove_exact_duplicates(raw_articles)
     removed = len(raw_articles) - len(deduped_articles)
     print(f"  {len(raw_articles)} raw → {len(deduped_articles)} articles "
@@ -2318,21 +2551,21 @@ def main():
         sys.exit(1)
 
     # ── Step 3: Cluster ───────────────────────────────────────────────────
-    print("\n[3/14] Clustering articles by story (Claude semantic clustering)...")
+    print("\n[3/15] Clustering articles by story (Claude semantic clustering)...")
     clusters = cluster_articles(deduped_articles, anthropic_key)
     multi = [c for c in clusters if len(c) > 1]
 
     # ── Step 4: Editorial review ──────────────────────────────────────────
-    print("\n[4/14] Claude editorial review of cluster structure...")
+    print("\n[4/15] Claude editorial review of cluster structure...")
     clusters = editorial_review(clusters, anthropic_key)
     multi = [c for c in clusters if len(c) > 1]
 
     # ── Step 5: Classify difficult news ──────────────────────────────────
-    print("\n[5/14] Pre-classifying difficult news clusters...")
+    print("\n[5/15] Pre-classifying difficult news clusters...")
     difficult_flags = classify_difficult_news(clusters, anthropic_key)
 
     # ── Step 6: Claude editorial processing ──────────────────────────────
-    print("\n[6/14] Sending clusters to Claude for synthesis and editorial processing...")
+    print("\n[6/15] Sending clusters to Claude for synthesis and editorial processing...")
     processed_articles = call_claude(clusters, anthropic_key, difficult_flags)
     attach_sources(processed_articles, clusters)
     processed_articles = sort_articles(processed_articles)
@@ -2340,7 +2573,7 @@ def main():
     print(f"  Claude returned {len(processed_articles)} articles after filtering")
 
     # ── Step 7: PM deduplication (PM edition only) ────────────────────────
-    print("\n[7/14] PM deduplication check...")
+    print("\n[7/15] PM deduplication check...")
     if run == "pm":
         am_metadata_path = DOCS_DIR / f"{date_str}-am.json"
         processed_articles = filter_pm_duplicates(processed_articles, anthropic_key, am_metadata_path)
@@ -2350,7 +2583,7 @@ def main():
         print("  AM edition — skipping PM deduplication")
 
     # ── Step 8: S&P 500 ──────────────────────────────────────────────────
-    print("\n[8/14] Fetching S&P 500 close...")
+    print("\n[8/15] Fetching S&P 500 close...")
     sp500 = fetch_sp500()
     print(f"  S&P 500: {sp500 if sp500 else 'unavailable (non-blocking)'}")
 
@@ -2362,19 +2595,24 @@ def main():
         print("  Market trend: unavailable (non-blocking)")
 
     # ── Step 9: Save metadata ─────────────────────────────────────────────
-    print("\n[9/14] Saving metadata...")
+    print("\n[9/15] Saving metadata...")
     metadata = save_metadata(date_str, run, processed_articles, len(deduped_articles), sp500, DOCS_DIR)
 
     # ── Step 10: Select top stories ───────────────────────────────────────
-    print("\n[10/14] Selecting top stories...")
+    print("\n[10/15] Selecting top stories...")
     top_stories = select_top_stories(processed_articles, anthropic_key)
 
     # ── Step 11: Determine category order ────────────────────────────────
-    print("\n[11/14] Determining editorial category order...")
+    print("\n[11/15] Determining editorial category order...")
     category_order = order_categories(processed_articles, anthropic_key)
 
-    # ── Step 12: Generate audio ───────────────────────────────────────────
-    print("\n[12/14] Generating audio...")
+    # ── Step 12: Edition review (log only) ───────────────────────────────
+    print("\n[12/15] Reviewing the finished edition (log only)...")
+    run_edition_review(processed_articles, top_stories, category_order,
+                       date_str, run, anthropic_key)
+
+    # ── Step 13: Generate audio ───────────────────────────────────────────
+    print("\n[13/15] Generating audio...")
     mp3_path = None
     if AUDIO_ENABLED:
         if elevenlabs_key:
@@ -2385,8 +2623,8 @@ def main():
     else:
         print("  Audio disabled (AUDIO_ENABLED = False)")
 
-    # ── Step 13: Collect archive and render output ────────────────────────
-    print("\n[13/14] Building archive index and rendering output files...")
+    # ── Step 14: Collect archive and render output ────────────────────────
+    print("\n[14/15] Building archive index and rendering output files...")
     archive = collect_archive(DOCS_DIR)
     write_archive_json(archive, DOCS_DIR)
     write_feed_xml(archive, DOCS_DIR)
@@ -2401,8 +2639,8 @@ def main():
     render_contact(archive, DOCS_DIR)
     render_archive_page(archive, DOCS_DIR)
 
-    # ── Step 14: Podcast RSS ──────────────────────────────────────────────
-    print("\n[14/14] Updating podcast RSS feed...")
+    # ── Step 15: Podcast RSS ──────────────────────────────────────────────
+    print("\n[15/15] Updating podcast RSS feed...")
     if AUDIO_ENABLED:
         try:
             update_podcast_feed(DOCS_DIR)

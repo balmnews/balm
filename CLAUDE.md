@@ -44,16 +44,17 @@ After each run, `index.html` is regenerated to point to the latest digest and re
 2. **Remove exact duplicates** — `remove_exact_duplicates()` discards only articles where title, source name, AND URL are all identical; cross-outlet near-duplicates are intentionally kept (see clustering architecture below)
 3. **Cluster** — Single Claude API call groups all articles by story identity; each inner array of indices becomes a cluster (see clustering architecture below)
 4. **Editorial review** — Second lightweight Claude call reviews cluster structure; can approve, split into singletons, or merge pairs; non-blocking
-5. **Classify difficult news** — `classify_difficult_news()` pre-identifies mass-casualty and violent-crime clusters; returns a parallel bool list; flags are injected as annotations in the synthesis prompt so Claude applies DIFFICULT NEWS editorial rules; non-blocking
-6. **Synthesize** — `call_claude()` sends all clusters to Claude with difficult-news annotations; Claude synthesizes multi-source stories, assigns categories, dynamic lengths, and `isDifficult` flags; returns 10–16 articles with `cluster_id` for source attribution
+5. **Classify difficult news** — `classify_difficult_news()` pre-identifies mass-casualty and violent-crime clusters from up to three titles plus 200 characters of the first source's description; returns a parallel bool list; flags are injected as annotations in the synthesis prompt so Claude applies DIFFICULT NEWS editorial rules; non-blocking
+6. **Synthesize** — `call_claude()` sends all clusters to Claude with difficult-news annotations and each description at its fetched length (Guardian 800, RSS 400, NewsData 300 chars — no further cut); Claude synthesizes multi-source stories, assigns categories, dynamic lengths, and `isDifficult` flags; returns 10–16 articles with `cluster_id` for source attribution. Logs input/output token usage and a `[WARN]` if output stopped at `max_tokens`
 7. **PM deduplication** (PM edition only) — `filter_pm_duplicates()` reads the AM metadata JSON headlines and asks Claude which PM articles are genuine new developments vs. AM repeats; non-blocking
 8. **S&P 500 + market trend** — non-blocking fetch from Yahoo Finance; `calculate_market_trend()` reads the last 10 metadata JSONs, derives trend direction, and calls Claude (`MARKET_TREND_PROMPT`) to produce a calm one-sentence summary; non-blocking (returns `""` on failure)
 9. **Metadata** — JSON saved alongside digest; includes `headlines` list for PM deduplication
-10. **Select top stories** — `select_top_stories()` asks Claude to choose 2–4 broadly significant stories from different categories; each includes a `story_id` anchor and one-sentence reason; non-blocking
+10. **Select top stories** — `select_top_stories()` offers Claude only corroborated stories and a code-enforced maximum (`top_story_cap()`); the panel is hidden in small editions; each pick includes a `story_id` anchor and one-sentence reason; non-blocking (see Top Stories rule below)
 11. **Category order** — `order_categories()` asks Claude to suggest editorial section order based on today's significance; DIFFICULT NEWS always last; non-blocking
-12. **Audio** — ElevenLabs TTS from concatenated `full_summary` fields (currently disabled: `AUDIO_ENABLED = False`)
-13. **Archive and render** — `collect_archive()` + `write_archive_json()` + `write_feed_xml()` + `write_sitemap()` + `ensure_static_icons()` + `ensure_og_image()`, then digest HTML, sources page HTML, index.html, contact.html, and `archive.html` written from Jinja2 templates; top stories, category order, and market trend passed to digest/index templates
-14. **Podcast RSS** — `podcast.xml` updated (skipped when `AUDIO_ENABLED = False`)
+12. **Edition review (log only)** — `review_edition()` has Claude read the finished edition in reading order against Balm's standards and writes findings plus deterministic stats to `reviews/YYYY-MM-DD-{am|pm}.json`; changes nothing in the edition and can never fail the run (see Edition Review Log below)
+13. **Audio** — ElevenLabs TTS from concatenated `full_summary` fields (currently disabled: `AUDIO_ENABLED = False`)
+14. **Archive and render** — `collect_archive()` + `write_archive_json()` + `write_feed_xml()` + `write_sitemap()` + `ensure_static_icons()` + `ensure_og_image()`, then digest HTML, sources page HTML, index.html, contact.html, and `archive.html` written from Jinja2 templates; top stories, category order, and market trend passed to digest/index templates
+15. **Podcast RSS** — `podcast.xml` updated (skipped when `AUDIO_ENABLED = False`)
 
 ### Sources page
 
@@ -96,6 +97,9 @@ Each digest has a companion sources page (`YYYY-MM-DD-am-sources.html`). It list
 │       └── balm_hybrid.yml  # Hybrid pipeline — manual dispatch only
 ├── manifest.json            # Source manifest (copied to docs/)
 ├── service-worker.js        # Source service worker (copied to docs/)
+├── reviews/                 # Edition review logs (YYYY-MM-DD-{am|pm}.json) — NOT under docs/, never served
+├── tests/
+│   └── test_pipeline_rules.py # Unit tests for pure editorial rules (no network, no API)
 ├── requirements.txt
 ├── README.md
 └── CLAUDE.md                # This file
@@ -313,6 +317,11 @@ Claude assigns each output article a `cluster_id` matching the `[CLUSTER N]` num
 [{"source": "Outlet Name", "url": "...", "original_headline": "..."}]
 ```
 
+**Repeated URLs are dropped** within a cluster, keeping the first; the query string and fragment are ignored when comparing, so tracking parameters cannot hide a repeat (Oct 5 PM listed the same BBC URL twice as two sources). `attach_sources()` also sets:
+
+- `outlet_count` — distinct **outlet families** among the deduped sources. `outlet_family()` collapses sibling feeds: anything starting `Fox News` → Fox News, anything starting `BBC` → BBC, and `The Guardian` / `Guardian Environment` → The Guardian. Every other name maps to itself. Three Fox feeds are one newsroom, not corroboration.
+- `has_official_source` — true when any source is in `_OFFICIAL_RSS_SOURCES` (White House, Federal Reserve, CDC Health Alerts, State Department).
+
 In the digest HTML, this array is rendered as a collapsible sources toggle beneath each article — a `<button aria-expanded="false">` that reveals a `<ul>` of outlet links on click, controlled by a CSS adjacent-sibling selector (`[aria-expanded="true"] + .sources-list`). The companion sources page (`YYYY-MM-DD-am-sources.html`) presents the full attribution list for every article in the digest, with outlet names linked to original articles and original headlines quoted.
 
 ### Additional pipeline steps (post-clustering)
@@ -324,7 +333,14 @@ After editorial review, a compact Claude call reads all cluster headlines and re
 PM edition only. Reads the AM metadata JSON (e.g., `2025-06-01-am.json`) and extracts the `headlines` list saved there. Sends both AM headlines and PM candidate articles to Claude with `PM_DEDUP_PROMPT`, which returns a `keep` boolean array. PM articles flagged as AM duplicates (no new substance) are removed. Articles are re-numbered after deduplication. Non-blocking: if AM metadata is missing or the call fails, all PM articles are kept.
 
 **Top stories selection (`select_top_stories()`):**
-After synthesis and deduplication, a lightweight Claude call (`TOP_STORIES_PROMPT`) selects 2–4 stories of broad significance from different categories. Each selection includes the `story_id` (e.g., `story_0`) and a one-sentence reason. The result is passed to both `render_digest()` and `render_index()` and displayed as a navigational panel above the main story feed, with anchor links to the full articles. Non-blocking: failure returns empty list and no panel is rendered.
+After synthesis and deduplication, a lightweight Claude call (`TOP_STORIES_PROMPT`) selects stories of broad significance from different categories. Each selection includes the `story_id` (e.g., `story_0`) and a one-sentence reason. The result is passed to both `render_digest()` and `render_index()` and displayed as a navigational panel above the main story feed, with anchor links to the full articles. Non-blocking: failure returns empty list and no panel is rendered.
+
+**The Top Stories rule is enforced in code, not in the prompt** (added Oct 2026). On Oct 5 PM three of five visible stories were also Top Stories — the panel just repeated the page — and one rested on a single local outlet.
+
+- **Eligibility** (`is_top_story_eligible()`): not Difficult News, and either `outlet_count >= 2` or `has_official_source`. Only eligible stories are sent to Claude, with their `brief_summary` and outlet count.
+- **Cap** (`top_story_cap(visible_count)` = `min(4, visible_count // 4)`, where visible = non-Difficult stories): 0–7 visible → hidden; 8–11 → up to 2; 12–15 → up to 3; 16+ → up to 4.
+- If the cap or the eligible pool is below 2, **no Claude call is made** and the panel is hidden. Otherwise the user message states the exact maximum, and the answer is filtered to eligible ids, de-duplicated, and truncated to it in code. Fewer than 2 valid picks also hides the panel — a one-item panel is not shown.
+- `digest.html` and `index.html` wrap the whole panel in `{% if top_stories %}`, so an empty list renders no heading and no empty box.
 
 **Category ordering (`order_categories()`):**
 A compact Claude call reads today's categories and story headlines, then suggests the editorial order for category sections. DIFFICULT NEWS is always enforced last regardless of the returned order. The `_group_by_category()` function accepts an optional `order` parameter; both render functions pass the Claude-suggested order. Non-blocking: failure returns `CATEGORY_ORDER` (the default static order).
@@ -340,17 +356,17 @@ A compact Claude call reads today's categories and story headlines, then suggest
 Steps 3–5 of the pipeline log report cluster structure:
 
 ```
-[3/14] Clustering articles by story (Claude semantic clustering)...
+[3/15] Clustering articles by story (Claude semantic clustering)...
   Clustering: 134 articles → 58 clusters (14 multi-source, 44 single-source, 76 merges)
     [4 sources] The New York Times · Fox News · BBC News · The Guardian
       Ukraine ceasefire talks stall | Russia dismisses Western | Kyiv rejects terms
     [2 sources] The Guardian · WSJ Markets
       Oil prices rise on supply concerns | OPEC output cut extends
 
-[4/14] Claude editorial review of cluster structure...
+[4/15] Claude editorial review of cluster structure...
   Editorial review: 1 merge(s), 0 split(s) applied → 57 clusters
 
-[5/14] Pre-classifying difficult news clusters...
+[5/15] Pre-classifying difficult news clusters...
   Difficult news classification: 2 cluster(s) flagged
 ```
 
@@ -439,6 +455,19 @@ The script is idempotent and gated on markers of pre-current pages (`mobile-arch
 `templates/contact.html` had the same sidebar, still live and populated on desktop, and was fixed at the template level in the same pass.
 
 **Still outstanding:** digests before 2026-06-27 have no market-trend line, because the feature postdates them. Adding it means regenerating editorial content via `backfill.py` — API spend, and the source articles may no longer be retrievable — not a CSS patch. Left alone deliberately.
+
+## Edition Review Log
+
+Every other Claude step sees a fragment — a cluster, a headline list, a category tally. Nothing read the finished page, so inconsistencies *between* steps (a distressing story left open while a comparable one is collapsed, a Top Story reason that overstates its story) went unnoticed. `review_edition()` is that reader. **It is log-only: it never edits, reorders, or blocks an edition.**
+
+- **When:** step 12, after category ordering and before rendering. Called through `run_edition_review()`, which catches any exception, prints `[WARN]`, and continues — a review failure can never cost an edition.
+- **Input:** `render_edition_text()` — plain text in reading order: Top Stories with reasons, then each category in final order with every story's id, headline, brief, full summary and source names; DIFFICULT NEWS is marked collapsed.
+- **Prompt:** `EDITION_REVIEW_PROMPT`, deliberately separate from `EDITORIAL_SYSTEM_PROMPT`. Checklist keys: `difficult_news_consistency`, `headline_framing`, `category_fit`, `unsupported_significance`, `loaded_language`, `outlet_attribution`, `top_story_reason`, `thin_tragedy`, `other`. It states that an empty list is a valid answer so the reviewer does not invent findings.
+- **Deterministic stats** (`edition_review_stats()`, computed in code, never asked of Claude): story / visible / Difficult counts, Top Story count and cap, `single_outlet_count`, `long_briefs` (story id → word count, over 40), `single_story_categories`.
+- **Output:** `reviews/YYYY-MM-DD-{am|pm}.json` with `date`, `run`, `model`, `stats`, `findings`. If the Claude call fails, stats are still written with `findings: null` and an `error` string.
+- **Where:** repo root, not `docs/`, so the site never serves it. **The repo is public, so these logs are publicly readable on GitHub.**
+
+**Intended use:** around 2026-10-20, tally findings by `check` across `reviews/` and decide which recurring problems become code rules or one-line prompt edits. Do not turn findings into rules from a single sighting, and do not give this step authority over the edition without that evidence.
 
 ## Market Trend Line
 
@@ -739,7 +768,8 @@ These were explicitly evaluated and rejected. Do not propose them.
 ## Code Conventions
 
 - Pipeline failures are non-fatal for individual steps. A failed audio generation should not prevent the HTML digest from publishing.
-- All main pipeline output goes to `docs/`. Nothing outside `docs/` is modified during a main pipeline run except `docs/index.html` and `docs/podcast.xml`.
+- All main pipeline output goes to `docs/`, plus one edition review log in `reviews/`. Nothing else outside `docs/` is modified during a main pipeline run. Both workflows commit with `git add docs/ reviews/`; `reviews/.gitkeep` keeps that path valid on a fresh checkout.
+- Pure editorial rules (`top_story_cap`, `outlet_family`, eligibility, source dedupe, review stats) are covered by `tests/test_pipeline_rules.py`. Run `python -m pytest tests/` (or `python -m unittest discover tests`) on Python 3.10+ — `pipeline.py` uses `X | None` annotations, so 3.9 cannot import it.
 - The Jinja2 templates in `templates/` are the source of truth for main pipeline HTML. Do not edit generated files in `docs/` directly.
 - The hybrid pipeline writes only to `docs/hybrid/`. Its HTML templates are inline Jinja2 strings inside `pipeline_hybrid.py` — not in `templates/`.
 - The editorial system prompt in `pipeline.py` must match the version in this CLAUDE.md exactly. If you update one, update both. `pipeline_hybrid.py` imports `EDITORIAL_SYSTEM_PROMPT` directly from `pipeline.py` and therefore always uses the same prompt.
