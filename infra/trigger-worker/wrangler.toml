@@ -1,0 +1,14 @@
+name = "balm-trigger"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = false
+
+# Must match the two crons in .github/workflows/balm.yml (UTC).
+[triggers]
+crons = ["15 11 * * *", "15 21 * * *"]
+
+[observability]
+enabled = true
+
+# GITHUB_TOKEN is a Worker secret, set with `npx wrangler secret put GITHUB_TOKEN`.
+# Never put it in this file — the repo is public.

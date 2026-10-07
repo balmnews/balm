@@ -18,6 +18,16 @@ on:
     - cron: '0 3 * * *'    #  8:00pm PDT — PM second chance
   workflow_dispatch:
 
+# One edition run at a time across balm.yml and the watchdog. The Worker
+# dispatch and a late GitHub cron run can otherwise both pass the
+# skip-if-exists guard and collide on push; with this, the second waits, then
+# finds the file and exits through [SKIP]. GitHub keeps only one pending run
+# per group, so a third queued run replaces the second — acceptable, because
+# every run checks the guard.
+concurrency:
+  group: balm-edition
+  cancel-in-progress: false
+
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
